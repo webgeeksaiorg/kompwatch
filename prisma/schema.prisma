@@ -1,0 +1,175 @@
+// CompeteWatch — AI Competitor Monitoring SaaS
+// Stack: Next.js 15 + Prisma + PostgreSQL + Stripe + Resend
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ── Auth & Users ──────────────────────────────────────────────
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  avatarUrl     String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  lastLoginAt   DateTime?
+
+  // Stripe
+  stripeCustomerId     String?  @unique
+  stripeSubscriptionId String?
+  plan                 Plan     @default(FREE)
+  trialEndsAt          DateTime?
+
+  // UTM attribution (for analyst agent CAC tracking)
+  acquisitionSource    String?  // "organic", "outreach", "directory", "social"
+  acquisitionRef       String?  // UTM ref parameter value
+
+  // Relations
+  competitors  Competitor[]
+  digests      Digest[]
+  sessions     Session[]
+
+  @@index([email])
+  @@index([stripeCustomerId])
+}
+
+enum Plan {
+  FREE       // 2 competitors, weekly digest
+  PRO        // 10 competitors, daily digest, Slack alerts — $49/mo
+  TEAM       // 50 competitors, API access, team members — $149/mo
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([token])
+}
+
+// ── Competitor Tracking ───────────────────────────────────────
+
+model Competitor {
+  id        String   @id @default(cuid())
+  userId    String
+  url       String   // e.g. "https://competitor.com"
+  name      String   // e.g. "Acme Inc"
+  createdAt DateTime @default(now())
+  isActive  Boolean  @default(true)
+
+  // What to track
+  trackPricing    Boolean @default(true)
+  trackBlog       Boolean @default(true)
+  trackFeatures   Boolean @default(true)
+  trackJobs       Boolean @default(true)
+  trackTech       Boolean @default(false) // Pro+
+
+  // Relations
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  snapshots Snapshot[]
+  changes   Change[]
+
+  @@unique([userId, url])
+  @@index([userId])
+}
+
+model Snapshot {
+  id           String   @id @default(cuid())
+  competitorId String
+  createdAt    DateTime @default(now())
+
+  // Page content snapshots
+  pricingHtml  String?  @db.Text
+  featuresHtml String?  @db.Text
+  blogTitles   String[] // Recent blog post titles
+  jobTitles    String[] // Open positions
+  techStack    String[] // Detected technologies
+
+  // Metadata
+  httpStatus   Int?
+  fetchTimeMs  Int?
+
+  competitor   Competitor @relation(fields: [competitorId], references: [id], onDelete: Cascade)
+
+  @@index([competitorId, createdAt])
+}
+
+model Change {
+  id           String     @id @default(cuid())
+  competitorId String
+  createdAt    DateTime   @default(now())
+
+  changeType   ChangeType
+  summary      String     // AI-generated summary: "Increased Pro plan from $49 to $59"
+  details      String?    @db.Text // Full diff or detailed description
+  severity     Severity   @default(MEDIUM)
+  pageUrl      String?    // Which page changed
+
+  // Has this been included in a digest?
+  digestId     String?
+  digest       Digest?    @relation(fields: [digestId], references: [id])
+
+  competitor   Competitor @relation(fields: [competitorId], references: [id], onDelete: Cascade)
+
+  @@index([competitorId, createdAt])
+  @@index([digestId])
+}
+
+enum ChangeType {
+  PRICING       // Price changes, new tiers, removed tiers
+  FEATURE       // New features, feature removals, feature page updates
+  BLOG          // New blog posts
+  JOB           // New job listings, removed listings
+  TECH          // Technology stack changes
+  GENERAL       // Other page content changes
+}
+
+enum Severity {
+  LOW           // Blog post, minor copy change
+  MEDIUM        // New feature, job listing
+  HIGH          // Pricing change, major feature launch
+  CRITICAL      // Pivot, acquisition, shutdown signal
+}
+
+// ── Digests ───────────────────────────────────────────────────
+
+model Digest {
+  id        String   @id @default(cuid())
+  userId    String
+  createdAt DateTime @default(now())
+  sentAt    DateTime?
+
+  period    DigestPeriod
+  subject   String       // Email subject line
+  htmlBody  String       @db.Text // Rendered email HTML
+  textBody  String       @db.Text // Plain text version
+
+  // Relations
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  changes   Change[]
+
+  @@index([userId, createdAt])
+}
+
+enum DigestPeriod {
+  DAILY
+  WEEKLY
+}
+
+// ── Stripe Webhook Events (idempotency) ──────────────────────
+
+model StripeEvent {
+  id            String   @id // Stripe event ID (evt_xxx)
+  type          String   // e.g. "customer.subscription.updated"
+  processedAt   DateTime @default(now())
+}
