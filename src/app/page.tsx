@@ -23,7 +23,7 @@ export default function Home() {
             Start free — 2 competitors
           </a>
           <a
-            href="#pricing"
+            href="/pricing"
             className="text-sm font-semibold text-gray-900 hover:text-brand-600"
           >
             See pricing &rarr;
