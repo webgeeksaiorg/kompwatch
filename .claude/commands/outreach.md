@@ -14,7 +14,10 @@
 | Anti-signal | Enterprise (>500), agency, non-tech, already using Crayon/Klue |
 
 ## Pre-Flight Checks (MANDATORY before any sends)
-1. **Warmup check:** If file `runtime/outreach/warmup-complete` does NOT exist → DO NOT SEND. Log and exit.
+1. **Warmup check:** Run `python3 /app/scripts/email-warmup.py status`.
+   - If "NOT_STARTED": Run `python3 /app/scripts/email-warmup.py start` to initialize. Then run `python3 /app/scripts/email-warmup.py send-warmup 5`. Log and exit this cycle.
+   - If "WARMING": Send only warmup emails up to the daily limit shown. Use `python3 /app/scripts/email-warmup.py send-warmup <limit>`. Do NOT send real outreach yet. Log and exit.
+   - If "READY": Proceed normally (up to 50/day real outreach).
 2. **Daily limit:** Read `runtime/outreach/daily-count.txt`. If >= 50 → stop for today.
 3. **Suppression list:** `runtime/outreach/suppression.csv` — never email anyone on this list.
 4. **Dedup:** `runtime/outreach/sent-history.csv` — same email within 90 days? Skip.
