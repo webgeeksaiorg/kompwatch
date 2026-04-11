@@ -37,6 +37,14 @@ export default async function DashboardPage() {
         <div className="rounded-lg border border-gray-200 bg-white p-5">
           <p className="text-sm text-gray-500">Plan</p>
           <p className="mt-1 text-2xl font-bold text-gray-900">{user.plan}</p>
+          {user.plan === "FREE" && (
+            <a
+              href="/pricing"
+              className="mt-2 inline-block text-xs font-medium text-brand-600 hover:text-brand-700"
+            >
+              Upgrade &rarr;
+            </a>
+          )}
         </div>
       </div>
 
