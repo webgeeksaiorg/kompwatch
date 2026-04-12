@@ -1,0 +1,65 @@
+# Managing Your Competitors — Edit, Pause, and Delete
+
+All competitor management happens on the **Competitors page** at [kompwatch.com/competitors](https://kompwatch.com/competitors).
+
+## Editing a Competitor
+
+To update a competitor's name, URL, or CSS selector:
+
+1. Go to [kompwatch.com/competitors](https://kompwatch.com/competitors)
+2. Click the competitor you want to edit
+3. Update the **Name**, **URL**, or **CSS Selector**
+4. Click **Save**
+
+Changes take effect on the next snapshot cycle.
+
+## Pausing a Competitor
+
+Pausing stops new snapshots and change detection without deleting any data. Use this when:
+
+- A competitor is undergoing a known redesign and you expect a flood of noise
+- You've hit your plan's competitor limit and want to free a slot temporarily
+
+To pause:
+
+1. Go to [kompwatch.com/competitors](https://kompwatch.com/competitors)
+2. Click the competitor
+3. Toggle **Active** to off
+4. Click **Save**
+
+A paused competitor shows a grey status indicator on your dashboard. No digest changes are generated while paused.
+
+## Deleting a Competitor
+
+Deleting permanently removes the competitor and **all its historical snapshots and change data**.
+
+1. Go to [kompwatch.com/competitors](https://kompwatch.com/competitors)
+2. Click the competitor
+3. Scroll to the bottom and click **Delete Competitor**
+4. Confirm the deletion
+
+> **This action is irreversible.** If you want to stop monitoring temporarily without losing history, use **Pause** instead.
+
+## Plan Limits
+
+| Plan | Max Competitors |
+|------|----------------|
+| Free | 2 |
+| Pro  | 10 |
+| Team | 50 |
+
+If you're at your limit, you must delete or pause an existing competitor before adding a new one, or [upgrade your plan →](https://kompwatch.com/pricing).
+
+## Frequently Asked Questions
+
+**Can I re-activate a paused competitor?**
+Yes — toggle **Active** back on and click **Save**. Monitoring resumes on the next snapshot cycle.
+
+**If I delete a competitor and re-add it, do I lose history?**
+Yes. Deleting removes all snapshots and change records. If you re-add the same URL, CompeteWatch starts fresh.
+
+**Can I bulk-delete competitors?**
+Not yet — each competitor must be deleted individually.
+
+---
+*Questions? Email [support@kompwatch.com](mailto:support@kompwatch.com) and we'll respond within 24 hours.*
