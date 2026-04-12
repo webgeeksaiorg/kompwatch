@@ -27,6 +27,9 @@ model User {
   plan                 Plan     @default(FREE)
   trialEndsAt          DateTime?
 
+  // Onboarding drip campaign
+  onboardingStep       Int      @default(0) // 0=none, 1=welcome, 2=value, 3=trial reminder
+
   // UTM attribution (for analyst agent CAC tracking)
   acquisitionSource    String?  // "organic", "outreach", "directory", "social"
   acquisitionRef       String?  // UTM ref parameter value
