@@ -2,8 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — CompeteWatch",
+  title: "Privacy Policy",
   description: "How CompeteWatch collects, uses, and protects your data.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPolicy() {
