@@ -8,7 +8,7 @@ import {
   renderDigestText,
   digestSubject,
 } from "@/lib/digest";
-import type { Plan } from "@prisma/client";
+import type { Plan, Severity } from "@prisma/client";
 
 /**
  * POST /api/cron/digest
@@ -52,6 +52,18 @@ export async function POST(req: NextRequest) {
   }> = [];
 
   for (const user of users) {
+    // Skip users who have disabled digests
+    if (!user.digestEnabled) {
+      results.push({
+        userId: user.id,
+        email: user.email,
+        sent: false,
+        changes: 0,
+        reason: "disabled",
+      });
+      continue;
+    }
+
     const period = getDigestPeriod(user.plan);
     const intervalMs = period === "DAILY" ? 24 * 60 * 60 * 1000 : 7 * 24 * 60 * 60 * 1000;
     const lastDigest = user.digests[0];
@@ -68,14 +80,16 @@ export async function POST(req: NextRequest) {
       continue;
     }
 
-    // Find undigested changes for this user's competitors
+    // Find undigested changes for this user's competitors, filtered by severity preference
     const sinceDate = lastDigest?.createdAt ?? new Date(0);
+    const severityFilter = getSeveritiesAtOrAbove(user.digestMinSeverity);
 
     const changes = await db.change.findMany({
       where: {
         competitor: { userId: user.id },
         digestId: null,
         createdAt: { gt: sinceDate },
+        severity: { in: severityFilter },
       },
       include: { competitor: true },
       orderBy: { createdAt: "desc" },
@@ -159,4 +173,18 @@ export async function POST(req: NextRequest) {
 
 function getDigestPeriod(plan: Plan): "DAILY" | "WEEKLY" {
   return PLANS[plan].digest === "weekly" ? "WEEKLY" : "DAILY";
+}
+
+const SEVERITY_RANK: Record<Severity, number> = {
+  LOW: 0,
+  MEDIUM: 1,
+  HIGH: 2,
+  CRITICAL: 3,
+};
+
+function getSeveritiesAtOrAbove(min: Severity): Severity[] {
+  const minRank = SEVERITY_RANK[min];
+  return (Object.keys(SEVERITY_RANK) as Severity[]).filter(
+    (s) => SEVERITY_RANK[s] >= minRank
+  );
 }
