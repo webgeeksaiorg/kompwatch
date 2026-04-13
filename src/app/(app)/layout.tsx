@@ -21,6 +21,9 @@ export default async function AppLayout({
             <a href="/competitors" className="text-sm text-gray-600 hover:text-gray-900">
               Competitors
             </a>
+            <a href="/digests" className="text-sm text-gray-600 hover:text-gray-900">
+              Digests
+            </a>
             <a href="/settings" className="text-sm text-gray-600 hover:text-gray-900">
               Settings
             </a>

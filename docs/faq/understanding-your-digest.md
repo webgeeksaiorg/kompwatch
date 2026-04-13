@@ -39,7 +39,14 @@ For full troubleshooting steps, see [My Digest Email Didn't Arrive](./digest-not
 
 ## Viewing Past Digests
 
-Past digests are saved in your account. You can browse them in the [Digests section](https://kompwatch.com/digests) of your dashboard — no need to search your inbox.
+Past digests are saved in your account. Go to the [Digests page](https://kompwatch.com/digests) to browse up to 30 of your most recent digests. Each digest card shows:
+
+- **Subject line and period** — what the digest covered and when
+- **Change count** — how many changes were included
+- **Sent status** — when it was delivered to your inbox (or "Not sent" if digest email was disabled)
+- **Change previews** — the top 5 changes included, with severity badge, competitor name, and AI summary
+
+If you disabled email digests in Settings, the digest is still generated and saved here — you can check in-app without waiting for email.
 
 ## Upgrading for More Frequent Digests
 
