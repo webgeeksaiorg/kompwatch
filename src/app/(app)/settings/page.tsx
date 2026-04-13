@@ -4,6 +4,7 @@ import { PLANS } from "@/lib/stripe";
 import { ManageBillingButton } from "./manage-billing-button";
 import { ProfileForm } from "./profile-form";
 import { NotificationPrefsForm } from "./notification-prefs-form";
+import { WebhookForm } from "./webhook-form";
 
 export default async function SettingsPage() {
   const user = await requireAuth();
@@ -56,6 +57,18 @@ export default async function SettingsPage() {
           initialEnabled={user.digestEnabled}
           initialMinSeverity={user.digestMinSeverity}
           digestFrequency={plan.digest}
+        />
+      </div>
+
+      {/* Webhook Integration */}
+      <div className="mb-6 rounded-lg border border-gray-200 bg-white p-6">
+        <h2 className="text-lg font-semibold text-gray-900">Webhook Integration</h2>
+        <p className="mt-1 mb-4 text-sm text-gray-500">
+          Get real-time competitor change alerts in Slack, Microsoft Teams, or any webhook endpoint.
+        </p>
+        <WebhookForm
+          initialUrl={user.webhookUrl}
+          initialEnabled={user.webhookEnabled}
         />
       </div>
 

@@ -34,6 +34,10 @@ model User {
   digestEnabled        Boolean  @default(true)
   digestMinSeverity    Severity @default(LOW)  // Only include changes at or above this severity
 
+  // Webhook notifications (Slack / Teams / custom)
+  webhookUrl           String?  // Incoming webhook URL (Slack, Teams, or custom)
+  webhookEnabled       Boolean  @default(false)
+
   // UTM attribution (for analyst agent CAC tracking)
   acquisitionSource    String?  // "organic", "outreach", "directory", "social"
   acquisitionRef       String?  // UTM ref parameter value
