@@ -1,43 +1,62 @@
 # Integrations and Custom Notifications
 
-CompeteWatch currently delivers alerts via **email digest**. This article explains what notification options are available today and how to get the most out of them while Slack/webhook integrations are in development.
+CompeteWatch delivers alerts via **email digest** and **webhook notifications** (Slack, Microsoft Teams, or any custom HTTP endpoint).
 
 ## Does CompeteWatch Have a Slack Integration?
 
-Not yet. A Slack integration (and webhook support) is on the roadmap. If this is important to your workflow, email [support@kompwatch.com](mailto:support@kompwatch.com) — your request helps us prioritize.
+Yes — you can connect Slack via an incoming webhook URL. Go to **Settings → Webhooks**, paste your Slack incoming webhook URL, and enable it. CompeteWatch auto-detects the URL and formats messages for Slack.
 
-## Does CompeteWatch Support Webhooks or Zapier?
+**To create a Slack incoming webhook:**
+1. In Slack, go to **Apps → Incoming Webhooks** (or create one via [api.slack.com/apps](https://api.slack.com/apps))
+2. Choose a channel and copy the webhook URL (starts with `https://hooks.slack.com/services/…`)
+3. Paste it into **Settings → Webhooks** in CompeteWatch
 
-Not currently. Webhook and Zapier support are planned for a future release. There is no firm timeline — we'll announce via email when it ships.
+## Does CompeteWatch Support Microsoft Teams?
 
-## How Do I Get Notified of Changes Today?
+Yes — Teams is supported via incoming webhooks. CompeteWatch auto-detects Teams webhook URLs and formats messages accordingly.
 
-Changes are delivered via your **digest email**, sent to the address you signed up with:
+**To create a Teams incoming webhook:**
+1. In a Teams channel, click **…** → **Connectors → Incoming Webhook**
+2. Name it (e.g. "CompeteWatch") and copy the URL (contains `webhook.office.com`)
+3. Paste it into **Settings → Webhooks** in CompeteWatch
 
-| Plan | When you're notified |
-|------|---------------------|
-| Free | Weekly (Mondays) — if changes were detected |
-| Pro | Daily — if changes were detected |
-| Team | Real-time (within 1 hour of a change being detected) |
+## Does CompeteWatch Support Generic Webhooks or Zapier?
 
-Team plan digests are sent per-change as soon as they're detected (hourly snapshot cycle). Pro digests run daily if changes were found in the last 6-hour snapshot cycle.
+Yes — any HTTPS endpoint works. Paste the URL into **Settings → Webhooks** and enable it. Payloads are sent as JSON `POST` requests. For Zapier, use a "Webhooks by Zapier" trigger as the destination URL.
+
+## How Do I Get Notified of Changes?
+
+Changes are delivered via your **digest email** and/or **webhook**, based on your plan:
+
+| Plan | Email digest | Webhook |
+|------|-------------|---------|
+| Free | Weekly (Mondays) | ✓ (if configured) |
+| Pro | Daily | ✓ (if configured) |
+| Team | Real-time (within 1 hour) | ✓ (if configured) |
+
+Webhooks fire on the same cadence as your email digest. Team plan members receive near-real-time webhook pings.
+
+## How Do I Enable or Disable Webhook Notifications?
+
+1. Go to **Settings → Webhooks**
+2. Paste your webhook URL and click **Save**
+3. Use the toggle to enable or disable without deleting the URL
+
+The toggle is disabled until a valid HTTPS URL is saved.
 
 ## Can I Route Digests to a Shared Team Inbox?
 
-Yes — this is the recommended workaround until multi-seat support ships:
-
-1. **Use a shared email alias** — sign up with `competitive@yourcompany.com` or similar. Everyone on the alias receives the digest.
-2. **Forward from your inbox** — set up an auto-forward rule to send `digests@kompwatch.com` emails to a Slack channel via email-to-Slack (e.g. [Email → Slack via Zapier](https://zapier.com/apps/email/integrations/slack)).
+Yes — the recommended approach is to sign up with a shared alias (`competitive@yourcompany.com`). Everyone on the alias receives the digest. You can also use the Slack or Teams integration to post changes to a shared channel.
 
 ## Can I Change the Email Address My Digests Go To?
 
-Not yet — digests go to the email on your account. To receive them at a different address, contact [support@kompwatch.com](mailto:support@kompwatch.com) and we can update your account email manually.
+Not yet from the Settings page. Contact [support@kompwatch.com](mailto:support@kompwatch.com) and we can update your account email manually.
 
 ## Can I Control How Often I'm Notified?
 
-Digest frequency is tied to your plan (see table above). You can't currently set a custom frequency within a plan. Upgrading to Pro gives you daily digests; Team gives the fastest possible alert cycle.
+Digest frequency is tied to your plan. You can also filter by **minimum severity** in **Settings → Notifications** — so you only get notified about changes at or above a threshold (e.g. High: pricing changes and major launches only).
 
-Notification preferences (including the ability to pause specific competitors or mute low-severity changes) are planned for a future Settings page update.
+You can also turn email digests off entirely via the **Email digests** toggle in **Settings → Notifications**.
 
 ---
 *Questions? Email [support@kompwatch.com](mailto:support@kompwatch.com) and we'll respond within 24 hours.*
