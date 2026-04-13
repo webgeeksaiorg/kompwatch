@@ -64,7 +64,9 @@ export function CompetitorRow({ competitor }: { competitor: CompetitorData }) {
               className={`inline-block h-2 w-2 rounded-full ${competitor.isActive ? "bg-green-500" : "bg-gray-300"}`}
               title={competitor.isActive ? "Active" : "Paused"}
             />
-            <h3 className="truncate text-sm font-semibold text-gray-900">{competitor.name}</h3>
+            <a href={`/competitors/${competitor.id}`} className="truncate text-sm font-semibold text-gray-900 hover:text-brand-600">
+              {competitor.name}
+            </a>
             <a
               href={competitor.url}
               target="_blank"

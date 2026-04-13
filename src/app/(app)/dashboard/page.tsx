@@ -143,7 +143,7 @@ export default async function DashboardPage() {
                   return (
                     <tr key={c.id} className="hover:bg-gray-50/50">
                       <td className="px-4 py-3">
-                        <div className="font-medium text-gray-900">{c.name}</div>
+                        <a href={`/competitors/${c.id}`} className="font-medium text-gray-900 hover:text-brand-600">{c.name}</a>
                         <div className="text-xs text-gray-400">
                           {c.url.replace(/^https?:\/\//, "")}
                         </div>
