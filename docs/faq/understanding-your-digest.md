@@ -22,7 +22,7 @@ Digests are sent based on your plan:
 |------|-----------|-----------|
 | Free | Weekly (every 7 days) | Only if new changes were detected |
 | Pro | Daily (every 24 hours) | Only if new changes were detected |
-| Team | Daily (every 24 hours) | Only if new changes were detected |
+| Team | Real-time (within 1 hour of a change) | Sent per-change as soon as detected |
 
 > **Note:** If no changes were detected since your last digest, no email is sent. This is by design — we only email you when there's something worth reading.
 
@@ -46,7 +46,7 @@ Past digests are saved in your account. You can browse them in the [Digests sect
 | Want | Upgrade to |
 |------|-----------|
 | Daily digests instead of weekly | Pro ($49/mo) |
-| Up to 50 competitors tracked | Team ($149/mo) |
+| Real-time digests + up to 50 competitors | Team ($149/mo) |
 
 Visit [kompwatch.com/pricing](https://kompwatch.com/pricing) or go to [Settings → Manage Subscription](https://kompwatch.com/settings) to upgrade.
 

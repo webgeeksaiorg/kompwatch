@@ -1,14 +1,43 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const siteUrl = "https://kompwatch.com";
+
 export const metadata: Metadata = {
-  title: "CompeteWatch — Know When Competitors Change Anything",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "CompeteWatch — Know When Competitors Change Anything",
+    template: "%s | CompeteWatch",
+  },
   description:
-    "Track competitor pricing, features, blog posts, and job listings. Get AI-analyzed weekly digests. From $0/mo.",
+    "Track competitor pricing, features, blog posts, and job listings. Get AI-analyzed weekly digests delivered to your inbox. Free plan available.",
+  keywords: [
+    "competitor monitoring",
+    "competitive intelligence",
+    "competitor tracking",
+    "pricing monitoring",
+    "AI competitor analysis",
+    "SaaS competitor tracking",
+    "competitor alerts",
+  ],
+  authors: [{ name: "CompeteWatch" }],
   openGraph: {
     title: "CompeteWatch — AI Competitor Monitoring",
-    description: "Track competitor changes automatically. Pricing starts at $0.",
+    description:
+      "Track competitor pricing, features, blog posts, and job listings. Get AI-analyzed digests delivered to your inbox.",
+    url: siteUrl,
+    siteName: "CompeteWatch",
+    locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CompeteWatch — AI Competitor Monitoring",
+    description:
+      "Track competitor pricing, features, blog posts, and job listings. Get AI-analyzed digests delivered to your inbox.",
+  },
+  alternates: {
+    canonical: siteUrl,
   },
 };
 

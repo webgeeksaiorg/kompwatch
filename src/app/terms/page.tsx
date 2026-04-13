@@ -2,8 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — CompeteWatch",
+  title: "Terms of Service",
   description: "Terms and conditions for using the CompeteWatch service.",
+  alternates: { canonical: "/terms" },
 };
 
 export default function TermsOfService() {
