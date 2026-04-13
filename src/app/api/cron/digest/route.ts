@@ -8,6 +8,7 @@ import {
   renderDigestText,
   digestSubject,
 } from "@/lib/digest";
+import { sendWebhookNotification } from "@/lib/webhooks";
 import type { Plan, Severity } from "@prisma/client";
 
 /**
@@ -47,6 +48,7 @@ export async function POST(req: NextRequest) {
     userId: string;
     email: string;
     sent: boolean;
+    webhookSent?: boolean;
     changes: number;
     reason?: string;
   }> = [];
@@ -145,10 +147,18 @@ export async function POST(req: NextRequest) {
         data: { sentAt: new Date() },
       });
 
+      // Send webhook notification if enabled
+      let webhookSent = false;
+      if (user.webhookEnabled && user.webhookUrl) {
+        const whResult = await sendWebhookNotification(user.webhookUrl, groups, period);
+        webhookSent = whResult.ok;
+      }
+
       results.push({
         userId: user.id,
         email: user.email,
         sent: true,
+        webhookSent,
         changes: changes.length,
       });
     } catch (err) {
