@@ -18,9 +18,9 @@ Changes are delivered via your **digest email**, sent to the address you signed 
 |------|---------------------|
 | Free | Weekly (Mondays) — if changes were detected |
 | Pro | Daily — if changes were detected |
-| Team | Daily — if changes were detected |
+| Team | Real-time (within 1 hour of a change being detected) |
 
-For the fastest possible alerts on Pro or Team, the digest runs as soon as changes are detected in your hourly (Team) or 6-hour (Pro) snapshot cycles.
+Team plan digests are sent per-change as soon as they're detected (hourly snapshot cycle). Pro digests run daily if changes were found in the last 6-hour snapshot cycle.
 
 ## Can I Route Digests to a Shared Team Inbox?
 
