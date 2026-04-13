@@ -2,6 +2,8 @@ import { requireAuth } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { PLANS } from "@/lib/stripe";
 import { ManageBillingButton } from "./manage-billing-button";
+import { ProfileForm } from "./profile-form";
+import { NotificationPrefsForm } from "./notification-prefs-form";
 
 export default async function SettingsPage() {
   const user = await requireAuth();
@@ -18,7 +20,7 @@ export default async function SettingsPage() {
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-gray-900">Settings</h1>
         <p className="mt-1 text-sm text-gray-500">
-          Manage your account, subscription, and billing.
+          Manage your account, notifications, and billing.
         </p>
       </div>
 
@@ -30,12 +32,7 @@ export default async function SettingsPage() {
             <p className="text-xs font-medium text-gray-500">Email</p>
             <p className="mt-0.5 text-sm text-gray-900">{user.email}</p>
           </div>
-          {user.name && (
-            <div>
-              <p className="text-xs font-medium text-gray-500">Name</p>
-              <p className="mt-0.5 text-sm text-gray-900">{user.name}</p>
-            </div>
-          )}
+          <ProfileForm initialName={user.name ?? ""} />
           <div>
             <p className="text-xs font-medium text-gray-500">Member since</p>
             <p className="mt-0.5 text-sm text-gray-900">
@@ -47,6 +44,19 @@ export default async function SettingsPage() {
             </p>
           </div>
         </div>
+      </div>
+
+      {/* Notification Preferences */}
+      <div className="mb-6 rounded-lg border border-gray-200 bg-white p-6">
+        <h2 className="text-lg font-semibold text-gray-900">Notifications</h2>
+        <p className="mt-1 mb-4 text-sm text-gray-500">
+          Control how and when you receive competitor change alerts.
+        </p>
+        <NotificationPrefsForm
+          initialEnabled={user.digestEnabled}
+          initialMinSeverity={user.digestMinSeverity}
+          digestFrequency={plan.digest}
+        />
       </div>
 
       {/* Subscription */}

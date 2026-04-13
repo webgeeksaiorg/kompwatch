@@ -30,6 +30,10 @@ model User {
   // Onboarding drip campaign
   onboardingStep       Int      @default(0) // 0=none, 1=welcome, 2=value, 3=trial reminder
 
+  // Notification preferences
+  digestEnabled        Boolean  @default(true)
+  digestMinSeverity    Severity @default(LOW)  // Only include changes at or above this severity
+
   // UTM attribution (for analyst agent CAC tracking)
   acquisitionSource    String?  // "organic", "outreach", "directory", "social"
   acquisitionRef       String?  // UTM ref parameter value

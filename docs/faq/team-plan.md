@@ -8,7 +8,7 @@ The Team plan is CompeteWatch's highest tier, designed for companies that need t
 |---------|------|-----|------|
 | **Competitors** | 2 | 10 | 50 |
 | **Snapshot frequency** | Every 24 hours | Every 6 hours | Every hour |
-| **Digest frequency** | Weekly | Daily | Daily |
+| **Digest frequency** | Weekly | Daily | Real-time |
 | **Price** | $0/mo | $49/mo | $149/mo |
 
 ## Is the Team Plan Multi-User?
