@@ -58,7 +58,7 @@ By default, CompeteWatch crawls several pages per competitor automatically — p
 
 - **Dashboard** ([/dashboard](https://kompwatch.com/dashboard)) — see all recent changes in a timeline view
 - **Competitors** ([/competitors](https://kompwatch.com/competitors)) — add, edit, pause, or remove competitors
-- **Settings** ([/settings](https://kompwatch.com/settings)) — view your plan, usage, and billing
+- **Settings** ([/settings](https://kompwatch.com/settings)) — manage your profile, notification preferences, webhooks, and billing
 
 ## Need Help?
 
