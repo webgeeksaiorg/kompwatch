@@ -26,7 +26,13 @@ Digests are only sent **when changes are detected**. If none of your tracked com
 
 Go to [kompwatch.com/settings](https://kompwatch.com/settings) and confirm the email address on file is correct.
 
-## Step 5: Request a Resend
+## Step 5: Check Your In-App Digest History
+
+Past digests are saved in your account even if the email didn't reach you. Go to the [Digests page](https://kompwatch.com/digests) to see if a digest was generated. Each entry shows the period it covers, how many changes were included, and its sent status.
+
+If you disabled email digests in **Settings → Notifications**, the digest is still generated here — you can review it in-app without needing the email.
+
+## Step 6: Request a Resend
 
 If you believe a digest should have been sent but wasn't, email [support@kompwatch.com](mailto:support@kompwatch.com) and we'll resend it or investigate.
 
