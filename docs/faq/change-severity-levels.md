@@ -2,11 +2,12 @@
 
 Every change CompeteWatch detects is rated **Low**, **Medium**, or **High** severity by AI. This rating helps you quickly focus on the changes that matter most.
 
-## The Three Levels
+## The Four Levels
 
 | Severity | What it signals | Examples |
 |----------|----------------|---------|
-| **High** | A significant, strategic move by a competitor — likely requires a response | New pricing tier, major feature launch, product rebrand, pricing reduction across all plans |
+| **Critical** | A seismic competitive event — warrants an immediate response | Company pivot, acquisition, shutdown announcement, drastic across-the-board price cut |
+| **High** | A significant, strategic move — likely requires a response | New pricing tier, major feature launch, product rebrand, pricing reduction |
 | **Medium** | A meaningful update worth tracking but not immediately urgent | New blog post announcing a partnership, updated feature descriptions, added testimonials, trial length change |
 | **Low** | Minor or cosmetic change — useful for completeness, low action priority | Copy tweaks, updated stock photos, footer link changes, minor layout adjustments |
 
@@ -30,7 +31,12 @@ On the dashboard, changes are displayed with colour-coded severity badges. If yo
 
 ## Setting a Severity Threshold
 
-You can set a **minimum severity threshold** in **Settings → Notifications** to filter your digest. For example, set it to **High** to only receive emails about pricing changes and major launches.
+You can set a **minimum severity threshold** in **Settings → Notifications** to filter your digest. For example:
+
+- **Low** — receive all changes (default)
+- **Medium** — skip minor cosmetic edits
+- **High** — pricing changes and major launches only
+- **Critical** — pivots, acquisitions, and shutdown signals only
 
 Changes below your threshold are still tracked and visible on your [dashboard](https://kompwatch.com/dashboard) — they just won't appear in your digest email. You can lower the threshold at any time to see everything again.
 
