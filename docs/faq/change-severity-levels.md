@@ -28,11 +28,11 @@ On the dashboard, changes are displayed with colour-coded severity badges. If yo
 - Use **Medium** as your regular weekly review queue
 - **Low** changes are safe to skim or ignore
 
-## Coming Soon — Severity Threshold Setting
+## Setting a Severity Threshold
 
-A future update will let you set a **minimum severity threshold** for your digest — for example, "only email me about High and Medium changes." This is currently in development.
+You can set a **minimum severity threshold** in **Settings → Notifications** to filter your digest. For example, set it to **High** to only receive emails about pricing changes and major launches.
 
-Until then, all detected changes (regardless of severity) are included in your digest. Low-severity changes are clearly labelled so you can scan past them quickly.
+Changes below your threshold are still tracked and visible on your [dashboard](https://kompwatch.com/dashboard) — they just won't appear in your digest email. You can lower the threshold at any time to see everything again.
 
 ---
 *Questions? Email [support@kompwatch.com](mailto:support@kompwatch.com) and we'll respond within 24 hours.*
