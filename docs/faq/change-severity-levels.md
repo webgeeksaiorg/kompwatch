@@ -1,6 +1,6 @@
 # Change Severity Levels — What They Mean
 
-Every change CompeteWatch detects is rated **Low**, **Medium**, or **High** severity by AI. This rating helps you quickly focus on the changes that matter most.
+Every change CompeteWatch detects is rated **Low**, **Medium**, **High**, or **Critical** severity by AI. This rating helps you quickly focus on the changes that matter most.
 
 ## The Four Levels
 
