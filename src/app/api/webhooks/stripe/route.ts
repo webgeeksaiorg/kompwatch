@@ -66,6 +66,19 @@ async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
   });
 }
 
+async function handleInvoicePaymentFailed(invoice: Stripe.Invoice) {
+  const customerId = invoice.customer as string;
+  if (!customerId) return;
+
+  // Log the failure for monitoring. Stripe handles retries automatically.
+  // On final failure, Stripe will cancel/unpaid the subscription which triggers
+  // customer.subscription.deleted or customer.subscription.updated — those handlers
+  // will downgrade the user's plan accordingly.
+  console.warn(
+    `Invoice payment failed for customer ${customerId}, invoice ${invoice.id}, attempt ${invoice.attempt_count}`
+  );
+}
+
 export async function POST(req: NextRequest) {
   const body = await req.text();
   const sig = req.headers.get("stripe-signature");
@@ -120,6 +133,11 @@ export async function POST(req: NextRequest) {
       case "customer.subscription.deleted":
         await handleSubscriptionDeleted(
           event.data.object as Stripe.Subscription
+        );
+        break;
+      case "invoice.payment_failed":
+        await handleInvoicePaymentFailed(
+          event.data.object as Stripe.Invoice
         );
         break;
     }

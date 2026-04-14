@@ -22,7 +22,7 @@ They are not marketing newsletters — there's no ongoing subscription after the
 
 If you'd prefer not to receive the remaining onboarding emails, email [support@kompwatch.com](mailto:support@kompwatch.com) with your account email and we'll remove you from the sequence immediately.
 
-> **Notification preferences** (including the ability to manage these emails in-app) are coming to the [Settings page](https://kompwatch.com/settings) soon.
+> **Notification preferences** — including email digest toggle and minimum severity threshold — are available now at [Settings → Notifications](https://kompwatch.com/settings).
 
 ## These Look Suspicious — Are They Legitimate?
 
