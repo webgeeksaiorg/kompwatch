@@ -3,6 +3,7 @@ import { verifyMagicToken, createSession } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { getResend, FROM_EMAIL } from "@/lib/resend";
 import { buildWelcomeEmail } from "@/lib/onboarding";
+import { seedDemoCompetitor } from "@/lib/demo-seed";
 
 export async function GET(req: NextRequest) {
   const token = req.nextUrl.searchParams.get("token");
@@ -28,7 +29,7 @@ export async function GET(req: NextRequest) {
     });
   }
 
-  // Send welcome email for new signups (T+0 onboarding drip)
+  // Send welcome email and seed demo data for new signups
   if (isNewUser) {
     try {
       const resend = getResend();
@@ -47,6 +48,13 @@ export async function GET(req: NextRequest) {
     } catch {
       // Welcome email is non-critical — don't block signup
       // The cron job will pick it up on the next run
+    }
+
+    // Pre-seed a demo competitor so the dashboard shows immediate value
+    try {
+      await seedDemoCompetitor(user.id);
+    } catch {
+      // Demo seed is non-critical — don't block signup
     }
   }
 
