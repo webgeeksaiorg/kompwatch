@@ -30,6 +30,29 @@ We do **not** collect browsing history, device fingerprints, or any data unrelat
 
 You can request complete deletion of your account and all associated data at any time. See [GDPR & Data Deletion →](gdpr-data-deletion.md) for instructions.
 
+## AI and Data Processing
+
+CompeteWatch uses the **Claude API (by Anthropic)** to generate plain-English summaries of detected competitor changes. Here's what that means for your data:
+
+**What is sent to Anthropic:**
+- The text diff of changed content on a competitor's public webpage (e.g., updated pricing text or a new feature description)
+- The competitor URL, as context
+
+**What is NOT sent to Anthropic:**
+- Your account email, name, or any personally identifiable information
+- Payment details
+- Data from your own website or internal systems
+
+Competitor pages are public websites — the content we analyze is already publicly accessible on the internet. We send only the detected diff, not the full page snapshot.
+
+**Anthropic's data practices:**
+API inputs and outputs via Anthropic's API are not used to train Anthropic's models by default. For details, see [Anthropic's Privacy Policy](https://www.anthropic.com/privacy) and [API usage policies](https://www.anthropic.com/policies/usage-policy).
+
+**Data minimization:**
+AI summaries are cached in CompeteWatch's database after generation. The same change is never sent to the API twice.
+
+If your organization's security policy restricts third-party AI processing, [contact us](mailto:security@kompwatch.com) to discuss options.
+
 ## Privacy Policy and Terms
 
 Full details are available at:
