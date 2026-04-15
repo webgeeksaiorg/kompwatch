@@ -12,6 +12,20 @@ CompeteWatch monitors competitor websites and alerts you to changes in pricing, 
    - **CSS Selector** *(optional)* — target a specific section of the page. Leave blank to monitor the whole page. Example: `.pricing-table` or `#features`
 4. Click **Save**. CompeteWatch will take an initial snapshot within the next few minutes.
 
+## What Gets Tracked
+
+When you add a competitor, CompeteWatch automatically monitors five categories:
+
+| Category | What it watches | Default |
+|----------|----------------|---------|
+| **Pricing** | Price changes, plan restructures, trial offers | On |
+| **Features** | Product capability changes on features/main pages | On |
+| **Blog** | New posts signalling product launches or strategy shifts | On |
+| **Jobs** | Hiring signals — new roles often predict roadmap moves | On |
+| **Tech** | Changes in the technology stack (e.g. added Intercom, switched analytics) | Off |
+
+You'll see colored badges for each enabled category on your competitor list and detail page. Strikethrough badges indicate a disabled category. Tech detection is off by default because it generates more noise than the other categories — enable it if you want early signals about competitor infrastructure changes.
+
 ## Tips
 
 - **Be specific with selectors.** Monitoring just the pricing table reduces noise from navigation/footer changes.

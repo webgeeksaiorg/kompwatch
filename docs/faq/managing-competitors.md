@@ -13,17 +13,6 @@ Click any competitor's name on the Competitors page (or dashboard) to open its *
 
 Use the detail page to do a quick competitive audit before a sales call, board meeting, or product planning session.
 
-## Editing a Competitor
-
-To update a competitor's name, URL, or CSS selector:
-
-1. Go to [kompwatch.com/competitors](https://kompwatch.com/competitors)
-2. Click the competitor you want to edit
-3. Update the **Name**, **URL**, or **CSS Selector**
-4. Click **Save**
-
-Changes take effect on the next snapshot cycle.
-
 ## Pausing a Competitor
 
 Pausing stops new snapshots and change detection without deleting any data. Use this when:
@@ -34,20 +23,17 @@ Pausing stops new snapshots and change detection without deleting any data. Use 
 To pause:
 
 1. Go to [kompwatch.com/competitors](https://kompwatch.com/competitors)
-2. Click the competitor
-3. Toggle **Active** to off
-4. Click **Save**
+2. Click **Pause** on the right side of the competitor row
 
-A paused competitor shows a grey status indicator on your dashboard. No digest changes are generated while paused.
+A paused competitor shows a grey status dot. Click **Resume** to re-enable monitoring. No digest changes are generated while paused.
 
 ## Deleting a Competitor
 
 Deleting permanently removes the competitor and **all its historical snapshots and change data**.
 
 1. Go to [kompwatch.com/competitors](https://kompwatch.com/competitors)
-2. Click the competitor
-3. Scroll to the bottom and click **Delete Competitor**
-4. Confirm the deletion
+2. Click **Remove** on the right side of the competitor row
+3. Confirm the deletion in the prompt
 
 > **This action is irreversible.** If you want to stop monitoring temporarily without losing history, use **Pause** instead.
 
