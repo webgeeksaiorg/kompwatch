@@ -50,7 +50,7 @@ If you're at your limit, you must delete or pause an existing competitor before 
 ## Frequently Asked Questions
 
 **Can I re-activate a paused competitor?**
-Yes — toggle **Active** back on and click **Save**. Monitoring resumes on the next snapshot cycle.
+Yes — click **Resume** on the competitor row. Monitoring resumes on the next snapshot cycle.
 
 **If I delete a competitor and re-add it, do I lose history?**
 Yes. Deleting removes all snapshots and change records. If you re-add the same URL, CompeteWatch starts fresh.
