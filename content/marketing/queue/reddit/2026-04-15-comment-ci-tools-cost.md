@@ -2,7 +2,7 @@
 platform: reddit
 type: comment
 target: r/startups or r/SaaS threads about competitive intelligence tools cost, Crayon alternatives, or affordable CI
-status: ready
+status: queued-blocked-no-credentials
 keywords: [Crayon alternative, competitive intelligence for startups, affordable competitor monitoring, Klue alternative]
 ---
 The pricing landscape is actually pretty stratified now:

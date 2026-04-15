@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: threads where founders complain about Crayon or enterprise CI tool costs
-status: ready
+status: queued-blocked-no-credentials
 keywords: [Crayon too expensive, Crayon alternative startup, affordable competitor intelligence]
 ---
 I hear this constantly. Crayon's minimum viable contract is now $12K-15K/year. Klue won't tell you the price until you're on a call, which tells you the price.

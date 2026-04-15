@@ -2,7 +2,7 @@
 platform: reddit
 type: comment
 target: r/entrepreneur or r/SaaS threads about GummySearch alternatives or tools for monitoring competitors on Reddit
-status: ready
+status: queued-blocked-no-credentials
 keywords: [GummySearch alternative, competitor monitoring Reddit, track competitor mentions]
 ---
 GummySearch's shutdown left a real gap for the Reddit-monitoring piece (tracking what people say *about* your competitors). That's genuinely hard to replace now that they lost API access.

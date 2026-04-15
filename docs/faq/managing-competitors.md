@@ -2,6 +2,17 @@
 
 All competitor management happens on the **Competitors page** at [kompwatch.com/competitors](https://kompwatch.com/competitors).
 
+## Viewing a Competitor's Change History
+
+Click any competitor's name on the Competitors page (or dashboard) to open its **detail page** (`/competitors/[id]`). There you'll find:
+
+- **Status badge** — Active or Paused
+- **Snapshot and change counts** — total snapshots taken and changes detected since you started tracking
+- **Full change history** — up to 50 most recent changes, each showing severity, change type, AI summary, and the page that changed
+- **"Tracking since" date** — when monitoring began for this competitor
+
+Use the detail page to do a quick competitive audit before a sales call, board meeting, or product planning session.
+
 ## Editing a Competitor
 
 To update a competitor's name, URL, or CSS selector:
