@@ -2,6 +2,12 @@
 
 The CompeteWatch dashboard is your central hub for tracking competitor activity. Here's how to read and use it.
 
+## Demo Competitor (New Accounts)
+
+If you've just signed up, your dashboard includes a pre-seeded demo competitor called **Acme Analytics**. It contains sample snapshots and changes so you can explore the interface immediately — no waiting required.
+
+Once you're ready, delete it from the [Competitors page](https://kompwatch.com/competitors) and add your real competitors. The demo entry does not count against your plan limit.
+
 ## Dashboard Overview
 
 When you log in at [kompwatch.com/dashboard](https://kompwatch.com/dashboard), you'll see:
