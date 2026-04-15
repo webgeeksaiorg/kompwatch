@@ -2,6 +2,7 @@ import { requireAuth } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { PLANS } from "@/lib/stripe";
 import { AddCompetitorForm } from "./add-form";
+import { BulkImportForm } from "./bulk-import-form";
 import { CompetitorRow } from "./competitor-row";
 
 export default async function CompetitorsPage() {
@@ -34,6 +35,11 @@ export default async function CompetitorsPage() {
       </div>
 
       <AddCompetitorForm atLimit={competitors.length >= limit} plan={user.plan} />
+      <BulkImportForm
+        atLimit={competitors.length >= limit}
+        remaining={limit - competitors.length}
+        plan={user.plan}
+      />
 
       {competitors.length === 0 ? (
         <div className="mt-6 rounded-lg border border-dashed border-gray-300 bg-white p-12 text-center">
