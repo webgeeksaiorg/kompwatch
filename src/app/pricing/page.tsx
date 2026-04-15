@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const plans = [
   {
@@ -50,44 +50,6 @@ const plans = [
   },
 ];
 
-function SocialProof() {
-  const [stats, setStats] = useState<{
-    users: number;
-    competitors: number;
-    changes: number;
-  } | null>(null);
-
-  useEffect(() => {
-    fetch("/api/stats")
-      .then((r) => (r.ok ? r.json() : null))
-      .then(setStats)
-      .catch(() => {});
-  }, []);
-
-  if (!stats || (stats.users === 0 && stats.competitors === 0)) return null;
-
-  const items = [
-    { value: stats.users, label: "teams" },
-    { value: stats.competitors, label: "competitors tracked" },
-    { value: stats.changes, label: "changes detected" },
-  ].filter((item) => item.value > 0);
-
-  if (items.length === 0) return null;
-
-  return (
-    <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500">
-      {items.map((item) => (
-        <div key={item.label} className="flex items-center gap-1.5">
-          <span className="text-lg font-bold text-gray-900">
-            {item.value.toLocaleString()}
-          </span>
-          <span>{item.label}</span>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 export default function PricingPage() {
   const [loading, setLoading] = useState<string | null>(null);
 
@@ -133,7 +95,6 @@ export default function PricingPage() {
         <p className="mt-4 text-lg text-gray-600">
           Start free. Upgrade when you need more competitors or faster digests.
         </p>
-        <SocialProof />
       </div>
 
       <div

@@ -12,6 +12,40 @@ CompeteWatch monitors competitor websites and alerts you to changes in pricing, 
    - **CSS Selector** *(optional)* — target a specific section of the page. Leave blank to monitor the whole page. Example: `.pricing-table` or `#features`
 4. Click **Save**. CompeteWatch will take an initial snapshot within the next few minutes.
 
+## Adding Multiple Competitors at Once (Bulk Import)
+
+If you have several competitors to add, use the **bulk import** option instead of adding them one at a time.
+
+1. On the **Competitors page**, click **"Import multiple competitors"** (below the Add Competitor button).
+2. Paste one competitor per line in the format:
+   ```
+   Company Name, https://example.com
+   Widgetly, https://widgetly.io
+   Rival Inc, https://rival.com
+   ```
+3. Click **Import**. CompeteWatch will show how many were added and flag any skipped entries with the reason.
+
+**Format notes:**
+- Comma-separated (`Name, URL`) and tab-separated are both accepted.
+- Lines starting with `#` are treated as comments and ignored.
+- Up to 50 entries per import.
+- Duplicate URLs (already being tracked) are automatically skipped.
+- Plan limits apply — the form shows how many slots you have remaining.
+
+## What Gets Tracked
+
+When you add a competitor, CompeteWatch automatically monitors five categories:
+
+| Category | What it watches | Default |
+|----------|----------------|---------|
+| **Pricing** | Price changes, plan restructures, trial offers | On |
+| **Features** | Product capability changes on features/main pages | On |
+| **Blog** | New posts signalling product launches or strategy shifts | On |
+| **Jobs** | Hiring signals — new roles often predict roadmap moves | On |
+| **Tech** | Changes in the technology stack (e.g. added Intercom, switched analytics) | Off |
+
+You'll see colored badges for each enabled category on your competitor list and detail page. Strikethrough badges indicate a disabled category. Tech detection is off by default because it generates more noise than the other categories — enable it if you want early signals about competitor infrastructure changes.
+
 ## Tips
 
 - **Be specific with selectors.** Monitoring just the pricing table reduces noise from navigation/footer changes.

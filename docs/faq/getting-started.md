@@ -8,7 +8,14 @@ Go to [kompwatch.com/login](https://kompwatch.com/login) and enter your email. W
 
 The link expires after 15 minutes. If it doesn't arrive, check your spam folder or request a new one. See [My Login Email Didn't Arrive](magic-link-login.md) for more help.
 
-## Step 2: Add Your First Competitor
+## Step 2: Explore the Demo Competitor (Then Add Your Own)
+
+When you first sign in, your dashboard already includes a **pre-seeded demo competitor — Acme Analytics** — with sample snapshots and detected changes. This is example data so you can explore the dashboard immediately, without waiting for real snapshots to run.
+
+- **It's safe to delete.** Once you've had a look around, remove it from the Competitors page.
+- **It doesn't count against your plan limit.** Adding your real competitors won't affect it.
+
+To add your own competitor:
 
 1. From your dashboard, click **Add Competitor**
 2. Enter:
