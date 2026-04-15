@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: threads about Google Alerts limitations for competitor monitoring
-status: ready
+status: queued-blocked-no-credentials
 keywords: [Google Alerts alternative, competitor website monitoring, track competitor page changes]
 ---
 Google Alerts catches mentions. It doesn't catch page edits.

@@ -1,7 +1,7 @@
 ---
 platform: linkedin
 type: post
-status: ready
+status: queued-blocked-no-credentials
 keywords: [competitor monitoring, Google Alerts alternative, competitive intelligence for product teams, track competitor website changes]
 ---
 Google Alerts catches mentions of your competitor. It doesn't catch changes to your competitor's website.

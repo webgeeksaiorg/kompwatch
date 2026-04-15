@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: threads where developers discuss building their own competitor monitoring or CI tools
-status: ready
+status: queued-blocked-no-credentials
 keywords: [build competitor monitoring tool, DIY competitor tracking, Playwright competitor scraper]
 ---
 Built this exact thing before turning it into a product. The core is simpler than it sounds:

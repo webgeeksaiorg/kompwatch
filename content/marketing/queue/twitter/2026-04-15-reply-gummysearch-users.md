@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: threads about GummySearch alternatives or Reddit monitoring after GummySearch shutdown
-status: ready
+status: queued-blocked-no-credentials
 keywords: [GummySearch alternative, competitor research Reddit, monitor competitors Reddit]
 ---
 GummySearch did the Reddit side of this well — keyword alerts, intent monitoring, surfacing "alternatives to X" threads.

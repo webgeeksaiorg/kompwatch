@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: ready
+status: queued-blocked-no-credentials
 keywords: [GummySearch alternative, competitor monitoring Reddit, track competitors without GummySearch]
 ---
 GummySearch shut down in December. Reddit killed their API access.

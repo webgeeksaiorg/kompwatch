@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: ready
+status: queued-blocked-no-credentials
 keywords: [Crayon pricing 2026, Crayon price increase, Crayon alternative, competitive intelligence cost]
 ---
 Crayon raised prices again in 2026. Median contract is now $28,750/year per Vendr's purchase data (90 real deals).

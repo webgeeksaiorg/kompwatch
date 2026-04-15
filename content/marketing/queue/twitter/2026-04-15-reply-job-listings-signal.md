@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: threads about competitive intelligence methods, what signals to track about competitors
-status: ready
+status: queued-blocked-no-credentials
 keywords: [competitor job listings intelligence, track competitor hiring, competitor roadmap signals]
 ---
 Job listings are the most underrated CI signal.
