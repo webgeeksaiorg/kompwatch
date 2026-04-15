@@ -50,6 +50,134 @@ const plans = [
   },
 ];
 
+type CellValue = true | false | string;
+
+const comparisonRows: {
+  feature: string;
+  competewatch: CellValue;
+  klue: CellValue;
+  crayon: CellValue;
+  kompyte: CellValue;
+}[] = [
+  {
+    feature: "Starting price",
+    competewatch: "Free / $49/mo",
+    klue: "~$6K/yr",
+    crayon: "~$12K/yr",
+    kompyte: "~$8K/yr",
+  },
+  {
+    feature: "Self-serve signup",
+    competewatch: true,
+    klue: false,
+    crayon: false,
+    kompyte: false,
+  },
+  {
+    feature: "AI change summaries",
+    competewatch: true,
+    klue: true,
+    crayon: true,
+    kompyte: false,
+  },
+  {
+    feature: "Pricing page tracking",
+    competewatch: true,
+    klue: true,
+    crayon: true,
+    kompyte: true,
+  },
+  {
+    feature: "Blog & content monitoring",
+    competewatch: true,
+    klue: true,
+    crayon: true,
+    kompyte: true,
+  },
+  {
+    feature: "Job listing tracking",
+    competewatch: true,
+    klue: false,
+    crayon: true,
+    kompyte: false,
+  },
+  {
+    feature: "Tech stack detection",
+    competewatch: "Pro+",
+    klue: true,
+    crayon: true,
+    kompyte: false,
+  },
+  {
+    feature: "Email digests",
+    competewatch: true,
+    klue: true,
+    crayon: true,
+    kompyte: true,
+  },
+  {
+    feature: "Slack / webhook alerts",
+    competewatch: true,
+    klue: true,
+    crayon: true,
+    kompyte: true,
+  },
+  {
+    feature: "Battlecards",
+    competewatch: "Roadmap",
+    klue: true,
+    crayon: true,
+    kompyte: true,
+  },
+  {
+    feature: "No sales call required",
+    competewatch: true,
+    klue: false,
+    crayon: false,
+    kompyte: false,
+  },
+];
+
+function ComparisonCell({
+  value,
+  highlight,
+}: {
+  value: CellValue;
+  highlight?: boolean;
+}) {
+  if (value === true) {
+    return (
+      <svg
+        className={`h-5 w-5 ${highlight ? "text-brand-600" : "text-green-500"}`}
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+      </svg>
+    );
+  }
+  if (value === false) {
+    return (
+      <svg
+        className="h-5 w-5 text-gray-300"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    );
+  }
+  return (
+    <span className={highlight ? "font-medium text-brand-600" : "text-gray-600"}>
+      {value}
+    </span>
+  );
+}
+
 export default function PricingPage() {
   const [loading, setLoading] = useState<string | null>(null);
 
@@ -161,6 +289,56 @@ export default function PricingPage() {
             </button>
           </div>
         ))}
+      </div>
+
+      {/* Competitor Comparison Table */}
+      <div className="mt-20">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+            How CompeteWatch compares
+          </h2>
+          <p className="mt-2 text-sm text-gray-600">
+            Enterprise tools charge 10&ndash;100x more. We give you 80% of the value at a fraction of the cost.
+          </p>
+        </div>
+
+        <div className="mt-8 overflow-x-auto">
+          <table className="w-full text-left text-sm">
+            <thead>
+              <tr className="border-b border-gray-200">
+                <th className="py-3 pr-4 font-medium text-gray-500">Feature</th>
+                <th className="px-4 py-3 font-semibold text-brand-600">CompeteWatch</th>
+                <th className="px-4 py-3 font-medium text-gray-500">Klue</th>
+                <th className="px-4 py-3 font-medium text-gray-500">Crayon</th>
+                <th className="px-4 py-3 font-medium text-gray-500">Kompyte</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {comparisonRows.map((row) => (
+                <tr key={row.feature}>
+                  <td className="py-3 pr-4 font-medium text-gray-700">{row.feature}</td>
+                  <td className="px-4 py-3">
+                    <ComparisonCell value={row.competewatch} highlight />
+                  </td>
+                  <td className="px-4 py-3">
+                    <ComparisonCell value={row.klue} />
+                  </td>
+                  <td className="px-4 py-3">
+                    <ComparisonCell value={row.crayon} />
+                  </td>
+                  <td className="px-4 py-3">
+                    <ComparisonCell value={row.kompyte} />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <p className="mt-4 text-center text-xs text-gray-400">
+          Comparison based on publicly available information as of April 2026.
+          Klue and Crayon pricing requires a sales call; estimates from review sites.
+        </p>
       </div>
 
       <div className="mt-12 text-center">
