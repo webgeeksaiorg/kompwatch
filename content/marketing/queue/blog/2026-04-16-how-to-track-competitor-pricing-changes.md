@@ -17,7 +17,9 @@ That's the manual version. It works until it doesn't.
 
 ## Why This Problem Is Getting Worse
 
-AI products are shipping pricing changes faster than ever. Seat minimums are appearing. Feature gates are shifting. Free tiers are quietly disappearing with no announcement.
+About 40% of B2B SaaS companies with more than $10M ARR have removed public pricing from their websites. Not because they're ashamed of it — because obscurity is a negotiation tactic. When pricing isn't public, you anchor at whatever number sales opens with.
+
+The rest are moving fast. AI products are shipping pricing changes faster than ever. Seat minimums are appearing. Feature gates are shifting. Free tiers are quietly disappearing with no announcement.
 
 Your competitor doesn't issue a press release when they remove the free tier. They just update the pricing page and see what happens to conversion. You find out when a customer asks why they can get the same thing cheaper somewhere else — or can't anymore.
 
