@@ -124,7 +124,7 @@ describe("formatGenericPayload", () => {
       totalChanges: number;
       competitors: Array<{ name: string; changes: object[] }>;
     };
-    expect(payload.source).toBe("competewatch");
+    expect(payload.source).toBe("kompwatch");
     expect(payload.period).toBe("WEEKLY");
     expect(payload.totalChanges).toBe(3);
     expect(payload.competitors).toHaveLength(2);
@@ -222,7 +222,7 @@ describe("sendWebhookNotification", () => {
     );
 
     const body = JSON.parse(fetchSpy.mock.calls[0][1]?.body as string);
-    expect(body.source).toBe("competewatch");
+    expect(body.source).toBe("kompwatch");
     expect(body.totalChanges).toBe(3);
   });
 });

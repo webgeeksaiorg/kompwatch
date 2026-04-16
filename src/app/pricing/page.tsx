@@ -54,84 +54,84 @@ type CellValue = true | false | string;
 
 const comparisonRows: {
   feature: string;
-  competewatch: CellValue;
+  kompwatch: CellValue;
   klue: CellValue;
   crayon: CellValue;
   kompyte: CellValue;
 }[] = [
   {
     feature: "Starting price",
-    competewatch: "Free / $49/mo",
+    kompwatch: "Free / $49/mo",
     klue: "~$6K/yr",
     crayon: "~$12K/yr",
     kompyte: "~$8K/yr",
   },
   {
     feature: "Self-serve signup",
-    competewatch: true,
+    kompwatch: true,
     klue: false,
     crayon: false,
     kompyte: false,
   },
   {
     feature: "AI change summaries",
-    competewatch: true,
+    kompwatch: true,
     klue: true,
     crayon: true,
     kompyte: false,
   },
   {
     feature: "Pricing page tracking",
-    competewatch: true,
+    kompwatch: true,
     klue: true,
     crayon: true,
     kompyte: true,
   },
   {
     feature: "Blog & content monitoring",
-    competewatch: true,
+    kompwatch: true,
     klue: true,
     crayon: true,
     kompyte: true,
   },
   {
     feature: "Job listing tracking",
-    competewatch: true,
+    kompwatch: true,
     klue: false,
     crayon: true,
     kompyte: false,
   },
   {
     feature: "Tech stack detection",
-    competewatch: "Pro+",
+    kompwatch: "Pro+",
     klue: true,
     crayon: true,
     kompyte: false,
   },
   {
     feature: "Email digests",
-    competewatch: true,
+    kompwatch: true,
     klue: true,
     crayon: true,
     kompyte: true,
   },
   {
     feature: "Slack / webhook alerts",
-    competewatch: true,
+    kompwatch: true,
     klue: true,
     crayon: true,
     kompyte: true,
   },
   {
     feature: "Battlecards",
-    competewatch: "Roadmap",
+    kompwatch: "Roadmap",
     klue: true,
     crayon: true,
     kompyte: true,
   },
   {
     feature: "No sales call required",
-    competewatch: true,
+    kompwatch: true,
     klue: false,
     crayon: false,
     kompyte: false,
@@ -318,7 +318,7 @@ export default function PricingPage() {
                 <tr key={row.feature}>
                   <td className="py-3 pr-4 font-medium text-gray-700">{row.feature}</td>
                   <td className="px-4 py-3">
-                    <ComparisonCell value={row.competewatch} highlight />
+                    <ComparisonCell value={row.kompwatch} highlight />
                   </td>
                   <td className="px-4 py-3">
                     <ComparisonCell value={row.klue} />

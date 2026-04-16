@@ -131,7 +131,7 @@ function formatGenericPayload(
 ): object {
   const totalChanges = groups.reduce((sum, g) => sum + g.changes.length, 0);
   return {
-    source: "competewatch",
+    source: "kompwatch",
     period,
     totalChanges,
     competitors: groups.map((g) => ({
