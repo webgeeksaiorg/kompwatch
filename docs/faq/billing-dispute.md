@@ -4,7 +4,7 @@ We want every customer to feel good about what they pay for. If you have a billi
 
 ## Unexpected Charge
 
-If you see an unexpected charge from CompeteWatch:
+If you see an unexpected charge from KompWatch:
 
 1. Check that you didn't have a free trial that ended — you would have received an email reminder before the trial concluded.
 2. Log into the [Customer Portal](https://kompwatch.com/settings) to view your invoice history.

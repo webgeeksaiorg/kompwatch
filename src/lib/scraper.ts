@@ -147,7 +147,7 @@ export async function scrapeCompetitor(
   const browser = await getBrowser();
   const context = await browser.newContext({
     userAgent:
-      "Mozilla/5.0 (compatible; CompeteWatchBot/1.0; +https://kompwatch.com/bot)",
+      "Mozilla/5.0 (compatible; KompWatchBot/1.0; +https://kompwatch.com/bot)",
   });
 
   const page = await context.newPage();

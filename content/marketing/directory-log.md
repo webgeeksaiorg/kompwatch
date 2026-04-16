@@ -1,6 +1,6 @@
 # Directory Submission Log
 
-Tracks where CompeteWatch has been submitted for listing/discovery.
+Tracks where KompWatch has been submitted for listing/discovery.
 
 | Date | Directory | Status | Notes |
 |------|-----------|--------|-------|

@@ -72,7 +72,7 @@ The build takes a weekend. Maintaining it (handling sites that block scrapers, d
 
 ## Option 4: Purpose-built tools ($49–$200/mo)
 
-If you don't want to build and maintain it yourself, there are a few tools in this category. [CompeteWatch](/) sits here — Playwright scraping, AI-generated change summaries, delivered to your inbox. Pro plan is $49/month for up to 10 competitors with 6-hour snapshot frequency.
+If you don't want to build and maintain it yourself, there are a few tools in this category. [KompWatch](/) sits here — Playwright scraping, AI-generated change summaries, delivered to your inbox. Pro plan is $49/month for up to 10 competitors with 6-hour snapshot frequency.
 
 Other options in this range: Wachete, TrackChanges. They vary on how much AI interpretation they apply to the diffs.
 
@@ -118,7 +118,7 @@ Don't watch `body`. The whole page is noise.
 
 Watch `#pricing`, `.pricing-table`, or whatever CSS selector targets the relevant section. This cuts alert volume by 80% and makes the ones that fire actually meaningful.
 
-In CompeteWatch, the first thing we ask when you add a competitor is: what section do you care about? Default is `body`, but we push you toward a more specific selector. The difference in signal quality is significant.
+In KompWatch, the first thing we ask when you add a competitor is: what section do you care about? Default is `body`, but we push you toward a more specific selector. The difference in signal quality is significant.
 
 ---
 
@@ -144,6 +144,6 @@ If you're checking fewer than 5 competitors and have 30 minutes: Distill.io or V
 
 If you're technical and want control: build it with Playwright + LLM summarization. A weekend project, then occasional maintenance.
 
-If you want it done and running today without building anything: [CompeteWatch](/) at $49/month does exactly this, free trial included.
+If you want it done and running today without building anything: [KompWatch](/) at $49/month does exactly this, free trial included.
 
 What you're trying to avoid is Monday morning tab-switching. Pick the option that gets you to automated and move on.

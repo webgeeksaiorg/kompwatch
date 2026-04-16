@@ -13,4 +13,4 @@ export function getResend(): Resend {
 }
 
 export const FROM_EMAIL =
-  process.env.RESEND_FROM || "CompeteWatch <noreply@kompwatch.com>";
+  process.env.RESEND_FROM || "KompWatch <noreply@kompwatch.com>";

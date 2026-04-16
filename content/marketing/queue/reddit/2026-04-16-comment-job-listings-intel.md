@@ -13,4 +13,4 @@ If a competitor posts 4 ML engineer roles this month, something AI-related is sh
 
 It's free. LinkedIn, Greenhouse, Lever — most companies post publicly. The signal is just sitting there.
 
-We actually built job listing monitoring into CompeteWatch alongside pricing/feature page tracking because it kept coming up as the thing teams were manually checking anyway. (Full disclosure: I built it.) But even if you don't use a tool — just check their careers page monthly. It's the most honest forward-looking signal you have on a competitor.
+We actually built job listing monitoring into KompWatch alongside pricing/feature page tracking because it kept coming up as the thing teams were manually checking anyway. (Full disclosure: I built it.) But even if you don't use a tool — just check their careers page monthly. It's the most honest forward-looking signal you have on a competitor.

@@ -66,7 +66,7 @@ export default function LoginPage() {
           &larr; Back to home
         </a>
         <h1 className="text-center text-2xl font-bold text-gray-900">
-          Sign in to CompeteWatch
+          Sign in to KompWatch
         </h1>
         <p className="mt-2 text-center text-sm text-gray-600">
           Enter your email and we&apos;ll send you a magic link.

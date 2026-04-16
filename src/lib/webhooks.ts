@@ -30,7 +30,7 @@ function formatSlackPayload(
       type: "header",
       text: {
         type: "plain_text",
-        text: `CompeteWatch ${periodLabel} Digest`,
+        text: `KompWatch ${periodLabel} Digest`,
       },
     },
     {
@@ -76,7 +76,7 @@ function formatTeamsPayload(
       type: "TextBlock",
       size: "Large",
       weight: "Bolder",
-      text: `CompeteWatch ${periodLabel} Digest`,
+      text: `KompWatch ${periodLabel} Digest`,
     },
     {
       type: "TextBlock",

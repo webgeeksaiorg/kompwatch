@@ -1,26 +1,26 @@
 # Integrations and Custom Notifications
 
-CompeteWatch delivers alerts via **email digest** and **webhook notifications** (Slack, Microsoft Teams, or any custom HTTP endpoint).
+KompWatch delivers alerts via **email digest** and **webhook notifications** (Slack, Microsoft Teams, or any custom HTTP endpoint).
 
-## Does CompeteWatch Have a Slack Integration?
+## Does KompWatch Have a Slack Integration?
 
-Yes — you can connect Slack via an incoming webhook URL. Go to **Settings → Webhooks**, paste your Slack incoming webhook URL, and enable it. CompeteWatch auto-detects the URL and formats messages for Slack.
+Yes — you can connect Slack via an incoming webhook URL. Go to **Settings → Webhooks**, paste your Slack incoming webhook URL, and enable it. KompWatch auto-detects the URL and formats messages for Slack.
 
 **To create a Slack incoming webhook:**
 1. In Slack, go to **Apps → Incoming Webhooks** (or create one via [api.slack.com/apps](https://api.slack.com/apps))
 2. Choose a channel and copy the webhook URL (starts with `https://hooks.slack.com/services/…`)
-3. Paste it into **Settings → Webhooks** in CompeteWatch
+3. Paste it into **Settings → Webhooks** in KompWatch
 
-## Does CompeteWatch Support Microsoft Teams?
+## Does KompWatch Support Microsoft Teams?
 
-Yes — Teams is supported via incoming webhooks. CompeteWatch auto-detects Teams webhook URLs and formats messages accordingly.
+Yes — Teams is supported via incoming webhooks. KompWatch auto-detects Teams webhook URLs and formats messages accordingly.
 
 **To create a Teams incoming webhook:**
 1. In a Teams channel, click **…** → **Connectors → Incoming Webhook**
-2. Name it (e.g. "CompeteWatch") and copy the URL (contains `webhook.office.com`)
-3. Paste it into **Settings → Webhooks** in CompeteWatch
+2. Name it (e.g. "KompWatch") and copy the URL (contains `webhook.office.com`)
+3. Paste it into **Settings → Webhooks** in KompWatch
 
-## Does CompeteWatch Support Generic Webhooks or Zapier?
+## Does KompWatch Support Generic Webhooks or Zapier?
 
 Yes — any HTTPS endpoint works. Paste the URL into **Settings → Webhooks** and enable it. Payloads are sent as JSON `POST` requests. For Zapier, use a "Webhooks by Zapier" trigger as the destination URL.
 

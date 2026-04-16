@@ -1,4 +1,4 @@
-# CompeteWatch
+# KompWatch
 
 AI-powered competitor monitoring for SaaS teams. Track competitor websites, detect changes, and get AI-generated digests delivered to your inbox.
 

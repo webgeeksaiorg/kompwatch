@@ -12,7 +12,7 @@ export default async function AppLayout({
       <nav className="border-b border-gray-200 bg-white">
         <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
           <a href="/dashboard" className="text-sm font-bold text-gray-900">
-            CompeteWatch
+            KompWatch
           </a>
           <div className="flex items-center gap-6">
             <a href="/dashboard" className="text-sm text-gray-600 hover:text-gray-900">

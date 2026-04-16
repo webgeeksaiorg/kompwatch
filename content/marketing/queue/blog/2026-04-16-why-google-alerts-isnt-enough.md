@@ -71,7 +71,7 @@ The answer isn't "stop using Google Alerts." It's "understand what you're not se
 
 **For brand monitoring:** Keep Alerts. It's free and does this well.
 
-**For website change detection:** You need dedicated monitoring pointed at specific pages. Tools in this space range from free (Visualping's free tier) to $49/mo ([CompeteWatch](/competitors) — what I built) to enterprise pricing.
+**For website change detection:** You need dedicated monitoring pointed at specific pages. Tools in this space range from free (Visualping's free tier) to $49/mo ([KompWatch](/competitors) — what I built) to enterprise pricing.
 
 The key feature to look for: CSS selector support. You want to watch `#pricing` or `.pricing-table`, not the whole page. Whole-page monitoring generates alert fatigue — you'll get pinged every time they update a footer link. Selector-based monitoring gives you signal.
 
@@ -86,7 +86,7 @@ The key feature to look for: CSS selector support. You want to watch `#pricing` 
 After a lot of iteration, here's what I run:
 
 1. **Google Alerts** on competitor names + "[competitor] alternative" — catches press and web mentions
-2. **Website monitoring** ([CompeteWatch](/pricing), but any tool with selector support works) on pricing pages, feature pages, and job listings
+2. **Website monitoring** ([KompWatch](/pricing), but any tool with selector support works) on pricing pages, feature pages, and job listings
 3. **RSS feeds** on competitor blogs and changelogs
 4. **Quarterly manual review** — actually visit their homepage, docs, and pricing page with fresh eyes. Automated tools catch changes but miss context.
 

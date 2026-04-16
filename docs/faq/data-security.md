@@ -1,14 +1,14 @@
 # Data Security & Privacy
 
-CompeteWatch is built for teams who monitor sensitive competitive intelligence. Here's how we protect your data.
+KompWatch is built for teams who monitor sensitive competitive intelligence. Here's how we protect your data.
 
 ## Authentication
 
-We use **magic link login** — there are no passwords in CompeteWatch. Clicking a time-limited link in your inbox is the only way to sign in. This eliminates the most common account-compromise vector (stolen or reused passwords).
+We use **magic link login** — there are no passwords in KompWatch. Clicking a time-limited link in your inbox is the only way to sign in. This eliminates the most common account-compromise vector (stolen or reused passwords).
 
 ## Data in Transit
 
-All traffic between your browser and CompeteWatch is encrypted over **HTTPS/TLS**. We do not serve any content over plain HTTP.
+All traffic between your browser and KompWatch is encrypted over **HTTPS/TLS**. We do not serve any content over plain HTTP.
 
 ## Payment Security
 
@@ -18,10 +18,10 @@ We do **not** store your payment card details. All billing is handled by [Stripe
 
 | Data type | Where it lives |
 |---|---|
-| Account info (email, name) | CompeteWatch database |
-| Competitor URLs and selectors | CompeteWatch database |
-| Snapshots and detected changes | CompeteWatch database |
-| Digest email history | CompeteWatch database |
+| Account info (email, name) | KompWatch database |
+| Competitor URLs and selectors | KompWatch database |
+| Snapshots and detected changes | KompWatch database |
+| Digest email history | KompWatch database |
 | Payment/billing info | Stripe only |
 
 We do **not** collect browsing history, device fingerprints, or any data unrelated to competitor monitoring.
@@ -32,7 +32,7 @@ You can request complete deletion of your account and all associated data at any
 
 ## AI and Data Processing
 
-CompeteWatch uses the **Claude API (by Anthropic)** to generate plain-English summaries of detected competitor changes. Here's what that means for your data:
+KompWatch uses the **Claude API (by Anthropic)** to generate plain-English summaries of detected competitor changes. Here's what that means for your data:
 
 **What is sent to Anthropic:**
 - The text diff of changed content on a competitor's public webpage (e.g., updated pricing text or a new feature description)
@@ -49,7 +49,7 @@ Competitor pages are public websites — the content we analyze is already publi
 API inputs and outputs via Anthropic's API are not used to train Anthropic's models by default. For details, see [Anthropic's Privacy Policy](https://www.anthropic.com/privacy) and [API usage policies](https://www.anthropic.com/policies/usage-policy).
 
 **Data minimization:**
-AI summaries are cached in CompeteWatch's database after generation. The same change is never sent to the API twice.
+AI summaries are cached in KompWatch's database after generation. The same change is never sent to the API twice.
 
 If your organization's security policy restricts third-party AI processing, [contact us](mailto:security@kompwatch.com) to discuss options.
 

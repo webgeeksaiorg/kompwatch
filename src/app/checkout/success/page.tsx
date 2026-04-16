@@ -32,7 +32,7 @@ export default async function CheckoutSuccessPage({
           </svg>
         </div>
         <h1 className="mt-4 text-2xl font-bold text-gray-900">
-          Welcome to CompeteWatch {user.plan}!
+          Welcome to KompWatch {user.plan}!
         </h1>
         <p className="mt-2 text-sm text-gray-600">
           Your subscription is active. You can now track more competitors and

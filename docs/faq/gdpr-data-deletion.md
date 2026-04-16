@@ -1,10 +1,10 @@
 # GDPR, Privacy & Data Deletion
 
-CompeteWatch takes data privacy seriously. This page explains your rights and how to exercise them.
+KompWatch takes data privacy seriously. This page explains your rights and how to exercise them.
 
 ## Your Data Rights (GDPR / CCPA)
 
-As a CompeteWatch user, you have the right to:
+As a KompWatch user, you have the right to:
 
 - **Access** — Request a copy of all data we hold about you
 - **Rectification** — Correct inaccurate personal data

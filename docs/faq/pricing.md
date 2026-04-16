@@ -1,6 +1,6 @@
 # How Pricing Works
 
-CompeteWatch offers three plans. All plans include the core monitoring features — the differences are in limits and frequency.
+KompWatch offers three plans. All plans include the core monitoring features — the differences are in limits and frequency.
 
 ## Plans
 
