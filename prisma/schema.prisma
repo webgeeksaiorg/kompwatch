@@ -1,4 +1,4 @@
-// CompeteWatch — AI Competitor Monitoring SaaS
+// KompWatch — AI Competitor Monitoring SaaS
 // Stack: Next.js 15 + Prisma + PostgreSQL + Stripe + Resend
 
 generator client {
