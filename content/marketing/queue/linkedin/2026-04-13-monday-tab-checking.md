@@ -19,7 +19,7 @@ That dumb script caught three more pricing changes in the next two months. It pa
 
 The cron job grew. I added AI to translate the raw HTML diffs into plain English. Added screenshots. Added a proper UI so my team could see it too.
 
-Now it's CompeteWatch. $49/mo. Tracks competitor websites, tells you in plain English when something changes.
+Now it's KompWatch. $49/mo. Tracks competitor websites, tells you in plain English when something changes.
 
 No enterprise contract. No 30-slide pitch about "competitive intelligence strategy." You paste URLs, we watch them, you get an email when something changes.
 

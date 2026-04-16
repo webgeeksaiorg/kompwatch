@@ -56,8 +56,8 @@ Create tickets via Notion feature tracker for Builder to pick up.
 ### Step 6: WEEKLY REPORT (Sundays only)
 Send email to founder:
 ```bash
-python3 /app/scripts/resend-email.py send "founder@webgeeksai.in" "CompeteWatch Weekly — $<MRR> MRR (<+/-%> WoW)" "
-CompeteWatch Weekly Report — <date>
+python3 /app/scripts/resend-email.py send "founder@webgeeksai.in" "KompWatch Weekly — $<MRR> MRR (<+/-%> WoW)" "
+KompWatch Weekly Report — <date>
 
 KEY METRICS:
   MRR: $<mrr> (<change>% WoW)
@@ -93,7 +93,7 @@ If ALL of these are true for 30 consecutive days:
 
 Then create a CRITICAL ticket:
 ```
-Title: [CRITICAL] KILL_OR_PIVOT — CompeteWatch has no traction
+Title: [CRITICAL] KILL_OR_PIVOT — KompWatch has no traction
 Description: 30 days of zero growth. Metrics: [include all]. Recommend founder review.
 Options: 1) Pivot positioning, 2) Switch target market, 3) Kill and start Product #2.
 ```

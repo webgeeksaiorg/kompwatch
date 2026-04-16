@@ -35,7 +35,7 @@ export async function seedDemoCompetitor(userId: string): Promise<void> {
     },
   });
 
-  // Create sample changes that showcase CompeteWatch's value
+  // Create sample changes that showcase KompWatch's value
   const sampleChanges = [
     {
       competitorId: competitor.id,

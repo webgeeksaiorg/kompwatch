@@ -1,16 +1,16 @@
 # How to Add a Competitor
 
-CompeteWatch monitors competitor websites and alerts you to changes in pricing, features, and content.
+KompWatch monitors competitor websites and alerts you to changes in pricing, features, and content.
 
 ## Steps
 
-1. Log in to your CompeteWatch dashboard at [kompwatch.com/dashboard](https://kompwatch.com/dashboard).
+1. Log in to your KompWatch dashboard at [kompwatch.com/dashboard](https://kompwatch.com/dashboard).
 2. Click **Add Competitor** in the top-right corner.
 3. Fill in:
    - **Name** — a label for your own reference (e.g. "Acme Corp")
    - **URL** — the page you want to monitor (e.g. `https://acmecorp.com/pricing`)
    - **CSS Selector** *(optional)* — target a specific section of the page. Leave blank to monitor the whole page. Example: `.pricing-table` or `#features`
-4. Click **Save**. CompeteWatch will take an initial snapshot within the next few minutes.
+4. Click **Save**. KompWatch will take an initial snapshot within the next few minutes.
 
 ## Adding Multiple Competitors at Once (Bulk Import)
 
@@ -23,7 +23,7 @@ If you have several competitors to add, use the **bulk import** option instead o
    Widgetly, https://widgetly.io
    Rival Inc, https://rival.com
    ```
-3. Click **Import**. CompeteWatch will show how many were added and flag any skipped entries with the reason.
+3. Click **Import**. KompWatch will show how many were added and flag any skipped entries with the reason.
 
 **Format notes:**
 - Comma-separated (`Name, URL`) and tab-separated are both accepted.
@@ -34,7 +34,7 @@ If you have several competitors to add, use the **bulk import** option instead o
 
 ## What Gets Tracked
 
-When you add a competitor, CompeteWatch automatically monitors five categories:
+When you add a competitor, KompWatch automatically monitors five categories:
 
 | Category | What it watches | Default |
 |----------|----------------|---------|

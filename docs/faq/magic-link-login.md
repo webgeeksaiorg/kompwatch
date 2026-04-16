@@ -1,11 +1,11 @@
 # My Login Email Didn't Arrive
 
-CompeteWatch uses **magic links** for login — no password required. You enter your email, we send a one-click login link, and you're in.
+KompWatch uses **magic links** for login — no password required. You enter your email, we send a one-click login link, and you're in.
 
 ## If the email didn't arrive
 
 **1. Check your spam or junk folder**
-Magic link emails can occasionally be filtered. Search for "CompeteWatch" or emails from `noreply@kompwatch.com`.
+Magic link emails can occasionally be filtered. Search for "KompWatch" or emails from `noreply@kompwatch.com`.
 
 **2. Wait up to 2 minutes**
 Email delivery can be delayed. The link is valid for 15 minutes from the time it was sent.
@@ -33,4 +33,4 @@ Someone may have entered your email by mistake. You can safely ignore the email 
 
 ## Still stuck?
 
-Reply to any CompeteWatch email or write to support@kompwatch.com and a team member will follow up within 24 hours.
+Reply to any KompWatch email or write to support@kompwatch.com and a team member will follow up within 24 hours.

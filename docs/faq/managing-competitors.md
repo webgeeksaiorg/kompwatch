@@ -53,7 +53,7 @@ If you're at your limit, you must delete or pause an existing competitor before 
 Yes — click **Resume** on the competitor row. Monitoring resumes on the next snapshot cycle.
 
 **If I delete a competitor and re-add it, do I lose history?**
-Yes. Deleting removes all snapshots and change records. If you re-add the same URL, CompeteWatch starts fresh.
+Yes. Deleting removes all snapshots and change records. If you re-add the same URL, KompWatch starts fresh.
 
 **Can I bulk-delete competitors?**
 Not yet — each competitor must be deleted individually.

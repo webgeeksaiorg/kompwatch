@@ -1,6 +1,6 @@
 # The Team Plan — What It Includes
 
-The Team plan is CompeteWatch's highest tier, designed for companies that need to track many competitors with maximum monitoring frequency.
+The Team plan is KompWatch's highest tier, designed for companies that need to track many competitors with maximum monitoring frequency.
 
 ## What You Get on Team
 
@@ -13,11 +13,11 @@ The Team plan is CompeteWatch's highest tier, designed for companies that need t
 
 ## Is the Team Plan Multi-User?
 
-Currently, each CompeteWatch account is tied to a single login email. The Team plan's name refers to **the size of the team you're monitoring competitors for** — it gives you the capacity (50 competitors, hourly crawls) suited to larger teams tracking many rivals.
+Currently, each KompWatch account is tied to a single login email. The Team plan's name refers to **the size of the team you're monitoring competitors for** — it gives you the capacity (50 competitors, hourly crawls) suited to larger teams tracking many rivals.
 
 Shared team logins (multiple colleagues accessing the same account) are not yet supported. If you need your whole team to see the same competitor feed today, options include:
 
-- **Share your digest email** — forward your digest to relevant teammates, or set up an email alias (e.g. `competitive@yourcompany.com`) as your CompeteWatch login
+- **Share your digest email** — forward your digest to relevant teammates, or set up an email alias (e.g. `competitive@yourcompany.com`) as your KompWatch login
 - **Check with us** — email [support@kompwatch.com](mailto:support@kompwatch.com) if you have a specific multi-seat use case
 
 ## When Does Team Make Sense?

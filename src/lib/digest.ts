@@ -96,7 +96,7 @@ export function renderDigestHtml(
 <body style="margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f9fafb;">
   <div style="max-width:600px;margin:0 auto;padding:24px;">
     <div style="background:#fff;border-radius:8px;padding:24px;box-shadow:0 1px 3px rgba(0,0,0,0.1);">
-      <h1 style="margin:0 0 4px;font-size:20px;color:#111;">CompeteWatch ${period === "DAILY" ? "Daily" : "Weekly"} Digest</h1>
+      <h1 style="margin:0 0 4px;font-size:20px;color:#111;">KompWatch ${period === "DAILY" ? "Daily" : "Weekly"} Digest</h1>
       <p style="margin:0 0 20px;color:#666;font-size:14px;">${greeting}, here's your ${periodLabel} competitor update.</p>
 
       <div style="background:#f0f7ff;border-radius:6px;padding:12px 16px;margin-bottom:20px;font-size:14px;">
@@ -108,7 +108,7 @@ export function renderDigestHtml(
 
       <hr style="border:none;border-top:1px solid #eee;margin:24px 0;"/>
       <p style="margin:0;color:#999;font-size:12px;">
-        You're receiving this because you have a CompeteWatch account (${escapeHtml(user.email)}).
+        You're receiving this because you have a KompWatch account (${escapeHtml(user.email)}).
         <a href="${process.env.NEXTAUTH_URL || "https://kompwatch.com"}/settings" style="color:#666;">Manage preferences</a>
       </p>
     </div>
@@ -139,7 +139,7 @@ export function renderDigestText(
     })
     .join("\n\n");
 
-  return `CompeteWatch ${period === "DAILY" ? "Daily" : "Weekly"} Digest
+  return `KompWatch ${period === "DAILY" ? "Daily" : "Weekly"} Digest
 
 ${greeting}, here's your ${periodLabel} competitor update.
 

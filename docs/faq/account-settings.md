@@ -31,10 +31,10 @@ Controls your **email digest** preferences:
 The severity filter is shown when email digests are enabled. Changes below your threshold are still tracked — they just won't appear in your digest.
 
 ### Webhooks
-Connect CompeteWatch to Slack, Microsoft Teams, or a custom HTTP endpoint:
+Connect KompWatch to Slack, Microsoft Teams, or a custom HTTP endpoint:
 
 1. Paste your incoming webhook URL into the **Webhook URL** field and click **Save**
-2. CompeteWatch auto-detects Slack and Teams URLs and shows a platform badge
+2. KompWatch auto-detects Slack and Teams URLs and shows a platform badge
 3. Use the **Webhook notifications** toggle to enable or disable (the toggle is disabled until a URL is saved)
 
 For instructions on creating webhook URLs, see [Integrations and Custom Notifications](./integrations-and-notifications.md).

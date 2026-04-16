@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "How CompeteWatch collects, uses, and protects your data.",
+  description: "How KompWatch collects, uses, and protects your data.",
   alternates: { canonical: "/privacy" },
 };
 
@@ -62,7 +62,7 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-xl font-semibold text-gray-900">2. How We Use Your Information</h2>
             <ul className="mt-4 list-disc space-y-2 pl-5">
-              <li>To provide and maintain the CompeteWatch service, including competitor monitoring, change detection, and digest delivery.</li>
+              <li>To provide and maintain the KompWatch service, including competitor monitoring, change detection, and digest delivery.</li>
               <li>To process payments and manage your subscription through Stripe.</li>
               <li>To send transactional emails — magic link login, digest summaries, and account notifications via Resend.</li>
               <li>To improve the service based on anonymized usage patterns.</li>
@@ -120,14 +120,14 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-xl font-semibold text-gray-900">7. Cookies</h2>
             <p className="mt-4">
-              CompeteWatch uses only essential cookies required for authentication (session cookies). We do not use third-party tracking cookies. Our analytics provider (Plausible) is cookieless.
+              KompWatch uses only essential cookies required for authentication (session cookies). We do not use third-party tracking cookies. Our analytics provider (Plausible) is cookieless.
             </p>
           </section>
 
           <section>
             <h2 className="text-xl font-semibold text-gray-900">8. Changes to This Policy</h2>
             <p className="mt-4">
-              We may update this policy from time to time. We will notify you of material changes by email or through the service. Continued use of CompeteWatch after changes constitutes acceptance of the updated policy.
+              We may update this policy from time to time. We will notify you of material changes by email or through the service. Continued use of KompWatch after changes constitutes acceptance of the updated policy.
             </p>
           </section>
 
@@ -144,7 +144,7 @@ export default function PrivacyPolicy() {
       <footer className="border-t border-gray-200 bg-gray-50">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
           <div className="text-sm text-gray-500">
-            &copy; {new Date().getFullYear()} CompeteWatch. All rights reserved.
+            &copy; {new Date().getFullYear()} KompWatch. All rights reserved.
           </div>
           <div className="flex gap-6">
             <Link href="/privacy" className="text-sm text-gray-500 hover:text-gray-700">

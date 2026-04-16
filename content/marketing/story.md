@@ -1,4 +1,4 @@
-# CompeteWatch — Product Story
+# KompWatch — Product Story
 
 Use this as voice context when writing marketing content.
 

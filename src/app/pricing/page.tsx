@@ -295,7 +295,7 @@ export default function PricingPage() {
       <div className="mt-20">
         <div className="text-center">
           <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-            How CompeteWatch compares
+            How KompWatch compares
           </h2>
           <p className="mt-2 text-sm text-gray-600">
             Enterprise tools charge 10&ndash;100x more. We give you 80% of the value at a fraction of the cost.
@@ -307,7 +307,7 @@ export default function PricingPage() {
             <thead>
               <tr className="border-b border-gray-200">
                 <th className="py-3 pr-4 font-medium text-gray-500">Feature</th>
-                <th className="px-4 py-3 font-semibold text-brand-600">CompeteWatch</th>
+                <th className="px-4 py-3 font-semibold text-brand-600">KompWatch</th>
                 <th className="px-4 py-3 font-medium text-gray-500">Klue</th>
                 <th className="px-4 py-3 font-medium text-gray-500">Crayon</th>
                 <th className="px-4 py-3 font-medium text-gray-500">Kompyte</th>

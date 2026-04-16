@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: "Terms and conditions for using the CompeteWatch service.",
+  description: "Terms and conditions for using the KompWatch service.",
   alternates: { canonical: "/terms" },
 };
 
@@ -44,14 +44,14 @@ export default function TermsOfService() {
           <section>
             <h2 className="text-xl font-semibold text-gray-900">1. Acceptance of Terms</h2>
             <p className="mt-4">
-              By accessing or using CompeteWatch (&ldquo;the Service&rdquo;), you agree to be bound by these Terms of Service. If you do not agree to these terms, do not use the Service. The Service is operated by CompeteWatch (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;).
+              By accessing or using KompWatch (&ldquo;the Service&rdquo;), you agree to be bound by these Terms of Service. If you do not agree to these terms, do not use the Service. The Service is operated by KompWatch (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;).
             </p>
           </section>
 
           <section>
             <h2 className="text-xl font-semibold text-gray-900">2. Description of Service</h2>
             <p className="mt-4">
-              CompeteWatch is a competitor monitoring platform that tracks publicly available web pages for changes and delivers AI-generated summaries. The Service crawls URLs you specify, detects changes in content, pricing, features, and other publicly visible information, and sends digest emails summarizing those changes.
+              KompWatch is a competitor monitoring platform that tracks publicly available web pages for changes and delivers AI-generated summaries. The Service crawls URLs you specify, detects changes in content, pricing, features, and other publicly visible information, and sends digest emails summarizing those changes.
             </p>
           </section>
 
@@ -71,7 +71,7 @@ export default function TermsOfService() {
             <h2 className="text-xl font-semibold text-gray-900">4. Subscriptions and Billing</h2>
             <div className="mt-4 space-y-3">
               <p>
-                CompeteWatch offers Free, Pro ($49/month), and Team ($149/month) plans. Paid plans are billed monthly through Stripe. You can manage your subscription and view invoices through the customer billing portal.
+                KompWatch offers Free, Pro ($49/month), and Team ($149/month) plans. Paid plans are billed monthly through Stripe. You can manage your subscription and view invoices through the customer billing portal.
               </p>
               <p>
                 Paid subscriptions renew automatically. You may cancel at any time through the billing portal — cancellation takes effect at the end of the current billing period. No refunds are provided for partial months.
@@ -101,7 +101,7 @@ export default function TermsOfService() {
             <h2 className="text-xl font-semibold text-gray-900">6. Competitor Monitoring</h2>
             <div className="mt-4 space-y-3">
               <p>
-                CompeteWatch monitors publicly accessible web pages only. We respect robots.txt directives and rate-limit our crawlers. You are responsible for ensuring that the URLs you add for monitoring are publicly accessible pages that you are permitted to view.
+                KompWatch monitors publicly accessible web pages only. We respect robots.txt directives and rate-limit our crawlers. You are responsible for ensuring that the URLs you add for monitoring are publicly accessible pages that you are permitted to view.
               </p>
               <p>
                 We do not guarantee the accuracy, completeness, or timeliness of change detection. AI-generated summaries are provided for informational purposes and should not be treated as legal, financial, or business advice.
@@ -113,7 +113,7 @@ export default function TermsOfService() {
             <h2 className="text-xl font-semibold text-gray-900">7. Intellectual Property</h2>
             <div className="mt-4 space-y-3">
               <p>
-                The Service, including its design, code, and AI models, is owned by CompeteWatch and protected by intellectual property laws. Your subscription grants you a limited, non-exclusive, non-transferable license to use the Service for its intended purpose.
+                The Service, including its design, code, and AI models, is owned by KompWatch and protected by intellectual property laws. Your subscription grants you a limited, non-exclusive, non-transferable license to use the Service for its intended purpose.
               </p>
               <p>
                 You retain ownership of any data you input into the Service. We claim no ownership over the competitor URLs, selectors, or configurations you provide.
@@ -131,7 +131,7 @@ export default function TermsOfService() {
           <section>
             <h2 className="text-xl font-semibold text-gray-900">9. Limitation of Liability</h2>
             <p className="mt-4">
-              To the maximum extent permitted by law, CompeteWatch shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenue, whether incurred directly or indirectly, arising from your use of the Service. Our total liability for any claim arising from or related to the Service shall not exceed the amount you paid us in the 12 months preceding the claim.
+              To the maximum extent permitted by law, KompWatch shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenue, whether incurred directly or indirectly, arising from your use of the Service. Our total liability for any claim arising from or related to the Service shall not exceed the amount you paid us in the 12 months preceding the claim.
             </p>
           </section>
 
@@ -165,7 +165,7 @@ export default function TermsOfService() {
       <footer className="border-t border-gray-200 bg-gray-50">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
           <div className="text-sm text-gray-500">
-            &copy; {new Date().getFullYear()} CompeteWatch. All rights reserved.
+            &copy; {new Date().getFullYear()} KompWatch. All rights reserved.
           </div>
           <div className="flex gap-6">
             <Link href="/privacy" className="text-sm text-gray-500 hover:text-gray-700">

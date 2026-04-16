@@ -6,8 +6,8 @@ const siteUrl = "https://kompwatch.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "CompeteWatch — Know When Competitors Change Anything",
-    template: "%s | CompeteWatch",
+    default: "KompWatch — Know When Competitors Change Anything",
+    template: "%s | KompWatch",
   },
   description:
     "Track competitor pricing, features, blog posts, and job listings. Get AI-analyzed weekly digests delivered to your inbox. Free plan available.",
@@ -20,19 +20,19 @@ export const metadata: Metadata = {
     "SaaS competitor tracking",
     "competitor alerts",
   ],
-  authors: [{ name: "CompeteWatch" }],
+  authors: [{ name: "KompWatch" }],
   openGraph: {
-    title: "CompeteWatch — AI Competitor Monitoring",
+    title: "KompWatch — AI Competitor Monitoring",
     description:
       "Track competitor pricing, features, blog posts, and job listings. Get AI-analyzed digests delivered to your inbox.",
     url: siteUrl,
-    siteName: "CompeteWatch",
+    siteName: "KompWatch",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "CompeteWatch — AI Competitor Monitoring",
+    title: "KompWatch — AI Competitor Monitoring",
     description:
       "Track competitor pricing, features, blog posts, and job listings. Get AI-analyzed digests delivered to your inbox.",
   },

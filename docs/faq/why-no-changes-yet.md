@@ -4,11 +4,11 @@ If you just added a competitor and your dashboard shows no changes, this is comp
 
 ## Changes Require Two Snapshots
 
-CompeteWatch detects changes by **comparing two snapshots** — a before and an after. When you first add a competitor:
+KompWatch detects changes by **comparing two snapshots** — a before and an after. When you first add a competitor:
 
-1. CompeteWatch takes an **initial snapshot** within a few minutes of you saving.
+1. KompWatch takes an **initial snapshot** within a few minutes of you saving.
 2. The **next scheduled snapshot** runs on your plan's cycle.
-3. After the second snapshot, CompeteWatch compares the two and surfaces any differences.
+3. After the second snapshot, KompWatch compares the two and surfaces any differences.
 
 This means you won't see your first change (if there is one) until after the second snapshot completes.
 
@@ -22,7 +22,7 @@ This means you won't see your first change (if there is one) until after the sec
 
 ## What If Nothing Changed?
 
-If your competitor's tracked pages didn't change between snapshots, **no change will appear** — and no digest will be sent. This is expected behavior. CompeteWatch only surfaces meaningful differences, not identical snapshots.
+If your competitor's tracked pages didn't change between snapshots, **no change will appear** — and no digest will be sent. This is expected behavior. KompWatch only surfaces meaningful differences, not identical snapshots.
 
 Check back after a few cycles. Most active SaaS products update their pricing or feature pages at least a few times a month.
 
@@ -36,7 +36,7 @@ If the toggle is off, click it to re-enable monitoring.
 
 ## What If a Page Can't Be Reached?
 
-Some pages may temporarily fail to load (rate limiting, server errors, etc.). CompeteWatch will retry on the next scheduled cycle. Persistent failures — such as a competitor blocking scrapers — will be noted in the competitor's status. If you believe monitoring has stalled, email [support@kompwatch.com](mailto:support@kompwatch.com).
+Some pages may temporarily fail to load (rate limiting, server errors, etc.). KompWatch will retry on the next scheduled cycle. Persistent failures — such as a competitor blocking scrapers — will be noted in the competitor's status. If you believe monitoring has stalled, email [support@kompwatch.com](mailto:support@kompwatch.com).
 
 ## Tips for Faster Signal
 

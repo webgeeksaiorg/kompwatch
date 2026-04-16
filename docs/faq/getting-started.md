@@ -1,4 +1,4 @@
-# Getting Started with CompeteWatch
+# Getting Started with KompWatch
 
 Welcome! This guide walks you through setup so you're tracking competitors and receiving change alerts within minutes.
 
@@ -24,7 +24,7 @@ To add your own competitor:
    - **CSS Selector** *(optional)* — target a specific section like `.pricing-table`. Leave blank to monitor the full page.
 3. Click **Save**
 
-CompeteWatch immediately takes an initial snapshot. See [How to Add a Competitor](adding-competitors.md) for tips on choosing good URLs and selectors.
+KompWatch immediately takes an initial snapshot. See [How to Add a Competitor](adding-competitors.md) for tips on choosing good URLs and selectors.
 
 ## Step 3: Wait for the First Comparison
 
@@ -40,7 +40,7 @@ This is expected — see [Why Don't I See Any Changes Yet?](why-no-changes-yet.m
 
 ## Step 4: Receive Your Digest
 
-When changes are detected, CompeteWatch emails you a digest summarizing what changed, the severity, and an AI-generated explanation. Digest frequency depends on your plan:
+When changes are detected, KompWatch emails you a digest summarizing what changed, the severity, and an AI-generated explanation. Digest frequency depends on your plan:
 
 | Plan | Digest |
 |------|--------|
@@ -50,9 +50,9 @@ When changes are detected, CompeteWatch emails you a digest summarizing what cha
 
 If a digest doesn't arrive, see [My Digest Email Didn't Arrive](digest-not-arriving.md).
 
-## What CompeteWatch Monitors
+## What KompWatch Monitors
 
-By default, CompeteWatch crawls several pages per competitor automatically — pricing, features, blog, jobs, and tech stack. See [What Does CompeteWatch Actually Monitor?](what-does-kompwatch-track.md) for the full breakdown.
+By default, KompWatch crawls several pages per competitor automatically — pricing, features, blog, jobs, and tech stack. See [What Does KompWatch Actually Monitor?](what-does-kompwatch-track.md) for the full breakdown.
 
 ## Tips for Best Results
 

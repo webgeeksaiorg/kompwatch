@@ -1,19 +1,19 @@
-# What Does CompeteWatch Actually Monitor?
+# What Does KompWatch Actually Monitor?
 
-CompeteWatch doesn't just watch one page — it automatically discovers and monitors multiple sections of each competitor's website.
+KompWatch doesn't just watch one page — it automatically discovers and monitors multiple sections of each competitor's website.
 
 ## Pages Tracked Automatically
 
-When you add a competitor URL (e.g. `https://acme.com`), CompeteWatch crawls several pages on every snapshot cycle:
+When you add a competitor URL (e.g. `https://acme.com`), KompWatch crawls several pages on every snapshot cycle:
 
-| Page | What CompeteWatch looks for |
+| Page | What KompWatch looks for |
 |------|----------------------------|
 | **Main / Features page** | Product capabilities, positioning, headline copy changes |
 | **Pricing page** | Price changes, new/removed plans, trial offers (tries `/pricing`, `/plans`, `/#pricing`) |
 | **Blog** | New posts that may signal product launches or strategy shifts (tries `/blog`, `/articles`, `/news`) |
 | **Careers / Jobs** | Hiring signals — new roles often predict roadmap moves (tries `/careers`, `/jobs`, `/about#careers`) |
 
-CompeteWatch tries common URL patterns for each section. If a competitor uses a non-standard URL (e.g. `/cost` instead of `/pricing`), use a **CSS selector** on the main page to target that section instead. See [CSS Selectors FAQ](css-selectors.md).
+KompWatch tries common URL patterns for each section. If a competitor uses a non-standard URL (e.g. `/cost` instead of `/pricing`), use a **CSS selector** on the main page to target that section instead. See [CSS Selectors FAQ](css-selectors.md).
 
 ## Change Types
 
@@ -41,11 +41,11 @@ Every detected change is classified into one of these types:
 
 ## Tech Stack Detection
 
-CompeteWatch detects tools your competitor uses by inspecting their page's scripts and meta tags. Supported signals include: React, Vue, Angular, jQuery, Stripe, Segment, Intercom, HubSpot, and generator tags (e.g. WordPress, Webflow).
+KompWatch detects tools your competitor uses by inspecting their page's scripts and meta tags. Supported signals include: React, Vue, Angular, jQuery, Stripe, Segment, Intercom, HubSpot, and generator tags (e.g. WordPress, Webflow).
 
 A tech stack change (e.g. competitor adds Intercom → likely scaling support; adds Stripe → launching paid tier) can be an early signal worth tracking.
 
-## What CompeteWatch Does NOT Track
+## What KompWatch Does NOT Track
 
 - Pages behind login or paywalls
 - Content that requires JavaScript interaction (e.g. clicking through a modal)

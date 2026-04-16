@@ -7,7 +7,7 @@
 
 ## AI Disclosure (MANDATORY)
 Every auto-response MUST start with:
-> "Hi, this is CompeteWatch's support assistant. I can answer most questions instantly. If I can't help, a team member will follow up within 24h."
+> "Hi, this is KompWatch's support assistant. I can answer most questions instantly. If I can't help, a team member will follow up within 24h."
 
 This is legally required (EU AI Act, California SB 1001).
 

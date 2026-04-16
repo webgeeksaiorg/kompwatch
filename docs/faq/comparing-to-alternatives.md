@@ -1,10 +1,10 @@
-# How CompeteWatch Compares to Klue, Crayon, and Kompyte
+# How KompWatch Compares to Klue, Crayon, and Kompyte
 
-CompeteWatch is built for teams that want powerful competitor monitoring without enterprise pricing or a sales process. Here's how it stacks up against the major alternatives.
+KompWatch is built for teams that want powerful competitor monitoring without enterprise pricing or a sales process. Here's how it stacks up against the major alternatives.
 
 ## Feature Comparison
 
-| Feature | CompeteWatch | Klue | Crayon | Kompyte |
+| Feature | KompWatch | Klue | Crayon | Kompyte |
 |---|---|---|---|---|
 | Starting price | Free / $49/mo | ~$6K/yr | ~$12K/yr | ~$8K/yr |
 | Self-serve signup | ✓ | ✗ | ✗ | ✗ |
@@ -18,20 +18,20 @@ CompeteWatch is built for teams that want powerful competitor monitoring without
 | Battlecards | Roadmap | ✓ | ✓ | ✓ |
 | No sales call required | ✓ | ✗ | ✗ | ✗ |
 
-*Competitor pricing is approximate and subject to change. See [kompwatch.com/pricing](https://kompwatch.com/pricing) for current CompeteWatch prices.*
+*Competitor pricing is approximate and subject to change. See [kompwatch.com/pricing](https://kompwatch.com/pricing) for current KompWatch prices.*
 
 ## Key Differences
 
-**CompeteWatch vs Klue**
-Klue is an enterprise intel platform starting around $6K/year, requiring a sales call and annual contract. CompeteWatch starts free with a $49/mo Pro plan and self-serve signup — no sales call, no contract, cancel anytime.
+**KompWatch vs Klue**
+Klue is an enterprise intel platform starting around $6K/year, requiring a sales call and annual contract. KompWatch starts free with a $49/mo Pro plan and self-serve signup — no sales call, no contract, cancel anytime.
 
-**CompeteWatch vs Crayon**
-Crayon is the largest competitor intelligence platform (~$12K/yr), with deep battlecard and CI workflow features. If your team needs battlecard generation today, Crayon is more mature. If you want automated monitoring at a fraction of the cost, CompeteWatch delivers core tracking for far less.
+**KompWatch vs Crayon**
+Crayon is the largest competitor intelligence platform (~$12K/yr), with deep battlecard and CI workflow features. If your team needs battlecard generation today, Crayon is more mature. If you want automated monitoring at a fraction of the cost, KompWatch delivers core tracking for far less.
 
-**CompeteWatch vs Kompyte**
-Kompyte (~$8K/yr) is a mid-market platform that lacks AI summaries and job tracking. CompeteWatch includes both, at a significantly lower price point with monthly billing.
+**KompWatch vs Kompyte**
+Kompyte (~$8K/yr) is a mid-market platform that lacks AI summaries and job tracking. KompWatch includes both, at a significantly lower price point with monthly billing.
 
-## When CompeteWatch Is the Right Fit
+## When KompWatch Is the Right Fit
 
 - You're a **startup or growth-stage team** that can't justify $6–12K/year on a single tool
 - You want to **start immediately** — no sales demo, no contract negotiation
@@ -46,7 +46,7 @@ Kompyte (~$8K/yr) is a mid-market platform that lacks AI summaries and job track
 
 ## Can I Switch From Klue or Crayon?
 
-Yes. CompeteWatch doesn't import data from other tools, but setup takes minutes — add your competitors' URLs and you're monitoring within the hour. Most teams are fully transitioned in under a day.
+Yes. KompWatch doesn't import data from other tools, but setup takes minutes — add your competitors' URLs and you're monitoring within the hour. Most teams are fully transitioned in under a day.
 
 ---
 *Questions? Email [support@kompwatch.com](mailto:support@kompwatch.com) and we'll respond within 24 hours.*

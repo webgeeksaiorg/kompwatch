@@ -57,7 +57,7 @@ function emailWrapper(content: string): string {
       ${content}
       <hr style="border:none;border-top:1px solid #eee;margin:28px 0 16px;"/>
       <p style="margin:0;color:#999;font-size:12px;">
-        CompeteWatch &mdash; AI-powered competitor monitoring.
+        KompWatch &mdash; AI-powered competitor monitoring.
         <a href="${BASE_URL}/settings" style="color:#666;">Manage preferences</a>
       </p>
     </div>
@@ -75,11 +75,11 @@ export function buildWelcomeEmail(
 ): OnboardingEmail {
   const greeting = user.name ? `Hi ${user.name}` : "Welcome";
   return {
-    subject: "Welcome to CompeteWatch — let's set up your first monitor",
+    subject: "Welcome to KompWatch — let's set up your first monitor",
     html: emailWrapper(`
-      <h1 style="margin:0 0 8px;font-size:22px;color:#111;">${greeting}, welcome to CompeteWatch!</h1>
+      <h1 style="margin:0 0 8px;font-size:22px;color:#111;">${greeting}, welcome to KompWatch!</h1>
       <p style="color:#444;font-size:15px;line-height:1.6;">
-        You're all set. CompeteWatch monitors your competitors' websites and sends you
+        You're all set. KompWatch monitors your competitors' websites and sends you
         AI-powered summaries when things change &mdash; pricing updates, new features,
         blog posts, job listings, and more.
       </p>
@@ -97,9 +97,9 @@ export function buildWelcomeEmail(
         <a href="${BASE_URL}/settings" style="color:#2563eb;">Upgrade anytime</a> for more.
       </p>
     `),
-    text: `${greeting}, welcome to CompeteWatch!
+    text: `${greeting}, welcome to KompWatch!
 
-You're all set. CompeteWatch monitors your competitors' websites and sends you AI-powered summaries when things change.
+You're all set. KompWatch monitors your competitors' websites and sends you AI-powered summaries when things change.
 
 Get started in 60 seconds:
 1. Add a competitor URL (e.g. your closest rival's website)
@@ -118,11 +118,11 @@ export function buildValueEmail(
 ): OnboardingEmail {
   const greeting = user.name ? `Hi ${user.name}` : "Hi there";
   return {
-    subject: "3 ways CompeteWatch saves you hours every week",
+    subject: "3 ways KompWatch saves you hours every week",
     html: emailWrapper(`
       <h1 style="margin:0 0 8px;font-size:22px;color:#111;">${greeting}, here's what you might be missing</h1>
       <p style="color:#444;font-size:15px;line-height:1.6;">
-        CompeteWatch customers tell us they save 3&ndash;5 hours per week by automating
+        KompWatch customers tell us they save 3&ndash;5 hours per week by automating
         competitor research. Here's how to get the most out of it:
       </p>
 
@@ -156,7 +156,7 @@ export function buildValueEmail(
     `),
     text: `${greeting}, here's what you might be missing
 
-CompeteWatch customers tell us they save 3-5 hours per week by automating competitor research. Here's how to get the most out of it:
+KompWatch customers tell us they save 3-5 hours per week by automating competitor research. Here's how to get the most out of it:
 
 1. Track pricing pages — Be the first to know when a competitor changes prices. Pricing changes are flagged as high-severity.
 
@@ -178,7 +178,7 @@ export function buildTrialReminderEmail(
     html: emailWrapper(`
       <h1 style="margin:0 0 8px;font-size:22px;color:#111;">${greeting}, ready for more?</h1>
       <p style="color:#444;font-size:15px;line-height:1.6;">
-        You've been using CompeteWatch for a few days now. Your free plan covers
+        You've been using KompWatch for a few days now. Your free plan covers
         2 competitors with weekly digests &mdash; great for getting started.
       </p>
       <p style="color:#444;font-size:15px;line-height:1.6;">
@@ -200,7 +200,7 @@ export function buildTrialReminderEmail(
     `),
     text: `${greeting}, ready for more?
 
-You've been using CompeteWatch for a few days now. Your free plan covers 2 competitors with weekly digests.
+You've been using KompWatch for a few days now. Your free plan covers 2 competitors with weekly digests.
 
 When you're ready to level up, Pro ($49/mo) gives you:
 - 10 competitors — cover your full competitive landscape

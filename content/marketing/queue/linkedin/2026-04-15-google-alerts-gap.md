@@ -29,7 +29,7 @@ The way I've seen teams implement this:
 
 The last step is what makes it usable. Raw HTML diffs are garbage. Plain-English summaries are actionable.
 
-We built this into CompeteWatch because I needed it and couldn't justify a $28K Crayon contract. $49/month, does one thing well.
+We built this into KompWatch because I needed it and couldn't justify a $28K Crayon contract. $49/month, does one thing well.
 
 But honestly — if you're technical, you can build the core in a weekend. The insight is more important than the tool.
 

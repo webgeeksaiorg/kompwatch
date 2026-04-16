@@ -134,7 +134,7 @@ export default function Home() {
       <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-sm">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <Link href="/" className="text-lg font-bold text-gray-900">
-            Compete<span className="text-brand-600">Watch</span>
+            Komp<span className="text-brand-600">Watch</span>
           </Link>
           <div className="flex items-center gap-6">
             <Link href="#features" className="text-sm text-gray-600 hover:text-gray-900">
@@ -334,7 +334,7 @@ export default function Home() {
       <footer className="border-t border-gray-200 bg-gray-50">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
           <div className="text-sm text-gray-500">
-            &copy; {new Date().getFullYear()} CompeteWatch. All rights reserved.
+            &copy; {new Date().getFullYear()} KompWatch. All rights reserved.
           </div>
           <div className="flex gap-6">
             <Link href="/privacy" className="text-sm text-gray-500 hover:text-gray-700">

@@ -1,10 +1,10 @@
 # How Competitor Monitoring Works
 
-CompeteWatch automatically checks your competitors' websites on a schedule and uses AI to summarize meaningful changes.
+KompWatch automatically checks your competitors' websites on a schedule and uses AI to summarize meaningful changes.
 
 ## The Monitoring Pipeline
 
-1. **Snapshot** — CompeteWatch visits each competitor URL using a headless browser (Playwright). It captures the full page HTML and a screenshot.
+1. **Snapshot** — KompWatch visits each competitor URL using a headless browser (Playwright). It captures the full page HTML and a screenshot.
 2. **Diff** — The new snapshot is compared to the previous one. Changes are detected in HTML content, text, and layout.
 3. **AI Analysis** — Claude AI reviews the diff and categorizes changes:
    - **Pricing** — new prices, plans, or trial offers
@@ -23,7 +23,7 @@ CompeteWatch automatically checks your competitors' websites on a schedule and u
 
 ## What Counts as a "Change"?
 
-Not every HTML difference triggers an alert. CompeteWatch filters out:
+Not every HTML difference triggers an alert. KompWatch filters out:
 - Cookie banners and popups
 - Timestamps and "last updated" text
 - Ad content
@@ -39,7 +39,7 @@ Leave the selector blank to monitor the entire page.
 
 ## Robots.txt
 
-CompeteWatch respects `robots.txt`. If a competitor disallows crawling, CompeteWatch will not scrape that page.
+KompWatch respects `robots.txt`. If a competitor disallows crawling, KompWatch will not scrape that page.
 
 ---
 *Questions? Email [support@kompwatch.com](mailto:support@kompwatch.com) and we'll respond within 24 hours.*

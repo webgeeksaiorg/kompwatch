@@ -131,4 +131,4 @@ Still monitorable — the rendered HTML will still change when pricing changes. 
 
 ---
 
-Built CompeteWatch because I needed this and couldn't justify $30K for Crayon. [Try it free](/pricing) — two competitors on the free tier, no card required. See if it tells you something you didn't know.
+Built KompWatch because I needed this and couldn't justify $30K for Crayon. [Try it free](/pricing) — two competitors on the free tier, no card required. See if it tells you something you didn't know.
