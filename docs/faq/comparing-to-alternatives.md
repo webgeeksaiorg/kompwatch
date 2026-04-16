@@ -50,6 +50,7 @@ For side-by-side breakdowns, see our dedicated comparison pages:
 
 - [KompWatch vs Crayon →](https://kompwatch.com/vs-crayon)
 - [KompWatch vs Klue →](https://kompwatch.com/vs-klue)
+- [KompWatch vs Kompyte →](https://kompwatch.com/vs-kompyte)
 
 ## Can I Switch From Klue or Crayon?
 

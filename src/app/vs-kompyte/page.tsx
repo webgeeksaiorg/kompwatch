@@ -4,33 +4,33 @@ import Link from "next/link";
 const siteUrl = "https://kompwatch.com";
 
 export const metadata: Metadata = {
-  title: "Klue Alternative — KompWatch vs Klue (Honest Comparison)",
+  title: "Kompyte Alternative — KompWatch vs Kompyte (Honest Comparison)",
   description:
-    "Looking for a Klue alternative? KompWatch tracks competitor pricing, features, blogs, and job listings with AI digests — starting at $49/mo (vs Klue's $25K+/yr). Self-serve, no sales call.",
+    "Looking for a Kompyte alternative? KompWatch tracks competitor pricing, features, blogs, and job listings with AI digests — starting at $49/mo (vs Kompyte's ~$8K/yr). Self-serve, no sales call.",
   keywords: [
-    "Klue alternative",
-    "Klue vs KompWatch",
-    "Klue competitor",
-    "Klue pricing",
+    "Kompyte alternative",
+    "Kompyte vs KompWatch",
+    "Kompyte competitor",
+    "Kompyte pricing",
     "competitive intelligence software",
     "competitor monitoring tool",
-    "Klue competitive intelligence alternative",
+    "Kompyte competitive intelligence alternative",
   ],
   alternates: {
-    canonical: `${siteUrl}/vs-klue`,
+    canonical: `${siteUrl}/vs-kompyte`,
   },
   openGraph: {
-    title: "KompWatch vs Klue — Same Insights, ~40× Less",
+    title: "KompWatch vs Kompyte — AI Summaries + Job Tracking, ~13× Less",
     description:
-      "Honest side-by-side: KompWatch ($49/mo, self-serve) vs Klue ($25K+/yr, sales-call gated). See feature, pricing, and onboarding comparison.",
-    url: `${siteUrl}/vs-klue`,
+      "Honest side-by-side: KompWatch ($49/mo, self-serve, AI summaries) vs Kompyte (~$8K/yr, sales-call gated, no AI). See feature, pricing, and onboarding comparison.",
+    url: `${siteUrl}/vs-kompyte`,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "KompWatch vs Klue — Honest Comparison",
+    title: "KompWatch vs Kompyte — Honest Comparison",
     description:
-      "Klue starts at ~$25K/yr and requires a sales call. KompWatch starts at $49/mo with self-serve signup. See the full feature comparison.",
+      "Kompyte starts at ~$8K/yr and lacks AI summaries + job tracking. KompWatch starts at $49/mo with both included. See the full feature comparison.",
   },
 };
 
@@ -39,23 +39,24 @@ type CellValue = true | false | string;
 const comparisonRows: {
   feature: string;
   kompwatch: CellValue;
-  klue: CellValue;
+  kompyte: CellValue;
 }[] = [
-  { feature: "Starting price", kompwatch: "Free / $49/mo", klue: "~$25K/yr" },
-  { feature: "Annual cost (small team)", kompwatch: "$588/yr", klue: "$25,000+/yr" },
-  { feature: "Self-serve signup", kompwatch: true, klue: false },
-  { feature: "No sales call required", kompwatch: true, klue: false },
-  { feature: "Free plan", kompwatch: true, klue: false },
-  { feature: "Pricing page tracking", kompwatch: true, klue: true },
-  { feature: "Feature & product page tracking", kompwatch: true, klue: true },
-  { feature: "Blog & content monitoring", kompwatch: true, klue: true },
-  { feature: "Job listing tracking", kompwatch: true, klue: false },
-  { feature: "AI change summaries", kompwatch: true, klue: true },
-  { feature: "Email digests", kompwatch: true, klue: true },
-  { feature: "Slack / webhook alerts", kompwatch: true, klue: true },
-  { feature: "Tech stack detection", kompwatch: "Pro+", klue: true },
-  { feature: "Battlecards", kompwatch: "Roadmap", klue: true },
-  { feature: "Time-to-first-insight", kompwatch: "Under 2 minutes", klue: "Weeks (sales + onboarding)" },
+  { feature: "Starting price", kompwatch: "Free / $49/mo", kompyte: "~$8K/yr" },
+  { feature: "Annual cost (small team)", kompwatch: "$588/yr", kompyte: "$8,000+/yr" },
+  { feature: "Self-serve signup", kompwatch: true, kompyte: false },
+  { feature: "No sales call required", kompwatch: true, kompyte: false },
+  { feature: "Free plan", kompwatch: true, kompyte: false },
+  { feature: "Monthly billing", kompwatch: true, kompyte: false },
+  { feature: "Pricing page tracking", kompwatch: true, kompyte: true },
+  { feature: "Feature & product page tracking", kompwatch: true, kompyte: true },
+  { feature: "Blog & content monitoring", kompwatch: true, kompyte: true },
+  { feature: "Job listing tracking", kompwatch: true, kompyte: false },
+  { feature: "AI change summaries", kompwatch: true, kompyte: false },
+  { feature: "Email digests", kompwatch: true, kompyte: true },
+  { feature: "Slack / webhook alerts", kompwatch: true, kompyte: true },
+  { feature: "Tech stack detection", kompwatch: "Pro+", kompyte: false },
+  { feature: "Battlecards", kompwatch: "Roadmap", kompyte: true },
+  { feature: "Time-to-first-insight", kompwatch: "Under 2 minutes", kompyte: "Days (sales + onboarding)" },
 ];
 
 function ComparisonCell({ value, highlight }: { value: CellValue; highlight?: boolean }) {
@@ -84,7 +85,7 @@ function ComparisonCell({ value, highlight }: { value: CellValue; highlight?: bo
   );
 }
 
-export default function VsKluePage() {
+export default function VsKompytePage() {
   return (
     <div className="bg-white">
       {/* Nav */}
@@ -113,17 +114,17 @@ export default function VsKluePage() {
       {/* Hero */}
       <section className="mx-auto max-w-4xl px-6 pb-16 pt-20 text-center">
         <div className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700">
-          Klue alternative
+          Kompyte alternative
         </div>
         <h1 className="mt-6 text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl">
-          KompWatch vs Klue{" "}
-          <span className="text-brand-600">— same insights, ~40× less</span>
+          KompWatch vs Kompyte{" "}
+          <span className="text-brand-600">— AI summaries + job tracking, ~13× less</span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
-          Klue is a polished battlecard-and-intel platform — built for enterprise CI teams with
-          ~$25K/yr budgets and quarterly procurement cycles. KompWatch tracks the same competitor
-          signals (pricing, features, blogs, jobs) starting at{" "}
-          <strong className="text-gray-900">$49/mo</strong>, with self-serve signup in under 2 minutes.
+          Kompyte (acquired by Semrush) is a mid-market CI platform — solid pricing and content
+          tracking, but no AI change summaries and no job listing monitoring. KompWatch tracks the
+          same signals plus jobs and AI digests, starting at{" "}
+          <strong className="text-gray-900">$49/mo</strong>, self-serve in under 2 minutes.
         </p>
         <div className="mt-10 flex items-center justify-center gap-4">
           <Link
@@ -173,23 +174,24 @@ export default function VsKluePage() {
             </div>
             <div className="rounded-xl border border-gray-200 bg-white p-6">
               <div className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-                Klue (entry tier)
+                Kompyte (entry tier)
               </div>
               <div className="mt-2 text-4xl font-bold text-gray-900">
-                ~$25K<span className="text-lg font-normal text-gray-500">/yr</span>
+                ~$8K<span className="text-lg font-normal text-gray-500">/yr</span>
               </div>
-              <div className="mt-1 text-sm text-gray-500">Higher for full team / battlecard tiers</div>
+              <div className="mt-1 text-sm text-gray-500">Quote-based; higher for larger seats</div>
               <ul className="mt-6 space-y-2 text-sm text-gray-700">
                 <li>· Quote-only pricing</li>
                 <li>· Sales call required</li>
                 <li>· Annual contract</li>
-                <li>· Multi-week onboarding</li>
+                <li>· No AI change summaries</li>
               </ul>
             </div>
           </div>
           <p className="mt-6 text-center text-xs text-gray-500">
-            That&rsquo;s a <strong className="text-gray-900">~40&times; price difference</strong>{" "}
-            for the same core competitive intelligence — without the sales process.
+            That&rsquo;s a <strong className="text-gray-900">~13&times; price difference</strong>{" "}
+            for the same core competitive intelligence — plus AI summaries and job tracking that
+            Kompyte doesn&rsquo;t include.
           </p>
         </div>
       </section>
@@ -199,10 +201,10 @@ export default function VsKluePage() {
         <div className="mx-auto max-w-5xl px-6">
           <div className="text-center">
             <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-              Feature-by-feature: KompWatch vs Klue
+              Feature-by-feature: KompWatch vs Kompyte
             </h2>
             <p className="mt-2 text-sm text-gray-600">
-              Honest comparison. Where Klue wins, we say so.
+              Honest comparison. Where Kompyte wins, we say so.
             </p>
           </div>
 
@@ -212,7 +214,7 @@ export default function VsKluePage() {
                 <tr className="border-b border-gray-200">
                   <th className="py-3 pr-4 font-medium text-gray-500">Feature</th>
                   <th className="px-4 py-3 font-semibold text-brand-600">KompWatch</th>
-                  <th className="px-4 py-3 font-medium text-gray-500">Klue</th>
+                  <th className="px-4 py-3 font-medium text-gray-500">Kompyte</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
@@ -223,7 +225,7 @@ export default function VsKluePage() {
                       <ComparisonCell value={row.kompwatch} highlight />
                     </td>
                     <td className="px-4 py-3">
-                      <ComparisonCell value={row.klue} />
+                      <ComparisonCell value={row.kompyte} />
                     </td>
                   </tr>
                 ))}
@@ -232,7 +234,7 @@ export default function VsKluePage() {
           </div>
 
           <p className="mt-4 text-center text-xs text-gray-400">
-            Comparison based on publicly available information as of April 2026. Klue pricing
+            Comparison based on publicly available information as of April 2026. Kompyte pricing
             requires a sales call; estimates from vendr.com and review sites.
           </p>
         </div>
@@ -251,22 +253,22 @@ export default function VsKluePage() {
               </h3>
               <ul className="mt-4 space-y-3 text-sm text-gray-700">
                 <li>· A founder, PM, or marketer who needs intel <em>this week</em>, not next quarter</li>
-                <li>· A 1–50 person team without budget for $25K+ enterprise contracts</li>
+                <li>· A 1–50 person team without budget for $8K+ annual contracts</li>
                 <li>· Tracking under 50 competitors and want pricing/feature/blog/job alerts</li>
                 <li>· Allergic to sales calls and want to swipe a card and start in 2 minutes</li>
-                <li>· Comfortable with email digests + Slack alerts (no battlecard portal needed)</li>
+                <li>· Wanting AI-generated plain-English summaries (not raw diffs)</li>
               </ul>
             </div>
             <div className="rounded-xl border border-gray-200 bg-white p-6">
               <h3 className="text-base font-semibold text-gray-900">
-                Pick Klue if you&rsquo;re&hellip;
+                Pick Kompyte if you&rsquo;re&hellip;
               </h3>
               <ul className="mt-4 space-y-3 text-sm text-gray-700">
-                <li>· An enterprise sales org needing battlecards consumed inside Salesforce/Highspot</li>
-                <li>· Running a dedicated CI program with analysts curating intel for 50+ reps</li>
-                <li>· Buying for &ldquo;Win/Loss&rdquo; programs and consultant-led quarterly reviews</li>
-                <li>· Tracking 100+ competitors with deep custom workflows and SSO/SOC2 needs</li>
-                <li>· Comfortable with annual contracts and multi-week onboarding</li>
+                <li>· Already a Semrush customer and want native CI inside the same suite</li>
+                <li>· Running a battlecards-first program for sales rep enablement</li>
+                <li>· Comfortable with annual contracts and a multi-day onboarding cycle</li>
+                <li>· OK without AI change summaries (manual review is fine for your team)</li>
+                <li>· Not tracking competitor hiring as part of your CI signal mix</li>
               </ul>
             </div>
           </div>
@@ -292,7 +294,7 @@ export default function VsKluePage() {
             </Link>
           </div>
           <p className="mt-4 text-xs text-gray-400">
-            Already on Klue?{" "}
+            Already on Kompyte?{" "}
             <Link href="/login" className="underline hover:text-gray-700">
               Run both for a month
             </Link>{" "}
@@ -320,8 +322,8 @@ export default function VsKluePage() {
             <Link href="/vs-crayon" className="text-sm text-gray-500 hover:text-gray-700">
               vs Crayon
             </Link>
-            <Link href="/vs-kompyte" className="text-sm text-gray-500 hover:text-gray-700">
-              vs Kompyte
+            <Link href="/vs-klue" className="text-sm text-gray-500 hover:text-gray-700">
+              vs Klue
             </Link>
             <Link href="/login" className="text-sm text-gray-500 hover:text-gray-700">
               Sign in
