@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: ready
 keywords: [Crayon alternative, competitive intelligence for small teams, CI tools without CI team]
 ---
 Crayon and Klue are built for companies with a dedicated competitive intelligence function.

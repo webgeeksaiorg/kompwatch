@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: ready
 keywords: [Klue acquisition Ignition, competitive intelligence tools 2026, Klue alternative]
 ---
 Klue acquired Ignition in September 2025.
