@@ -306,7 +306,7 @@ export default function VsCrayonPage() {
           <div className="text-sm text-gray-500">
             &copy; {new Date().getFullYear()} KompWatch. All rights reserved.
           </div>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap gap-6">
             <Link href="/privacy" className="text-sm text-gray-500 hover:text-gray-700">
               Privacy
             </Link>
@@ -318,6 +318,9 @@ export default function VsCrayonPage() {
             </Link>
             <Link href="/vs-klue" className="text-sm text-gray-500 hover:text-gray-700">
               vs Klue
+            </Link>
+            <Link href="/vs-kompyte" className="text-sm text-gray-500 hover:text-gray-700">
+              vs Kompyte
             </Link>
             <Link href="/login" className="text-sm text-gray-500 hover:text-gray-700">
               Sign in

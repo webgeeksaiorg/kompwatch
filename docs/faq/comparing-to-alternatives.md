@@ -44,6 +44,14 @@ Kompyte (~$8K/yr) is a mid-market platform that lacks AI summaries and job track
 - You have a dedicated competitive intelligence team that needs **advanced analytics** and **win/loss integrations**
 - Procurement requires an annual contract with SLA commitments
 
+## Detailed Comparisons
+
+For side-by-side breakdowns, see our dedicated comparison pages:
+
+- [KompWatch vs Crayon →](https://kompwatch.com/vs-crayon)
+- [KompWatch vs Klue →](https://kompwatch.com/vs-klue)
+- [KompWatch vs Kompyte →](https://kompwatch.com/vs-kompyte)
+
 ## Can I Switch From Klue or Crayon?
 
 Yes. KompWatch doesn't import data from other tools, but setup takes minutes — add your competitors' URLs and you're monitoring within the hour. Most teams are fully transitioned in under a day.
