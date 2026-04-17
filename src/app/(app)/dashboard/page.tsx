@@ -1,7 +1,15 @@
+import { Severity } from "@prisma/client";
 import { requireAuth } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { PLANS } from "@/lib/stripe";
 import { OnboardingChecklist } from "./onboarding-checklist";
+
+const SEVERITY_ORDER: Severity[] = ["LOW", "MEDIUM", "HIGH", "CRITICAL"];
+
+function severitiesAtOrAbove(min: Severity): Severity[] {
+  const minIndex = SEVERITY_ORDER.indexOf(min);
+  return SEVERITY_ORDER.slice(minIndex === -1 ? 0 : minIndex);
+}
 
 const SEVERITY_COLORS: Record<string, string> = {
   LOW: "bg-gray-100 text-gray-600",
@@ -34,6 +42,8 @@ function timeAgo(date: Date): string {
 export default async function DashboardPage() {
   const user = await requireAuth();
 
+  const allowedSeverities = severitiesAtOrAbove(user.dashboardMinSeverity);
+
   const [competitors, recentChanges, totalChanges] = await Promise.all([
     db.competitor.findMany({
       where: { userId: user.id },
@@ -48,7 +58,10 @@ export default async function DashboardPage() {
       orderBy: { createdAt: "desc" },
     }),
     db.change.findMany({
-      where: { competitor: { userId: user.id } },
+      where: {
+        competitor: { userId: user.id },
+        severity: { in: allowedSeverities },
+      },
       include: { competitor: { select: { name: true, url: true } } },
       orderBy: { createdAt: "desc" },
       take: 20,

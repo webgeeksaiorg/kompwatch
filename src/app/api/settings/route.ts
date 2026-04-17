@@ -7,6 +7,7 @@ const updateSchema = z.object({
   name: z.string().min(1).max(100).optional(),
   digestEnabled: z.boolean().optional(),
   digestMinSeverity: z.enum(["LOW", "MEDIUM", "HIGH", "CRITICAL"]).optional(),
+  dashboardMinSeverity: z.enum(["LOW", "MEDIUM", "HIGH", "CRITICAL"]).optional(),
   webhookUrl: z.string().url().startsWith("https://").max(500).nullable().optional(),
   webhookEnabled: z.boolean().optional(),
 });
@@ -30,6 +31,7 @@ export async function PATCH(req: NextRequest) {
     name: updated.name,
     digestEnabled: updated.digestEnabled,
     digestMinSeverity: updated.digestMinSeverity,
+    dashboardMinSeverity: updated.dashboardMinSeverity,
     webhookUrl: updated.webhookUrl,
     webhookEnabled: updated.webhookEnabled,
   });
