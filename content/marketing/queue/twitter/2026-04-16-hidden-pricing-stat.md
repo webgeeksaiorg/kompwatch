@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: ready
 keywords: [competitor pricing monitoring, hidden pricing B2B SaaS, track competitor pricing]
 ---
 40% of B2B SaaS companies with $10M+ ARR have removed public pricing from their websites.
