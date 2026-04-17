@@ -1,6 +1,7 @@
 import { requireAuth } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { PLANS } from "@/lib/stripe";
+import { OnboardingChecklist } from "./onboarding-checklist";
 
 const SEVERITY_COLORS: Record<string, string> = {
   LOW: "bg-gray-100 text-gray-600",
@@ -68,6 +69,13 @@ export default async function DashboardPage() {
           Welcome back{user.name ? `, ${user.name}` : ""}. Here&apos;s what&apos;s happening with your competitors.
         </p>
       </div>
+
+      {/* Onboarding checklist */}
+      <OnboardingChecklist
+        hasCompetitor={competitors.length > 0}
+        hasCustomSeverity={user.digestMinSeverity !== "LOW"}
+        hasWebhook={!!user.webhookUrl}
+      />
 
       {/* Stats cards */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
