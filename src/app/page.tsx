@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HeroCTA } from "./hero-cta";
 
 const features = [
   {
@@ -174,12 +175,7 @@ export default function Home() {
           checking competitor websites.
         </p>
         <div className="mt-10 flex items-center justify-center gap-4">
-          <Link
-            href="/login"
-            className="rounded-lg bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
-          >
-            Start free — 2 competitors
-          </Link>
+          <HeroCTA />
           <Link
             href="#how-it-works"
             className="text-sm font-semibold text-gray-900 hover:text-brand-600"
