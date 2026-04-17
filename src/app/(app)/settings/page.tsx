@@ -5,6 +5,7 @@ import { ManageBillingButton } from "./manage-billing-button";
 import { ProfileForm } from "./profile-form";
 import { NotificationPrefsForm } from "./notification-prefs-form";
 import { WebhookForm } from "./webhook-form";
+import { DashboardFilterForm } from "./dashboard-filter-form";
 
 export default async function SettingsPage() {
   const user = await requireAuth();
@@ -57,6 +58,17 @@ export default async function SettingsPage() {
           initialEnabled={user.digestEnabled}
           initialMinSeverity={user.digestMinSeverity}
           digestFrequency={plan.digest}
+        />
+      </div>
+
+      {/* Dashboard Filter */}
+      <div className="mb-6 rounded-lg border border-gray-200 bg-white p-6">
+        <h2 className="text-lg font-semibold text-gray-900">Dashboard Filter</h2>
+        <p className="mt-1 mb-4 text-sm text-gray-500">
+          Control which changes appear on your dashboard. Reduce noise by filtering out low-severity updates.
+        </p>
+        <DashboardFilterForm
+          initialMinSeverity={user.dashboardMinSeverity}
         />
       </div>
 

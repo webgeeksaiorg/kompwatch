@@ -2,6 +2,18 @@
 
 The KompWatch dashboard is your central hub for tracking competitor activity. Here's how to read and use it.
 
+## Getting Started Checklist (New Accounts)
+
+When you first sign up, a **Get started with KompWatch** checklist appears at the top of your dashboard. It guides you through three setup steps:
+
+1. **Add your first competitor** — paste a URL to start monitoring
+2. **Set your alert threshold** — choose which severity of changes appear in your digest
+3. **Connect Slack or Teams** — set up a webhook for real-time alerts
+
+A progress bar tracks how many steps you've completed. The checklist disappears automatically once all three steps are done, or you can dismiss it early with the × button in the top-right corner.
+
+---
+
 ## Demo Competitor (New Accounts)
 
 If you've just signed up, your dashboard includes a pre-seeded demo competitor called **Acme Analytics**. It contains sample snapshots and changes so you can explore the interface immediately — no waiting required.
