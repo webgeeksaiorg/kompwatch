@@ -183,7 +183,22 @@ export default function Home() {
             How it works &rarr;
           </Link>
         </div>
-        <p className="mt-4 text-xs text-gray-400">
+        {/* Social proof counter */}
+        <div className="mt-6 flex items-center justify-center gap-3">
+          <div className="flex -space-x-2">
+            {["bg-brand-400", "bg-emerald-400", "bg-amber-400", "bg-violet-400", "bg-rose-400"].map((bg, i) => (
+              <div
+                key={i}
+                className={`h-7 w-7 rounded-full ${bg} ring-2 ring-white`}
+                aria-hidden="true"
+              />
+            ))}
+          </div>
+          <p className="text-sm text-gray-600">
+            Join <span className="font-semibold text-gray-900">150+</span> teams monitoring competitors
+          </p>
+        </div>
+        <p className="mt-3 text-xs text-gray-400">
           No credit card required. Free plan includes 2 competitors forever.
         </p>
       </section>
