@@ -83,6 +83,10 @@ The number of competitors you can track depends on your plan:
 
 If you've reached your limit, the **Add Competitor** button will be disabled. [Upgrade your plan →](https://kompwatch.com/pricing)
 
+## Exporting Your Data
+
+Use the **Export CSV** button on the dashboard (all changes) or on any competitor detail page (per-competitor) to download a spreadsheet of detected changes. Useful for sharing with your team or building competitive reports. See [Exporting Your Data →](exporting-your-data.md)
+
 ## Tips
 
 - **Focus on high-value pages.** Monitor `/pricing` and `/features` pages specifically rather than homepages — they change more meaningfully.

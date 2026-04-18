@@ -188,6 +188,50 @@ export default function Home() {
         </p>
       </section>
 
+      {/* How It Works — compact above-fold strip */}
+      <section className="border-t border-gray-100 bg-brand-50/50 py-12">
+        <div className="mx-auto max-w-4xl px-6">
+          <div className="flex flex-col items-center gap-8 sm:flex-row sm:gap-4">
+            {/* Step 1 */}
+            <div className="flex flex-1 flex-col items-center text-center">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-sm font-bold text-white">
+                1
+              </div>
+              <p className="mt-2 text-sm font-semibold text-gray-900">Add competitors</p>
+              <p className="mt-1 text-xs text-gray-500">Paste any URL to start tracking</p>
+            </div>
+
+            {/* Arrow */}
+            <svg className="hidden h-5 w-5 shrink-0 text-brand-300 sm:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+
+            {/* Step 2 */}
+            <div className="flex flex-1 flex-col items-center text-center">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-sm font-bold text-white">
+                2
+              </div>
+              <p className="mt-2 text-sm font-semibold text-gray-900">We monitor 24/7</p>
+              <p className="mt-1 text-xs text-gray-500">Automated crawlers detect changes</p>
+            </div>
+
+            {/* Arrow */}
+            <svg className="hidden h-5 w-5 shrink-0 text-brand-300 sm:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+
+            {/* Step 3 */}
+            <div className="flex flex-1 flex-col items-center text-center">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-sm font-bold text-white">
+                3
+              </div>
+              <p className="mt-2 text-sm font-semibold text-gray-900">Get AI digests</p>
+              <p className="mt-1 text-xs text-gray-500">Clean summaries in your inbox</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Features */}
       <section id="features" className="border-t border-gray-100 bg-gray-50 py-24">
         <div className="mx-auto max-w-6xl px-6">
