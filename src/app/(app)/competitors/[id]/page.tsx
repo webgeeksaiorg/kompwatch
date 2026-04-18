@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { requireAuth } from "@/lib/auth";
 import { db } from "@/lib/db";
+import { ExportChangesButton } from "@/components/dashboard/export-changes-button";
 
 const SEVERITY_COLORS: Record<string, string> = {
   LOW: "bg-gray-100 text-gray-600",
@@ -150,14 +151,19 @@ export default async function CompetitorDetailPage({
 
       {/* Change history */}
       <div className="mt-8">
-        <h2 className="mb-4 text-lg font-semibold text-gray-900">
-          Change history
+        <div className="mb-4 flex items-center justify-between">
+          <h2 className="text-lg font-semibold text-gray-900">
+            Change history
+            {competitor.changes.length > 0 && (
+              <span className="ml-2 text-sm font-normal text-gray-400">
+                ({competitor._count.changes} total)
+              </span>
+            )}
+          </h2>
           {competitor.changes.length > 0 && (
-            <span className="ml-2 text-sm font-normal text-gray-400">
-              ({competitor._count.changes} total)
-            </span>
+            <ExportChangesButton competitorId={competitor.id} />
           )}
-        </h2>
+        </div>
 
         {competitor.changes.length === 0 ? (
           <div className="rounded-lg border border-dashed border-gray-300 bg-white p-8 text-center">

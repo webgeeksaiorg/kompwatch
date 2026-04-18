@@ -3,6 +3,7 @@ import { requireAuth } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { PLANS } from "@/lib/stripe";
 import { OnboardingChecklist } from "./onboarding-checklist";
+import { ExportChangesButton } from "@/components/dashboard/export-changes-button";
 
 const SEVERITY_ORDER: Severity[] = ["LOW", "MEDIUM", "HIGH", "CRITICAL"];
 
@@ -206,7 +207,10 @@ export default async function DashboardPage() {
 
       {/* Changes timeline */}
       <div className="mt-8">
-        <h2 className="mb-4 text-lg font-semibold text-gray-900">Recent changes</h2>
+        <div className="mb-4 flex items-center justify-between">
+          <h2 className="text-lg font-semibold text-gray-900">Recent changes</h2>
+          {recentChanges.length > 0 && <ExportChangesButton />}
+        </div>
         {recentChanges.length === 0 ? (
           <div className="rounded-lg border border-dashed border-gray-300 bg-white p-8 text-center">
             <p className="text-sm text-gray-500">
