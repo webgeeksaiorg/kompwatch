@@ -16,9 +16,21 @@ KompWatch offers three plans. All plans include the core monitoring features —
 
 Pro and Team plans include a **7-day free trial**. No charge until the trial ends. Cancel anytime during the trial with no cost.
 
+## Annual vs Monthly Billing
+
+The pricing page shows **annual pricing by default** — this reflects the discounted rate when you commit to a year.
+
+| Plan | Monthly | Annual (per month) | Savings |
+|------|---------|-------------------|---------|
+| Pro | $49/mo | $39/mo | Save 20% |
+| Team | $149/mo | $119/mo | Save 20% |
+
+You can toggle between Annual and Monthly pricing on the [pricing page](https://kompwatch.com/pricing).
+
+> **Note:** Checkout currently processes as monthly billing. Annual billing is coming soon — if you'd like to lock in the discounted rate now, email [support@kompwatch.com](mailto:support@kompwatch.com).
+
 ## Billing
 
-- Plans are billed **monthly**.
 - Payments are processed securely by **Stripe**.
 - You can view invoices and manage billing at any time via the [Customer Portal](https://kompwatch.com/settings).
 
