@@ -201,9 +201,14 @@ export default function Home() {
             Join <span className="font-semibold text-gray-900">150+</span> teams monitoring competitors
           </p>
         </div>
-        <p className="mt-3 text-xs text-gray-400">
-          No credit card required. Free plan includes 2 competitors forever.
-        </p>
+        <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm text-gray-600 shadow-sm">
+          <svg className="h-4 w-4 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.745 3.745 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+          </svg>
+          <span>No credit card required</span>
+          <span className="text-gray-300">·</span>
+          <span>Free plan includes 2 competitors forever</span>
+        </div>
       </section>
 
       {/* How It Works — compact above-fold strip */}
