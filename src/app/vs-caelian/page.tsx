@@ -4,33 +4,33 @@ import Link from "next/link";
 const siteUrl = "https://kompwatch.com";
 
 export const metadata: Metadata = {
-  title: "Crayon Alternative — KompWatch vs Crayon (Honest Comparison)",
+  title: "Caelian Alternative — KompWatch vs Caelian (Honest Comparison)",
   description:
-    "Looking for a Crayon alternative? KompWatch tracks competitor pricing, features, blogs, and job listings with AI digests — starting at $49/mo (vs Crayon's $20K+/yr). No sales call required.",
+    "Looking for a Caelian alternative? KompWatch tracks competitor pricing, features, blogs, and job listings with AI digests — starting at $49/mo vs Caelian's $199/mo. No analyst hours required.",
   keywords: [
-    "Crayon alternative",
-    "Crayon vs KompWatch",
-    "Crayon competitor",
-    "Crayon pricing",
+    "Caelian alternative",
+    "Caelian vs KompWatch",
+    "Caelian competitor",
+    "Caelian pricing",
     "competitive intelligence software",
     "competitor monitoring tool",
-    "Crayon competitive intelligence alternative",
+    "Caelian competitive intelligence alternative",
   ],
   alternates: {
-    canonical: `${siteUrl}/vs-crayon`,
+    canonical: `${siteUrl}/vs-caelian`,
   },
   openGraph: {
-    title: "KompWatch vs Crayon — Same Insights, 80× Less",
+    title: "KompWatch vs Caelian — Automated Intel, No Analyst Hours",
     description:
-      "Honest side-by-side: KompWatch ($49/mo, self-serve) vs Crayon ($20K+/yr, sales-call gated). See feature, pricing, and onboarding comparison.",
-    url: `${siteUrl}/vs-crayon`,
+      "Honest side-by-side: KompWatch ($49/mo, fully automated) vs Caelian ($199/mo, 8–15 analyst hours/week). See feature, pricing, and workflow comparison.",
+    url: `${siteUrl}/vs-caelian`,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "KompWatch vs Crayon — Honest Comparison",
+    title: "KompWatch vs Caelian — Honest Comparison",
     description:
-      "Crayon starts at $20K+/yr and requires a sales call. KompWatch starts at $49/mo with self-serve signup. See the full feature comparison.",
+      "Caelian starts at $199/mo and needs 8–15 analyst hours/week to stay useful. KompWatch starts at $49/mo and runs on autopilot. See the full comparison.",
   },
 };
 
@@ -39,23 +39,24 @@ type CellValue = true | false | string;
 const comparisonRows: {
   feature: string;
   kompwatch: CellValue;
-  crayon: CellValue;
+  caelian: CellValue;
 }[] = [
-  { feature: "Starting price", kompwatch: "Free / $49/mo", crayon: "~$20K–$40K/yr" },
-  { feature: "Annual cost (small team)", kompwatch: "$588/yr", crayon: "$20,000+/yr" },
-  { feature: "Self-serve signup", kompwatch: true, crayon: false },
-  { feature: "No sales call required", kompwatch: true, crayon: false },
-  { feature: "Free plan", kompwatch: true, crayon: false },
-  { feature: "Pricing page tracking", kompwatch: true, crayon: true },
-  { feature: "Feature & product page tracking", kompwatch: true, crayon: true },
-  { feature: "Blog & content monitoring", kompwatch: true, crayon: true },
-  { feature: "Job listing tracking", kompwatch: true, crayon: true },
-  { feature: "AI change summaries", kompwatch: true, crayon: true },
-  { feature: "Email digests", kompwatch: true, crayon: true },
-  { feature: "Slack / webhook alerts", kompwatch: true, crayon: true },
-  { feature: "Tech stack detection", kompwatch: "Pro+", crayon: true },
-  { feature: "Battlecards", kompwatch: "Roadmap", crayon: true },
-  { feature: "Time-to-first-insight", kompwatch: "Under 2 minutes", crayon: "Weeks (sales + onboarding)" },
+  { feature: "Starting price", kompwatch: "Free / $49/mo", caelian: "$199/mo" },
+  { feature: "Annual cost (small team)", kompwatch: "$588/yr", caelian: "$2,388/yr" },
+  { feature: "Self-serve signup", kompwatch: true, caelian: true },
+  { feature: "No sales call required", kompwatch: true, caelian: true },
+  { feature: "Free plan", kompwatch: true, caelian: false },
+  { feature: "Fully automated monitoring", kompwatch: true, caelian: false },
+  { feature: "Analyst hours required", kompwatch: "0 hrs/week", caelian: "8–15 hrs/week" },
+  { feature: "Pricing page tracking", kompwatch: true, caelian: true },
+  { feature: "Feature & product page tracking", kompwatch: true, caelian: true },
+  { feature: "Blog & content monitoring", kompwatch: true, caelian: true },
+  { feature: "Job listing tracking", kompwatch: true, caelian: false },
+  { feature: "AI change summaries", kompwatch: true, caelian: "Manual curation" },
+  { feature: "Email digests", kompwatch: true, caelian: true },
+  { feature: "Slack / webhook alerts", kompwatch: true, caelian: "Slack only" },
+  { feature: "Custom analyst workflows", kompwatch: false, caelian: true },
+  { feature: "Time-to-first-insight", kompwatch: "Under 2 minutes", caelian: "1–2 weeks (analyst setup)" },
 ];
 
 function ComparisonCell({ value, highlight }: { value: CellValue; highlight?: boolean }) {
@@ -84,7 +85,7 @@ function ComparisonCell({ value, highlight }: { value: CellValue; highlight?: bo
   );
 }
 
-export default function VsCrayonPage() {
+export default function VsCaelianPage() {
   return (
     <div className="bg-white">
       {/* Nav */}
@@ -113,16 +114,17 @@ export default function VsCrayonPage() {
       {/* Hero */}
       <section className="mx-auto max-w-4xl px-6 pb-16 pt-20 text-center">
         <div className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700">
-          Crayon alternative
+          Caelian alternative
         </div>
         <h1 className="mt-6 text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl">
-          KompWatch vs Crayon{" "}
-          <span className="text-brand-600">— same insights, 80× less</span>
+          KompWatch vs Caelian{" "}
+          <span className="text-brand-600">— automated intel, no analyst hours</span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
-          Crayon is a great enterprise tool — if you can stomach $20K+/yr and a multi-week sales cycle.
-          KompWatch tracks the same competitor signals (pricing, features, blogs, jobs) starting at{" "}
-          <strong className="text-gray-900">$49/mo</strong>, with self-serve signup in under 2 minutes.
+          Caelian is a solid mid-market CI platform — but it needs 8–15 analyst hours per week or it
+          becomes &ldquo;an expensive RSS feed&rdquo; within 90 days. KompWatch runs fully automated
+          with AI-generated digests starting at{" "}
+          <strong className="text-gray-900">$49/mo</strong>, no analyst required.
         </p>
         <div className="mt-10 flex items-center justify-center gap-4">
           <Link
@@ -139,7 +141,7 @@ export default function VsCrayonPage() {
           </Link>
         </div>
         <p className="mt-4 text-xs text-gray-400">
-          No credit card. No sales call. Free plan forever.
+          No credit card. No analyst onboarding. Free plan forever.
         </p>
       </section>
 
@@ -148,10 +150,10 @@ export default function VsCrayonPage() {
         <div className="mx-auto max-w-4xl px-6">
           <div className="text-center">
             <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-              The pricing gap is real
+              Same intel, 4&times; less — and zero analyst hours
             </h2>
             <p className="mt-2 text-sm text-gray-600">
-              Public pricing data from vendr.com and G2 reviews (April 2026).
+              Public pricing data and Vendr analysis (April 2026).
             </p>
           </div>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -166,29 +168,29 @@ export default function VsCrayonPage() {
               <ul className="mt-6 space-y-2 text-sm text-gray-700">
                 <li>✓ 10 competitors tracked</li>
                 <li>✓ Daily AI digests</li>
-                <li>✓ Self-serve signup</li>
+                <li>✓ Fully automated — 0 analyst hours</li>
                 <li>✓ Cancel anytime</li>
               </ul>
             </div>
             <div className="rounded-xl border border-gray-200 bg-white p-6">
               <div className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-                Crayon (entry tier)
+                Caelian (Pro tier)
               </div>
               <div className="mt-2 text-4xl font-bold text-gray-900">
-                ~$20K<span className="text-lg font-normal text-gray-500">/yr</span>
+                $199<span className="text-lg font-normal text-gray-500">/mo</span>
               </div>
-              <div className="mt-1 text-sm text-gray-500">Up to ~$40K/yr for full team plans</div>
+              <div className="mt-1 text-sm text-gray-500">$2,388 / year</div>
               <ul className="mt-6 space-y-2 text-sm text-gray-700">
-                <li>· Quote-only pricing</li>
-                <li>· Sales call required</li>
-                <li>· Annual contract</li>
-                <li>· Multi-week onboarding</li>
+                <li>· 8–15 analyst hours/week needed</li>
+                <li>· Manual curation required</li>
+                <li>· No free plan</li>
+                <li>· Annual commitment recommended</li>
               </ul>
             </div>
           </div>
           <p className="mt-6 text-center text-xs text-gray-500">
-            That&rsquo;s a <strong className="text-gray-900">~34&times; price difference</strong>{" "}
-            for the same core competitive intelligence — without the sales process.
+            That&rsquo;s a <strong className="text-gray-900">4&times; price difference</strong>{" "}
+            plus the hidden cost of analyst time — which can exceed the subscription itself.
           </p>
         </div>
       </section>
@@ -198,10 +200,10 @@ export default function VsCrayonPage() {
         <div className="mx-auto max-w-5xl px-6">
           <div className="text-center">
             <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-              Feature-by-feature: KompWatch vs Crayon
+              Feature-by-feature: KompWatch vs Caelian
             </h2>
             <p className="mt-2 text-sm text-gray-600">
-              Honest comparison. Where Crayon wins, we say so.
+              Honest comparison. Where Caelian wins, we say so.
             </p>
           </div>
 
@@ -211,7 +213,7 @@ export default function VsCrayonPage() {
                 <tr className="border-b border-gray-200">
                   <th className="py-3 pr-4 font-medium text-gray-500">Feature</th>
                   <th className="px-4 py-3 font-semibold text-brand-600">KompWatch</th>
-                  <th className="px-4 py-3 font-medium text-gray-500">Crayon</th>
+                  <th className="px-4 py-3 font-medium text-gray-500">Caelian</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
@@ -222,7 +224,7 @@ export default function VsCrayonPage() {
                       <ComparisonCell value={row.kompwatch} highlight />
                     </td>
                     <td className="px-4 py-3">
-                      <ComparisonCell value={row.crayon} />
+                      <ComparisonCell value={row.caelian} />
                     </td>
                   </tr>
                 ))}
@@ -231,8 +233,8 @@ export default function VsCrayonPage() {
           </div>
 
           <p className="mt-4 text-center text-xs text-gray-400">
-            Comparison based on publicly available information as of April 2026. Crayon pricing
-            requires a sales call; estimates from vendr.com and review sites.
+            Comparison based on publicly available information as of April 2026. Analyst hour
+            estimates from Vendr and Caelian customer reviews.
           </p>
         </div>
       </section>
@@ -249,23 +251,23 @@ export default function VsCrayonPage() {
                 Pick KompWatch if you&rsquo;re&hellip;
               </h3>
               <ul className="mt-4 space-y-3 text-sm text-gray-700">
-                <li>· A founder, PM, or marketer who needs intel <em>this week</em>, not next quarter</li>
-                <li>· A 1–50 person team without budget for $20K+ enterprise contracts</li>
+                <li>· A lean team that wants competitive intel without hiring an analyst</li>
+                <li>· Looking for set-and-forget monitoring that runs on autopilot</li>
                 <li>· Tracking under 50 competitors and want pricing/feature/blog/job alerts</li>
-                <li>· Allergic to sales calls and want to swipe a card and start in 2 minutes</li>
-                <li>· Comfortable with email digests + Slack alerts (no battlecard portal needed)</li>
+                <li>· Not willing to spend 8–15 hours/week curating intel manually</li>
+                <li>· Happy with AI-generated summaries delivered via email or Slack</li>
               </ul>
             </div>
             <div className="rounded-xl border border-gray-200 bg-white p-6">
               <h3 className="text-base font-semibold text-gray-900">
-                Pick Crayon if you&rsquo;re&hellip;
+                Pick Caelian if you&rsquo;re&hellip;
               </h3>
               <ul className="mt-4 space-y-3 text-sm text-gray-700">
-                <li>· An enterprise with a dedicated competitive intelligence team (5+ analysts)</li>
-                <li>· Buying a battlecard CMS for sales reps to consume in real time</li>
-                <li>· Needing human-curated intel + analyst services (Crayon offers managed services)</li>
-                <li>· Already paying for Salesforce/Highspot integrations and want native plug-ins</li>
-                <li>· Tracking 100+ competitors with custom workflows and SOC 2 Type II requirements</li>
+                <li>· A mid-market team with a dedicated CI analyst who needs custom workflows</li>
+                <li>· Building curated competitive reports with manual editorial control</li>
+                <li>· Needing bespoke analyst dashboards and custom tagging taxonomies</li>
+                <li>· Comfortable investing 8–15 analyst hours/week to keep intel fresh</li>
+                <li>· Wanting deep integration with internal wikis and knowledge bases</li>
               </ul>
             </div>
           </div>
@@ -280,7 +282,7 @@ export default function VsCrayonPage() {
           </h2>
           <p className="mt-4 text-lg text-gray-600">
             Add up to 2 competitors on the free plan. Upgrade to Pro ($49/mo) when you need more.
-            No sales call. Cancel anytime.
+            No analyst required. Cancel anytime.
           </p>
           <div className="mt-8">
             <Link
@@ -291,11 +293,11 @@ export default function VsCrayonPage() {
             </Link>
           </div>
           <p className="mt-4 text-xs text-gray-400">
-            Already on Crayon?{" "}
+            Already on Caelian?{" "}
             <Link href="/login" className="underline hover:text-gray-700">
               Run both for a month
             </Link>{" "}
-            and compare digests side-by-side.
+            and compare the analyst hours you save.
           </p>
         </div>
       </section>
@@ -319,11 +321,11 @@ export default function VsCrayonPage() {
             <Link href="/vs-klue" className="text-sm text-gray-500 hover:text-gray-700">
               vs Klue
             </Link>
+            <Link href="/vs-crayon" className="text-sm text-gray-500 hover:text-gray-700">
+              vs Crayon
+            </Link>
             <Link href="/vs-kompyte" className="text-sm text-gray-500 hover:text-gray-700">
               vs Kompyte
-            </Link>
-            <Link href="/vs-caelian" className="text-sm text-gray-500 hover:text-gray-700">
-              vs Caelian
             </Link>
             <Link href="/vs-seeto" className="text-sm text-gray-500 hover:text-gray-700">
               vs Seeto

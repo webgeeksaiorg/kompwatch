@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { HeroCTA } from "./hero-cta";
+import { HeroSubheadline } from "./hero-subheadline";
 
 const features = [
   {
@@ -172,11 +173,7 @@ export default function Home() {
           Know when competitors{" "}
           <span className="text-brand-600">change anything</span>
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
-          Track competitor pricing, features, blog posts, and job listings.
-          Get AI-analyzed digests delivered to your inbox. Stop manually
-          checking competitor websites.
-        </p>
+        <HeroSubheadline />
         <div className="mt-10 flex items-center justify-center gap-4">
           <HeroCTA />
           <Link
