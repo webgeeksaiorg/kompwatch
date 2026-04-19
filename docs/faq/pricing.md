@@ -29,6 +29,12 @@ You can toggle between Annual and Monthly pricing on the [pricing page](https://
 
 > **Note:** Checkout currently processes as monthly billing. Annual billing is coming soon — if you'd like to lock in the discounted rate now, email [support@kompwatch.com](mailto:support@kompwatch.com).
 
+## Do I Need a Credit Card to Sign Up?
+
+**No.** The Free plan requires no credit card — just sign in with your email.
+
+Pro and Team plans include a **7-day free trial** with no credit card required at signup. Your card is only charged if you continue after the trial ends.
+
 ## Billing
 
 - Payments are processed securely by **Stripe**.
