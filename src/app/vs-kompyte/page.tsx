@@ -325,6 +325,12 @@ export default function VsKompytePage() {
             <Link href="/vs-klue" className="text-sm text-gray-500 hover:text-gray-700">
               vs Klue
             </Link>
+            <Link href="/vs-caelian" className="text-sm text-gray-500 hover:text-gray-700">
+              vs Caelian
+            </Link>
+            <Link href="/vs-seeto" className="text-sm text-gray-500 hover:text-gray-700">
+              vs Seeto
+            </Link>
             <Link href="/login" className="text-sm text-gray-500 hover:text-gray-700">
               Sign in
             </Link>

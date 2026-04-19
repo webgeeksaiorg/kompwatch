@@ -4,33 +4,33 @@ import Link from "next/link";
 const siteUrl = "https://kompwatch.com";
 
 export const metadata: Metadata = {
-  title: "Crayon Alternative — KompWatch vs Crayon (Honest Comparison)",
+  title: "Seeto Alternative — KompWatch vs Seeto (Honest Comparison)",
   description:
-    "Looking for a Crayon alternative? KompWatch tracks competitor pricing, features, blogs, and job listings with AI digests — starting at $49/mo (vs Crayon's $20K+/yr). No sales call required.",
+    "Looking for a Seeto alternative? KompWatch offers deeper AI-powered competitor monitoring with pricing, feature, blog, and job tracking — starting at $49/mo vs Seeto's $99/mo. More signals, lower price.",
   keywords: [
-    "Crayon alternative",
-    "Crayon vs KompWatch",
-    "Crayon competitor",
-    "Crayon pricing",
+    "Seeto alternative",
+    "Seeto vs KompWatch",
+    "Seeto competitor",
+    "Seeto pricing",
     "competitive intelligence software",
     "competitor monitoring tool",
-    "Crayon competitive intelligence alternative",
+    "Seeto competitive intelligence alternative",
   ],
   alternates: {
-    canonical: `${siteUrl}/vs-crayon`,
+    canonical: `${siteUrl}/vs-seeto`,
   },
   openGraph: {
-    title: "KompWatch vs Crayon — Same Insights, 80× Less",
+    title: "KompWatch vs Seeto — More Signals, Half the Price",
     description:
-      "Honest side-by-side: KompWatch ($49/mo, self-serve) vs Crayon ($20K+/yr, sales-call gated). See feature, pricing, and onboarding comparison.",
-    url: `${siteUrl}/vs-crayon`,
+      "Honest side-by-side: KompWatch ($49/mo, full CI suite) vs Seeto ($99/mo, screenshot-focused). See feature, pricing, and coverage comparison.",
+    url: `${siteUrl}/vs-seeto`,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "KompWatch vs Crayon — Honest Comparison",
+    title: "KompWatch vs Seeto — Honest Comparison",
     description:
-      "Crayon starts at $20K+/yr and requires a sales call. KompWatch starts at $49/mo with self-serve signup. See the full feature comparison.",
+      "Seeto focuses on visual website monitoring at $99/mo. KompWatch tracks pricing, features, blogs, and jobs with AI digests at $49/mo. Full comparison inside.",
   },
 };
 
@@ -39,23 +39,24 @@ type CellValue = true | false | string;
 const comparisonRows: {
   feature: string;
   kompwatch: CellValue;
-  crayon: CellValue;
+  seeto: CellValue;
 }[] = [
-  { feature: "Starting price", kompwatch: "Free / $49/mo", crayon: "~$20K–$40K/yr" },
-  { feature: "Annual cost (small team)", kompwatch: "$588/yr", crayon: "$20,000+/yr" },
-  { feature: "Self-serve signup", kompwatch: true, crayon: false },
-  { feature: "No sales call required", kompwatch: true, crayon: false },
-  { feature: "Free plan", kompwatch: true, crayon: false },
-  { feature: "Pricing page tracking", kompwatch: true, crayon: true },
-  { feature: "Feature & product page tracking", kompwatch: true, crayon: true },
-  { feature: "Blog & content monitoring", kompwatch: true, crayon: true },
-  { feature: "Job listing tracking", kompwatch: true, crayon: true },
-  { feature: "AI change summaries", kompwatch: true, crayon: true },
-  { feature: "Email digests", kompwatch: true, crayon: true },
-  { feature: "Slack / webhook alerts", kompwatch: true, crayon: true },
-  { feature: "Tech stack detection", kompwatch: "Pro+", crayon: true },
-  { feature: "Battlecards", kompwatch: "Roadmap", crayon: true },
-  { feature: "Time-to-first-insight", kompwatch: "Under 2 minutes", crayon: "Weeks (sales + onboarding)" },
+  { feature: "Starting price", kompwatch: "Free / $49/mo", seeto: "$99/mo" },
+  { feature: "Annual cost (small team)", kompwatch: "$588/yr", seeto: "$1,188/yr" },
+  { feature: "Self-serve signup", kompwatch: true, seeto: true },
+  { feature: "No sales call required", kompwatch: true, seeto: true },
+  { feature: "Free plan", kompwatch: true, seeto: false },
+  { feature: "Pricing page tracking", kompwatch: true, seeto: true },
+  { feature: "Feature & product page tracking", kompwatch: true, seeto: "Screenshots only" },
+  { feature: "Blog & content monitoring", kompwatch: true, seeto: false },
+  { feature: "Job listing tracking", kompwatch: true, seeto: false },
+  { feature: "AI change summaries", kompwatch: true, seeto: false },
+  { feature: "Visual screenshot diffs", kompwatch: "Pro+", seeto: true },
+  { feature: "Email digests", kompwatch: true, seeto: true },
+  { feature: "Slack / webhook alerts", kompwatch: true, seeto: "Slack only" },
+  { feature: "CSS selector targeting", kompwatch: true, seeto: false },
+  { feature: "Multi-page monitoring", kompwatch: true, seeto: "Homepage only" },
+  { feature: "Time-to-first-insight", kompwatch: "Under 2 minutes", seeto: "~10 minutes" },
 ];
 
 function ComparisonCell({ value, highlight }: { value: CellValue; highlight?: boolean }) {
@@ -84,7 +85,7 @@ function ComparisonCell({ value, highlight }: { value: CellValue; highlight?: bo
   );
 }
 
-export default function VsCrayonPage() {
+export default function VsSeetoPage() {
   return (
     <div className="bg-white">
       {/* Nav */}
@@ -113,16 +114,17 @@ export default function VsCrayonPage() {
       {/* Hero */}
       <section className="mx-auto max-w-4xl px-6 pb-16 pt-20 text-center">
         <div className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700">
-          Crayon alternative
+          Seeto alternative
         </div>
         <h1 className="mt-6 text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl">
-          KompWatch vs Crayon{" "}
-          <span className="text-brand-600">— same insights, 80× less</span>
+          KompWatch vs Seeto{" "}
+          <span className="text-brand-600">— more signals, half the price</span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
-          Crayon is a great enterprise tool — if you can stomach $20K+/yr and a multi-week sales cycle.
-          KompWatch tracks the same competitor signals (pricing, features, blogs, jobs) starting at{" "}
-          <strong className="text-gray-900">$49/mo</strong>, with self-serve signup in under 2 minutes.
+          Seeto does one thing well — visual website monitoring with screenshot diffs. But it
+          misses blog changes, job postings, and AI-powered analysis. KompWatch covers all
+          competitive signals starting at{" "}
+          <strong className="text-gray-900">$49/mo</strong>, with a free plan to get started.
         </p>
         <div className="mt-10 flex items-center justify-center gap-4">
           <Link
@@ -139,7 +141,7 @@ export default function VsCrayonPage() {
           </Link>
         </div>
         <p className="mt-4 text-xs text-gray-400">
-          No credit card. No sales call. Free plan forever.
+          No credit card. No feature gaps. Free plan forever.
         </p>
       </section>
 
@@ -148,10 +150,10 @@ export default function VsCrayonPage() {
         <div className="mx-auto max-w-4xl px-6">
           <div className="text-center">
             <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-              The pricing gap is real
+              More coverage at half the cost
             </h2>
             <p className="mt-2 text-sm text-gray-600">
-              Public pricing data from vendr.com and G2 reviews (April 2026).
+              Public pricing data from Seeto&rsquo;s website and G2 reviews (April 2026).
             </p>
           </div>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -165,30 +167,30 @@ export default function VsCrayonPage() {
               <div className="mt-1 text-sm text-gray-500">$588 / year</div>
               <ul className="mt-6 space-y-2 text-sm text-gray-700">
                 <li>✓ 10 competitors tracked</li>
-                <li>✓ Daily AI digests</li>
-                <li>✓ Self-serve signup</li>
+                <li>✓ Pricing + features + blogs + jobs</li>
+                <li>✓ AI change summaries</li>
                 <li>✓ Cancel anytime</li>
               </ul>
             </div>
             <div className="rounded-xl border border-gray-200 bg-white p-6">
               <div className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-                Crayon (entry tier)
+                Seeto (Growth tier)
               </div>
               <div className="mt-2 text-4xl font-bold text-gray-900">
-                ~$20K<span className="text-lg font-normal text-gray-500">/yr</span>
+                $99<span className="text-lg font-normal text-gray-500">/mo</span>
               </div>
-              <div className="mt-1 text-sm text-gray-500">Up to ~$40K/yr for full team plans</div>
+              <div className="mt-1 text-sm text-gray-500">$1,188 / year</div>
               <ul className="mt-6 space-y-2 text-sm text-gray-700">
-                <li>· Quote-only pricing</li>
-                <li>· Sales call required</li>
-                <li>· Annual contract</li>
-                <li>· Multi-week onboarding</li>
+                <li>· Screenshot diffs only</li>
+                <li>· No blog or job tracking</li>
+                <li>· No AI analysis</li>
+                <li>· Homepage monitoring only</li>
               </ul>
             </div>
           </div>
           <p className="mt-6 text-center text-xs text-gray-500">
-            That&rsquo;s a <strong className="text-gray-900">~34&times; price difference</strong>{" "}
-            for the same core competitive intelligence — without the sales process.
+            KompWatch is <strong className="text-gray-900">2&times; cheaper</strong>{" "}
+            with significantly broader competitor signal coverage.
           </p>
         </div>
       </section>
@@ -198,10 +200,10 @@ export default function VsCrayonPage() {
         <div className="mx-auto max-w-5xl px-6">
           <div className="text-center">
             <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-              Feature-by-feature: KompWatch vs Crayon
+              Feature-by-feature: KompWatch vs Seeto
             </h2>
             <p className="mt-2 text-sm text-gray-600">
-              Honest comparison. Where Crayon wins, we say so.
+              Honest comparison. Where Seeto wins, we say so.
             </p>
           </div>
 
@@ -211,7 +213,7 @@ export default function VsCrayonPage() {
                 <tr className="border-b border-gray-200">
                   <th className="py-3 pr-4 font-medium text-gray-500">Feature</th>
                   <th className="px-4 py-3 font-semibold text-brand-600">KompWatch</th>
-                  <th className="px-4 py-3 font-medium text-gray-500">Crayon</th>
+                  <th className="px-4 py-3 font-medium text-gray-500">Seeto</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
@@ -222,7 +224,7 @@ export default function VsCrayonPage() {
                       <ComparisonCell value={row.kompwatch} highlight />
                     </td>
                     <td className="px-4 py-3">
-                      <ComparisonCell value={row.crayon} />
+                      <ComparisonCell value={row.seeto} />
                     </td>
                   </tr>
                 ))}
@@ -231,8 +233,8 @@ export default function VsCrayonPage() {
           </div>
 
           <p className="mt-4 text-center text-xs text-gray-400">
-            Comparison based on publicly available information as of April 2026. Crayon pricing
-            requires a sales call; estimates from vendr.com and review sites.
+            Comparison based on publicly available information as of April 2026. Seeto pricing
+            from their public pricing page.
           </p>
         </div>
       </section>
@@ -249,23 +251,23 @@ export default function VsCrayonPage() {
                 Pick KompWatch if you&rsquo;re&hellip;
               </h3>
               <ul className="mt-4 space-y-3 text-sm text-gray-700">
-                <li>· A founder, PM, or marketer who needs intel <em>this week</em>, not next quarter</li>
-                <li>· A 1–50 person team without budget for $20K+ enterprise contracts</li>
-                <li>· Tracking under 50 competitors and want pricing/feature/blog/job alerts</li>
-                <li>· Allergic to sales calls and want to swipe a card and start in 2 minutes</li>
-                <li>· Comfortable with email digests + Slack alerts (no battlecard portal needed)</li>
+                <li>· Tracking competitors across pricing, features, blogs, and job postings</li>
+                <li>· Wanting AI-generated summaries instead of raw screenshot diffs</li>
+                <li>· Monitoring specific page sections with CSS selectors (not just homepages)</li>
+                <li>· Looking for a free plan to test before committing</li>
+                <li>· Needing Slack and webhook alerts, not just email</li>
               </ul>
             </div>
             <div className="rounded-xl border border-gray-200 bg-white p-6">
               <h3 className="text-base font-semibold text-gray-900">
-                Pick Crayon if you&rsquo;re&hellip;
+                Pick Seeto if you&rsquo;re&hellip;
               </h3>
               <ul className="mt-4 space-y-3 text-sm text-gray-700">
-                <li>· An enterprise with a dedicated competitive intelligence team (5+ analysts)</li>
-                <li>· Buying a battlecard CMS for sales reps to consume in real time</li>
-                <li>· Needing human-curated intel + analyst services (Crayon offers managed services)</li>
-                <li>· Already paying for Salesforce/Highspot integrations and want native plug-ins</li>
-                <li>· Tracking 100+ competitors with custom workflows and SOC 2 Type II requirements</li>
+                <li>· Primarily interested in pixel-level visual website diffs</li>
+                <li>· Only tracking homepage changes and don&rsquo;t need blog/job monitoring</li>
+                <li>· Prefer screenshot-based evidence over text summaries</li>
+                <li>· A designer or brand team focused on visual competitive analysis</li>
+                <li>· Already invested in Seeto&rsquo;s workflow and integrations</li>
               </ul>
             </div>
           </div>
@@ -291,11 +293,11 @@ export default function VsCrayonPage() {
             </Link>
           </div>
           <p className="mt-4 text-xs text-gray-400">
-            Already on Crayon?{" "}
+            Already on Seeto?{" "}
             <Link href="/login" className="underline hover:text-gray-700">
               Run both for a month
             </Link>{" "}
-            and compare digests side-by-side.
+            and see how much more intel you get.
           </p>
         </div>
       </section>
@@ -319,14 +321,14 @@ export default function VsCrayonPage() {
             <Link href="/vs-klue" className="text-sm text-gray-500 hover:text-gray-700">
               vs Klue
             </Link>
+            <Link href="/vs-crayon" className="text-sm text-gray-500 hover:text-gray-700">
+              vs Crayon
+            </Link>
             <Link href="/vs-kompyte" className="text-sm text-gray-500 hover:text-gray-700">
               vs Kompyte
             </Link>
             <Link href="/vs-caelian" className="text-sm text-gray-500 hover:text-gray-700">
               vs Caelian
-            </Link>
-            <Link href="/vs-seeto" className="text-sm text-gray-500 hover:text-gray-700">
-              vs Seeto
             </Link>
             <Link href="/login" className="text-sm text-gray-500 hover:text-gray-700">
               Sign in
