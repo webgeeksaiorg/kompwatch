@@ -86,13 +86,15 @@ const plans = [
   {
     name: "Free",
     price: 0,
+    monthlyPrice: 0,
     features: ["2 competitors", "Weekly digest", "Pricing & feature tracking"],
     cta: "Start free",
     href: "/login",
   },
   {
     name: "Pro",
-    price: 49,
+    price: 39,
+    monthlyPrice: 49,
     features: [
       "10 competitors",
       "Daily digest",
@@ -106,7 +108,8 @@ const plans = [
   },
   {
     name: "Team",
-    price: 149,
+    price: 119,
+    monthlyPrice: 149,
     features: [
       "50 competitors",
       "Daily digest",
@@ -319,7 +322,14 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
+          <p className="mt-4 text-center text-sm text-gray-500">
+            Prices shown with annual billing.{" "}
+            <Link href="/pricing" className="text-brand-600 underline hover:text-brand-700">
+              See monthly pricing
+            </Link>
+          </p>
+
+          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
             {plans.map((plan) => (
               <div
                 key={plan.name}
@@ -341,6 +351,12 @@ export default function Home() {
                   </span>
                   <span className="text-sm text-gray-500">/mo</span>
                 </p>
+                {plan.monthlyPrice > 0 && (
+                  <p className="mt-1 text-xs text-gray-400">
+                    ${plan.price * 12}/yr &middot;{" "}
+                    <span className="line-through">${plan.monthlyPrice}/mo</span>
+                  </p>
+                )}
                 <ul className="mt-6 space-y-2">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-2 text-sm text-gray-600">
