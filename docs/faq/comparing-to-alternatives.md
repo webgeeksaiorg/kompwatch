@@ -4,19 +4,20 @@ KompWatch is built for teams that want powerful competitor monitoring without en
 
 ## Feature Comparison
 
-| Feature | KompWatch | Klue | Crayon | Kompyte |
-|---|---|---|---|---|
-| Starting price | Free / $49/mo | ~$6K/yr+ | ~$12K/yr | ~$8K/yr |
-| Self-serve signup | ✓ | ✗ | ✗ | ✗ |
-| AI change summaries | ✓ | ✓ | ✓ | ✗ |
-| Pricing page tracking | ✓ | ✓ | ✓ | ✓ |
-| Blog & content monitoring | ✓ | ✓ | ✓ | ✓ |
-| Job listing tracking | ✓ | ✗ | ✓ | ✗ |
-| Tech stack detection | Pro+ | ✓ | ✓ | ✗ |
-| Email digests | ✓ | ✓ | ✓ | ✓ |
-| Slack / webhook alerts | ✓ | ✓ | ✓ | ✓ |
-| Battlecards | Roadmap | ✓ | ✓ | ✓ |
-| No sales call required | ✓ | ✗ | ✗ | ✗ |
+| Feature | KompWatch | Klue | Crayon | Kompyte | Caelian | Seeto |
+|---|---|---|---|---|---|---|
+| Starting price | Free / $49/mo | ~$6K/yr+ | ~$12K/yr | ~$8K/yr | $199/mo | $99/mo |
+| Self-serve signup | ✓ | ✗ | ✗ | ✗ | ✓ | ✓ |
+| AI change summaries | ✓ | ✓ | ✓ | ✗ | ✓ | ✗ |
+| Pricing page tracking | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Blog & content monitoring | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ |
+| Job listing tracking | ✓ | ✗ | ✓ | ✗ | ✗ | ✗ |
+| Tech stack detection | Pro+ | ✓ | ✓ | ✗ | ✗ | ✗ |
+| Email digests | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Slack / webhook alerts | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ |
+| Battlecards | Roadmap | ✓ | ✓ | ✓ | ✗ | ✗ |
+| No analyst hours needed | ✓ | ✗ | ✗ | ✗ | ✗ | ✓ |
+| No sales call required | ✓ | ✗ | ✗ | ✗ | ✓ | ✓ |
 
 *Competitor pricing is approximate and subject to change. See [kompwatch.com/pricing](https://kompwatch.com/pricing) for current KompWatch prices.*
 
@@ -44,6 +45,14 @@ Kompyte (~$8K/yr) is a mid-market platform that lacks AI summaries and job track
 - You have a dedicated competitive intelligence team that needs **advanced analytics** and **win/loss integrations**
 - Procurement requires an annual contract with SLA commitments
 
+## KompWatch vs Caelian
+
+Caelian starts at $199/mo and requires 8–15 analyst hours per week to maintain. KompWatch is fully automated — no analyst time needed — at $49/mo.
+
+## KompWatch vs Seeto
+
+Seeto ($99/mo) focuses on visual screenshot diffs. KompWatch tracks pricing pages, feature copy, blog posts, and job listings with AI-generated summaries delivered by email, at half the price.
+
 ## Detailed Comparisons
 
 For side-by-side breakdowns, see our dedicated comparison pages:
@@ -51,6 +60,8 @@ For side-by-side breakdowns, see our dedicated comparison pages:
 - [KompWatch vs Crayon →](https://kompwatch.com/vs-crayon)
 - [KompWatch vs Klue →](https://kompwatch.com/vs-klue)
 - [KompWatch vs Kompyte →](https://kompwatch.com/vs-kompyte)
+- [KompWatch vs Caelian →](https://kompwatch.com/vs-caelian)
+- [KompWatch vs Seeto →](https://kompwatch.com/vs-seeto)
 
 ## Can I Switch From Klue or Crayon?
 
