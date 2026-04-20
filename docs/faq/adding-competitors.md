@@ -12,6 +12,14 @@ KompWatch monitors competitor websites and alerts you to changes in pricing, fea
    - **CSS Selector** *(optional)* — target a specific section of the page. Leave blank to monitor the whole page. Example: `.pricing-table` or `#features`
 4. Click **Save**. KompWatch will take an initial snapshot within the next few minutes.
 
+## Suggested Competitors (Chip Picker)
+
+On the **Competitors page**, you'll see a row of clickable suggestion chips for popular SaaS competitors — tools like Salesforce, HubSpot, Notion, Linear, Intercom, and others. Clicking a chip pre-fills the competitor name and URL, so you can start monitoring in one click without looking up URLs manually.
+
+- Chips only appear if you have remaining slots on your plan.
+- You can still edit the pre-filled name or URL before saving.
+- Don't see a competitor you want? Type it in manually — the chip list covers common tools but isn't exhaustive.
+
 ## Adding Multiple Competitors at Once (Bulk Import)
 
 If you have several competitors to add, use the **bulk import** option instead of adding them one at a time.
