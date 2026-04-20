@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: queued-no-credentials
 keywords: [competitor monitoring, crayon alternative, competitive intelligence, alert fatigue]
 ---
 40-60 alerts per day. 2-3 actually useful per week.
