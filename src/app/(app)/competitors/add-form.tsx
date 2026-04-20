@@ -3,6 +3,21 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+const POPULAR_COMPETITORS = [
+  { name: "HubSpot", url: "https://www.hubspot.com" },
+  { name: "Salesforce", url: "https://www.salesforce.com" },
+  { name: "Intercom", url: "https://www.intercom.com" },
+  { name: "Zendesk", url: "https://www.zendesk.com" },
+  { name: "Drift", url: "https://www.drift.com" },
+  { name: "Gong", url: "https://www.gong.io" },
+  { name: "Outreach", url: "https://www.outreach.io" },
+  { name: "Monday.com", url: "https://www.monday.com" },
+  { name: "Notion", url: "https://www.notion.so" },
+  { name: "Asana", url: "https://www.asana.com" },
+  { name: "Slack", url: "https://www.slack.com" },
+  { name: "Figma", url: "https://www.figma.com" },
+];
+
 export function AddCompetitorForm({
   atLimit,
   plan,
@@ -15,6 +30,12 @@ export function AddCompetitorForm({
   const [url, setUrl] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  function selectSuggestion(suggestion: { name: string; url: string }) {
+    setName(suggestion.name);
+    setUrl(suggestion.url);
+    setError("");
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -87,6 +108,21 @@ export function AddCompetitorForm({
         </button>
       </div>
       {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
+      <div className="mt-3">
+        <p className="mb-2 text-xs font-medium text-gray-500">Popular competitors</p>
+        <div className="flex flex-wrap gap-2">
+          {POPULAR_COMPETITORS.map((s) => (
+            <button
+              key={s.url}
+              type="button"
+              onClick={() => selectSuggestion(s)}
+              className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-medium text-gray-700 transition-colors hover:border-brand-300 hover:bg-brand-50 hover:text-brand-700"
+            >
+              {s.name}
+            </button>
+          ))}
+        </div>
+      </div>
     </form>
   );
 }
