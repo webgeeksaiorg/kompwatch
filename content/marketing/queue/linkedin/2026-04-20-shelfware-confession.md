@@ -1,7 +1,7 @@
 ---
 platform: linkedin
 type: post
-status: draft
+status: queued-no-credentials
 keywords: [competitive intelligence, competitor monitoring, SaaS founder, crayon alternative]
 ---
 I talked to a PM last week who'd been paying for Crayon for 14 months.

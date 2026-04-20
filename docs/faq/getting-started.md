@@ -17,8 +17,8 @@ When you first sign in, your dashboard already includes a **pre-seeded demo comp
 
 To add your own competitor:
 
-1. From your dashboard, click **Add Competitor**
-2. Enter:
+1. From your dashboard, click **Add Competitor** — or on the Competitors page, click any of the **suggestion chips** (e.g. Salesforce, HubSpot, Notion) to auto-fill the name and URL in one click.
+2. Enter or confirm:
    - **Name** — your label for this competitor (e.g. "Acme Corp")
    - **URL** — their website (e.g. `https://acmecorp.com`)
    - **CSS Selector** *(optional)* — target a specific section like `.pricing-table`. Leave blank to monitor the full page.

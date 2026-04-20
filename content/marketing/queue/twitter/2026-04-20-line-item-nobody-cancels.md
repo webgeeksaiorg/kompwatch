@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: queued-no-credentials
 keywords: [crayon pricing, klue pricing, competitor monitoring, SaaS waste]
 ---
 Crayon's median contract: $28,750/year.
