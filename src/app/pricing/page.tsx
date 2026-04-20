@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 const ANNUAL_DISCOUNT = 0.2; // 20% off
 
@@ -185,9 +185,121 @@ function ComparisonCell({
   );
 }
 
+function ExitIntentPopover({ onClose }: { onClose: () => void }) {
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm">
+      <div className="relative mx-4 w-full max-w-md rounded-2xl bg-white p-8 shadow-2xl">
+        <button
+          onClick={onClose}
+          className="absolute right-4 top-4 text-gray-400 hover:text-gray-600"
+          aria-label="Close"
+        >
+          <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        <div className="text-center">
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-brand-50">
+            <svg className="h-6 w-6 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 className="mt-4 text-xl font-bold text-gray-900">
+            Before you go&hellip;
+          </h3>
+          <p className="mt-2 text-sm text-gray-600">
+            See how KompWatch stacks up against Crayon — the most common tool teams compare us to.
+          </p>
+        </div>
+
+        <div className="mt-6 grid grid-cols-2 gap-3">
+          <div className="rounded-xl border-2 border-brand-600 bg-brand-50/50 p-4 text-center">
+            <div className="text-[10px] font-semibold uppercase tracking-wider text-brand-600">KompWatch Pro</div>
+            <div className="mt-1 text-2xl font-bold text-gray-900">$49<span className="text-sm font-normal text-gray-500">/mo</span></div>
+            <div className="mt-1 text-xs text-gray-500">$588/yr</div>
+            <ul className="mt-3 space-y-1 text-left text-xs text-gray-700">
+              <li>✓ Self-serve signup</li>
+              <li>✓ 10 competitors</li>
+              <li>✓ Daily AI digests</li>
+              <li>✓ Cancel anytime</li>
+            </ul>
+          </div>
+          <div className="rounded-xl border border-gray-200 bg-gray-50 p-4 text-center">
+            <div className="text-[10px] font-semibold uppercase tracking-wider text-gray-400">Crayon</div>
+            <div className="mt-1 text-2xl font-bold text-gray-900">~$20K<span className="text-sm font-normal text-gray-500">/yr</span></div>
+            <div className="mt-1 text-xs text-gray-500">Sales call required</div>
+            <ul className="mt-3 space-y-1 text-left text-xs text-gray-400">
+              <li>· Annual contract</li>
+              <li>· Multi-week onboarding</li>
+              <li>· Quote-only pricing</li>
+              <li>· Enterprise-only</li>
+            </ul>
+          </div>
+        </div>
+
+        <p className="mt-4 text-center text-xs text-gray-500">
+          That&rsquo;s <strong className="text-gray-900">~34&times; less</strong> for the same core competitive intelligence.
+        </p>
+
+        <div className="mt-6 flex flex-col gap-2">
+          <a
+            href="/login"
+            className="block w-full rounded-lg bg-brand-600 px-4 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
+          >
+            Start free — no credit card
+          </a>
+          <button
+            onClick={onClose}
+            className="text-xs text-gray-400 hover:text-gray-600"
+          >
+            No thanks, I&rsquo;ll keep looking
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function PricingPage() {
   const [loading, setLoading] = useState<string | null>(null);
   const [annual, setAnnual] = useState(true);
+  const [showExitIntent, setShowExitIntent] = useState(false);
+  const [exitIntentDismissed, setExitIntentDismissed] = useState(false);
+
+  const handleExitIntent = useCallback(
+    (e: MouseEvent) => {
+      if (e.clientY <= 0 && !exitIntentDismissed) {
+        setShowExitIntent(true);
+      }
+    },
+    [exitIntentDismissed]
+  );
+
+  useEffect(() => {
+    // Don't show on mobile (no mouse) or if already dismissed this session
+    if (typeof window === "undefined") return;
+    if (sessionStorage.getItem("kw-exit-intent-dismissed")) {
+      setExitIntentDismissed(true);
+      return;
+    }
+
+    // Delay listener to avoid triggering on page load mouse movements
+    const timer = setTimeout(() => {
+      document.addEventListener("mouseleave", handleExitIntent);
+    }, 3000);
+
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener("mouseleave", handleExitIntent);
+    };
+  }, [handleExitIntent]);
+
+  function dismissExitIntent() {
+    setShowExitIntent(false);
+    setExitIntentDismissed(true);
+    sessionStorage.setItem("kw-exit-intent-dismissed", "1");
+  }
 
   async function handleCheckout(plan: string) {
     if (plan === "FREE") {
@@ -397,6 +509,8 @@ export default function PricingPage() {
           Already have an account? Sign in
         </a>
       </div>
+
+      {showExitIntent && <ExitIntentPopover onClose={dismissExitIntent} />}
     </main>
   );
 }
