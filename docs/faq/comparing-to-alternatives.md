@@ -6,7 +6,7 @@ KompWatch is built for teams that want powerful competitor monitoring without en
 
 | Feature | KompWatch | Klue | Crayon | Kompyte | Caelian | Seeto |
 |---|---|---|---|---|---|---|
-| Starting price | Free / $49/mo | ~$6K/yr+ | ~$12K/yr | ~$8K/yr | $199/mo | $99/mo |
+| Starting price | Free / $49/mo | ~$6K/yr+ | $5K–$80K+/yr | ~$8K/yr | $199/mo | $99/mo |
 | Self-serve signup | ✓ | ✗ | ✗ | ✗ | ✓ | ✓ |
 | AI change summaries | ✓ | ✓ | ✓ | ✗ | ✓ | ✗ |
 | Pricing page tracking | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
@@ -27,7 +27,7 @@ KompWatch is built for teams that want powerful competitor monitoring without en
 Klue is an enterprise intel platform starting around $6K/year (with their new "Compete Agent" AI tier running $16K–$100K/yr), requiring a sales call and annual contract. KompWatch starts free with a $49/mo Pro plan and self-serve signup — no sales call, no contract, cancel anytime.
 
 **KompWatch vs Crayon**
-Crayon is the largest competitor intelligence platform (~$12K/yr), with deep battlecard and CI workflow features. Recent additions include an MCP server for AI tool interconnection and "Sparks" — an AI layer that auto-generates strategic summaries from competitive signals. If your team needs battlecard generation or an AI strategic narrative layer today, Crayon is more mature. If you want automated monitoring at a fraction of the cost, KompWatch delivers core tracking for far less.
+Crayon is the largest competitor intelligence platform ($5K–$80K+/yr depending on team size, per Vendr 2026 data), with deep battlecard and CI workflow features. Recent additions include an MCP server for AI tool interconnection and "Sparks" — an AI layer that auto-generates strategic summaries from competitive signals. If your team needs battlecard generation or an AI strategic narrative layer today, Crayon is more mature. If you want automated monitoring at a fraction of the cost, KompWatch delivers core tracking for far less.
 
 **KompWatch vs Kompyte**
 Kompyte (~$8K/yr) is a mid-market platform that lacks AI summaries and job tracking. KompWatch includes both, at a significantly lower price point with monthly billing.
