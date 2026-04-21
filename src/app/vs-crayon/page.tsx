@@ -6,7 +6,7 @@ const siteUrl = "https://kompwatch.com";
 export const metadata: Metadata = {
   title: "Crayon Alternative — KompWatch vs Crayon (Honest Comparison)",
   description:
-    "Looking for a Crayon alternative? KompWatch tracks competitor pricing, features, blogs, and job listings with AI digests — starting at $49/mo (vs Crayon's $20K+/yr). No sales call required.",
+    "Looking for a Crayon alternative? KompWatch tracks competitor pricing, features, blogs, and job listings with AI digests — starting at $49/mo (vs Crayon's $5K–$80K+/yr). No sales call required.",
   keywords: [
     "Crayon alternative",
     "Crayon vs KompWatch",
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     canonical: `${siteUrl}/vs-crayon`,
   },
   openGraph: {
-    title: "KompWatch vs Crayon — Same Insights, 80× Less",
+    title: "KompWatch vs Crayon — Same Insights, Fraction of the Cost",
     description:
-      "Honest side-by-side: KompWatch ($49/mo, self-serve) vs Crayon ($20K+/yr, sales-call gated). See feature, pricing, and onboarding comparison.",
+      "Honest side-by-side: KompWatch ($49/mo, self-serve) vs Crayon ($5K–$80K+/yr, sales-call gated). See feature, pricing, and onboarding comparison.",
     url: `${siteUrl}/vs-crayon`,
     type: "website",
   },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "KompWatch vs Crayon — Honest Comparison",
     description:
-      "Crayon starts at $20K+/yr and requires a sales call. KompWatch starts at $49/mo with self-serve signup. See the full feature comparison.",
+      "Crayon starts at $5K/yr and scales to $80K+/yr — requires a sales call. KompWatch starts at $49/mo with self-serve signup. See the full feature comparison.",
   },
 };
 
@@ -41,8 +41,8 @@ const comparisonRows: {
   kompwatch: CellValue;
   crayon: CellValue;
 }[] = [
-  { feature: "Starting price", kompwatch: "Free / $49/mo", crayon: "~$20K–$40K/yr" },
-  { feature: "Annual cost (small team)", kompwatch: "$588/yr", crayon: "$20,000+/yr" },
+  { feature: "Starting price", kompwatch: "Free / $49/mo", crayon: "$5K–$80K+/yr" },
+  { feature: "Annual cost (small team)", kompwatch: "$588/yr", crayon: "$5,000+/yr" },
   { feature: "Self-serve signup", kompwatch: true, crayon: false },
   { feature: "No sales call required", kompwatch: true, crayon: false },
   { feature: "Free plan", kompwatch: true, crayon: false },
@@ -117,10 +117,10 @@ export default function VsCrayonPage() {
         </div>
         <h1 className="mt-6 text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl">
           KompWatch vs Crayon{" "}
-          <span className="text-brand-600">— same insights, 80× less</span>
+          <span className="text-brand-600">— same insights, fraction of the cost</span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
-          Crayon is a great enterprise tool — if you can stomach $20K+/yr and a multi-week sales cycle.
+          Crayon is a powerful enterprise tool — but plans run $5K–$80K+/yr with a multi-week sales cycle.
           KompWatch tracks the same competitor signals (pricing, features, blogs, jobs) starting at{" "}
           <strong className="text-gray-900">$49/mo</strong>, with self-serve signup in under 2 minutes.
         </p>
@@ -175,9 +175,9 @@ export default function VsCrayonPage() {
                 Crayon (entry tier)
               </div>
               <div className="mt-2 text-4xl font-bold text-gray-900">
-                ~$20K<span className="text-lg font-normal text-gray-500">/yr</span>
+                $5K<span className="text-lg font-normal text-gray-500">/yr</span>
               </div>
-              <div className="mt-1 text-sm text-gray-500">Up to ~$40K/yr for full team plans</div>
+              <div className="mt-1 text-sm text-gray-500">Up to $80K+/yr for full team plans</div>
               <ul className="mt-6 space-y-2 text-sm text-gray-700">
                 <li>· Quote-only pricing</li>
                 <li>· Sales call required</li>
@@ -187,7 +187,7 @@ export default function VsCrayonPage() {
             </div>
           </div>
           <p className="mt-6 text-center text-xs text-gray-500">
-            That&rsquo;s a <strong className="text-gray-900">~34&times; price difference</strong>{" "}
+            That&rsquo;s an <strong className="text-gray-900">8&times;–136&times; price difference</strong>{" "}
             for the same core competitive intelligence — without the sales process.
           </p>
         </div>
@@ -250,7 +250,7 @@ export default function VsCrayonPage() {
               </h3>
               <ul className="mt-4 space-y-3 text-sm text-gray-700">
                 <li>· A founder, PM, or marketer who needs intel <em>this week</em>, not next quarter</li>
-                <li>· A 1–50 person team without budget for $20K+ enterprise contracts</li>
+                <li>· A 1–50 person team without budget for $5K–$80K+ enterprise contracts</li>
                 <li>· Tracking under 50 competitors and want pricing/feature/blog/job alerts</li>
                 <li>· Allergic to sales calls and want to swipe a card and start in 2 minutes</li>
                 <li>· Comfortable with email digests + Slack alerts (no battlecard portal needed)</li>

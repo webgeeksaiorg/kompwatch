@@ -7,10 +7,14 @@ When you sign up for KompWatch, you'll receive a short sequence of emails over y
 | When | Subject | Purpose |
 |------|---------|---------|
 | Immediately on signup | "Welcome to KompWatch — let's set up your first monitor" | Welcome + quick-start guide |
-| 2 days after signup | "3 ways KompWatch saves you hours every week" | Tips for getting the most out of monitoring |
+| 2 days after signup | "3 ways KompWatch saves you hours every week" | Tips for getting the most out of monitoring, plus an optional link to leave a G2 review |
 | 5 days after signup (Free plan only) | "Your free plan is active — here's what Pro unlocks" | Overview of Pro and Team plan features |
 
 **Note:** The day-5 email is only sent to users on the Free plan. If you've already upgraded to Pro or Team, you won't receive it.
+
+## The Day-2 Email Includes a G2 Review Link — Is That Legitimate?
+
+Yes. The Day-2 email contains a purple "Leave a review on G2" button. This is an optional request — it helps other teams discover KompWatch and is entirely up to you. Clicking it takes you directly to [KompWatch's G2 listing](https://www.g2.com). We never ask for any personal information through G2 beyond what you choose to share in a public review.
 
 ## Why Am I Getting These Emails?
 

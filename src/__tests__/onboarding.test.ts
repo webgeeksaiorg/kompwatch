@@ -126,6 +126,13 @@ describe("buildValueEmail", () => {
     const email = buildValueEmail(testUser);
     expect(email.html).toContain("/competitors");
   });
+
+  it("includes G2 review CTA", () => {
+    const email = buildValueEmail(testUser);
+    expect(email.html).toContain("g2.com/products/kompwatch/reviews");
+    expect(email.html).toContain("Leave a G2 Review");
+    expect(email.text).toContain("g2.com/products/kompwatch/reviews");
+  });
 });
 
 describe("buildTrialReminderEmail", () => {

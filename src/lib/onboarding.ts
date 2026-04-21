@@ -153,6 +153,16 @@ export function buildValueEmail(
       <div style="text-align:center;margin:24px 0;">
         ${ctaButton("Add a Competitor Now", `${BASE_URL}/competitors`)}
       </div>
+
+      <div style="margin:24px 0 0;padding:16px;background:#faf5ff;border-radius:6px;text-align:center;">
+        <p style="margin:0 0 8px;color:#6b21a8;font-size:14px;font-weight:600;">Enjoying KompWatch? We'd love your feedback!</p>
+        <p style="margin:0;color:#444;font-size:13px;line-height:1.5;">
+          A quick G2 review helps other teams discover us &mdash; and helps us improve.
+        </p>
+        <div style="margin:12px 0 0;">
+          <a href="https://www.g2.com/products/kompwatch/reviews" style="display:inline-block;background:#6b21a8;color:#fff;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:13px;">Leave a G2 Review</a>
+        </div>
+      </div>
     `),
     text: `${greeting}, here's what you might be missing
 
@@ -165,6 +175,8 @@ KompWatch customers tell us they save 3-5 hours per week by automating competito
 3. Monitor job listings — Hiring patterns reveal strategy. A burst of ML engineer postings? They're building AI features.
 
 Add a competitor now: ${BASE_URL}/competitors
+
+Enjoying KompWatch? Leave a quick G2 review to help other teams discover us: https://www.g2.com/products/kompwatch/reviews
 `,
   };
 }
