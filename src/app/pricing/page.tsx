@@ -69,7 +69,7 @@ const comparisonRows: {
   {
     feature: "Starting price",
     kompwatch: "Free / $49/mo",
-    klue: "~$6K/yr",
+    klue: "$20K–$40K/yr",
     crayon: "~$12K/yr",
     kompyte: "~$8K/yr",
   },
