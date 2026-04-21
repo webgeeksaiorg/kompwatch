@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { HeroCTA } from "./hero-cta";
+import { HeroHeadline } from "./hero-headline";
 import { HeroSubheadline } from "./hero-subheadline";
 
 const features = [
@@ -169,10 +170,7 @@ export default function Home() {
           </svg>
           Save $39,500/yr vs Crayon &amp; Klue — same insights, 80× less
         </p>
-        <h1 className="mt-6 text-5xl font-bold leading-tight tracking-tight text-gray-900 sm:text-6xl">
-          Know when competitors{" "}
-          <span className="text-brand-600">change anything</span>
-        </h1>
+        <HeroHeadline />
         <HeroSubheadline />
         <div className="mt-10 flex items-center justify-center gap-4">
           <HeroCTA />
