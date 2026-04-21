@@ -6,7 +6,7 @@ const siteUrl = "https://kompwatch.com";
 export const metadata: Metadata = {
   title: "Klue Alternative — KompWatch vs Klue (Honest Comparison)",
   description:
-    "Looking for a Klue alternative? KompWatch tracks competitor pricing, features, blogs, and job listings with AI digests — starting at $49/mo (vs Klue's $25K+/yr). Self-serve, no sales call.",
+    "Looking for a Klue alternative? KompWatch tracks competitor pricing, features, blogs, and job listings with AI digests — starting at $49/mo (vs Klue's $20K–$40K/yr). Self-serve, no sales call.",
   keywords: [
     "Klue alternative",
     "Klue vs KompWatch",
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     canonical: `${siteUrl}/vs-klue`,
   },
   openGraph: {
-    title: "KompWatch vs Klue — Same Insights, ~40× Less",
+    title: "KompWatch vs Klue — Same Insights, Fraction of the Cost",
     description:
-      "Honest side-by-side: KompWatch ($49/mo, self-serve) vs Klue ($25K+/yr, sales-call gated). See feature, pricing, and onboarding comparison.",
+      "Honest side-by-side: KompWatch ($49/mo, self-serve) vs Klue ($20K–$40K/yr, sales-call gated). See feature, pricing, and onboarding comparison.",
     url: `${siteUrl}/vs-klue`,
     type: "website",
   },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "KompWatch vs Klue — Honest Comparison",
     description:
-      "Klue starts at ~$25K/yr and requires a sales call. KompWatch starts at $49/mo with self-serve signup. See the full feature comparison.",
+      "Klue costs $20K–$40K/yr and requires a sales call. KompWatch starts at $49/mo with self-serve signup. See the full feature comparison.",
   },
 };
 
@@ -41,8 +41,8 @@ const comparisonRows: {
   kompwatch: CellValue;
   klue: CellValue;
 }[] = [
-  { feature: "Starting price", kompwatch: "Free / $49/mo", klue: "~$25K/yr" },
-  { feature: "Annual cost (small team)", kompwatch: "$588/yr", klue: "$25,000+/yr" },
+  { feature: "Starting price", kompwatch: "Free / $49/mo", klue: "$20K–$40K/yr" },
+  { feature: "Annual cost (small team)", kompwatch: "$588/yr", klue: "$20,000+/yr" },
   { feature: "Self-serve signup", kompwatch: true, klue: false },
   { feature: "No sales call required", kompwatch: true, klue: false },
   { feature: "Free plan", kompwatch: true, klue: false },
@@ -117,11 +117,11 @@ export default function VsKluePage() {
         </div>
         <h1 className="mt-6 text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl">
           KompWatch vs Klue{" "}
-          <span className="text-brand-600">— same insights, ~40× less</span>
+          <span className="text-brand-600">— same insights, fraction of the cost</span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
           Klue is a polished battlecard-and-intel platform — built for enterprise CI teams with
-          ~$25K/yr budgets and quarterly procurement cycles. KompWatch tracks the same competitor
+          $20K–$40K/yr budgets and quarterly procurement cycles. KompWatch tracks the same competitor
           signals (pricing, features, blogs, jobs) starting at{" "}
           <strong className="text-gray-900">$49/mo</strong>, with self-serve signup in under 2 minutes.
         </p>
@@ -176,9 +176,9 @@ export default function VsKluePage() {
                 Klue (entry tier)
               </div>
               <div className="mt-2 text-4xl font-bold text-gray-900">
-                ~$25K<span className="text-lg font-normal text-gray-500">/yr</span>
+                $20K<span className="text-lg font-normal text-gray-500">/yr</span>
               </div>
-              <div className="mt-1 text-sm text-gray-500">Higher for full team / battlecard tiers</div>
+              <div className="mt-1 text-sm text-gray-500">Up to $40K/yr for full team / battlecard tiers</div>
               <ul className="mt-6 space-y-2 text-sm text-gray-700">
                 <li>· Quote-only pricing</li>
                 <li>· Sales call required</li>
@@ -188,7 +188,7 @@ export default function VsKluePage() {
             </div>
           </div>
           <p className="mt-6 text-center text-xs text-gray-500">
-            That&rsquo;s a <strong className="text-gray-900">~40&times; price difference</strong>{" "}
+            That&rsquo;s a <strong className="text-gray-900">34&times;–68&times; price difference</strong>{" "}
             for the same core competitive intelligence — without the sales process.
           </p>
         </div>
@@ -251,7 +251,7 @@ export default function VsKluePage() {
               </h3>
               <ul className="mt-4 space-y-3 text-sm text-gray-700">
                 <li>· A founder, PM, or marketer who needs intel <em>this week</em>, not next quarter</li>
-                <li>· A 1–50 person team without budget for $25K+ enterprise contracts</li>
+                <li>· A 1–50 person team without budget for $20K–$40K enterprise contracts</li>
                 <li>· Tracking under 50 competitors and want pricing/feature/blog/job alerts</li>
                 <li>· Allergic to sales calls and want to swipe a card and start in 2 minutes</li>
                 <li>· Comfortable with email digests + Slack alerts (no battlecard portal needed)</li>
