@@ -15,11 +15,22 @@ Tracks where KompWatch has been submitted for listing/discovery.
 
 ## Keyword Research — 2026-04-22 (Wednesday cycle, run 4)
 
-**Fresh angles from run 4:**
-- "Google Alerts alternative" space is crowded for social listening (Talkwalker, Awario, Mention at $49/mo) — but all these monitor social mentions/brand. KompWatch is different: structured website change detection with CSS selector targeting + headless rendering. Almost nobody competes at this specific angle.
-- Already.dev confirmed launching 2026 at ~$49/mo, scanning 40+ signals (job boards, news, LinkedIn, press releases) — broad signal coverage vs KompWatch's deep page watching. Positioning: "coverage vs precision."
-- CI ownership continues to be the real blocker for expensive tools — Cotera data still the best quote we have. Thursday Reddit comment drafted around this angle.
-- Thursday Thursday gap filled: `reddit/2026-04-23-comment-saas-ci-ownership.md` + `twitter/2026-04-23-reply-already-dev.md`
+**Fresh data from WebSearch agent (April 2026):**
+- **Crayon raised prices ~15% in 2026** — now $30K–$100K+/year (up from $20K–$80K+). Best concrete angle for price contrast content.
+- **Already.dev is a *discovery* tool**, not a monitoring tool. Scans 40+ sources (Product Hunt, GitHub, Reddit, HN, patent databases) to find competitors you don't know about. $49/mo. KompWatch *monitors* known competitors. Complementary, not competing. "Complete stack for $98/month" angle is strong.
+- **Google Alerts contrast**: Alerts fire when someone writes *about* a competitor. KompWatch fires when the competitor changes their own website. Completely different signal — no other tool in this space is making this contrast clearly.
+- **Klue onboarding**: "Weeks to onboard" is documented in their own implementation timeline. KompWatch = minutes. Strong reply angle.
+- **Win rate stat**: "30–40% win rate improvement with automated CI" (sourced to Arise/TrajectoryAI). At $49/mo, ROI math is obvious.
+- **RivalSift** ($299–$999/mo) is the main mid-market option — still 6–20x KompWatch pricing.
+- Google Alerts replacement space is all *social listening* tools (Talkwalker, Awario, Mention). Nobody is positioning for website change detection specifically — that's KompWatch's clean lane.
+
+**Content queued from this research (Friday 2026-04-25):**
+- `twitter/2026-04-25-crayon-price-hike.md` — Crayon $30K–$100K+/yr angle (8/10)
+- `twitter/2026-04-25-alerts-vs-watching.md` — mentions vs website changes (8.5/10)
+- `twitter/2026-04-25-reply-klue-onboarding.md` — onboarding contrast (7.5/10)
+- `twitter/2026-04-25-reply-win-rate-roi.md` — ROI at $49/mo (8/10)
+- `linkedin/2026-04-25-complete-ci-stack.md` — discovery vs monitoring framing (8/10)
+- Updated `twitter/2026-04-23-reply-already-dev.md` with complementary stack angle
 
 **Publishing status:** API credentials not configured (TWITTER_API_KEY, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID all missing). All content queued.
 
