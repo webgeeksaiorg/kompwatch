@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
+import { ComparisonFAQ } from "@/components/comparison-faq";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -275,6 +276,33 @@ export default function VsKluePage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ with JSON-LD schema */}
+      <ComparisonFAQ
+        competitor="Klue"
+        faqs={[
+          {
+            question: "How much does Klue cost?",
+            answer: "Klue pricing is quote-based and requires a sales call. Based on public data from vendr.com and review sites (April 2026), annual contracts typically range from $20,000 to $40,000/yr depending on team size and features. KompWatch starts at $49/mo ($588/yr) with self-serve signup — no sales call needed.",
+          },
+          {
+            question: "What is the difference between KompWatch and Klue?",
+            answer: "Both monitor competitor websites for changes. Klue is an enterprise platform with battlecards, win/loss analysis, and deep CRM integrations — designed for large sales teams. KompWatch is a self-serve tool focused on automated monitoring with AI digests, instant signup, and a free plan. Klue offers more sales enablement features; KompWatch offers faster time-to-value at a fraction of the cost.",
+          },
+          {
+            question: "Does Klue have a free plan?",
+            answer: "No. Klue requires a sales call and annual contract starting at $20,000/yr. KompWatch offers a free plan with 2 competitors and weekly digests — no credit card required.",
+          },
+          {
+            question: "Can I switch from Klue to KompWatch?",
+            answer: "Yes. Sign up for KompWatch's free plan and run both tools in parallel. KompWatch has no contract or commitment, so you can compare digest quality side-by-side before making the switch.",
+          },
+          {
+            question: "Does KompWatch have battlecards like Klue?",
+            answer: "Battlecards are on KompWatch's roadmap. Today, KompWatch focuses on automated competitor monitoring with AI-generated change summaries delivered via email and Slack. If your team needs a battlecard CMS for sales reps, Klue may be a better fit right now.",
+          },
+        ]}
+      />
 
       {/* CTA */}
       <section className="py-20">

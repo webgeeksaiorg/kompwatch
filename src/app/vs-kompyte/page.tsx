@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
+import { ComparisonFAQ } from "@/components/comparison-faq";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -277,6 +278,33 @@ export default function VsKompytePage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ with JSON-LD schema */}
+      <ComparisonFAQ
+        competitor="Kompyte"
+        faqs={[
+          {
+            question: "How much does Kompyte cost?",
+            answer: "Kompyte pricing requires a sales call. Based on public data from review sites (April 2026), annual contracts start at approximately $8,000/yr. KompWatch starts at $49/mo ($588/yr) with self-serve signup — roughly 13x less expensive.",
+          },
+          {
+            question: "What is the difference between KompWatch and Kompyte?",
+            answer: "Both track competitor websites for changes. Kompyte focuses on website monitoring and competitive benchmarking but lacks AI-generated summaries and job listing tracking. KompWatch includes AI change digests, job monitoring, blog tracking, and a free plan — all with self-serve signup and no sales call.",
+          },
+          {
+            question: "Does Kompyte have AI summaries?",
+            answer: "No. Kompyte provides raw change data without AI-powered summaries. KompWatch uses AI to generate plain-English digests of what changed, why it matters, and what action to take — delivered to your inbox or Slack.",
+          },
+          {
+            question: "Can I try KompWatch for free?",
+            answer: "Yes. KompWatch's free plan lets you track up to 2 competitors with weekly AI digests — no credit card required. Upgrade to Pro ($49/mo) for 10 competitors and daily digests.",
+          },
+          {
+            question: "Does KompWatch track job listings like Kompyte?",
+            answer: "Yes. KompWatch tracks competitor job listings to surface hiring signals — such as new engineering roles that may indicate product investments, or sales hiring that signals market expansion. Kompyte does not offer job listing tracking.",
+          },
+        ]}
+      />
 
       {/* CTA */}
       <section className="py-20">
