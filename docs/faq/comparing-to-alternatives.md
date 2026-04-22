@@ -68,6 +68,7 @@ For side-by-side breakdowns, see our dedicated comparison pages:
 - [KompWatch vs Kompyte →](https://kompwatch.com/vs-kompyte)
 - [KompWatch vs Caelian →](https://kompwatch.com/vs-caelian)
 - [KompWatch vs Seeto →](https://kompwatch.com/vs-seeto)
+- [KompWatch vs Already.dev →](https://kompwatch.com/vs-already-dev)
 
 ## Can I Switch From Klue or Crayon?
 
