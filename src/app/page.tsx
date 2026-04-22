@@ -378,6 +378,42 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+          {/* Price anchor: KompWatch vs enterprise CI tools */}
+          <div className="mt-12 rounded-xl border border-gray-200 bg-white p-6">
+            <p className="mb-4 text-center text-sm font-medium text-gray-500">
+              How KompWatch compares to enterprise CI platforms
+            </p>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <div className="rounded-lg border-2 border-brand-600 bg-brand-50 p-4 text-center">
+                <div className="text-xs font-semibold uppercase tracking-wide text-brand-600">
+                  KompWatch Pro
+                </div>
+                <div className="mt-1 text-2xl font-bold text-gray-900">$49<span className="text-sm font-normal text-gray-500">/mo</span></div>
+                <div className="mt-1 text-xs text-gray-500">$588/yr &middot; Self-serve</div>
+              </div>
+              <div className="rounded-lg border border-gray-200 bg-gray-50 p-4 text-center">
+                <div className="text-xs font-semibold uppercase tracking-wide text-gray-400">
+                  Crayon
+                </div>
+                <div className="mt-1 text-2xl font-bold text-gray-400">$5K&ndash;$80K<span className="text-sm font-normal">/yr</span></div>
+                <div className="mt-1 text-xs text-gray-400">Sales call required</div>
+              </div>
+              <div className="rounded-lg border border-gray-200 bg-gray-50 p-4 text-center">
+                <div className="text-xs font-semibold uppercase tracking-wide text-gray-400">
+                  Klue
+                </div>
+                <div className="mt-1 text-2xl font-bold text-gray-400">$20K&ndash;$40K<span className="text-sm font-normal">/yr</span></div>
+                <div className="mt-1 text-xs text-gray-400">Sales call required</div>
+              </div>
+            </div>
+            <p className="mt-4 text-center text-xs text-gray-400">
+              Pricing from Vendr and G2 reviews (2026). Same core competitive intelligence &mdash;{" "}
+              <Link href="/vs-crayon" className="underline hover:text-gray-600">vs Crayon</Link>
+              {" "}&middot;{" "}
+              <Link href="/vs-klue" className="underline hover:text-gray-600">vs Klue</Link>
+            </p>
+          </div>
         </div>
       </section>
 
