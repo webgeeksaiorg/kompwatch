@@ -4,20 +4,20 @@ KompWatch is built for teams that want powerful competitor monitoring without en
 
 ## Feature Comparison
 
-| Feature | KompWatch | Klue | Crayon | Kompyte | Caelian | Seeto |
-|---|---|---|---|---|---|---|
-| Starting price | Free / $49/mo | $20K–$40K/yr | $5K–$80K+/yr | ~$8K/yr | $199/mo | $99/mo |
-| Self-serve signup | ✓ | ✗ | ✗ | ✗ | ✓ | ✓ |
-| AI change summaries | ✓ | ✓ | ✓ | ✗ | ✓ | ✗ |
-| Pricing page tracking | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Blog & content monitoring | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ |
-| Job listing tracking | ✓ | ✗ | ✓ | ✗ | ✗ | ✗ |
-| Tech stack detection | Pro+ | ✓ | ✓ | ✗ | ✗ | ✗ |
-| Email digests | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Slack / webhook alerts | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ |
-| Battlecards | Roadmap | ✓ | ✓ | ✓ | ✗ | ✗ |
-| No analyst hours needed | ✓ | ✗ | ✗ | ✗ | ✗ | ✓ |
-| No sales call required | ✓ | ✗ | ✗ | ✗ | ✓ | ✓ |
+| Feature | KompWatch | Klue | Crayon | Kompyte | Caelian | Seeto | Already.dev |
+|---|---|---|---|---|---|---|---|
+| Starting price | Free / $49/mo | $20K–$40K/yr | $5K–$80K+/yr | ~$8K/yr | $199/mo | $99/mo | ~$49/mo |
+| Self-serve signup | ✓ | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ |
+| AI change summaries | ✓ | ✓ | ✓ | ✗ | ✓ | ✗ | ✓ |
+| Pricing page tracking | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Blog & content monitoring | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | ✓ |
+| Job listing tracking | ✓ | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ |
+| Tech stack detection | Pro+ | ✓ | ✓ | ✗ | ✗ | ✗ | ✗ |
+| Email digests | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Slack / webhook alerts | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | ✓ |
+| Battlecards | Roadmap | ✓ | ✓ | ✓ | ✗ | ✗ | ✗ |
+| No analyst hours needed | ✓ | ✗ | ✗ | ✗ | ✗ | ✓ | ✓ |
+| No sales call required | ✓ | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ |
 
 *Competitor pricing is approximate and subject to change. See [kompwatch.com/pricing](https://kompwatch.com/pricing) for current KompWatch prices.*
 
@@ -55,6 +55,10 @@ Caelian starts at $199/mo and requires 8–15 analyst hours per week to maintain
 
 Seeto ($99/mo) focuses on visual screenshot diffs. KompWatch tracks pricing pages, feature copy, blog posts, and job listings with AI-generated summaries delivered by email, at half the price.
 
+## KompWatch vs Already.dev
+
+Already.dev launched in 2026 as a self-serve competitor monitoring tool at ~$49/mo, scanning 40+ sources. KompWatch starts free (2 competitors) and uses a full headless browser (Playwright) to monitor any URL — including JavaScript-heavy sites — with AI-generated digests and job listing tracking that Already.dev doesn't offer. If you're evaluating both, KompWatch's free tier lets you start without a credit card.
+
 ## Detailed Comparisons
 
 For side-by-side breakdowns, see our dedicated comparison pages:
@@ -64,6 +68,7 @@ For side-by-side breakdowns, see our dedicated comparison pages:
 - [KompWatch vs Kompyte →](https://kompwatch.com/vs-kompyte)
 - [KompWatch vs Caelian →](https://kompwatch.com/vs-caelian)
 - [KompWatch vs Seeto →](https://kompwatch.com/vs-seeto)
+- [KompWatch vs Already.dev →](https://kompwatch.com/vs-already-dev)
 
 ## Can I Switch From Klue or Crayon?
 
