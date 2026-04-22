@@ -2,6 +2,7 @@ import Link from "next/link";
 import { HeroCTA } from "./hero-cta";
 import { HeroHeadline } from "./hero-headline";
 import { HeroSubheadline } from "./hero-subheadline";
+import { TrackedCTA } from "@/components/tracked-cta";
 
 const features = [
   {
@@ -365,8 +366,10 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <Link
+                <TrackedCTA
                   href={plan.href}
+                  event="Pricing CTA Click"
+                  eventProps={{ plan: plan.name }}
                   className={`mt-8 block w-full rounded-lg px-4 py-2.5 text-center text-sm font-semibold shadow-sm ${
                     plan.popular
                       ? "bg-brand-600 text-white hover:bg-brand-700"
@@ -374,7 +377,7 @@ export default function Home() {
                   }`}
                 >
                   {plan.cta}
-                </Link>
+                </TrackedCTA>
               </div>
             ))}
           </div>
@@ -409,15 +412,15 @@ export default function Home() {
             </div>
             <p className="mt-4 text-center text-xs text-gray-400">
               Pricing from Vendr and G2 reviews (2026). Same core competitive intelligence &mdash;{" "}
-              <Link href="/vs-crayon" className="underline hover:text-gray-600">vs Crayon</Link>
+              <TrackedCTA href="/vs-crayon" event="Price Anchor Link Click" eventProps={{ competitor: "Crayon" }} className="underline hover:text-gray-600">vs Crayon</TrackedCTA>
               {" "}&middot;{" "}
-              <Link href="/vs-klue" className="underline hover:text-gray-600">vs Klue</Link>
+              <TrackedCTA href="/vs-klue" event="Price Anchor Link Click" eventProps={{ competitor: "Klue" }} className="underline hover:text-gray-600">vs Klue</TrackedCTA>
               {" "}&middot;{" "}
-              <Link href="/vs-kompyte" className="underline hover:text-gray-600">vs Kompyte</Link>
+              <TrackedCTA href="/vs-kompyte" event="Price Anchor Link Click" eventProps={{ competitor: "Kompyte" }} className="underline hover:text-gray-600">vs Kompyte</TrackedCTA>
               {" "}&middot;{" "}
-              <Link href="/vs-caelian" className="underline hover:text-gray-600">vs Caelian</Link>
+              <TrackedCTA href="/vs-caelian" event="Price Anchor Link Click" eventProps={{ competitor: "Caelian" }} className="underline hover:text-gray-600">vs Caelian</TrackedCTA>
               {" "}&middot;{" "}
-              <Link href="/vs-seeto" className="underline hover:text-gray-600">vs Seeto</Link>
+              <TrackedCTA href="/vs-seeto" event="Price Anchor Link Click" eventProps={{ competitor: "Seeto" }} className="underline hover:text-gray-600">vs Seeto</TrackedCTA>
             </p>
           </div>
         </div>
@@ -433,12 +436,13 @@ export default function Home() {
             Join teams who get AI-analyzed competitor updates delivered to their inbox.
           </p>
           <div className="mt-8">
-            <Link
+            <TrackedCTA
               href="/login"
+              event="Final CTA Click"
               className="inline-block rounded-lg bg-brand-600 px-8 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
             >
               Start free — no credit card required
-            </Link>
+            </TrackedCTA>
           </div>
         </div>
       </section>
