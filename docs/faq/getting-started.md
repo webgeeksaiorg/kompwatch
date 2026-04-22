@@ -58,7 +58,7 @@ By default, KompWatch crawls several pages per competitor automatically — pric
 
 - **Monitor specific pages.** Point the URL directly at `/pricing` or `/features` rather than the homepage — changes there are more meaningful.
 - **Use a CSS selector.** Targeting `.pricing-table` or `#features` cuts noise from navigation and footer changes. See [CSS Selectors FAQ](css-selectors.md).
-- **Start with 1–2 high-priority competitors.** Get a feel for the change cadence before adding more.
+- **Start with 1–2 high-priority competitors.** Get a feel for the change cadence before adding more. See [How Many Competitors Should I Monitor?](how-many-competitors-to-monitor.md) for strategic guidance.
 - **Check your plan limits.** Free: 2 competitors. Pro: 10. Team: 50. Upgrade at [kompwatch.com/pricing](https://kompwatch.com/pricing).
 
 ## Your Dashboard and Settings

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
+import { ComparisonFAQ } from "@/components/comparison-faq";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -276,6 +277,33 @@ export default function VsSeetoPage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ with JSON-LD schema */}
+      <ComparisonFAQ
+        competitor="Seeto"
+        faqs={[
+          {
+            question: "How much does Seeto cost?",
+            answer: "Seeto starts at $99/mo ($1,188/yr). KompWatch starts at $49/mo ($588/yr) — half the price with more monitoring signals including blog tracking, job listings, and AI summaries.",
+          },
+          {
+            question: "What is the difference between KompWatch and Seeto?",
+            answer: "Seeto focuses on visual website monitoring with screenshot diffs, primarily tracking homepage changes. KompWatch monitors pricing pages, feature pages, blogs, and job listings with AI-generated change summaries. KompWatch also supports CSS selector targeting for precise monitoring and offers a free plan.",
+          },
+          {
+            question: "Does Seeto track more than just screenshots?",
+            answer: "Seeto is primarily a screenshot-based monitoring tool focused on visual changes. It does not track blog content, job listings, or generate AI summaries. KompWatch tracks all of these signals and delivers AI-powered digests explaining what changed and why it matters.",
+          },
+          {
+            question: "Can I try KompWatch for free?",
+            answer: "Yes. KompWatch's free plan lets you track up to 2 competitors with weekly AI digests — no credit card required. Seeto does not offer a free plan.",
+          },
+          {
+            question: "Does KompWatch support visual screenshot diffs?",
+            answer: "Visual screenshot diffs are available on KompWatch's Pro plan and above. KompWatch goes beyond screenshots with structured content monitoring, AI change detection, and multi-page tracking — while Seeto is limited to homepage-only monitoring.",
+          },
+        ]}
+      />
 
       {/* CTA */}
       <section className="py-20">

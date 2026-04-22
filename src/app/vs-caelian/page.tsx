@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
+import { ComparisonFAQ } from "@/components/comparison-faq";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -276,6 +277,33 @@ export default function VsCaelianPage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ with JSON-LD schema */}
+      <ComparisonFAQ
+        competitor="Caelian"
+        faqs={[
+          {
+            question: "How much does Caelian cost?",
+            answer: "Caelian starts at $199/mo ($2,388/yr) with self-serve signup. KompWatch starts at $49/mo ($588/yr) — roughly 4x less expensive for comparable monitoring coverage.",
+          },
+          {
+            question: "What is the difference between KompWatch and Caelian?",
+            answer: "Both monitor competitor websites. Caelian relies on manual analyst curation, requiring 8-15 hours/week of analyst time to stay useful. KompWatch is fully automated with AI-generated change summaries — zero analyst hours needed. KompWatch also tracks job listings and offers a free plan, which Caelian does not.",
+          },
+          {
+            question: "Does Caelian require analyst hours?",
+            answer: "Yes. Caelian's monitoring model requires 8-15 hours per week of analyst time for manual curation and review. KompWatch is fully automated — AI detects changes, generates summaries, and delivers digests without any manual work.",
+          },
+          {
+            question: "Can I try KompWatch for free?",
+            answer: "Yes. KompWatch's free plan lets you track up to 2 competitors with weekly AI digests — no credit card required. Caelian does not offer a free plan.",
+          },
+          {
+            question: "Does KompWatch track job listings?",
+            answer: "Yes. KompWatch monitors competitor job listings to surface hiring signals — new engineering roles, sales expansion, and team growth. Caelian does not offer job listing tracking.",
+          },
+        ]}
+      />
 
       {/* CTA */}
       <section className="py-20">

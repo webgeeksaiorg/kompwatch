@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
+import { ComparisonFAQ } from "@/components/comparison-faq";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -274,6 +275,33 @@ export default function VsCrayonPage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ with JSON-LD schema */}
+      <ComparisonFAQ
+        competitor="Crayon"
+        faqs={[
+          {
+            question: "How much does Crayon cost?",
+            answer: "Crayon pricing is quote-based and requires a sales call. Based on public data from vendr.com and G2 reviews (April 2026), plans range from $5,000/yr to $80,000+/yr depending on team size and features. KompWatch starts at $49/mo ($588/yr) with self-serve signup.",
+          },
+          {
+            question: "What is the difference between KompWatch and Crayon?",
+            answer: "Both track competitor websites for pricing, feature, and content changes. Crayon is an enterprise platform with battlecards, managed services, and Salesforce integrations — but requires a sales call and multi-week onboarding. KompWatch is a self-serve tool with AI-generated digests, instant signup, and a free plan. The core monitoring is comparable; the difference is price, speed-to-value, and target market.",
+          },
+          {
+            question: "Can I switch from Crayon to KompWatch?",
+            answer: "Yes. Sign up for KompWatch's free plan, add your competitors, and run both tools side-by-side for a month to compare digests. KompWatch requires no contract, so you can cancel Crayon when you're satisfied with the switch.",
+          },
+          {
+            question: "Does KompWatch have a free plan?",
+            answer: "Yes. KompWatch's free plan lets you track up to 2 competitors with weekly AI digests — no credit card required. Upgrade to Pro ($49/mo) for 10 competitors and daily digests, or Team ($149/mo) for 50 competitors and real-time alerts.",
+          },
+          {
+            question: "Is KompWatch good enough for enterprise teams?",
+            answer: "KompWatch's Team plan ($149/mo) supports up to 50 competitors with hourly snapshots and real-time Slack/webhook alerts. For teams that need battlecards, managed analyst services, or deep Salesforce integrations, Crayon may be a better fit. For teams that need fast, automated competitor monitoring without the enterprise overhead, KompWatch delivers.",
+          },
+        ]}
+      />
 
       {/* CTA */}
       <section className="py-20">
