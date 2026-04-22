@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { TrackedCTA } from "@/components/tracked-cta";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -125,12 +126,14 @@ export default function VsCrayonPage() {
           <strong className="text-gray-900">$49/mo</strong>, with self-serve signup in under 2 minutes.
         </p>
         <div className="mt-10 flex items-center justify-center gap-4">
-          <Link
+          <TrackedCTA
             href="/login"
+            event="Comparison Hero CTA Click"
+            eventProps={{ competitor: "Crayon" }}
             className="rounded-lg bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
           >
             Start free — 2 competitors
-          </Link>
+          </TrackedCTA>
           <Link
             href="#comparison"
             className="text-sm font-semibold text-gray-900 hover:text-brand-600"
@@ -283,12 +286,14 @@ export default function VsCrayonPage() {
             No sales call. Cancel anytime.
           </p>
           <div className="mt-8">
-            <Link
+            <TrackedCTA
               href="/login"
+              event="Comparison Bottom CTA Click"
+              eventProps={{ competitor: "Crayon" }}
               className="inline-block rounded-lg bg-brand-600 px-8 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
             >
               Start free — no credit card required
-            </Link>
+            </TrackedCTA>
           </div>
           <p className="mt-4 text-xs text-gray-400">
             Already on Crayon?{" "}
