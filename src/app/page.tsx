@@ -412,6 +412,12 @@ export default function Home() {
               <Link href="/vs-crayon" className="underline hover:text-gray-600">vs Crayon</Link>
               {" "}&middot;{" "}
               <Link href="/vs-klue" className="underline hover:text-gray-600">vs Klue</Link>
+              {" "}&middot;{" "}
+              <Link href="/vs-kompyte" className="underline hover:text-gray-600">vs Kompyte</Link>
+              {" "}&middot;{" "}
+              <Link href="/vs-caelian" className="underline hover:text-gray-600">vs Caelian</Link>
+              {" "}&middot;{" "}
+              <Link href="/vs-seeto" className="underline hover:text-gray-600">vs Seeto</Link>
             </p>
           </div>
         </div>
