@@ -13,6 +13,36 @@ Tracks where KompWatch has been submitted for listing/discovery.
 | — | Hacker News | pending | Show HN at launch |
 | — | awesome-saas-tools | pending | — |
 
+## Keyword Research — 2026-04-22 (Wednesday cycle, run 4)
+
+**Fresh angles from run 4:**
+- "Google Alerts alternative" space is crowded for social listening (Talkwalker, Awario, Mention at $49/mo) — but all these monitor social mentions/brand. KompWatch is different: structured website change detection with CSS selector targeting + headless rendering. Almost nobody competes at this specific angle.
+- Already.dev confirmed launching 2026 at ~$49/mo, scanning 40+ signals (job boards, news, LinkedIn, press releases) — broad signal coverage vs KompWatch's deep page watching. Positioning: "coverage vs precision."
+- CI ownership continues to be the real blocker for expensive tools — Cotera data still the best quote we have. Thursday Reddit comment drafted around this angle.
+- Thursday Thursday gap filled: `reddit/2026-04-23-comment-saas-ci-ownership.md` + `twitter/2026-04-23-reply-already-dev.md`
+
+**Publishing status:** API credentials not configured (TWITTER_API_KEY, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID all missing). All content queued.
+
+## Keyword Research — 2026-04-22 (Wednesday cycle)
+
+**Fresh data from WebSearch (April 2026):**
+- "How to track competitor pricing for SaaS" is an unserved gap — results dominated by e-commerce retail repricing tools (Prisync, Pricefy, PriceMole). SaaS-specific content opportunity.
+- "Crayon alternative for startups" and "Klue alternative small team" are active search terms with real demand. Comparison sites (RivalSift, Caelian) are producing 2026 content but redirecting to other enterprise tools — no affordable option in results.
+- Transparent pricing is a real differentiator: Crayon, Klue, Kompyte, WatchMyCompetitor all hide pricing behind "contact us."
+- Crayon launched MCP server — enterprise CI adding AI agent layer; SMB market still on Google Alerts.
+
+**Content queued based on this research:**
+- `blog/2026-04-23-crayon-alternative-for-startups.md` — Thursday blog article (~1000 words)
+- `twitter/2026-04-23-transparent-pricing-angle.md` — "contact us" irony tweet
+- `twitter/2026-04-23-saas-pricing-gap.md` — e-commerce tools / SaaS gap tweet
+- `twitter/2026-04-23-who-owns-ci.md` — CI ownership question tweet
+- `twitter/2026-04-23-reply-contact-us-pricing.md` — reply on pricing transparency
+- `twitter/2026-04-23-reply-visualping-spa-fails.md` — Visualping SPA limitation reply
+- `twitter/2026-04-23-reply-google-alerts-saas.md` — Google Alerts limitations reply
+- `twitter/2026-04-23-reply-rivalsift-alternatives.md` — alternatives gap reply
+
+**Publishing status:** API credentials not configured. All content queued.
+
 ## Keyword Research — 2026-04-19 (cycle 2, ~22:30 UTC)
 
 **Fresh data from Vendr/Cotera research:**
