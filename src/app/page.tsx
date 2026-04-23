@@ -173,6 +173,12 @@ export default function Home() {
         </p>
         <HeroHeadline />
         <HeroSubheadline />
+        {/* Urgency stat — self-identification social proof (Crayon 2026 State of CI) */}
+        <p className="mx-auto mt-6 max-w-2xl text-sm text-gray-600">
+          <span className="font-semibold text-gray-900">68%</span> of deals face direct competition — yet teams rate their readiness just{" "}
+          <span className="font-semibold text-gray-900">3.8/10</span>.
+          <span className="ml-1 text-gray-400">Source: Crayon 2026 State of CI</span>
+        </p>
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <HeroCTA />
           <HeroSecondaryCTA />
