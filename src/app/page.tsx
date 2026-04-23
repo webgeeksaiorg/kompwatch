@@ -273,7 +273,32 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {/* "No CI analyst needed" callout — counters Klue's #1 G2 complaint (must log in daily) */}
+          <div className="mt-10 flex justify-center">
+            <div className="flex max-w-2xl items-start gap-3 rounded-xl border border-brand-200 bg-white px-5 py-4 shadow-sm">
+              <svg
+                className="mt-0.5 h-5 w-5 shrink-0 text-brand-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+              </svg>
+              <div>
+                <p className="text-sm font-semibold text-gray-900">
+                  No CI analyst needed
+                </p>
+                <p className="mt-1 text-sm text-gray-600">
+                  No platform to log into, no dashboard to babysit. Digests land in your inbox automatically —
+                  built for founders, PMMs, and small teams who don&apos;t have time to curate a feed.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((feature) => (
               <div key={feature.title} className="rounded-xl border border-gray-200 bg-white p-6">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
