@@ -1,6 +1,12 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
+
+declare global {
+  interface Window {
+    plausible?: (event: string, options?: { props?: Record<string, string> }) => void;
+  }
+}
 
 const ANNUAL_DISCOUNT = 0.2; // 20% off
 
@@ -261,11 +267,67 @@ function ExitIntentPopover({ onClose }: { onClose: () => void }) {
   );
 }
 
+function StickyCTA({
+  visible,
+  onDismiss,
+}: {
+  visible: boolean;
+  onDismiss: () => void;
+}) {
+  if (!visible) return null;
+  return (
+    <div
+      role="region"
+      aria-label="Start free signup"
+      className="fixed inset-x-0 bottom-0 z-40 border-t border-gray-200 bg-white/95 shadow-[0_-4px_16px_rgba(0,0,0,0.06)] backdrop-blur supports-[backdrop-filter]:bg-white/80"
+    >
+      <div className="mx-auto flex max-w-5xl items-center gap-3 px-4 py-3 sm:gap-4">
+        <div className="hidden sm:flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-50">
+          <svg className="h-5 w-5 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <div className="min-w-0 flex-1">
+          <p className="truncate text-sm font-medium text-gray-900">
+            Start free — no credit card required
+          </p>
+          <p className="hidden truncate text-xs text-gray-500 sm:block">
+            2 competitors, weekly digest. Upgrade anytime.
+          </p>
+        </div>
+        <a
+          href="/login"
+          onClick={() =>
+            window.plausible?.("pricing-sticky-cta-click", {
+              props: { location: "sticky-bar" },
+            })
+          }
+          className="shrink-0 rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
+        >
+          Start free
+        </a>
+        <button
+          type="button"
+          onClick={onDismiss}
+          aria-label="Dismiss"
+          className="shrink-0 rounded-md p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-600"
+        >
+          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export default function PricingPage() {
   const [loading, setLoading] = useState<string | null>(null);
   const [annual, setAnnual] = useState(true);
   const [showExitIntent, setShowExitIntent] = useState(false);
   const [exitIntentDismissed, setExitIntentDismissed] = useState(false);
+  const [stickyVisible, setStickyVisible] = useState(false);
+  const stickyDismissedRef = useRef(false);
 
   const handleExitIntent = useCallback(
     (e: MouseEvent) => {
@@ -301,6 +363,38 @@ export default function PricingPage() {
     sessionStorage.setItem("kw-exit-intent-dismissed", "1");
   }
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (sessionStorage.getItem("kw-pricing-sticky-dismissed")) {
+      stickyDismissedRef.current = true;
+      return;
+    }
+
+    let impressionFired = false;
+    const onScroll = () => {
+      if (stickyDismissedRef.current) return;
+      const shouldShow = window.scrollY > 600;
+      setStickyVisible((prev) => {
+        if (shouldShow && !prev && !impressionFired) {
+          impressionFired = true;
+          window.plausible?.("pricing-sticky-cta-impression");
+        }
+        return shouldShow;
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  function dismissSticky() {
+    setStickyVisible(false);
+    stickyDismissedRef.current = true;
+    sessionStorage.setItem("kw-pricing-sticky-dismissed", "1");
+    window.plausible?.("pricing-sticky-cta-dismiss");
+  }
+
   async function handleCheckout(plan: string) {
     if (plan === "FREE") {
       window.location.href = "/login";
@@ -334,7 +428,7 @@ export default function PricingPage() {
   }
 
   return (
-    <main className="mx-auto max-w-5xl px-4 py-16">
+    <main className="mx-auto max-w-5xl px-4 pt-16 pb-28">
       <div className="text-center">
         <h1 className="text-4xl font-bold tracking-tight text-gray-900">
           Simple, transparent pricing
@@ -511,6 +605,8 @@ export default function PricingPage() {
       </div>
 
       {showExitIntent && <ExitIntentPopover onClose={dismissExitIntent} />}
+
+      <StickyCTA visible={stickyVisible} onDismiss={dismissSticky} />
     </main>
   );
 }
