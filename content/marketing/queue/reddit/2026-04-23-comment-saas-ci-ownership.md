@@ -2,7 +2,7 @@
 platform: reddit
 type: comment
 target: r/ProductManagement — threads about competitive intelligence processes, "how do you do competitive research," or "what's your CI workflow"
-status: draft
+status: ready
 keywords: [competitive intelligence small teams, competitor monitoring process, who owns competitive intelligence]
 ---
 The ownership question is the one nobody asks before buying a CI tool. "Who at your company will own this?" If the answer is "we'll figure that out" — the tool becomes shelfware in 90 days. Every time.

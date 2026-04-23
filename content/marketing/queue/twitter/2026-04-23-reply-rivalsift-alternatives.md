@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: threads about Crayon alternatives, Klue alternatives, CI tool comparison posts
-status: draft
+status: ready
 keywords: [crayon alternative, klue alternative startup, competitor monitoring alternatives]
 ---
 The "Crayon alternatives" comparison posts mostly list: Klue, Kompyte, WatchMyCompetitor, Crayon.

@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: threads about Visualping, lightweight monitoring tools, monitoring modern websites
-status: draft
+status: ready
 keywords: [visualping alternative, visualping spa, competitor website monitoring, javascript site monitoring]
 ---
 Visualping works great until your competitor's site runs on React.

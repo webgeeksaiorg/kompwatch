@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: threads about SaaS pricing transparency, "contact us for pricing", enterprise software pricing
-status: draft
+status: ready
 keywords: [saas pricing transparency, enterprise pricing contact us, competitor monitoring pricing]
 ---
 The "contact us" pricing model on CI tools is particularly ironic.

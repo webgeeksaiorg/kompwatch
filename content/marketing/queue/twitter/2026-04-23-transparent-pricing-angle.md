@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: ready
 keywords: [crayon pricing, klue pricing, competitor monitoring tool pricing, saas pricing transparency]
 ---
 Crayon: "Contact us"

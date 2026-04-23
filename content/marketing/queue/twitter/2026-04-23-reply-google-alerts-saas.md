@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: threads about Google Alerts for competitor tracking, free competitive intelligence tools
-status: draft
+status: ready
 keywords: [google alerts alternative, google alerts competitor monitoring, free competitor tracking]
 ---
 Google Alerts is fine for brand mentions. For competitor website changes it has three problems:

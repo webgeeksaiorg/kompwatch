@@ -1,7 +1,7 @@
 ---
 platform: blog
 type: article
-status: draft
+status: ready
 keywords: [crayon alternative for startups, crayon alternative small team, klue alternative startup, competitor monitoring tool startups, competitive intelligence small team]
 target_word_count: 1000
 ---
