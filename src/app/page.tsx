@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { HeroCTA } from "./hero-cta";
+import { HeroCTA, HeroSecondaryCTA } from "./hero-cta";
 import { HeroHeadline } from "./hero-headline";
 import { HeroSubheadline } from "./hero-subheadline";
 import { TrackedCTA } from "@/components/tracked-cta";
@@ -173,8 +173,9 @@ export default function Home() {
         </p>
         <HeroHeadline />
         <HeroSubheadline />
-        <div className="mt-10 flex items-center justify-center gap-4">
+        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <HeroCTA />
+          <HeroSecondaryCTA />
           <Link
             href="#how-it-works"
             className="text-sm font-semibold text-gray-900 hover:text-brand-600"

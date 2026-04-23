@@ -25,6 +25,24 @@ function getVariant(): Variant {
   return variant;
 }
 
+export function HeroSecondaryCTA() {
+  const handleClick = () => {
+    window.plausible?.("Hero Secondary CTA Click", {
+      props: { cta: "see-a-live-digest" },
+    });
+  };
+
+  return (
+    <Link
+      href="/sample-digest"
+      onClick={handleClick}
+      className="rounded-lg border border-brand-300 bg-white px-6 py-3 text-sm font-semibold text-brand-700 shadow-sm hover:bg-brand-50"
+    >
+      See a Live Digest
+    </Link>
+  );
+}
+
 export function HeroCTA() {
   const [variant, setVariant] = useState<Variant | null>(null);
 
