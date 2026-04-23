@@ -23,6 +23,15 @@ This approach catches content that only appears after JavaScript runs — pricin
 - Check your **Change Severity** settings — CSS-only changes from animations or rotating content are filtered as Low severity by default.
 - If a competitor site consistently produces noisy, irrelevant diffs, email [support@kompwatch.com](mailto:support@kompwatch.com) and we can help tune the selector.
 
+## Quick Test: Is My Competitor's Site Server-Rendered or SPA?
+
+Press **Cmd+U** (Mac) or **Ctrl+U** (Windows) on your competitor's pricing page to view source:
+
+- **See full readable content** — pricing text, feature descriptions, plan names? That's a server-rendered site. Most monitoring tools work fine.
+- **See `<div id="root"></div>` and a bundle of `<script>` tags with little else?** That's a React, Next.js, or similar SPA. Tools that don't use a headless browser will silently snapshot an empty div and never fire a diff.
+
+KompWatch uses Playwright with `networkidle` waiting, so both types work correctly.
+
 ## Does KompWatch Follow Client-Side Navigation?
 
 No — KompWatch monitors the URL you specify, not additional pages that load via client-side routing. To monitor multiple pages (e.g., `/pricing`, `/features`, `/blog`), add each as a separate competitor entry or separate URL.
