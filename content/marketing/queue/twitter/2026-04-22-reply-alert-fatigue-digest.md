@@ -7,6 +7,6 @@ keywords: [alert fatigue, competitor monitoring digest, competitor change notifi
 ---
 Real-time alerts for competitor changes = alert fatigue within two weeks. Been there.
 
-Daily morning digest — "here's everything that changed across 8 competitors in the last 24 hours" — readable in 90 seconds and actually actionable.
+Daily morning digest — everything that changed across your competitors in 24 hours, readable in 90 seconds — is actually actionable.
 
-The frequency question is less about coverage and more about what format you'll actually read.
+Format matters more than frequency.

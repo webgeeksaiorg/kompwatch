@@ -12,6 +12,53 @@ Tracks where KompWatch has been submitted for listing/discovery.
 | — | Indie Hackers | pending | Post "I'm building" thread at launch |
 | — | Hacker News | pending | Show HN at launch |
 | — | awesome-saas-tools | pending | — |
+| — | awesome-competitive-intelligence | pending | GitHub repo: github.com/aj-dev-sys/awesome-competitive-intelligence — add KompWatch as headless-browser-based option |
+
+## Keyword Research — 2026-04-23 (Thursday cycle)
+
+**Fresh data from WebSearch (April 2026):**
+- **42% of SaaS companies adjusted pricing in H1 2024** (per Reforge/OpenView surveys) — pricing pages are the highest-value thing to monitor, and most teams have no system for it. Concrete stat for content.
+- **Visualping 2M+ users on free tier** — mid-market default is still "free tools cobbled together." Most of that 2M is silently failing on JS-rendered sites. KompWatch's headless approach is genuinely differentiated.
+- **Market split sharpening**: Enterprise tier (Crayon $30K–$100K+/yr, Klue $20K–$40K/yr) vs. nobody in the $50–$300/mo range doing website-change-detection well. RivalSift ($299–$999/mo) is the closest, still 6–20x KompWatch.
+- **GummySearch confirmed dead** (Reddit API access revoked Dec 2025). Third free CI tool failure in ~12 months. "Scrappy stack is deteriorating" narrative is live and valid.
+- **Competitors App** ($19–$149/mo) — emerging mid-market competitor. Worth monitoring their pricing page changes.
+
+**Content angles for upcoming cycles:**
+- "42% of pricing pages change quarterly — no press release, just a different page on a Tuesday" (tweet/reply)
+- "2 million people use Visualping for free. Most of them have React-based competitors. Most of them are monitoring an empty div." (tweet)
+- "The scrappy free stack: Google Alerts + Visualping + GummySearch. Two of those still work. One is dead." (thread)
+
+## Reddit Thread Targets (live, found 2026-04-22)
+
+For reddit-comment publishing once credentials are available:
+
+| Thread URL | Subreddit | Title | Comments | Age | Good for |
+|-----------|-----------|-------|----------|-----|---------|
+| https://old.reddit.com/r/SaaS/comments/1srqdg2/ | r/SaaS | "I built a tool that monitors competitor websites daily" | 19 | 1 day | ci-stack-collapsing comment |
+| https://old.reddit.com/r/ProductManagement/comments/1pj2qjv/ | r/ProductManagement | "Keeping up with competitors product updates" | 14 | 2mo | pm-ci-small-teams comment |
+| https://old.reddit.com/r/SaaS/comments/1sdyb8o/ | r/SaaS | "I made a free list of CI tools (GitHub)" | 1 | 16 days | spa-monitoring-gap comment |
+| https://old.reddit.com/r/SaaS/comments/1sf6it4/ | r/SaaS | "I was pricing my monitoring tool at $24/mo..." | 16 | 14 days | pricing/positioning discussion |
+
+## Keyword Research — 2026-04-22 (run 3)
+
+**GummySearch collapse angle:**
+- GummySearch shut down Dec 2025 (Reddit API access revoked). Third free CI tool to fail in ~12 months.
+- Keyword opportunity: "gummysearch alternative" — low volume but zero competition, timely
+- Scrappy-stack narrative: Alerts (24hr delay) + Visualping (fails SPAs) + GummySearch (dead) = stack is actively deteriorating
+
+**SPA monitoring gap — strong technical SEO angle:**
+- Most monitoring tools fetch raw HTTP — miss React/Next.js/Vue apps entirely
+- Fails silently: successful snapshot of empty div, diffs that never fire
+- Fix: headless browser with `waitUntil: networkidle`
+- Target keywords: "monitor competitor javascript website", "competitor monitoring SPA react", "competitor website tracking nextjs"
+- Competitor weakness: Visualping, most lightweight tools don't do headless rendering
+- Blog post queued: `2026-04-23-competitor-monitoring-fails-spa-javascript.md`
+
+**Confirmed pricing data (Vendr/Parano 2026):**
+- Crayon: ~$15K/yr entry, median contracts $28,750 (Vendr)
+- Klue: ~$16K/yr entry, median ~$30K/yr
+- Both require 8-15 hrs/week analyst time for full value
+- "Month 3 shelfware" quote confirmed in Cotera buyer guide
 
 ## Keyword Research — 2026-04-22 (Wednesday cycle, run 4)
 

@@ -4,8 +4,8 @@ type: tweet
 status: draft
 keywords: [google alerts alternative, competitor research tools, saas competitive intelligence]
 ---
-GummySearch shut down in December 2025. Reddit denied API access, tool gone overnight, saved searches deleted.
+GummySearch shut down Dec 2025. Reddit killed API access, tool gone overnight.
 
-That's the third scrappy founder CI tool in the last year that stopped working because a platform changed the rules.
+Three free CI tools I know have disappeared or broken in the last year. The cobbled-together stack is less reliable every month. The $28K enterprise tools haven't moved.
 
-The cobbled-together stack — Alerts + Visualping + GummySearch — is getting less reliable, not more. The $28K enterprise tools haven't budged. The gap is getting louder.
+The gap is getting louder.

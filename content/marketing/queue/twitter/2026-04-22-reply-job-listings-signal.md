@@ -5,8 +5,8 @@ target: threads about competitive research, tracking competitor strategy, readin
 status: draft
 keywords: [competitor job listings, competitive signals, competitor strategy monitoring]
 ---
-Job listings are the most underrated public competitive signal.
+Job listings are the most underrated competitive signal.
 
-5 ML engineers posted in Q1 = they're building AI features. Head of Sales for a new region = expansion. Head of Partnerships = integration push.
+5 ML engineers in Q1 = AI features coming. New Head of Sales for a region = expansion. Head of Partnerships = integration push.
 
-All public. All legible. Most teams ignore them entirely because there's no system to track it.
+All public. All legible. Most teams miss them because there's no system.
