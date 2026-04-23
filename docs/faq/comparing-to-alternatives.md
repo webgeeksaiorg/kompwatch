@@ -63,7 +63,9 @@ Already.dev launched in 2026 as a self-serve competitor monitoring tool at ~$49/
 
 Visualping is the most popular simple page change detection tool. It takes screenshots and emails you a visual diff when something changes — great for basic monitoring, but it's not competitive intelligence. Visualping starts free (~$14/mo for paid plans) and does one thing well: showing you that a page changed.
 
-KompWatch goes further: AI summaries explain *what* changed and *why it matters*, CSS selector targeting lets you watch specific sections (not the whole page), and daily digests consolidate all changes into one actionable email. If you're using Visualping to monitor competitors, KompWatch is the upgrade path.
+KompWatch goes further: AI summaries explain *what* changed and *why it matters*, CSS selector targeting lets you watch specific sections (not the whole page), and daily digests consolidate all changes into one actionable email. Visualping also doesn't use a headless browser, so JavaScript-rendered competitor sites (React, Next.js, Vue) are partially or fully missed — see the [JavaScript/SPA monitoring FAQ](monitoring-javascript-spa-sites.md) for details.
+
+If you're using Visualping to monitor competitors, KompWatch is the upgrade path.
 
 ## Detailed Comparisons
 
