@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: ready
 keywords: [competitor pricing tracking saas, how to track competitor pricing, saas competitive intelligence]
 ---
 "How to track competitor pricing" is dominated by e-commerce tools.

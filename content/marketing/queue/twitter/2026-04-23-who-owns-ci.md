@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: ready
 keywords: [competitive intelligence ownership, crayon roi, ci analyst, ci tool adoption]
 ---
 Before buying any CI tool, ask: who owns this at your company?

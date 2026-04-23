@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: threads about Already.dev, new competitor monitoring tools, or CI tool comparisons
-status: draft
+status: ready
 keywords: [already.dev alternative, competitor monitoring tools 2026, website change detection]
 ---
 Already.dev is a discovery tool — finds competitors you didn't know existed. $49/month.
