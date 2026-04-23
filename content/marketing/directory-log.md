@@ -13,6 +13,47 @@ Tracks where KompWatch has been submitted for listing/discovery.
 | — | Hacker News | pending | Show HN at launch |
 | — | awesome-saas-tools | pending | — |
 
+## Keyword Research — 2026-04-22 (Wednesday cycle, run 4)
+
+**Fresh data from WebSearch agent (April 2026):**
+- **Crayon raised prices ~15% in 2026** — now $30K–$100K+/year (up from $20K–$80K+). Best concrete angle for price contrast content.
+- **Already.dev is a *discovery* tool**, not a monitoring tool. Scans 40+ sources (Product Hunt, GitHub, Reddit, HN, patent databases) to find competitors you don't know about. $49/mo. KompWatch *monitors* known competitors. Complementary, not competing. "Complete stack for $98/month" angle is strong.
+- **Google Alerts contrast**: Alerts fire when someone writes *about* a competitor. KompWatch fires when the competitor changes their own website. Completely different signal — no other tool in this space is making this contrast clearly.
+- **Klue onboarding**: "Weeks to onboard" is documented in their own implementation timeline. KompWatch = minutes. Strong reply angle.
+- **Win rate stat**: "30–40% win rate improvement with automated CI" (sourced to Arise/TrajectoryAI). At $49/mo, ROI math is obvious.
+- **RivalSift** ($299–$999/mo) is the main mid-market option — still 6–20x KompWatch pricing.
+- Google Alerts replacement space is all *social listening* tools (Talkwalker, Awario, Mention). Nobody is positioning for website change detection specifically — that's KompWatch's clean lane.
+
+**Content queued from this research (Friday 2026-04-25):**
+- `twitter/2026-04-25-crayon-price-hike.md` — Crayon $30K–$100K+/yr angle (8/10)
+- `twitter/2026-04-25-alerts-vs-watching.md` — mentions vs website changes (8.5/10)
+- `twitter/2026-04-25-reply-klue-onboarding.md` — onboarding contrast (7.5/10)
+- `twitter/2026-04-25-reply-win-rate-roi.md` — ROI at $49/mo (8/10)
+- `linkedin/2026-04-25-complete-ci-stack.md` — discovery vs monitoring framing (8/10)
+- Updated `twitter/2026-04-23-reply-already-dev.md` with complementary stack angle
+
+**Publishing status:** API credentials not configured (TWITTER_API_KEY, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID all missing). All content queued.
+
+## Keyword Research — 2026-04-22 (Wednesday cycle)
+
+**Fresh data from WebSearch (April 2026):**
+- "How to track competitor pricing for SaaS" is an unserved gap — results dominated by e-commerce retail repricing tools (Prisync, Pricefy, PriceMole). SaaS-specific content opportunity.
+- "Crayon alternative for startups" and "Klue alternative small team" are active search terms with real demand. Comparison sites (RivalSift, Caelian) are producing 2026 content but redirecting to other enterprise tools — no affordable option in results.
+- Transparent pricing is a real differentiator: Crayon, Klue, Kompyte, WatchMyCompetitor all hide pricing behind "contact us."
+- Crayon launched MCP server — enterprise CI adding AI agent layer; SMB market still on Google Alerts.
+
+**Content queued based on this research:**
+- `blog/2026-04-23-crayon-alternative-for-startups.md` — Thursday blog article (~1000 words)
+- `twitter/2026-04-23-transparent-pricing-angle.md` — "contact us" irony tweet
+- `twitter/2026-04-23-saas-pricing-gap.md` — e-commerce tools / SaaS gap tweet
+- `twitter/2026-04-23-who-owns-ci.md` — CI ownership question tweet
+- `twitter/2026-04-23-reply-contact-us-pricing.md` — reply on pricing transparency
+- `twitter/2026-04-23-reply-visualping-spa-fails.md` — Visualping SPA limitation reply
+- `twitter/2026-04-23-reply-google-alerts-saas.md` — Google Alerts limitations reply
+- `twitter/2026-04-23-reply-rivalsift-alternatives.md` — alternatives gap reply
+
+**Publishing status:** API credentials not configured. All content queued.
+
 ## Keyword Research — 2026-04-19 (cycle 2, ~22:30 UTC)
 
 **Fresh data from Vendr/Cotera research:**
