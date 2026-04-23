@@ -2,7 +2,7 @@
 
 Your digest is a periodic email that summarizes every detected change across all your tracked competitors since the last digest was sent.
 
-> **Not signed up yet?** See a realistic example at [kompwatch.com/sample-digest](https://kompwatch.com/sample-digest) before you commit.
+> **Not signed up yet?** See a realistic example at [kompwatch.com/sample-digest](/sample-digest) before you commit.
 
 ## What's in a Digest?
 
