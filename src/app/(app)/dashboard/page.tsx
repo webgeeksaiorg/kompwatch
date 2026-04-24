@@ -209,7 +209,12 @@ export default async function DashboardPage() {
       <div className="mt-8">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-lg font-semibold text-gray-900">Recent changes</h2>
-          {recentChanges.length > 0 && <ExportChangesButton />}
+          {recentChanges.length > 0 && (
+            <div className="flex items-center gap-2">
+              <ExportChangesButton format="csv" />
+              <ExportChangesButton format="json" />
+            </div>
+          )}
         </div>
         {recentChanges.length === 0 ? (
           <div className="rounded-lg border border-dashed border-gray-300 bg-white p-8 text-center">

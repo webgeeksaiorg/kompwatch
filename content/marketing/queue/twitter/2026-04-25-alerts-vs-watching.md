@@ -1,7 +1,8 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: ready
+score: 8/10
 keywords: [google alerts alternative, competitor website monitoring, competitor tracking]
 ---
 Google Alerts fires when someone writes *about* your competitor.

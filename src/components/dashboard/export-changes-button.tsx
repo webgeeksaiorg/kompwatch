@@ -2,10 +2,14 @@
 
 import { useState } from "react";
 
+type ExportFormat = "csv" | "json";
+
 export function ExportChangesButton({
   competitorId,
+  format = "csv",
 }: {
   competitorId?: string;
+  format?: ExportFormat;
 }) {
   const [loading, setLoading] = useState(false);
 
@@ -14,6 +18,7 @@ export function ExportChangesButton({
     try {
       const params = new URLSearchParams();
       if (competitorId) params.set("competitorId", competitorId);
+      if (format !== "csv") params.set("format", format);
       const url = `/api/export/changes${params.toString() ? `?${params}` : ""}`;
       const res = await fetch(url);
       if (!res.ok) throw new Error("Export failed");
@@ -23,13 +28,16 @@ export function ExportChangesButton({
       a.download =
         res.headers
           .get("Content-Disposition")
-          ?.match(/filename="(.+)"/)?.[1] ?? "changes.csv";
+          ?.match(/filename="(.+)"/)?.[1] ?? `changes.${format}`;
       a.click();
       URL.revokeObjectURL(a.href);
     } finally {
       setLoading(false);
     }
   }
+
+  const label = format === "json" ? "Export JSON" : "Export CSV";
+  const loadingLabel = "Exporting...";
 
   return (
     <button
@@ -50,7 +58,7 @@ export function ExportChangesButton({
           d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
         />
       </svg>
-      {loading ? "Exporting..." : "Export CSV"}
+      {loading ? loadingLabel : label}
     </button>
   );
 }

@@ -14,6 +14,20 @@ Tracks where KompWatch has been submitted for listing/discovery.
 | — | awesome-saas-tools | pending | — |
 | — | awesome-competitive-intelligence | pending | GitHub repo: github.com/aj-dev-sys/awesome-competitive-intelligence — add KompWatch as headless-browser-based option |
 
+## Keyword Research — 2026-04-24 (Friday cycle, run 9)
+
+**Fresh data from WebSearch (April 2026):**
+- **n8n DIY migration**: One team migrated from $35K/year Crayon to ~$50/month n8n API workflow, saving $33K in year one. Quote: "we were paying for data organization. We could organize the data ourselves." Strong content angle.
+- **Caelian going upmarket**: Positioning as premium AI CI with Slack-native delivery, roadmap prioritization (ARR impact scoring), and GTM activation. No public pricing — enterprise pitch. KompWatch's clean lane stays intact.
+- **Multiple "best CI tools 2026" listicles** now publishing (Proven SaaS, Caelian, thecmo.com, contify). KompWatch absent — directory/listing outreach is high priority at launch.
+- **Crayon MCP server**: Launched September 2025, not new news. Klue MCP is the more recent development.
+- **Publishing blocker confirmed**: Twitter/Reddit/LinkedIn credentials still not in vault. 17+ pieces queued, none published. Blog has no Next.js route (Builder task needed).
+
+**Content produced this cycle:**
+- `twitter/2026-04-27-crayon-to-n8n-migration.md` — n8n migration story (8.5/10)
+- Updated Saturday tweet `twitter/2026-04-25-alerts-vs-watching.md` → status: ready
+- Updated 3 draft files to ready: Reddit comment (crayon-mcp-thoughts 8/10), Reddit post (honest-guide 8.5/10), LinkedIn post (ci-ownership 8/10)
+
 ## Keyword Research — 2026-04-23 (Thursday cycle)
 
 **Fresh data from WebSearch (April 2026):**
