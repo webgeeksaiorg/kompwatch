@@ -11,6 +11,10 @@ const VARIANTS = {
     before: "Clean signal from ",
     highlight: "every competitor move",
   },
+  C: {
+    before: "CI for teams ",
+    highlight: "without a CI team",
+  },
 } as const;
 
 type Variant = keyof typeof VARIANTS;
@@ -24,8 +28,9 @@ declare global {
 function getVariant(): Variant {
   if (typeof window === "undefined") return "A";
   const stored = localStorage.getItem("hero_headline_variant");
-  if (stored === "A" || stored === "B") return stored;
-  const variant: Variant = Math.random() < 0.5 ? "A" : "B";
+  if (stored === "A" || stored === "B" || stored === "C") return stored;
+  const roll = Math.random();
+  const variant: Variant = roll < 1 / 3 ? "A" : roll < 2 / 3 ? "B" : "C";
   localStorage.setItem("hero_headline_variant", variant);
   return variant;
 }
