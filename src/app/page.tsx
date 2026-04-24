@@ -304,6 +304,31 @@ export default function Home() {
             </div>
           </div>
 
+          {/* "Open format, no lock-in" callout — counters Crayon/Klue multi-year contracts & proprietary data */}
+          <div className="mt-4 flex justify-center">
+            <div className="flex max-w-2xl items-start gap-3 rounded-xl border border-brand-200 bg-white px-5 py-4 shadow-sm">
+              <svg
+                className="mt-0.5 h-5 w-5 shrink-0 text-brand-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 10.5V6.75a4.5 4.5 0 119 0v3.75M3.75 21.75h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H3.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+              </svg>
+              <div>
+                <p className="text-sm font-semibold text-gray-900">
+                  Open format, no lock-in
+                </p>
+                <p className="mt-1 text-sm text-gray-600">
+                  Your data stays yours. Export everything as CSV or JSON anytime — no annual contracts,
+                  no proprietary formats, no enterprise sales call to leave.
+                </p>
+              </div>
+            </div>
+          </div>
+
           <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((feature) => (
               <div key={feature.title} className="rounded-xl border border-gray-200 bg-white p-6">
