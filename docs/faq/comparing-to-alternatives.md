@@ -81,6 +81,7 @@ For side-by-side breakdowns, see our dedicated comparison pages:
 - [KompWatch vs Seeto →](https://kompwatch.com/vs-seeto)
 - [KompWatch vs Already.dev →](https://kompwatch.com/vs-already-dev)
 - [KompWatch vs Visualping →](https://kompwatch.com/vs-visualping)
+- [KompWatch vs Google Alerts →](https://kompwatch.com/vs-google-alerts)
 
 ## Can I Switch From Klue or Crayon?
 

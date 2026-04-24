@@ -63,5 +63,7 @@ KompWatch takes the same core approach (Playwright, CSS selectors, AI analysis) 
 
 If your current setup is Google Alerts + manual tab-checking + occasional Visualping emails, KompWatch is the next step: automated, AI-summarized, and delivered as a digest so changes don't get lost in your inbox.
 
+For a detailed side-by-side breakdown, see the [KompWatch vs Google Alerts comparison page →](https://kompwatch.com/vs-google-alerts)
+
 ---
 *Questions? Email [support@kompwatch.com](mailto:support@kompwatch.com) and we'll respond within 24 hours.*
