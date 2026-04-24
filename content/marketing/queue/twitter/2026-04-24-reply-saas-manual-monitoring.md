@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: threads about manual competitive research, PM workflows, "how do you track competitors"
-status: draft
+status: ready
 keywords: [manual competitor tracking, competitor monitoring workflow, pm competitive research]
 ---
 The Monday morning tab-check is a rite of passage. Six pinned browser tabs, thirty minutes, hoping nothing big changed while you weren't looking.

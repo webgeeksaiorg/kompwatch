@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: threads asking about free competitor monitoring tools, budget CI for startups
-status: draft
+status: ready
 keywords: [free competitor monitoring, free competitive intelligence tool, competitor monitoring free tier]
 ---
 Free tier at KompWatch: 2 competitors, daily snapshots, weekly digest. No credit card.

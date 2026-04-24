@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: ready
 keywords: [crayon mcp server, competitive intelligence mcp, claude mcp tools, ai competitive intelligence]
 ---
 Crayon just launched an MCP server so you can pull competitive intel into Claude.

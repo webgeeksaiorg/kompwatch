@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: ready
 keywords: [competitive intelligence alert fatigue, crayon alerts, competitor monitoring noise]
 ---
 Top G2 complaint for Crayon: "Expensive."
