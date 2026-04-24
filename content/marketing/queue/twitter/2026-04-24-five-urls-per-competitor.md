@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: ready
 keywords: [competitor monitoring best practices, how many competitors to track, competitor tracking urls]
 ---
 Practical rule that works: 5–8 URLs per competitor, not the whole site.

@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: threads about reading competitor signals, competitive intelligence beyond pricing, what to track
-status: draft
+status: ready
 keywords: [competitor job listings signal, competitor hiring intelligence, competitor jobs page monitoring]
 ---
 Competitor jobs pages are underrated.

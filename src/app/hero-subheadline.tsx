@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const VARIANTS = {
   A: "Track competitor pricing, features, blog posts, and job listings. Get AI-analyzed digests delivered to your inbox. Stop manually checking competitor websites.",
-  B: "Built for lean SaaS teams who need competitive intelligence without the enterprise price tag. AI-analyzed digests, delivered to your inbox.",
+  B: "Crayon costs more than a junior hire. KompWatch costs $49/mo — and you get the same answer.",
 } as const;
 
 type Variant = keyof typeof VARIANTS;

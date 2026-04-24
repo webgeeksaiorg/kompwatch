@@ -2,7 +2,7 @@
 platform: reddit
 type: comment
 target: r/webdev or r/SaaS — threads about Visualping limitations, monitoring modern JS sites, SPA monitoring
-status: draft
+status: ready
 keywords: [visualping alternative, monitoring javascript sites, headless browser monitoring, react site monitoring]
 ---
 The SPA problem with lightweight monitoring tools is real and not widely talked about.

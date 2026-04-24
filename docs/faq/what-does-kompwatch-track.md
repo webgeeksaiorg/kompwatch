@@ -15,6 +15,8 @@ When you add a competitor URL (e.g. `https://acme.com`), KompWatch crawls severa
 
 KompWatch tries common URL patterns for each section. If a competitor uses a non-standard URL (e.g. `/cost` instead of `/pricing`), use a **CSS selector** on the main page to target that section instead. See [CSS Selectors FAQ](css-selectors.md).
 
+For a detailed guide on pricing page monitoring — including what counts as a pricing change, how to target specific sections, and how often pages are checked — see [Monitoring Competitor Pricing Pages](monitoring-competitor-pricing-pages.md).
+
 ## Change Types
 
 Every detected change is classified into one of these types:

@@ -1,6 +1,6 @@
 # Exporting Your Change Data
 
-KompWatch lets you export detected changes as a CSV file — useful for sharing competitive intel with your team, building reports in Excel or Google Sheets, or importing into other tools.
+KompWatch lets you export detected changes as a CSV file — useful for sharing competitive intel with your team, building reports in Excel or Google Sheets, or importing into other tools. JSON export is on the roadmap and will be available in a future release.
 
 ## How to Export
 
@@ -34,6 +34,7 @@ Each row represents one detected change. Columns:
 - **Filter before exporting.** On the competitor detail page, use the severity filter or change type tabs to narrow changes down before exporting — the CSV reflects the current filtered view.
 - **Share with stakeholders.** The CSV opens cleanly in Excel and Google Sheets — ideal for weekly competitive review meetings.
 - **Combine with digest emails.** Use CSV exports for ad-hoc deep-dives; use digest emails for routine monitoring.
+- **Need JSON?** JSON export is coming soon. In the meantime, the CSV includes all fields and is easily convertible via standard tools.
 
 ---
 *Questions? Email [support@kompwatch.com](mailto:support@kompwatch.com) and we'll respond within 24 hours.*

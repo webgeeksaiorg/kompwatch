@@ -51,8 +51,15 @@ export function HeroCTA() {
   }, []);
 
   const handleClick = () => {
+    const subheadlineVariant =
+      typeof window !== "undefined"
+        ? localStorage.getItem("hero_subheadline_variant") ?? "A"
+        : "A";
     window.plausible?.("Hero CTA Click", {
-      props: { variant: variant ?? "A" },
+      props: {
+        variant: variant ?? "A",
+        subheadline: subheadlineVariant,
+      },
     });
   };
 
