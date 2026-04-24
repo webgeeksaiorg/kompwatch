@@ -2,7 +2,8 @@
 platform: reddit
 type: comment
 target: r/ProductManagement or r/SaaS — threads about Crayon MCP launch, MCP tools for business, AI competitive intelligence
-status: draft
+status: ready
+score: 8/10
 keywords: [crayon mcp server, competitive intelligence ai, mcp tools saas]
 ---
 The Crayon MCP thing is interesting. Native query access to your CI data from Claude or Cursor is a natural workflow for teams already deep in the Crayon stack.

@@ -1,7 +1,8 @@
 ---
 platform: linkedin
 type: post
-status: draft
+status: ready
+score: 8/10
 keywords: [competitive intelligence strategy, ci tool adoption, saas competitive intelligence, product management]
 ---
 The most important question before buying a competitive intelligence tool:

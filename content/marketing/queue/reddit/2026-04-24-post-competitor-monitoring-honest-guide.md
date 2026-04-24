@@ -2,7 +2,8 @@
 platform: reddit
 type: post
 target: r/SaaS or r/startups
-status: draft
+status: ready
+score: 8.5/10
 keywords: [competitor monitoring saas, competitive intelligence small team, crayon alternative, how to track competitors]
 ---
 **Title:** Honest breakdown of how we monitor 8 competitors for $49/month (and why we stopped using Crayon)
