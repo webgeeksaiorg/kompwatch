@@ -1,10 +1,10 @@
 # Does KompWatch Have an MCP Server?
 
-Not yet. MCP (Model Context Protocol) server support is on our radar, and Crayon recently launched one for their platform. Here's where KompWatch stands and what's coming.
+Not yet. MCP (Model Context Protocol) server support is on our radar. Both Crayon and Klue have recently shipped MCP servers for their platforms. Here's where KompWatch stands and what's coming.
 
 ## What Is an MCP Server?
 
-MCP is an open standard that lets AI assistants (like Claude Desktop, Cursor, or other MCP-compatible tools) query external data sources in real time. Crayon's MCP server lets Claude query your competitive intelligence data from inside an AI workflow.
+MCP is an open standard that lets AI assistants (like Claude Desktop, Cursor, or other MCP-compatible tools) query external data sources in real time. An MCP-enabled CI tool lets Claude query your competitive intelligence data from inside an AI workflow — asking things like "what has Acme changed in the past 30 days?" without leaving your AI assistant.
 
 ## Does KompWatch Support MCP Today?
 
@@ -23,11 +23,11 @@ The payload includes competitor name, change type, severity, and the AI-generate
 
 We're evaluating it. If you want native MCP support — the ability to query KompWatch data from Claude Desktop or another MCP client — email [support@kompwatch.com](mailto:support@kompwatch.com) with your use case. Use-case demand helps us prioritize.
 
-## How Does This Compare to Crayon's MCP Server?
+## How Does This Compare to Crayon's and Klue's MCP Servers?
 
-Crayon's MCP server is a genuinely interesting feature for teams that already run Claude-based AI workflows and have a Crayon subscription ($5K–$80K+/yr). For most teams, that's a high bar.
+Both Crayon ($5K–$80K+/yr) and Klue (enterprise pricing) have shipped MCP server integrations — a sign that AI workflow integration is becoming table stakes for enterprise CI platforms. For most teams, those price points are a steep bar.
 
-KompWatch focuses on delivering clean, structured competitive signals via email and webhook — the same intelligence that an MCP server would expose, delivered where most teams already look. If your team is ready for MCP-based CI workflows, that's a use case we're building toward.
+KompWatch focuses on delivering clean, structured competitive signals via email and webhook — the same intelligence that an MCP server would expose, delivered where most teams already look. MCP support is a natural next step we're building toward as AI-native workflows become more common across smaller teams.
 
 ---
 *Questions? Email [support@kompwatch.com](mailto:support@kompwatch.com) and we'll respond within 24 hours.*
