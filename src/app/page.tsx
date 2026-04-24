@@ -329,6 +329,31 @@ export default function Home() {
             </div>
           </div>
 
+          {/* "Zero noise, curated alerts" callout — counters Crayon/Klue alert fatigue (G2: too many irrelevant notifications) */}
+          <div className="mt-4 flex justify-center">
+            <div className="flex max-w-2xl items-start gap-3 rounded-xl border border-brand-200 bg-white px-5 py-4 shadow-sm">
+              <svg
+                className="mt-0.5 h-5 w-5 shrink-0 text-brand-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
+              </svg>
+              <div>
+                <p className="text-sm font-semibold text-gray-900">
+                  Zero noise, curated alerts
+                </p>
+                <p className="mt-1 text-sm text-gray-600">
+                  No alert fatigue. AI filters out boilerplate changes and sends you only pricing moves,
+                  feature launches, and strategic shifts — the updates that actually change your next move.
+                </p>
+              </div>
+            </div>
+          </div>
+
           <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((feature) => (
               <div key={feature.title} className="rounded-xl border border-gray-200 bg-white p-6">
