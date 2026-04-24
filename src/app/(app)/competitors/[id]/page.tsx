@@ -161,7 +161,10 @@ export default async function CompetitorDetailPage({
             )}
           </h2>
           {competitor.changes.length > 0 && (
-            <ExportChangesButton competitorId={competitor.id} />
+            <div className="flex items-center gap-2">
+              <ExportChangesButton competitorId={competitor.id} format="csv" />
+              <ExportChangesButton competitorId={competitor.id} format="json" />
+            </div>
           )}
         </div>
 
