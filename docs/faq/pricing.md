@@ -16,6 +16,8 @@ KompWatch offers four plans. All plans include the core monitoring features — 
 | Custom integrations | — | — | — | ✓ |
 | SLA & uptime guarantee | — | — | — | ✓ |
 
+Enterprise plans are custom-quoted. [Contact us](mailto:support@kompwatch.com) for pricing.
+
 ## Free Trial
 
 Pro and Team plans include a **7-day free trial**. No charge until the trial ends. Cancel anytime during the trial with no cost.
