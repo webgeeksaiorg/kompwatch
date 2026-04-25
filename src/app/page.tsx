@@ -189,6 +189,11 @@ export default function Home() {
             How it works &rarr;
           </Link>
         </div>
+        {/* Crayon cost-anchor — price contrast at point of highest intent */}
+        <p className="mt-4 text-sm text-gray-500">
+          Crayon costs <span className="font-semibold text-gray-700">$25,000+/yr</span>.{" "}
+          KompWatch: <span className="font-semibold text-brand-600">$49/mo</span>.
+        </p>
         {/* Social proof counter */}
         <div className="mt-6 flex items-center justify-center gap-3">
           <div className="flex -space-x-2">

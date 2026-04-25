@@ -28,10 +28,6 @@ No account is created. No trial is started. We may follow up with a single note 
 2. Add your first competitors (Free plan supports up to 2)
 3. KompWatch starts monitoring immediately; your first digest arrives within 7 days (Free) or 24 hours (Pro)
 
-## What Is the Email Form on the Sample Digest Page?
-
-The form at [kompwatch.com/sample-digest](/sample-digest) is a quick-start: enter your work email and you'll be prompted to create a free account. It's the same Free plan signup — no credit card required. Your email is used only to create your KompWatch account and send your digests.
-
 [See the sample digest →](/sample-digest) · [Start free →](/signup)
 
 ---
