@@ -1,16 +1,20 @@
 # How Pricing Works
 
-KompWatch offers three plans. All plans include the core monitoring features — the differences are in limits and frequency.
+KompWatch offers four plans. All plans include the core monitoring features — the differences are in limits and frequency.
 
 ## Plans
 
-| Feature | Free | Pro | Team |
-|---------|------|-----|------|
-| Price | $0/mo | $49/mo | $149/mo |
-| Competitors | 2 | 10 | 50 |
-| Snapshot frequency | Daily | Every 6 hours | Hourly |
-| Digest emails | Weekly | Daily | Real-time |
-| Change history | 30 days | 90 days | 1 year |
+| Feature | Free | Pro | Team | Enterprise |
+|---------|------|-----|------|------------|
+| Price | $0/mo | $49/mo | $149/mo | Custom (from $799/mo) |
+| Competitors | 2 | 10 | 50 | Unlimited |
+| Snapshot frequency | Daily | Every 6 hours | Hourly | Real-time |
+| Digest emails | Weekly | Daily | Real-time | Real-time |
+| Change history | 30 days | 90 days | 1 year | 1 year |
+| SSO & SAML | — | — | — | ✓ |
+| Dedicated account manager | — | — | — | ✓ |
+| Custom integrations | — | — | — | ✓ |
+| SLA & uptime guarantee | — | — | — | ✓ |
 
 ## Free Trial
 
