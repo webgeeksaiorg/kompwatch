@@ -62,6 +62,16 @@ Seeto ($99/mo) focuses on visual screenshot diffs. KompWatch tracks pricing page
 
 Already.dev launched in 2026 as a self-serve competitor monitoring tool at ~$49/mo, scanning 40+ sources. KompWatch starts free (2 competitors) and uses a full headless browser (Playwright) to monitor any URL — including JavaScript-heavy sites — with AI-generated digests and job listing tracking that Already.dev doesn't offer. If you're evaluating both, KompWatch's free tier lets you start without a credit card.
 
+## KompWatch vs Battlecard
+
+Battlecard by Northr starts at $49/mo (Starter) and focuses on manually-curated sales battlecards — structured docs your sales team uses in competitive deals. It's a different product category from automated competitor monitoring.
+
+The key difference: Battlecard requires someone to manually curate content. You add information, tag changes, and build battlecard templates by hand. KompWatch automates the monitoring layer — it watches your competitors' pricing pages, feature copy, blog posts, and job listings, then emails you AI-generated summaries of what changed.
+
+If your primary need is automated monitoring with digests, KompWatch is a better fit. If your primary need is structured battlecards for your sales team, Battlecard is purpose-built for that. Many teams use both: KompWatch for automated monitoring, a battlecard tool for sales enablement.
+
+For a full side-by-side, see [KompWatch vs Battlecard →](https://kompwatch.com/vs-battlecard)
+
 ## KompWatch vs Visualping
 
 Visualping is the most popular simple page change detection tool. It takes screenshots and emails you a visual diff when something changes — great for basic monitoring, but it's not competitive intelligence. Visualping starts free (~$14/mo for paid plans) and does one thing well: showing you that a page changed.
@@ -82,6 +92,7 @@ For side-by-side breakdowns, see our dedicated comparison pages:
 - [KompWatch vs Already.dev →](https://kompwatch.com/vs-already-dev)
 - [KompWatch vs Visualping →](https://kompwatch.com/vs-visualping)
 - [KompWatch vs Google Alerts →](https://kompwatch.com/vs-google-alerts)
+- [KompWatch vs Battlecard →](https://kompwatch.com/vs-battlecard)
 
 ## Can I Switch From Klue or Crayon?
 

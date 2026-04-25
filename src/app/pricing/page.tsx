@@ -56,6 +56,24 @@ const plans = [
     ],
     cta: "Upgrade to Team",
   },
+  {
+    name: "Enterprise",
+    key: "ENTERPRISE",
+    monthlyPrice: 799,
+    description: "Custom competitive intelligence at scale",
+    features: [
+      "Unlimited competitors",
+      "Real-time alerts",
+      "All tracking types",
+      "Dedicated account manager",
+      "Custom integrations",
+      "SSO & SAML",
+      "SLA & uptime guarantee",
+      "Custom onboarding",
+    ],
+    cta: "Contact sales",
+    enterprise: true,
+  },
 ];
 
 function getDisplayPrice(monthlyPrice: number, annual: boolean): number {
@@ -472,9 +490,10 @@ export default function PricingPage() {
 
       <div
         id="pricing"
-        className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3"
+        className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
       >
         {plans.map((plan) => {
+          const isEnterprise = "enterprise" in plan && plan.enterprise;
           const displayPrice = getDisplayPrice(plan.monthlyPrice, annual);
           return (
             <div
@@ -482,7 +501,9 @@ export default function PricingPage() {
               className={`relative rounded-xl border p-6 ${
                 plan.popular
                   ? "border-brand-600 shadow-lg ring-1 ring-brand-600"
-                  : "border-gray-200"
+                  : isEnterprise
+                    ? "border-gray-300 bg-gray-50"
+                    : "border-gray-200"
               }`}
             >
               {plan.popular && (
@@ -492,17 +513,30 @@ export default function PricingPage() {
               )}
               <h2 className="text-lg font-semibold text-gray-900">{plan.name}</h2>
               <p className="mt-1 text-sm text-gray-500">{plan.description}</p>
-              <p className="mt-4">
-                <span className="text-4xl font-bold text-gray-900">
-                  ${displayPrice}
-                </span>
-                <span className="text-sm text-gray-500">/mo</span>
-              </p>
-              {annual && plan.monthlyPrice > 0 && (
-                <p className="mt-1 text-xs text-gray-400">
-                  ${displayPrice * 12}/yr &middot;{" "}
-                  <span className="line-through">${plan.monthlyPrice}/mo</span>
-                </p>
+              {isEnterprise ? (
+                <>
+                  <p className="mt-4">
+                    <span className="text-4xl font-bold text-gray-900">Custom</span>
+                  </p>
+                  <p className="mt-1 text-xs text-gray-400">
+                    Starts at ${displayPrice}/mo
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p className="mt-4">
+                    <span className="text-4xl font-bold text-gray-900">
+                      ${displayPrice}
+                    </span>
+                    <span className="text-sm text-gray-500">/mo</span>
+                  </p>
+                  {annual && plan.monthlyPrice > 0 && (
+                    <p className="mt-1 text-xs text-gray-400">
+                      ${displayPrice * 12}/yr &middot;{" "}
+                      <span className="line-through">${plan.monthlyPrice}/mo</span>
+                    </p>
+                  )}
+                </>
               )}
 
               <ul className="mt-6 space-y-2">
@@ -529,17 +563,31 @@ export default function PricingPage() {
                 ))}
               </ul>
 
-              <button
-                onClick={() => handleCheckout(plan.key)}
-                disabled={loading !== null}
-                className={`mt-8 w-full rounded-lg px-4 py-2.5 text-sm font-semibold shadow-sm ${
-                  plan.popular
-                    ? "bg-brand-600 text-white hover:bg-brand-700"
-                    : "bg-white text-gray-900 ring-1 ring-gray-300 hover:bg-gray-50"
-                } disabled:opacity-50`}
-              >
-                {loading === plan.key ? "Redirecting..." : plan.cta}
-              </button>
+              {isEnterprise ? (
+                <a
+                  href="mailto:sales@kompwatch.com"
+                  onClick={() =>
+                    window.plausible?.("enterprise-contact-click", {
+                      props: { location: "pricing-card" },
+                    })
+                  }
+                  className="mt-8 block w-full rounded-lg bg-white px-4 py-2.5 text-center text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-gray-300 hover:bg-gray-50"
+                >
+                  {plan.cta}
+                </a>
+              ) : (
+                <button
+                  onClick={() => handleCheckout(plan.key)}
+                  disabled={loading !== null}
+                  className={`mt-8 w-full rounded-lg px-4 py-2.5 text-sm font-semibold shadow-sm ${
+                    plan.popular
+                      ? "bg-brand-600 text-white hover:bg-brand-700"
+                      : "bg-white text-gray-900 ring-1 ring-gray-300 hover:bg-gray-50"
+                  } disabled:opacity-50`}
+                >
+                  {loading === plan.key ? "Redirecting..." : plan.cta}
+                </button>
+              )}
             </div>
           );
         })}
