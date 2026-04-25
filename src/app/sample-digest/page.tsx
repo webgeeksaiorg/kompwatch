@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
+import { EmailCaptureForm } from "@/components/email-capture-form";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -250,6 +251,29 @@ export default function SampleDigestPage() {
             This is a sample digest with fictional companies. Your digests will
             reflect your actual competitors.
           </p>
+
+          {/* Email capture — get the digest in your inbox */}
+          <div className="mt-10 rounded-2xl border border-brand-100 bg-brand-50/60 p-6 sm:p-8">
+            <div className="text-center">
+              <h3 className="text-lg font-semibold text-gray-900">
+                Want this digest in your inbox?
+              </h3>
+              <p className="mx-auto mt-2 max-w-md text-sm text-gray-600">
+                Drop your email and we&apos;ll send you the sample digest so you
+                can see how it reads in Gmail. No account needed.
+              </p>
+            </div>
+            <div className="mx-auto mt-5 max-w-md">
+              <EmailCaptureForm
+                source="sample-digest"
+                event="sample-digest-email-capture"
+                buttonLabel="Email me the digest"
+              />
+              <p className="mt-3 text-center text-xs text-gray-400">
+                One email. No spam. Unsubscribe anytime.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
