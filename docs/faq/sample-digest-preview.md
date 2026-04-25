@@ -16,11 +16,21 @@ Each entry shows the competitor name, change type, severity badge, and the AI-ge
 
 The sample uses anonymized, realistic data — not live competitor monitoring. It's designed to show exactly the format and depth of a real digest so you can decide whether KompWatch fits your workflow before entering a credit card.
 
+## What Happens When I Enter My Email on the Sample Page?
+
+There's an opt-in form on `/sample-digest`. If you enter your email, we'll send you a copy of the sample digest directly to your inbox so you can see it in a real email client — same formatting, same layout as the live product.
+
+No account is created. No trial is started. We may follow up with a single note about getting started, but you won't be added to a marketing list and won't be charged anything.
+
 ## How Do I Start Getting Real Digests?
 
 1. [Sign up free](/signup) — no credit card required
 2. Add your first competitors (Free plan supports up to 2)
 3. KompWatch starts monitoring immediately; your first digest arrives within 7 days (Free) or 24 hours (Pro)
+
+## What Is the Email Form on the Sample Digest Page?
+
+The form at [kompwatch.com/sample-digest](/sample-digest) is a quick-start: enter your work email and you'll be prompted to create a free account. It's the same Free plan signup — no credit card required. Your email is used only to create your KompWatch account and send your digests.
 
 [See the sample digest →](/sample-digest) · [Start free →](/signup)
 

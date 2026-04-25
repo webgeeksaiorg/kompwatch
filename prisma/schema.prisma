@@ -185,3 +185,17 @@ model StripeEvent {
   type          String   // e.g. "customer.subscription.updated"
   processedAt   DateTime @default(now())
 }
+
+// ── Marketing Email Leads ─────────────────────────────────────
+// Captured from non-signup forms (e.g. /sample-digest preview opt-in).
+// Distinct from User: a lead may not have signed up yet.
+
+model EmailLead {
+  id        String   @id @default(cuid())
+  email     String
+  source    String   // e.g. "sample-digest", "vs-crayon", "llm-visibility-waitlist"
+  createdAt DateTime @default(now())
+
+  @@unique([email, source])
+  @@index([source, createdAt])
+}
