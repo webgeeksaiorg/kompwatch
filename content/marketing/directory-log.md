@@ -14,6 +14,32 @@ Tracks where KompWatch has been submitted for listing/discovery.
 | — | awesome-saas-tools | pending | — |
 | — | awesome-competitive-intelligence | pending | GitHub repo: github.com/aj-dev-sys/awesome-competitive-intelligence — add KompWatch as headless-browser-based option |
 
+## Keyword Research — 2026-04-25 (Saturday cycle, run 13)
+
+**Fresh data from WebSearch (April 2026):**
+- **"Set and forget competitor monitoring"** — zero competing content. Exact buyer intent phrase, KompWatch should own it. Blog post queued: `blog/2026-04-28-set-and-forget-competitor-monitoring.md`
+- **Klue Compete Agent** — Klue doubling down on enterprise sales enablement, abandoning SMB. Strong angle: both Crayon and Klue actively abandoning the sub-$5K segment. KompWatch's lane is widening.
+- **Kompyte at $300/mo** (Semrush subsidiary) — only mid-market option between free tools and enterprise. Still 6x KompWatch pricing. Complaints: "Semrush-feel" UX, lacks AI depth.
+- **Underserved search terms confirmed**: "competitor pricing page change alert", "AI digest competitor changes", "track competitor changelog", "SaaS competitor website alert email" — all near-zero competition.
+- **"5-10 URLs per competitor"** stat from Visualping research — good framing for practical content. Reddit post queued using this angle.
+- **Caelian, HeadsUp, Steve, PeerPanda** — new entrants all going enterprise AI battlecards. No one entering the affordable self-serve monitoring space.
+- **Quotable**: "Without a dedicated owner, adoption with Sales drops quickly." (Gartner Peer Insights on Crayon/Klue)
+
+**Content produced this cycle:**
+- `twitter/2026-04-28-set-and-forget.md` — uncontested phrase, founder angle (8.5/10)
+- `twitter/2026-04-28-klue-upmarket.md` — enterprise exodus angle (8/10)
+- `twitter/2026-04-28-pricing-page-alert.md` — 5 URLs practical list (8/10)
+- `twitter/2026-04-28-reply-kompyte-semrush.md` — Kompyte comparison reply (7.5/10)
+- `twitter/2026-04-28-reply-manual-monday.md` — founder origin story reply (8/10)
+- `twitter/2026-04-28-reply-visualping-limit.md` — SPA limitation reply (7.5/10)
+- `twitter/2026-04-28-reply-ai-digest.md` — signal vs noise reply (7.5/10)
+- `twitter/2026-04-28-reply-changelog-tracking.md` — changelog intel reply (7.5/10)
+- `reddit/2026-04-28-comment-set-and-forget-ci.md` — founder story comment (8/10)
+- `reddit/2026-04-28-post-5-urls-per-competitor.md` — r/SaaS value post (8.5/10)
+- `blog/2026-04-28-set-and-forget-competitor-monitoring.md` — ~1100 word SEO article (8.5/10)
+
+**Publishing status:** Credentials still not in vault. All content queued. Saturday tweet (`2026-04-25-alerts-vs-watching.md`) attempted — TWITTER_API_KEY missing.
+
 ## Keyword Research — 2026-04-24 (Friday cycle, run 9)
 
 **Fresh data from WebSearch (April 2026):**
