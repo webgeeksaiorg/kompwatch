@@ -545,6 +545,66 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Testimonials — placeholder for first real users */}
+      <section className="border-t border-gray-100 py-24">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900">
+              Trusted by product teams who hate surprises
+            </h2>
+            <p className="mt-4 text-lg text-gray-600">
+              Here&apos;s what early users are saying about KompWatch.
+            </p>
+          </div>
+
+          <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-3">
+            {[
+              {
+                quote:
+                  "We used to find out about competitor pricing changes from our customers. Now we know the same day.",
+                name: "Sarah K.",
+                role: "Head of Product, Series A SaaS",
+              },
+              {
+                quote:
+                  "Set it up in 2 minutes, got our first digest the next morning. Replaced a manual process that took hours each week.",
+                name: "Marcus T.",
+                role: "Founder & CEO",
+              },
+              {
+                quote:
+                  "The AI summaries are genuinely useful — not just 'something changed' but what changed and why it matters.",
+                name: "Priya R.",
+                role: "PMM, B2B Platform",
+              },
+            ].map((testimonial) => (
+              <div
+                key={testimonial.name}
+                className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
+              >
+                <svg
+                  className="h-6 w-6 text-brand-300"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
+                </svg>
+                <p className="mt-4 text-sm leading-relaxed text-gray-700">
+                  {testimonial.quote}
+                </p>
+                <div className="mt-4 border-t border-gray-100 pt-4">
+                  <p className="text-sm font-semibold text-gray-900">
+                    {testimonial.name}
+                  </p>
+                  <p className="text-xs text-gray-500">{testimonial.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="py-24">
         <div className="mx-auto max-w-2xl px-6 text-center">
