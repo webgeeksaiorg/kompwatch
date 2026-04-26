@@ -4,22 +4,23 @@ KompWatch is built for teams that want powerful competitor monitoring without en
 
 ## Feature Comparison
 
-| Feature | KompWatch | Klue | Crayon | Kompyte | Caelian | Seeto | RivalSense | Already.dev | Visualping |
-|---|---|---|---|---|---|---|---|---|---|
-| Starting price | Free / $49/mo | $20K–$40K/yr | $5K–$80K+/yr | ~$8K/yr | $199/mo | $99/mo | $44.99/mo | ~$49/mo | Free / ~$14/mo |
-| Self-serve signup | ✓ | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| AI change summaries | ✓ | ✓ | ✓ | ✗ | ✓ | ✗ | ✗ | ✓ | ✗ |
-| Pricing page tracking | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | Visual only |
-| Blog & content monitoring | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | ✓ | ✓ | Visual only |
-| Job listing tracking | ✓ | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
-| Tech stack detection | Pro+ | ✓ | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
-| Email digests | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | Per-change |
-| Slack / webhook alerts | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | Growth+ | ✓ | ✓ |
-| CSV / JSON export | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
-| Battlecards | Roadmap | ✓ | ✓ | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ |
-| MCP server (AI agent integration) | Roadmap | ✓ | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
-| No analyst hours needed | ✓ | ✗ | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ |
-| No sales call required | ✓ | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Feature | KompWatch | Klue | Crayon | Kompyte | Caelian | Seeto | RivalSense | Already.dev | Visualping | PageCrawl |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Starting price | Free / $49/mo | $20K–$40K/yr | $5K–$80K+/yr | ~$8K/yr | $199/mo | $99/mo | $44.99/mo | ~$49/mo | Free / ~$14/mo | ~$80/yr |
+| Self-serve signup | ✓ | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| AI change summaries | ✓ | ✓ | ✓ | ✗ | ✓ | ✗ | ✗ | ✓ | ✗ | ✗ |
+| Pricing page tracking | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | Visual only | Basic diff |
+| Blog & content monitoring | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | ✓ | ✓ | Visual only | Basic diff |
+| Job listing tracking | ✓ | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
+| Tech stack detection | Pro+ | ✓ | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
+| Email digests | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | Per-change | Per-change |
+| Slack / webhook alerts | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | Growth+ | ✓ | ✓ | ✗ |
+| CSV / JSON export | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
+| Headless browser (JS sites) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | ✗ |
+| Battlecards | Roadmap | ✓ | ✓ | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
+| MCP server (AI agent integration) | Roadmap | ✓ | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
+| No analyst hours needed | ✓ | ✗ | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| No sales call required | ✓ | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 
 *Competitor pricing is approximate and subject to change. See [kompwatch.com/pricing](https://kompwatch.com/pricing) for current KompWatch prices.*
 
@@ -100,6 +101,16 @@ Visualping is the most popular simple page change detection tool. It takes scree
 KompWatch goes further: AI summaries explain *what* changed and *why it matters*, CSS selector targeting lets you watch specific sections (not the whole page), and daily digests consolidate all changes into one actionable email. Visualping also doesn't use a headless browser, so JavaScript-rendered competitor sites (React, Next.js, Vue) are partially or fully missed — see the [JavaScript/SPA monitoring FAQ](monitoring-javascript-spa-sites.md) for details.
 
 If you're using Visualping to monitor competitors, KompWatch is the upgrade path.
+
+## KompWatch vs PageCrawl
+
+PageCrawl is a low-cost website change monitoring tool at ~$80/year (100 monitors). It watches pages for any change and sends email alerts — similar in concept to Visualping but priced for volume.
+
+The limitations are the same as other simple change detectors: no headless browser rendering (JavaScript-heavy sites return blank or partial content), no AI summaries explaining what changed or why, and no competitive intelligence context — you get a diff, not a digest.
+
+KompWatch at $49/mo includes headless Playwright rendering, AI-generated change summaries, CSS selector targeting for specific page sections, job listing tracking, and weekly/daily digests that consolidate changes into one actionable email. If you're monitoring SaaS competitor sites with React or Next.js frontends, PageCrawl will miss most of the content.
+
+PageCrawl is a reasonable pick for monitoring simple static pages where you just need a diff alert. For competitor intelligence on modern web apps, KompWatch is built for it.
 
 ## Detailed Comparisons
 
