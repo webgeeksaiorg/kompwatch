@@ -1,6 +1,6 @@
-# Does KompWatch Have an MCP Server?
+# Does KompWatch Have an MCP Server or API?
 
-Not yet. MCP (Model Context Protocol) server support is on our radar. Both Crayon and Klue have recently shipped MCP servers for their platforms. Here's where KompWatch stands and what's coming.
+Not yet — but both are coming soon. MCP server support and a public API are on the roadmap. Both Crayon and Klue have recently shipped MCP servers for their platforms. Here's where KompWatch stands and what's coming.
 
 ## What Is an MCP Server?
 
@@ -8,7 +8,7 @@ MCP is an open standard that lets AI assistants (like Claude Desktop, Cursor, or
 
 ## Does KompWatch Support MCP Today?
 
-No — KompWatch does not currently ship an MCP server. Competitive intelligence data is delivered via **email digest** and **webhooks** (Slack, Teams, or any HTTP endpoint).
+Not yet — but MCP server access and a REST API are **coming soon**. Competitive intelligence data is currently delivered via **email digest** and **webhooks** (Slack, Teams, or any HTTP endpoint). If you want to be notified when API/MCP access launches, email [support@kompwatch.com](mailto:support@kompwatch.com) and we'll add you to the early-access list.
 
 ## Can I Still Use KompWatch Data in AI Workflows?
 
@@ -19,9 +19,9 @@ Yes, via webhook + automation:
 
 The payload includes competitor name, change type, severity, and the AI-generated summary — so a downstream prompt already has structured input to work with.
 
-## Is an MCP Server on the Roadmap?
+## When Will MCP and API Access Be Available?
 
-We're evaluating it. If you want native MCP support — the ability to query KompWatch data from Claude Desktop or another MCP client — email [support@kompwatch.com](mailto:support@kompwatch.com) with your use case. Use-case demand helps us prioritize.
+We're actively building toward this. If you want to be notified the day API or MCP access launches, email [support@kompwatch.com](mailto:support@kompwatch.com) with your use case — use-case demand shapes what we build first.
 
 ## How Does This Compare to Crayon's and Klue's MCP Servers?
 
