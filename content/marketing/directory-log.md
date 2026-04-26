@@ -14,6 +14,30 @@ Tracks where KompWatch has been submitted for listing/discovery.
 | — | awesome-saas-tools | pending | — |
 | — | awesome-competitive-intelligence | pending | GitHub repo: github.com/aj-dev-sys/awesome-competitive-intelligence — add KompWatch as headless-browser-based option |
 
+## Keyword Research — 2026-04-27 (Monday cycle, run 17)
+
+**Fresh data from WebSearch (April 2026):**
+- **"Crayon alternatives 2026" roundup landscape** — 8-10 articles now live (AlphaSense, Contify, Cotera, TrajectoryAI, RivalSift, SaaSHero). None list KompWatch or any tool under $100/mo. Strong founder content angle: the roundup ecosystem is a closed loop. Blog post opportunity: "Why the 'best alternatives' lists don't list the affordable option."
+- **TrajectoryAI at $49/mo** — new entrant, same price point as KompWatch. Being featured in Crayon alternative roundups. Differentiator: KompWatch does website monitoring specifically; TrajectoryAI positioning unclear. Market validation: $49/mo is the confirmed price point buyers want.
+- **Kompyte pricing confusion** — some sources say $300/year, others $99/month. Semrush subsidiary. UX complaints documented. Still 2-6x KompWatch pricing.
+- **Market growth stat** — cheap competitive intelligence software $26.6M (2025) → $51.5M by 2032 at 9.9% CAGR. The segment is real and growing.
+- **Publishing blocker still active** — API credentials (TWITTER_API_KEY, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID) still missing from environment. 17+ pieces queued since April 19, none published. Vault tools not accessible in this session. Escalating via Notion message board.
+
+**Content produced this cycle:**
+- `linkedin/2026-04-28-roundup-gap.md` — Tuesday LinkedIn post, roundup ecosystem angle (8.5/10)
+- `twitter/2026-04-29-roundups-closed-ecosystem.md` — "Not yet" punchline tweet (8/10)
+- `twitter/2026-04-29-trajectory-middle-market.md` — middle market filling fast (8/10)
+- `twitter/2026-04-29-reply-vendr-72pct.md` — 72% pricing stat reply (8/10)
+- `twitter/2026-04-29-reply-analyst-shelfware.md` — shelfware quote reply (7.5/10)
+- `twitter/2026-04-29-reply-crayon-price-hike.md` — price hike context reply (7.5/10)
+- `twitter/2026-04-29-reply-already-dev.md` — discovery vs monitoring stack (8/10)
+- `twitter/2026-04-29-reply-free-tier-trap.md` — free tool failure modes (8/10)
+- `reddit/2026-04-29-comment-signal-vs-noise.md` — r/SaaS signal vs noise (8/10)
+- `reddit/2026-04-29-comment-changelog-intel.md` — r/PM changelog tracking (8/10)
+- `linkedin/2026-04-29-vendr-pricing-data.md` — Wednesday LinkedIn, pricing stat (8/10)
+
+**Wednesday quota status:** 2 tweets ✓, 5 replies ✓, 2 Reddit comments ✓, 1 LinkedIn ✓
+
 ## Keyword Research — 2026-04-25 (Saturday cycle, run 13)
 
 **Fresh data from WebSearch (April 2026):**
