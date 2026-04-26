@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "vs-google-alerts",
     "vs-battlecard",
     "vs-already-dev",
+    "vs-rivalsense",
   ];
 
   return [
