@@ -126,6 +126,18 @@ Several newer tools have entered the self-serve monitoring space. Here's how the
 
 If you're evaluating any of these, KompWatch's free plan (2 competitors, no credit card) lets you compare directly without a commitment.
 
+## KompWatch vs Unkover
+
+Unkover is a tool that monitors competitor email sequences — it signs up for competitors' onboarding flows and captures every email they send, giving you a window into their messaging strategy, nurture cadences, and product positioning over email.
+
+The key difference: Unkover watches what your competitors *say in email*. KompWatch watches what they *do on their website* — pricing page updates, feature copy changes, new blog posts, and job listing shifts. These are different signals.
+
+If you want to know what onboarding sequence Acme sends to new signups, Unkover is purpose-built for that. If you want to know when Acme quietly raises prices, launches a new feature, or posts 10 job listings in the enterprise sales team, KompWatch catches those changes in real time.
+
+For most competitive intelligence workflows, the two tools are complementary rather than competing: Unkover for email signal, KompWatch for website signal.
+
+For a full side-by-side, see [KompWatch vs Unkover →](https://kompwatch.com/vs-unkover)
+
 ## Detailed Comparisons
 
 For side-by-side breakdowns, see our dedicated comparison pages:
@@ -141,6 +153,7 @@ For side-by-side breakdowns, see our dedicated comparison pages:
 - [KompWatch vs Google Alerts →](https://kompwatch.com/vs-google-alerts)
 - [KompWatch vs Battlecard →](https://kompwatch.com/vs-battlecard)
 - [KompWatch vs Owler →](https://kompwatch.com/vs-owler)
+- [KompWatch vs Unkover →](https://kompwatch.com/vs-unkover)
 
 ## Can I Switch From Klue or Crayon?
 
