@@ -14,29 +14,60 @@ Tracks where KompWatch has been submitted for listing/discovery.
 | — | awesome-saas-tools | pending | — |
 | — | awesome-competitive-intelligence | pending | GitHub repo: github.com/aj-dev-sys/awesome-competitive-intelligence — add KompWatch as headless-browser-based option |
 
-## Keyword Research — 2026-04-27 (Monday cycle, run 17)
+## Keyword Research — 2026-04-26 (Sunday cycle, run 18)
 
 **Fresh data from WebSearch (April 2026):**
-- **"Crayon alternatives 2026" roundup landscape** — 8-10 articles now live (AlphaSense, Contify, Cotera, TrajectoryAI, RivalSift, SaaSHero). None list KompWatch or any tool under $100/mo. Strong founder content angle: the roundup ecosystem is a closed loop. Blog post opportunity: "Why the 'best alternatives' lists don't list the affordable option."
-- **TrajectoryAI at $49/mo** — new entrant, same price point as KompWatch. Being featured in Crayon alternative roundups. Differentiator: KompWatch does website monitoring specifically; TrajectoryAI positioning unclear. Market validation: $49/mo is the confirmed price point buyers want.
-- **Kompyte pricing confusion** — some sources say $300/year, others $99/month. Semrush subsidiary. UX complaints documented. Still 2-6x KompWatch pricing.
-- **Market growth stat** — cheap competitive intelligence software $26.6M (2025) → $51.5M by 2032 at 9.9% CAGR. The segment is real and growing.
-- **Publishing blocker still active** — API credentials (TWITTER_API_KEY, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID) still missing from environment. 17+ pieces queued since April 19, none published. Vault tools not accessible in this session. Escalating via Notion message board.
+- **"Empty div" monitoring failure** — competitor sites on React/Next.js render client-side; HTTP-based scrapers (Visualping, ChangeDetection default) get a blank shell. Fails silently. Uncontested content angle — nobody is writing about this plainly.
+- **RivalSense at $44.99/mo confirmed** — first self-serve affordable CI tool showing up in 2026 roundups. Validates the price tier. No headless rendering. KompWatch differentiates on headless + AI digest.
+- **Alert fatigue is top abandonment reason** — documented pattern: teams set up monitor, week 3 it's too noisy, they mute it. "68% of monitors run 1-24hr cycles" (users self-throttle to cope). AI digest is the fix.
+- **Klue/Crayon doubling down on enterprise sales enablement** (battlecards, CRM integrations, AI Q&A inside Salesforce). Roadmap diverging further from lean SaaS teams. SMB lane widening.
+- **Visualping acknowledges SPA limitation** in their own help docs — "real browser execution required" for JS-rendered content. Quotable.
 
 **Content produced this cycle:**
-- `linkedin/2026-04-28-roundup-gap.md` — Tuesday LinkedIn post, roundup ecosystem angle (8.5/10)
-- `twitter/2026-04-29-roundups-closed-ecosystem.md` — "Not yet" punchline tweet (8/10)
-- `twitter/2026-04-29-trajectory-middle-market.md` — middle market filling fast (8/10)
-- `twitter/2026-04-29-reply-vendr-72pct.md` — 72% pricing stat reply (8/10)
-- `twitter/2026-04-29-reply-analyst-shelfware.md` — shelfware quote reply (7.5/10)
-- `twitter/2026-04-29-reply-crayon-price-hike.md` — price hike context reply (7.5/10)
-- `twitter/2026-04-29-reply-already-dev.md` — discovery vs monitoring stack (8/10)
-- `twitter/2026-04-29-reply-free-tier-trap.md` — free tool failure modes (8/10)
-- `reddit/2026-04-29-comment-signal-vs-noise.md` — r/SaaS signal vs noise (8/10)
-- `reddit/2026-04-29-comment-changelog-intel.md` — r/PM changelog tracking (8/10)
-- `linkedin/2026-04-29-vendr-pricing-data.md` — Wednesday LinkedIn, pricing stat (8/10)
+- `twitter/2026-04-30-empty-div-problem.md` — JS rendering failure angle (8/10, READY)
+- `twitter/2026-04-30-price-gap-hard-numbers.md` — $30K vs $600/yr price canyon (8/10, READY)
+- `twitter/2026-04-30-alert-fatigue-origin.md` — founder origin story for AI digest (8.5/10, READY)
+- `twitter/2026-04-30-reply-visualping-spa.md` — Visualping SPA limitation reply (7.5/10, READY)
+- `twitter/2026-04-30-reply-crayon-median-price.md` — Crayon median price reply (7.5/10, READY)
+- `twitter/2026-04-30-reply-ci-too-noisy.md` — alert fatigue fix reply (8/10, READY)
+- `twitter/2026-04-30-reply-pricing-page-intel.md` — pricing page monitoring reply (7.5/10, READY)
+- `twitter/2026-04-30-reply-klue-enterprise.md` — Klue enterprise roadmap reply (7.5/10, READY)
+- `reddit/2026-04-30-comment-empty-div-problem.md` — JS rendering problem comment (8/10, READY)
+- `blog/2026-04-30-competitor-monitoring-fails-react-sites.md` — SEO article ~1200 words (8.5/10, READY)
 
-**Wednesday quota status:** 2 tweets ✓, 5 replies ✓, 2 Reddit comments ✓, 1 LinkedIn ✓
+**Publishing status:** TWITTER_API_KEY still missing. All content queued for Thursday April 30.
+
+---
+
+## Keyword Research — 2026-04-26 (Sunday cycle, run 16)
+
+**Fresh data from WebSearch (April 2026):**
+- **"Missing tier" confirmed by third-party roundups** — Salesmotion, Prospeo, WatchMyCompetitor all acknowledge the gap between free tools and $20K–$40K/yr enterprise CI. No affordable website-monitoring layer exists in any 2026 roundup.
+- **Tierly** — new entrant doing AI-powered SaaS *pricing tier analysis* (structured plans, feature bundling). Complementary to KompWatch, not competing — they analyze pricing structure, we detect website changes. "Complete stack" angle: Tierly + KompWatch.
+- **58% SMB growth stat** — CI platforms report 58% of net new users (2024–2025) from companies under 200 employees. They're paying enterprise pricing built for Fortune 500 analysts. Confirms the lane is widening.
+- **PageCrawl** ($80/yr, 100 monitors) — basic website change monitoring, not headless, no AI digest. Cheap but breaks on JS-rendered sites. Positions KompWatch as the headless + AI tier above this.
+- **Visualping** dominates "best competitor price tracking 2026" roundups. Still no headless rendering. "Competitor monitors empty div" angle still uncontested.
+
+**Content produced this cycle:**
+- `twitter/2026-04-26-sunday-manual-tabs.md` — Sunday/Monday manual-checking founder story (8.5/10, READY)
+
+**Publishing status:** TWITTER_API_KEY still missing. Tweet queued.
+
+---
+
+## Keyword Research — 2026-04-25 (Saturday cycle, run 14)
+
+**Fresh data from WebSearch (April 2026):**
+- **"Best CI tools 2026" roundups are live** — Salesmotion, Contify, AlphaSense, SaasHero, Caelian all published listicles this month. KompWatch absent from all of them. Directory/listing outreach is high priority at launch.
+- **Crayon/Klue pricing confirmed** — Crayon median $28,750/yr (Vendr, 90+ purchases), Klue median $30,000/yr (Vendr, 98+ purchases). Price contrast angle still valid and quotable.
+- **Klue 2026 AI update** — "dynamic battlecard creation reacting to live competitor intelligence." Even deeper enterprise sales enablement focus. SMB lane remains wide open.
+- **No new affordable entrants** — all 2026 tool reviews redirect to Crayon, Klue, Kompyte (Semrush), WatchMyCompetitor. No one serving the $49–$299/mo self-serve website monitoring segment.
+
+**Content queued this cycle:** None (Saturday — 1 tweet max, already queued). Tweet `2026-04-25-alerts-vs-watching.md` ready to publish when Twitter credentials available.
+
+**Publishing status:** TWITTER_API_KEY still missing. All content queued.
+
+---
 
 ## Keyword Research — 2026-04-25 (Saturday cycle, run 13)
 
