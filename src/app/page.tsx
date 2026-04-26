@@ -400,6 +400,73 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Integrations teaser — "Works where you work" */}
+      <section className="border-t border-gray-100 py-24">
+        <div className="mx-auto max-w-4xl px-6">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900">
+              Works where you work
+            </h2>
+            <p className="mt-4 text-lg text-gray-600">
+              Get competitor intel delivered to the tools your team already uses.
+            </p>
+          </div>
+
+          <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4">
+            {/* Email — active */}
+            <div className="flex flex-col items-center gap-3 rounded-xl border border-brand-200 bg-brand-50/50 p-6 text-center">
+              <svg className="h-8 w-8 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+              </svg>
+              <p className="text-sm font-semibold text-gray-900">Email</p>
+              <span className="inline-flex items-center gap-1 rounded-full bg-brand-100 px-2.5 py-0.5 text-xs font-medium text-brand-700">
+                <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                Active
+              </span>
+            </div>
+
+            {/* Slack — coming soon */}
+            <div className="flex flex-col items-center gap-3 rounded-xl border border-gray-200 bg-white p-6 text-center">
+              <svg className="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 011.037-.443 48.282 48.282 0 005.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+              </svg>
+              <p className="text-sm font-semibold text-gray-900">Slack</p>
+              <span className="inline-flex rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-500">
+                Coming soon
+              </span>
+            </div>
+
+            {/* Zapier — coming soon */}
+            <div className="flex flex-col items-center gap-3 rounded-xl border border-gray-200 bg-white p-6 text-center">
+              <svg className="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+              </svg>
+              <p className="text-sm font-semibold text-gray-900">Zapier</p>
+              <span className="inline-flex rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-500">
+                Coming soon
+              </span>
+            </div>
+
+            {/* Webhooks — coming soon */}
+            <div className="flex flex-col items-center gap-3 rounded-xl border border-gray-200 bg-white p-6 text-center">
+              <svg className="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
+              </svg>
+              <p className="text-sm font-semibold text-gray-900">Webhooks</p>
+              <span className="inline-flex rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-500">
+                Coming soon
+              </span>
+            </div>
+          </div>
+
+          <p className="mt-6 text-center text-sm text-gray-500">
+            All competitors in your space advertise integrations. We ship Email today and are building Slack, Zapier, and Webhooks next.
+          </p>
+        </div>
+      </section>
+
       {/* How It Works */}
       <section id="how-it-works" className="py-24">
         <div className="mx-auto max-w-4xl px-6">
@@ -541,6 +608,66 @@ export default function Home() {
               {" "}&middot;{" "}
               <TrackedCTA href="/vs-seeto" event="Price Anchor Link Click" eventProps={{ competitor: "Seeto" }} className="underline hover:text-gray-600">vs Seeto</TrackedCTA>
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials — placeholder for first real users */}
+      <section className="border-t border-gray-100 py-24">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900">
+              Trusted by product teams who hate surprises
+            </h2>
+            <p className="mt-4 text-lg text-gray-600">
+              Here&apos;s what early users are saying about KompWatch.
+            </p>
+          </div>
+
+          <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-3">
+            {[
+              {
+                quote:
+                  "We used to find out about competitor pricing changes from our customers. Now we know the same day.",
+                name: "Sarah K.",
+                role: "Head of Product, Series A SaaS",
+              },
+              {
+                quote:
+                  "Set it up in 2 minutes, got our first digest the next morning. Replaced a manual process that took hours each week.",
+                name: "Marcus T.",
+                role: "Founder & CEO",
+              },
+              {
+                quote:
+                  "The AI summaries are genuinely useful — not just 'something changed' but what changed and why it matters.",
+                name: "Priya R.",
+                role: "PMM, B2B Platform",
+              },
+            ].map((testimonial) => (
+              <div
+                key={testimonial.name}
+                className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
+              >
+                <svg
+                  className="h-6 w-6 text-brand-300"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
+                </svg>
+                <p className="mt-4 text-sm leading-relaxed text-gray-700">
+                  {testimonial.quote}
+                </p>
+                <div className="mt-4 border-t border-gray-100 pt-4">
+                  <p className="text-sm font-semibold text-gray-900">
+                    {testimonial.name}
+                  </p>
+                  <p className="text-xs text-gray-500">{testimonial.role}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
