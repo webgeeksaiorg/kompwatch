@@ -3,70 +3,67 @@ import type { MetadataRoute } from "next";
 const siteUrl = "https://kompwatch.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date();
+
+  const comparisonSlugs = [
+    "vs-crayon",
+    "vs-klue",
+    "vs-kompyte",
+    "vs-caelian",
+    "vs-seeto",
+    "vs-visualping",
+    "vs-google-alerts",
+    "vs-battlecard",
+    "vs-already-dev",
+    "vs-rivalsense",
+  ];
+
   return [
     {
       url: siteUrl,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "weekly",
       priority: 1,
     },
     {
       url: `${siteUrl}/pricing`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: `${siteUrl}/vs-crayon`,
-      lastModified: new Date(),
+      url: `${siteUrl}/sample-digest`,
+      lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.85,
     },
-    {
-      url: `${siteUrl}/vs-klue`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
+    ...comparisonSlugs.map((slug) => ({
+      url: `${siteUrl}/${slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
       priority: 0.8,
-    },
+    })),
     {
-      url: `${siteUrl}/vs-kompyte`,
-      lastModified: new Date(),
+      url: `${siteUrl}/llm-visibility`,
+      lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${siteUrl}/vs-caelian`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${siteUrl}/vs-seeto`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${siteUrl}/vs-google-alerts`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.6,
     },
     {
       url: `${siteUrl}/login`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "yearly",
       priority: 0.5,
     },
     {
       url: `${siteUrl}/privacy`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: `${siteUrl}/terms`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "yearly",
       priority: 0.3,
     },

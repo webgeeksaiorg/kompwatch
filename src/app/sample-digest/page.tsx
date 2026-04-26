@@ -92,6 +92,52 @@ const sampleChanges = [
   },
 ];
 
+const faqs = [
+  {
+    question: "Is the sample digest based on real competitor data?",
+    answer:
+      "No — the sample uses anonymized, realistic data from three fictional SaaS companies. It's designed to show the exact format, depth, and AI-summary style of a real digest so you can decide whether KompWatch fits your workflow before signing up.",
+  },
+  {
+    question: "What types of changes does KompWatch detect?",
+    answer:
+      "KompWatch tracks pricing changes (new tiers, price increases, plan removals), feature launches and integrations, blog posts and case studies, and hiring signals like job postings. Each change is AI-summarized in plain English and tagged by type and severity.",
+  },
+  {
+    question: "How are severity levels assigned?",
+    answer:
+      "An AI classifier reads each detected change and assigns HIGH (pricing changes, major features, positioning pivots), MEDIUM (new integrations, beta announcements, billing tweaks), or LOW (blog posts, case studies, job listings). High-severity changes are surfaced at the top of every digest.",
+  },
+  {
+    question: "How often will I receive digests?",
+    answer:
+      "Free plan: weekly digests. Pro plan ($49/mo): daily digests. Team plan ($149/mo): real-time alerts as changes are detected. You can change frequency anytime in your account settings.",
+  },
+  {
+    question: "What happens when I enter my email on this page?",
+    answer:
+      "We'll send you a copy of the sample digest directly to your inbox so you can see how it reads in a real email client. No account is created, no trial is started, and no credit card is required. We may follow up once with a getting-started note, but you won't be added to a marketing list.",
+  },
+  {
+    question: "Do I need a credit card to try KompWatch?",
+    answer:
+      "No. The Free plan supports up to 2 competitors with weekly digests and requires no credit card. You can upgrade to Pro or Team anytime if you need more competitors or more frequent digests.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+
 const severityColor = {
   HIGH: "bg-red-100 text-red-700",
   MEDIUM: "bg-amber-100 text-amber-700",
@@ -107,6 +153,10 @@ const typeLabel = {
 export default function SampleDigestPage() {
   return (
     <div className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-sm">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
@@ -422,6 +472,27 @@ export default function SampleDigestPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="border-t border-gray-100 bg-white py-20">
+        <div className="mx-auto max-w-3xl px-6">
+          <h2 className="text-center text-3xl font-bold tracking-tight text-gray-900">
+            Frequently asked questions
+          </h2>
+          <dl className="mt-10 space-y-8">
+            {faqs.map((faq) => (
+              <div key={faq.question}>
+                <dt className="text-base font-semibold text-gray-900">
+                  {faq.question}
+                </dt>
+                <dd className="mt-2 text-sm leading-relaxed text-gray-600">
+                  {faq.answer}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 

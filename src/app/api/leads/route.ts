@@ -23,6 +23,7 @@ const ALLOWED_SOURCES = new Set([
   "vs-caelian",
   "vs-seeto",
   "vs-already-dev",
+  "vs-rivalsense",
   "llm-visibility-waitlist",
 ]);
 
