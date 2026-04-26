@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
+import { getDisplayPrice, getPerCompetitorPrice } from "@/lib/pricing";
 
 declare global {
   interface Window {
@@ -8,13 +9,25 @@ declare global {
   }
 }
 
-const ANNUAL_DISCOUNT = 0.2; // 20% off
+type Plan = {
+  name: string;
+  key: string;
+  monthlyPrice: number;
+  competitors: number | null; // null = unlimited / not applicable
+  description: string;
+  features: string[];
+  cta: string;
+  href?: string;
+  popular?: boolean;
+  enterprise?: boolean;
+};
 
-const plans = [
+const plans: Plan[] = [
   {
     name: "Free",
     key: "FREE",
     monthlyPrice: 0,
+    competitors: 2,
     description: "Get started with competitor tracking",
     features: [
       "2 competitors",
@@ -29,6 +42,7 @@ const plans = [
     name: "Pro",
     key: "PRO",
     monthlyPrice: 49,
+    competitors: 10,
     description: "For teams serious about competitive intelligence",
     features: [
       "10 competitors",
@@ -45,6 +59,7 @@ const plans = [
     name: "Team",
     key: "TEAM",
     monthlyPrice: 149,
+    competitors: 50,
     description: "Full competitive intelligence for growing teams",
     features: [
       "50 competitors",
@@ -60,6 +75,7 @@ const plans = [
     name: "Enterprise",
     key: "ENTERPRISE",
     monthlyPrice: 799,
+    competitors: null,
     description: "Custom competitive intelligence at scale",
     features: [
       "Unlimited competitors",
@@ -75,11 +91,6 @@ const plans = [
     enterprise: true,
   },
 ];
-
-function getDisplayPrice(monthlyPrice: number, annual: boolean): number {
-  if (monthlyPrice === 0 || !annual) return monthlyPrice;
-  return Math.round(monthlyPrice * (1 - ANNUAL_DISCOUNT));
-}
 
 type CellValue = true | false | string;
 
@@ -538,6 +549,23 @@ export default function PricingPage() {
                   )}
                 </>
               )}
+
+              {(() => {
+                const perComp = getPerCompetitorPrice(
+                  plan.monthlyPrice,
+                  plan.competitors,
+                  annual
+                );
+                if (!perComp) return null;
+                return (
+                  <p
+                    className="mt-3 text-xs font-medium text-brand-600"
+                    title="Compare: Crayon ~$100/competitor/mo, Klue $200+/competitor/mo"
+                  >
+                    Just ${perComp} per competitor/mo
+                  </p>
+                );
+              })()}
 
               <ul className="mt-6 space-y-2">
                 {plan.features.map((feature) => (
