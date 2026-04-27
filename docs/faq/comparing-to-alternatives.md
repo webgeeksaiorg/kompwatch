@@ -140,6 +140,8 @@ For a full side-by-side, see [KompWatch vs Unkover →](https://kompwatch.com/vs
 
 ## Detailed Comparisons
 
+For a full overview, see our [alternatives hub →](https://kompwatch.com/compare).
+
 For side-by-side breakdowns, see our dedicated comparison pages:
 
 - [KompWatch vs Crayon →](https://kompwatch.com/vs-crayon)
