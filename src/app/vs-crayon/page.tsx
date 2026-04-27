@@ -241,6 +241,143 @@ export default function VsCrayonPage() {
         </div>
       </section>
 
+      {/* The noise problem — side-by-side visual */}
+      <section className="border-t border-gray-100 py-20">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+              The noise problem
+            </h2>
+            <p className="mt-2 text-sm text-gray-600">
+              Crayon&rsquo;s #1 customer complaint in 2026, in their own words:
+            </p>
+            <figure className="mx-auto mt-6 max-w-2xl rounded-xl border-l-4 border-gray-300 bg-gray-50 px-6 py-4 text-left">
+              <blockquote className="text-sm italic leading-relaxed text-gray-700">
+                &ldquo;Data feeds can be noisy, surfacing irrelevant social media posts
+                alongside meaningful product changes — curation is required.&rdquo;
+              </blockquote>
+              <figcaption className="mt-2 text-xs text-gray-500">
+                — Recurring theme in{" "}
+                <a
+                  href="https://www.g2.com/products/crayon-crayon/reviews"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-gray-700"
+                >
+                  Crayon G2 reviews (2026)
+                </a>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-2">
+            {/* Crayon raw feed — noisy */}
+            <div className="rounded-xl border border-gray-200 bg-white shadow-sm">
+              <div className="flex items-center justify-between border-b border-gray-100 px-5 py-3">
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex h-2 w-2 rounded-full bg-gray-400" aria-hidden="true" />
+                  <p className="text-sm font-semibold text-gray-700">Crayon raw feed</p>
+                </div>
+                <span className="rounded-full bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-500">
+                  23 items today
+                </span>
+              </div>
+              <ul className="max-h-80 divide-y divide-gray-100 overflow-hidden text-xs">
+                {[
+                  { tag: "Tweet", text: "Competitor CEO liked a tweet about coffee", muted: true },
+                  { tag: "LinkedIn", text: "New employee posted #FirstDayAtWork selfie", muted: true },
+                  { tag: "Pricing", text: "Competitor X raised Pro plan from $49 → $59/mo", muted: false },
+                  { tag: "Tweet", text: "Marketing intern retweeted a meme", muted: true },
+                  { tag: "Blog", text: "Published recipe for office snacks (off-topic)", muted: true },
+                  { tag: "Job", text: "Posted: Senior Product Manager — Enterprise", muted: false },
+                  { tag: "LinkedIn", text: "VP Sales celebrated 5-year anniversary", muted: true },
+                  { tag: "Tweet", text: "CEO replied 'thanks!' to a customer compliment", muted: true },
+                  { tag: "Press", text: "Mentioned in 'Top 10 startups to watch' listicle", muted: true },
+                  { tag: "Feature", text: "Shipped: SSO + SAML for enterprise tier", muted: false },
+                  { tag: "Tweet", text: "Engineer shared a coding hot take", muted: true },
+                  { tag: "Blog", text: "Holiday office hours announcement", muted: true },
+                  { tag: "LinkedIn", text: "Recruiter posted 'we're hiring' thread", muted: true },
+                ].map((item, i) => (
+                  <li key={i} className={`flex items-start gap-3 px-5 py-2 ${item.muted ? "text-gray-400" : "text-gray-700"}`}>
+                    <span className={`mt-0.5 inline-flex shrink-0 rounded px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide ${item.muted ? "bg-gray-50 text-gray-400" : "bg-amber-50 text-amber-700"}`}>
+                      {item.tag}
+                    </span>
+                    <span className="leading-relaxed">{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="border-t border-gray-100 px-5 py-3 text-xs text-gray-500">
+                + 10 more items &mdash; you triage by hand
+              </div>
+            </div>
+
+            {/* KompWatch AI digest — clean */}
+            <div className="rounded-xl border-2 border-brand-600 bg-white shadow-md">
+              <div className="flex items-center justify-between border-b border-brand-100 bg-brand-50/50 px-5 py-3">
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex h-2 w-2 rounded-full bg-brand-500" aria-hidden="true" />
+                  <p className="text-sm font-semibold text-brand-700">KompWatch AI digest</p>
+                </div>
+                <span className="rounded-full bg-brand-100 px-2 py-0.5 text-xs font-medium text-brand-700">
+                  3 changes that matter
+                </span>
+              </div>
+              <ul className="divide-y divide-gray-100 text-sm">
+                {[
+                  {
+                    severity: "Pricing",
+                    title: "Competitor X raised Pro tier $49 → $59/mo",
+                    detail: "20% increase. Annual billing discount unchanged. May affect your win rate on price-sensitive deals.",
+                  },
+                  {
+                    severity: "Feature",
+                    title: "Shipped enterprise SSO + SAML",
+                    detail: "Closes a frequent objection. Worth checking if your enterprise prospects ask about parity.",
+                  },
+                  {
+                    severity: "Hiring",
+                    title: "New Senior PM role posted — Enterprise focus",
+                    detail: "Signals upmarket motion. Two enterprise hires in 60 days.",
+                  },
+                ].map((item, i) => (
+                  <li key={i} className="px-5 py-4">
+                    <div className="flex items-start gap-3">
+                      <span className="mt-0.5 inline-flex shrink-0 rounded-full bg-brand-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-brand-700">
+                        {item.severity}
+                      </span>
+                      <div>
+                        <p className="font-semibold text-gray-900">{item.title}</p>
+                        <p className="mt-1 text-xs leading-relaxed text-gray-600">{item.detail}</p>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <div className="border-t border-brand-100 bg-brand-50/30 px-5 py-3 text-xs text-brand-700">
+                Tweets, LinkedIn fluff, and press mentions filtered out automatically.
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 text-center">
+            <p className="text-sm text-gray-600">
+              Same competitors. Same week. <span className="font-semibold text-gray-900">One feed needs a CI analyst — the other lands in your inbox.</span>
+            </p>
+            <div className="mt-6">
+              <TrackedCTA
+                href="/sample-digest"
+                event="Noise Callout CTA Click"
+                eventProps={{ competitor: "Crayon" }}
+                className="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
+              >
+                See a real digest
+                <span aria-hidden="true">&rarr;</span>
+              </TrackedCTA>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* When to pick which */}
       <section className="border-t border-gray-100 bg-gray-50 py-20">
         <div className="mx-auto max-w-4xl px-6">
