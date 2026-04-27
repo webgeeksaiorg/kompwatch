@@ -1,3 +1,5 @@
+import { SoftwareApplicationSchema } from "./software-schema";
+
 type FAQItem = {
   question: string;
   answer: string;
@@ -25,6 +27,7 @@ export function ComparisonFAQ({
 
   return (
     <>
+      <SoftwareApplicationSchema />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

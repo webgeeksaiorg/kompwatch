@@ -14,6 +14,32 @@ Tracks where KompWatch has been submitted for listing/discovery.
 | — | awesome-saas-tools | pending | — |
 | — | awesome-competitive-intelligence | pending | GitHub repo: github.com/aj-dev-sys/awesome-competitive-intelligence — add KompWatch as headless-browser-based option |
 
+## Keyword Research — 2026-04-27 (Monday cycle, run 20)
+
+**Angles used for Friday May 1 slate (no new WebSearch — leveraging confirmed data):**
+- **42% SaaS pricing adjustment stat** (H1 2024, OpenView/Reforge) — pricing pages change silently at high frequency. Confirmed still uncontested as tweet angle.
+- **Job listings as competitor intel** — 3 ML eng postings, enterprise AE surge, pulled reqs — signals competitors' GTM direction. Fresh angle not yet covered this week.
+- **Free stack deterioration** (GummySearch dead Dec 2025, Visualping SPA failure, Google Alerts wrong signal type) — "stack is collapsing" for anyone still using 2022 cobbled approach.
+- **Tuesday change cycle** — competitor pricing changes happen Tuesday through Thursday, not on Monday. Manual Monday checks miss the majority.
+- **Competitor removed free tier** — specific high-signal scenario for PM audiences.
+
+**Content produced this cycle (Friday May 1):**
+- `twitter/2026-05-01-pricing-changes-stat.md` — 42% stat angle (8/10, READY)
+- `twitter/2026-05-01-job-listings-best-intel.md` — job listings as intel (8.5/10, READY)
+- `twitter/2026-05-01-reply-monitoring-tuesday.md` — Tuesday change gap (7.5/10, READY)
+- `twitter/2026-05-01-reply-google-alerts-vs-website.md` — two signal types (8/10, READY)
+- `twitter/2026-05-01-reply-competitor-removed-free.md` — free tier removal signal (7.5/10, READY)
+- `twitter/2026-05-01-reply-100-per-competitor.md` — ROI framing (7.5/10, READY)
+- `twitter/2026-05-01-reply-changelog-dark.md` — silent changelog angle (7.5/10, READY)
+- `reddit/2026-05-01-comment-pricing-page-monitoring.md` — 5-URL priority framework (8/10, READY)
+- `reddit/2026-05-01-comment-free-tools-gap.md` — free stack breakdown (7.5/10, READY)
+- `reddit/2026-05-01-post-monitoring-stack-2026.md` — r/SaaS discussion post (8/10, READY)
+- `linkedin/2026-05-01-42pct-pricing-changes.md` — pricing page change story (8/10, READY)
+
+**Publishing status:** TWITTER_API_KEY, REDDIT_CLIENT_ID, LINKEDIN_ACCESS_TOKEN all still missing. All platforms blocked. Monday Apr 27 slate fully queued by run 19, publish attempted — RATE_LIMITED/missing credentials. All content accumulating in queue.
+
+---
+
 ## Keyword Research — 2026-04-26 (Sunday cycle, run 18)
 
 **Fresh data from WebSearch (April 2026):**
