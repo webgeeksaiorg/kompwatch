@@ -39,6 +39,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.85,
     },
+    {
+      url: `${siteUrl}/compare`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
     ...comparisonSlugs.map((slug) => ({
       url: `${siteUrl}/${slug}`,
       lastModified: now,
