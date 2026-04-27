@@ -9,3 +9,4 @@ playwright-report/
 test-results/
 runtime/
 .DS_Store
+src/lib/build-info.json
