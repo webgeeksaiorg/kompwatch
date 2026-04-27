@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
+import { SoftwareApplicationSchema } from "@/components/software-schema";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -126,6 +127,7 @@ const competitors = [
 export default function ComparePage() {
   return (
     <div className="min-h-screen bg-white">
+      <SoftwareApplicationSchema />
       {/* Nav */}
       <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
