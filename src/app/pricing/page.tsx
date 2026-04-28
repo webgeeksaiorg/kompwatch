@@ -431,6 +431,7 @@ export default function PricingPage() {
     }
 
     setLoading(plan);
+    window.plausible?.("checkout-initiated", { props: { plan } });
     try {
       const res = await fetch("/api/stripe/checkout", {
         method: "POST",

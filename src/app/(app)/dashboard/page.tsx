@@ -91,6 +91,28 @@ export default async function DashboardPage() {
         hasWebhook={!!user.webhookUrl}
       />
 
+      {/* Upgrade banner for free-tier users near their limit */}
+      {user.plan === "FREE" && activeCount >= limit - 1 && (
+        <div className="mb-6 rounded-lg border border-brand-200 bg-brand-50 p-4 sm:flex sm:items-center sm:justify-between">
+          <div>
+            <p className="text-sm font-semibold text-brand-900">
+              {activeCount >= limit
+                ? "You\u2019ve hit your free plan limit"
+                : "You\u2019re 1 competitor away from your limit"}
+            </p>
+            <p className="mt-0.5 text-sm text-brand-700">
+              Upgrade to Pro for 10 competitors, daily digests, and priority support.
+            </p>
+          </div>
+          <a
+            href="/pricing"
+            className="mt-3 inline-flex items-center rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-700 sm:mt-0 sm:ml-4 sm:shrink-0"
+          >
+            Upgrade to Pro &mdash; $49/mo
+          </a>
+        </div>
+      )}
+
       {/* Stats cards */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
         <div className="rounded-lg border border-gray-200 bg-white p-5">
