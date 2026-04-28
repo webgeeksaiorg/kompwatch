@@ -52,6 +52,25 @@ Some technical teams build their own monitoring stack. It works — KompWatch wa
 
 KompWatch takes the same core approach (Playwright, CSS selectors, AI analysis) but maintains the stack, updates selectors when they break, and delivers results in a digest format your whole team can read.
 
+## Using ChatGPT or Claude to Monitor Competitors
+
+A common shortcut: paste a competitor's URL into ChatGPT and ask "what's changed on their pricing page?" It feels efficient. The problem: **ChatGPT doesn't actually browse that URL** unless you have the optional browsing plugin enabled — and even then, it doesn't track changes over time.
+
+What you're getting instead:
+- **Training data, not live data.** ChatGPT's knowledge cutoff is 6–18 months in the past. It will confidently describe a competitor's pricing that hasn't existed for a year.
+- **No change detection.** An LLM can describe a webpage, but it has no baseline to compare against. There's no "what changed" — there's only "here's what I know about them."
+- **Hallucination risk.** LLMs synthesize from training data. Specific pricing figures ($49/mo vs $79/mo) are exactly the kind of detail LLMs confabulate when the real data isn't in training.
+
+With browsing mode on (ChatGPT's web plugin, Perplexity, etc.), you get a live snapshot — but:
+- You'd need to manually check each competitor URL on a schedule
+- There's no persistent baseline to diff against
+- No alerts when things change; you have to go looking
+- Results aren't saved — no audit trail of competitor changes over time
+
+**Bottom line:** LLMs are excellent for *analyzing* competitive intelligence. They're not a replacement for *collecting* it. KompWatch handles the collection loop (automated snapshots, diff detection, change classification) and feeds structured signals to AI for analysis. That's the part that doesn't work manually or via ad-hoc LLM queries.
+
+If you're seeing competitors be described by AI search engines (Perplexity, ChatGPT, Google AI Overviews), that's a separate surface — see [Can KompWatch Monitor How Competitors Appear in AI Search Results?](./llm-visibility-monitoring.md)
+
 ## Choosing the Right Tool
 
 | If you need… | Use… |
