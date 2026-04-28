@@ -71,7 +71,7 @@ export function renderDigestHtml(
               </td>
               <td style="padding:8px 12px;border-bottom:1px solid #eee;">
                 <strong>${escapeHtml(c.summary)}</strong>
-                ${c.details ? `<br/><span style="color:#666;font-size:13px;">${escapeHtml(c.details)}</span>` : ""}
+                ${c.details ? `<br/><span style="color:#666;font-size:13px;">${renderDetailsHtml(c.details)}</span>` : ""}
               </td>
             </tr>`
         )
@@ -172,4 +172,15 @@ function escapeHtml(str: string): string {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+const IMPLICATION_PREFIX = /(^|\n)\s*(What this means for you:\s*)/i;
+
+function renderDetailsHtml(details: string): string {
+  const escaped = escapeHtml(details);
+  return escaped.replace(
+    IMPLICATION_PREFIX,
+    (_match, lead) =>
+      `${lead}<br/><strong style="color:#1a1a1a;">What this means for you:</strong> `
+  );
 }

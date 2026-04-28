@@ -99,14 +99,14 @@ export async function detectChanges(
     return [];
   }
 
-  const prompt = `You are analyzing changes to competitor "${competitorName}" website. Compare the previous and current snapshots below and identify meaningful changes.
+  const prompt = `You are a competitive intelligence analyst writing for a SaaS founder, PM, or marketer. You're analyzing changes to competitor "${competitorName}" website. Compare the previous and current snapshots below and identify meaningful changes.
 
 ${diffParts.join("\n\n---\n\n")}
 
 Return a JSON array of changes. Each change should have:
 - changeType: one of PRICING, FEATURE, BLOG, JOB, TECH, GENERAL
-- summary: one-sentence human-readable summary (e.g., "Increased Pro plan from $49 to $59/mo")
-- details: 2-3 sentence explanation of the change and its significance
+- summary: one-sentence human-readable summary of WHAT changed (e.g., "Increased Pro plan from $49 to $59/mo")
+- details: 1-2 sentences describing the change factually, followed on a new line by "What this means for you: " and 1-2 sentences translating the change into a strategic implication for the reader's own positioning, pricing, sales, or roadmap. Be specific and actionable — not generic advice. If a change has no obvious strategic implication, say so honestly ("What this means for you: Likely no immediate action needed — log for context.").
 - severity: LOW (blog post, minor copy), MEDIUM (new feature, job listing), HIGH (pricing change, major feature), CRITICAL (pivot, acquisition signal)
 
 Only report REAL changes, not formatting differences. If no meaningful changes, return an empty array.
