@@ -159,6 +159,18 @@ export default function ComparePage() {
             Honest, side-by-side comparisons of KompWatch against 12 competitive intelligence tools.
             See exactly where we win, where they win, and which tool fits your team.
           </p>
+          <div className="mt-8">
+            <TrackedCTA
+              href="/login"
+              event="Compare Hub Hero CTA Click"
+              className="inline-block rounded-lg bg-brand-600 px-8 py-3 text-base font-semibold text-white shadow-sm hover:bg-brand-700"
+            >
+              Start free — no credit card required
+            </TrackedCTA>
+            <p className="mt-3 text-sm text-gray-500">
+              2 competitors free forever. No sales call.
+            </p>
+          </div>
         </div>
       </section>
 
