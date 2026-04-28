@@ -81,7 +81,7 @@ The number of competitors you can track depends on your plan:
 | Pro  | 10 | Every 6 hours |
 | Team | 50 | Hourly |
 
-If you've reached your limit, the **Add Competitor** button will be disabled. [Upgrade your plan →](https://kompwatch.com/pricing)
+When you're one slot away from your limit, or have reached it, a **upgrade prompt** appears at the top of the dashboard. Clicking it takes you directly to the [pricing page](https://kompwatch.com/pricing) to upgrade. If you've reached your limit, the **Add Competitor** button will also be disabled until you upgrade. [Upgrade your plan →](https://kompwatch.com/pricing)
 
 ## Exporting Your Data
 
