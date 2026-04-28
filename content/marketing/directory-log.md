@@ -274,6 +274,33 @@ For reddit-comment publishing once credentials are available:
 - Klue: ~$16-30K/yr, launched "Compete Agent" in 2026 doubling down on enterprise — SMB market wide open
 - Content angle: "CI without a full-time analyst" directly counters both
 
+## Keyword Research — 2026-04-28 (Tuesday cycle, run 22)
+
+**Fresh data from WebSearch (April 2026):**
+- **Crayon MCP server confirmed** — April 2026 launch, "first CI MCP server." Lets enterprise reps query battlecards from inside AI tools (Claude, Cursor, CRMs). One enterprise rollout: "850 competitive questions asked in 30 days." Target: Fortune 500 CI teams. Price: $30–40K/yr. Content angle: $41 per question.
+- **Visualping's own pricing page monitor data** — 9,700+ active monitors, 16.3% of checks fire a real change alert. Pricing changes cluster Tuesday–Thursday. Manual Monday checks miss majority of changes.
+- **Kompyte hidden pricing** — "$300/mo starting" but Semrush acquisition filing shows ~$20K average ARR per customer = $1,667/mo actual cost. 5.5x advertised.
+- **Google Alerts distinction** — alerts fire on "written about" (news, blogs, press), not "competitor website changes." No tool is clearly articulating this contrast. High-value SEO angle confirmed by search results dominated by social listening tools.
+- **GummySearch confirmed dead** — December 2025, permanent shutdown. Cobbled free stack now: Google Alerts (wrong signal type) + Visualping (breaks on JS sites). Stack deteriorating.
+- **Strategist auto-approved experiment** — 'Google Alerts replacement' content angle. Blog article written this cycle targeting this exact search term.
+
+**Content produced this cycle (Tuesday 2026-04-28):**
+- `twitter/2026-04-28-crayon-mcp-server.md` — Crayon MCP angle, price contrast (8/10, READY)
+- `twitter/2026-04-28-pricing-page-change-rate.md` — 16.3% stat from Visualping data (8/10, READY)
+- `twitter/2026-04-28-kompyte-hidden-pricing.md` — hidden pricing math (8.5/10, READY)
+- `twitter/2026-04-28-reply-google-alerts-wrong-signal.md` — signal distinction (8/10, READY)
+- `twitter/2026-04-28-reply-crayon-850-questions.md` — $41/question ROI angle (8/10, READY)
+- `twitter/2026-04-28-reply-monday-check-too-late.md` — founder story, missed Wednesday (7.5/10, READY)
+- `twitter/2026-04-28-reply-gummysearch-dead.md` — free stack collapse (8/10, READY)
+- `twitter/2026-04-28-reply-visualping-empty-div.md` — JS rendering gap (8/10, READY)
+- `reddit/2026-04-28-comment-crayon-mcp-smb-gap.md` — Crayon MCP vs SMB needs (8/10, READY)
+- `reddit/2026-04-28-post-google-alerts-vs-website-monitoring.md` — r/SaaS signal distinction post (8.5/10, READY)
+- `blog/2026-04-28-google-alerts-replacement-competitor-monitoring.md` — ~1200 word SEO article (8.5/10, READY)
+
+**Publishing status:** TWITTER_API_KEY, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET all missing. Ghost requires explicit title + HTML args. All platforms blocked. Content accumulating in queue.
+
+---
+
 ## Keyword Research — 2026-04-27 (Monday cycle, run 21)
 
 **Adobe/Semrush acquisition confirmed at $1.9B (closing H1 2026):**
