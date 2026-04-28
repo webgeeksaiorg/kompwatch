@@ -134,7 +134,7 @@ export default function VsGoogleAlertsPage() {
             eventProps={{ competitor: "Google Alerts" }}
             className="rounded-lg bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
           >
-            Start free — 2 competitors
+            Start free — no credit card
           </TrackedCTA>
           <Link
             href="#comparison"
@@ -238,6 +238,23 @@ export default function VsGoogleAlertsPage() {
         </div>
       </section>
 
+
+      {/* Mid-page CTA */}
+      <section className="bg-brand-50 py-12">
+        <div className="mx-auto max-w-2xl px-6 text-center">
+          <TrackedCTA
+            href="/login"
+            event="Comparison Mid CTA Click"
+            eventProps={{ competitor: "Google Alerts" }}
+            className="inline-block rounded-lg bg-brand-600 px-8 py-3 text-base font-semibold text-white shadow-sm hover:bg-brand-700"
+          >
+            Start free — no credit card required
+          </TrackedCTA>
+          <p className="mt-3 text-sm text-gray-600">
+            2 competitors free forever. Upgrade to Pro for 10.
+          </p>
+        </div>
+      </section>
       {/* When to pick which */}
       <section className="border-t border-gray-100 bg-gray-50 py-20">
         <div className="mx-auto max-w-4xl px-6">

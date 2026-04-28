@@ -17,12 +17,12 @@ When you first sign in, your dashboard already includes a **pre-seeded demo comp
 
 To add your own competitor:
 
-1. From your dashboard, click **Add Competitor** — or on the Competitors page, click any of the **suggestion chips** (e.g. Salesforce, HubSpot, Notion) to auto-fill the name and URL in one click.
+1. From your dashboard, click **Add Competitor** — or use the **"Add your first competitor"** inline form that appears on the dashboard when you have no active competitors. You can also click any of the **quick-add suggestion chips** (e.g. HubSpot, Salesforce, Notion) to pre-fill the name and URL in one click.
 2. Enter or confirm:
    - **Name** — your label for this competitor (e.g. "Acme Corp")
    - **URL** — their website (e.g. `https://acmecorp.com`)
    - **CSS Selector** *(optional)* — target a specific section like `.pricing-table`. Leave blank to monitor the full page.
-3. Click **Save**
+3. Click **Save** (or **Start monitoring** on the inline form)
 
 KompWatch immediately takes an initial snapshot. See [How to Add a Competitor](adding-competitors.md) for tips on choosing good URLs and selectors.
 
