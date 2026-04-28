@@ -273,3 +273,27 @@ For reddit-comment publishing once credentials are available:
 - Crayon: $20-40K/yr, 3.0/5 Capterra value score, teams abandon when no one owns curation
 - Klue: ~$16-30K/yr, launched "Compete Agent" in 2026 doubling down on enterprise — SMB market wide open
 - Content angle: "CI without a full-time analyst" directly counters both
+
+## Keyword Research — 2026-04-27 (Monday cycle, run 21)
+
+**Adobe/Semrush acquisition confirmed at $1.9B (closing H1 2026):**
+- Adobe acquired Semrush → Semrush owns Kompyte → Kompyte buried two acquisitions deep
+- Adobe's strategic play: closed-loop marketing intelligence (competing Salesforce/HubSpot), not serving SMB CI
+- Kompyte roadmap frozen 12–24 months during integration
+- Best content angle: "Enterprise consolidation is a gift to indie tools"
+
+**Enterprise CI pricing (2026 verified):**
+- Crayon: $20–40K/yr mid-market, $50–100K+ enterprise (Vendr 2026 data)
+- Klue: $16–30K/yr mid-market, $40K+ enterprise
+- Neither has moved toward self-serve — SMB gap remains wide open
+
+**DIY stack failure points:**
+- Visualping: works up to 5 pages on free tier; fails on JS-rendered SaaS pages
+- Google Alerts: catches news *about* competitors, misses website changes entirely
+- Manual Monday check: misses Wednesday changes
+
+**New content queued this cycle:**
+- Tweet: "Enterprise consolidation is a gift to indie tools" (Adobe/Crayon/Klue rollup angle)
+- Tweet reply: Visualping breaks at 5+ competitors / JS-rendered pages
+- Show HN post: queued for 2026-04-29 (Strategist auto-approved)
+- Blog: "What Adobe Buying Semrush Means If You're Not a Fortune 500" (2026-05-05)

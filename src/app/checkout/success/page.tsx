@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth";
+import { ConversionTracker } from "./conversion-tracker";
 
 export default async function CheckoutSuccessPage({
   searchParams,
@@ -15,6 +16,7 @@ export default async function CheckoutSuccessPage({
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-8">
+      <ConversionTracker plan={user.plan} />
       <div className="max-w-md text-center">
         <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
           <svg

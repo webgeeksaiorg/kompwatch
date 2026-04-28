@@ -148,6 +148,51 @@ describe("renderDigestHtml", () => {
     expect(html).toContain("&lt;script&gt;");
   });
 
+  it("highlights the 'What this means for you' implication line", () => {
+    const groups: DigestCompetitorGroup[] = [
+      {
+        competitor: { name: "Acme Corp", url: "https://acme.com" },
+        changes: [
+          {
+            changeType: "PRICING",
+            summary: "Pro plan raised $49 → $59",
+            details:
+              "Acme increased the Pro tier from $49/mo to $59/mo (20% hike).\nWhat this means for you: A price-sensitive prospect who balked at $49 may now see KompWatch as the obvious value pick.",
+            severity: "HIGH",
+            createdAt: new Date(),
+          },
+        ],
+      },
+    ];
+    const html = renderDigestHtml(testUser, groups, "DAILY");
+    // The implication prefix should be bolded and on its own line
+    expect(html).toMatch(/<br\/><strong[^>]*>What this means for you:<\/strong>/);
+    // Original details text still present (escaped)
+    expect(html).toContain("price-sensitive prospect");
+  });
+
+  it("escapes details content even when implication prefix is present", () => {
+    const groups: DigestCompetitorGroup[] = [
+      {
+        competitor: { name: "Acme", url: "https://acme.com" },
+        changes: [
+          {
+            changeType: "FEATURE",
+            summary: "Shipped <feature>",
+            details:
+              'Acme shipped <script>alert("x")</script>.\nWhat this means for you: <img onerror="bad">',
+            severity: "MEDIUM",
+            createdAt: new Date(),
+          },
+        ],
+      },
+    ];
+    const html = renderDigestHtml(testUser, groups, "DAILY");
+    expect(html).not.toContain("<script>alert");
+    expect(html).not.toContain('onerror="bad"');
+    expect(html).toContain("&lt;script&gt;");
+  });
+
   it("uses generic greeting when no name", () => {
     const groups: DigestCompetitorGroup[] = [
       {
