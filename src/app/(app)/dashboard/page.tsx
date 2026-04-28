@@ -4,6 +4,7 @@ import { db } from "@/lib/db";
 import { PLANS } from "@/lib/stripe";
 import { OnboardingChecklist } from "./onboarding-checklist";
 import { ExportChangesButton } from "@/components/dashboard/export-changes-button";
+import { EmptyStateOnboarding } from "@/components/dashboard/empty-state-onboarding";
 
 const SEVERITY_ORDER: Severity[] = ["LOW", "MEDIUM", "HIGH", "CRITICAL"];
 
@@ -84,15 +85,24 @@ export default async function DashboardPage() {
         </p>
       </div>
 
-      {/* Onboarding checklist */}
-      <OnboardingChecklist
-        hasCompetitor={competitors.length > 0}
-        hasCustomSeverity={user.digestMinSeverity !== "LOW"}
-        hasWebhook={!!user.webhookUrl}
-      />
+      {/* Empty-state onboarding hero — shown when user has no competitors */}
+      {competitors.length === 0 && (
+        <div className="mb-8">
+          <EmptyStateOnboarding />
+        </div>
+      )}
+
+      {/* Onboarding checklist — shown when user has some progress but not complete */}
+      {competitors.length > 0 && (
+        <OnboardingChecklist
+          hasCompetitor={competitors.length > 0}
+          hasCustomSeverity={user.digestMinSeverity !== "LOW"}
+          hasWebhook={!!user.webhookUrl}
+        />
+      )}
 
       {/* Upgrade banner for free-tier users near their limit */}
-      {user.plan === "FREE" && activeCount >= limit - 1 && (
+      {user.plan === "FREE" && activeCount >= limit - 1 && competitors.length > 0 && (
         <div className="mb-6 rounded-lg border border-brand-200 bg-brand-50 p-4 sm:flex sm:items-center sm:justify-between">
           <div>
             <p className="text-sm font-semibold text-brand-900">
