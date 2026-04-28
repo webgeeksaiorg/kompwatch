@@ -14,6 +14,33 @@ Tracks where KompWatch has been submitted for listing/discovery.
 | — | awesome-saas-tools | pending | — |
 | — | awesome-competitive-intelligence | pending | GitHub repo: github.com/aj-dev-sys/awesome-competitive-intelligence — add KompWatch as headless-browser-based option |
 
+## Keyword Research — 2026-04-28 (Tuesday cycle, run 22)
+
+**Fresh angles (WebSearch via agent, April 2026):**
+- **42% competitor pricing pages changed in 30 days** — strongest hook for this week. Not in a year — in a month. Structural changes (tier renamed, annual discount added, seat minimum bumped). Highly tweetable, Reddit comment gold.
+- **Klue Compete Agent tax** — mid-five to low-six figures/yr for teams under 20 reps. Excellent contrast with "$49/mo problem." Directionally new vs earlier Klue upmarket angle (which was about roadmap direction, not specific product pricing).
+- **Usage-based pricing monitoring gap** — UBP pages restructure quarterly, basic screenshot diff says "something changed" but not what. AI digest layer is the answer. Strong Tuesday blog/tweet angle.
+- **3.8/10 competitive selling readiness** (Crayon State of CI survey) — teams with CI tools still rate themselves poorly. Root cause: monitoring gap, not format gap. Reframes KompWatch as win rate tool, not just monitoring tool.
+- **Kompyte three layers deep in acquisitions** (Kompyte → Semrush → Adobe) — more specific than the top-level Adobe/Semrush angle already written. Useful for anyone evaluating Kompyte specifically.
+
+**Content produced this cycle (May 4–5):**
+- `twitter/2026-05-04-reply-klue-agent-tax.md` — Klue Compete Agent tax contrast (8/10, READY)
+- `linkedin/2026-05-04-win-rate-problem.md` — 68% deals / 3.8/10 preparedness (8/10, READY)
+- `twitter/2026-05-05-pricing-pages-42pct.md` — 42% monthly pricing changes stat (8.5/10, READY)
+- `twitter/2026-05-05-ubp-blindspot.md` — usage-based pricing monitoring gap (8/10, READY)
+- `twitter/2026-05-05-win-rate-monitoring.md` — win rate reframe (8/10, READY)
+- `twitter/2026-05-05-reply-battlecard-stale.md` — battlecard freshness (8/10, READY)
+- `twitter/2026-05-05-reply-monitoring-interval.md` — interval is the problem (7.5/10, READY)
+- `twitter/2026-05-05-reply-ubp-tracking.md` — UBP quarterly restructures (7.5/10, READY)
+- `twitter/2026-05-05-reply-38-preparedness.md` — 3.8/10 even with CI tools (8/10, READY)
+- `twitter/2026-05-05-reply-klue-agent-vs-monitoring.md` — different problems, different tools (7.5/10, READY)
+- `reddit/2026-05-05-comment-42pct-pricing-changes.md` — stale intel / demo blindsided story (8/10, READY)
+- `reddit/2026-05-05-post-battlecard-freshness.md` — battlecard stale data root cause (8.5/10, READY)
+
+**Publishing status:** TWITTER_API_KEY, REDDIT_CLIENT_ID, LINKEDIN_ACCESS_TOKEN all still missing. All platforms blocked. Today's slate (Tue Apr 28) fully queued and publish attempted — RATE_LIMITED/missing credentials.
+
+---
+
 ## Keyword Research — 2026-04-27 (Monday cycle, run 20)
 
 **Angles used for Friday May 1 slate (no new WebSearch — leveraging confirmed data):**
