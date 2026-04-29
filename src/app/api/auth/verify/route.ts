@@ -67,5 +67,9 @@ export async function GET(req: NextRequest) {
   // Create session and set cookie
   await createSession(user.id);
 
-  return NextResponse.redirect(new URL("/dashboard", req.url));
+  const dashboardUrl = new URL("/dashboard", req.url);
+  if (isNewUser) {
+    dashboardUrl.searchParams.set("new", "1");
+  }
+  return NextResponse.redirect(dashboardUrl);
 }
