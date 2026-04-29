@@ -2,6 +2,12 @@
 
 import { useState } from "react";
 
+declare global {
+  interface Window {
+    plausible?: (event: string, options?: { props?: Record<string, string> }) => void;
+  }
+}
+
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "sent" | "error">("idle");
@@ -25,6 +31,7 @@ export default function LoginPage() {
       }
 
       setStatus("sent");
+      window.plausible?.("magic-link-requested");
     } catch (err) {
       setErrorMsg(err instanceof Error ? err.message : "Something went wrong");
       setStatus("error");

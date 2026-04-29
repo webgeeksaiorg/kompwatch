@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Severity } from "@prisma/client";
 import { requireAuth } from "@/lib/auth";
 import { db } from "@/lib/db";
@@ -5,6 +6,7 @@ import { PLANS } from "@/lib/stripe";
 import { OnboardingChecklist } from "./onboarding-checklist";
 import { ExportChangesButton } from "@/components/dashboard/export-changes-button";
 import { EmptyStateOnboarding } from "@/components/dashboard/empty-state-onboarding";
+import { SignupTracker } from "@/components/dashboard/signup-tracker";
 
 const SEVERITY_ORDER: Severity[] = ["LOW", "MEDIUM", "HIGH", "CRITICAL"];
 
@@ -78,6 +80,9 @@ export default async function DashboardPage() {
 
   return (
     <div>
+      <Suspense>
+        <SignupTracker />
+      </Suspense>
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
         <p className="mt-1 text-sm text-gray-500">
