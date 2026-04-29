@@ -391,6 +391,9 @@ export default function VsOwlerPage() {
             <Link href="/vs-rivalsense" className="text-sm text-gray-500 hover:text-gray-700">
               vs RivalSense
             </Link>
+            <Link href="/vs-changeflow" className="text-sm text-gray-500 hover:text-gray-700">
+              vs Changeflow
+            </Link>
             <Link href="/login" className="text-sm text-gray-500 hover:text-gray-700">
               Sign in
             </Link>

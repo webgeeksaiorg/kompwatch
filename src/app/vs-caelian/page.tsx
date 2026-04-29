@@ -380,6 +380,9 @@ export default function VsCaelianPage() {
             <Link href="/vs-seeto" className="text-sm text-gray-500 hover:text-gray-700">
               vs Seeto
             </Link>
+            <Link href="/vs-changeflow" className="text-sm text-gray-500 hover:text-gray-700">
+              vs Changeflow
+            </Link>
             <Link href="/login" className="text-sm text-gray-500 hover:text-gray-700">
               Sign in
             </Link>
