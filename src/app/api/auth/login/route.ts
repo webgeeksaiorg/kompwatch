@@ -2,18 +2,30 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { createMagicToken, getMagicLinkUrl } from "@/lib/auth";
 import { getResend, FROM_EMAIL } from "@/lib/resend";
+import { trackEvent } from "@/lib/plausible";
 
 const loginSchema = z.object({
   email: z.string().email("Invalid email address"),
+  utm_source: z.string().optional(),
+  utm_medium: z.string().optional(),
+  utm_campaign: z.string().optional(),
 });
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { email } = loginSchema.parse(body);
+    const { email, utm_source, utm_medium, utm_campaign } = loginSchema.parse(body);
 
     const token = createMagicToken(email);
-    const magicLink = getMagicLinkUrl(token);
+    let magicLink = getMagicLinkUrl(token);
+
+    // Preserve UTM params through the magic-link redirect for attribution
+    const utmParams = new URLSearchParams();
+    if (utm_source) utmParams.set("utm_source", utm_source);
+    if (utm_medium) utmParams.set("utm_medium", utm_medium);
+    if (utm_campaign) utmParams.set("utm_campaign", utm_campaign);
+    const utmStr = utmParams.toString();
+    if (utmStr) magicLink += `&${utmStr}`;
 
     await getResend().emails.send({
       from: FROM_EMAIL,
@@ -34,6 +46,11 @@ export async function POST(req: NextRequest) {
         </div>
       `,
     });
+
+    // Server-side event — fires even when client-side Plausible is blocked
+    const eventProps: Record<string, string> = {};
+    if (utm_source) eventProps.source = utm_source;
+    trackEvent("magic-link-requested", "/login", Object.keys(eventProps).length > 0 ? eventProps : undefined);
 
     return NextResponse.json({ ok: true });
   } catch (err) {

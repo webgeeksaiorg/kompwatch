@@ -41,6 +41,8 @@ G2 reviewers consistently report using only 15–20% of Crayon's features. If yo
 **KompWatch vs Kompyte**
 Kompyte (~$8K/yr) is a mid-market platform that lacks AI summaries and job tracking. KompWatch includes both, at a significantly lower price point with monthly billing.
 
+**Important update (2026):** Adobe acquired Semrush, which owns Kompyte. For Kompyte customers, this means your competitive intelligence tool is now embedded inside an Adobe/Semrush enterprise stack — with the pricing and product direction that implies. If you're evaluating your options, KompWatch offers a self-serve alternative with no enterprise lock-in, monthly billing, and a free tier to start. See [KompWatch vs Kompyte →](https://kompwatch.com/vs-kompyte) for a full breakdown.
+
 ## When KompWatch Is the Right Fit
 
 - You're a **startup or growth-stage team** that can't justify $6–12K/year on a single tool
@@ -156,6 +158,19 @@ For side-by-side breakdowns, see our dedicated comparison pages:
 - [KompWatch vs Battlecard →](https://kompwatch.com/vs-battlecard)
 - [KompWatch vs Owler →](https://kompwatch.com/vs-owler)
 - [KompWatch vs Unkover →](https://kompwatch.com/vs-unkover)
+
+## Can I Switch From Kompyte?
+
+Yes. If you're a Kompyte customer reconsidering your options after the Adobe/Semrush acquisition, switching to KompWatch takes about 10 minutes:
+
+1. Sign up at [kompwatch.com](https://kompwatch.com) — free, no credit card
+2. Add the same competitor URLs you were tracking in Kompyte
+3. Set your monitoring preferences (pricing, features, blog, jobs)
+4. Your first snapshot runs within the hour; digests start on your next scheduled cycle
+
+KompWatch doesn't import historical data from Kompyte, but you'll be monitoring live from day one. Most teams are fully set up in under an hour.
+
+See the [KompWatch vs Kompyte page →](https://kompwatch.com/vs-kompyte) for a feature-by-feature comparison.
 
 ## Can I Switch From Klue or Crayon?
 
