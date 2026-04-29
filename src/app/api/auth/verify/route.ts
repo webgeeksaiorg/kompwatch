@@ -4,6 +4,7 @@ import { db } from "@/lib/db";
 import { getResend, FROM_EMAIL } from "@/lib/resend";
 import { buildWelcomeEmail } from "@/lib/onboarding";
 import { seedDemoCompetitor } from "@/lib/demo-seed";
+import { trackEvent } from "@/lib/plausible";
 
 export async function GET(req: NextRequest) {
   const token = req.nextUrl.searchParams.get("token");
@@ -70,6 +71,12 @@ export async function GET(req: NextRequest) {
   const dashboardUrl = new URL("/dashboard", req.url);
   if (isNewUser) {
     dashboardUrl.searchParams.set("new", "1");
+
+    // Server-side signup event — fires even when client-side Plausible is blocked
+    const source = req.nextUrl.searchParams.get("utm_source") || "";
+    const props: Record<string, string> = { plan: "FREE" };
+    if (source) props.source = source;
+    trackEvent("signup", "/dashboard", props);
   }
   return NextResponse.redirect(dashboardUrl);
 }
