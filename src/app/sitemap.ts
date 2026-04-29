@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "vs-rivalsense",
     "vs-owler",
     "vs-unkover",
+    "vs-changeflow",
   ];
 
   return [

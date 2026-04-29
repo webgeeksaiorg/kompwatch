@@ -8,7 +8,7 @@ const siteUrl = "https://kompwatch.com";
 export const metadata: Metadata = {
   title: "KompWatch Alternatives & Comparisons — How We Stack Up",
   description:
-    "See how KompWatch compares to Crayon, Klue, Kompyte, and 9 other competitive intelligence tools. Honest side-by-side breakdowns — pricing, features, and setup time.",
+    "See how KompWatch compares to Crayon, Klue, Kompyte, Changeflow, and 9 other competitive intelligence tools. Honest side-by-side breakdowns — pricing, features, and setup time.",
   keywords: [
     "competitive intelligence tools comparison",
     "Crayon alternative",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "KompWatch Alternatives & Comparisons",
     description:
-      "Honest side-by-side comparisons of KompWatch vs 12 competitive intelligence tools. See pricing, features, and setup differences.",
+      "Honest side-by-side comparisons of KompWatch vs 13 competitive intelligence tools. See pricing, features, and setup differences.",
     url: `${siteUrl}/compare`,
     type: "website",
   },
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "KompWatch Alternatives & Comparisons",
     description:
-      "How does KompWatch stack up against Crayon, Klue, Kompyte, and more? See 12 honest side-by-side comparisons.",
+      "How does KompWatch stack up against Crayon, Klue, Kompyte, Changeflow, and more? See 13 honest side-by-side comparisons.",
   },
 };
 
@@ -122,6 +122,13 @@ const competitors = [
     price: "Paid (varies)",
     differentiator: "Unkover monitors competitor emails. KompWatch monitors competitor websites. Different signals \u2014 use both for full coverage.",
   },
+  {
+    slug: "changeflow",
+    name: "Changeflow",
+    tagline: "Webpage change monitoring",
+    price: "$4/mo",
+    differentiator: "Changeflow is the closest direct competitor at $4/mo. KompWatch adds headless browser rendering, CSS selectors, job tracking, and a free tier.",
+  },
 ];
 
 export default function ComparePage() {
@@ -156,7 +163,7 @@ export default function ComparePage() {
             KompWatch vs. the competition
           </h1>
           <p className="mt-6 text-lg text-gray-600">
-            Honest, side-by-side comparisons of KompWatch against 12 competitive intelligence tools.
+            Honest, side-by-side comparisons of KompWatch against 13 competitive intelligence tools.
             See exactly where we win, where they win, and which tool fits your team.
           </p>
           <div className="mt-8">

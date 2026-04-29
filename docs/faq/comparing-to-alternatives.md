@@ -120,7 +120,7 @@ PageCrawl is a reasonable pick for monitoring simple static pages where you just
 
 Several newer tools have entered the self-serve monitoring space. Here's how they stack up:
 
-**Changeflow (changeflow.com)** — monitors webpages for changes and sends AI summaries via email, Slack, or webhook. Functionally similar to KompWatch's core monitoring loop. KompWatch differentiates with job listing tracking, CSS selector targeting, structured digest format, and a free plan with 2 competitors.
+**Changeflow (changeflow.com)** — monitors webpages for changes and sends AI summaries via email, Slack, or webhook. Functionally similar to KompWatch's core monitoring loop at $4/mo. KompWatch differentiates with headless browser rendering (JavaScript/SPA sites), job listing tracking, CSS selector targeting, structured digest format, and a free plan with 2 competitors. See [KompWatch vs Changeflow →](https://kompwatch.com/vs-changeflow) for a full side-by-side.
 
 **Parano.ai** — continuous monitoring of competitor assets (pricing, positioning, product signals) with Slack and email delivery. Listed as a rising Crayon/Klue alternative in 2026 CI roundups. Positioned at the mid-market; KompWatch starts free with self-serve signup.
 
@@ -158,6 +158,7 @@ For side-by-side breakdowns, see our dedicated comparison pages:
 - [KompWatch vs Battlecard →](https://kompwatch.com/vs-battlecard)
 - [KompWatch vs Owler →](https://kompwatch.com/vs-owler)
 - [KompWatch vs Unkover →](https://kompwatch.com/vs-unkover)
+- [KompWatch vs Changeflow →](https://kompwatch.com/vs-changeflow)
 
 ## Can I Switch From Kompyte?
 
