@@ -61,7 +61,7 @@ export function CompetitorRow({ competitor }: { competitor: CompetitorData }) {
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2">
             <span
-              className={`inline-block h-2 w-2 rounded-full ${competitor.isActive ? "bg-green-500" : "bg-gray-300"}`}
+              className={`inline-block h-2 w-2 shrink-0 rounded-full ${competitor.isActive ? "bg-green-500" : "bg-gray-300"}`}
               title={competitor.isActive ? "Active" : "Paused"}
             />
             <a href={`/competitors/${competitor.id}`} className="truncate text-sm font-semibold text-gray-900 hover:text-brand-600">
@@ -71,13 +71,13 @@ export function CompetitorRow({ competitor }: { competitor: CompetitorData }) {
               href={competitor.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="truncate text-xs text-gray-400 hover:text-brand-600"
+              className="hidden truncate text-xs text-gray-400 hover:text-brand-600 sm:inline"
             >
               {competitor.url.replace(/^https?:\/\//, "")}
             </a>
           </div>
 
-          <div className="mt-2 flex items-center gap-4 text-xs text-gray-500">
+          <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-gray-500">
             <span>{competitor._count.snapshots} snapshots</span>
             <span>{competitor._count.changes} changes</span>
             {lastChange && (
@@ -86,7 +86,7 @@ export function CompetitorRow({ competitor }: { competitor: CompetitorData }) {
                 <span className={`inline-flex rounded-full px-1.5 py-0.5 text-[10px] font-medium ${SEVERITY_COLORS[lastChange.severity] || SEVERITY_COLORS.LOW}`}>
                   {CHANGE_TYPE_LABELS[lastChange.changeType] || lastChange.changeType}
                 </span>
-                <span className="max-w-[200px] truncate">{lastChange.summary}</span>
+                <span className="max-w-[140px] truncate sm:max-w-[200px]">{lastChange.summary}</span>
               </span>
             )}
           </div>
