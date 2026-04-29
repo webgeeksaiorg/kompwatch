@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { Prisma } from "@prisma/client";
 import { db } from "@/lib/db";
+import { trackEvent } from "@/lib/plausible";
 
 const leadSchema = z.object({
   email: z
@@ -36,6 +37,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Unknown source" }, { status: 400 });
     }
 
+    let duplicate = false;
     try {
       await db.emailLead.create({
         data: { email, source },
@@ -47,11 +49,21 @@ export async function POST(req: NextRequest) {
         err instanceof Prisma.PrismaClientKnownRequestError &&
         err.code === "P2002"
       ) {
-        return NextResponse.json({ ok: true, duplicate: true });
+        duplicate = true;
+      } else {
+        throw err;
       }
-      throw err;
     }
 
+    // Server-side event — fires even when client-side Plausible is blocked.
+    // The client-side `email-capture` event (in EmailCaptureForm) only fires
+    // for ad-blocker-free users, so this is the source of truth for the funnel.
+    trackEvent("email-capture", `/${source}`, {
+      source,
+      ...(duplicate ? { duplicate: "true" } : {}),
+    });
+
+    if (duplicate) return NextResponse.json({ ok: true, duplicate: true });
     return NextResponse.json({ ok: true });
   } catch (err) {
     if (err instanceof z.ZodError) {
