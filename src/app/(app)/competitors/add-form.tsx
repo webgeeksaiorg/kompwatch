@@ -82,14 +82,14 @@ export function AddCompetitorForm({
   return (
     <form onSubmit={handleSubmit} className="rounded-lg border border-gray-200 bg-white p-5">
       <h2 className="mb-4 text-sm font-semibold text-gray-900">Add a competitor</h2>
-      <div className="flex gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row">
         <input
           type="text"
           placeholder="Company name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
-          className="w-48 rounded-md border border-gray-300 px-3 py-2 text-sm placeholder:text-gray-400 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+          className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm placeholder:text-gray-400 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 sm:w-48"
         />
         <input
           type="url"
@@ -97,12 +97,12 @@ export function AddCompetitorForm({
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           required
-          className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm placeholder:text-gray-400 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+          className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm placeholder:text-gray-400 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 sm:flex-1"
         />
         <button
           type="submit"
           disabled={loading}
-          className="rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700 disabled:opacity-50"
+          className="w-full rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700 disabled:opacity-50 sm:w-auto"
         >
           {loading ? "Adding…" : "Add"}
         </button>

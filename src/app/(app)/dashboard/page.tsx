@@ -181,14 +181,14 @@ export default async function DashboardPage() {
             </p>
           </div>
         ) : (
-          <div className="overflow-hidden rounded-lg border border-gray-200 bg-white">
+          <div className="overflow-x-auto rounded-lg border border-gray-200 bg-white">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-100 bg-gray-50/50">
                   <th className="px-4 py-2.5 text-left text-xs font-medium text-gray-500">Competitor</th>
-                  <th className="px-4 py-2.5 text-left text-xs font-medium text-gray-500">Status</th>
+                  <th className="hidden px-4 py-2.5 text-left text-xs font-medium text-gray-500 sm:table-cell">Status</th>
                   <th className="px-4 py-2.5 text-right text-xs font-medium text-gray-500">Changes</th>
-                  <th className="px-4 py-2.5 text-right text-xs font-medium text-gray-500">Last activity</th>
+                  <th className="hidden px-4 py-2.5 text-right text-xs font-medium text-gray-500 sm:table-cell">Last activity</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
@@ -197,12 +197,19 @@ export default async function DashboardPage() {
                   return (
                     <tr key={c.id} className="hover:bg-gray-50/50">
                       <td className="px-4 py-3">
-                        <a href={`/competitors/${c.id}`} className="font-medium text-gray-900 hover:text-brand-600">{c.name}</a>
+                        <div className="flex items-center gap-1.5">
+                          <span
+                            className={`inline-block h-1.5 w-1.5 shrink-0 rounded-full sm:hidden ${
+                              c.isActive ? "bg-green-500" : "bg-gray-400"
+                            }`}
+                          />
+                          <a href={`/competitors/${c.id}`} className="font-medium text-gray-900 hover:text-brand-600">{c.name}</a>
+                        </div>
                         <div className="text-xs text-gray-400">
                           {c.url.replace(/^https?:\/\//, "")}
                         </div>
                       </td>
-                      <td className="px-4 py-3">
+                      <td className="hidden px-4 py-3 sm:table-cell">
                         <span
                           className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium ${
                             c.isActive
@@ -219,7 +226,7 @@ export default async function DashboardPage() {
                         </span>
                       </td>
                       <td className="px-4 py-3 text-right text-gray-600">{c._count.changes}</td>
-                      <td className="px-4 py-3 text-right">
+                      <td className="hidden px-4 py-3 text-right sm:table-cell">
                         {lastChange ? (
                           <span className="text-xs text-gray-500">
                             {timeAgo(lastChange.createdAt)}
@@ -275,9 +282,9 @@ export default async function DashboardPage() {
                     }`}
                   />
 
-                  <div className="flex-1 rounded-lg border border-gray-200 bg-white px-4 py-3">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
+                  <div className="flex-1 rounded-lg border border-gray-200 bg-white px-3 py-2.5 sm:px-4 sm:py-3">
+                    <div className="flex flex-wrap items-center justify-between gap-1">
+                      <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
                         <span className="text-sm font-medium text-gray-900">
                           {change.competitor.name}
                         </span>

@@ -14,6 +14,25 @@ Tracks where KompWatch has been submitted for listing/discovery.
 | — | awesome-saas-tools | pending | — |
 | — | awesome-competitive-intelligence | pending | GitHub repo: github.com/aj-dev-sys/awesome-competitive-intelligence — add KompWatch as headless-browser-based option |
 
+## Keyword Research — 2026-04-28 (Tuesday cycle, run 23)
+
+**Fresh data from WebSearch (April 2026):**
+- **Crayon G2: 14-month median ROI** — combined with $28,750/year median contract = $33,500 spent before it pays off. New angle, not yet written.
+- **42% of SaaS pricing pages changed in last 30 days** (Visualping, 9,705 monitors) — confirmed as broad "monthly" stat (vs. the per-check 16.3% stat already written). Strong headline hook.
+- **Win rate data**: 71% of teams with battlecards report higher win rates; monthly-updated battlecards drive up to 59% win rate lift (Arise/TrajectoryAI). Reframes KompWatch as a win rate tool via battlecard freshness.
+- **Crayon MCP confirmed again**: enterprise-only AI integration ($30–40K/yr), doubles down on Fortune 500. "You don't need an MCP server to know when your competitor changed their pricing page."
+- **DIY stack**: Google Alerts + Visualping + Feedly = under $100/mo but fragmented. Teams want this automated.
+
+**Content produced this cycle (run 23):**
+- `twitter/2026-04-28-crayon-14-month-roi.md` — 14-month ROI math (8.5/10, READY)
+- `twitter/2026-04-28-deal-lost-tuesday.md` — "you found out on a Thursday sales call" angle (8/10, READY)
+- `blog/2026-04-28-competitive-battlecard-template.md` — free battlecard template resource page, ~1300 words (8.5/10, READY) — Strategist [1691]
+- `copy/2026-04-28-price-anchoring-landing-page.md` — landing page price anchor copy variants for Builder (9/10, READY) — Strategist [f92a]
+
+**Publishing status:** All API credentials still missing (TWITTER_API_KEY, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, LINKEDIN_ACCESS_TOKEN, GHOST_ADMIN_API_KEY). All platforms blocked. Content accumulating in queue. Tuesday Apr 28 slate fully covered by runs 22 + 23. Wednesday Apr 29 and Thursday Apr 30 slates pre-queued.
+
+---
+
 ## Keyword Research — 2026-04-28 (Tuesday cycle, run 22)
 
 **Fresh angles (WebSearch via agent, April 2026):**
