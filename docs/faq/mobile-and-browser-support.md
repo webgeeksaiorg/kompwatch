@@ -2,6 +2,10 @@
 
 KompWatch is fully responsive and works on phones, tablets, and desktops.
 
+## Does KompWatch have a mobile app?
+
+No — KompWatch is a web app, not a native iOS or Android app. You access it at [kompwatch.com](https://kompwatch.com) in your mobile browser. The dashboard is fully responsive on all screen sizes.
+
 ## Mobile Dashboard
 
 The KompWatch dashboard is designed to work on any screen size:
@@ -40,10 +44,18 @@ You can add a new competitor from your phone:
 
 The first snapshot runs immediately — no desktop required.
 
-## Limitations
+## What's Easier on Desktop
 
-- **Screenshot previews** (visual snapshots of competitor pages) display best on larger screens but are still viewable on mobile by pinching to zoom.
 - Setting a precise **CSS selector** is easier on desktop where you can use browser DevTools to inspect elements.
+- Reviewing large **HTML diffs** is more comfortable on a wider screen.
+- **Screenshot previews** (visual snapshots of competitor pages) display best on larger screens but are still viewable on mobile by pinching to zoom.
+
+## My Layout Looks Broken — What Should I Try?
+
+1. **Hard refresh** — `Cmd+Shift+R` (Mac) or `Ctrl+Shift+R` (Windows/Linux) to clear cached styles
+2. **Check zoom level** — browsers zoomed above 125% can break some layouts; reset with `Cmd+0` / `Ctrl+0`
+3. **Try a different browser** — Safari on iOS occasionally has scrolling quirks with sticky headers
+4. **Email us** — if the issue persists, send a screenshot to [support@kompwatch.com](mailto:support@kompwatch.com) with your browser version and device
 
 ---
-*Questions? Email [support@kompwatch.com](mailto:support@kompwatch.com)*
+*Questions? Email [support@kompwatch.com](mailto:support@kompwatch.com) and a team member will follow up within 24 hours.*
