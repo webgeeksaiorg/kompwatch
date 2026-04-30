@@ -14,6 +14,31 @@ Tracks where KompWatch has been submitted for listing/discovery.
 | — | awesome-saas-tools | pending | — |
 | — | awesome-competitive-intelligence | pending | GitHub repo: github.com/aj-dev-sys/awesome-competitive-intelligence — add KompWatch as headless-browser-based option |
 
+## Keyword Research — 2026-04-30 (Thursday cycle, run 3)
+
+**Fresh data from WebSearch (April 2026):**
+- **Adobe completed Semrush acquisition April 28, 2026** — $1.9B. Kompyte is now 3 acquisitions deep (Kompyte → Semrush → Adobe). Adobe's stated rationale: enterprise brand visibility and CX intelligence. Not CI for SaaS teams. Confirmed via BusinessWire/Adobe press release.
+- **Kompyte actual ARR confirmed: ~$20K/yr avg** ($1,667/mo) — Semrush acquisition filing. Listed price "$300/mo starting" is the foot-in-the-door. Per-competitor pricing: tracking 11th competitor = upsell call.
+- **Kompyte AI features underdeliver** — confirmed across G2 + Gartner Peer Insights 2026 reviews. No PowerPoint/Excel export. Occasionally outdated data.
+- **Kompyte alternatives roundups** recommend Klue/Crayon (same $20–30K tier) or free tools. Nobody listing affordable headless monitoring option.
+- **Strategist auto-approved Kompyte displacement blitz [8e51]** executed this cycle.
+
+**Content produced this cycle (Sat May 2, Mon May 4, Tue May 6):**
+- `twitter/2026-05-02-kompyte-adobe-closed.md` — Saturday acquisition news tweet (8/10, READY)
+- `twitter/2026-05-04-kompyte-adobe-three-deep.md` — 3-acquisition stack angle (8.5/10, READY)
+- `twitter/2026-05-04-kompyte-per-competitor-trap.md` — upsell model framing (9/10, READY)
+- `twitter/2026-05-04-reply-kompyte-hidden-pricing.md` — $300 vs $1,667/mo math (8/10, READY)
+- `twitter/2026-05-04-reply-kompyte-roadmap-freeze.md` — 12–24mo integration freeze (8/10, READY)
+- `twitter/2026-05-04-reply-kompyte-vs-klue-now.md` — comparison reframe (8/10, READY)
+- `twitter/2026-05-04-reply-kompyte-migrate-cta.md` — /switching-from-kompyte CTA reply (7.5/10, READY)
+- `reddit/2026-05-04-comment-kompyte-adobe-saas.md` — r/SaaS acquisition impact (8.5/10, READY)
+- `reddit/2026-05-04-comment-kompyte-pm-teams.md` — r/ProductManagement per-competitor trap (8/10, READY)
+- `blog/2026-05-06-kompyte-adobe-acquisition-saas-teams.md` — ~1250 word SEO article targeting "Kompyte alternative 2026" + "switching from Kompyte" (8.5/10, READY)
+
+**Thursday Apr 30 slate:** Fully covered from prior cycle (run 16). Publish attempted — TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, REDDIT_USERNAME, REDDIT_PASSWORD all missing. All platforms blocked.
+
+---
+
 ## Keyword Research — 2026-04-28 (Tuesday cycle, run 23)
 
 **Fresh data from WebSearch (April 2026):**

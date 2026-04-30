@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
 import { ComparisonFAQ } from "@/components/comparison-faq";
+import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -90,6 +91,7 @@ function ComparisonCell({ value, highlight }: { value: CellValue; highlight?: bo
 export default function VsSeetoPage() {
   return (
     <div className="bg-white">
+      <BreadcrumbSchema items={[{ name: "KompWatch vs Seeto", path: "/vs-seeto" }]} />
       {/* Nav */}
       <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-sm">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">

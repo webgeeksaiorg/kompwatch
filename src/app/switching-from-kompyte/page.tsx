@@ -2,8 +2,50 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
 import { ComparisonFAQ } from "@/components/comparison-faq";
+import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 
 const siteUrl = "https://kompwatch.com";
+
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Switch from Kompyte to KompWatch",
+  description:
+    "Step-by-step guide to migrating your competitive intelligence from Kompyte to KompWatch in under 10 minutes.",
+  totalTime: "PT10M",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Sign up (free, 30 seconds)",
+      text: "Create your account at kompwatch.com. No credit card, no sales call. Your free plan includes 2 competitors.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Add your competitor URLs",
+      text: "Paste the same URLs you tracked in Kompyte — pricing pages, feature pages, blogs, careers pages. Takes about 1 minute per competitor.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Set CSS selectors for precision",
+      text: "Target specific page sections (e.g. .pricing-table, #features) instead of monitoring entire pages. This reduces noise.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 4,
+      name: "Connect Slack (optional)",
+      text: "Push AI digests to your #competitive-intel channel. Same workflow your team already uses, just better summaries.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 5,
+      name: "First insights within 24 hours",
+      text: "Snapshots run immediately. Change detection begins after the second snapshot — typically within a few hours on Pro or 24 hours on Free.",
+    },
+  ],
+};
 
 export const metadata: Metadata = {
   title: "Switching from Kompyte to KompWatch — Migration Guide",
@@ -74,6 +116,11 @@ const migrationSteps = [
 export default function SwitchingFromKompytePage() {
   return (
     <div className="bg-white">
+      <BreadcrumbSchema items={[{ name: "Switching from Kompyte", path: "/switching-from-kompyte" }]} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
+      />
       {/* Nav */}
       <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-sm">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
