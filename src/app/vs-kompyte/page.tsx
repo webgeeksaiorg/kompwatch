@@ -374,8 +374,12 @@ export default function VsKompytePage() {
           </div>
           <p className="mt-4 text-xs text-gray-400">
             Already on Kompyte?{" "}
+            <Link href="/switching-from-kompyte" className="underline hover:text-gray-700">
+              See our switching guide
+            </Link>{" "}
+            or{" "}
             <Link href="/login" className="underline hover:text-gray-700">
-              Run both for a month
+              run both for a month
             </Link>{" "}
             and compare digests side-by-side.
           </p>
