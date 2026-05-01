@@ -384,6 +384,9 @@ export default function VsKluePage() {
             <Link href="/vs-changeflow" className="text-sm text-gray-500 hover:text-gray-700">
               vs Changeflow
             </Link>
+            <Link href="/switching-from-klue" className="text-sm text-gray-500 hover:text-gray-700">
+              Switching from Klue
+            </Link>
             <Link href="/login" className="text-sm text-gray-500 hover:text-gray-700">
               Sign in
             </Link>
