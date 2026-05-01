@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 const VARIANTS = {
   A: "Start Monitoring Free",
-  B: "Watch Your First Competitor",
+  B: "Never Miss a Competitor Move — Start Free",
 } as const;
 
 type Variant = keyof typeof VARIANTS;
@@ -18,10 +18,10 @@ declare global {
 
 function getVariant(): Variant {
   if (typeof window === "undefined") return "A";
-  const stored = localStorage.getItem("hero_cta_variant");
+  const stored = localStorage.getItem("hero_cta_variant_v2");
   if (stored === "A" || stored === "B") return stored;
   const variant: Variant = Math.random() < 0.5 ? "A" : "B";
-  localStorage.setItem("hero_cta_variant", variant);
+  localStorage.setItem("hero_cta_variant_v2", variant);
   return variant;
 }
 
