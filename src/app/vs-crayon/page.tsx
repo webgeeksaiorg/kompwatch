@@ -481,10 +481,14 @@ export default function VsCrayonPage() {
           </div>
           <p className="mt-4 text-xs text-gray-400">
             Already on Crayon?{" "}
-            <Link href="/login" className="underline hover:text-gray-700">
-              Run both for a month
+            <Link href="/switching-from-crayon" className="underline hover:text-gray-700">
+              See our switching guide
             </Link>{" "}
-            and compare digests side-by-side.
+            or{" "}
+            <Link href="/login" className="underline hover:text-gray-700">
+              run both for a month
+            </Link>{" "}
+            to compare digests side-by-side.
           </p>
         </div>
       </section>
