@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     "replace Kompyte",
     "Kompyte to KompWatch",
     "Semrush Kompyte alternative",
-    "Adobe Kompyte alternative",
+    "Kompyte by Semrush alternative",
     "competitive intelligence migration",
   ],
   alternates: {
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Switching from Kompyte to KompWatch",
     description:
-      "Kompyte is two acquisitions deep (Semrush → Adobe). KompWatch is the independent alternative — self-serve, AI-powered, from $49/mo.",
+      "Kompyte has been a Semrush product since 2022. KompWatch is the independent alternative — self-serve, AI-powered, from $49/mo.",
   },
 };
 
@@ -154,9 +154,9 @@ export default function SwitchingFromKompytePage() {
           <span className="text-brand-600">Set up KompWatch in 10 minutes.</span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
-          Kompyte is now two acquisitions deep — Semrush bought it in 2022, and Adobe is acquiring
-          Semrush for $1.9B in 2026. If you&rsquo;re re-evaluating your CI stack, KompWatch gives you
-          the same competitor monitoring with AI digests, at{" "}
+          Kompyte has been a Semrush product since 2022 — competitive intelligence inside a broader
+          SEO and marketing suite, with sales-led pricing. If you&rsquo;re re-evaluating your CI
+          stack, KompWatch gives you the same competitor monitoring with AI digests, at{" "}
           <strong className="text-gray-900">~13&times; lower cost</strong>, with zero onboarding friction.
         </p>
         <div className="mt-10 flex items-center justify-center gap-4">
@@ -215,9 +215,9 @@ export default function SwitchingFromKompytePage() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="mt-4 text-base font-semibold text-gray-900">Vendor stability</h3>
+              <h3 className="mt-4 text-base font-semibold text-gray-900">Independent focus</h3>
               <p className="mt-2 text-sm leading-relaxed text-gray-600">
-                Kompyte is two acquisitions deep (Semrush &rarr; Adobe). KompWatch is independent, founder-led, and focused solely on competitor monitoring.
+                Kompyte has been a Semrush product since 2022 — CI as one feature inside a larger SEO suite. KompWatch is independent, founder-led, and focused solely on competitor monitoring.
               </p>
             </div>
           </div>
@@ -373,9 +373,9 @@ export default function SwitchingFromKompytePage() {
               "Kompyte requires a sales call and starts at approximately $8,000/yr (based on public data from review sites). KompWatch starts free (2 competitors) and Pro is $49/mo ($588/yr) — roughly 13x less expensive, with month-to-month billing and no annual lock-in.",
           },
           {
-            question: "What about the Adobe/Semrush acquisition — should I be worried?",
+            question: "Who owns Kompyte now?",
             answer:
-              "Adobe is acquiring Semrush for $1.9B (closing H1 2026). Kompyte was already acquired by Semrush in 2022, making it two layers deep in corporate consolidation. While nothing is certain, niche tools inside mega-acquisitions often see slower roadmaps and enterprise-only pivots. It's worth considering vendor stability as part of your evaluation.",
+              "Semrush acquired Kompyte in 2022 and markets it as 'Kompyte by Semrush.' That means CI sits inside a broader SEO and marketing suite where it's one feature among many — not the company's core focus. Niche tools inside larger suites often see slower roadmaps and enterprise-tier pricing. KompWatch is independent and focused only on competitor monitoring.",
           },
           {
             question: "Does KompWatch have battlecards like Kompyte?",
