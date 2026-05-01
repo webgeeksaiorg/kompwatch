@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "vs-owler",
     "vs-unkover",
     "vs-changeflow",
+    "vs-peerpanda",
   ];
 
   return [
