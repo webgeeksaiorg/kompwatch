@@ -435,17 +435,9 @@ export async function sendTestWebhook(
   }
 }
 
-/** Severity ordering helper used by the snapshot cron to filter instant alerts */
-const SEVERITY_RANK: Record<Severity, number> = {
-  LOW: 0,
-  MEDIUM: 1,
-  HIGH: 2,
-  CRITICAL: 3,
-};
-
-export function severityMeetsThreshold(actual: Severity, threshold: Severity): boolean {
-  return SEVERITY_RANK[actual] >= SEVERITY_RANK[threshold];
-}
+// Severity ordering helpers live in @/lib/severity. Re-exported here for
+// backwards compatibility with existing snapshot-cron / test imports.
+export { severityMeetsThreshold } from "./severity";
 
 /** Adapter so callers passing a Change-like row can be turned into an InstantAlertChange */
 export function changeToInstantAlert(

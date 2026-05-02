@@ -1,19 +1,12 @@
 import { Suspense } from "react";
-import { Severity } from "@prisma/client";
 import { requireAuth } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { PLANS } from "@/lib/stripe";
+import { severitiesAtOrAbove } from "@/lib/severity";
 import { OnboardingChecklist } from "./onboarding-checklist";
 import { ExportChangesButton } from "@/components/dashboard/export-changes-button";
 import { EmptyStateOnboarding } from "@/components/dashboard/empty-state-onboarding";
 import { SignupTracker } from "@/components/dashboard/signup-tracker";
-
-const SEVERITY_ORDER: Severity[] = ["LOW", "MEDIUM", "HIGH", "CRITICAL"];
-
-function severitiesAtOrAbove(min: Severity): Severity[] {
-  const minIndex = SEVERITY_ORDER.indexOf(min);
-  return SEVERITY_ORDER.slice(minIndex === -1 ? 0 : minIndex);
-}
 
 const SEVERITY_COLORS: Record<string, string> = {
   LOW: "bg-gray-100 text-gray-600",
