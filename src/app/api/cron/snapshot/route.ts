@@ -2,6 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { scrapeCompetitor, closeBrowser } from "@/lib/scraper";
 import { detectChanges } from "@/lib/ai";
+import {
+  sendInstantAlertWebhook,
+  severityMeetsThreshold,
+  changeToInstantAlert,
+} from "@/lib/webhooks";
+import { planAllowsInstantAlerts } from "@/lib/stripe";
 
 /**
  * POST /api/cron/snapshot
@@ -31,6 +37,16 @@ export async function POST(req: NextRequest) {
       snapshots: {
         orderBy: { createdAt: "desc" },
         take: 1,
+      },
+      user: {
+        select: {
+          id: true,
+          plan: true,
+          webhookEnabled: true,
+          webhookUrl: true,
+          instantAlertsEnabled: true,
+          instantAlertMinSeverity: true,
+        },
       },
     },
   });
@@ -108,6 +124,36 @@ export async function POST(req: NextRequest) {
               })),
             });
             changesDetected = changes.length;
+
+            // Real-time Slack/Teams alerts (Team tier only). Pro+Team still
+            // get the digest webhook later — this is the instant push for
+            // alerts that cross the user's severity threshold.
+            const owner = competitor.user;
+            if (
+              owner.instantAlertsEnabled &&
+              owner.webhookEnabled &&
+              owner.webhookUrl &&
+              planAllowsInstantAlerts(owner.plan)
+            ) {
+              const alertable = changes.filter((c) =>
+                severityMeetsThreshold(c.severity, owner.instantAlertMinSeverity)
+              );
+              for (const c of alertable) {
+                await sendInstantAlertWebhook(
+                  owner.webhookUrl,
+                  changeToInstantAlert(
+                    {
+                      changeType: c.changeType,
+                      severity: c.severity,
+                      summary: c.summary,
+                      details: c.details,
+                      pageUrl: c.pageUrl || null,
+                    },
+                    { name: competitor.name, url: competitor.url }
+                  )
+                );
+              }
+            }
           }
         }
 

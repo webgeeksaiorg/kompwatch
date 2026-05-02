@@ -1,4 +1,5 @@
 import type { DigestCompetitorGroup } from "@/lib/digest";
+import type { Change, ChangeType, Severity } from "@prisma/client";
 
 /**
  * Webhook integration for Slack, Microsoft Teams, and generic webhook endpoints.
@@ -6,6 +7,15 @@ import type { DigestCompetitorGroup } from "@/lib/digest";
  */
 
 type WebhookPlatform = "slack" | "teams" | "generic";
+
+export interface InstantAlertChange {
+  changeType: ChangeType;
+  severity: Severity;
+  summary: string;
+  details?: string | null;
+  pageUrl?: string | null;
+  competitor: { name: string; url: string };
+}
 
 function detectPlatform(url: string): WebhookPlatform {
   if (url.includes("hooks.slack.com") || url.includes("slack.com/api")) {
@@ -216,6 +226,240 @@ export function isValidWebhookUrl(url: string): boolean {
   } catch {
     return false;
   }
+}
+
+/** Format a single-change instant alert for Slack (Team-tier real-time push) */
+export function formatInstantAlertSlackPayload(change: InstantAlertChange): object {
+  const emoji = SEVERITY_EMOJI[change.severity] || ":white_circle:";
+  const detailsBlock = change.details
+    ? [
+        {
+          type: "section",
+          text: { type: "mrkdwn", text: change.details.slice(0, 2900) },
+        },
+      ]
+    : [];
+  return {
+    blocks: [
+      {
+        type: "header",
+        text: {
+          type: "plain_text",
+          text: `${change.severity} change detected`,
+        },
+      },
+      {
+        type: "section",
+        text: {
+          type: "mrkdwn",
+          text: `${emoji} *<${change.competitor.url}|${change.competitor.name}>* — *[${change.changeType}]*\n${change.summary}`,
+        },
+      },
+      ...detailsBlock,
+      {
+        type: "context",
+        elements: [
+          {
+            type: "mrkdwn",
+            text: `KompWatch real-time alert${change.pageUrl ? ` · <${change.pageUrl}|view page>` : ""}`,
+          },
+        ],
+      },
+    ],
+  };
+}
+
+/** Format a single-change instant alert for Teams */
+export function formatInstantAlertTeamsPayload(change: InstantAlertChange): object {
+  return {
+    type: "message",
+    attachments: [
+      {
+        contentType: "application/vnd.microsoft.card.adaptive",
+        content: {
+          $schema: "http://adaptivecards.io/schemas/adaptive-card.json",
+          type: "AdaptiveCard",
+          version: "1.4",
+          body: [
+            {
+              type: "TextBlock",
+              size: "Large",
+              weight: "Bolder",
+              text: `${change.severity} change detected`,
+            },
+            {
+              type: "TextBlock",
+              text: `**[${change.competitor.name}](${change.competitor.url})** — **[${change.changeType}]**`,
+              wrap: true,
+            },
+            {
+              type: "TextBlock",
+              text: change.summary,
+              wrap: true,
+            },
+          ],
+        },
+      },
+    ],
+  };
+}
+
+/** Format a single-change instant alert as generic JSON */
+export function formatInstantAlertGenericPayload(change: InstantAlertChange): object {
+  return {
+    source: "kompwatch",
+    kind: "instant_alert",
+    severity: change.severity,
+    changeType: change.changeType,
+    summary: change.summary,
+    details: change.details ?? null,
+    pageUrl: change.pageUrl ?? null,
+    competitor: { name: change.competitor.name, url: change.competitor.url },
+  };
+}
+
+/**
+ * Send a real-time alert for a single change. Used by the snapshot cron when a
+ * Team-tier user has instant alerts enabled and a change crosses their severity threshold.
+ */
+export async function sendInstantAlertWebhook(
+  webhookUrl: string,
+  change: InstantAlertChange
+): Promise<{ ok: boolean; error?: string }> {
+  const platform = detectPlatform(webhookUrl);
+  let payload: object;
+  switch (platform) {
+    case "slack":
+      payload = formatInstantAlertSlackPayload(change);
+      break;
+    case "teams":
+      payload = formatInstantAlertTeamsPayload(change);
+      break;
+    default:
+      payload = formatInstantAlertGenericPayload(change);
+  }
+
+  try {
+    const res = await fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(10_000),
+    });
+    if (!res.ok) {
+      return { ok: false, error: `HTTP ${res.status}: ${res.statusText}` };
+    }
+    return { ok: true };
+  } catch (err) {
+    return {
+      ok: false,
+      error: err instanceof Error ? err.message : "Unknown webhook error",
+    };
+  }
+}
+
+/**
+ * Send a friendly "Hello from KompWatch" test message so users can verify
+ * their webhook URL works before the next digest fires.
+ */
+export async function sendTestWebhook(
+  webhookUrl: string
+): Promise<{ ok: boolean; error?: string }> {
+  const platform = detectPlatform(webhookUrl);
+  let payload: object;
+  switch (platform) {
+    case "slack":
+      payload = {
+        blocks: [
+          {
+            type: "section",
+            text: {
+              type: "mrkdwn",
+              text: ":white_check_mark: *KompWatch test alert* — your Slack webhook is wired up. You'll see real change notifications here.",
+            },
+          },
+        ],
+      };
+      break;
+    case "teams":
+      payload = {
+        type: "message",
+        attachments: [
+          {
+            contentType: "application/vnd.microsoft.card.adaptive",
+            content: {
+              $schema: "http://adaptivecards.io/schemas/adaptive-card.json",
+              type: "AdaptiveCard",
+              version: "1.4",
+              body: [
+                {
+                  type: "TextBlock",
+                  weight: "Bolder",
+                  text: "KompWatch test alert",
+                },
+                {
+                  type: "TextBlock",
+                  text: "Your Teams webhook is wired up. You'll see real change notifications here.",
+                  wrap: true,
+                },
+              ],
+            },
+          },
+        ],
+      };
+      break;
+    default:
+      payload = {
+        source: "kompwatch",
+        kind: "test",
+        message: "Test alert — your webhook is wired up.",
+      };
+  }
+
+  try {
+    const res = await fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(10_000),
+    });
+    if (!res.ok) {
+      return { ok: false, error: `HTTP ${res.status}: ${res.statusText}` };
+    }
+    return { ok: true };
+  } catch (err) {
+    return {
+      ok: false,
+      error: err instanceof Error ? err.message : "Unknown webhook error",
+    };
+  }
+}
+
+/** Severity ordering helper used by the snapshot cron to filter instant alerts */
+const SEVERITY_RANK: Record<Severity, number> = {
+  LOW: 0,
+  MEDIUM: 1,
+  HIGH: 2,
+  CRITICAL: 3,
+};
+
+export function severityMeetsThreshold(actual: Severity, threshold: Severity): boolean {
+  return SEVERITY_RANK[actual] >= SEVERITY_RANK[threshold];
+}
+
+/** Adapter so callers passing a Change-like row can be turned into an InstantAlertChange */
+export function changeToInstantAlert(
+  change: Pick<Change, "changeType" | "severity" | "summary" | "details" | "pageUrl">,
+  competitor: { name: string; url: string }
+): InstantAlertChange {
+  return {
+    changeType: change.changeType,
+    severity: change.severity,
+    summary: change.summary,
+    details: change.details,
+    pageUrl: change.pageUrl,
+    competitor,
+  };
 }
 
 /** Exported for testing */
