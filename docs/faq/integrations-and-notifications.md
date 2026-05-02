@@ -1,72 +1,80 @@
-# Integrations and Custom Notifications
+# Integrations and Notifications
 
-KompWatch delivers alerts via **email digest** today. Native Slack, Zapier, and webhook integrations are actively in development.
+KompWatch delivers alerts via **email digest** and **Slack / webhook** depending on your plan. Real-time Slack alerts are a Team-tier feature.
 
-## What Integrations Are Available Right Now?
+## What Integrations Are Available?
 
-**Email digest** is the primary delivery method and is active on all plans. You receive a digest of competitor changes on the cadence for your plan (weekly on Free, daily on Pro, near-real-time on Team).
+| Feature | Free | Pro | Team |
+|---|---|---|---|
+| Email digest | Weekly | Daily | Real-time |
+| Slack / Teams / webhook | — | Digest cadence | Real-time |
+| Real-time instant alerts | — | — | ✓ |
 
-For teams that need Slack or webhook delivery today, a manual webhook URL option is available in **Settings → Webhooks** (see below). This requires creating an incoming webhook on the Slack or Teams side — it's a technical step, not one-click. A native Slack app and Zapier app that don't require manual setup are on the roadmap.
+## How Do I Connect Slack?
 
-## Does KompWatch Have a Slack Integration?
+1. Go to **Settings → Slack & Webhook Integration** (requires Pro or Team plan)
+2. Create a Slack incoming webhook: in Slack, go to **Apps → Incoming Webhooks**, choose a channel, copy the URL (starts with `https://hooks.slack.com/services/…`)
+3. Paste the URL into KompWatch and click **Save**
+4. KompWatch auto-detects the URL as Slack and shows a "Slack detected" badge
+5. Click **Send test** to confirm a test message arrives in your channel
 
-You can connect Slack today using an incoming webhook URL. Go to **Settings → Webhooks**, paste your Slack incoming webhook URL, and enable it. KompWatch auto-detects the URL and formats messages for Slack.
+## Why Don't I See the Webhook Section?
 
-**To create a Slack incoming webhook:**
-1. In Slack, go to **Apps → Incoming Webhooks** (or create one via [api.slack.com/apps](https://api.slack.com/apps))
-2. Choose a channel and copy the webhook URL (starts with `https://hooks.slack.com/services/…`)
-3. Paste it into **Settings → Webhooks** in KompWatch
+Webhooks require a **Pro or Team plan**. Free accounts receive email digests only. Go to [/pricing](/pricing) to upgrade.
 
-A native one-click Slack app (no manual webhook setup) is on the roadmap.
+## How Do I Connect Microsoft Teams?
 
-## Does KompWatch Support Microsoft Teams?
+Follow the same steps as Slack:
+1. In a Teams channel, click **…** → **Connectors → Incoming Webhook**, name it, copy the URL (contains `webhook.office.com`)
+2. Paste it into **Settings → Slack & Webhook Integration**
+3. KompWatch auto-detects it as Teams and formats messages accordingly
 
-Yes — Teams is supported via incoming webhooks. KompWatch auto-detects Teams webhook URLs and formats messages accordingly.
+## Can I Use a Generic Webhook or Zapier?
 
-**To create a Teams incoming webhook:**
-1. In a Teams channel, click **…** → **Connectors → Incoming Webhook**
-2. Name it (e.g. "KompWatch") and copy the URL (contains `webhook.office.com`)
-3. Paste it into **Settings → Webhooks** in KompWatch
+Yes — paste any `https://` URL. Payloads are sent as JSON `POST` requests. For Zapier, use a "Webhooks by Zapier" trigger URL.
 
-## Does KompWatch Support Generic Webhooks or Zapier?
+## What Are Real-Time Alerts? (Team)
 
-Generic HTTPS webhooks can be configured in **Settings → Webhooks** today — paste any HTTPS URL and enable it. Payloads are sent as JSON `POST` requests. For Zapier, use a "Webhooks by Zapier" trigger as the destination URL.
+**Team plan only.** Real-time alerts push individual changes to your webhook the moment they're detected — no waiting for a daily digest.
 
-A native Zapier app (with pre-built triggers and no manual URL setup) is on the roadmap.
+To enable:
+1. Make sure a webhook URL is saved and enabled
+2. Toggle on **Real-time alerts** in Settings
+3. Set your **severity threshold**: only changes at or above this level trigger an instant ping
+   - *Critical only* — major pivots, acquisitions
+   - *High and above* — pricing changes, major feature launches *(recommended)*
+   - *Medium and above* — new features, job signal changes
+   - *All changes* — every detected diff (noisy)
 
-## How Do I Get Notified of Changes?
+Pro accounts receive digest-cadence webhook delivery (daily). Upgrade to Team for real-time.
 
-Changes are delivered via your **digest email** and/or **webhook**, based on your plan:
+## How Do I Test My Webhook?
 
-| Plan | Email digest | Webhook |
-|------|-------------|---------|
-| Free | Weekly (Mondays) | ✓ (if configured) |
-| Pro | Daily | ✓ (if configured) |
-| Team | Real-time (within 1 hour) | ✓ (if configured) |
-
-Webhooks fire on the same cadence as your email digest. Team plan members receive near-real-time webhook pings.
+Click **Send test** next to the URL field. A test payload is fired immediately. If your channel or endpoint doesn't receive it within 30 seconds, check:
+- The URL is saved (not just typed)
+- The webhook is enabled (toggle is on)
+- The Slack app has permissions to post to the chosen channel
 
 ## How Do I Enable or Disable Webhook Notifications?
 
-1. Go to **Settings → Webhooks**
-2. Paste your webhook URL and click **Save**
-3. Use the toggle to enable or disable without deleting the URL
+1. Go to **Settings → Slack & Webhook Integration**
+2. Use the **Webhook notifications** toggle to enable or disable without deleting the URL
 
-The toggle is disabled until a valid HTTPS URL is saved.
+The toggle is inactive until a valid URL is saved.
+
+## How Do I Get Notified of Changes Via Email?
+
+Email digest frequency is set by your plan (Weekly / Daily / Real-time). You can also:
+- Set a **minimum severity** in **Settings → Notifications** to reduce noise (e.g. High+ means only pricing changes and major launches)
+- Disable email digests entirely with the **Email digests** toggle
 
 ## Can I Route Digests to a Shared Team Inbox?
 
-Yes — the recommended approach is to sign up with a shared alias (`competitive@yourcompany.com`). Everyone on the alias receives the digest. You can also use the Slack or Teams integration to post changes to a shared channel.
+Yes — sign up with a shared alias (`competitive@yourcompany.com`). Everyone on the alias gets the digest. Alternatively, use Slack to post to a shared team channel.
 
 ## Can I Change the Email Address My Digests Go To?
 
-Not yet from the Settings page. Contact [support@kompwatch.com](mailto:support@kompwatch.com) and we can update your account email manually.
-
-## Can I Control How Often I'm Notified?
-
-Digest frequency is tied to your plan. You can also filter by **minimum severity** in **Settings → Notifications** — so you only get notified about changes at or above a threshold (e.g. High: pricing changes and major launches only).
-
-You can also turn email digests off entirely via the **Email digests** toggle in **Settings → Notifications**.
+Not yet via Settings. Email [support@kompwatch.com](mailto:support@kompwatch.com) and we'll update your account email manually.
 
 ---
 *Questions? Email [support@kompwatch.com](mailto:support@kompwatch.com) and we'll respond within 24 hours.*
