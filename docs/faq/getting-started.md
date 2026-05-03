@@ -24,7 +24,7 @@ To add your own competitor:
    - **CSS Selector** *(optional)* — target a specific section like `.pricing-table`. Leave blank to monitor the full page.
 3. Click **Save** (or **Start monitoring** on the inline form)
 
-KompWatch immediately takes an initial snapshot. See [How to Add a Competitor](adding-competitors.md) for tips on choosing good URLs and selectors.
+KompWatch will take an initial snapshot within the next few minutes. See [How to Add a Competitor](adding-competitors.md) for tips on choosing good URLs and selectors.
 
 ## Step 3: Wait for the First Comparison
 
