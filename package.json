@@ -15,6 +15,7 @@
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate dev",
     "db:studio": "prisma studio",
+    "plausible:add-site": "node scripts/plausible-add-site.js",
     "postinstall": "prisma generate && node scripts/write-build-info.js"
   },
   "dependencies": {

@@ -9,7 +9,8 @@ import {
   digestSubject,
 } from "@/lib/digest";
 import { sendWebhookNotification } from "@/lib/webhooks";
-import type { Plan, Severity } from "@prisma/client";
+import { severitiesAtOrAbove } from "@/lib/severity";
+import type { Plan } from "@prisma/client";
 
 /**
  * POST /api/cron/digest
@@ -84,7 +85,7 @@ export async function POST(req: NextRequest) {
 
     // Find undigested changes for this user's competitors, filtered by severity preference
     const sinceDate = lastDigest?.createdAt ?? new Date(0);
-    const severityFilter = getSeveritiesAtOrAbove(user.digestMinSeverity);
+    const severityFilter = severitiesAtOrAbove(user.digestMinSeverity);
 
     const changes = await db.change.findMany({
       where: {
@@ -183,18 +184,4 @@ export async function POST(req: NextRequest) {
 
 function getDigestPeriod(plan: Plan): "DAILY" | "WEEKLY" {
   return PLANS[plan].digest === "weekly" ? "WEEKLY" : "DAILY";
-}
-
-const SEVERITY_RANK: Record<Severity, number> = {
-  LOW: 0,
-  MEDIUM: 1,
-  HIGH: 2,
-  CRITICAL: 3,
-};
-
-function getSeveritiesAtOrAbove(min: Severity): Severity[] {
-  const minRank = SEVERITY_RANK[min];
-  return (Object.keys(SEVERITY_RANK) as Severity[]).filter(
-    (s) => SEVERITY_RANK[s] >= minRank
-  );
 }

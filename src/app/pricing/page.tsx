@@ -2,6 +2,11 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import { getDisplayPrice, getPerCompetitorPrice } from "@/lib/pricing";
+import {
+  PRICING_ANCHOR_EXPERIMENT,
+  assignVariantInBrowser,
+  type Variant,
+} from "@/lib/ab";
 
 declare global {
   interface Window {
@@ -105,7 +110,7 @@ const comparisonRows: {
     feature: "Starting price",
     kompwatch: "Free / $49/mo",
     klue: "$20K–$40K/yr",
-    crayon: "~$12K/yr",
+    crayon: "~$28K/yr",
     kompyte: "~$8K/yr",
   },
   {
@@ -262,7 +267,7 @@ function ExitIntentPopover({ onClose }: { onClose: () => void }) {
           </div>
           <div className="rounded-xl border border-gray-200 bg-gray-50 p-4 text-center">
             <div className="text-[10px] font-semibold uppercase tracking-wider text-gray-400">Crayon</div>
-            <div className="mt-1 text-2xl font-bold text-gray-900">~$20K<span className="text-sm font-normal text-gray-500">/yr</span></div>
+            <div className="mt-1 text-2xl font-bold text-gray-900">~$28K<span className="text-sm font-normal text-gray-500">/yr</span></div>
             <div className="mt-1 text-xs text-gray-500">Sales call required</div>
             <ul className="mt-3 space-y-1 text-left text-xs text-gray-400">
               <li>· Annual contract</li>
@@ -274,7 +279,7 @@ function ExitIntentPopover({ onClose }: { onClose: () => void }) {
         </div>
 
         <p className="mt-4 text-center text-xs text-gray-500">
-          That&rsquo;s <strong className="text-gray-900">~34&times; less</strong> for the same core competitive intelligence.
+          That&rsquo;s <strong className="text-gray-900">~49&times; less</strong> for the same core competitive intelligence.
         </p>
 
         <div className="mt-6 flex flex-col gap-2">
@@ -299,9 +304,11 @@ function ExitIntentPopover({ onClose }: { onClose: () => void }) {
 function StickyCTA({
   visible,
   onDismiss,
+  anchorVariant,
 }: {
   visible: boolean;
   onDismiss: () => void;
+  anchorVariant: Variant;
 }) {
   if (!visible) return null;
   return (
@@ -328,7 +335,10 @@ function StickyCTA({
           href="/login"
           onClick={() =>
             window.plausible?.("pricing-sticky-cta-click", {
-              props: { location: "sticky-bar" },
+              props: {
+                location: "sticky-bar",
+                anchor_variant: anchorVariant,
+              },
             })
           }
           className="shrink-0 rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
@@ -357,6 +367,22 @@ export default function PricingPage() {
   const [exitIntentDismissed, setExitIntentDismissed] = useState(false);
   const [stickyVisible, setStickyVisible] = useState(false);
   const stickyDismissedRef = useRef(false);
+  // Anchor A/B test: SSR-stable default = "A" (yearly anchor, control). After
+  // hydration, ~50% of users swap to "B" (monthly anchor). Variant is sticky
+  // per session so a user sees the same framing across reloads.
+  const [anchorVariant, setAnchorVariant] = useState<Variant>("A");
+
+  useEffect(() => {
+    const assigned =
+      assignVariantInBrowser(PRICING_ANCHOR_EXPERIMENT) ?? "A";
+    setAnchorVariant(assigned);
+    window.plausible?.("pricing-anchor-impression", {
+      props: {
+        variant: assigned,
+        experiment: PRICING_ANCHOR_EXPERIMENT,
+      },
+    });
+  }, []);
 
   const handleExitIntent = useCallback(
     (e: MouseEvent) => {
@@ -431,7 +457,9 @@ export default function PricingPage() {
     }
 
     setLoading(plan);
-    window.plausible?.("checkout-initiated", { props: { plan } });
+    window.plausible?.("checkout-initiated", {
+      props: { plan, anchor_variant: anchorVariant },
+    });
     try {
       const res = await fetch("/api/stripe/checkout", {
         method: "POST",
@@ -466,6 +494,71 @@ export default function PricingPage() {
         <p className="mt-4 text-lg text-gray-600">
           Start free. Upgrade when you need more competitors or faster digests.
         </p>
+      </div>
+
+      {/* Price anchoring — enterprise CI cost vs KompWatch (A/B variant) */}
+      <div
+        className="mx-auto mt-8 max-w-2xl rounded-2xl border border-gray-200 bg-gradient-to-r from-gray-50 to-white p-6 shadow-sm"
+        data-variant={anchorVariant}
+      >
+        {anchorVariant === "B" ? (
+          <>
+            <p className="text-center text-sm font-medium uppercase tracking-wider text-gray-400">
+              Enterprise CI tools cost
+            </p>
+            <div className="mt-3 flex items-center justify-center gap-4 sm:gap-6">
+              <div className="text-center">
+                <p className="text-3xl font-bold text-gray-300 line-through decoration-red-400/60 decoration-2 sm:text-4xl">
+                  $2,000&ndash;3,300<span className="text-lg font-normal">/mo</span>
+                </p>
+                <p className="mt-1 text-xs text-gray-400">Crayon &amp; Klue range</p>
+              </div>
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-50">
+                <svg className="h-5 w-5 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </div>
+              <div className="text-center">
+                <p className="text-3xl font-bold text-brand-600 sm:text-4xl">
+                  $49<span className="text-lg font-normal">/mo</span>
+                </p>
+                <p className="mt-1 text-xs text-gray-500">KompWatch Pro</p>
+              </div>
+            </div>
+            <p className="mt-3 text-center text-sm text-gray-500">
+              Up to <strong className="text-brand-600">67&times; less per month</strong> &mdash; no annual contract, cancel anytime.
+            </p>
+          </>
+        ) : (
+          <>
+            <p className="text-center text-sm font-medium uppercase tracking-wider text-gray-400">
+              The average enterprise CI tool costs
+            </p>
+            <div className="mt-3 flex items-center justify-center gap-4 sm:gap-6">
+              <div className="text-center">
+                <p className="text-3xl font-bold text-gray-300 line-through decoration-red-400/60 decoration-2 sm:text-4xl">
+                  $28,750<span className="text-lg font-normal">/yr</span>
+                </p>
+                <p className="mt-1 text-xs text-gray-400">Crayon median contract</p>
+              </div>
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-50">
+                <svg className="h-5 w-5 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </div>
+              <div className="text-center">
+                <p className="text-3xl font-bold text-brand-600 sm:text-4xl">
+                  $588<span className="text-lg font-normal">/yr</span>
+                </p>
+                <p className="mt-1 text-xs text-gray-500">KompWatch Pro (annual)</p>
+              </div>
+            </div>
+            <p className="mt-3 text-center text-sm text-gray-500">
+              That&rsquo;s <strong className="text-brand-600">49&times; less</strong> for the same core competitive intelligence.
+              <span className="hidden sm:inline"> No sales call. No annual lock-in.</span>
+            </p>
+          </>
+        )}
       </div>
 
       {/* Billing toggle — defaults to Annual */}
@@ -561,7 +654,7 @@ export default function PricingPage() {
                 return (
                   <p
                     className="mt-3 text-xs font-medium text-brand-600"
-                    title="Compare: Crayon ~$100/competitor/mo, Klue $200+/competitor/mo"
+                    title="Compare: Crayon ~$240/competitor/mo, Klue $200+/competitor/mo"
                   >
                     Just ${perComp} per competitor/mo
                   </p>
@@ -597,7 +690,10 @@ export default function PricingPage() {
                   href="mailto:sales@kompwatch.com"
                   onClick={() =>
                     window.plausible?.("enterprise-contact-click", {
-                      props: { location: "pricing-card" },
+                      props: {
+                        location: "pricing-card",
+                        anchor_variant: anchorVariant,
+                      },
                     })
                   }
                   className="mt-8 block w-full rounded-lg bg-white px-4 py-2.5 text-center text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-gray-300 hover:bg-gray-50"
@@ -683,7 +779,11 @@ export default function PricingPage() {
 
       {showExitIntent && <ExitIntentPopover onClose={dismissExitIntent} />}
 
-      <StickyCTA visible={stickyVisible} onDismiss={dismissSticky} />
+      <StickyCTA
+        visible={stickyVisible}
+        onDismiss={dismissSticky}
+        anchorVariant={anchorVariant}
+      />
     </main>
   );
 }

@@ -516,6 +516,36 @@ export default function Home() {
             </Link>
           </p>
 
+          {/* Enterprise pricing contrast anchor — sets expectations before plan cards */}
+          <div className="mx-auto mt-8 max-w-2xl rounded-2xl border border-gray-200 bg-gradient-to-r from-gray-50 to-white p-6 shadow-sm">
+            <p className="text-center text-sm font-medium uppercase tracking-wider text-gray-400">
+              The average enterprise CI tool costs
+            </p>
+            <div className="mt-3 flex items-center justify-center gap-4 sm:gap-6">
+              <div className="text-center">
+                <p className="text-3xl font-bold text-gray-300 line-through decoration-red-400/60 decoration-2 sm:text-4xl">
+                  $25,000+<span className="text-lg font-normal">/yr</span>
+                </p>
+                <p className="mt-1 text-xs text-gray-400">Crayon starting price</p>
+              </div>
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-50">
+                <svg className="h-5 w-5 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </div>
+              <div className="text-center">
+                <p className="text-3xl font-bold text-brand-600 sm:text-4xl">
+                  $588<span className="text-lg font-normal">/yr</span>
+                </p>
+                <p className="mt-1 text-xs text-gray-500">KompWatch Pro (annual)</p>
+              </div>
+            </div>
+            <p className="mt-3 text-center text-sm text-gray-500">
+              That&rsquo;s <strong className="text-brand-600">42&times; less</strong> for the same core competitive intelligence.
+              <span className="hidden sm:inline"> No sales call. No annual lock-in.</span>
+            </p>
+          </div>
+
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
             {plans.map((plan) => (
               <div

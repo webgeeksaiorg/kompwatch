@@ -7,35 +7,33 @@ import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 const siteUrl = "https://kompwatch.com";
 
 export const metadata: Metadata = {
-  title: "Kompyte Alternative — KompWatch vs Kompyte (Honest Comparison)",
+  title: "PeerPanda Alternative — KompWatch vs PeerPanda (Honest Comparison)",
   description:
-    "Looking for a Kompyte alternative? KompWatch tracks competitor pricing, features, blogs, and job listings with AI digests — starting at $49/mo (vs Kompyte's ~$8K/yr). Self-serve, no sales call.",
+    "Looking for a PeerPanda alternative? KompWatch tracks competitor pricing, features, blogs, and job listings with AI digests — $49/mo for 10 competitors vs PeerPanda's $79/mo. Free plan, no credit card.",
   keywords: [
-    "Kompyte alternative",
-    "Kompyte vs KompWatch",
-    "Kompyte competitor",
-    "Kompyte pricing",
+    "PeerPanda alternative",
+    "PeerPanda vs KompWatch",
+    "PeerPanda competitor",
+    "PeerPanda pricing",
     "competitive intelligence software",
     "competitor monitoring tool",
-    "Kompyte competitive intelligence alternative",
-    "Kompyte Semrush acquisition",
-    "Kompyte Semrush alternative",
+    "PeerPanda alternatives 2026",
   ],
   alternates: {
-    canonical: `${siteUrl}/vs-kompyte`,
+    canonical: `${siteUrl}/vs-peerpanda`,
   },
   openGraph: {
-    title: "KompWatch vs Kompyte — AI Summaries + Job Tracking, ~13× Less",
+    title: "KompWatch vs PeerPanda — 38% Cheaper at the Tier That Matters",
     description:
-      "Honest side-by-side: KompWatch ($49/mo, self-serve, AI summaries) vs Kompyte (~$8K/yr, sales-call gated, no AI). See feature, pricing, and onboarding comparison.",
-    url: `${siteUrl}/vs-kompyte`,
+      "Honest side-by-side: KompWatch Pro ($49/mo, 10 competitors) vs PeerPanda Professional ($79/mo, 15 competitors). See feature, pricing, and onboarding comparison.",
+    url: `${siteUrl}/vs-peerpanda`,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "KompWatch vs Kompyte — Honest Comparison",
+    title: "KompWatch vs PeerPanda — Honest Comparison",
     description:
-      "Kompyte starts at ~$8K/yr and lacks AI summaries + job tracking. KompWatch starts at $49/mo with both included. See the full feature comparison.",
+      "PeerPanda Professional is $79/mo for 15 competitors. KompWatch Pro is $49/mo for 10 — 38% cheaper for teams tracking ≤10 rivals. See the full comparison.",
   },
 };
 
@@ -44,24 +42,26 @@ type CellValue = true | false | string;
 const comparisonRows: {
   feature: string;
   kompwatch: CellValue;
-  kompyte: CellValue;
+  peerpanda: CellValue;
 }[] = [
-  { feature: "Starting price", kompwatch: "Free / $49/mo", kompyte: "~$8K/yr" },
-  { feature: "Annual cost (small team)", kompwatch: "$588/yr", kompyte: "$8,000+/yr" },
-  { feature: "Self-serve signup", kompwatch: true, kompyte: false },
-  { feature: "No sales call required", kompwatch: true, kompyte: false },
-  { feature: "Free plan", kompwatch: true, kompyte: false },
-  { feature: "Monthly billing", kompwatch: true, kompyte: false },
-  { feature: "Pricing page tracking", kompwatch: true, kompyte: true },
-  { feature: "Feature & product page tracking", kompwatch: true, kompyte: true },
-  { feature: "Blog & content monitoring", kompwatch: true, kompyte: true },
-  { feature: "Job listing tracking", kompwatch: true, kompyte: false },
-  { feature: "AI change summaries", kompwatch: true, kompyte: false },
-  { feature: "Email digests", kompwatch: true, kompyte: true },
-  { feature: "Slack / webhook alerts", kompwatch: true, kompyte: true },
-  { feature: "Tech stack detection", kompwatch: "Pro+", kompyte: false },
-  { feature: "Battlecards", kompwatch: "Roadmap", kompyte: true },
-  { feature: "Time-to-first-insight", kompwatch: "Under 2 minutes", kompyte: "Days (sales + onboarding)" },
+  { feature: "Free plan", kompwatch: "2 competitors, weekly digest", peerpanda: "Limited (varies)" },
+  { feature: "Entry paid tier", kompwatch: "$29 not offered — Pro is $49/mo", peerpanda: "$29/mo (Starter)" },
+  { feature: "Mid-tier price", kompwatch: "$49/mo (Pro, 10 competitors)", peerpanda: "$79/mo (Professional, 15 competitors)" },
+  { feature: "Cost per competitor (mid-tier)", kompwatch: "$4.90/mo", peerpanda: "$5.27/mo" },
+  { feature: "Annual cost (10 competitors)", kompwatch: "$588/yr", peerpanda: "$948/yr" },
+  { feature: "Self-serve signup", kompwatch: true, peerpanda: true },
+  { feature: "No sales call required", kompwatch: true, peerpanda: true },
+  { feature: "Pricing page tracking", kompwatch: true, peerpanda: true },
+  { feature: "Feature & product page tracking", kompwatch: true, peerpanda: true },
+  { feature: "Blog & content monitoring", kompwatch: true, peerpanda: true },
+  { feature: "Job listing tracking", kompwatch: true, peerpanda: "Limited" },
+  { feature: "AI change summaries", kompwatch: true, peerpanda: true },
+  { feature: "Email digests", kompwatch: true, peerpanda: true },
+  { feature: "Slack / webhook alerts", kompwatch: true, peerpanda: true },
+  { feature: "Headless browser (renders SPAs)", kompwatch: true, peerpanda: "Partial" },
+  { feature: "Custom CSS selectors per page", kompwatch: true, peerpanda: false },
+  { feature: "Cancel anytime", kompwatch: true, peerpanda: true },
+  { feature: "Time-to-first-insight", kompwatch: "Under 2 minutes", peerpanda: "5–10 minutes" },
 ];
 
 function ComparisonCell({ value, highlight }: { value: CellValue; highlight?: boolean }) {
@@ -90,10 +90,10 @@ function ComparisonCell({ value, highlight }: { value: CellValue; highlight?: bo
   );
 }
 
-export default function VsKompytePage() {
+export default function VsPeerPandaPage() {
   return (
     <div className="bg-white">
-      <BreadcrumbSchema items={[{ name: "KompWatch vs Kompyte", path: "/vs-kompyte" }]} />
+      <BreadcrumbSchema items={[{ name: "KompWatch vs PeerPanda", path: "/vs-peerpanda" }]} />
       {/* Nav */}
       <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-sm">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
@@ -120,23 +120,24 @@ export default function VsKompytePage() {
       {/* Hero */}
       <section className="mx-auto max-w-4xl px-6 pb-16 pt-20 text-center">
         <div className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700">
-          Kompyte alternative
+          PeerPanda alternative
         </div>
         <h1 className="mt-6 text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl">
-          KompWatch vs Kompyte{" "}
-          <span className="text-brand-600">— AI summaries + job tracking, ~13× less</span>
+          KompWatch vs PeerPanda{" "}
+          <span className="text-brand-600">— 38% cheaper at the tier that matters</span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
-          Kompyte was acquired by Semrush in 2022, and now sits inside a broader enterprise marketing
-          stack — sales-led, quote-only, multi-day onboarding. KompWatch tracks the same signals
-          plus jobs and AI digests, starting at{" "}
-          <strong className="text-gray-900">$49/mo</strong>, self-serve in under 2 minutes.
+          PeerPanda is a solid self-serve competitor monitoring tool — public pricing, fast signup,
+          no sales call. KompWatch is the same shape, but priced lower for teams that track 10 or
+          fewer competitors. KompWatch Pro is{" "}
+          <strong className="text-gray-900">$49/mo</strong> for 10 rivals; PeerPanda Professional is{" "}
+          <strong className="text-gray-900">$79/mo</strong> for 15.
         </p>
         <div className="mt-10 flex items-center justify-center gap-4">
           <TrackedCTA
             href="/login"
             event="Comparison Hero CTA Click"
-            eventProps={{ competitor: "Kompyte" }}
+            eventProps={{ competitor: "PeerPanda" }}
             className="rounded-lg bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
           >
             Start free — no credit card
@@ -153,36 +154,15 @@ export default function VsKompytePage() {
         </p>
       </section>
 
-      {/* Vendor context */}
-      <section className="border-y border-amber-200 bg-amber-50 py-10">
-        <div className="mx-auto max-w-3xl px-6">
-          <div className="flex items-start gap-3">
-            <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-200 text-sm font-bold text-amber-800">!</span>
-            <div>
-              <h2 className="text-base font-semibold text-amber-900">
-                Kompyte has been a Semrush product since 2022
-              </h2>
-              <p className="mt-2 text-sm leading-relaxed text-amber-800">
-                Semrush acquired Kompyte in 2022 and rebranded it &ldquo;Kompyte by Semrush.&rdquo;
-                That places competitive intelligence inside a broader SEO/marketing platform where CI
-                is one feature among many — not the core focus. Niche tools inside larger suites
-                often see slower roadmaps and enterprise-tier pricing. KompWatch is independent and
-                focused solely on competitor monitoring.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Pricing snapshot */}
       <section className="border-y border-gray-100 bg-gray-50 py-16">
         <div className="mx-auto max-w-4xl px-6">
           <div className="text-center">
             <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-              The pricing gap is real
+              Same shape, different price
             </h2>
             <p className="mt-2 text-sm text-gray-600">
-              Public pricing data from vendr.com and G2 reviews (April 2026).
+              Public pricing data from peerpanda.com, Capterra, and GetApp listings (April 2026).
             </p>
           </div>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -193,34 +173,36 @@ export default function VsKompytePage() {
               <div className="mt-2 text-4xl font-bold text-gray-900">
                 $49<span className="text-lg font-normal text-gray-500">/mo</span>
               </div>
-              <div className="mt-1 text-sm text-gray-500">$588 / year</div>
+              <div className="mt-1 text-sm text-gray-500">$588 / year &middot; 10 competitors</div>
               <ul className="mt-6 space-y-2 text-sm text-gray-700">
                 <li>✓ 10 competitors tracked</li>
                 <li>✓ Daily AI digests</li>
-                <li>✓ Self-serve signup</li>
+                <li>✓ Custom CSS selectors per page</li>
+                <li>✓ Headless browser (renders SPAs)</li>
                 <li>✓ Cancel anytime</li>
               </ul>
             </div>
             <div className="rounded-xl border border-gray-200 bg-white p-6">
               <div className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-                Kompyte (entry tier)
+                PeerPanda Professional
               </div>
               <div className="mt-2 text-4xl font-bold text-gray-900">
-                ~$8K<span className="text-lg font-normal text-gray-500">/yr</span>
+                $79<span className="text-lg font-normal text-gray-500">/mo</span>
               </div>
-              <div className="mt-1 text-sm text-gray-500">Quote-based; higher for larger seats</div>
+              <div className="mt-1 text-sm text-gray-500">$948 / year &middot; 15 competitors</div>
               <ul className="mt-6 space-y-2 text-sm text-gray-700">
-                <li>· Quote-only pricing</li>
-                <li>· Sales call required</li>
-                <li>· Annual contract</li>
-                <li>· No AI change summaries</li>
+                <li>· 15 competitors tracked</li>
+                <li>· Daily change reports</li>
+                <li>· Self-serve signup</li>
+                <li>· Cancel anytime</li>
+                <li>· Higher cost-per-competitor at this tier</li>
               </ul>
             </div>
           </div>
           <p className="mt-6 text-center text-xs text-gray-500">
-            That&rsquo;s a <strong className="text-gray-900">~13&times; price difference</strong>{" "}
-            for the same core competitive intelligence — plus AI summaries and job tracking that
-            Kompyte doesn&rsquo;t include.
+            If you track 10 or fewer competitors,{" "}
+            <strong className="text-gray-900">KompWatch is $360/yr cheaper</strong> than PeerPanda&rsquo;s
+            equivalent paid tier — same self-serve experience, same core feature set.
           </p>
         </div>
       </section>
@@ -230,10 +212,10 @@ export default function VsKompytePage() {
         <div className="mx-auto max-w-5xl px-6">
           <div className="text-center">
             <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-              Feature-by-feature: KompWatch vs Kompyte
+              Feature-by-feature: KompWatch vs PeerPanda
             </h2>
             <p className="mt-2 text-sm text-gray-600">
-              Honest comparison. Where Kompyte wins, we say so.
+              Honest comparison. Where PeerPanda wins, we say so.
             </p>
           </div>
 
@@ -243,7 +225,7 @@ export default function VsKompytePage() {
                 <tr className="border-b border-gray-200">
                   <th className="py-3 pr-4 font-medium text-gray-500">Feature</th>
                   <th className="px-4 py-3 font-semibold text-brand-600">KompWatch</th>
-                  <th className="px-4 py-3 font-medium text-gray-500">Kompyte</th>
+                  <th className="px-4 py-3 font-medium text-gray-500">PeerPanda</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
@@ -254,7 +236,7 @@ export default function VsKompytePage() {
                       <ComparisonCell value={row.kompwatch} highlight />
                     </td>
                     <td className="px-4 py-3">
-                      <ComparisonCell value={row.kompyte} />
+                      <ComparisonCell value={row.peerpanda} />
                     </td>
                   </tr>
                 ))}
@@ -263,12 +245,11 @@ export default function VsKompytePage() {
           </div>
 
           <p className="mt-4 text-center text-xs text-gray-400">
-            Comparison based on publicly available information as of April 2026. Kompyte pricing
-            requires a sales call; estimates from vendr.com and review sites.
+            Comparison based on publicly available information as of April 2026. PeerPanda pricing
+            from peerpanda.com pricing page and Capterra listing.
           </p>
         </div>
       </section>
-
 
       {/* Mid-page CTA */}
       <section className="bg-brand-50 py-12">
@@ -276,7 +257,7 @@ export default function VsKompytePage() {
           <TrackedCTA
             href="/login"
             event="Comparison Mid CTA Click"
-            eventProps={{ competitor: "Kompyte" }}
+            eventProps={{ competitor: "PeerPanda" }}
             className="inline-block rounded-lg bg-brand-600 px-8 py-3 text-base font-semibold text-white shadow-sm hover:bg-brand-700"
           >
             Start free — no credit card required
@@ -286,6 +267,7 @@ export default function VsKompytePage() {
           </p>
         </div>
       </section>
+
       {/* When to pick which */}
       <section className="border-t border-gray-100 bg-gray-50 py-20">
         <div className="mx-auto max-w-4xl px-6">
@@ -298,24 +280,22 @@ export default function VsKompytePage() {
                 Pick KompWatch if you&rsquo;re&hellip;
               </h3>
               <ul className="mt-4 space-y-3 text-sm text-gray-700">
-                <li>· A founder, PM, or marketer who needs intel <em>this week</em>, not next quarter</li>
-                <li>· A 1–50 person team without budget for $8K+ annual contracts</li>
-                <li>· Tracking under 50 competitors and want pricing/feature/blog/job alerts</li>
-                <li>· Allergic to sales calls and want to swipe a card and start in 2 minutes</li>
-                <li>· Wanting AI-generated plain-English summaries (not raw diffs)</li>
-                <li>· Wanting an independent, focused CI tool — not CI as a side feature inside a larger marketing suite</li>
+                <li>· Tracking 10 or fewer competitors and want the lowest cost-per-rival at that tier</li>
+                <li>· Monitoring SPAs / React-rendered pricing pages that need a real headless browser</li>
+                <li>· Pinning specific page sections with custom CSS selectors (pricing tables, feature grids)</li>
+                <li>· A founder, PM, or marketer who prefers AI digests over a battlecard portal</li>
+                <li>· On the free plan — KompWatch&rsquo;s free tier covers 2 competitors with weekly digests</li>
               </ul>
             </div>
             <div className="rounded-xl border border-gray-200 bg-white p-6">
               <h3 className="text-base font-semibold text-gray-900">
-                Pick Kompyte if you&rsquo;re&hellip;
+                Pick PeerPanda if you&rsquo;re&hellip;
               </h3>
               <ul className="mt-4 space-y-3 text-sm text-gray-700">
-                <li>· Already a Semrush customer and want native CI inside the same suite</li>
-                <li>· Running a battlecards-first program for sales rep enablement</li>
-                <li>· Comfortable with annual contracts and a multi-day onboarding cycle</li>
-                <li>· OK without AI change summaries (manual review is fine for your team)</li>
-                <li>· Not tracking competitor hiring as part of your CI signal mix</li>
+                <li>· Tracking 11–15 competitors and the extra 5 slots justify the price jump</li>
+                <li>· Already familiar with PeerPanda&rsquo;s UI from a Capterra/GetApp trial</li>
+                <li>· On their $29/mo Starter plan and not yet hitting limits</li>
+                <li>· Looking for a tool with broader directory presence (more reviews, more comparisons)</li>
               </ul>
             </div>
           </div>
@@ -324,31 +304,27 @@ export default function VsKompytePage() {
 
       {/* FAQ with JSON-LD schema */}
       <ComparisonFAQ
-        competitor="Kompyte"
+        competitor="PeerPanda"
         faqs={[
           {
-            question: "How much does Kompyte cost?",
-            answer: "Kompyte pricing requires a sales call. Based on public data from review sites (April 2026), annual contracts start at approximately $8,000/yr. KompWatch starts at $49/mo ($588/yr) with self-serve signup — roughly 13x less expensive.",
+            question: "How much does PeerPanda cost?",
+            answer: "PeerPanda offers four tiers: a limited Free plan, Starter at $29/mo, Professional at $79/mo (15 competitors), and Enterprise at $199/mo. Pricing is publicly listed on peerpanda.com (April 2026). KompWatch Pro is $49/mo for 10 competitors — 38% cheaper than PeerPanda Professional for teams that track 10 or fewer rivals.",
           },
           {
-            question: "What is the difference between KompWatch and Kompyte?",
-            answer: "Both track competitor websites for changes. Kompyte focuses on website monitoring and competitive benchmarking but lacks AI-generated summaries and job listing tracking. KompWatch includes AI change digests, job monitoring, blog tracking, and a free plan — all with self-serve signup and no sales call.",
+            question: "What is the difference between KompWatch and PeerPanda?",
+            answer: "Both are self-serve competitor monitoring tools with AI change summaries and no sales call. PeerPanda's mid tier targets 15 competitors at $79/mo; KompWatch Pro targets 10 at $49/mo. KompWatch adds a true headless browser (renders SPAs and React-rendered pricing pages) and custom CSS selectors per page so you can pin specific sections like pricing tables or feature grids.",
           },
           {
-            question: "Does Kompyte have AI summaries?",
-            answer: "No. Kompyte provides raw change data without AI-powered summaries. KompWatch uses AI to generate plain-English digests of what changed, why it matters, and what action to take — delivered to your inbox or Slack.",
+            question: "Does PeerPanda have a free plan?",
+            answer: "PeerPanda offers a limited Free plan with restricted features and competitor count. KompWatch's free plan includes 2 competitors with weekly digests — no credit card required, no time limit.",
           },
           {
-            question: "Can I try KompWatch for free?",
-            answer: "Yes. KompWatch's free plan lets you track up to 2 competitors with weekly AI digests — no credit card required. Upgrade to Pro ($49/mo) for 10 competitors and daily digests.",
+            question: "Can I switch from PeerPanda to KompWatch?",
+            answer: "Yes. Sign up for KompWatch's free plan and import the competitor URLs you're already monitoring on PeerPanda. KompWatch has no contract or commitment, so you can run both tools in parallel for a month and compare digest quality before canceling PeerPanda.",
           },
           {
-            question: "Does KompWatch track job listings like Kompyte?",
-            answer: "Yes. KompWatch tracks competitor job listings to surface hiring signals — such as new engineering roles that may indicate product investments, or sales hiring that signals market expansion. Kompyte does not offer job listing tracking.",
-          },
-          {
-            question: "Who owns Kompyte?",
-            answer: "Semrush acquired Kompyte in 2022 and now markets it as 'Kompyte by Semrush' — competitive intelligence inside a broader SEO and marketing platform. KompWatch is independent and focused only on competitor monitoring, which means CI roadmap decisions aren't competing with priorities from a larger suite.",
+            question: "Is KompWatch cheaper than PeerPanda?",
+            answer: "At the tier most teams use, yes. KompWatch Pro ($49/mo, 10 competitors) is 38% cheaper than PeerPanda Professional ($79/mo, 15 competitors) when measured per month, and saves $360/yr if you don't need the extra 5 competitor slots. PeerPanda's $29/mo Starter is cheaper than any KompWatch paid tier, but with tighter limits.",
           },
         ]}
       />
@@ -360,27 +336,23 @@ export default function VsKompytePage() {
             Try KompWatch free
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            Add up to 2 competitors on the free plan. Upgrade to Pro ($49/mo) when you need more.
+            Add up to 2 competitors on the free plan. Upgrade to Pro ($49/mo) when you need 10.
             No sales call. Cancel anytime.
           </p>
           <div className="mt-8">
             <TrackedCTA
               href="/login"
               event="Comparison Bottom CTA Click"
-              eventProps={{ competitor: "Kompyte" }}
+              eventProps={{ competitor: "PeerPanda" }}
               className="inline-block rounded-lg bg-brand-600 px-8 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
             >
               Start free — no credit card required
             </TrackedCTA>
           </div>
           <p className="mt-4 text-xs text-gray-400">
-            Already on Kompyte?{" "}
-            <Link href="/switching-from-kompyte" className="underline hover:text-gray-700">
-              See our switching guide
-            </Link>{" "}
-            or{" "}
+            Already on PeerPanda?{" "}
             <Link href="/login" className="underline hover:text-gray-700">
-              run both for a month
+              Run both for a month
             </Link>{" "}
             and compare digests side-by-side.
           </p>
@@ -409,14 +381,14 @@ export default function VsKompytePage() {
             <Link href="/vs-klue" className="text-sm text-gray-500 hover:text-gray-700">
               vs Klue
             </Link>
-            <Link href="/vs-caelian" className="text-sm text-gray-500 hover:text-gray-700">
-              vs Caelian
-            </Link>
-            <Link href="/vs-seeto" className="text-sm text-gray-500 hover:text-gray-700">
-              vs Seeto
+            <Link href="/vs-kompyte" className="text-sm text-gray-500 hover:text-gray-700">
+              vs Kompyte
             </Link>
             <Link href="/vs-changeflow" className="text-sm text-gray-500 hover:text-gray-700">
               vs Changeflow
+            </Link>
+            <Link href="/compare" className="text-sm text-gray-500 hover:text-gray-700">
+              All comparisons
             </Link>
             <Link href="/login" className="text-sm text-gray-500 hover:text-gray-700">
               Sign in

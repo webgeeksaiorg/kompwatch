@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "vs-owler",
     "vs-unkover",
     "vs-changeflow",
+    "vs-peerpanda",
   ];
 
   return [
@@ -54,6 +55,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     {
       url: `${siteUrl}/switching-from-kompyte`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${siteUrl}/switching-from-crayon`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${siteUrl}/switching-from-klue`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${siteUrl}/competitive-intelligence-for-startups`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,

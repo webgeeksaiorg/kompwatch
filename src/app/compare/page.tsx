@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "KompWatch Alternatives & Comparisons",
     description:
-      "Honest side-by-side comparisons of KompWatch vs 13 competitive intelligence tools. See pricing, features, and setup differences.",
+      "Honest side-by-side comparisons of KompWatch vs 14 competitive intelligence tools. See pricing, features, and setup differences.",
     url: `${siteUrl}/compare`,
     type: "website",
   },
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "KompWatch Alternatives & Comparisons",
     description:
-      "How does KompWatch stack up against Crayon, Klue, Kompyte, Changeflow, and more? See 13 honest side-by-side comparisons.",
+      "How does KompWatch stack up against Crayon, Klue, Kompyte, Changeflow, and more? See 14 honest side-by-side comparisons.",
   },
 };
 
@@ -129,6 +129,13 @@ const competitors = [
     price: "$4/mo",
     differentiator: "Changeflow is the closest direct competitor at $4/mo. KompWatch adds headless browser rendering, CSS selectors, job tracking, and a free tier.",
   },
+  {
+    slug: "peerpanda",
+    name: "PeerPanda",
+    tagline: "Self-serve CI tool",
+    price: "Free / $29 / $79 / $199",
+    differentiator: "PeerPanda Professional is $79/mo for 15 competitors. KompWatch Pro is $49/mo for 10 — 38% cheaper at the tier most teams use, with custom CSS selectors and headless browser rendering.",
+  },
 ];
 
 export default function ComparePage() {
@@ -163,7 +170,7 @@ export default function ComparePage() {
             KompWatch vs. the competition
           </h1>
           <p className="mt-6 text-lg text-gray-600">
-            Honest, side-by-side comparisons of KompWatch against 13 competitive intelligence tools.
+            Honest, side-by-side comparisons of KompWatch against 14 competitive intelligence tools.
             See exactly where we win, where they win, and which tool fits your team.
           </p>
           <div className="mt-8">

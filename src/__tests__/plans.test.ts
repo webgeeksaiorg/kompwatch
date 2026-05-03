@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { PLANS } from "@/lib/stripe";
+import { PLANS, planAllowsWebhooks, planAllowsInstantAlerts } from "@/lib/stripe";
 
 describe("PLANS — tier limits", () => {
   it("FREE tier allows 2 competitors", () => {
@@ -29,5 +29,31 @@ describe("PLANS — tier limits", () => {
 
   it("TEAM costs $149/mo", () => {
     expect(PLANS.TEAM.price).toBe(149);
+  });
+});
+
+describe("plan feature gating", () => {
+  it("FREE cannot use webhooks", () => {
+    expect(planAllowsWebhooks("FREE")).toBe(false);
+  });
+
+  it("PRO can use webhooks", () => {
+    expect(planAllowsWebhooks("PRO")).toBe(true);
+  });
+
+  it("TEAM can use webhooks", () => {
+    expect(planAllowsWebhooks("TEAM")).toBe(true);
+  });
+
+  it("FREE cannot use instant alerts", () => {
+    expect(planAllowsInstantAlerts("FREE")).toBe(false);
+  });
+
+  it("PRO cannot use instant alerts (Team-only)", () => {
+    expect(planAllowsInstantAlerts("PRO")).toBe(false);
+  });
+
+  it("TEAM can use instant alerts", () => {
+    expect(planAllowsInstantAlerts("TEAM")).toBe(true);
   });
 });

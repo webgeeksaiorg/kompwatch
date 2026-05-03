@@ -4,8 +4,14 @@ import {
   formatSlackPayload,
   formatTeamsPayload,
   formatGenericPayload,
+  formatInstantAlertSlackPayload,
+  formatInstantAlertGenericPayload,
   sendWebhookNotification,
+  sendInstantAlertWebhook,
+  sendTestWebhook,
+  severityMeetsThreshold,
   isValidWebhookUrl,
+  type InstantAlertChange,
 } from "@/lib/webhooks";
 import type { DigestCompetitorGroup } from "@/lib/digest";
 
@@ -224,5 +230,165 @@ describe("sendWebhookNotification", () => {
     const body = JSON.parse(fetchSpy.mock.calls[0][1]?.body as string);
     expect(body.source).toBe("kompwatch");
     expect(body.totalChanges).toBe(3);
+  });
+});
+
+describe("severityMeetsThreshold", () => {
+  it("returns true when actual equals threshold", () => {
+    expect(severityMeetsThreshold("HIGH", "HIGH")).toBe(true);
+  });
+
+  it("returns true when actual exceeds threshold", () => {
+    expect(severityMeetsThreshold("CRITICAL", "HIGH")).toBe(true);
+  });
+
+  it("returns false when actual is below threshold", () => {
+    expect(severityMeetsThreshold("MEDIUM", "HIGH")).toBe(false);
+  });
+
+  it("LOW threshold accepts everything", () => {
+    expect(severityMeetsThreshold("LOW", "LOW")).toBe(true);
+    expect(severityMeetsThreshold("CRITICAL", "LOW")).toBe(true);
+  });
+});
+
+const sampleInstantChange: InstantAlertChange = {
+  changeType: "PRICING",
+  severity: "HIGH",
+  summary: "Pro plan jumped from $49 to $59/mo",
+  details: "New pricing announced on the homepage today.",
+  pageUrl: "https://acme.com/pricing",
+  competitor: { name: "Acme Corp", url: "https://acme.com" },
+};
+
+describe("formatInstantAlertSlackPayload", () => {
+  it("returns Block Kit blocks with severity header and competitor link", () => {
+    const payload = formatInstantAlertSlackPayload(sampleInstantChange) as {
+      blocks: Array<{ type: string; text?: { text: string } }>;
+    };
+    expect(payload.blocks[0].type).toBe("header");
+    expect(payload.blocks[0].text?.text).toContain("HIGH");
+    const sectionTexts = payload.blocks
+      .filter((b) => b.type === "section")
+      .map((b) => b.text?.text ?? "")
+      .join("\n");
+    expect(sectionTexts).toContain("Acme Corp");
+    expect(sectionTexts).toContain("Pro plan jumped");
+  });
+
+  it("omits details block when no details provided", () => {
+    const payload = formatInstantAlertSlackPayload({
+      ...sampleInstantChange,
+      details: null,
+    }) as { blocks: Array<{ type: string }> };
+    const sectionCount = payload.blocks.filter((b) => b.type === "section").length;
+    // header + 1 section (summary) + context only — no extra section for details
+    expect(sectionCount).toBe(1);
+  });
+});
+
+describe("formatInstantAlertGenericPayload", () => {
+  it("returns structured single-change JSON", () => {
+    const payload = formatInstantAlertGenericPayload(sampleInstantChange) as {
+      source: string;
+      kind: string;
+      severity: string;
+      changeType: string;
+      competitor: { name: string };
+    };
+    expect(payload.source).toBe("kompwatch");
+    expect(payload.kind).toBe("instant_alert");
+    expect(payload.severity).toBe("HIGH");
+    expect(payload.changeType).toBe("PRICING");
+    expect(payload.competitor.name).toBe("Acme Corp");
+  });
+});
+
+describe("sendInstantAlertWebhook", () => {
+  beforeEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  it("posts Slack-formatted payload to Slack URLs", async () => {
+    const fetchSpy = vi.spyOn(globalThis, "fetch").mockResolvedValue(
+      new Response("ok", { status: 200 })
+    );
+
+    const result = await sendInstantAlertWebhook(
+      "https://hooks.slack.com/services/test",
+      sampleInstantChange
+    );
+
+    expect(result.ok).toBe(true);
+    const body = JSON.parse(fetchSpy.mock.calls[0][1]?.body as string);
+    expect(body.blocks).toBeDefined();
+    expect(body.blocks[0].type).toBe("header");
+  });
+
+  it("posts generic JSON to unknown URLs", async () => {
+    const fetchSpy = vi.spyOn(globalThis, "fetch").mockResolvedValue(
+      new Response("ok", { status: 200 })
+    );
+
+    await sendInstantAlertWebhook("https://example.com/hook", sampleInstantChange);
+
+    const body = JSON.parse(fetchSpy.mock.calls[0][1]?.body as string);
+    expect(body.source).toBe("kompwatch");
+    expect(body.kind).toBe("instant_alert");
+  });
+
+  it("returns error on HTTP failure", async () => {
+    vi.spyOn(globalThis, "fetch").mockResolvedValue(
+      new Response("nope", { status: 500, statusText: "Internal Error" })
+    );
+
+    const result = await sendInstantAlertWebhook(
+      "https://hooks.slack.com/services/test",
+      sampleInstantChange
+    );
+
+    expect(result.ok).toBe(false);
+    expect(result.error).toContain("500");
+  });
+});
+
+describe("sendTestWebhook", () => {
+  beforeEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  it("sends a Slack test payload to Slack URLs", async () => {
+    const fetchSpy = vi.spyOn(globalThis, "fetch").mockResolvedValue(
+      new Response("ok", { status: 200 })
+    );
+
+    const result = await sendTestWebhook("https://hooks.slack.com/services/test");
+
+    expect(result.ok).toBe(true);
+    const body = JSON.parse(fetchSpy.mock.calls[0][1]?.body as string);
+    expect(body.blocks).toBeDefined();
+    expect(body.blocks[0].text.text).toContain("KompWatch test");
+  });
+
+  it("sends a generic test payload to unknown URLs", async () => {
+    const fetchSpy = vi.spyOn(globalThis, "fetch").mockResolvedValue(
+      new Response("ok", { status: 200 })
+    );
+
+    await sendTestWebhook("https://example.com/hook");
+
+    const body = JSON.parse(fetchSpy.mock.calls[0][1]?.body as string);
+    expect(body.source).toBe("kompwatch");
+    expect(body.kind).toBe("test");
+  });
+
+  it("returns failure when endpoint rejects", async () => {
+    vi.spyOn(globalThis, "fetch").mockResolvedValue(
+      new Response("forbidden", { status: 403, statusText: "Forbidden" })
+    );
+
+    const result = await sendTestWebhook("https://hooks.slack.com/services/test");
+    expect(result.ok).toBe(false);
+    expect(result.error).toContain("403");
   });
 });
