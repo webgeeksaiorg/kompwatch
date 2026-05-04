@@ -41,7 +41,7 @@ You can't import monitors directly from Klue, but setup takes about 10 minutes.
 3. **Set CSS selectors** to watch specific page sections (e.g. `.pricing-table`, `#features`, `[data-section="plans"]`). This reduces noise from navigation and footer changes. See [CSS Selector Targeting](./css-selectors.md).
 4. **Connect Slack** in Settings → Integrations if your team routes competitive alerts to a channel.
 
-Your first snapshots run within minutes. Change detection begins after the second snapshot — within 24 hours on Free or a few hours on Pro.
+Your first snapshot kicks off immediately when you save — it appears within seconds. Change detection begins after the second snapshot — within 24 hours on Free or a few hours on Pro.
 
 ## Will I Lose My Klue History?
 

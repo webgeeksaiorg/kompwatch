@@ -1,4 +1,5 @@
 import { Change, Competitor, User } from "@prisma/client";
+import { splitChangeDetails } from "@/lib/change-context";
 
 /** Group changes by competitor for digest rendering */
 export interface DigestCompetitorGroup {
@@ -174,13 +175,10 @@ function escapeHtml(str: string): string {
     .replace(/"/g, "&quot;");
 }
 
-const IMPLICATION_PREFIX = /(^|\n)\s*(What this means for you:\s*)/i;
-
 function renderDetailsHtml(details: string): string {
-  const escaped = escapeHtml(details);
-  return escaped.replace(
-    IMPLICATION_PREFIX,
-    (_match, lead) =>
-      `${lead}<br/><strong style="color:#1a1a1a;">What this means for you:</strong> `
-  );
+  const { factual, implication } = splitChangeDetails(details);
+  if (!implication) return escapeHtml(details);
+  const factualHtml = factual ? escapeHtml(factual) : "";
+  const implicationHtml = `<br/><strong style="color:#1a1a1a;">What this means for you:</strong> ${escapeHtml(implication)}`;
+  return `${factualHtml}${implicationHtml}`;
 }

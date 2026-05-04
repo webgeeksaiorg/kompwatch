@@ -26,7 +26,7 @@ You can't import monitors directly from Changeflow, but setup is fast — most t
 3. **Set CSS selectors** to target the specific sections you care about (e.g. `.pricing-table`, `#features`). This reduces noise from navigation and footer changes — something Changeflow doesn't offer.
 4. **Configure your alert preferences** in Settings → Notifications. KompWatch consolidates changes into daily digests (Pro) or weekly digests (Free) instead of firing per-change alerts.
 
-Your first snapshot runs within a few minutes. You'll receive your first digest on your next scheduled cycle.
+Your first snapshot kicks off immediately when you save — it appears within seconds. You'll receive your first digest on your next scheduled cycle.
 
 ## Can I Run Both at the Same Time?
 

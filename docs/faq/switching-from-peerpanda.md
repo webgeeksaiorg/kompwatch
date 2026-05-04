@@ -10,7 +10,7 @@ Teams that move from PeerPanda to KompWatch typically cite:
 - **Headless browser rendering** — KompWatch uses Playwright (full headless Chromium) to render JavaScript-heavy pages before snapshotting. PeerPanda's headless support is partial, which means SPAs and React-rendered pricing pages can appear blank or incomplete in change reports.
 - **CSS selector targeting** — KompWatch lets you pin a specific page section (e.g. `.pricing-table`, `#features`, `[data-section="plans"]`) so change detection ignores header/footer churn. PeerPanda does not offer per-page CSS selector targeting.
 - **Job listing signals** — KompWatch tracks competitor job listings to surface hiring patterns (e.g. a sudden burst of infrastructure engineers often precedes a platform launch). PeerPanda's job tracking is limited.
-- **Time to first insight** — KompWatch delivers your first snapshot in under 2 minutes. PeerPanda typically takes 5–10 minutes.
+- **Time to first insight** — KompWatch delivers your first snapshot immediately on save (within seconds). PeerPanda typically takes 5–10 minutes.
 
 ## Feature Comparison
 
@@ -46,7 +46,7 @@ You can't import monitors directly from PeerPanda, but setup takes about 5 minut
 3. **Set CSS selectors** to watch specific page sections (e.g. `.pricing-table`, `#features`). This reduces noise from navigation and footer changes and is something PeerPanda doesn't offer. See [CSS Selector Targeting](./css-selectors.md).
 4. **Connect Slack** in Settings → Integrations if your team routes competitive alerts to a channel.
 
-Your first snapshots run within 2 minutes. Change detection begins after the second snapshot — within 24 hours on Free or a few hours on Pro.
+Your first snapshot kicks off immediately when you save — it appears within seconds. Change detection begins after the second snapshot — within 24 hours on Free or a few hours on Pro.
 
 ## Will I Lose My PeerPanda History?
 

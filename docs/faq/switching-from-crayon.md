@@ -42,7 +42,7 @@ You can't import monitors directly from Crayon, but setup is fast — most teams
 3. **Set CSS selectors** for specific page sections you care about (e.g. `.pricing-table`, `#features`, `[data-section="plans"]`). This reduces noise from nav and footer changes — something Crayon's full-page monitoring doesn't offer at this level of precision.
 4. **Connect Slack** in Settings → Integrations if your team uses a `#competitive-intel` channel.
 
-Your first snapshots run within minutes. Change detection begins with the second snapshot — typically within 24 hours on Free or a few hours on Pro.
+Your first snapshot kicks off immediately when you save — it appears within seconds. Change detection begins with the second snapshot — typically within 24 hours on Free or a few hours on Pro.
 
 ## Will I Lose My Crayon History?
 

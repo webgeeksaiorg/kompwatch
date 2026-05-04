@@ -10,7 +10,7 @@
 2. Click the competitor name to open its settings.
 3. Update the **URL** field with the new address (e.g. from `crayon.co/pricing` to `softwareone.com/competitive-intelligence/pricing`).
 4. Review the **CSS selector** — after a rebrand the page structure often changes too. If you had `.pricing-table`, check whether that class still exists on the new page. When in doubt, reset to `body` and refine once you receive the first snapshot.
-5. Save. A fresh snapshot runs within minutes.
+5. Save. A fresh snapshot kicks off immediately — you'll see it in the competitor's history within seconds.
 
 **Your old snapshots are not deleted.** They remain in your history, attached to the previous URL. New snapshots at the updated URL start a fresh baseline — the first new snapshot establishes the comparison point, so change detection kicks in from the second snapshot onward.
 

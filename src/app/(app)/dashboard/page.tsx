@@ -3,6 +3,7 @@ import { requireAuth } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { PLANS } from "@/lib/stripe";
 import { severitiesAtOrAbove } from "@/lib/severity";
+import { splitChangeDetails } from "@/lib/change-context";
 import { OnboardingChecklist } from "./onboarding-checklist";
 import { ExportChangesButton } from "@/components/dashboard/export-changes-button";
 import { EmptyStateOnboarding } from "@/components/dashboard/empty-state-onboarding";
@@ -265,7 +266,9 @@ export default async function DashboardPage() {
             <div className="absolute left-[15px] top-2 bottom-2 w-px bg-gray-200" />
 
             <div className="space-y-4">
-              {recentChanges.map((change) => (
+              {recentChanges.map((change) => {
+                const { implication } = splitChangeDetails(change.details);
+                return (
                 <div key={change.id} className="relative flex gap-4 pl-9">
                   {/* Timeline dot */}
                   <div
@@ -304,6 +307,14 @@ export default async function DashboardPage() {
                       <span className="text-xs text-gray-400">{timeAgo(change.createdAt)}</span>
                     </div>
                     <p className="mt-1 text-sm text-gray-600">{change.summary}</p>
+                    {implication && (
+                      <div className="mt-2 rounded-md border-l-2 border-brand-300 bg-brand-50/60 px-2.5 py-1.5">
+                        <p className="text-[11px] font-semibold uppercase tracking-wide text-brand-700">
+                          Why this matters
+                        </p>
+                        <p className="mt-0.5 text-xs text-gray-700">{implication}</p>
+                      </div>
+                    )}
                     {change.pageUrl && (
                       <a
                         href={change.pageUrl}
@@ -316,7 +327,8 @@ export default async function DashboardPage() {
                     )}
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         )}

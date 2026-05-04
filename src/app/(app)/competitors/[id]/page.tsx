@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { requireAuth } from "@/lib/auth";
 import { db } from "@/lib/db";
+import { splitChangeDetails } from "@/lib/change-context";
 import { ExportChangesButton } from "@/components/dashboard/export-changes-button";
 
 const SEVERITY_COLORS: Record<string, string> = {
@@ -179,7 +180,9 @@ export default async function CompetitorDetailPage({
             <div className="absolute left-[15px] top-2 bottom-2 w-px bg-gray-200" />
 
             <div className="space-y-4">
-              {competitor.changes.map((change) => (
+              {competitor.changes.map((change) => {
+                const { factual, implication } = splitChangeDetails(change.details);
+                return (
                 <div key={change.id} className="relative flex gap-4 pl-9">
                   <div
                     className={`absolute left-[11px] top-2 h-2.5 w-2.5 rounded-full ring-2 ring-white ${
@@ -214,8 +217,16 @@ export default async function CompetitorDetailPage({
                       <span className="text-xs text-gray-400">{timeAgo(change.createdAt)}</span>
                     </div>
                     <p className="mt-1 text-sm text-gray-900">{change.summary}</p>
-                    {change.details && (
-                      <p className="mt-1 text-xs text-gray-500 line-clamp-3">{change.details}</p>
+                    {factual && (
+                      <p className="mt-1 text-xs text-gray-500 line-clamp-3">{factual}</p>
+                    )}
+                    {implication && (
+                      <div className="mt-2 rounded-md border-l-2 border-brand-300 bg-brand-50/60 px-3 py-2">
+                        <p className="text-[11px] font-semibold uppercase tracking-wide text-brand-700">
+                          Why this matters
+                        </p>
+                        <p className="mt-0.5 text-xs text-gray-700">{implication}</p>
+                      </div>
                     )}
                     {change.pageUrl && (
                       <a
@@ -229,7 +240,8 @@ export default async function CompetitorDetailPage({
                     )}
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         )}
