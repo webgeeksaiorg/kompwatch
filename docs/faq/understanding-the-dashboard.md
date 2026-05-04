@@ -51,6 +51,22 @@ Each change card shows:
 - **Why this matters** — a strategic context line explaining what the change means for your positioning, pricing, sales, or roadmap. For example, if a competitor drops their free tier, you might see: *"Competitors on tight budgets who relied on that free plan are now in the market — a strong moment to run a targeted trial offer."* This is generated automatically; no setup required.
 - **Detected at** — when KompWatch spotted the change
 
+## Activity Heatmap
+
+The **Activity** heatmap near the top of your dashboard shows a 26-week (6-month) view of competitor change volume — styled like a GitHub contribution graph.
+
+- **Each cell** represents one day. Hover over any cell to see the exact change count for that date.
+- **Color intensity** reflects how active that day was:
+  - Light (faint brand color) — 1–2 changes
+  - Medium — 3–5 changes
+  - Dark — 6–10 changes
+  - Darkest — 11+ changes
+  - Gray — no changes detected
+- **Axes:** Days of the week (Mon–Sun) run vertically; weeks run left-to-right with month labels above.
+- **Future dates** appear blank — only past and present days are shown.
+
+Use the heatmap to spot patterns at a glance: a competitor that's been quiet for months but suddenly lit up last week is worth a closer look.
+
 ## Competitor Detail Page
 
 Click on any competitor's name to open the **Competitor Detail Page** (`/competitors/[id]`), which shows:
@@ -86,7 +102,7 @@ When you're one slot away from your limit, or have reached it, a **upgrade promp
 
 ## Exporting Your Data
 
-Use the **Export CSV** button on the dashboard (all changes) or on any competitor detail page (per-competitor) to download a spreadsheet of detected changes. Useful for sharing with your team or building competitive reports. See [Exporting Your Data →](exporting-your-data.md)
+Use the **Export CSV** or **Export JSON** buttons on the dashboard (all changes) or on any competitor detail page (per-competitor) to download your detected changes. CSV opens cleanly in Excel and Google Sheets; JSON is structured for scripts and BI tools. See [Exporting Your Data →](exporting-your-data.md)
 
 ## Tips
 
