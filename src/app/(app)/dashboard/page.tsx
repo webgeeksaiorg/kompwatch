@@ -8,6 +8,7 @@ import { OnboardingChecklist } from "./onboarding-checklist";
 import { ExportChangesButton } from "@/components/dashboard/export-changes-button";
 import { EmptyStateOnboarding } from "@/components/dashboard/empty-state-onboarding";
 import { SignupTracker } from "@/components/dashboard/signup-tracker";
+import { ActivityHeatmap } from "@/components/dashboard/activity-heatmap";
 
 const SEVERITY_COLORS: Record<string, string> = {
   LOW: "bg-gray-100 text-gray-600",
@@ -42,7 +43,11 @@ export default async function DashboardPage() {
 
   const allowedSeverities = severitiesAtOrAbove(user.dashboardMinSeverity);
 
-  const [competitors, recentChanges, totalChanges] = await Promise.all([
+  // Heatmap: changes per day for the past 26 weeks
+  const heatmapSince = new Date();
+  heatmapSince.setDate(heatmapSince.getDate() - 26 * 7);
+
+  const [competitors, recentChanges, totalChanges, dailyCounts] = await Promise.all([
     db.competitor.findMany({
       where: { userId: user.id },
       include: {
@@ -67,7 +72,25 @@ export default async function DashboardPage() {
     db.change.count({
       where: { competitor: { userId: user.id } },
     }),
+    db.change.findMany({
+      where: {
+        competitor: { userId: user.id },
+        createdAt: { gte: heatmapSince },
+      },
+      select: { createdAt: true },
+    }),
   ]);
+
+  // Aggregate changes by date for heatmap
+  const heatmapMap = new Map<string, number>();
+  for (const c of dailyCounts) {
+    const dateStr = c.createdAt.toISOString().slice(0, 10);
+    heatmapMap.set(dateStr, (heatmapMap.get(dateStr) ?? 0) + 1);
+  }
+  const heatmapData = Array.from(heatmapMap.entries()).map(([date, count]) => ({
+    date,
+    count,
+  }));
 
   const limit = PLANS[user.plan].competitors;
   const activeCount = competitors.filter((c) => c.isActive).length;
@@ -156,6 +179,13 @@ export default async function DashboardPage() {
           </p>
         </div>
       </div>
+
+      {/* Activity heatmap */}
+      {competitors.length > 0 && (
+        <div className="mt-6">
+          <ActivityHeatmap data={heatmapData} />
+        </div>
+      )}
 
       {/* Competitors list */}
       <div className="mt-8">
