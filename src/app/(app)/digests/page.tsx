@@ -1,5 +1,6 @@
 import { requireAuth } from "@/lib/auth";
 import { db } from "@/lib/db";
+import { ExportDigestButton } from "@/components/dashboard/export-digest-button";
 
 function timeAgo(date: Date): string {
   const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
@@ -74,6 +75,10 @@ export default async function DigestsPage() {
                     <span className="inline-flex rounded-full bg-gray-100 px-2 py-0.5 text-[10px] font-medium text-gray-600">
                       {digest.period}
                     </span>
+                  </div>
+                  <div className="mt-1.5 flex items-center gap-1.5">
+                    <ExportDigestButton digestId={digest.id} format="csv" />
+                    <ExportDigestButton digestId={digest.id} format="pdf" />
                   </div>
                   <div className="mt-1 flex items-center gap-3 text-xs text-gray-500">
                     <span>{digest._count.changes} change{digest._count.changes === 1 ? "" : "s"}</span>
