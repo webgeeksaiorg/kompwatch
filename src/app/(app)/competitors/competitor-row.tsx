@@ -78,7 +78,14 @@ export function CompetitorRow({ competitor }: { competitor: CompetitorData }) {
           </div>
 
           <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-gray-500">
-            <span>{competitor._count.snapshots} snapshots</span>
+            {competitor._count.snapshots === 0 ? (
+              <span className="inline-flex items-center gap-1.5 text-brand-600">
+                <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-brand-500" />
+                Capturing first snapshot…
+              </span>
+            ) : (
+              <span>{competitor._count.snapshots} snapshots</span>
+            )}
             <span>{competitor._count.changes} changes</span>
             {lastChange && (
               <span className="flex items-center gap-1">

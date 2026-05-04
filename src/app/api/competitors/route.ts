@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getCurrentUser } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { PLANS } from "@/lib/stripe";
+import { captureSnapshotInBackground } from "@/lib/snapshot";
 import { z } from "zod";
 
 const createSchema = z.object({
@@ -68,6 +69,11 @@ export async function POST(req: NextRequest) {
       ...parsed.data,
     },
   });
+
+  // Kick off the first snapshot now so the user sees activity within ~30s
+  // instead of waiting up to 24h for the next cron cycle. Runs in the
+  // background — response is not blocked on Playwright + Anthropic.
+  captureSnapshotInBackground(competitor.id);
 
   return NextResponse.json({ competitor }, { status: 201 });
 }
