@@ -1,8 +1,63 @@
-# Exporting Your Change Data
+# Exporting Your Data
 
-KompWatch lets you export detected changes as **CSV** or **JSON** — useful for sharing competitive intel with your team, building reports in Excel or Google Sheets, or piping data into your own tools and workflows.
+KompWatch lets you export competitive intelligence in two ways:
 
-## How to Export
+- **Digest export (PDF or CSV)** — download a formatted report for a specific digest to share with your team or store in a shared folder
+- **Change export (CSV or JSON)** — export raw change records for custom analysis, BI tools, or spreadsheets
+
+---
+
+## Digest Export (PDF or CSV)
+
+Download any individual digest as a shareable report — useful for weekly CI reviews, stakeholder updates, or archiving a snapshot of competitor activity.
+
+### From the Digests page
+
+1. Go to [kompwatch.com/digests](https://kompwatch.com/digests)
+2. Click on a digest to open it
+3. Click **Export PDF** or **Export CSV** — the file downloads immediately
+
+### Via API
+
+```bash
+# PDF (default)
+curl -H "Cookie: <session>" \
+  "https://kompwatch.com/api/export/digests?digestId=<id>&format=pdf" \
+  -o kompwatch-digest.pdf
+
+# CSV
+curl -H "Cookie: <session>" \
+  "https://kompwatch.com/api/export/digests?digestId=<id>&format=csv" \
+  -o kompwatch-digest.csv
+```
+
+The filename is automatically set to `kompwatch-digest-YYYY-MM-DD.pdf` (or `.csv`).
+
+### What's in the digest export?
+
+**PDF** — a formatted report including:
+- Digest subject, period, and generation date
+- Each change with severity color-coding (Critical = red, High = orange, Medium = blue, Low = gray)
+- Competitor name, AI summary, change type badge, and timestamp
+- Automatic page breaks for multi-page digests
+
+**CSV** — flat data with columns:
+
+| Column | Description |
+|--------|-------------|
+| Date | When the change was detected (ISO 8601) |
+| Competitor | Competitor name |
+| URL | Competitor root URL |
+| Type | `CONTENT`, `VISUAL`, `PRICING`, or `FEATURE` |
+| Severity | `LOW`, `MEDIUM`, `HIGH`, or `CRITICAL` |
+| Summary | AI-generated description of the change |
+| Page URL | The specific page where the change was detected |
+
+> **Tip:** Use PDF for presentations and stakeholder updates. Use CSV if you're loading into a spreadsheet or BI tool for further analysis.
+
+---
+
+## Change Export (CSV or JSON)
 
 ### Export All Changes (Dashboard)
 
