@@ -10,7 +10,7 @@ KompWatch monitors competitor websites and alerts you to changes in pricing, fea
    - **Name** — a label for your own reference (e.g. "Acme Corp")
    - **URL** — the page you want to monitor (e.g. `https://acmecorp.com/pricing`)
    - **CSS Selector** *(optional)* — target a specific section of the page. Leave blank to monitor the whole page. Example: `.pricing-table` or `#features`
-4. Click **Save**. KompWatch will take an initial snapshot within the next few minutes.
+4. Click **Save**. KompWatch immediately kicks off your first snapshot — you'll see it appear in the competitor's history within seconds.
 
 ## Suggested Competitors (Chip Picker)
 
