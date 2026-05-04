@@ -63,11 +63,29 @@ Past digests are saved in your account. Go to the [Digests page](https://kompwat
 
 If you disabled email digests in Settings, the digest is still generated and saved here — you can check in-app without waiting for email.
 
-## Exporting a Digest
+## Exporting a Digest as PDF or CSV
 
-Any digest can be downloaded as a **PDF** (formatted report with severity colors) or **CSV** (flat data for spreadsheets). Open the digest on the [Digests page](https://kompwatch.com/digests) and click **Export PDF** or **Export CSV**.
+You can download any digest from the [Digests page](https://kompwatch.com/digests) as a shareable PDF or CSV report — useful for sharing competitive intel in team meetings or attaching to Slack threads.
 
-See [Exporting Your Data](./exporting-your-data.md) for API access and full format details.
+**To export:**
+1. Open the [Digests page](https://kompwatch.com/digests) and click any digest card.
+2. In the top-right of the digest view, click **Export** and choose **PDF** or **CSV**.
+3. The file downloads immediately.
+
+**Format differences:**
+- **PDF** — formatted report with severity color-coding, competitor logos, and AI summaries. Best for sharing with stakeholders who don't use KompWatch.
+- **CSV** — structured rows with all change fields. Best for importing into spreadsheets or BI tools.
+
+You can also export via the API:
+```bash
+# PDF
+curl -H "Cookie: <session>" "https://kompwatch.com/api/export/digests/<digest_id>?format=pdf" -o digest.pdf
+
+# CSV
+curl -H "Cookie: <session>" "https://kompwatch.com/api/export/digests/<digest_id>?format=csv" -o digest.csv
+```
+
+For exporting raw change data (not digest summaries), see [Exporting Your Change Data](./exporting-your-data.md).
 
 ## Upgrading for More Frequent Digests
 
