@@ -485,8 +485,40 @@ export default function PricingPage() {
     }
   }
 
+  const softwareJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "KompWatch",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    description:
+      "AI-powered competitor monitoring for SaaS teams. Track competitor websites, detect changes, and get AI-generated digests delivered to your inbox.",
+    url: "https://kompwatch.com",
+    offers: plans
+      .filter((p) => !p.enterprise)
+      .map((p) => ({
+        "@type": "Offer",
+        price: String(p.monthlyPrice),
+        priceCurrency: "USD",
+        name: p.name,
+        description: p.description,
+        ...(p.monthlyPrice > 0 && {
+          priceSpecification: {
+            "@type": "UnitPriceSpecification",
+            price: String(p.monthlyPrice),
+            priceCurrency: "USD",
+            billingDuration: "P1M",
+          },
+        }),
+      })),
+  };
+
   return (
     <main className="mx-auto max-w-5xl px-4 pt-16 pb-28">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareJsonLd) }}
+      />
       <div className="text-center">
         <h1 className="text-4xl font-bold tracking-tight text-gray-900">
           Simple, transparent pricing

@@ -3,6 +3,9 @@ import { HeroCTA, HeroSecondaryCTA } from "./hero-cta";
 import { HeroHeadline } from "./hero-headline";
 import { HeroSubheadline } from "./hero-subheadline";
 import { TrackedCTA } from "@/components/tracked-cta";
+import { OrganizationSchema } from "@/components/organization-schema";
+import { WebSiteSchema } from "@/components/website-schema";
+import { SoftwareApplicationSchema } from "@/components/software-schema";
 
 const features = [
   {
@@ -137,6 +140,9 @@ function CheckIcon() {
 export default function Home() {
   return (
     <div className="bg-white">
+      <OrganizationSchema />
+      <WebSiteSchema />
+      <SoftwareApplicationSchema />
       {/* Nav */}
       <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-sm">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
