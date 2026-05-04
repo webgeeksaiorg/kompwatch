@@ -102,7 +102,7 @@ When you're one slot away from your limit, or have reached it, a **upgrade promp
 
 ## Exporting Your Data
 
-Use the **Export CSV** button on the dashboard (all changes) or on any competitor detail page (per-competitor) to download a spreadsheet of detected changes. Useful for sharing with your team or building competitive reports. See [Exporting Your Data →](exporting-your-data.md)
+Use the **Export CSV** or **Export JSON** buttons on the dashboard (all changes) or on any competitor detail page (per-competitor) to download your detected changes. CSV opens cleanly in Excel and Google Sheets; JSON is structured for scripts and BI tools. See [Exporting Your Data →](exporting-your-data.md)
 
 ## Tips
 
