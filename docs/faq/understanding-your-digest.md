@@ -63,6 +63,12 @@ Past digests are saved in your account. Go to the [Digests page](https://kompwat
 
 If you disabled email digests in Settings, the digest is still generated and saved here — you can check in-app without waiting for email.
 
+## Exporting a Digest
+
+Any digest can be downloaded as a **PDF** (formatted report with severity colors) or **CSV** (flat data for spreadsheets). Open the digest on the [Digests page](https://kompwatch.com/digests) and click **Export PDF** or **Export CSV**.
+
+See [Exporting Your Data](./exporting-your-data.md) for API access and full format details.
+
 ## Upgrading for More Frequent Digests
 
 | Want | Upgrade to |

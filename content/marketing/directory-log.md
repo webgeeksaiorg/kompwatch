@@ -14,6 +14,71 @@ Tracks where KompWatch has been submitted for listing/discovery.
 | — | awesome-saas-tools | pending | — |
 | — | awesome-competitive-intelligence | pending | GitHub repo: github.com/aj-dev-sys/awesome-competitive-intelligence — add KompWatch as headless-browser-based option |
 
+## Keyword Research — 2026-05-04 (Monday cycle, run 2)
+
+**Fresh data from WebSearch (May 2026):**
+- **New entrants in $49-99/mo CI tier** — Battlecard by Northr ($49-99/mo, AI battlecards in 60 seconds), Steve/hiresteve.ai (Techstars-backed, 10-min setup, Slack-native), Unkover (page changes + funding + reviews), Seeto (lean SaaS teams), IntelCue (MCP-accessible). Market validating the price point — 5 tools now in this tier, none existed 18 months ago.
+- **Klue "weeks to months" onboarding** — documented in Klue's own implementation timeline. Zero hedge on that claim.
+- **"Renting a warehouse for a closet's worth of stuff"** — G2 reviewer quote on Crayon for small teams. Quotable in replies.
+- **"For most small and mid-size sales teams, Klue is more tool than you need at a price you cannot justify"** — review aggregator summary, not KompWatch framing.
+- **Adobe closed Semrush acquisition April 28, 2026** — confirmed via Adobe Newsroom. Kompyte now 3 acquisitions deep inside Adobe Experience Cloud.
+- **Headless rendering still the gap** — Steve and most new entrants still HTTP-level monitoring. SPA gap remains KompWatch differentiator.
+
+**Content produced this cycle (Friday May 8 slate):**
+- `twitter/2026-05-08-market-validation-moment.md` — new $49-99/mo entrant validation (8/10, READY)
+- `twitter/2026-05-08-klue-weeks-to-value.md` — Klue onboarding vs instant first snapshot (8/10, READY)
+- `twitter/2026-05-08-reply-warehouse-for-closet.md` — Crayon G2 "renting a warehouse" quote reply (8/10, READY)
+- `twitter/2026-05-08-reply-battlecard-vs-monitoring.md` — Battlecard vs KompWatch different products (8/10, READY)
+- `twitter/2026-05-08-reply-new-entrant-spa-gap.md` — new entrants still HTTP-level (7.5/10, READY)
+- `twitter/2026-05-08-reply-ci-ownership-common-thread.md` — ownership design choice (8/10, READY)
+- `twitter/2026-05-08-reply-klue-small-teams.md` — review aggregator quote on Klue/SMB (7.5/10, READY)
+- `reddit/2026-05-08-comment-new-ci-market-tiers.md` — r/SaaS three-tier framework (8/10, READY)
+- `reddit/2026-05-08-comment-klue-onboarding-reality.md` — r/ProductManagement Klue onboarding (7.5/10, READY)
+- `reddit/2026-05-08-post-five-new-ci-tools.md` — r/SaaS honest comparison of 5 affordable CI tools (8.5/10, READY)
+- `linkedin/2026-05-08-market-validation-new-entrants.md` — why the mid-market lane opened now (8/10, READY)
+
+**Publishing status:** TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET all still missing. All platforms blocked. Content accumulating in queue.
+
+---
+
+## Keyword Research — 2026-05-03 (Sunday cycle)
+
+**Fresh data from WebSearch (May 2026):**
+- **Battlecard adoption collapse** — Forrester 2025 B2B Sales Content study: only 31% of sales reps access competitive content before a deal passes Stage 2. Klue's own blog acknowledges <30% usage in manual-process orgs. $20–40K/yr tool, 70% of reps ignoring it. Best angle for LinkedIn (PMM/enablement audience).
+- **Klue killed Ignition in 28 days** — Klue acquired Ignition (agentic AI for PMMs) Sept 2, 2025. Wound down Sept 30. Founders left to start DoubleO AI separately. Displaced customers: discount code toward $20K+ Klue plan. Strong Twitter thread / Reddit comment angle on platform acquisition risk.
+- **$870M CI market, $20K price floor** — CI tools market $870M in 2026 → $4B by 2034 at 21% CAGR (Fortune Business Insights). Entry price locked at $20K+/yr. The fastest-growing cohort (sub-50-person SaaS teams) is priced out. Best LinkedIn angle.
+- **Crayon→Klue churn loop confirmed** — "Low adoption is the #1 reason Crayon clients switch to Klue" from Klue's own comparison docs. Klue has same 31% adoption stat. Neither solves the root cause (stale intel). Reddit r/ProductMarketing angle.
+- **Crayon add-on tax** — Vendr 2026 buyer guide: battlecards setup (+15%), Salesforce integration (+10%), dedicated CSM (+8%) add 15–30% to $28K base. $28K → $38K. Clean tweet angle.
+- **68% deal exposure, $2–10M loss** — 68% of B2B deals face competition, 3.8/10 preparedness, $2–10M/yr estimated revenue loss per mid-market company (Salesmotion 2026). LinkedIn/ROI framing.
+- **AI fatigue pivot** — "2026 is the year businesses started asking: is the AI actually doing anything?" (Futurum Group, May 2026). Contrarian positioning: every CI vendor has "AI Compete Agent," KompWatch sends a clean email. Strong tweet.
+- **Visualping 2.8-hour median** — 9,705 active monitors, median check frequency every 2.8 hours (users manually cranking defaults). KompWatch Pro/Team check faster by default. Tweet with data hook.
+
+**Content produced this cycle (Wed May 6 + Thu May 7):**
+- `linkedin/2026-05-06-market-size-price-floor.md` — $870M market / $20K price floor (9/10, READY)
+- `twitter/2026-05-06-crayon-addon-tax.md` — add-on math (8/10, READY)
+- `twitter/2026-05-06-ai-fatigue-ci.md` — AI fatigue pivot (8/10, READY)
+- `twitter/2026-05-06-reply-klue-ignition-28days.md` — Klue/Ignition 28-day shutdown (8/10, READY)
+- `twitter/2026-05-06-reply-visualping-2point8hr.md` — 2.8hr median stat (8/10, READY)
+- `twitter/2026-05-06-reply-31pct-battlecard.md` — 31% Forrester stat (8/10, READY)
+- `twitter/2026-05-06-reply-crayon-klue-churn-loop.md` — adoption loop (8.5/10, READY)
+- `twitter/2026-05-06-reply-deal-cost-gap.md` — $2–10M revenue leak (8/10, READY)
+- `reddit/2026-05-06-comment-battlecard-adoption-loop.md` — r/ProductMarketing adoption cycle (8/10, READY)
+- `reddit/2026-05-06-comment-ci-spend-trap.md` — r/SaaS CI spend math (8/10, READY)
+- `twitter/2026-05-07-klue-ignition-market.md` — enterprise consolidation angle (8.5/10, READY)
+- `twitter/2026-05-07-31pct-adoption-stat.md` — 31% adoption tweet (8/10, READY)
+- `twitter/2026-05-07-market-size-framing.md` — market size/access gap (8/10, READY)
+- `twitter/2026-05-07-reply-ci-analyst-dependency.md` — "expensive RSS feed" quote (8/10, READY)
+- `twitter/2026-05-07-reply-sales-demo-timing.md` — Tuesday change cycle (8/10, READY)
+- `twitter/2026-05-07-reply-crayon-addonmath.md` — Crayon SOW line items (7.5/10, READY)
+- `twitter/2026-05-07-reply-website-vs-news.md` — Google Alerts signal distinction (7.5/10, READY)
+- `twitter/2026-05-07-reply-vc-platform-risk.md` — VC platform acquisition risk (8/10, READY)
+- `reddit/2026-05-07-comment-klue-vs-cheap-tools.md` — r/ProductManagement Klue sizing (8/10, READY)
+- `blog/2026-05-07-is-klue-worth-it-small-teams.md` — ~1200 word SEO article targeting "Klue alternative small team" + "Klue for small teams" (8.5/10, READY)
+
+**Publishing status:** TWITTER_API_KEY, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, LINKEDIN_ACCESS_TOKEN all still missing. All platforms blocked. Content accumulating in queue.
+
+---
+
 ## Keyword Research — 2026-04-30 (Thursday cycle, run 3)
 
 **Fresh data from WebSearch (April 2026):**
