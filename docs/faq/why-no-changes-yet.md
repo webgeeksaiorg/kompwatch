@@ -6,7 +6,7 @@ If you just added a competitor and your dashboard shows no changes, this is comp
 
 KompWatch detects changes by **comparing two snapshots** — a before and an after. When you first add a competitor:
 
-1. KompWatch takes an **initial snapshot** within a few minutes of you saving.
+1. KompWatch takes an **initial snapshot immediately** when you save — it appears in the competitor's history within seconds.
 2. The **next scheduled snapshot** runs on your plan's cycle.
 3. After the second snapshot, KompWatch compares the two and surfaces any differences.
 
