@@ -457,14 +457,19 @@ export default function PricingPage() {
     }
 
     setLoading(plan);
+    const billingPeriod = annual ? "annual" : "monthly";
     window.plausible?.("checkout-initiated", {
-      props: { plan, anchor_variant: anchorVariant },
+      props: {
+        plan,
+        anchor_variant: anchorVariant,
+        billing_period: billingPeriod,
+      },
     });
     try {
       const res = await fetch("/api/stripe/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ plan }),
+        body: JSON.stringify({ plan, billingPeriod }),
       });
 
       if (res.status === 401) {
