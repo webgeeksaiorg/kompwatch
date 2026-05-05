@@ -16,6 +16,7 @@ The demo loads a live sample dashboard with four pre-seeded competitors and real
 - A full **Changes Timeline** with sample CRITICAL, HIGH, MEDIUM, and LOW severity detections
 - The **Activity Heatmap** — the 26-week GitHub-style grid showing change volume over time
 - **Competitor detail pages** for each sample competitor, with snapshot history and AI-generated "Why this matters" context
+- **Expandable change rows** — click any change in the timeline to reveal the full AI-generated factual diff ("What changed") alongside the strategic context
 - **Digest preview** — the same email format you'd receive as a paying customer
 
 All data is read-only sample data. Nothing is scraped in real time and no real competitors are added.
