@@ -26,6 +26,21 @@ vi.mock("@/lib/db", () => ({
 
 vi.mock("@/lib/stripe", () => ({
   getStripe: () => mockStripe,
+  planFromStripePriceId: (priceId: string): "PRO" | "TEAM" | null => {
+    if (
+      priceId === process.env.STRIPE_PRICE_PRO ||
+      priceId === process.env.STRIPE_PRICE_PRO_ANNUAL
+    ) {
+      return "PRO";
+    }
+    if (
+      priceId === process.env.STRIPE_PRICE_TEAM ||
+      priceId === process.env.STRIPE_PRICE_TEAM_ANNUAL
+    ) {
+      return "TEAM";
+    }
+    return null;
+  },
 }));
 
 // Import after mocks
@@ -48,6 +63,8 @@ beforeEach(() => {
   process.env.STRIPE_WEBHOOK_SECRET = "whsec_test";
   process.env.STRIPE_PRICE_PRO = "price_pro";
   process.env.STRIPE_PRICE_TEAM = "price_team";
+  process.env.STRIPE_PRICE_PRO_ANNUAL = "price_pro_annual";
+  process.env.STRIPE_PRICE_TEAM_ANNUAL = "price_team_annual";
   // Default: event not yet processed
   mockDb.stripeEvent.findUnique.mockResolvedValue(null);
   mockDb.stripeEvent.create.mockResolvedValue({});
@@ -156,6 +173,42 @@ describe("POST /api/webhooks/stripe", () => {
       const res = await POST(makeRequest("{}") as never);
       expect(res.status).toBe(200);
       expect(mockDb.user.update).not.toHaveBeenCalled();
+    });
+
+    it("maps annual Pro price to PRO plan", async () => {
+      const event = stripeEvent("checkout.session.completed", {
+        customer: "cus_annual",
+        subscription: "sub_annual",
+      });
+      mockStripe.webhooks.constructEvent.mockReturnValue(event);
+      mockStripe.subscriptions.retrieve.mockResolvedValue({
+        items: { data: [{ price: { id: "price_pro_annual" } }] },
+      });
+
+      const res = await POST(makeRequest("{}") as never);
+      expect(res.status).toBe(200);
+      expect(mockDb.user.update).toHaveBeenCalledWith({
+        where: { stripeCustomerId: "cus_annual" },
+        data: { stripeSubscriptionId: "sub_annual", plan: "PRO" },
+      });
+    });
+
+    it("maps annual Team price to TEAM plan", async () => {
+      const event = stripeEvent("checkout.session.completed", {
+        customer: "cus_annual",
+        subscription: "sub_annual_team",
+      });
+      mockStripe.webhooks.constructEvent.mockReturnValue(event);
+      mockStripe.subscriptions.retrieve.mockResolvedValue({
+        items: { data: [{ price: { id: "price_team_annual" } }] },
+      });
+
+      const res = await POST(makeRequest("{}") as never);
+      expect(res.status).toBe(200);
+      expect(mockDb.user.update).toHaveBeenCalledWith({
+        where: { stripeCustomerId: "cus_annual" },
+        data: { stripeSubscriptionId: "sub_annual_team", plan: "TEAM" },
+      });
     });
 
     it("skips update for unknown price ID", async () => {

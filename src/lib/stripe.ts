@@ -44,6 +44,50 @@ export const PLANS = {
   },
 } as const;
 
+export type BillingPeriod = "monthly" | "annual";
+
+/**
+ * Resolve the Stripe price ID for a paid plan + billing period.
+ * Reads from process.env each call so production env-var rotation and tests
+ * don't get a stale snapshot. Falls back to monthly if annual isn't configured.
+ */
+export function getPriceId(
+  plan: "PRO" | "TEAM",
+  period: BillingPeriod
+): string | undefined {
+  const monthly =
+    plan === "PRO"
+      ? process.env.STRIPE_PRICE_PRO
+      : process.env.STRIPE_PRICE_TEAM;
+  if (period === "annual") {
+    const annual =
+      plan === "PRO"
+        ? process.env.STRIPE_PRICE_PRO_ANNUAL
+        : process.env.STRIPE_PRICE_TEAM_ANNUAL;
+    if (annual) return annual;
+  }
+  return monthly;
+}
+
+/** Reverse-map a Stripe price ID to its plan tier (covers monthly + annual). */
+export function planFromStripePriceId(
+  priceId: string
+): "PRO" | "TEAM" | null {
+  if (
+    priceId === process.env.STRIPE_PRICE_PRO ||
+    priceId === process.env.STRIPE_PRICE_PRO_ANNUAL
+  ) {
+    return "PRO";
+  }
+  if (
+    priceId === process.env.STRIPE_PRICE_TEAM ||
+    priceId === process.env.STRIPE_PRICE_TEAM_ANNUAL
+  ) {
+    return "TEAM";
+  }
+  return null;
+}
+
 import type { Plan } from "@prisma/client";
 
 export function planAllowsWebhooks(plan: Plan): boolean {

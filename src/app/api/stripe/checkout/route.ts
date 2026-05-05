@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCurrentUser } from "@/lib/auth";
-import { getStripe, PLANS } from "@/lib/stripe";
+import { getStripe, getPriceId, type BillingPeriod } from "@/lib/stripe";
 import { db } from "@/lib/db";
 
 export async function POST(req: NextRequest) {
@@ -9,13 +9,17 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const { plan } = await req.json();
+  const body = await req.json().catch(() => ({}));
+  const plan = body?.plan;
+  const rawPeriod = body?.billingPeriod;
+  const billingPeriod: BillingPeriod =
+    rawPeriod === "annual" ? "annual" : "monthly";
 
   if (plan !== "PRO" && plan !== "TEAM") {
     return NextResponse.json({ error: "Invalid plan" }, { status: 400 });
   }
 
-  const priceId = PLANS[plan as "PRO" | "TEAM"].priceId;
+  const priceId = getPriceId(plan as "PRO" | "TEAM", billingPeriod);
   if (!priceId) {
     return NextResponse.json(
       { error: "Price not configured" },
@@ -47,7 +51,7 @@ export async function POST(req: NextRequest) {
     success_url: `${baseUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${baseUrl}/pricing`,
     subscription_data: {
-      metadata: { userId: user.id },
+      metadata: { userId: user.id, billingPeriod },
     },
     allow_promotion_codes: true,
   });

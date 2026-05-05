@@ -1,13 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
-import { getStripe } from "@/lib/stripe";
+import { getStripe, planFromStripePriceId } from "@/lib/stripe";
 import { db } from "@/lib/db";
 
-// Map Stripe price IDs to plan tiers
+// Map Stripe price IDs to plan tiers (covers both monthly and annual prices).
 function planFromPriceId(priceId: string): "PRO" | "TEAM" | null {
-  if (priceId === process.env.STRIPE_PRICE_PRO) return "PRO";
-  if (priceId === process.env.STRIPE_PRICE_TEAM) return "TEAM";
-  return null;
+  return planFromStripePriceId(priceId);
 }
 
 async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
