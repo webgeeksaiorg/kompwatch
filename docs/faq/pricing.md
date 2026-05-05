@@ -33,7 +33,7 @@ The pricing page shows **annual pricing by default** — this reflects the disco
 
 You can toggle between Annual and Monthly pricing on the [pricing page](https://kompwatch.com/pricing).
 
-> **Note:** Checkout currently processes as monthly billing. Annual billing is coming soon — if you'd like to lock in the discounted rate now, email [support@kompwatch.com](mailto:support@kompwatch.com).
+Selecting **Annual** on the pricing page will charge you at the discounted yearly rate (billed as a single annual payment). Select **Monthly** if you prefer to pay month-to-month.
 
 ## Do I Need a Credit Card to Sign Up?
 
