@@ -13,7 +13,7 @@ You can explore a fully interactive demo of KompWatch at [kompwatch.com/demo](ht
 
 The demo loads a live sample dashboard with four pre-seeded competitors and real-looking data:
 
-- A full **Changes Timeline** with sample CRITICAL, HIGH, MEDIUM, and LOW severity detections
+- A full **Changes Timeline** with sample CRITICAL, HIGH, MEDIUM, and LOW severity detections — click any row to expand it and see the AI factual context inline
 - The **Activity Heatmap** — the 26-week GitHub-style grid showing change volume over time
 - **Competitor detail pages** for each sample competitor, with snapshot history and AI-generated "Why this matters" context
 - **Expandable change rows** — click any change in the timeline to reveal the full AI-generated factual diff ("What changed") alongside the strategic context

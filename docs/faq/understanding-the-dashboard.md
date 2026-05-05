@@ -51,6 +51,8 @@ Each change card shows:
 - **Why this matters** — a strategic context line explaining what the change means for your positioning, pricing, sales, or roadmap. For example, if a competitor drops their free tier, you might see: *"Competitors on tight budgets who relied on that free plan are now in the market — a strong moment to run a targeted trial offer."* This is generated automatically; no setup required.
 - **Detected at** — when KompWatch spotted the change
 
+**Expanding a change row:** Click any change row to expand it inline and reveal the full AI factual context — the raw "what changed" detail that underlies the AI summary. This is useful when you want the exact wording difference, not just the interpretation. Click the row again to collapse it.
+
 ## Activity Heatmap
 
 The **Activity** heatmap near the top of your dashboard shows a 26-week (6-month) view of competitor change volume — styled like a GitHub contribution graph.
