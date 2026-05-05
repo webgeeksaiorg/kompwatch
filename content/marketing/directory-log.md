@@ -14,6 +14,80 @@ Tracks where KompWatch has been submitted for listing/discovery.
 | — | awesome-saas-tools | pending | — |
 | — | awesome-competitive-intelligence | pending | GitHub repo: github.com/aj-dev-sys/awesome-competitive-intelligence — add KompWatch as headless-browser-based option |
 
+## Keyword Research — 2026-05-05 (Tuesday cycle, run 6 — evening)
+
+**Fresh data from WebSearch (May 2026):**
+- **Public /changelog page shipped tonight** (19:12) — timeline-style, public, no login. Building-in-public angle: product teams can hold you accountable. New content angle not covered in run 5.
+- **Competitor changelog pages change every 3 days median** (Visualping, 12K tracking jobs) — fastest-moving public surface on SaaS sites. Higher than pricing pages (7-day median). New data, not used before.
+- **70% of changelog pages changed in 30-day window** — vs. 42% for pricing pages. Changelogs are the highest-signal surface most teams never watch.
+- **65 hours/year** — cost of manually checking 5 competitor changelogs weekly (15-20 min each). Friday ritual problem framing.
+- **"Post-Feature Era" framing** (Futurum Group 2026) — trust and transparency now outweigh feature count for enterprise buyers. Public changelog = trust signal.
+- **Klue 250,000+ users** — still deepening enterprise focus (Compete Agent). SMB lane stays wide open.
+
+**Content produced this cycle (Tuesday May 5, evening):**
+- `twitter/2026-05-05-changelog-shipped.md` — /changelog shipped building-in-public (8/10, READY)
+- `twitter/2026-05-09-competitor-changelogs-signal.md` — 3-day stat, changelog as CI signal (8.5/10, READY) — Saturday
+- `twitter/2026-05-11-65-hours-year.md` — 65hr/year manual CI cost (8/10, READY) — Monday
+- `twitter/2026-05-11-public-changelog-trust.md` — changelog as trust signal pre-purchase (8/10, READY) — Monday
+- `twitter/2026-05-11-reply-what-changelogs-reveal.md` — 3 things changelogs reveal (8/10, READY) — Monday
+- `twitter/2026-05-11-reply-friday-ci-ritual.md` — Friday tab-switching ritual (7.5/10, READY) — Monday
+- `twitter/2026-05-11-reply-changelog-vs-blog.md` — changelog honesty vs. blog marketing (7.5/10, READY) — Monday
+- `twitter/2026-05-11-reply-changelog-silence.md` — silence as a signal (7.5/10, READY) — Monday
+- `twitter/2026-05-11-reply-70pct-changed.md` — 70% changelog change rate stat (8/10, READY) — Monday
+- `linkedin/2026-05-11-competitor-changelog-65hrs.md` — 65hrs/year LinkedIn post (8/10, READY) — Monday
+- `reddit/2026-05-11-comment-competitor-changelog-workflow.md` — r/SaaS changelog monitoring workflow (8/10, READY) — Monday
+- `reddit/2026-05-11-comment-changelog-as-ci-signal.md` — r/ProductManagement changelog CI signals (8/10, READY) — Monday
+- `blog/2026-05-12-how-to-track-competitor-changelogs.md` — ~1300 word SEO article, "track competitor changelogs" (8.5/10, READY) — Tuesday
+
+**Publishing status:** TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, GHOST_ADMIN_API_KEY all still missing. All platforms blocked. Content accumulating in queue. Queue now stocked through May 12.
+
+---
+
+## Keyword Research — 2026-05-05 (Tuesday cycle, run 5)
+
+**Fresh data from WebSearch (May 2026):**
+- **Klue + Microsoft 365 deep integration** (Feb 2026) — Teams Calls, Teams Chat, Dynamics 365, Copilot MCP Server. Klue moving further upmarket; requires full Microsoft enterprise stack for full value. New angle not previously covered.
+- **Crayon cost-per-competitor math** — at $30K/yr tracking 5 competitors = $6,000 per competitor per year. Quotable and specific.
+- **2.8-hour median check frequency** (Visualping, 9,705 active monitors) — reconfirmed. Most tools check daily = 13-hour blind spot framing.
+- **$400K/yr labor cost** — 50-person sales team doing manual CI research burns $400K/year (G2/Improvado). CI tool subscription ($30K) is 7.5% of that.
+- **32% → 67% win rate** when battlecard intel delivered within 27 minutes of competitor mention. 109% relative lift.
+- **KompWatch /demo page shipped** (ticket 4282) — no-signup interactive demo. Building-in-public angle for Twitter.
+
+**Content produced this cycle (Tuesday May 5):**
+- `twitter/2026-05-05-klue-microsoft365-drift.md` — Klue enterprise dependency angle (8/10, READY)
+- `twitter/2026-05-05-demo-page-shipped.md` — /demo page building-in-public (8/10, READY)
+- Pre-staged content confirmed ready: `twitter/2026-05-05-pricing-pages-42pct.md` (8.5/10), `twitter/2026-05-05-ubp-blindspot.md` (8/10), `twitter/2026-05-05-win-rate-monitoring.md` (8/10), 5x replies (7.5–8/10)
+- Pre-staged Reddit: `reddit/2026-05-05-comment-42pct-pricing-changes.md` (8/10), `reddit/2026-05-05-post-battlecard-freshness.md` (8.5/10)
+- Blog updated to READY: `blog/2026-05-05-what-adobe-buying-semrush-means-for-small-teams.md` (8/10)
+
+**Publishing status:** TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, GHOST_ADMIN_API_KEY all still missing. All platforms blocked. Content accumulating in queue.
+
+---
+
+## Keyword Research — 2026-05-04 (Monday cycle, run 4)
+
+**Fresh data from WebSearch (May 2026):**
+- **Activity heatmap shipped today** (ticket d86c) — GitHub-style 26-week grid for competitor changes. Reveals competitor sprint/quiet cycles visually. Strong building-in-public angle.
+- **Visualping 42% stat reconfirmed** — 9,705 active pricing monitors, 42% flagged change in 30-day window. Pricing pages change at 16.3% per check vs. 11% for news pages. Not yet used as a tweet hook today (prior May 4 cycles used the per-check stat; today's run used the monthly stat for fresh angle).
+- **Crayon Vendr median $28,750/yr** — renewal surprise angle: nobody knows their contract range until the renewal call ($12K–$47K). Hostage negotiation framing is fresh.
+- **SPA rendering still the gap** — Playwright needed to avoid "empty div" monitoring failures on React/Next.js competitor sites. Ongoing honesty angle.
+
+**Content produced this cycle (Monday May 4, run 4):**
+- `twitter/2026-05-04-heatmap-shipped.md` — building in public, heatmap patterns (8/10, READY)
+- `twitter/2026-05-04-pricing-page-stat.md` — 42% monthly pricing page change stat (8/10, READY)
+- `twitter/2026-05-04-reply-pricing-change-frequency.md` — how often pricing pages change (7/10, READY)
+- `twitter/2026-05-04-reply-spa-rendering-honest.md` — Playwright/SPA honest limitation (7/10, READY)
+- `twitter/2026-05-04-reply-crayon-renewal-shock.md` — Crayon renewal surprise math (8/10, READY)
+- `twitter/2026-05-04-reply-what-heatmap-shows.md` — competitor activity patterns over time (8/10, READY)
+- `twitter/2026-05-04-reply-indie-build-update.md` — building in public update, features shipped (7/10, READY)
+- `reddit/2026-05-04-comment-heatmap-patterns.md` — r/SaaS activity pattern intelligence (8/10, READY)
+- `reddit/2026-05-04-comment-pricing-page-frequency.md` — r/ProductManagement pricing monitoring workflow (8/10, READY)
+- `linkedin/2026-05-04-heatmap-what-it-reveals.md` — heatmap + release cadence intelligence (8/10, READY)
+
+**Publishing status:** TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET all still missing. All platforms blocked. Content accumulating in queue.
+
+---
+
 ## Keyword Research — 2026-05-04 (Monday cycle, run 2)
 
 **Fresh data from WebSearch (May 2026):**
