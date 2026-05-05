@@ -7,14 +7,17 @@ import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 const siteUrl = "https://kompwatch.com";
 
 export const metadata: Metadata = {
-  title: "Crayon Alternative — KompWatch vs Crayon (Honest Comparison)",
+  title: "Priced Out by Crayon? KompWatch vs Crayon (Honest Comparison)",
   description:
-    "Looking for a Crayon alternative? KompWatch tracks competitor pricing, features, blogs, and job listings with AI digests — starting at $49/mo (vs Crayon's $5K–$80K+/yr). No sales call required.",
+    "Crayon was acquired by SoftwareOne for $1.4B in April 2026. If your renewal is up or your contract priced you out, KompWatch tracks the same competitor signals from $49/mo — self-serve, no sales call.",
   keywords: [
     "Crayon alternative",
     "Crayon vs KompWatch",
     "Crayon competitor",
     "Crayon pricing",
+    "Crayon SoftwareOne acquisition",
+    "Crayon renewal alternative",
+    "priced out of Crayon",
     "competitive intelligence software",
     "competitor monitoring tool",
     "Crayon competitive intelligence alternative",
@@ -23,17 +26,17 @@ export const metadata: Metadata = {
     canonical: `${siteUrl}/vs-crayon`,
   },
   openGraph: {
-    title: "KompWatch vs Crayon — Same Insights, Fraction of the Cost",
+    title: "Priced Out by Crayon? KompWatch — Same Insights, Fraction of the Cost",
     description:
-      "Honest side-by-side: KompWatch ($49/mo, self-serve) vs Crayon ($5K–$80K+/yr, sales-call gated). See feature, pricing, and onboarding comparison.",
+      "Crayon's median contract is $28,750/yr and they were acquired by SoftwareOne in April 2026. KompWatch is the independent self-serve alternative from $49/mo.",
     url: `${siteUrl}/vs-crayon`,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "KompWatch vs Crayon — Honest Comparison",
+    title: "Priced Out by Crayon? — Honest Comparison",
     description:
-      "Crayon starts at $5K/yr and scales to $80K+/yr — requires a sales call. KompWatch starts at $49/mo with self-serve signup. See the full feature comparison.",
+      "Crayon's median contract: $28,750/yr. Just acquired by SoftwareOne for $1.4B. KompWatch is the independent alternative — $49/mo, self-serve, no sales call.",
   },
 };
 
@@ -44,8 +47,9 @@ const comparisonRows: {
   kompwatch: CellValue;
   crayon: CellValue;
 }[] = [
-  { feature: "Starting price", kompwatch: "Free / $49/mo", crayon: "$5K–$80K+/yr" },
-  { feature: "Annual cost (small team)", kompwatch: "$588/yr", crayon: "$5,000+/yr" },
+  { feature: "Starting price", kompwatch: "Free / $49/mo", crayon: "$5K–$80K+/yr (quote)" },
+  { feature: "Annual cost (median, vendr.com)", kompwatch: "$588/yr", crayon: "$28,750/yr" },
+  { feature: "Independent vendor", kompwatch: true, crayon: "Owned by SoftwareOne (Apr 2026)" },
   { feature: "Self-serve signup", kompwatch: true, crayon: false },
   { feature: "No sales call required", kompwatch: true, crayon: false },
   { feature: "Free plan", kompwatch: true, crayon: false },
@@ -114,17 +118,33 @@ export default function VsCrayonPage() {
         </nav>
       </header>
 
+      {/* Acquisition banner */}
+      <div className="border-b border-amber-100 bg-amber-50">
+        <div className="mx-auto flex max-w-6xl items-center justify-center gap-2 px-6 py-2 text-center text-xs text-amber-900 sm:text-sm">
+          <span aria-hidden="true">⚠</span>
+          <span>
+            <strong>April 2026:</strong> Crayon was acquired by SoftwareOne for{" "}
+            <strong>$1.4B</strong>.{" "}
+            <Link href="/switching-from-crayon" className="underline underline-offset-2 hover:text-amber-700">
+              See what it means for your renewal &rarr;
+            </Link>
+          </span>
+        </div>
+      </div>
+
       {/* Hero */}
       <section className="mx-auto max-w-4xl px-6 pb-16 pt-20 text-center">
         <div className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700">
-          Crayon alternative
+          Priced out of Crayon? Renewal coming up?
         </div>
         <h1 className="mt-6 text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl">
           KompWatch vs Crayon{" "}
           <span className="text-brand-600">— same insights, fraction of the cost</span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
-          Crayon is a powerful enterprise tool — but plans run $5K–$80K+/yr with a multi-week sales cycle.
+          Crayon&rsquo;s median customer pays{" "}
+          <strong className="text-gray-900">$28,750/yr</strong> (vendr.com data) and just got acquired by
+          SoftwareOne — a $4B IT-services consolidator with a public CHF 80–100M cost-synergy target.
           KompWatch tracks the same competitor signals (pricing, features, blogs, jobs) starting at{" "}
           <strong className="text-gray-900">$49/mo</strong>, with self-serve signup in under 2 minutes.
         </p>
@@ -178,12 +198,12 @@ export default function VsCrayonPage() {
             </div>
             <div className="rounded-xl border border-gray-200 bg-white p-6">
               <div className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-                Crayon (entry tier)
+                Crayon (median contract)
               </div>
               <div className="mt-2 text-4xl font-bold text-gray-900">
-                $5K<span className="text-lg font-normal text-gray-500">/yr</span>
+                $28,750<span className="text-lg font-normal text-gray-500">/yr</span>
               </div>
-              <div className="mt-1 text-sm text-gray-500">Up to $80K+/yr for full team plans</div>
+              <div className="mt-1 text-sm text-gray-500">Range: $5K (entry) to $80K+/yr (team plans)</div>
               <ul className="mt-6 space-y-2 text-sm text-gray-700">
                 <li>· Quote-only pricing</li>
                 <li>· Sales call required</li>
@@ -193,9 +213,103 @@ export default function VsCrayonPage() {
             </div>
           </div>
           <p className="mt-6 text-center text-xs text-gray-500">
-            That&rsquo;s an <strong className="text-gray-900">8&times;–136&times; price difference</strong>{" "}
-            for the same core competitive intelligence — without the sales process.
+            That&rsquo;s a <strong className="text-gray-900">~49&times; price difference</strong>{" "}
+            at the median &mdash; for the same core competitive intelligence, without the sales process.
           </p>
+        </div>
+      </section>
+
+      {/* Why teams are leaving Crayon — priced-out angle */}
+      <section className="border-b border-gray-100 py-20">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+              Why teams are leaving Crayon in 2026
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-sm text-gray-600">
+              Three things changed this year. Each of them shifts the math for small and mid-size teams.
+            </p>
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
+            <div className="rounded-xl border border-amber-200 bg-amber-50/50 p-6">
+              <div className="text-xs font-semibold uppercase tracking-wide text-amber-700">
+                April 2026
+              </div>
+              <h3 className="mt-2 text-lg font-semibold text-gray-900">
+                $1.4B SoftwareOne acquisition
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-gray-600">
+                Crayon is now a niche product inside a $4B IT-services rollup. Niche tools inside
+                large consolidators historically see slower roadmaps, enterprise-only pivots, and
+                packaging changes that nudge SMB customers upmarket — or out.
+              </p>
+              <p className="mt-3 text-xs text-gray-500">
+                If you&rsquo;re mid-contract, read the change-of-control clause.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-amber-200 bg-amber-50/50 p-6">
+              <div className="text-xs font-semibold uppercase tracking-wide text-amber-700">
+                Cost synergies
+              </div>
+              <h3 className="mt-2 text-lg font-semibold text-gray-900">
+                CHF 80–100M target in 18 months
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-gray-600">
+                SoftwareOne publicly committed to CHF 80–100M in annual cost savings within 18
+                months of close. That money comes from somewhere — usually some mix of headcount,
+                support functions, product investment, and pricing.
+              </p>
+              <p className="mt-3 text-xs text-gray-500">
+                Not the vibe you want from a vendor on a 3-year contract.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-amber-200 bg-amber-50/50 p-6">
+              <div className="text-xs font-semibold uppercase tracking-wide text-amber-700">
+                Renewal math
+              </div>
+              <h3 className="mt-2 text-lg font-semibold text-gray-900">
+                $28,750/yr median contract
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-gray-600">
+                Crayon&rsquo;s median customer paid <strong className="text-gray-900">$28,750/yr</strong>{" "}
+                in 2025 (vendr.com data). Annual contract, sales-call gated, multi-week onboarding.
+                For a 3-person CI function or a founder doing it themselves, that&rsquo;s 49&times; what
+                KompWatch Pro costs for comparable monitoring.
+              </p>
+              <p className="mt-3 text-xs text-gray-500">
+                $49/mo vs $2,400/mo. Cancel anytime.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-10 rounded-2xl border border-gray-200 bg-gray-50 p-6 text-center sm:p-8">
+            <p className="text-sm font-medium text-gray-700">
+              Renewal coming up in the next 90 days?
+            </p>
+            <p className="mx-auto mt-2 max-w-xl text-sm text-gray-600">
+              Run KompWatch alongside Crayon for a full digest cycle. If the same signals land in
+              your inbox without the noise — don&rsquo;t renew. Most teams switch within one cycle.
+            </p>
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
+              <TrackedCTA
+                href="/login"
+                event="Priced Out CTA Click"
+                eventProps={{ competitor: "Crayon", section: "why-leaving" }}
+                className="inline-block rounded-lg bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
+              >
+                Start free — run side by side
+              </TrackedCTA>
+              <Link
+                href="/switching-from-crayon"
+                className="text-sm font-semibold text-gray-900 hover:text-brand-600"
+              >
+                See migration guide &rarr;
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -437,8 +551,16 @@ export default function VsCrayonPage() {
         competitor="Crayon"
         faqs={[
           {
+            question: "Crayon priced me out at renewal — what are my options?",
+            answer: "Crayon's median customer pays $28,750/yr (vendr.com data) and renewal-cycle increases of 10–25% are common — especially after the SoftwareOne acquisition closed in April 2026 with a public CHF 80–100M cost-synergy target. KompWatch Pro is $49/mo ($588/yr) with the same core monitoring (pricing, features, blogs, jobs, AI digests, Slack alerts) and no annual contract. Most teams sign up free, run both tools side-by-side for one digest cycle, then don't renew.",
+          },
+          {
+            question: "Crayon was acquired by SoftwareOne — should I be worried?",
+            answer: "It depends on your contract length and segment. Niche tools inside large IT-services consolidators historically see slower roadmaps, enterprise-only pivots, and packaging changes that nudge SMB customers upmarket. SoftwareOne publicly committed to CHF 80–100M in cost savings within 18 months — that comes from headcount, support, product investment, or pricing. If you're mid-contract, read the change-of-control clause. If your renewal is coming up, this is a natural time to evaluate independent alternatives.",
+          },
+          {
             question: "How much does Crayon cost?",
-            answer: "Crayon pricing is quote-based and requires a sales call. Based on public data from vendr.com and G2 reviews (April 2026), plans range from $5,000/yr to $80,000+/yr depending on team size and features. KompWatch starts at $49/mo ($588/yr) with self-serve signup.",
+            answer: "Crayon pricing is quote-based and requires a sales call. Public data from vendr.com puts the median annual contract at $28,750/yr in 2025; G2 reviews and broker data show the range running from ~$5,000/yr (entry) to $80,000+/yr (full team plans). KompWatch starts at $49/mo ($588/yr) with self-serve signup — roughly 49× lower than the Crayon median.",
           },
           {
             question: "What is the difference between KompWatch and Crayon?",
