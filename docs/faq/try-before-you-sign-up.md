@@ -1,5 +1,12 @@
 # Try KompWatch Before You Sign Up
 
+There are two ways to see KompWatch without creating an account:
+
+1. **60-second video** — on the [homepage](https://kompwatch.com), scroll to "See it in action" and click Play. Captions are included; no audio required.
+2. **Interactive demo** — explore the full product at [kompwatch.com/demo](https://kompwatch.com/demo) — no account, no credit card, no email required.
+
+---
+
 You can explore a fully interactive demo of KompWatch at [kompwatch.com/demo](https://kompwatch.com/demo) — no account, no credit card, no email required.
 
 ## What's in the Demo
