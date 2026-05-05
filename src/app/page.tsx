@@ -3,6 +3,7 @@ import { HeroCTA, HeroSecondaryCTA } from "./hero-cta";
 import { HeroHeadline } from "./hero-headline";
 import { HeroSubheadline } from "./hero-subheadline";
 import { TrackedCTA } from "@/components/tracked-cta";
+import { DemoVideo } from "@/components/marketing/demo-video";
 import { OrganizationSchema } from "@/components/organization-schema";
 import { WebSiteSchema } from "@/components/website-schema";
 import { SoftwareApplicationSchema } from "@/components/software-schema";
@@ -300,6 +301,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Demo Video */}
+      <DemoVideo />
 
       {/* Features */}
       <section id="features" className="border-t border-gray-100 bg-gray-50 py-24">

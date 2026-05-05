@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ActivityHeatmap } from "@/components/dashboard/activity-heatmap";
 import { TrackedCTA } from "@/components/tracked-cta";
+import { ExpandableChange } from "./expandable-change";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -36,22 +37,6 @@ export const metadata: Metadata = {
 };
 
 // --- Mock data ---
-
-const SEVERITY_COLORS: Record<string, string> = {
-  LOW: "bg-gray-100 text-gray-600",
-  MEDIUM: "bg-blue-100 text-blue-700",
-  HIGH: "bg-orange-100 text-orange-700",
-  CRITICAL: "bg-red-100 text-red-700",
-};
-
-const CHANGE_TYPE_LABELS: Record<string, string> = {
-  PRICING: "Pricing",
-  FEATURE: "Feature",
-  BLOG: "Blog",
-  JOB: "Jobs",
-  TECH: "Tech",
-  GENERAL: "General",
-};
 
 const demoCompetitors = [
   {
@@ -177,16 +162,6 @@ function generateHeatmapData(): { date: string; count: number }[] {
     }
   }
   return data;
-}
-
-const IMPLICATION_PREFIX_REGEX = /(?:^|\n)\s*(?:what this means (?:for you|for your team)|why this matters)\s*:\s*/i;
-
-function splitDetails(details: string): { factual: string; implication: string | null } {
-  const match = IMPLICATION_PREFIX_REGEX.exec(details);
-  if (!match) return { factual: details.trim(), implication: null };
-  const factual = details.slice(0, match.index).trim();
-  const implication = details.slice(match.index + match[0].length).trim();
-  return { factual, implication: implication || null };
 }
 
 function timeAgo(date: Date): string {
@@ -383,6 +358,9 @@ export default function DemoPage() {
             <h2 className="text-lg font-semibold text-gray-900">
               Recent changes
             </h2>
+            <span className="text-xs text-gray-400">
+              Click a change to expand
+            </span>
           </div>
 
           <div className="relative">
@@ -390,73 +368,9 @@ export default function DemoPage() {
             <div className="absolute left-[15px] top-2 bottom-2 w-px bg-gray-200" />
 
             <div className="space-y-4">
-              {demoChanges.map((change) => {
-                const { implication } = splitDetails(change.details);
-                return (
-                  <div key={change.id} className="relative flex gap-4 pl-9">
-                    {/* Timeline dot */}
-                    <div
-                      className={`absolute left-[11px] top-2 h-2.5 w-2.5 rounded-full ring-2 ring-white ${
-                        change.severity === "CRITICAL"
-                          ? "bg-red-500"
-                          : change.severity === "HIGH"
-                            ? "bg-orange-500"
-                            : change.severity === "MEDIUM"
-                              ? "bg-blue-500"
-                              : "bg-gray-400"
-                      }`}
-                    />
-
-                    <div className="flex-1 rounded-lg border border-gray-200 bg-white px-3 py-2.5 sm:px-4 sm:py-3">
-                      <div className="flex flex-wrap items-center justify-between gap-1">
-                        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-                          <span className="text-sm font-medium text-gray-900">
-                            {change.competitor.name}
-                          </span>
-                          <span
-                            className={`inline-flex rounded-full px-2 py-0.5 text-[10px] font-medium ${
-                              SEVERITY_COLORS[change.severity] ||
-                              SEVERITY_COLORS.LOW
-                            }`}
-                          >
-                            {CHANGE_TYPE_LABELS[change.changeType] ||
-                              change.changeType}
-                          </span>
-                          <span
-                            className={`inline-flex rounded-full px-1.5 py-0.5 text-[10px] font-medium ${
-                              SEVERITY_COLORS[change.severity] ||
-                              SEVERITY_COLORS.LOW
-                            }`}
-                          >
-                            {change.severity}
-                          </span>
-                        </div>
-                        <span className="text-xs text-gray-400">
-                          {timeAgo(change.createdAt)}
-                        </span>
-                      </div>
-                      <p className="mt-1 text-sm text-gray-600">
-                        {change.summary}
-                      </p>
-                      {implication && (
-                        <div className="mt-2 rounded-md border-l-2 border-brand-300 bg-brand-50/60 px-2.5 py-1.5">
-                          <p className="text-[11px] font-semibold uppercase tracking-wide text-brand-700">
-                            Why this matters
-                          </p>
-                          <p className="mt-0.5 text-xs text-gray-700">
-                            {implication}
-                          </p>
-                        </div>
-                      )}
-                      {change.pageUrl && (
-                        <span className="mt-1 inline-block text-xs text-brand-600">
-                          View page &rarr;
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
+              {demoChanges.map((change) => (
+                <ExpandableChange key={change.id} change={change} />
+              ))}
             </div>
           </div>
         </div>

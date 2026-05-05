@@ -1,5 +1,12 @@
 # Try KompWatch Before You Sign Up
 
+There are two ways to see KompWatch without creating an account:
+
+1. **60-second video** — on the [homepage](https://kompwatch.com), scroll to "See it in action" and click Play. Captions are included; no audio required.
+2. **Interactive demo** — explore the full product at [kompwatch.com/demo](https://kompwatch.com/demo) — no account, no credit card, no email required.
+
+---
+
 You can explore a fully interactive demo of KompWatch at [kompwatch.com/demo](https://kompwatch.com/demo) — no account, no credit card, no email required.
 
 ## What's in the Demo
@@ -9,6 +16,7 @@ The demo loads a live sample dashboard with four pre-seeded competitors and real
 - A full **Changes Timeline** with sample CRITICAL, HIGH, MEDIUM, and LOW severity detections
 - The **Activity Heatmap** — the 26-week GitHub-style grid showing change volume over time
 - **Competitor detail pages** for each sample competitor, with snapshot history and AI-generated "Why this matters" context
+- **Expandable change rows** — click any change in the timeline to reveal the full AI-generated factual diff ("What changed") alongside the strategic context
 - **Digest preview** — the same email format you'd receive as a paying customer
 
 All data is read-only sample data. Nothing is scraped in real time and no real competitors are added.
