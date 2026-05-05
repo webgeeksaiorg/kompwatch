@@ -2,6 +2,10 @@
 
 Welcome! This guide walks you through setup so you're tracking competitors and receiving change alerts within minutes.
 
+## Want to Look Around First?
+
+Visit [kompwatch.com/demo](https://kompwatch.com/demo) for a fully interactive demo — no sign-up required. It loads a sample dashboard with four competitors and real-looking change data so you can explore before committing. See [Try KompWatch Before You Sign Up](try-before-you-sign-up.md).
+
 ## Step 1: Sign In
 
 Go to [kompwatch.com/login](https://kompwatch.com/login) and enter your email. We'll send a **magic link** — a one-click login, no password required.
