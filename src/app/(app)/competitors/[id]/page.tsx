@@ -3,6 +3,7 @@ import { requireAuth } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { splitChangeDetails } from "@/lib/change-context";
 import { ExportChangesButton } from "@/components/dashboard/export-changes-button";
+import { BattlecardButton } from "@/components/dashboard/battlecard-button";
 
 const SEVERITY_COLORS: Record<string, string> = {
   LOW: "bg-gray-100 text-gray-600",
@@ -163,6 +164,7 @@ export default async function CompetitorDetailPage({
           </h2>
           {competitor.changes.length > 0 && (
             <div className="flex items-center gap-2">
+              <BattlecardButton competitorId={competitor.id} />
               <ExportChangesButton competitorId={competitor.id} format="csv" />
               <ExportChangesButton competitorId={competitor.id} format="json" />
             </div>

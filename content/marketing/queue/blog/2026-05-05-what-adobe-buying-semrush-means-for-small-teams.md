@@ -1,7 +1,7 @@
 ---
 platform: blog
 type: article
-status: draft
+status: ready
 score: 8/10
 keywords: [Adobe Semrush acquisition, Kompyte alternative, competitive intelligence tools 2026, competitor monitoring small team]
 ---
