@@ -1,34 +1,44 @@
-# Command Palette (Cmd+K)
+# Using the Command Palette (Cmd+K)
 
-KompWatch includes a keyboard-driven command palette for quick navigation and actions — no mouse required.
+**Category:** Dashboard & Navigation
 
-## Opening the Command Palette
+## What is the command palette?
 
-Press **Cmd+K** (Mac) or **Ctrl+K** (Windows/Linux) from anywhere in the app to open it.
+The command palette is a keyboard-driven search bar that lets you navigate KompWatch and trigger common actions without reaching for the mouse. Press **Cmd+K** (Mac) or **Ctrl+K** (Windows/Linux) from anywhere in the app to open it.
 
-## What You Can Do
+## How do I open and close it?
 
-The command palette gives you instant access to:
+- **Open:** Press **Cmd+K** (Mac) or **Ctrl+K** (Windows/Linux)
+- **Close:** Press **Escape**, or press **Cmd+K** / **Ctrl+K** again
+- **Navigate results:** ↑ / ↓ arrow keys
+- **Select:** Press **Enter**
 
-- **Navigate** — jump to Dashboard, Competitors, Digests, Settings, Pricing, Changelog, FAQ
-- **Actions** — add a new competitor, open your billing portal
-- **Search** — fuzzy search across all available commands as you type
+## What can I do with it?
 
-Start typing to filter the list. Results update instantly.
+**Navigate to pages:**
+| Command | Destination |
+|---|---|
+| Dashboard | Overview, activity heatmap, recent changes |
+| Competitors | Your tracked competitor list |
+| Digests | Email digest history |
+| Settings | Profile, billing, notifications, webhooks |
 
-## Keyboard Navigation
+**Quick actions:**
+| Command | What it does |
+|---|---|
+| Add competitor | Go to competitor creation flow |
+| Manage billing | Jump to billing settings (Stripe portal) |
+| View changelog | See the KompWatch product changelog |
+| Help & FAQ | Open the FAQ knowledge base |
 
-| Key | Action |
-|-----|--------|
-| `Cmd+K` / `Ctrl+K` | Open palette |
-| `↑` / `↓` | Move between results |
-| `Enter` | Execute selected command |
-| `Esc` | Close palette |
+## Can I search for commands?
 
-## Why Use It?
+Yes. Just start typing after opening the palette — it searches by label and keyword. For example, typing "billing" surfaces both the Settings page and the Manage billing quick action.
 
-If you're frequently switching between competitors or checking digests, the command palette cuts navigation time significantly — especially on larger Team plans where you're monitoring many competitors.
+## Is there a way to add competitors directly from the palette?
 
-## Availability
+The **Add competitor** action navigates to the competitor creation page. From there you can paste a URL and configure what to monitor.
 
-The command palette is available to all logged-in users on all plan tiers. It is not available on public pages (landing page, /demo, etc.).
+## I don't see the command palette — where is it?
+
+The command palette is only available inside the authenticated app (dashboard, competitors, digests, settings pages). It is not present on public marketing pages.
