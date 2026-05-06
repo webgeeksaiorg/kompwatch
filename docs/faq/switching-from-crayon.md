@@ -54,9 +54,9 @@ If you're mid-contract with Crayon and want to evaluate before renewal, KompWatc
 
 ## What About Battlecards?
 
-Battlecard generation is on the KompWatch roadmap but not yet shipped. If battlecards are your primary Crayon use case, KompWatch is not a full replacement today.
+KompWatch now includes one-click battlecard export. From any competitor's detail page, click **Export Battlecard** to download a formatted HTML battlecard — pre-structured with an overview, key intel (HIGH/CRITICAL changes), and full change log. Open in any browser or print to PDF.
 
-That said, many teams use KompWatch for automated monitoring and manage battlecards manually or with a lighter tool. KompWatch digests give your team the raw signals (pricing changes, feature launches, messaging shifts, hiring signals) — the battlecard synthesis is something you layer on top.
+If you relied on Crayon's CRM-embedded battlecards with Salesforce sync, that specific workflow isn't replicated yet. Most teams switching from Crayon use the HTML export for sharing and manage their CRM battlecard templates separately.
 
 ## Questions About the Switch?
 

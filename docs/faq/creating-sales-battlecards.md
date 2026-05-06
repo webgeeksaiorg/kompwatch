@@ -46,9 +46,26 @@ Klue and Crayon include battlecard generation with a Salesforce-native workflow.
 
 What KompWatch does replace: the underlying monitoring that powers those platforms, at 1–2% of the cost. Many teams use KompWatch for continuous competitor monitoring and author battlecards in their existing sales enablement tool — keeping the formats they've already trained reps on.
 
-## Battlecard Export Is on the Roadmap
+## One-Click Battlecard Export
 
-One-click battlecard export (PDF and PowerPoint) is planned. If this is important to your workflow, email [support@kompwatch.com](mailto:support@kompwatch.com) — customer demand directly shapes what ships next.
+KompWatch now generates a downloadable HTML battlecard directly from your competitor's change history — no copy-pasting required.
+
+**How to use it:**
+
+1. Go to **Competitors → [Competitor Name]**
+2. Click the **Export Battlecard** button (next to the CSV/JSON export options)
+3. A formatted HTML file downloads instantly — open it in any browser, or print to PDF from there
+
+**What the battlecard includes:**
+
+- Overview stats (total changes, high/critical count, monitoring period)
+- Key intel section — all HIGH and CRITICAL severity changes with AI summaries
+- Full change log — complete history ordered by recency
+- Auto-detected platform badges (Slack, Teams, or generic)
+
+The HTML file is self-contained and shareable — send it directly to your sales rep or attach it to a deal note in your CRM.
+
+PDF and PowerPoint native export are on the future roadmap.
 
 ## Questions?
 
