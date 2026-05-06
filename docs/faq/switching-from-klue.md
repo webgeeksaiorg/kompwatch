@@ -7,6 +7,7 @@ Klue is an enterprise competitor intelligence platform priced at $20K–$40K/yr.
 Teams that move from Klue to KompWatch typically cite:
 
 - **Cost** — Klue requires an annual contract at enterprise pricing. KompWatch starts free and Pro is $49/mo with no contract and no sales call required.
+- **Microsoft stack dependency** — Klue's February 2026 update deepened its integration with Microsoft Teams Calls, Teams Chat, Dynamics 365, and a Copilot MCP Server. If your team isn't on Microsoft's enterprise stack, those features don't apply — but they're priced in.
 - **Scope creep** — Klue has grown into a full CI platform (Compete Agent, MCP server, win/loss workflows, battlecard CMS). If your team's core need is automated website monitoring with AI digests, you're paying for platform capabilities you don't use.
 - **Analyst dependency** — Klue requires meaningful setup and ongoing curator time to maintain. KompWatch is fully automated — no analyst hours needed to keep monitoring running.
 - **Team changes** — if the person who championed the Klue contract has left, it's a natural moment to right-size.
