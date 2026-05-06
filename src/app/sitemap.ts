@@ -1,9 +1,11 @@
 import type { MetadataRoute } from "next";
+import { getAllFaqSlugs } from "@/lib/faq";
 
 const siteUrl = "https://kompwatch.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
+  const faqSlugs = getAllFaqSlugs();
 
   const comparisonSlugs = [
     "vs-crayon",
@@ -53,6 +55,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.85,
     },
+    ...faqSlugs.map((slug) => ({
+      url: `${siteUrl}/faq/${slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
     {
       url: `${siteUrl}/sample-digest`,
       lastModified: now,
