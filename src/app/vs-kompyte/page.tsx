@@ -20,6 +20,8 @@ export const metadata: Metadata = {
     "Kompyte competitive intelligence alternative",
     "Kompyte Semrush acquisition",
     "Kompyte Semrush alternative",
+    "Kompyte Adobe acquisition",
+    "Adobe Semrush Kompyte",
   ],
   alternates: {
     canonical: `${siteUrl}/vs-kompyte`,
@@ -127,9 +129,10 @@ export default function VsKompytePage() {
           <span className="text-brand-600">— AI summaries + job tracking, ~13× less</span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
-          Kompyte was acquired by Semrush in 2022, and now sits inside a broader enterprise marketing
-          stack — sales-led, quote-only, multi-day onboarding. KompWatch tracks the same signals
-          plus jobs and AI digests, starting at{" "}
+          Kompyte was acquired by Semrush in 2022, which was then acquired by Adobe for $1.9B in
+          February 2026. It now sits three levels deep inside an enterprise creative-software
+          conglomerate &mdash; sales-led, quote-only, multi-day onboarding. KompWatch tracks the same
+          signals plus jobs and AI digests, starting at{" "}
           <strong className="text-gray-900">$49/mo</strong>, self-serve in under 2 minutes.
         </p>
         <div className="mt-10 flex items-center justify-center gap-4">
@@ -160,14 +163,13 @@ export default function VsKompytePage() {
             <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-200 text-sm font-bold text-amber-800">!</span>
             <div>
               <h2 className="text-base font-semibold text-amber-900">
-                Kompyte has been a Semrush product since 2022
+                Kompyte is now three acquisitions deep: Adobe &rarr; Semrush &rarr; Kompyte
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-amber-800">
-                Semrush acquired Kompyte in 2022 and rebranded it &ldquo;Kompyte by Semrush.&rdquo;
-                That places competitive intelligence inside a broader SEO/marketing platform where CI
-                is one feature among many — not the core focus. Niche tools inside larger suites
-                often see slower roadmaps and enterprise-tier pricing. KompWatch is independent and
-                focused solely on competitor monitoring.
+                Semrush acquired Kompyte in 2022. Adobe acquired Semrush for $1.9B
+                in February 2026. Kompyte is now a competitive intelligence feature
+                inside a marketing suite inside a creative-software conglomerate.
+                KompWatch is independent and focused solely on competitor monitoring.
               </p>
             </div>
           </div>
@@ -222,6 +224,107 @@ export default function VsKompytePage() {
             for the same core competitive intelligence — plus AI summaries and job tracking that
             Kompyte doesn&rsquo;t include.
           </p>
+        </div>
+      </section>
+
+      {/* Why Kompyte customers should evaluate now */}
+      <section className="border-b border-gray-100 py-20">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+              Why Kompyte customers should evaluate now
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-sm text-gray-600">
+              Three things changed this year. Each shifts the math for small
+              and mid-size teams relying on Kompyte.
+            </p>
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
+            <div className="rounded-xl border border-amber-200 bg-amber-50/50 p-6">
+              <div className="text-xs font-semibold uppercase tracking-wide text-amber-700">
+                February 2026
+              </div>
+              <h3 className="mt-2 text-lg font-semibold text-gray-900">
+                Adobe acquired Semrush for $1.9B
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-gray-600">
+                Adobe&rsquo;s $1.9B acquisition of Semrush makes Kompyte a CI
+                tool inside a marketing suite inside a creative-software
+                conglomerate. Three levels deep. Product priorities of a CI
+                tool inside Adobe are unlikely to match a 20-person SaaS
+                team&rsquo;s top pain points.
+              </p>
+              <p className="mt-3 text-xs text-gray-500">
+                Two acquisitions in four years. That&rsquo;s a pattern.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-amber-200 bg-amber-50/50 p-6">
+              <div className="text-xs font-semibold uppercase tracking-wide text-amber-700">
+                The acquisition playbook
+              </div>
+              <h3 className="mt-2 text-lg font-semibold text-gray-900">
+                Year 1 calm, Year 2 pricing, Year 3 sunset
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-gray-600">
+                When enterprise platforms acquire niche tools, the sequence is
+                predictable: nothing changes in year 1, pricing
+                &ldquo;adjusts&rdquo; in year 2, and the standalone product
+                gets bundled or sunset in year 3. Kompyte is now entering the
+                integration window.
+              </p>
+              <p className="mt-3 text-xs text-gray-500">
+                Evaluate before your needs become someone else&rsquo;s backlog item.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-amber-200 bg-amber-50/50 p-6">
+              <div className="text-xs font-semibold uppercase tracking-wide text-amber-700">
+                Feature gap
+              </div>
+              <h3 className="mt-2 text-lg font-semibold text-gray-900">
+                No AI summaries. No job tracking.
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-gray-600">
+                Even before the acquisition, Kompyte lacked AI-generated change
+                summaries and job listing monitoring. You get raw change data
+                without context. KompWatch uses AI to tell you what changed,
+                why it matters, and what to do about it &mdash; plus hiring
+                signals that reveal where competitors are investing.
+              </p>
+              <p className="mt-3 text-xs text-gray-500">
+                Plain English vs raw diffs. No contest.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-10 rounded-2xl border border-gray-200 bg-gray-50 p-6 text-center sm:p-8">
+            <p className="text-sm font-medium text-gray-700">
+              On Kompyte and watching the Adobe integration unfold?
+            </p>
+            <p className="mx-auto mt-2 max-w-xl text-sm text-gray-600">
+              Run KompWatch alongside Kompyte for one digest cycle. If the AI
+              summaries tell you more than the raw feed &mdash; you have your
+              answer.
+            </p>
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
+              <TrackedCTA
+                href="/login"
+                event="Acquisition Playbook CTA Click"
+                eventProps={{ competitor: "Kompyte", section: "why-evaluate" }}
+                className="inline-block rounded-lg bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
+              >
+                Start free &mdash; run side by side
+              </TrackedCTA>
+              <Link
+                href="/switching-from-kompyte"
+                className="text-sm font-semibold text-gray-900 hover:text-brand-600"
+              >
+                See switching guide &rarr;
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -347,8 +450,16 @@ export default function VsKompytePage() {
             answer: "Yes. KompWatch tracks competitor job listings to surface hiring signals — such as new engineering roles that may indicate product investments, or sales hiring that signals market expansion. Kompyte does not offer job listing tracking.",
           },
           {
-            question: "Who owns Kompyte?",
-            answer: "Semrush acquired Kompyte in 2022 and now markets it as 'Kompyte by Semrush' — competitive intelligence inside a broader SEO and marketing platform. KompWatch is independent and focused only on competitor monitoring, which means CI roadmap decisions aren't competing with priorities from a larger suite.",
+            question: "Who owns Kompyte now?",
+            answer: "Semrush acquired Kompyte in 2022. Adobe then acquired Semrush for $1.9B in February 2026. Kompyte is now a competitive intelligence feature inside Semrush inside Adobe — three levels deep. KompWatch is independent and focused only on competitor monitoring, which means CI roadmap decisions aren't competing with priorities from a larger suite.",
+          },
+          {
+            question: "Will Adobe shut down Kompyte?",
+            answer: "No one can predict that — but the acquisition playbook is consistent: year 1 is calm, year 2 brings pricing adjustments and bundling, year 3 often sees standalone products sunset or repositioned as enterprise modules. If you're a small or mid-size team, it's worth evaluating alternatives before the integration timeline makes the decision for you.",
+          },
+          {
+            question: "Should I switch from Kompyte before the Adobe integration?",
+            answer: "It's worth evaluating now. Export your competitor list and tracked URLs from Kompyte (do this regardless, as a backup). Sign up for KompWatch free, run both tools in parallel for a digest cycle, and compare. KompWatch has no contract, so there's zero risk in testing side-by-side.",
           },
         ]}
       />

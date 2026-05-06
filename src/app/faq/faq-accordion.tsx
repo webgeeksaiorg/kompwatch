@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 type FaqItem = {
@@ -89,7 +90,27 @@ export function FaqAccordion({ grouped }: { grouped: GroupedFaqs }) {
                     </button>
                     {isOpen && (
                       <div className="pb-4 text-sm leading-relaxed text-gray-600">
-                        {item.summary}
+                        <p>{item.summary}</p>
+                        <Link
+                          href={`/faq/${item.slug}`}
+                          className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-brand-600 hover:text-brand-700 hover:underline"
+                        >
+                          Read full answer
+                          <svg
+                            className="h-3 w-3"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2.5}
+                            aria-hidden="true"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M13 7l5 5m0 0l-5 5m5-5H6"
+                            />
+                          </svg>
+                        </Link>
                       </div>
                     )}
                   </div>
