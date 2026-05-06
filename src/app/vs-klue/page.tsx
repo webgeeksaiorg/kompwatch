@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     "Klue vs KompWatch",
     "Klue competitor",
     "Klue pricing",
+    "Klue Microsoft 365 lock-in",
     "competitive intelligence software",
     "competitor monitoring tool",
     "Klue competitive intelligence alternative",
@@ -200,6 +201,106 @@ export default function VsKluePage() {
         </div>
       </section>
 
+      {/* Why Klue keeps getting harder to justify */}
+      <section className="border-b border-gray-100 py-20">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+              Why Klue keeps getting harder to justify
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-sm text-gray-600">
+              Three trends are pushing Klue further from the teams that need CI
+              most &mdash; small and mid-size SaaS companies.
+            </p>
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
+            <div className="rounded-xl border border-amber-200 bg-amber-50/50 p-6">
+              <div className="text-xs font-semibold uppercase tracking-wide text-amber-700">
+                February 2026
+              </div>
+              <h3 className="mt-2 text-lg font-semibold text-gray-900">
+                Microsoft 365 lock-in
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-gray-600">
+                Klue&rsquo;s big February announcement: deep Microsoft 365
+                integration &mdash; Teams Calls, Teams Chat, Dynamics 365,
+                Copilot MCP Server. That&rsquo;s a $25K/yr tool that now
+                assumes your entire team is on Microsoft&rsquo;s enterprise
+                stack before you get value.
+              </p>
+              <p className="mt-3 text-xs text-gray-500">
+                Getting less accessible every update cycle. Not more.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-amber-200 bg-amber-50/50 p-6">
+              <div className="text-xs font-semibold uppercase tracking-wide text-amber-700">
+                VC math
+              </div>
+              <h3 className="mt-2 text-lg font-semibold text-gray-900">
+                $62M raised &rarr; upmarket pressure
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-gray-600">
+                Klue raised $62M from Tiger Global and Salesforce Ventures.
+                That level of funding demands enterprise ACVs &mdash; $20K/yr
+                entry, with median deals well above that. Every roadmap
+                decision optimizes for enterprise retention, not small-team
+                accessibility.
+              </p>
+              <p className="mt-3 text-xs text-gray-500">
+                The VC math requires going upmarket. Always.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-amber-200 bg-amber-50/50 p-6">
+              <div className="text-xs font-semibold uppercase tracking-wide text-amber-700">
+                Enterprise drift
+              </div>
+              <h3 className="mt-2 text-lg font-semibold text-gray-900">
+                Compete Agent &amp; battlecard CMS
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-gray-600">
+                Klue&rsquo;s 2026 roadmap is headlined by its &ldquo;Compete
+                Agent&rdquo; AI product and an enterprise battlecard CMS for
+                50+ rep sales orgs. If you&rsquo;re a PM or founder doing CI
+                yourself, those features aren&rsquo;t for you &mdash; but
+                you&rsquo;re paying for them.
+              </p>
+              <p className="mt-3 text-xs text-gray-500">
+                You pay for the enterprise roadmap. You use the monitoring.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-10 rounded-2xl border border-gray-200 bg-gray-50 p-6 text-center sm:p-8">
+            <p className="text-sm font-medium text-gray-700">
+              Paying $20K+/yr for competitor monitoring you could get for $49/mo?
+            </p>
+            <p className="mx-auto mt-2 max-w-xl text-sm text-gray-600">
+              Run KompWatch alongside Klue for one digest cycle. If the same
+              signals land in your inbox &mdash; skip the renewal call.
+            </p>
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
+              <TrackedCTA
+                href="/login"
+                event="Enterprise Drift CTA Click"
+                eventProps={{ competitor: "Klue", section: "why-harder" }}
+                className="inline-block rounded-lg bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
+              >
+                Start free &mdash; run side by side
+              </TrackedCTA>
+              <Link
+                href="/switching-from-klue"
+                className="text-sm font-semibold text-gray-900 hover:text-brand-600"
+              >
+                See switching guide &rarr;
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Comparison Table */}
       <section id="comparison" className="py-20">
         <div className="mx-auto max-w-5xl px-6">
@@ -319,6 +420,14 @@ export default function VsKluePage() {
           {
             question: "Does KompWatch have battlecards like Klue?",
             answer: "Battlecards are on KompWatch's roadmap. Today, KompWatch focuses on automated competitor monitoring with AI-generated change summaries delivered via email and Slack. If your team needs a battlecard CMS for sales reps, Klue may be a better fit right now.",
+          },
+          {
+            question: "Does Klue require Microsoft 365?",
+            answer: "Not technically, but Klue's February 2026 update added deep Microsoft 365 integration — Teams Calls, Teams Chat, Dynamics 365, and a Copilot MCP Server. The product is increasingly designed around Microsoft's enterprise stack. If your team uses Google Workspace or Slack-first workflows, you may not benefit from Klue's latest features. KompWatch is platform-agnostic — email digests and webhook/Slack alerts work regardless of your productivity suite.",
+          },
+          {
+            question: "Why is Klue so expensive?",
+            answer: "Klue raised $62M from Tiger Global and Salesforce Ventures. That level of venture funding requires high ACVs — typically $20K–$40K/yr per customer — to generate the returns investors expect. The product roadmap prioritizes enterprise features (battlecard CMS, Compete Agent AI, CRM integrations) that justify those price points. If you need competitor monitoring without the enterprise overhead, KompWatch starts at $49/mo.",
           },
         ]}
       />
