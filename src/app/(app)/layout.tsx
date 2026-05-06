@@ -1,5 +1,6 @@
 import { requireAuth } from "@/lib/auth";
 import { MobileNav } from "@/components/dashboard/mobile-nav";
+import { CommandPalette } from "@/components/dashboard/command-palette";
 
 export default async function AppLayout({
   children,
@@ -29,6 +30,9 @@ export default async function AppLayout({
             <a href="/settings" className="text-sm text-gray-600 hover:text-gray-900">
               Settings
             </a>
+            <kbd className="hidden rounded border border-gray-200 bg-gray-50 px-1.5 py-0.5 text-[10px] font-medium text-gray-400 lg:inline" title="Open command palette">
+              &#8984;K
+            </kbd>
             <div className="flex items-center gap-3">
               <span className="text-xs text-gray-400">{user.email}</span>
               <form action="/api/auth/logout" method="POST">
@@ -43,6 +47,7 @@ export default async function AppLayout({
           </div>
           {/* Mobile hamburger */}
           <MobileNav email={user.email} />
+          <CommandPalette />
         </div>
       </nav>
       <main className="mx-auto max-w-5xl px-4 py-6 sm:py-8">{children}</main>
