@@ -50,9 +50,17 @@ Example (based on publicly available pricing data KompWatch can track):
 
 KompWatch tracks competitors' public pricing pages. If a competitor's pricing page changes — new tiers, hidden pricing, a "contact sales" gate replacing a price list — you'll see it flagged in your digest within hours.
 
-## Exporting for Your Battlecard Template
+## Exporting Battlecards
 
-KompWatch doesn't yet generate battlecard PDFs or PowerPoint slides directly — that's on the roadmap. In the meantime, export your raw change data and paste the AI summaries into your existing template:
+KompWatch can generate a formatted battlecard in one click:
+
+1. Go to **Competitors → [Name]**
+2. Click **Export Battlecard** (next to CSV/JSON exports)
+3. An HTML file downloads immediately — open in any browser, or print to PDF
+
+The battlecard is pre-structured with an overview, a Key Intel section (HIGH/CRITICAL changes only), and the full change log. It's ready to share with a sales rep or attach to a CRM deal.
+
+If you prefer to work from raw data, JSON export is still available:
 
 1. Go to **Settings → Export → JSON** to download all changes for a competitor
 2. Filter by `"severity": "HIGH"` or `"severity": "CRITICAL"`

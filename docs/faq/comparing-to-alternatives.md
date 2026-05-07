@@ -52,7 +52,7 @@ Kompyte (~$8K/yr) is a mid-market platform that lacks AI summaries and job track
 
 ## When an Enterprise Tool Might Be Better
 
-- You need **battlecards** built into your CRM workflow today (on our roadmap, not yet shipped)
+- You need **battlecards embedded natively in your CRM** (Salesforce sync) — KompWatch exports HTML battlecards but doesn't sync to CRM workflows yet
 - You have a dedicated competitive intelligence team that needs **advanced analytics** and **win/loss integrations**
 - Procurement requires an annual contract with SLA commitments
 

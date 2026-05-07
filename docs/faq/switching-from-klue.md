@@ -50,9 +50,9 @@ KompWatch does not import historical data from Klue. Your monitoring history sta
 
 ## What About Battlecards?
 
-Battlecard generation is on the KompWatch roadmap but not yet shipped. If battlecards are your primary Klue use case, KompWatch is not a direct replacement today.
+KompWatch now includes one-click battlecard export. From any competitor's detail page, click **Export Battlecard** to download a formatted HTML battlecard — pre-structured with an overview, key intel (HIGH/CRITICAL changes), and full change log. Open in any browser or print to PDF.
 
-Many teams use KompWatch for automated monitoring alongside a lighter battlecard tool. KompWatch delivers the raw signals (pricing changes, feature launches, new blog posts, job listing patterns) — the battlecard layer sits on top.
+If you relied on Klue's CRM-embedded battlecards or Salesforce battlecard sync, that specific workflow isn't replicated yet. Most teams use the HTML export for sales sharing and maintain their CRM templates separately.
 
 ## Running Both in Parallel
 
