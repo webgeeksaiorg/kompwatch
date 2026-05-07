@@ -755,6 +755,87 @@ export default function PricingPage() {
         })}
       </div>
 
+      {/* No Hidden Fees Section */}
+      <div className="mt-20">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+            No hidden fees. Ever.
+          </h2>
+          <p className="mt-2 text-sm text-gray-600">
+            Enterprise CI tools bury costs behind sales calls and annual contracts.
+            Here&rsquo;s what they don&rsquo;t put on their pricing page.
+          </p>
+        </div>
+
+        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {/* Their hidden costs */}
+          <div className="rounded-xl border border-red-200 bg-red-50/50 p-6">
+            <div className="flex items-center gap-2">
+              <svg className="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              <h3 className="font-semibold text-gray-900">Hidden costs at Crayon, Klue &amp; Kompyte</h3>
+            </div>
+            <ul className="mt-4 space-y-3">
+              {[
+                { cost: "Mandatory sales call", detail: "No public pricing — you won't know the cost until a 45-min demo" },
+                { cost: "Annual lock-in", detail: "12-month minimum contracts with auto-renewal clauses" },
+                { cost: "Per-seat charges", detail: "Each additional team member adds $200–500/mo to your bill" },
+                { cost: "Onboarding fees", detail: "$2K–5K setup fee for 'white-glove' implementation" },
+                { cost: "Overage penalties", detail: "Track more competitors than your plan allows? Surprise invoice." },
+                { cost: "Renewal price hikes", detail: "15–30% increases at renewal — after you're locked in" },
+              ].map((item) => (
+                <li key={item.cost} className="flex items-start gap-2 text-sm">
+                  <svg className="mt-0.5 h-4 w-4 shrink-0 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  <div>
+                    <span className="font-medium text-gray-900">{item.cost}</span>
+                    <span className="text-gray-500"> — {item.detail}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* KompWatch transparency */}
+          <div className="rounded-xl border border-green-200 bg-green-50/50 p-6">
+            <div className="flex items-center gap-2">
+              <svg className="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+              <h3 className="font-semibold text-gray-900">What you get with KompWatch</h3>
+            </div>
+            <ul className="mt-4 space-y-3">
+              {[
+                { benefit: "Public pricing", detail: "Every plan is listed on this page — no surprises" },
+                { benefit: "No sales call needed", detail: "Sign up, add competitors, get your first digest in minutes" },
+                { benefit: "Cancel anytime", detail: "Monthly billing with no cancellation fees or penalties" },
+                { benefit: "Unlimited team members", detail: "Pro and Team plans include your whole team at no extra cost" },
+                { benefit: "No setup fees", detail: "Self-serve onboarding — paste a URL and start monitoring" },
+                { benefit: "Price-lock guarantee", detail: "Your rate stays the same as long as you're subscribed" },
+              ].map((item) => (
+                <li key={item.benefit} className="flex items-start gap-2 text-sm">
+                  <svg className="mt-0.5 h-4 w-4 shrink-0 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <div>
+                    <span className="font-medium text-gray-900">{item.benefit}</span>
+                    <span className="text-gray-500"> — {item.detail}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-6 text-center">
+          <p className="text-xs text-gray-400">
+            Competitor cost details sourced from G2, Gartner Peer Insights, and customer reviews (April 2026).
+          </p>
+        </div>
+      </div>
+
       {/* Competitor Comparison Table */}
       <div className="mt-20">
         <div className="text-center">

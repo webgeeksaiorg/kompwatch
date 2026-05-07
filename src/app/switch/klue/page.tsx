@@ -8,58 +8,58 @@ const siteUrl = "https://kompwatch.com";
 
 export const metadata: Metadata = {
   title:
-    "Crayon Was Acquired — Switch to KompWatch Before Your Next Renewal",
+    "Klue Locked Into Microsoft Teams — Switch Before Your Renewal",
   description:
-    "SoftwareOne acquired Crayon for $1.4B in April 2026. Don't wait for pricing changes or product sunsets. KompWatch is the independent alternative — $49/mo, self-serve, set up in 5 minutes.",
+    "Klue's February 2026 update bolted competitive intelligence onto Microsoft Teams, Dynamics 365, and Copilot MCP. If your team isn't on Microsoft's enterprise stack, you're paying $20K–$40K/yr for features you can't use. KompWatch is platform-agnostic — $49/mo, self-serve, set up in 5 minutes.",
   keywords: [
-    "Crayon acquired",
-    "Crayon SoftwareOne",
-    "Crayon alternative after acquisition",
-    "switch from Crayon",
-    "Crayon replacement",
-    "SoftwareOne Crayon migration",
-    "Crayon renewal alternative",
-    "Crayon competitor monitoring replacement",
-    "independent Crayon alternative",
-    "Crayon sunset risk",
+    "Klue alternative",
+    "switch from Klue",
+    "Klue Microsoft Teams lock-in",
+    "Klue Microsoft 365",
+    "Klue Dynamics 365",
+    "Klue Copilot MCP",
+    "Klue replacement",
+    "Klue renewal alternative",
+    "Klue competitive intelligence migration",
+    "platform-agnostic Klue alternative",
   ],
   alternates: {
-    canonical: `${siteUrl}/switch/crayon`,
+    canonical: `${siteUrl}/switch/klue`,
   },
   openGraph: {
-    title: "Crayon Was Acquired — Switch to KompWatch",
+    title: "Klue Locked Into Microsoft Teams — Switch to KompWatch",
     description:
-      "SoftwareOne acquired Crayon for $1.4B. KompWatch is the independent alternative — same competitor monitoring, AI digests, $49/mo. No sales call.",
-    url: `${siteUrl}/switch/crayon`,
+      "Klue's CI platform now assumes Microsoft 365, Teams, and Dynamics 365. KompWatch is the platform-agnostic alternative — same monitoring, $49/mo. No sales call.",
+    url: `${siteUrl}/switch/klue`,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Crayon Was Acquired — Time to Switch?",
+    title: "Klue's Microsoft Lock-In — Time to Switch?",
     description:
-      "SoftwareOne bought Crayon for $1.4B in April 2026. KompWatch: independent, self-serve, $49/mo. Set up in 5 minutes.",
+      "Klue bolted CI onto Teams, Dynamics 365, and Copilot MCP in Feb 2026. KompWatch: platform-agnostic, $49/mo, set up in 5 minutes.",
   },
 };
 
 const timelineEvents = [
   {
-    date: "Jan 2026",
-    title: "SoftwareOne announces intent to acquire Crayon",
+    date: "2023",
+    title: "Klue raises $62M from Tiger Global and Salesforce Ventures",
     detail:
-      "SoftwareOne Group AG announces acquisition of Crayon Group Holding ASA for $1.4B, creating an IT-services conglomerate.",
+      "VC math at this funding level requires high ACVs — typically $20K–$40K/yr per customer. Every roadmap decision optimizes for enterprise retention, not small-team accessibility.",
   },
   {
-    date: "Apr 2026",
-    title: "Acquisition closes — Crayon is now a SoftwareOne subsidiary",
+    date: "Feb 2026",
+    title: "Microsoft 365 integration becomes the headline feature",
     detail:
-      "Crayon delists from Oslo Børs. Product roadmap, pricing, and support teams now report to SoftwareOne leadership.",
+      "Klue's biggest February release: deep Microsoft 365 hooks — Teams Calls, Teams Chat, Dynamics 365, and a Copilot MCP Server. The product is increasingly designed around Microsoft's enterprise stack.",
   },
   {
-    date: "H2 2026",
+    date: "2026",
     risk: true,
-    title: "Integration begins — renewal pricing at risk",
+    title: "Compete Agent + battlecard CMS — built for 50+ rep sales orgs",
     detail:
-      "Historically, niche SaaS tools inside large IT-services rollups see price hikes, enterprise-only pivots, or slower roadmaps within 12–18 months of close.",
+      "Klue's roadmap is now headlined by an enterprise battlecard CMS and an AI 'Compete Agent.' If you're a PM, founder, or marketer doing CI yourself, those features aren't for you — but you're paying for them at every renewal.",
   },
 ];
 
@@ -67,22 +67,22 @@ const risks = [
   {
     icon: (
       <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
       </svg>
     ),
-    title: "Renewal price hikes",
+    title: "Microsoft 365 lock-in",
     description:
-      "Acquirers recoup deal costs through pricing. Crayon's median contract is already $28,750/yr — expect that to go up, not down.",
+      "Teams Calls, Teams Chat, Dynamics 365, Copilot MCP. If your team runs on Slack or Google Workspace, you're paying enterprise-tier pricing for integrations you can't use.",
   },
   {
     icon: (
       <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
       </svg>
     ),
-    title: "Product roadmap freezes",
+    title: "Upmarket pressure from $62M VC raise",
     description:
-      "Post-acquisition integration priorities override feature development. The CI tool becomes a cost center inside a services company.",
+      "Tiger Global and Salesforce Ventures don't fund $588/yr SaaS. The math forces enterprise-only pricing — $20K minimum, sales calls, annual contracts. Small teams are not the target customer.",
   },
   {
     icon: (
@@ -90,16 +90,16 @@ const risks = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
       </svg>
     ),
-    title: "Enterprise-only pivot",
+    title: "Built for 50+ rep sales orgs",
     description:
-      "SoftwareOne serves large enterprises. Self-serve CI tools for mid-market and SMB teams are rarely the priority post-rollup.",
+      "Klue's battlecard CMS and Compete Agent are designed for large CI programs with dedicated analysts. If you're a founder, PM, or marketer doing CI yourself, you're paying for an org chart you don't have.",
   },
 ];
 
-export default function SwitchCrayonPage() {
+export default function SwitchKluePage() {
   return (
     <div className="bg-white">
-      <BreadcrumbSchema items={[{ name: "Switch from Crayon", path: "/switch/crayon" }]} />
+      <BreadcrumbSchema items={[{ name: "Switch from Klue", path: "/switch/klue" }]} />
 
       {/* Nav */}
       <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-sm">
@@ -124,36 +124,37 @@ export default function SwitchCrayonPage() {
         </nav>
       </header>
 
-      {/* Acquisition alert banner */}
+      {/* Lock-in alert banner */}
       <div className="border-b border-amber-200 bg-amber-50 px-6 py-3 text-center text-sm text-amber-900">
-        <strong>April 2026:</strong> SoftwareOne completed its $1.4B acquisition of Crayon.{" "}
+        <strong>February 2026:</strong> Klue&rsquo;s headline release bolts CI onto Microsoft Teams, Dynamics 365, and Copilot MCP.{" "}
         <Link href="#timeline" className="font-semibold underline hover:text-amber-700">
-          See what this means for your contract &darr;
+          See what this means for non-Microsoft teams &darr;
         </Link>
       </div>
 
       {/* Hero */}
       <section className="mx-auto max-w-4xl px-6 pb-16 pt-20 text-center">
         <div className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-medium text-amber-800">
-          Acquisition alert
+          Lock-in alert
         </div>
         <h1 className="mt-6 text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl">
-          Crayon was acquired.{" "}
-          <span className="text-brand-600">Don&rsquo;t wait for the price hike.</span>
+          Klue is now a Microsoft Teams product.{" "}
+          <span className="text-brand-600">If you&rsquo;re not on Microsoft&rsquo;s stack, you&rsquo;re paying for features you can&rsquo;t use.</span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
-          SoftwareOne bought Crayon for{" "}
-          <strong className="text-gray-900">$1.4 billion</strong>. History says what comes next:
-          higher prices, slower roadmaps, enterprise-only focus. KompWatch is the{" "}
-          <strong className="text-gray-900">independent alternative</strong> — same competitor
-          monitoring, AI-powered digests, from{" "}
+          Klue&rsquo;s February 2026 headline release: deep Microsoft 365 integration — Teams Calls,
+          Teams Chat, Dynamics 365, Copilot MCP Server. That&rsquo;s a{" "}
+          <strong className="text-gray-900">$20K–$40K/yr tool</strong> that now assumes your entire
+          team is on Microsoft&rsquo;s enterprise stack before you get value. KompWatch is the{" "}
+          <strong className="text-gray-900">platform-agnostic alternative</strong> — same competitor
+          monitoring, AI digests via email or Slack, from{" "}
           <strong className="text-gray-900">$49/mo</strong>.
         </p>
         <div className="mt-10 flex items-center justify-center gap-4">
           <TrackedCTA
             href="/login"
-            event="Switch Crayon Hero CTA"
-            eventProps={{ competitor: "Crayon", page: "switch-crayon" }}
+            event="Switch Klue Hero CTA"
+            eventProps={{ competitor: "Klue", page: "switch-klue" }}
             className="rounded-lg bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
           >
             Start free — set up in 5 minutes
@@ -170,14 +171,14 @@ export default function SwitchCrayonPage() {
         </p>
       </section>
 
-      {/* Acquisition timeline */}
+      {/* Lock-in timeline */}
       <section id="timeline" className="border-y border-gray-100 bg-gray-50 py-16">
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="text-center text-2xl font-bold tracking-tight text-gray-900">
-            The Crayon acquisition timeline
+            How Klue drifted upmarket
           </h2>
           <p className="mt-3 text-center text-sm text-gray-600">
-            What&rsquo;s happened so far — and what typically follows.
+            Three forces pushed Klue away from the teams that need CI most.
           </p>
           <div className="mt-10 space-y-0">
             {timelineEvents.map((event, i) => (
@@ -221,14 +222,15 @@ export default function SwitchCrayonPage() {
         </div>
       </section>
 
-      {/* Acquisition risks */}
+      {/* Lock-in risks */}
       <section id="risks" className="py-20">
         <div className="mx-auto max-w-4xl px-6">
           <h2 className="text-center text-2xl font-bold tracking-tight text-gray-900">
-            What acquisitions mean for existing customers
+            What Klue&rsquo;s direction means for non-enterprise teams
           </h2>
           <p className="mt-3 text-center text-sm text-gray-600">
-            Based on historical patterns when niche SaaS tools are absorbed by large IT-services firms.
+            If you&rsquo;re a 1–50 person team on Slack or Google Workspace, every Klue release
+            takes you further from the product you signed up for.
           </p>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
             {risks.map((risk, i) => (
@@ -255,43 +257,44 @@ export default function SwitchCrayonPage() {
             The cost of staying vs. switching
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            Crayon pricing data from vendr.com (April 2026).
+            Klue pricing data from vendr.com and review sites (April 2026). Quote-only — exact
+            number depends on team size and tier.
           </p>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
             <div className="rounded-xl border border-gray-200 bg-white p-6">
               <div className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-                Crayon (post-acquisition)
+                Klue (entry tier)
               </div>
               <div className="mt-2 text-4xl font-bold text-gray-900">
-                $28,750<span className="text-lg font-normal text-gray-500">/yr</span>
+                $20,000<span className="text-lg font-normal text-gray-500">/yr</span>
               </div>
               <div className="mt-1 text-sm text-gray-500">
-                Median contract &mdash; likely higher at next renewal
+                Up to $40K/yr for full team / battlecard tiers
               </div>
               <ul className="mt-6 space-y-2 text-sm text-gray-700">
                 <li className="flex items-start gap-2">
                   <svg className="mt-0.5 h-4 w-4 shrink-0 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                   </svg>
-                  Now owned by SoftwareOne (IT-services rollup)
+                  Headline features assume Microsoft 365 / Teams
                 </li>
                 <li className="flex items-start gap-2">
                   <svg className="mt-0.5 h-4 w-4 shrink-0 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                   </svg>
-                  Annual contract, sales call required
+                  Quote-only pricing, sales call required
                 </li>
                 <li className="flex items-start gap-2">
                   <svg className="mt-0.5 h-4 w-4 shrink-0 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                   </svg>
-                  Multi-week onboarding
+                  Annual contract, multi-week onboarding
                 </li>
                 <li className="flex items-start gap-2">
                   <svg className="mt-0.5 h-4 w-4 shrink-0 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                   </svg>
-                  Roadmap uncertain post-acquisition
+                  Roadmap built for 50+ rep sales orgs
                 </li>
               </ul>
             </div>
@@ -310,33 +313,33 @@ export default function SwitchCrayonPage() {
                   <svg className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
-                  Independent, founder-led company
+                  Platform-agnostic — Slack, Google Workspace, email
                 </li>
                 <li className="flex items-start gap-2">
                   <svg className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
-                  Self-serve — set up in 5 minutes
+                  Self-serve — set up in 5 minutes, no sales call
                 </li>
                 <li className="flex items-start gap-2">
                   <svg className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
-                  10 competitors, daily AI digests
+                  10 competitors, daily AI digests, job-listing tracking
                 </li>
                 <li className="flex items-start gap-2">
                   <svg className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
-                  CSS selectors kill Crayon&rsquo;s noise problem
+                  CSS selectors filter out the noise reps complain about
                 </li>
               </ul>
             </div>
           </div>
           <p className="mt-6 text-center text-sm text-gray-600">
             That&rsquo;s{" "}
-            <strong className="text-gray-900">$28,162/yr saved</strong> — and you&rsquo;re no
-            longer exposed to post-acquisition pricing changes.
+            <strong className="text-gray-900">$19,412–$39,412/yr saved</strong> — and your CI tool
+            no longer assumes your stack matches Klue&rsquo;s enterprise customers.
           </p>
         </div>
       </section>
@@ -358,7 +361,7 @@ export default function SwitchCrayonPage() {
                 </h3>
                 <p className="mt-1 text-sm leading-relaxed text-gray-600">
                   No credit card, no sales call. Your free plan includes 2 competitors — enough to
-                  run KompWatch alongside Crayon during evaluation.
+                  run KompWatch alongside Klue during evaluation.
                 </p>
               </div>
             </div>
@@ -371,9 +374,9 @@ export default function SwitchCrayonPage() {
                   Add your competitor URLs with CSS selectors
                 </h3>
                 <p className="mt-1 text-sm leading-relaxed text-gray-600">
-                  Copy the URLs you monitored in Crayon. Set a CSS selector per page to track only
-                  the sections that matter — pricing tables, feature lists, changelogs. This is what
-                  eliminates Crayon&rsquo;s noise problem.
+                  Copy the URLs you monitored in Klue. Set a CSS selector per page to track only
+                  the sections that matter — pricing tables, feature lists, changelogs, job
+                  postings. No Microsoft 365 dependency required.
                 </p>
               </div>
             </div>
@@ -383,11 +386,11 @@ export default function SwitchCrayonPage() {
               </div>
               <div>
                 <h3 className="text-base font-semibold text-gray-900">
-                  Get AI digests — cancel Crayon when ready
+                  Get AI digests via email or Slack — cancel Klue when ready
                 </h3>
                 <p className="mt-1 text-sm leading-relaxed text-gray-600">
-                  Claude-powered summaries arrive via email or Slack. Compare digest quality
-                  side-by-side with Crayon for 30 days, then cancel before your next renewal.
+                  Claude-powered summaries arrive wherever your team already works. Compare digest
+                  quality side-by-side with Klue for 30 days, then cancel before your next renewal.
                 </p>
               </div>
             </div>
@@ -395,15 +398,15 @@ export default function SwitchCrayonPage() {
           <div className="mt-10 text-center">
             <TrackedCTA
               href="/login"
-              event="Switch Crayon Steps CTA"
-              eventProps={{ competitor: "Crayon", page: "switch-crayon" }}
+              event="Switch Klue Steps CTA"
+              eventProps={{ competitor: "Klue", page: "switch-klue" }}
               className="inline-block rounded-lg bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
             >
               Start free — no credit card
             </TrackedCTA>
             <p className="mt-3 text-xs text-gray-400">
               Want the detailed walkthrough?{" "}
-              <Link href="/switching-from-crayon" className="underline hover:text-gray-700">
+              <Link href="/switching-from-klue" className="underline hover:text-gray-700">
                 See the full migration guide
               </Link>
             </p>
@@ -416,21 +419,21 @@ export default function SwitchCrayonPage() {
         <div className="mx-auto max-w-3xl px-6">
           <div className="rounded-xl border border-brand-200 bg-white p-8 text-center shadow-sm">
             <h2 className="text-xl font-bold text-gray-900">
-              Don&rsquo;t wait for the renewal surprise
+              Don&rsquo;t wait for the renewal sticker shock
             </h2>
             <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-gray-600">
-              Post-acquisition price hikes are predictable — they just aren&rsquo;t visible until
-              your renewal notice arrives. Set up KompWatch now while your Crayon contract is still
-              running, so you have a proven alternative ready when the number comes in.
+              Klue&rsquo;s direction is clear: more Microsoft, more enterprise, more battlecard CMS.
+              Set up KompWatch now while your Klue contract is still running, so you have a proven
+              platform-agnostic alternative ready when the renewal quote arrives.
             </p>
             <div className="mt-6">
               <TrackedCTA
                 href="/login"
-                event="Switch Crayon Urgency CTA"
-                eventProps={{ competitor: "Crayon", page: "switch-crayon" }}
+                event="Switch Klue Urgency CTA"
+                eventProps={{ competitor: "Klue", page: "switch-klue" }}
                 className="inline-block rounded-lg bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
               >
-                Start monitoring free alongside Crayon
+                Start monitoring free alongside Klue
               </TrackedCTA>
             </div>
           </div>
@@ -439,41 +442,47 @@ export default function SwitchCrayonPage() {
 
       {/* FAQ */}
       <ComparisonFAQ
-        competitor="Crayon (Post-Acquisition)"
+        competitor="Klue (Microsoft Teams Lock-In)"
         faqs={[
           {
             question:
-              "Will Crayon's pricing change after the SoftwareOne acquisition?",
+              "Does Klue require Microsoft 365 or Teams?",
             answer:
-              "No one outside SoftwareOne knows for certain, but the pattern is consistent: when IT-services firms acquire niche SaaS tools, prices rise as the acquirer recoups deal costs and shifts focus to high-ACV enterprise accounts. Crayon's median contract is already $28,750/yr — there's little incentive to lower it.",
+              "Not strictly required, but Klue's February 2026 headline release added deep Microsoft 365 integration — Teams Calls, Teams Chat, Dynamics 365, and a Copilot MCP Server. Those are now the marquee features. If your team uses Slack or Google Workspace, you're paying $20K–$40K/yr for an enterprise-tier roadmap built around a stack you don't have. KompWatch delivers the same monitoring through email digests and Slack/webhook alerts — no Microsoft dependency.",
           },
           {
-            question: "Is Crayon being shut down?",
+            question: "Why does Klue cost $20K–$40K/yr?",
             answer:
-              "There's no announcement of a shutdown. However, product-level independence inside a large acquirer is the exception, not the norm. Features may be folded into SoftwareOne's broader platform, or the standalone product could be deprioritized. The risk isn't immediate shutdown — it's gradual neglect.",
-          },
-          {
-            question:
-              "Can I run KompWatch alongside Crayon to compare before switching?",
-            answer:
-              "Yes — that's the recommended approach. KompWatch's free plan (2 competitors, weekly digests) costs nothing. Add your two most-tracked competitors, compare digest quality side-by-side for 30 days, and decide before your Crayon renewal date.",
+              "Klue raised $62M from Tiger Global and Salesforce Ventures. That level of venture funding requires high ACVs to generate the returns investors expect, so the product roadmap prioritizes enterprise features (battlecard CMS, Compete Agent AI, deep CRM integrations) that justify a $20K minimum. The pricing isn't going down — it's going up as Klue moves further upmarket.",
           },
           {
             question:
-              "What does KompWatch do that Crayon doesn't?",
+              "Can I run KompWatch alongside Klue to compare before switching?",
             answer:
-              "Two things: CSS-selector targeting (you monitor specific page sections instead of entire sites, which eliminates the noise G2 reviewers complain about) and transparent pricing ($49/mo, self-serve, cancel anytime). Crayon has battlecard distribution and managed analyst services that KompWatch doesn't offer yet.",
+              "Yes — that's the recommended approach. KompWatch's free plan (2 competitors, weekly digests) costs nothing. Add your two most-tracked competitors, compare digest quality side-by-side for 30 days, and decide before your Klue renewal date. If the same signals land in both inboxes, skip the renewal call.",
+          },
+          {
+            question:
+              "What does Klue do that KompWatch doesn't?",
+            answer:
+              "Klue offers a dedicated battlecard CMS for sales reps, deep Salesforce/Highspot integrations, win/loss analysis, managed analyst services, and the new Microsoft 365 / Compete Agent stack. If you're running a CI program with 50+ reps and a dedicated analyst team, those are real differentiators. KompWatch ships a one-click battlecard export and focuses on automated monitoring and AI digests — lighter, faster, and platform-agnostic.",
           },
           {
             question: "How quickly can I be set up?",
             answer:
-              "Under 5 minutes. Sign up (no credit card), paste your competitor URLs, set CSS selectors for the sections that matter, and your first AI digest arrives within hours. There's no sales call, no onboarding queue, no multi-week implementation.",
+              "Under 5 minutes. Sign up (no credit card), paste your competitor URLs, set CSS selectors for the sections that matter, and your first AI digest arrives within hours. There's no sales call, no onboarding queue, no multi-week implementation, and no Microsoft Teams setup required.",
           },
           {
             question:
-              "My team relies on Crayon battlecards — is that a blocker?",
+              "What about Klue's Compete Agent and battlecard CMS?",
             answer:
-              "KompWatch recently shipped one-click battlecard export — you can generate a downloadable HTML sales battlecard from competitor changes. It's lighter than Crayon's full battlecard CMS, but covers the core use case. If your team needs deep Salesforce integration or managed analyst services, Crayon may still be the better fit for now.",
+              "Klue's 2026 roadmap is headlined by its 'Compete Agent' AI product and an enterprise battlecard CMS for 50+ rep sales orgs. If you're a founder, PM, or marketer doing CI yourself, those features aren't for you — but you're paying for them. KompWatch focuses on automated monitoring with AI digests and a one-click battlecard export. Lighter than Klue's full CMS, but covers the core use case at 1/40th the cost.",
+          },
+          {
+            question:
+              "Does KompWatch integrate with Salesforce or Highspot?",
+            answer:
+              "Not yet. KompWatch's primary integrations today are email digests and Slack/webhook alerts — designed for the workflow most small and mid-size teams already use. If your CI program lives inside Salesforce or Highspot dashboards, Klue may still be a better fit. For everyone else, the lightweight stack is the point.",
           },
         ]}
       />
@@ -482,18 +491,18 @@ export default function SwitchCrayonPage() {
       <section className="py-20">
         <div className="mx-auto max-w-2xl px-6 text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900">
-            Acquisitions create uncertainty.{" "}
+            Lock-in creates uncertainty.{" "}
             <span className="text-brand-600">Your monitoring shouldn&rsquo;t.</span>
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            KompWatch is independent, self-serve, and costs 49&times; less than Crayon&rsquo;s
-            median contract. Set up before your next renewal.
+            KompWatch is platform-agnostic, self-serve, and costs 34&times;–68&times; less than
+            Klue&rsquo;s entry tier. Set up before your next renewal.
           </p>
           <div className="mt-8">
             <TrackedCTA
               href="/login"
-              event="Switch Crayon Bottom CTA"
-              eventProps={{ competitor: "Crayon", page: "switch-crayon" }}
+              event="Switch Klue Bottom CTA"
+              eventProps={{ competitor: "Klue", page: "switch-klue" }}
               className="inline-block rounded-lg bg-brand-600 px-8 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
             >
               Start free — no credit card required
@@ -501,11 +510,11 @@ export default function SwitchCrayonPage() {
           </div>
           <p className="mt-4 text-xs text-gray-400">
             Want more detail?{" "}
-            <Link href="/vs-crayon" className="underline hover:text-gray-700">
+            <Link href="/vs-klue" className="underline hover:text-gray-700">
               Full comparison
             </Link>{" "}
             &middot;{" "}
-            <Link href="/switching-from-crayon" className="underline hover:text-gray-700">
+            <Link href="/switching-from-klue" className="underline hover:text-gray-700">
               Migration guide
             </Link>{" "}
             &middot;{" "}
@@ -532,20 +541,17 @@ export default function SwitchCrayonPage() {
             <Link href="/pricing" className="text-sm text-gray-500 hover:text-gray-700">
               Pricing
             </Link>
-            <Link href="/vs-crayon" className="text-sm text-gray-500 hover:text-gray-700">
-              vs Crayon
-            </Link>
-            <Link href="/switching-from-crayon" className="text-sm text-gray-500 hover:text-gray-700">
-              Switching from Crayon
-            </Link>
             <Link href="/vs-klue" className="text-sm text-gray-500 hover:text-gray-700">
               vs Klue
             </Link>
-            <Link href="/switch/klue" className="text-sm text-gray-500 hover:text-gray-700">
-              Switch from Klue
+            <Link href="/switching-from-klue" className="text-sm text-gray-500 hover:text-gray-700">
+              Switching from Klue
             </Link>
-            <Link href="/vs-kompyte" className="text-sm text-gray-500 hover:text-gray-700">
-              vs Kompyte
+            <Link href="/vs-crayon" className="text-sm text-gray-500 hover:text-gray-700">
+              vs Crayon
+            </Link>
+            <Link href="/switch/crayon" className="text-sm text-gray-500 hover:text-gray-700">
+              Switch from Crayon
             </Link>
             <Link href="/login" className="text-sm text-gray-500 hover:text-gray-700">
               Sign in

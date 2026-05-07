@@ -17,7 +17,7 @@ KompWatch is built for teams that want powerful competitor monitoring without en
 | Slack / webhook alerts | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | Growth+ | ✓ | ✓ | ✗ |
 | CSV / JSON export | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
 | Headless browser (JS sites) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | ✗ |
-| Battlecards | Roadmap | ✓ | ✓ | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
+| Battlecards | ✓ One-click HTML export | ✓ | ✓ | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
 | MCP server (AI agent integration) | Roadmap | ✓ | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
 | No analyst hours needed | ✓ | ✗ | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | No sales call required | ✓ | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
@@ -29,7 +29,7 @@ KompWatch is built for teams that want powerful competitor monitoring without en
 **KompWatch vs Klue**
 Klue is an enterprise intel platform priced at $20K–$40K/yr (per Vendr 2026 data), requiring a sales call and annual contract. KompWatch starts free with a $49/mo Pro plan and self-serve signup — no sales call, no contract, cancel anytime.
 
-Klue has been moving further upmarket in 2025–2026, with recent additions including a "Compete Agent" AI layer and an MCP server for integrating competitive intel into AI agent workflows. These are compelling capabilities if you're running a dedicated CI function and already pay enterprise-tool prices. If you want automated monitoring with AI-generated digests delivered by email or Slack — without a $20K+ contract — KompWatch covers the core use case at a fraction of the cost.
+Klue has been moving further upmarket in 2025–2026, with recent additions including a "Compete Agent" AI layer and an MCP server for integrating competitive intel into AI agent workflows. Critically, Klue's February 2026 update deepened its dependency on Microsoft's enterprise stack — Teams Calls, Teams Chat, Dynamics 365, and a Copilot MCP Server. These are compelling capabilities if your entire team is already on Microsoft 365. If you're not, those features don't apply — but they're priced in. If you want automated monitoring with AI-generated digests delivered by email or Slack — without a $20K+ contract or Microsoft stack dependency — KompWatch covers the core use case at a fraction of the cost.
 
 **KompWatch vs Crayon**
 Crayon is the largest competitor intelligence platform ($25K–$40K/yr per Vendr 2026 data), with deep battlecard and CI workflow features. Recent additions include an MCP server for AI tool interconnection and "Sparks" — an AI layer that auto-generates strategic summaries from competitive signals. If your team needs battlecard generation or an AI strategic narrative layer today, Crayon is more mature. If you want automated monitoring at a fraction of the cost, KompWatch delivers core tracking for far less.
@@ -37,6 +37,8 @@ Crayon is the largest competitor intelligence platform ($25K–$40K/yr per Vendr
 Note: Crayon's win/loss tracking and battlecard syncing require Salesforce. If your team runs on HubSpot, you won't have access to those features. KompWatch has no CRM dependency — alerts reach you via email or webhook regardless of your sales stack.
 
 G2 reviewers consistently report using only 15–20% of Crayon's features. If your team needs automated monitoring with AI digests — not a full battlecard workflow — you're paying for a lot of unused platform.
+
+If you're reconsidering at renewal due to the SoftwareOne acquisition, see the [Crayon acquisition migration page →](https://kompwatch.com/switch/crayon) for urgency context and a step-by-step transition guide.
 
 **KompWatch vs Kompyte**
 Kompyte (~$8K/yr) is a mid-market platform that lacks AI summaries and job tracking. KompWatch includes both, at a significantly lower price point with monthly billing.
