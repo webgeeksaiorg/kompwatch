@@ -3,6 +3,7 @@ import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
 import { ComparisonFAQ } from "@/components/comparison-faq";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
+import { CompetitorUrlCapture } from "@/components/competitor-url-capture";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -130,25 +131,16 @@ export default function VsKluePage() {
           signals (pricing, features, blogs, jobs) starting at{" "}
           <strong className="text-gray-900">$49/mo</strong>, with self-serve signup in under 2 minutes.
         </p>
-        <div className="mt-10 flex items-center justify-center gap-4">
-          <TrackedCTA
-            href="/login"
-            event="Comparison Hero CTA Click"
-            eventProps={{ competitor: "Klue" }}
-            className="rounded-lg bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
-          >
-            Start free — no credit card
-          </TrackedCTA>
-          <Link
-            href="#comparison"
-            className="text-sm font-semibold text-gray-900 hover:text-brand-600"
-          >
-            See full comparison &rarr;
-          </Link>
-        </div>
-        <p className="mt-4 text-xs text-gray-400">
-          No credit card. No sales call. Free plan forever.
+        <CompetitorUrlCapture competitor="Klue" placeholder="https://klue.com or any competitor URL" />
+        <p className="mt-3 text-xs text-gray-400">
+          Paste a competitor URL to start monitoring. No credit card. No sales call.
         </p>
+        <Link
+          href="#comparison"
+          className="mt-4 inline-block text-sm font-semibold text-gray-900 hover:text-brand-600"
+        >
+          See full comparison &rarr;
+        </Link>
       </section>
 
       {/* Pricing snapshot */}
