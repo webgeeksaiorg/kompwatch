@@ -63,4 +63,4 @@ KompWatch's free tier (2 competitors, no credit card) lets you evaluate monitori
 Email [support@kompwatch.com](mailto:support@kompwatch.com) with your current competitor list and we'll help you set up equivalent monitoring, including suggested CSS selectors for common SaaS competitor pages.
 
 ---
-*For a full feature comparison, see [KompWatch vs Klue →](https://kompwatch.com/vs-klue)*
+*Paying for Microsoft Teams and Dynamics 365 features you don't use? See the [Microsoft lock-in migration page →](https://kompwatch.com/switch/klue) for pricing comparisons and urgency context. For a full feature comparison, see [KompWatch vs Klue →](https://kompwatch.com/vs-klue)*

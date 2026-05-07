@@ -1,6 +1,6 @@
 # Creating Sales Battlecards with KompWatch
 
-KompWatch monitors competitor websites and surfaces change signals — it doesn't yet generate formatted battlecard documents (PDFs, PowerPoints, or CRM-embedded cards). If you're coming from Crayon or Klue expecting a battlecard builder, here's an honest picture of what KompWatch covers today and where it fits in your competitive enablement workflow.
+KompWatch monitors competitor websites, surfaces change signals, and generates one-click HTML battlecard exports ready to share with your sales team. If you're coming from Crayon or Klue, here's how it fits in your competitive enablement workflow — and where the boundaries are today.
 
 ## What KompWatch Contributes to Battlecards
 
@@ -16,7 +16,7 @@ KompWatch is the **monitoring and signal layer**. It keeps your battlecard data 
 
 AI-generated digests (daily on Pro, weekly on Free) summarize these changes in plain English — ready to copy into a battlecard update or paste into a Slack channel before a deal review.
 
-## The Current Workflow (Without Native Battlecard Export)
+## The Recommended Workflow
 
 Most KompWatch users build battlecards with a two-layer approach:
 
