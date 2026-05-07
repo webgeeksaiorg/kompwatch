@@ -35,6 +35,19 @@ You can toggle between Annual and Monthly pricing on the [pricing page](https://
 
 Selecting **Annual** on the pricing page will charge you at the discounted yearly rate (billed as a single annual payment). Select **Monthly** if you prefer to pay month-to-month.
 
+## Are There Hidden Fees?
+
+No. What you see on the [pricing page](https://kompwatch.com/pricing) is what you pay.
+
+The pricing page includes a **hidden fees comparison** showing what tools like Crayon, Klue, and Kompyte add on top of their advertised rates — setup fees, per-seat charges, feature-unlock surcharges, and annual-only contracts. KompWatch has none of these:
+
+- No setup fee
+- No per-seat charges (monitor as many users as your plan allows)
+- No features locked behind add-ons — every feature is available on all paid plans
+- No mandatory annual contract — monthly billing is available at all times
+
+Annual billing is optional (saves 20%) but never required.
+
 ## Do I Need a Credit Card to Sign Up?
 
 **No.** The Free plan requires no credit card — just sign in with your email.
