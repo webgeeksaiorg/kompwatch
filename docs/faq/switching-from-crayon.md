@@ -63,4 +63,4 @@ If you relied on Crayon's CRM-embedded battlecards with Salesforce sync, that sp
 Email [support@kompwatch.com](mailto:support@kompwatch.com) with your current competitor list and we'll help you set up equivalent website monitoring, including suggested CSS selectors for common SaaS competitor pages.
 
 ---
-*For a full feature comparison, see [KompWatch vs Crayon →](https://kompwatch.com/vs-crayon)*
+*Evaluating due to the SoftwareOne acquisition? See the [acquisition-specific migration page →](https://kompwatch.com/switch/crayon) for pricing comparisons and urgency context. For a full feature comparison, see [KompWatch vs Crayon →](https://kompwatch.com/vs-crayon)*
