@@ -115,7 +115,7 @@ export default function SecurityPage() {
       <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-sm">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <Link href="/" className="text-lg font-bold text-gray-900">
-            Compete<span className="text-brand-600">Watch</span>
+            Komp<span className="text-brand-600">Watch</span>
           </Link>
           <div className="flex items-center gap-6">
             <Link
