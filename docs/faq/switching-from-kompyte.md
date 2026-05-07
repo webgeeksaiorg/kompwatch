@@ -1,14 +1,15 @@
 # Switching from Kompyte to KompWatch
 
-Kompyte is now part of Semrush, which was acquired by Adobe in April 2026. If you're evaluating alternatives due to pricing changes, product direction uncertainty, or feature gaps, this guide covers how KompWatch compares and how to get started.
+Kompyte is now three acquisitions deep: Semrush acquired Kompyte in 2022, then Adobe acquired Semrush for $1.9B in February 2026. Your competitive intelligence tool is now buried inside an enterprise creative-software conglomerate whose core business has nothing to do with CI. If you're evaluating alternatives due to pricing changes, product direction uncertainty, or sunset risk, this guide covers how KompWatch compares and how to get started.
 
 ## Why Teams Switch
 
-Kompyte is an enterprise CI platform bundled into the Semrush suite. Most teams that switch to KompWatch cite:
+Most teams that switch from Kompyte to KompWatch cite:
 
-- **Cost** — Kompyte is priced for enterprise; KompWatch starts free and Pro is $49/mo
-- **Simplicity** — Kompyte covers many CI use cases; KompWatch is purpose-built for website change monitoring and digest delivery
-- **Acquisition uncertainty** — Semrush/Adobe consolidation may affect Kompyte's roadmap and support responsiveness
+- **Cost** — Kompyte is priced for enterprise (~$8K/yr, sales-gated); KompWatch starts free and Pro is $49/mo, self-serve
+- **Three acquisitions deep** — Kompyte → Semrush → Adobe. Each layer adds distance from the original product roadmap and increases the risk of being bundled into a larger enterprise suite or quietly deprecated
+- **Sunset/bundle risk** — Adobe's go-to-market is enterprise annual contracts. Expect Kompyte to be folded into a broader Adobe marketing cloud bundle — or neglected as a non-core feature — rather than developed independently
+- **Missing features** — Kompyte lacks AI-generated change summaries and job listing tracking, both of which KompWatch includes
 
 ## Feature Comparison
 
@@ -59,4 +60,4 @@ KompWatch's free tier (2 competitors) lets you run it alongside Kompyte for a mo
 Email [support@kompwatch.com](mailto:support@kompwatch.com) with your current competitor list and we'll help you set up equivalent monitoring, including suggested CSS selectors for common SaaS competitor pages.
 
 ---
-*For a full feature comparison, see [KompWatch vs Alternatives →](./comparing-to-alternatives.md)*
+*Kompyte now buried inside Adobe after three acquisitions? See the [Adobe/Semrush migration page →](https://kompwatch.com/switch/kompyte) for pricing comparisons and urgency context. For a full feature comparison, see [KompWatch vs Alternatives →](./comparing-to-alternatives.md)*
