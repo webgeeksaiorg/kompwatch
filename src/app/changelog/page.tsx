@@ -212,6 +212,12 @@ export default function ChangelogPage() {
               Terms
             </Link>
             <Link
+              href="/security"
+              className="text-sm text-gray-500 hover:text-gray-700"
+            >
+              Security
+            </Link>
+            <Link
               href="/pricing"
               className="text-sm text-gray-500 hover:text-gray-700"
             >

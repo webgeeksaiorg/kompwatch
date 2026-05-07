@@ -23,7 +23,7 @@ Teams that move from Klue to KompWatch typically cite:
 | CSS selector targeting | ✓ Watch specific page sections | Limited |
 | AI-generated digests | ✓ Claude-powered, daily or weekly | ✓ Compete Agent AI |
 | Job listing signals | ✓ Included | ✗ Not available |
-| Battlecard generation | ✗ Roadmap | ✓ Included |
+| Battlecard generation | ✓ One-click HTML export | ✓ Included |
 | Win/loss integrations | ✗ Not in scope | ✓ Included |
 | MCP server / AI agent integration | ✗ Roadmap | ✓ Included |
 | No analyst hours required | ✓ | ✗ (curator setup required) |

@@ -22,7 +22,7 @@ Most teams that leave Crayon for KompWatch cite:
 | CSS selector targeting | ✓ Watch specific page sections | Limited |
 | AI-generated digests | ✓ Claude-powered, daily or weekly | ✓ Sparks AI summaries |
 | Job listing signals | ✓ Included | ✓ Included |
-| Battlecard generation | ✗ Roadmap | ✓ Included |
+| Battlecard generation | ✓ One-click HTML export | ✓ Included |
 | Win/loss tracking | ✗ Not in scope | ✓ Included |
 | MCP server / AI agent integration | ✗ Roadmap | ✓ Included |
 | CRM sync | Partial (via webhook) | ✓ Salesforce native |
@@ -63,4 +63,4 @@ If you relied on Crayon's CRM-embedded battlecards with Salesforce sync, that sp
 Email [support@kompwatch.com](mailto:support@kompwatch.com) with your current competitor list and we'll help you set up equivalent website monitoring, including suggested CSS selectors for common SaaS competitor pages.
 
 ---
-*For a full feature comparison, see [KompWatch vs Crayon →](https://kompwatch.com/vs-crayon)*
+*Evaluating due to the SoftwareOne acquisition? See the [acquisition-specific migration page →](https://kompwatch.com/switch/crayon) for pricing comparisons and urgency context. For a full feature comparison, see [KompWatch vs Crayon →](https://kompwatch.com/vs-crayon)*
