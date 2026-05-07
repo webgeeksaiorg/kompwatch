@@ -2,13 +2,19 @@
 
 KompWatch is built for teams who monitor sensitive competitive intelligence. Here's how we protect your data.
 
+For a full trust center including our subprocessors list, responsible disclosure policy, and vendor security questionnaire process, see **[kompwatch.com/security](https://kompwatch.com/security)**.
+
 ## Authentication
 
 We use **magic link login** — there are no passwords in KompWatch. Clicking a time-limited link in your inbox is the only way to sign in. This eliminates the most common account-compromise vector (stolen or reused passwords).
 
-## Data in Transit
+## Data in Transit & At Rest
 
-All traffic between your browser and KompWatch is encrypted over **HTTPS/TLS**. We do not serve any content over plain HTTP.
+All traffic between your browser and KompWatch is encrypted over **HTTPS/TLS 1.2+** with HSTS enabled. We do not serve any content over plain HTTP.
+
+The PostgreSQL database is encrypted at rest using **AES-256 disk encryption**. Snapshots and screenshots stored in object storage are encrypted server-side. Daily encrypted backups are retained for 14 days and stored in a separate region.
+
+**Data hosting:** KompWatch infrastructure runs in the **EU (Hetzner, Germany)** on dedicated hardware. No customer data is hosted in the United States.
 
 ## Payment Security
 
@@ -53,11 +59,22 @@ AI summaries are cached in KompWatch's database after generation. The same chang
 
 If your organization's security policy restricts third-party AI processing, [contact us](mailto:security@kompwatch.com) to discuss options.
 
+## Subprocessors
+
+KompWatch uses the following third-party services that process customer data: **Stripe** (billing), **Resend** (email delivery), **Anthropic** (AI analysis — competitor page diffs only, no customer-identifying data), **Plausible** (cookieless analytics), and **Coolify** (self-hosted deployment on dedicated hardware).
+
+A full subprocessor list with links to each provider's privacy policy is maintained at [kompwatch.com/security](https://kompwatch.com/security).
+
+## GDPR & Data Processing Agreement
+
+KompWatch is GDPR-compliant. A **Data Processing Addendum (DPA)** is available on request — email [privacy@kompwatch.com](mailto:privacy@kompwatch.com). EU residents can exercise access, deletion, and portability rights at the same address.
+
 ## Privacy Policy and Terms
 
 Full details are available at:
 - [kompwatch.com/privacy](https://kompwatch.com/privacy) — Privacy Policy
 - [kompwatch.com/terms](https://kompwatch.com/terms) — Terms of Service
+- [kompwatch.com/security](https://kompwatch.com/security) — Trust Center (subprocessors, practices, responsible disclosure)
 
 ## Questions?
 

@@ -22,7 +22,7 @@ Most teams that leave Crayon for KompWatch cite:
 | CSS selector targeting | ✓ Watch specific page sections | Limited |
 | AI-generated digests | ✓ Claude-powered, daily or weekly | ✓ Sparks AI summaries |
 | Job listing signals | ✓ Included | ✓ Included |
-| Battlecard generation | ✗ Roadmap | ✓ Included |
+| Battlecard generation | ✓ One-click HTML export | ✓ Included |
 | Win/loss tracking | ✗ Not in scope | ✓ Included |
 | MCP server / AI agent integration | ✗ Roadmap | ✓ Included |
 | CRM sync | Partial (via webhook) | ✓ Salesforce native |
