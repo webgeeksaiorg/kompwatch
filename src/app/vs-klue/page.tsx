@@ -496,6 +496,9 @@ export default function VsKluePage() {
             <Link href="/switching-from-klue" className="text-sm text-gray-500 hover:text-gray-700">
               Switching from Klue
             </Link>
+            <Link href="/switch/klue" className="text-sm text-gray-500 hover:text-gray-700">
+              Switch from Klue
+            </Link>
             <Link href="/login" className="text-sm text-gray-500 hover:text-gray-700">
               Sign in
             </Link>
