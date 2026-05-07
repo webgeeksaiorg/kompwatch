@@ -60,4 +60,4 @@ KompWatch's free tier (2 competitors) lets you run it alongside Kompyte for a mo
 Email [support@kompwatch.com](mailto:support@kompwatch.com) with your current competitor list and we'll help you set up equivalent monitoring, including suggested CSS selectors for common SaaS competitor pages.
 
 ---
-*For a full feature comparison, see [KompWatch vs Alternatives →](./comparing-to-alternatives.md)*
+*Kompyte now buried inside Adobe after three acquisitions? See the [Adobe/Semrush migration page →](https://kompwatch.com/switch/kompyte) for pricing comparisons and urgency context. For a full feature comparison, see [KompWatch vs Alternatives →](./comparing-to-alternatives.md)*
