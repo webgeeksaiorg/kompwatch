@@ -12,6 +12,8 @@ Go to [kompwatch.com/login](https://kompwatch.com/login) and enter your email. W
 
 The link expires after 15 minutes. If it doesn't arrive, check your spam folder or request a new one. See [My Login Email Didn't Arrive](magic-link-login.md) for more help.
 
+**Coming from a comparison page?** If you entered a competitor URL in the "Start monitoring" form on [/vs-klue](https://kompwatch.com/vs-klue) or [/vs-kompyte](https://kompwatch.com/vs-kompyte) and then signed in, your competitor URL is **not** automatically added to your account — you'll still need to add it manually in Step 2. The form takes you to sign-in; once you're in, paste the URL in the Add Competitor flow.
+
 ## Step 2: Explore the Demo Competitor (Then Add Your Own)
 
 When you first sign in, your dashboard already includes a **pre-seeded demo competitor — Acme Analytics** — with sample snapshots and detected changes. This is example data so you can explore the dashboard immediately, without waiting for real snapshots to run.
