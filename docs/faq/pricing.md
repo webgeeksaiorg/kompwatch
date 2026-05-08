@@ -35,6 +35,20 @@ You can toggle between Annual and Monthly pricing on the [pricing page](https://
 
 Selecting **Annual** on the pricing page will charge you at the discounted yearly rate (billed as a single annual payment). Select **Monthly** if you prefer to pay month-to-month.
 
+## What Do the "Save $X+/yr vs Kompyte" Badges Mean?
+
+On the Pro and Team pricing cards, you'll see badges like **"Save $3,000+/yr vs Kompyte"** or **"Save $19,000+/yr vs Klue"**. These show your estimated annual savings vs. the cheapest incumbent alternative:
+
+| Comparison | Basis |
+|---|---|
+| vs Kompyte | Kompyte enterprise pricing ~$3,600/yr (Semrush bundle, lowest tier) |
+| vs Klue | Klue starting price ~$20K/yr (Vendr 2026 data) |
+| vs Crayon | Crayon starting price ~$28,750/yr (Vendr 2026 data) |
+
+The badges update automatically based on whether you've selected Monthly or Annual billing. The dollar figure reflects what you'd pay KompWatch annually subtracted from the competitor's starting price — showing the minimum you'd save switching.
+
+These are starting prices; actual enterprise quotes for Klue and Crayon are often higher.
+
 ## Are There Hidden Fees?
 
 No. What you see on the [pricing page](https://kompwatch.com/pricing) is what you pay.

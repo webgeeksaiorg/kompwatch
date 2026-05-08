@@ -97,6 +97,33 @@ const plans: Plan[] = [
   },
 ];
 
+/* Competitor annual pricing for savings badges (source: G2, Capterra, public pricing) */
+const competitorAnnualPrices = {
+  kompyte: 3_600, // cheapest incumbent (~$300/mo)
+  klue: 20_000, // enterprise, sales-call pricing
+  crayon: 28_750, // enterprise, sales-call pricing
+} as const;
+
+function getSavingsBadge(
+  monthlyPrice: number,
+  annual: boolean
+): { dollars: string; percent: string; vs: string } | null {
+  if (monthlyPrice <= 0) return null;
+  const yearlyPrice = annual ? monthlyPrice * 12 * 0.8 : monthlyPrice * 12;
+  const saved = competitorAnnualPrices.kompyte - yearlyPrice;
+  if (saved <= 0) return null;
+  const pctVsKlue = Math.round(
+    ((competitorAnnualPrices.klue - yearlyPrice) / competitorAnnualPrices.klue) *
+      100
+  );
+  const roundedSaved = Math.floor(saved / 100) * 100;
+  return {
+    dollars: `$${roundedSaved.toLocaleString()}+`,
+    percent: `${pctVsKlue}%`,
+    vs: "Kompyte",
+  };
+}
+
 type CellValue = true | false | string;
 
 const comparisonRows: {
@@ -750,6 +777,18 @@ export default function PricingPage() {
                   {loading === plan.key ? "Redirecting..." : plan.cta}
                 </button>
               )}
+
+              {(() => {
+                const savings = getSavingsBadge(plan.monthlyPrice, annual);
+                if (!savings || isEnterprise) return null;
+                return (
+                  <p className="mt-3 text-center text-xs text-green-700">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-green-50 px-2.5 py-1 font-medium ring-1 ring-inset ring-green-200">
+                      Save {savings.dollars}/yr vs {savings.vs}
+                    </span>
+                  </p>
+                );
+              })()}
             </div>
           );
         })}
