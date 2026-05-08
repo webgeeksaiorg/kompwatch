@@ -33,8 +33,10 @@ Klue cut approximately 40% of its workforce in 2025 and pivoted its entire produ
 
 Klue's remaining differentiation is workflow delivery: Compete Agent AI, MCP server integration, and deep embedding into Teams Calls, Teams Chat, and Dynamics 365. These are compelling if your entire team is on Microsoft 365. If you're not, those features don't apply — but they're priced in. If you want automated monitoring with AI-generated digests delivered by email or Slack — without a $20K+ contract or Microsoft stack dependency — KompWatch covers the core use case at a fraction of the cost.
 
-**KompWatch vs Crayon**
-Crayon is the largest competitor intelligence platform ($25K–$40K/yr per Vendr 2026 data), with deep battlecard and CI workflow features. Recent additions include an MCP server for AI tool interconnection and "Sparks" — an AI layer that auto-generates strategic summaries from competitive signals. If your team needs battlecard generation or an AI strategic narrative layer today, Crayon is more mature. If you want automated monitoring at a fraction of the cost, KompWatch delivers core tracking for far less.
+**KompWatch vs Crayon (now SoftwareOne)**
+Crayon was acquired by SoftwareOne in April 2026 ($1.4B). If you're evaluating alternatives due to acquisition uncertainty, pricing changes, or product direction concerns, KompWatch offers a self-serve path with no enterprise lock-in.
+
+Crayon is priced at $25K–$40K/yr (per Vendr 2026 data) and requires an annual contract and sales call. Recent additions include an MCP server for AI tool interconnection and "Sparks" — an AI layer that auto-generates strategic summaries from competitive signals. If your team needs battlecard generation or an AI strategic narrative layer today, Crayon is more mature. If you want automated monitoring at a fraction of the cost, KompWatch delivers core tracking for far less.
 
 Note: Crayon's win/loss tracking and battlecard syncing require Salesforce. If your team runs on HubSpot, you won't have access to those features. KompWatch has no CRM dependency — alerts reach you via email or webhook regardless of your sales stack.
 
