@@ -171,6 +171,40 @@ export default function SwitchKompytePage() {
         </p>
       </section>
 
+      {/* Red urgency callout — Adobe Experience Cloud priorities */}
+      <section className="border-y border-red-200 bg-red-50 py-10">
+        <div className="mx-auto max-w-3xl px-6">
+          <div className="flex items-start gap-4">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-red-100 text-red-700">
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-wide text-red-700">
+                Why this matters now
+              </div>
+              <h2 className="mt-1 text-lg font-bold text-gray-900">
+                Adobe completed the Semrush acquisition (February 2026)
+              </h2>
+              <p className="mt-2 text-sm leading-relaxed text-gray-700">
+                Kompyte&rsquo;s roadmap is now an{" "}
+                <strong className="text-gray-900">
+                  Adobe Experience Cloud priority &mdash; not standalone CI
+                </strong>
+                . Adobe didn&rsquo;t pay $1.9B for a niche competitive intelligence add-on; they
+                paid for SEO and marketing analytics data. Expect{" "}
+                <strong className="text-gray-900">feature investment</strong>,{" "}
+                <strong className="text-gray-900">support staffing</strong>, and{" "}
+                <strong className="text-gray-900">standalone access</strong> to all bend toward the
+                enterprise creative-software bundle &mdash; not the standalone CI tool you signed
+                up for.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Acquisition timeline */}
       <section id="timeline" className="border-y border-gray-100 bg-gray-50 py-16">
         <div className="mx-auto max-w-3xl px-6">

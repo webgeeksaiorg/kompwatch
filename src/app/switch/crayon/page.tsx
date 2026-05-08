@@ -170,6 +170,37 @@ export default function SwitchCrayonPage() {
         </p>
       </section>
 
+      {/* Red urgency callout — enterprise IT reseller pivot */}
+      <section className="border-y border-red-200 bg-red-50 py-10">
+        <div className="mx-auto max-w-3xl px-6">
+          <div className="flex items-start gap-4">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-red-100 text-red-700">
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-wide text-red-700">
+                Why this matters now
+              </div>
+              <h2 className="mt-1 text-lg font-bold text-gray-900">
+                SoftwareOne acquired Crayon for $1.4B
+              </h2>
+              <p className="mt-2 text-sm leading-relaxed text-gray-700">
+                SoftwareOne is an{" "}
+                <strong className="text-gray-900">enterprise IT reseller</strong> &mdash; not an
+                SMB SaaS company. The strategic fit for Crayon points one direction:{" "}
+                <strong className="text-gray-900">pricing increases</strong> as SoftwareOne
+                recoups the $1.4B deal cost, and a{" "}
+                <strong className="text-gray-900">slower SMB roadmap</strong> as standalone CI
+                priorities yield to enterprise resale margins. Crayon&rsquo;s median contract is
+                already $28,750/yr &mdash; the next renewal will not be cheaper.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Acquisition timeline */}
       <section id="timeline" className="border-y border-gray-100 bg-gray-50 py-16">
         <div className="mx-auto max-w-3xl px-6">
