@@ -3,6 +3,7 @@ import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
 import { ComparisonFAQ } from "@/components/comparison-faq";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
+import { KlueReimbursementBanner } from "@/components/klue-reimbursement-banner";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -183,6 +184,8 @@ export default function SwitchingFromKluePage() {
           Free plan forever. No sales call. Don&rsquo;t renew Klue when you&rsquo;re ready.
         </p>
       </section>
+
+      <KlueReimbursementBanner page="switching-from-klue" />
 
       {/* Why teams are switching */}
       <section className="border-y border-gray-100 bg-gray-50 py-16">
@@ -464,6 +467,11 @@ export default function SwitchingFromKluePage() {
             question: "Is KompWatch a good fit for teams coming from Klue?",
             answer:
               "It depends on what you used Klue for. If your team consumed competitor monitoring, AI summaries, and Slack/email alerts, KompWatch Team ($149/mo, 50 competitors, hourly snapshots, real-time alerts) covers that fully at ~7% of Klue's entry-tier cost. If your team relies on Klue's Compete Agent, battlecard distribution inside Salesforce/Highspot, or managed CI analyst workflows, those aren't in KompWatch yet — and we'll say that honestly.",
+          },
+          {
+            question: "How does the Klue migration reimbursement work?",
+            answer:
+              "If you're on a Klue annual contract and have to pay an early-termination fee to switch, KompWatch will reimburse it — up to $500 — once you upgrade to a Pro or Team plan. The flow is simple: (1) sign up and upgrade to a paid KompWatch plan, (2) cancel Klue and forward us your cancellation confirmation showing the fee at support@kompwatch.com, (3) we apply a Stripe refund on your KompWatch invoice for the cancellation amount, capped at $500, within 5 business days. The offer runs through Q3 2026 to support teams making the switch during Klue's post-layoff churn window. One reimbursement per company.",
           },
         ]}
       />

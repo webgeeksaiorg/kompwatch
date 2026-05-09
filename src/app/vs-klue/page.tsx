@@ -4,6 +4,7 @@ import { TrackedCTA } from "@/components/tracked-cta";
 import { ComparisonFAQ } from "@/components/comparison-faq";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 import { CompetitorUrlCapture } from "@/components/competitor-url-capture";
+import { KlueReimbursementBanner } from "@/components/klue-reimbursement-banner";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -142,6 +143,8 @@ export default function VsKluePage() {
           See full comparison &rarr;
         </Link>
       </section>
+
+      <KlueReimbursementBanner page="vs-klue" />
 
       {/* Pricing snapshot */}
       <section className="border-y border-gray-100 bg-gray-50 py-16">
