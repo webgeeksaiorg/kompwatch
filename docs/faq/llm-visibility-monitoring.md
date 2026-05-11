@@ -10,7 +10,7 @@ Tools like [LLMrefs](https://llmrefs.com) have emerged specifically to measure t
 
 ## Does KompWatch Track LLM Visibility Today?
 
-Not yet. KompWatch currently monitors competitor **websites** — pricing pages, feature pages, blogs, job listings, and landing pages — using a headless browser. It does not yet query AI search engines to measure competitor mentions.
+Not yet in production — but **LLM visibility tracking is in final testing and shipping soon**. KompWatch currently monitors competitor **websites** — pricing pages, feature pages, blogs, job listings, and landing pages — using a headless browser. The LLM visibility feature (querying AI search engines to measure competitor mentions) is in active QA and will be available to all users on launch.
 
 ## What Does KompWatch Track That's Relevant?
 
@@ -24,13 +24,13 @@ These signals tell you *why* a competitor's LLM visibility might shift before yo
 
 ## Is LLM Visibility Monitoring on the Roadmap?
 
-Yes — we're evaluating adding LLM visibility tracking as a dedicated feature. It would let you:
+Yes — and it's shipping very soon. LLM visibility tracking is currently in final QA. Once live, it will let you:
 
 - See which AI search engines mention your competitors (and how)
 - Track changes in how competitors are described in AI-generated results over time
 - Get alerts when a competitor's LLM footprint shifts significantly
 
-If you want this feature and have specific use cases in mind, **[join the waitlist at kompwatch.com/llm-visibility](https://kompwatch.com/llm-visibility)** — waitlist demand directly influences our roadmap prioritization.
+**[Join the waitlist at kompwatch.com/llm-visibility](https://kompwatch.com/llm-visibility)** to be notified the moment it ships — waitlist members get early access.
 
 ## How Does This Compare to Dedicated LLM Visibility Tools?
 
