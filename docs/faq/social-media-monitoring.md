@@ -36,4 +36,6 @@ Until native social monitoring ships, here are approaches KompWatch customers us
 We're evaluating it. If social monitoring is important to you, email [support@kompwatch.com](mailto:support@kompwatch.com) and tell us which platforms matter most. Customer demand shapes what we build next.
 
 ---
+*Related: [Community Platform Monitoring](./community-platform-monitoring.md) (Reddit, Hacker News, Product Hunt) · [Monitoring Competitor Reviews](./monitoring-competitor-reviews.md)*
+
 *Questions? Email [support@kompwatch.com](mailto:support@kompwatch.com) and we'll respond within 24 hours.*
