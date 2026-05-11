@@ -1,7 +1,8 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: ready
+score: 8.5/10
 keywords: [competitor monitoring tool, affordable CI, competitive intelligence market]
 ---
 

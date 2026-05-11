@@ -1,7 +1,8 @@
 ---
 platform: twitter
 type: reply
-status: draft
+status: ready
+score: 9/10
 keywords: [competitor monitoring SPA, JavaScript website tracking, headless browser CI]
 ---
 

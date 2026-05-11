@@ -1,7 +1,8 @@
 ---
 platform: twitter
 type: reply
-status: draft
+status: ready
+score: 8/10
 keywords: [Klue small teams, Klue alternative, competitive intelligence for startups]
 ---
 

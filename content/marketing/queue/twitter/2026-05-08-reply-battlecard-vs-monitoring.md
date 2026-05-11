@@ -1,7 +1,8 @@
 ---
 platform: twitter
 type: reply
-status: draft
+status: ready
+score: 8/10
 keywords: [competitive intelligence tools, battlecard software, competitor monitoring]
 ---
 

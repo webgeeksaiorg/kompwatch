@@ -1,7 +1,8 @@
 ---
 platform: twitter
 type: reply
-status: draft
+status: ready
+score: 8.5/10
 keywords: [competitive intelligence adoption, CI tool ROI, battlecard adoption]
 ---
 

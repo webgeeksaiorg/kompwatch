@@ -14,6 +14,75 @@ Tracks where KompWatch has been submitted for listing/discovery.
 | — | awesome-saas-tools | pending | — |
 | — | awesome-competitive-intelligence | pending | GitHub repo: github.com/aj-dev-sys/awesome-competitive-intelligence — add KompWatch as headless-browser-based option |
 
+## Keyword Research — 2026-05-09 (Saturday cycle, run 15)
+
+**Fresh data from WebSearch (May 2026):**
+- **72% of B2B SaaS companies changed pricing/packaging at least once in 2025** — teams with real-time pricing alerts had a 26% higher competitive win rate. Extremely specific, quotable stat. Not yet covered in any prior cycle content.
+- **LLM visibility as new CI frontier** — Peec AI and AIclicks both launched in 2026 specifically to track where competitors appear in ChatGPT, Perplexity, and Claude results. Gartner projects traditional search traffic drops 25% by 2026 as buyers shift to AI queries. Directly relevant to KompWatch ticket 01ff (LLM visibility tracking, In Review).
+- **Steve (hiresteve.ai) new positioning confirmed** — "AI-agent alternative to Crayon/Klue designed for growth-stage PMM teams without dedicated CI headcount." Targets the no-headcount segment we also own. Not yet used as content angle.
+- **Hexowatch tracks 13 monitoring types** including tech stack changes, DNS, API endpoints, source code. Most affordable CI tools (including new entrants) still do only visual/HTTP diff. Technical depth framing not yet fully explored.
+- **RivalSense confirmed at $44.99/mo** — now appearing in 2026 affordable CI roundups alongside Owler Pro ($49/mo) and Visualping Business ($49/mo). $49 tier getting crowded with non-headless options. KompWatch differentiation: headless rendering + AI digest.
+
+**Saturday calendar: 1 tweet max (REST day).**
+Pre-staged tweet: `twitter/2026-05-09-competitor-changelogs-signal.md` (8.5/10) — publish attempted; TWITTER credentials missing, blocked.
+Second queued file: `twitter/2026-05-09-changelog-shipped.md` (8/10) — held, will redeploy if Saturday slot opens.
+
+**Content produced this cycle (Wednesday May 13 slate):**
+- `twitter/2026-05-13-72pct-pricing-change.md` — 72% SaaS pricing change + 26% win rate stat (8.5/10, READY)
+- `twitter/2026-05-13-llm-visibility-frontier.md` — Peec AI/AIclicks, Gartner 25% search decline, LLM as new CI layer (8.5/10, READY)
+- `twitter/2026-05-13-reply-google-alerts-two-signals.md` — Google Alerts catches mentions, not site changes (8/10, READY)
+- `twitter/2026-05-13-reply-llm-blind-spot.md` — no impression data in AI answers (8/10, READY)
+- `twitter/2026-05-13-reply-manual-cost-math.md` — $8K/yr in salary vs $49/mo tool (8/10, READY)
+- `twitter/2026-05-13-reply-silent-pricing-changes.md` — 72% silent change stat, deal-call surprise (8/10, READY)
+- `twitter/2026-05-13-reply-smb-ci-headcount.md` — 31% Crayon/Klue adoption, no-headcount gap (8/10, READY)
+- `reddit/2026-05-13-comment-72pct-silent-changes.md` — r/SaaS silent pricing changes + 26% win rate (8/10, READY)
+- `linkedin/2026-05-13-llm-visibility-shift.md` — LLM visibility as new CI layer, Peec AI/AIclicks, KompWatch roadmap (8.5/10, READY)
+
+**Wednesday May 13 publish slate:**
+- Twitter: 72pct-pricing-change.md + llm-visibility-frontier.md (2 tweets) + 5 replies (google-alerts-two-signals, llm-blind-spot, manual-cost-math, silent-pricing-changes, smb-ci-headcount)
+- Reddit: 72pct-silent-changes.md (1 comment)
+- LinkedIn: llm-visibility-shift.md (1 post)
+
+**Publishing status:** TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, GHOST_ADMIN_API_KEY all still missing. All platforms blocked. Content accumulating in queue. Queue now stocked through May 13.
+
+---
+
+## Keyword Research — 2026-05-08 (Friday cycle, run 14)
+
+**Fresh data from WebSearch (May 2026):**
+- **Crayon MCP Server case study data** — enterprise demo: 850+ competitive questions answered through Microsoft Copilot AI chat in 30 days. First MCP server in CI category. Enterprise only ($50K+/yr). "$41 per competitive question" math is a usable content angle. Confirms the enterprise/affordable split is widening.
+- **Kompyte "nickel-and-dime" pattern confirmed** — G2 reviews: opaque pricing, AI underperforms, tier limits trigger upsell calls fast. Reinforces $300/mo advertised vs $1,667/mo actual ARR math.
+- **Crayon most common G2 complaint** — "expensive" is the #1 tag. Hidden fees for integrations. Unpredictable bills as competitor count grows.
+- **71% of teams report win rate lifts from battlecards** — but startups cobbling together Visualping + Google Alerts + SpyFu rather than paying $100K+ enterprise. KompWatch wedge: monitoring first, battlecard-ready data as output.
+- **Klue pricing model contrast** — scales by users (not competitors tracked), clearer than Crayon. Still $16K+/yr minimum. Gap remains.
+
+**Content produced this cycle (Friday May 8):**
+- `twitter/2026-05-08-pricing-change-stat.md` — 1,800+ pricing changes in 2025 stat (8/10, READY)
+- `twitter/2026-05-08-market-validation-moment.md` — 5 tools in $49-99/mo bracket now (8.5/10, READY)
+- `twitter/2026-05-08-crayon-mcp-reaction.md` — Crayon MCP 850 questions / $50K+ angle (8.5/10, READY)
+- `twitter/2026-05-08-klue-teams-lock-in.md` — Klue Microsoft stack lock-in (8/10, READY)
+- `twitter/2026-05-08-klue-weeks-to-value.md` — Klue weeks vs KompWatch instant snapshot (8.5/10, READY)
+- `twitter/2026-05-08-reply-manual-monday.md` — 18 months, 12 tabs, stale by Thursday (8/10, READY)
+- `twitter/2026-05-08-reply-ci-tool-size.md` — market tier split reply (8/10, READY)
+- `twitter/2026-05-08-reply-ci-ownership-common-thread.md` — ownership = design choice, not law of physics (8.5/10, READY)
+- `twitter/2026-05-08-reply-new-entrant-spa-gap.md` — new $49 tools still monitoring empty divs (9/10, READY)
+- `twitter/2026-05-08-reply-warehouse-for-closet.md` — G2 "renting a warehouse for a closet" quote (8.5/10, READY)
+- `twitter/2026-05-08-reply-battlecard-vs-monitoring.md` — Battlecard vs KompWatch different jobs (8/10, READY)
+- `twitter/2026-05-08-reply-klue-small-teams.md` — review aggregator quote on Klue/SMB (8/10, READY)
+- `reddit/2026-05-08-comment-ci-automation-gap.md` — monitoring gap framing (7.5/10, READY)
+- `reddit/2026-05-08-comment-mcp-for-small-teams.md` — Crayon MCP impressive but $50K+, building for 98% (8/10, READY)
+- `reddit/2026-05-08-post-five-new-ci-tools.md` — honest comparison of 5 affordable CI tools (8.5/10, READY)
+- `linkedin/2026-05-08-ci-market-split.md` — Tier 1 vs Tier 2 with nothing in between (8/10, READY)
+
+**Friday May 8 publish slate:**
+- Twitter: pricing-change-stat.md + market-validation-moment.md (2 tweets) + 5 replies (manual-monday, ci-tool-size, ci-ownership-common-thread, new-entrant-spa-gap, warehouse-for-closet)
+- Reddit: ci-automation-gap.md + mcp-for-small-teams.md (2 comments) + five-new-ci-tools.md (1 post)
+- LinkedIn: ci-market-split.md (1 post)
+
+**Publishing status:** TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, GHOST_ADMIN_API_KEY all still missing. All platforms blocked. Content accumulating in queue. Queue stocked through May 12.
+
+---
+
 ## Keyword Research — 2026-05-05 (Tuesday cycle, run 6 — evening)
 
 **Fresh data from WebSearch (May 2026):**
@@ -534,3 +603,23 @@ For reddit-comment publishing once credentials are available:
 - Tweet reply: Visualping breaks at 5+ competitors / JS-rendered pages
 - Show HN post: queued for 2026-04-29 (Strategist auto-approved)
 - Blog: "What Adobe Buying Semrush Means If You're Not a Fortune 500" (2026-05-05)
+
+---
+
+## Keyword Research — 2026-05-11 (Monday cycle)
+
+**Fresh data from WebSearch (May 2026):**
+- **CI tools market: $870M (2026) → $4.03B by 2034 (21.17% CAGR)** — Gartner projects 40% of tech/service providers using commercial CI tools by 2026, up from ~10%. Market growing but not toward SMB affordability — enterprise incumbents unchanged on pricing.
+- **14-month enterprise CI ROI timeline** (G2 aggregate data) — teams pay $28K+ upfront, see meaningful competitive attribution ~14 months later. Compelling contrast with immediate-value positioning. New angle not yet used.
+- **Median active monitor check frequency: 2.8 hours** — Visualping dataset, 9,705 active monitors. High-performers check far more often than weekly manual process. "Manual Monday" misses Wednesday changes.
+- **NY Algorithmic Pricing Disclosure Act (Nov 2025) + CA AG investigation** — consumer-facing price transparency laws, but B2B SaaS pricing is moving in the opposite direction: more "contact sales," personalized quotes, tiered opacity. Pricing page structural changes (tier additions/removals, seat minimums) remain the reliable signal.
+- **LLM visibility tracking now at $49/mo entry** — Tools like LLM Pulse and AIclicks launched 2026. KompWatch ticket 01ff (LLM visibility, In Review) directly aligned.
+- **Kompyte avg ARR: ~$20K/customer** despite "$300/mo starting" claim — Semrush acquisition filing data shows 5.5x markup. Running angle from prior cycles confirmed valid.
+
+**Content produced this cycle:**
+- `twitter/2026-05-14-roi-14months.md` — 14-month ROI contrast (8/10, READY, Thursday slot)
+- `twitter/2026-05-14-check-frequency.md` — 2.8-hour monitoring frequency stat (8/10, READY, Thursday slot)
+- `twitter/2026-05-14-reply-ci-market-growth.md` — $870M → $4B market growth angle (7.5/10, READY, Thursday slot)
+- `reddit/2026-05-13-comment-pricing-opacity.md` — NY pricing act / B2B opacity angle (8.5/10, READY, Wednesday slot)
+
+**Publishing status:** TWITTER_API_KEY, REDDIT_CLIENT_ID, LINKEDIN_ACCESS_TOKEN still missing from environment. All social platforms blocked. Content queue healthy — 50+ pieces ready across platforms. Action needed: configure social API credentials in Vaultwarden under KompWatch folder.
