@@ -7,6 +7,7 @@ import {
   assignVariantInBrowser,
   type Variant,
 } from "@/lib/ab";
+import { RoiCalculator } from "@/components/marketing/roi-calculator";
 
 declare global {
   interface Window {
@@ -793,6 +794,9 @@ export default function PricingPage() {
           );
         })}
       </div>
+
+      {/* Interactive ROI calculator — time-saved widget for conversion */}
+      <RoiCalculator />
 
       {/* No Hidden Fees Section */}
       <div className="mt-20">
