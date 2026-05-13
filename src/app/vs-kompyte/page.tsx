@@ -122,8 +122,12 @@ export default function VsKompytePage() {
 
       {/* Hero */}
       <section className="mx-auto max-w-4xl px-6 pb-16 pt-20 text-center">
-        <div className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700">
-          Kompyte alternative
+        <div className="inline-flex items-center gap-2 rounded-full border border-amber-300 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-800">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-500 opacity-60"></span>
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-600"></span>
+          </span>
+          Kompyte acquired by Adobe / Semrush &mdash; Feb 2026
         </div>
         <h1 className="mt-6 text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl">
           KompWatch vs Kompyte{" "}
@@ -136,16 +140,31 @@ export default function VsKompytePage() {
           signals plus jobs and AI digests, starting at{" "}
           <strong className="text-gray-900">$49/mo</strong>, self-serve in under 2 minutes.
         </p>
+        <p className="mx-auto mt-4 max-w-2xl rounded-lg border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm font-medium leading-relaxed text-amber-900">
+          Pricing uncertainty ahead. Adobe acquisitions typically raise SMB pricing 2&ndash;3&times;
+          within 12&ndash;18 months. Lock in KompWatch&rsquo;s $49/mo before the integration window
+          closes.
+        </p>
         <CompetitorUrlCapture competitor="Kompyte" placeholder="https://semrush.com or any competitor URL" />
         <p className="mt-3 text-xs text-gray-400">
           Paste a competitor URL to start monitoring. No credit card. No sales call.
         </p>
-        <Link
-          href="#comparison"
-          className="mt-4 inline-block text-sm font-semibold text-gray-900 hover:text-brand-600"
-        >
-          See full comparison &rarr;
-        </Link>
+        <div className="mt-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+          <TrackedCTA
+            href="/pricing"
+            event="Acquisition Urgency Pricing CTA Click"
+            eventProps={{ competitor: "Kompyte", section: "hero", variant: "acquisition-urgency" }}
+            className="inline-flex items-center text-sm font-semibold text-brand-600 hover:text-brand-700"
+          >
+            Lock in KompWatch pricing &rarr;
+          </TrackedCTA>
+          <Link
+            href="#comparison"
+            className="text-sm font-semibold text-gray-900 hover:text-brand-600"
+          >
+            See full comparison &rarr;
+          </Link>
+        </div>
       </section>
 
       {/* Vendor context */}

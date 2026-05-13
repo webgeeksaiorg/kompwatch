@@ -73,6 +73,7 @@ For a full picture, pair KompWatch (website change monitoring) with media monito
 
 ## Related Articles
 
+- [Proving the ROI of Competitive Intelligence to Your Team](./proving-roi-of-competitive-intelligence.md)
 - [Using KompWatch Insights for Sales](./using-insights-for-sales.md)
 - [Using KompWatch Insights for Product Teams](./using-insights-for-product-teams.md)
 - [Using KompWatch Insights for Marketing Teams](./using-insights-for-marketing-teams.md)

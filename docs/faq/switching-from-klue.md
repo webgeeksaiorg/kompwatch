@@ -59,6 +59,18 @@ If you relied on Klue's CRM-embedded battlecards or Salesforce battlecard sync, 
 
 KompWatch's free tier (2 competitors, no credit card) lets you evaluate monitoring quality before your Klue renewal. Run the same competitor URLs in both tools for a month to compare digest depth and coverage.
 
+## Klue Migration Reimbursement
+
+If you're locked into a Klue annual contract and have to pay an early-termination fee to switch, KompWatch will reimburse it — up to $500 — once you upgrade to a paid plan. Offer valid through Q3 2026 to support teams making the switch during Klue's post-layoff churn window.
+
+**How it works:**
+
+1. **Sign up and upgrade.** Start a KompWatch Pro plan ($49/mo) or Team plan ($149/mo) so we can issue a refund through Stripe.
+2. **Cancel Klue and email us proof.** Forward your Klue cancellation confirmation (showing the fee amount) to [support@kompwatch.com](mailto:support@kompwatch.com?subject=Klue%20reimbursement%20claim).
+3. **We refund up to $500.** Within 5 business days, we apply a Stripe refund on your KompWatch invoice for the cancellation amount, capped at $500.
+
+One reimbursement per company. Available on the public switching pages — see [/vs-klue](https://kompwatch.com/vs-klue) and [/switching-from-klue](https://kompwatch.com/switching-from-klue) for the active offer.
+
 ## Questions About the Switch?
 
 Email [support@kompwatch.com](mailto:support@kompwatch.com) with your current competitor list and we'll help you set up equivalent monitoring, including suggested CSS selectors for common SaaS competitor pages.

@@ -1,7 +1,8 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: ready
+score: 8.5/10
 keywords: [Klue alternative, competitor monitoring setup, competitive intelligence onboarding]
 ---
 

@@ -2,7 +2,8 @@
 platform: reddit
 type: post
 target: r/SaaS
-status: draft
+status: ready
+score: 8.5/10
 keywords: [competitive intelligence tools 2026, competitor monitoring, CI tool comparison]
 ---
 
