@@ -133,6 +133,7 @@ describe("captureSnapshot", () => {
         summary: "Bumped Pro from $39 to $49",
         details: "diff",
         severity: "HIGH",
+        confidence: 95,
         pageUrl: null,
       },
     ]);
@@ -147,6 +148,7 @@ describe("captureSnapshot", () => {
     const call = mockChangeCreateMany.mock.calls[0][0];
     expect(call.data[0].changeType).toBe("PRICING");
     expect(call.data[0].competitorId).toBe("c1");
+    expect(call.data[0].confidenceScore).toBe(0.95);
   });
 
   it("does not push instant alerts when webhook is disabled", async () => {
@@ -170,6 +172,7 @@ describe("captureSnapshot", () => {
         summary: "x",
         details: "y",
         severity: "HIGH",
+        confidence: 90,
         pageUrl: null,
       },
     ]);
@@ -207,6 +210,7 @@ describe("captureSnapshot", () => {
         summary: "Bumped",
         details: "d",
         severity: "HIGH",
+        confidence: 85,
         pageUrl: null,
       },
       {
@@ -214,13 +218,14 @@ describe("captureSnapshot", () => {
         summary: "low-noise",
         details: "d",
         severity: "LOW",
+        confidence: 80,
         pageUrl: null,
       },
     ]);
 
     await captureSnapshot("c1");
 
-    // HIGH meets MEDIUM threshold; LOW does not.
+    // HIGH meets MEDIUM threshold with confidence >= 70; LOW severity does not meet threshold.
     expect(mockSendInstantAlertWebhook).toHaveBeenCalledTimes(1);
   });
 
@@ -252,12 +257,136 @@ describe("captureSnapshot", () => {
         summary: "x",
         details: "d",
         severity: "HIGH",
+        confidence: 90,
         pageUrl: null,
       },
     ]);
 
     await captureSnapshot("c1");
 
+    expect(mockSendInstantAlertWebhook).not.toHaveBeenCalled();
+  });
+
+  it("filters out low-confidence changes (below 40%)", async () => {
+    const prev = {
+      pricingHtml: "<p>$39/mo</p>",
+      featuresHtml: null,
+      blogTitles: [],
+      jobTitles: [],
+      techStack: [],
+    };
+    mockFindUnique.mockResolvedValue({
+      ...baseCompetitor,
+      snapshots: [prev],
+    });
+    mockScrapeCompetitor.mockResolvedValue(baseScrape);
+    mockSnapshotCreate.mockResolvedValue({ id: "snap" });
+    mockDetectChanges.mockResolvedValue([
+      {
+        changeType: "PRICING",
+        summary: "Real pricing change",
+        details: "d",
+        severity: "HIGH",
+        confidence: 92,
+        pageUrl: null,
+      },
+      {
+        changeType: "GENERAL",
+        summary: "Formatting noise",
+        details: "d",
+        severity: "LOW",
+        confidence: 25,
+        pageUrl: null,
+      },
+    ]);
+    mockChangeCreateMany.mockResolvedValue({ count: 1 });
+
+    const result = await captureSnapshot("c1");
+
+    expect(result.changesDetected).toBe(1);
+    const call = mockChangeCreateMany.mock.calls[0][0];
+    expect(call.data).toHaveLength(1);
+    expect(call.data[0].summary).toBe("Real pricing change");
+    expect(call.data[0].confidenceScore).toBe(0.92);
+  });
+
+  it("does not persist anything when all changes are low-confidence", async () => {
+    const prev = {
+      pricingHtml: "<p>$39/mo</p>",
+      featuresHtml: null,
+      blogTitles: [],
+      jobTitles: [],
+      techStack: [],
+    };
+    mockFindUnique.mockResolvedValue({
+      ...baseCompetitor,
+      snapshots: [prev],
+    });
+    mockScrapeCompetitor.mockResolvedValue(baseScrape);
+    mockSnapshotCreate.mockResolvedValue({ id: "snap" });
+    mockDetectChanges.mockResolvedValue([
+      {
+        changeType: "GENERAL",
+        summary: "Noise 1",
+        details: "d",
+        severity: "LOW",
+        confidence: 20,
+        pageUrl: null,
+      },
+      {
+        changeType: "GENERAL",
+        summary: "Noise 2",
+        details: "d",
+        severity: "LOW",
+        confidence: 35,
+        pageUrl: null,
+      },
+    ]);
+
+    const result = await captureSnapshot("c1");
+
+    expect(result.changesDetected).toBe(0);
+    expect(mockChangeCreateMany).not.toHaveBeenCalled();
+  });
+
+  it("skips instant alerts for changes with low confidence even if severity is high", async () => {
+    mockFindUnique.mockResolvedValue({
+      ...baseCompetitor,
+      user: {
+        plan: "TEAM",
+        webhookEnabled: true,
+        webhookUrl: "https://hooks.slack.com/services/x/y/z",
+        instantAlertsEnabled: true,
+        instantAlertMinSeverity: "MEDIUM",
+      },
+      snapshots: [
+        {
+          pricingHtml: null,
+          featuresHtml: null,
+          blogTitles: [],
+          jobTitles: [],
+          techStack: [],
+        },
+      ],
+    });
+    mockScrapeCompetitor.mockResolvedValue(baseScrape);
+    mockSnapshotCreate.mockResolvedValue({ id: "snap" });
+    mockDetectChanges.mockResolvedValue([
+      {
+        changeType: "PRICING",
+        summary: "Maybe changed",
+        details: "d",
+        severity: "HIGH",
+        confidence: 55, // above 40 (persisted) but below 70 (no alert)
+        pageUrl: null,
+      },
+    ]);
+    mockChangeCreateMany.mockResolvedValue({ count: 1 });
+
+    await captureSnapshot("c1");
+
+    // Change is persisted (confidence >= 40) but no alert fired (confidence < 70)
+    expect(mockChangeCreateMany).toHaveBeenCalledOnce();
     expect(mockSendInstantAlertWebhook).not.toHaveBeenCalled();
   });
 

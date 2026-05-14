@@ -17,6 +17,7 @@ export interface DetectedChange {
   summary: string;
   details: string;
   severity: "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
+  confidence: number; // 0–100, AI's confidence this is a real, meaningful change
   pageUrl?: string;
 }
 
@@ -108,6 +109,11 @@ Return a JSON array of changes. Each change should have:
 - summary: one-sentence human-readable summary of WHAT changed (e.g., "Increased Pro plan from $49 to $59/mo")
 - details: 1-2 sentences describing the change factually, followed on a new line by "What this means for you: " and 1-2 sentences translating the change into a strategic implication for the reader's own positioning, pricing, sales, or roadmap. Be specific and actionable — not generic advice. If a change has no obvious strategic implication, say so honestly ("What this means for you: Likely no immediate action needed — log for context.").
 - severity: LOW (blog post, minor copy), MEDIUM (new feature, job listing), HIGH (pricing change, major feature), CRITICAL (pivot, acquisition signal)
+- confidence: integer 0–100 indicating how confident you are that this is a real, meaningful change (not noise). Guidelines:
+  - 90–100: Clear, unambiguous change with concrete evidence (price changed from X to Y, new feature announced)
+  - 70–89: Likely real change but some ambiguity (wording shift that may indicate a positioning change)
+  - 50–69: Possible change but could be cosmetic or a false positive (HTML restructure, minor copy edit)
+  - 0–49: Probably noise (formatting, whitespace, template variation, A/B test artifact)
 
 Only report REAL changes, not formatting differences. If no meaningful changes, return an empty array.
 
@@ -124,10 +130,21 @@ Respond with ONLY the JSON array, no markdown or explanation.`;
 
   try {
     const parsed = JSON.parse(text) as DetectedChange[];
-    return Array.isArray(parsed) ? parsed : [];
+    if (!Array.isArray(parsed)) return [];
+    // Normalise confidence: AI returns 0–100 int, clamp to valid range
+    return parsed.map((c) => ({
+      ...c,
+      confidence: clampConfidence(c.confidence),
+    }));
   } catch {
     return [];
   }
+}
+
+/** Clamp an AI-returned confidence value (0–100) to a valid 0–100 integer */
+function clampConfidence(raw: unknown): number {
+  if (typeof raw !== "number" || Number.isNaN(raw)) return 50; // default to medium if missing
+  return Math.max(0, Math.min(100, Math.round(raw)));
 }
 
 /** Strip HTML tags and truncate to limit token usage */

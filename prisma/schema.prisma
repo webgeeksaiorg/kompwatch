@@ -125,11 +125,12 @@ model Change {
   competitorId String
   createdAt    DateTime   @default(now())
 
-  changeType   ChangeType
-  summary      String     // AI-generated summary: "Increased Pro plan from $49 to $59"
-  details      String?    @db.Text // Full diff or detailed description
-  severity     Severity   @default(MEDIUM)
-  pageUrl      String?    // Which page changed
+  changeType       ChangeType
+  summary          String     // AI-generated summary: "Increased Pro plan from $49 to $59"
+  details          String?    @db.Text // Full diff or detailed description
+  severity         Severity   @default(MEDIUM)
+  confidenceScore  Float      @default(1.0) // AI confidence 0.0–1.0 (1 = certain, 0 = noise)
+  pageUrl          String?    // Which page changed
 
   // Has this been included in a digest?
   digestId     String?

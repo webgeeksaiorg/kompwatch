@@ -26,6 +26,12 @@ const CHANGE_TYPE_LABELS: Record<string, string> = {
   GENERAL: "General",
 };
 
+function confidenceLabel(score: number): { text: string; className: string } | null {
+  if (score >= 0.9) return null; // High confidence — no need to flag
+  if (score >= 0.7) return { text: "Likely", className: "text-yellow-600 bg-yellow-50 border-yellow-200" };
+  return { text: "Uncertain", className: "text-amber-700 bg-amber-50 border-amber-200" };
+}
+
 function timeAgo(date: Date): string {
   const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
   if (seconds < 60) return "just now";
@@ -298,6 +304,7 @@ export default async function DashboardPage() {
             <div className="space-y-4">
               {recentChanges.map((change) => {
                 const { implication } = splitChangeDetails(change.details);
+                const conf = confidenceLabel(change.confidenceScore);
                 return (
                 <div key={change.id} className="relative flex gap-4 pl-9">
                   {/* Timeline dot */}
@@ -333,6 +340,14 @@ export default async function DashboardPage() {
                         >
                           {change.severity}
                         </span>
+                        {conf && (
+                          <span
+                            className={`inline-flex rounded-full border px-1.5 py-0.5 text-[10px] font-medium ${conf.className}`}
+                            title={`AI confidence: ${Math.round(change.confidenceScore * 100)}%`}
+                          >
+                            {conf.text}
+                          </span>
+                        )}
                       </div>
                       <span className="text-xs text-gray-400">{timeAgo(change.createdAt)}</span>
                     </div>

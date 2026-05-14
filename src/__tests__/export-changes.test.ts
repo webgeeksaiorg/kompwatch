@@ -57,7 +57,7 @@ describe("GET /api/export/changes", () => {
 
     const body = await res.text();
     expect(body.split("\n")[0]).toBe(
-      "Date,Competitor,URL,Type,Severity,Summary,Page URL"
+      "Date,Competitor,URL,Type,Severity,Confidence,Summary,Page URL"
     );
     // Name with comma + summary with quotes/comma should be quoted & escaped
     expect(body).toContain('"Acme, Inc."');
