@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: ready
 score: 8/10
 keywords: [visualping alternative, competitor monitoring DIY, website change detection tool]
 ---

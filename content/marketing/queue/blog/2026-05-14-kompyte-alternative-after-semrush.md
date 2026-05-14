@@ -1,35 +1,53 @@
 ---
 platform: blog
 type: article
-status: draft
-score: 8.5/10
-keywords: [kompyte alternative, kompyte semrush acquisition, competitor monitoring tool, kompyte replacement]
-title: Kompyte After Semrush: What Small Teams Are Doing Now
-description: Kompyte was the affordable option for competitor monitoring. Then Semrush acquired it. Here's what's changed and what teams are switching to.
+status: ready
+score: 9/10
+keywords: [kompyte alternative, kompyte adobe acquisition, kompyte semrush acquisition, competitor monitoring tool, kompyte replacement]
+title: Kompyte Is Now Inside Adobe. Here's What Small Teams Are Doing.
+description: Kompyte was acquired by Semrush in 2022. Adobe acquired Semrush in April 2026. Kompyte is now two acquisitions deep inside a creative suite company. Here's what that means for teams who just want to monitor competitors.
 internal_links: [/vs-kompyte, /pricing, /switching-from/kompyte]
 ---
 
-# Kompyte After Semrush: What Small Teams Are Doing Now
+# Kompyte Is Now Inside Adobe. Here's What Small Teams Are Doing.
 
 Kompyte used to be the obvious answer when someone asked "what do you use to track competitors without paying Crayon prices?"
 
 $300/year. Set it up in an afternoon. Website monitoring, change alerts, some basic battlecard features. Good enough for a 10-person startup that doesn't have a dedicated competitive intelligence analyst.
 
-Then Semrush acquired them.
+Then Semrush acquired them. That was late 2022.
 
-That was late 2022. Three and a half years ago. Long enough to see what an acquisition actually does to a product.
+Then Adobe acquired Semrush. That closed April 28, 2026 — $1.9 billion.
+
+So Kompyte is now two acquisitions deep inside a company best known for Photoshop, Premiere, and selling Creative Cloud subscriptions to design agencies. Not exactly where you'd expect your competitor monitoring tool to end up.
+
+Three and a half years since the first acquisition. Long enough to see what this does to a product.
 
 ---
 
-## What changed after the acquisition
+## What changed after Semrush acquired them
 
 Kompyte didn't disappear. But it changed direction.
 
 Semrush is an $800M/year enterprise software company. Their roadmap is optimized for enterprise buyers — large marketing teams, agencies, companies with multiple product lines and dedicated research staff. When Kompyte became part of that machine, the feature priorities shifted accordingly.
 
-The small team features — the ones that made Kompyte worth $300/year — stopped getting the same attention. New features serve the Semrush integration story. The roadmap is now "how does Kompyte fit into the Semrush platform" rather than "what does a 5-person SaaS team actually need to track competitors."
+The small team features — the ones that made Kompyte worth $300/year — stopped getting the same attention. New features serve the Semrush integration story. The roadmap became "how does Kompyte fit into the Semrush platform" rather than "what does a 5-person SaaS team actually need to track competitors."
 
 This isn't unusual. It's almost always what happens. The acquisition is great for the founders. For the product's original users, it's a coin flip.
+
+---
+
+## Now it's Adobe's problem. Which means it's your problem.
+
+Adobe acquiring Semrush for $1.9B closed April 28, 2026.
+
+Think about that org chart for a second. The people who built Kompyte as a scrappy competitor intelligence tool for SaaS startups now report into a creative software company whose core users are designers, filmmakers, and marketing agencies. The competitive intelligence roadmap has to justify itself inside a company that earns most of its money on Photoshop.
+
+Does Adobe have a strong incentive to fix the features that small SaaS teams care about? No. Do they have a strong incentive to integrate Kompyte deeper into Adobe Experience Cloud for enterprise marketing teams? Yes.
+
+This doesn't mean Kompyte breaks on Tuesday. Products can survive acquisitions and even thrive. But you're betting on a product whose roadmap is now three levels removed from the original team's priorities — and whose owner has zero strategic interest in the indie SaaS use case.
+
+That's a bet I wouldn't make on something as operationally important as knowing when competitors change their pricing.
 
 ---
 

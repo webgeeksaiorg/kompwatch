@@ -2,7 +2,7 @@
 platform: reddit
 type: comment
 target: r/SaaS
-status: draft
+status: ready
 score: 8/10
 keywords: [competitor monitoring small team, DIY competitor tracking, website monitoring tools]
 ---
