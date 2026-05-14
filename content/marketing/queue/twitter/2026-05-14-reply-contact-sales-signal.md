@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: reply
-status: draft
+status: ready
 score: 8/10
 keywords: [SaaS pricing transparency, contact sales pricing, enterprise CI cost]
 ---

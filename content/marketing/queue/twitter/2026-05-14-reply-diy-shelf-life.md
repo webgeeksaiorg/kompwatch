@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: reply
-status: draft
+status: ready
 score: 7.5/10
 keywords: [DIY competitor monitoring, cron job scraper, build vs buy competitor tracking]
 ---

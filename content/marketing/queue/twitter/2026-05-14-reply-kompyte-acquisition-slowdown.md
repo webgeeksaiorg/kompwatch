@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: reply
-status: draft
+status: ready
 score: 8/10
 keywords: [kompyte alternative, semrush acquisition kompyte, competitor monitoring after acquisition]
 ---
