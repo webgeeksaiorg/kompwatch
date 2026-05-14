@@ -130,6 +130,7 @@ model Change {
   details          String?    @db.Text // Full diff or detailed description
   severity         Severity   @default(MEDIUM)
   confidenceScore  Float      @default(1.0) // AI confidence 0.0–1.0 (1 = certain, 0 = noise)
+  contentZone      ContentZone @default(UNKNOWN) // Strategic business area (AI-classified)
   pageUrl          String?    // Which page changed
 
   // Has this been included in a digest?
@@ -149,6 +150,18 @@ enum ChangeType {
   JOB           // New job listings, removed listings
   TECH          // Technology stack changes
   GENERAL       // Other page content changes
+}
+
+// Strategic business area a change relates to (cross-cuts changeType)
+enum ContentZone {
+  POSITIONING   // Messaging, value props, taglines, homepage copy
+  MONETIZATION  // Pricing, plans, packaging, discounts
+  PRODUCT       // Features, capabilities, integrations, API, changelog
+  MARKETING     // Blog content, case studies, resources, social proof
+  TALENT        // Hiring, team changes, org signals
+  LEGAL         // Terms, privacy, compliance, security
+  OPERATIONS    // Tech stack, status page, infrastructure
+  UNKNOWN       // Could not classify
 }
 
 enum Severity {

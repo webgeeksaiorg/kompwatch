@@ -4,7 +4,7 @@ import { splitChangeDetails } from "@/lib/change-context";
 /** Group changes by competitor for digest rendering */
 export interface DigestCompetitorGroup {
   competitor: Pick<Competitor, "name" | "url">;
-  changes: Pick<Change, "changeType" | "summary" | "details" | "severity" | "createdAt">[];
+  changes: Pick<Change, "changeType" | "contentZone" | "summary" | "details" | "severity" | "createdAt">[];
 }
 
 /** Build grouped change data for a digest */
@@ -24,6 +24,7 @@ export function groupChangesByCompetitor(
     }
     group.changes.push({
       changeType: change.changeType,
+      contentZone: change.contentZone,
       summary: change.summary,
       details: change.details,
       severity: change.severity,
@@ -50,6 +51,16 @@ const CHANGE_TYPE_LABEL: Record<string, string> = {
   GENERAL: "General",
 };
 
+const ZONE_LABEL: Record<string, string> = {
+  POSITIONING: "Positioning",
+  MONETIZATION: "Monetization",
+  PRODUCT: "Product",
+  MARKETING: "Marketing",
+  TALENT: "Talent",
+  LEGAL: "Legal",
+  OPERATIONS: "Ops",
+};
+
 /** Render digest as HTML email */
 export function renderDigestHtml(
   user: Pick<User, "name" | "email">,
@@ -68,7 +79,7 @@ export function renderDigestHtml(
             `<tr>
               <td style="padding:8px 12px;border-bottom:1px solid #eee;">${SEVERITY_EMOJI[c.severity] || "⚪"}</td>
               <td style="padding:8px 12px;border-bottom:1px solid #eee;">
-                <span style="background:#f0f0f0;border-radius:4px;padding:2px 8px;font-size:12px;">${CHANGE_TYPE_LABEL[c.changeType] || c.changeType}</span>
+                <span style="background:#f0f0f0;border-radius:4px;padding:2px 8px;font-size:12px;">${CHANGE_TYPE_LABEL[c.changeType] || c.changeType}</span>${ZONE_LABEL[c.contentZone] ? ` <span style="background:#ede9fe;color:#6d28d9;border-radius:4px;padding:2px 8px;font-size:11px;">${ZONE_LABEL[c.contentZone]}</span>` : ""}
               </td>
               <td style="padding:8px 12px;border-bottom:1px solid #eee;">
                 <strong>${escapeHtml(c.summary)}</strong>
@@ -133,7 +144,7 @@ export function renderDigestText(
       const lines = group.changes
         .map(
           (c) =>
-            `  ${SEVERITY_EMOJI[c.severity] || "-"} [${CHANGE_TYPE_LABEL[c.changeType] || c.changeType}] ${c.summary}${c.details ? `\n    ${c.details}` : ""}`
+            `  ${SEVERITY_EMOJI[c.severity] || "-"} [${CHANGE_TYPE_LABEL[c.changeType] || c.changeType}]${ZONE_LABEL[c.contentZone] ? ` [${ZONE_LABEL[c.contentZone]}]` : ""} ${c.summary}${c.details ? `\n    ${c.details}` : ""}`
         )
         .join("\n");
       return `${group.competitor.name} (${group.competitor.url})\n${lines}`;

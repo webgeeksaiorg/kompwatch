@@ -21,6 +21,7 @@ const sampleGroups: DigestCompetitorGroup[] = [
     changes: [
       {
         changeType: "PRICING",
+        contentZone: "MONETIZATION",
         summary: "Pro plan increased from $49 to $59",
         details: "Monthly price raised by $10",
         severity: "HIGH",
@@ -28,6 +29,7 @@ const sampleGroups: DigestCompetitorGroup[] = [
       },
       {
         changeType: "BLOG",
+        contentZone: "MARKETING",
         summary: "New blog post: AI in 2026",
         details: null,
         severity: "LOW",
@@ -40,6 +42,7 @@ const sampleGroups: DigestCompetitorGroup[] = [
     changes: [
       {
         changeType: "FEATURE",
+        contentZone: "PRODUCT",
         summary: "Launched Slack integration",
         details: null,
         severity: "MEDIUM",

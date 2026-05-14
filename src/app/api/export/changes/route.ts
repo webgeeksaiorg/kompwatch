@@ -42,6 +42,7 @@ export async function GET(req: NextRequest) {
         competitor: c.competitor.name,
         competitorUrl: c.competitor.url,
         changeType: c.changeType,
+        contentZone: c.contentZone,
         severity: c.severity,
         confidence: c.confidenceScore,
         summary: c.summary,
@@ -57,12 +58,13 @@ export async function GET(req: NextRequest) {
     });
   }
 
-  const headers = ["Date", "Competitor", "URL", "Type", "Severity", "Confidence", "Summary", "Page URL"];
+  const headers = ["Date", "Competitor", "URL", "Type", "Zone", "Severity", "Confidence", "Summary", "Page URL"];
   const rows = changes.map((c) => [
     c.createdAt.toISOString(),
     escapeCsvField(c.competitor.name),
     escapeCsvField(c.competitor.url),
     c.changeType,
+    c.contentZone,
     c.severity,
     String(c.confidenceScore),
     escapeCsvField(c.summary),
