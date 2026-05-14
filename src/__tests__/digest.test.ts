@@ -15,6 +15,7 @@ const makeChange = (overrides: Partial<Change & { competitor: Competitor }> = {}
     competitorId: "comp_1",
     createdAt: new Date("2026-04-12T10:00:00Z"),
     changeType: "PRICING",
+    contentZone: "MONETIZATION",
     summary: "Pro plan increased from $49 to $59",
     details: "The Pro tier monthly price was raised by $10.",
     severity: "HIGH",
@@ -77,7 +78,7 @@ describe("digestSubject", () => {
       {
         competitor: { name: "Acme", url: "https://acme.com" },
         changes: [
-          { changeType: "BLOG", summary: "New post", details: null, severity: "LOW", createdAt: new Date() },
+          { changeType: "BLOG", contentZone: "MARKETING", summary: "New post", details: null, severity: "LOW", createdAt: new Date() },
         ],
       },
     ];
@@ -91,7 +92,7 @@ describe("digestSubject", () => {
       {
         competitor: { name: "Acme", url: "https://acme.com" },
         changes: [
-          { changeType: "PRICING", summary: "Price hike", details: null, severity: "HIGH", createdAt: new Date() },
+          { changeType: "PRICING", contentZone: "MONETIZATION", summary: "Price hike", details: null, severity: "HIGH", createdAt: new Date() },
         ],
       },
     ];
@@ -105,8 +106,8 @@ describe("digestSubject", () => {
       {
         competitor: { name: "A", url: "https://a.com" },
         changes: [
-          { changeType: "BLOG", summary: "p1", details: null, severity: "LOW", createdAt: new Date() },
-          { changeType: "BLOG", summary: "p2", details: null, severity: "LOW", createdAt: new Date() },
+          { changeType: "BLOG", contentZone: "MARKETING", summary: "p1", details: null, severity: "LOW", createdAt: new Date() },
+          { changeType: "BLOG", contentZone: "MARKETING", summary: "p2", details: null, severity: "LOW", createdAt: new Date() },
         ],
       },
     ];
@@ -120,7 +121,7 @@ describe("renderDigestHtml", () => {
       {
         competitor: { name: "Acme Corp", url: "https://acme.com" },
         changes: [
-          { changeType: "PRICING", summary: "Price increased", details: "Pro plan $49 → $59", severity: "HIGH", createdAt: new Date() },
+          { changeType: "PRICING", contentZone: "MONETIZATION", summary: "Price increased", details: "Pro plan $49 → $59", severity: "HIGH", createdAt: new Date() },
         ],
       },
     ];
@@ -138,7 +139,7 @@ describe("renderDigestHtml", () => {
       {
         competitor: { name: '<script>alert("xss")</script>', url: "https://evil.com" },
         changes: [
-          { changeType: "GENERAL", summary: '<img onerror="hack">', details: null, severity: "LOW", createdAt: new Date() },
+          { changeType: "GENERAL", contentZone: "UNKNOWN", summary: '<img onerror="hack">', details: null, severity: "LOW", createdAt: new Date() },
         ],
       },
     ];
@@ -155,6 +156,7 @@ describe("renderDigestHtml", () => {
         changes: [
           {
             changeType: "PRICING",
+            contentZone: "MONETIZATION",
             summary: "Pro plan raised $49 → $59",
             details:
               "Acme increased the Pro tier from $49/mo to $59/mo (20% hike).\nWhat this means for you: A price-sensitive prospect who balked at $49 may now see KompWatch as the obvious value pick.",
@@ -178,6 +180,7 @@ describe("renderDigestHtml", () => {
         changes: [
           {
             changeType: "FEATURE",
+            contentZone: "PRODUCT",
             summary: "Shipped <feature>",
             details:
               'Acme shipped <script>alert("x")</script>.\nWhat this means for you: <img onerror="bad">',
@@ -198,7 +201,7 @@ describe("renderDigestHtml", () => {
       {
         competitor: { name: "Test", url: "https://test.com" },
         changes: [
-          { changeType: "BLOG", summary: "New post", details: null, severity: "LOW", createdAt: new Date() },
+          { changeType: "BLOG", contentZone: "MARKETING", summary: "New post", details: null, severity: "LOW", createdAt: new Date() },
         ],
       },
     ];
@@ -213,7 +216,7 @@ describe("renderDigestText", () => {
       {
         competitor: { name: "Acme Corp", url: "https://acme.com" },
         changes: [
-          { changeType: "PRICING", summary: "Price increased", details: "Details here", severity: "HIGH", createdAt: new Date() },
+          { changeType: "PRICING", contentZone: "MONETIZATION", summary: "Price increased", details: "Details here", severity: "HIGH", createdAt: new Date() },
         ],
       },
     ];

@@ -30,6 +30,7 @@ const sampleDigest = {
     {
       createdAt: new Date("2026-04-20T06:00:00.000Z"),
       changeType: "PRICING",
+      contentZone: "MONETIZATION",
       severity: "HIGH",
       summary: "Price increased from $49 to $59",
       pageUrl: "https://acme.example/pricing",
@@ -38,6 +39,7 @@ const sampleDigest = {
     {
       createdAt: new Date("2026-04-19T12:00:00.000Z"),
       changeType: "FEATURE",
+      contentZone: "PRODUCT",
       severity: "MEDIUM",
       summary: "New API endpoint launched",
       pageUrl: null,
@@ -84,7 +86,7 @@ describe("GET /api/export/digests", () => {
 
     const body = await res.text();
     const lines = body.split("\n");
-    expect(lines[0]).toBe("Date,Competitor,URL,Type,Severity,Summary,Page URL");
+    expect(lines[0]).toBe("Date,Competitor,URL,Type,Zone,Severity,Summary,Page URL");
     expect(lines.length).toBe(3); // header + 2 changes
     expect(body).toContain('"Acme, Inc."');
     expect(body).toContain("PRICING");

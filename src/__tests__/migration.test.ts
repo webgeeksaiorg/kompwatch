@@ -1,8 +1,19 @@
 import { describe, it, expect } from "vitest";
-import { readFileSync, existsSync } from "fs";
+import { readFileSync, existsSync, readdirSync } from "fs";
 import { join } from "path";
 
 const MIGRATIONS_DIR = join(__dirname, "../../prisma/migrations");
+
+/** Read and concatenate all migration SQL files (init + incremental) */
+function readAllMigrationSql(): string {
+  const dirs = readdirSync(MIGRATIONS_DIR).filter(
+    (d) => d !== "migration_lock.toml" && existsSync(join(MIGRATIONS_DIR, d, "migration.sql"))
+  );
+  return dirs
+    .sort()
+    .map((d) => readFileSync(join(MIGRATIONS_DIR, d, "migration.sql"), "utf-8"))
+    .join("\n");
+}
 
 describe("Prisma migrations", () => {
   it("migration lock file exists and specifies postgresql", () => {
@@ -62,12 +73,7 @@ describe("Prisma migrations", () => {
   it("migration SQL matches current schema models", () => {
     const schemaPath = join(MIGRATIONS_DIR, "..", "schema.prisma");
     const schema = readFileSync(schemaPath, "utf-8");
-    const sqlPath = join(
-      MIGRATIONS_DIR,
-      "20260413000000_init",
-      "migration.sql"
-    );
-    const sql = readFileSync(sqlPath, "utf-8");
+    const sql = readAllMigrationSql();
 
     // Extract model names from schema
     const modelMatches = schema.matchAll(/^model (\w+)/gm);
@@ -75,7 +81,7 @@ describe("Prisma migrations", () => {
       expect(sql).toContain(`CREATE TABLE "${match[1]}"`);
     }
 
-    // Extract enum names from schema
+    // Extract enum names from schema (across all migrations, not just init)
     const enumMatches = schema.matchAll(/^enum (\w+)/gm);
     for (const match of enumMatches) {
       expect(sql).toContain(`CREATE TYPE "${match[1]}"`);

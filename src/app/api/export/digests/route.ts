@@ -50,12 +50,13 @@ export async function GET(req: NextRequest) {
   }
 
   // CSV format
-  const headers = ["Date", "Competitor", "URL", "Type", "Severity", "Summary", "Page URL"];
+  const headers = ["Date", "Competitor", "URL", "Type", "Zone", "Severity", "Summary", "Page URL"];
   const rows = digest.changes.map((c) => [
     c.createdAt.toISOString(),
     escapeCsvField(c.competitor.name),
     escapeCsvField(c.competitor.url),
     c.changeType,
+    c.contentZone,
     c.severity,
     escapeCsvField(c.summary),
     c.pageUrl ? escapeCsvField(c.pageUrl) : "",
@@ -79,6 +80,7 @@ type DigestWithChanges = {
   changes: {
     createdAt: Date;
     changeType: string;
+    contentZone: string;
     severity: string;
     summary: string;
     pageUrl: string | null;
@@ -143,7 +145,7 @@ async function generatePdf(digest: DigestWithChanges): Promise<Uint8Array> {
     checkPageBreak(60);
 
     // Severity + Type badge
-    const badge = `[${change.severity}] [${change.changeType}]`;
+    const badge = `[${change.severity}] [${change.changeType}] [${change.contentZone}]`;
     page.drawText(badge, { x: MARGIN, y, size: 8, font: fontBold, color: severityColor(change.severity) });
     y -= LINE_HEIGHT;
 

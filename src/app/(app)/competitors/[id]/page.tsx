@@ -21,6 +21,16 @@ const CHANGE_TYPE_LABELS: Record<string, string> = {
   GENERAL: "General",
 };
 
+const ZONE_LABELS: Record<string, { text: string; className: string }> = {
+  POSITIONING: { text: "Positioning", className: "bg-purple-50 text-purple-700" },
+  MONETIZATION: { text: "Monetization", className: "bg-emerald-50 text-emerald-700" },
+  PRODUCT: { text: "Product", className: "bg-sky-50 text-sky-700" },
+  MARKETING: { text: "Marketing", className: "bg-pink-50 text-pink-700" },
+  TALENT: { text: "Talent", className: "bg-amber-50 text-amber-700" },
+  LEGAL: { text: "Legal", className: "bg-slate-100 text-slate-600" },
+  OPERATIONS: { text: "Ops", className: "bg-teal-50 text-teal-700" },
+};
+
 function confidenceLabel(score: number): { text: string; className: string } | null {
   if (score >= 0.9) return null;
   if (score >= 0.7) return { text: "Likely", className: "text-yellow-600 bg-yellow-50 border-yellow-200" };
@@ -57,6 +67,7 @@ export default async function CompetitorDetailPage({
         select: {
           id: true,
           changeType: true,
+          contentZone: true,
           severity: true,
           confidenceScore: true,
           summary: true,
@@ -229,6 +240,13 @@ export default async function CompetitorDetailPage({
                             title={`AI confidence: ${Math.round(change.confidenceScore * 100)}%`}
                           >
                             {conf.text}
+                          </span>
+                        )}
+                        {ZONE_LABELS[change.contentZone] && (
+                          <span
+                            className={`inline-flex rounded-full px-1.5 py-0.5 text-[10px] font-medium ${ZONE_LABELS[change.contentZone].className}`}
+                          >
+                            {ZONE_LABELS[change.contentZone].text}
                           </span>
                         )}
                       </div>

@@ -130,6 +130,7 @@ describe("captureSnapshot", () => {
     mockDetectChanges.mockResolvedValue([
       {
         changeType: "PRICING",
+        contentZone: "MONETIZATION",
         summary: "Bumped Pro from $39 to $49",
         details: "diff",
         severity: "HIGH",
@@ -147,6 +148,7 @@ describe("captureSnapshot", () => {
     expect(mockChangeCreateMany).toHaveBeenCalledOnce();
     const call = mockChangeCreateMany.mock.calls[0][0];
     expect(call.data[0].changeType).toBe("PRICING");
+    expect(call.data[0].contentZone).toBe("MONETIZATION");
     expect(call.data[0].competitorId).toBe("c1");
     expect(call.data[0].confidenceScore).toBe(0.95);
   });
@@ -169,6 +171,7 @@ describe("captureSnapshot", () => {
     mockDetectChanges.mockResolvedValue([
       {
         changeType: "PRICING",
+        contentZone: "MONETIZATION",
         summary: "x",
         details: "y",
         severity: "HIGH",
@@ -207,6 +210,7 @@ describe("captureSnapshot", () => {
     mockDetectChanges.mockResolvedValue([
       {
         changeType: "PRICING",
+        contentZone: "MONETIZATION",
         summary: "Bumped",
         details: "d",
         severity: "HIGH",
@@ -215,6 +219,7 @@ describe("captureSnapshot", () => {
       },
       {
         changeType: "BLOG",
+        contentZone: "MARKETING",
         summary: "low-noise",
         details: "d",
         severity: "LOW",
@@ -254,6 +259,7 @@ describe("captureSnapshot", () => {
     mockDetectChanges.mockResolvedValue([
       {
         changeType: "PRICING",
+        contentZone: "MONETIZATION",
         summary: "x",
         details: "d",
         severity: "HIGH",
@@ -284,6 +290,7 @@ describe("captureSnapshot", () => {
     mockDetectChanges.mockResolvedValue([
       {
         changeType: "PRICING",
+        contentZone: "MONETIZATION",
         summary: "Real pricing change",
         details: "d",
         severity: "HIGH",
@@ -292,6 +299,7 @@ describe("captureSnapshot", () => {
       },
       {
         changeType: "GENERAL",
+        contentZone: "UNKNOWN",
         summary: "Formatting noise",
         details: "d",
         severity: "LOW",
@@ -327,6 +335,7 @@ describe("captureSnapshot", () => {
     mockDetectChanges.mockResolvedValue([
       {
         changeType: "GENERAL",
+        contentZone: "UNKNOWN",
         summary: "Noise 1",
         details: "d",
         severity: "LOW",
@@ -335,6 +344,7 @@ describe("captureSnapshot", () => {
       },
       {
         changeType: "GENERAL",
+        contentZone: "UNKNOWN",
         summary: "Noise 2",
         details: "d",
         severity: "LOW",
@@ -374,6 +384,7 @@ describe("captureSnapshot", () => {
     mockDetectChanges.mockResolvedValue([
       {
         changeType: "PRICING",
+        contentZone: "MONETIZATION",
         summary: "Maybe changed",
         details: "d",
         severity: "HIGH",

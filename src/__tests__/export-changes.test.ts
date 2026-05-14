@@ -21,7 +21,9 @@ const sampleChanges = [
   {
     createdAt: new Date("2026-04-20T10:00:00.000Z"),
     changeType: "PRICING",
+    contentZone: "MONETIZATION",
     severity: "HIGH",
+    confidenceScore: 0.95,
     summary: 'Price jumped from $99 to $129 — includes "Pro" tier rename, affecting billing',
     pageUrl: "https://acme.example/pricing",
     competitor: { name: "Acme, Inc.", url: "https://acme.example" },
@@ -29,7 +31,9 @@ const sampleChanges = [
   {
     createdAt: new Date("2026-04-18T08:30:00.000Z"),
     changeType: "BLOG",
+    contentZone: "MARKETING",
     severity: "LOW",
+    confidenceScore: 0.8,
     summary: "New blog post about roadmap",
     pageUrl: null,
     competitor: { name: "Beta Co", url: "https://beta.example" },
@@ -57,7 +61,7 @@ describe("GET /api/export/changes", () => {
 
     const body = await res.text();
     expect(body.split("\n")[0]).toBe(
-      "Date,Competitor,URL,Type,Severity,Confidence,Summary,Page URL"
+      "Date,Competitor,URL,Type,Zone,Severity,Confidence,Summary,Page URL"
     );
     // Name with comma + summary with quotes/comma should be quoted & escaped
     expect(body).toContain('"Acme, Inc."');

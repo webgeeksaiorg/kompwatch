@@ -12,8 +12,19 @@ function getClient(): Anthropic {
   return _client;
 }
 
+export type ContentZoneType =
+  | "POSITIONING"
+  | "MONETIZATION"
+  | "PRODUCT"
+  | "MARKETING"
+  | "TALENT"
+  | "LEGAL"
+  | "OPERATIONS"
+  | "UNKNOWN";
+
 export interface DetectedChange {
   changeType: "PRICING" | "FEATURE" | "BLOG" | "JOB" | "TECH" | "GENERAL";
+  contentZone: ContentZoneType;
   summary: string;
   details: string;
   severity: "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
@@ -106,6 +117,16 @@ ${diffParts.join("\n\n---\n\n")}
 
 Return a JSON array of changes. Each change should have:
 - changeType: one of PRICING, FEATURE, BLOG, JOB, TECH, GENERAL
+- contentZone: the strategic business area this change relates to. One of:
+  - POSITIONING (messaging, value props, taglines, homepage copy)
+  - MONETIZATION (pricing, plans, packaging, discounts)
+  - PRODUCT (features, capabilities, integrations, API, changelog)
+  - MARKETING (blog content, case studies, resources, social proof)
+  - TALENT (hiring, team changes, org signals)
+  - LEGAL (terms, privacy, compliance, security)
+  - OPERATIONS (tech stack, status page, infrastructure)
+  - UNKNOWN (cannot classify)
+  Note: contentZone is independent of changeType. A blog post announcing a new feature is changeType=BLOG but contentZone=PRODUCT. A pricing page rewording its value prop is changeType=PRICING but contentZone=POSITIONING.
 - summary: one-sentence human-readable summary of WHAT changed (e.g., "Increased Pro plan from $49 to $59/mo")
 - details: 1-2 sentences describing the change factually, followed on a new line by "What this means for you: " and 1-2 sentences translating the change into a strategic implication for the reader's own positioning, pricing, sales, or roadmap. Be specific and actionable — not generic advice. If a change has no obvious strategic implication, say so honestly ("What this means for you: Likely no immediate action needed — log for context.").
 - severity: LOW (blog post, minor copy), MEDIUM (new feature, job listing), HIGH (pricing change, major feature), CRITICAL (pivot, acquisition signal)
@@ -131,14 +152,28 @@ Respond with ONLY the JSON array, no markdown or explanation.`;
   try {
     const parsed = JSON.parse(text) as DetectedChange[];
     if (!Array.isArray(parsed)) return [];
-    // Normalise confidence: AI returns 0–100 int, clamp to valid range
+    // Normalise confidence and contentZone: AI returns 0–100 int, clamp to valid range
     return parsed.map((c) => ({
       ...c,
       confidence: clampConfidence(c.confidence),
+      contentZone: normalizeContentZone(c.contentZone),
     }));
   } catch {
     return [];
   }
+}
+
+const VALID_CONTENT_ZONES: Set<string> = new Set([
+  "POSITIONING", "MONETIZATION", "PRODUCT", "MARKETING",
+  "TALENT", "LEGAL", "OPERATIONS", "UNKNOWN",
+]);
+
+/** Normalize an AI-returned contentZone to a valid ContentZone value */
+function normalizeContentZone(raw: unknown): ContentZoneType {
+  if (typeof raw === "string" && VALID_CONTENT_ZONES.has(raw)) {
+    return raw as ContentZoneType;
+  }
+  return "UNKNOWN";
 }
 
 /** Clamp an AI-returned confidence value (0–100) to a valid 0–100 integer */

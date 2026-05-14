@@ -99,6 +99,7 @@ export async function captureSnapshot(
             data: meaningful.map((c) => ({
               competitorId: competitor.id,
               changeType: c.changeType,
+              contentZone: c.contentZone,
               summary: c.summary,
               details: c.details,
               severity: c.severity,
