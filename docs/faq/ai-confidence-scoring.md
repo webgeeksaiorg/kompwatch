@@ -34,21 +34,30 @@ After detecting a diff between two snapshots, the AI evaluates:
 | **Content type** | Structural HTML changes and visible copy changes score higher than attribute or script tag changes. |
 | **Selector specificity** | A change inside a tightly scoped CSS selector scores higher than a change on `body`. |
 
-Scores above **70%** are treated as high-confidence and included in digests by default. Scores below 70% are still stored in your change history but are filtered from digest emails to reduce noise.
+KompWatch applies confidence scores at two pipeline stages:
+
+| Stage | Threshold | Behaviour |
+|-------|-----------|-----------|
+| **Noise discard** | < 40% | Change is **not persisted at all** — it never appears in history or digests. These are almost certainly transient artefacts (A/B test variants, session tokens, CDN drift). |
+| **Instant alerts** | ≥ 70% | Changes must also meet this bar to trigger a real-time webhook or email alert (in addition to your severity threshold). Changes between 40–69% are stored and visible in history but won't fire an instant alert. |
+| **Dashboard badges** | < 90% | Changes stored below 90% confidence show a **"Likely"** or **"Uncertain"** badge with a tooltip showing the exact percentage. Above 90%, no badge — KompWatch is highly confident. |
 
 ---
 
 ## What Happens to Low-Confidence Changes?
 
-Low-confidence changes are **not deleted** — they're stored in your full change history and visible on the dashboard under **Competitors → [Name] → Change History**. You can review them at any time.
+- **Below 40%:** discarded — never stored, never visible.
+- **40–69%:** stored in your change history, visible under **Competitors → [Name] → Change History**, but excluded from instant alerts. They do appear in digest emails so you retain full visibility.
+- **70–89%:** stored, included in digests and instant alerts (if severity threshold met). Dashboard shows a **"Likely"** badge.
+- **90%+:** stored, surfaced normally, no badge.
 
-If you notice a high-confidence false positive (a genuine change that was flagged as noise), use the **Mark as Significant** button to promote it. Your feedback improves scoring over time.
+If you notice a stored change that looks real but was marked Uncertain, use the **Mark as Significant** button. Your feedback improves scoring over time.
 
 ---
 
-## Adjusting the Confidence Threshold
+## Adjusting the Instant-Alert Confidence Threshold
 
-Go to **Settings → Notifications → Confidence Threshold** to change the cutoff.
+Go to **Settings → Notifications → Alert Confidence Threshold** to change the cutoff for real-time alerts.
 
 | Threshold | Use case |
 |-----------|----------|
@@ -56,7 +65,7 @@ Go to **Settings → Notifications → Confidence Threshold** to change the cuto
 | 70% (default) | Balanced — works well for most teams |
 | 85% | Minimal noise — best for teams overwhelmed by low-signal alerts |
 
-Raising the threshold means fewer digest entries but potentially missing some real changes. Lowering it means more coverage with more noise. The default 70% is calibrated to eliminate approximately 80% of noise while retaining 95%+ of genuine competitive moves.
+Raising the threshold reduces alert volume but may delay surfacing some real changes. Lowering it increases coverage at the cost of more noise. The **40% hard discard floor is not adjustable** — changes below that confidence are never stored regardless of this setting.
 
 ---
 

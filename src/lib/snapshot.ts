@@ -90,17 +90,24 @@ export async function captureSnapshot(
       );
 
       if (changes.length > 0) {
-        await db.change.createMany({
-          data: changes.map((c) => ({
-            competitorId: competitor.id,
-            changeType: c.changeType,
-            summary: c.summary,
-            details: c.details,
-            severity: c.severity,
-            pageUrl: c.pageUrl || null,
-          })),
-        });
-        changesDetected = changes.length;
+        // Filter out low-confidence noise (below 40%) before persisting
+        const MIN_CONFIDENCE = 40;
+        const meaningful = changes.filter((c) => c.confidence >= MIN_CONFIDENCE);
+
+        if (meaningful.length > 0) {
+          await db.change.createMany({
+            data: meaningful.map((c) => ({
+              competitorId: competitor.id,
+              changeType: c.changeType,
+              summary: c.summary,
+              details: c.details,
+              severity: c.severity,
+              confidenceScore: c.confidence / 100, // store as 0.0–1.0
+              pageUrl: c.pageUrl || null,
+            })),
+          });
+        }
+        changesDetected = meaningful.length;
 
         const owner = competitor.user;
         if (
@@ -109,8 +116,11 @@ export async function captureSnapshot(
           owner.webhookUrl &&
           planAllowsInstantAlerts(owner.plan)
         ) {
-          const alertable = changes.filter((c) =>
-            severityMeetsThreshold(c.severity, owner.instantAlertMinSeverity),
+          const ALERT_MIN_CONFIDENCE = 70;
+          const alertable = meaningful.filter(
+            (c) =>
+              severityMeetsThreshold(c.severity, owner.instantAlertMinSeverity) &&
+              c.confidence >= ALERT_MIN_CONFIDENCE,
           );
           for (const c of alertable) {
             await sendInstantAlertWebhook(

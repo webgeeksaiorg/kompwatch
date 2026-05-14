@@ -21,6 +21,12 @@ const CHANGE_TYPE_LABELS: Record<string, string> = {
   GENERAL: "General",
 };
 
+function confidenceLabel(score: number): { text: string; className: string } | null {
+  if (score >= 0.9) return null;
+  if (score >= 0.7) return { text: "Likely", className: "text-yellow-600 bg-yellow-50 border-yellow-200" };
+  return { text: "Uncertain", className: "text-amber-700 bg-amber-50 border-amber-200" };
+}
+
 function timeAgo(date: Date): string {
   const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
   if (seconds < 60) return "just now";
@@ -52,6 +58,7 @@ export default async function CompetitorDetailPage({
           id: true,
           changeType: true,
           severity: true,
+          confidenceScore: true,
           summary: true,
           details: true,
           pageUrl: true,
@@ -184,6 +191,7 @@ export default async function CompetitorDetailPage({
             <div className="space-y-4">
               {competitor.changes.map((change) => {
                 const { factual, implication } = splitChangeDetails(change.details);
+                const conf = confidenceLabel(change.confidenceScore);
                 return (
                 <div key={change.id} className="relative flex gap-4 pl-9">
                   <div
@@ -215,6 +223,14 @@ export default async function CompetitorDetailPage({
                         >
                           {change.severity}
                         </span>
+                        {conf && (
+                          <span
+                            className={`inline-flex rounded-full border px-1.5 py-0.5 text-[10px] font-medium ${conf.className}`}
+                            title={`AI confidence: ${Math.round(change.confidenceScore * 100)}%`}
+                          >
+                            {conf.text}
+                          </span>
+                        )}
                       </div>
                       <span className="text-xs text-gray-400">{timeAgo(change.createdAt)}</span>
                     </div>
