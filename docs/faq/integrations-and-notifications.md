@@ -31,7 +31,7 @@ Follow the same steps as Slack:
 
 ## Can I Use a Generic Webhook or Zapier?
 
-Yes — paste any `https://` URL. Payloads are sent as JSON `POST` requests. For Zapier, use a "Webhooks by Zapier" trigger URL.
+Yes — paste any `https://` URL. Payloads are sent as JSON `POST` requests. For Zapier, use a "Webhooks by Zapier" trigger URL. See [Webhook Payload Format →](./webhook-payload-format.md) for the full schema, field reference, HMAC signature verification, and retry behavior.
 
 ## What Are Real-Time Alerts? (Team)
 
