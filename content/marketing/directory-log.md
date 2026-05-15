@@ -14,6 +14,74 @@ Tracks where KompWatch has been submitted for listing/discovery.
 | — | awesome-saas-tools | pending | — |
 | — | awesome-competitive-intelligence | pending | GitHub repo: github.com/aj-dev-sys/awesome-competitive-intelligence — add KompWatch as headless-browser-based option |
 
+## Keyword Research — 2026-05-15 (Friday cycle, run 17 — evening)
+
+**Fresh data from WebSearch (May 2026):**
+- **60–70% time reduction** in CI content production with automated battlecard systems (SCIP 2025 benchmark). 23% higher win rate with updated battlecards (Gartner 2025 Sales Enablement Benchmark). Both stats land differently with the qualifier: "updated" battlecards — freshness is the variable, and freshness comes from monitoring.
+- **8–15 hours/week** for manual battlecard maintenance per person (SCIP 2025). At $90K fully-loaded PM salary = $22–33K/year hidden analyst cost on top of the $28K Crayon contract. Nobody calculates this before signing.
+- **1.8x faster company growth** for companies that invest properly in CI (2026 B2B SaaS benchmarks, Visualping/Guideflow research). $2.6B market growing at 9.8% annually — and still no affordable self-serve tier.
+- **Salesforce internal CI case study**: connected CI team to 3,000+ CRM opportunities and 500+ reps via Slack → 7x productivity improvement. Not from better data — from where the intel landed.
+- **31% adoption ceiling** confirmed again — Forrester 2025 B2B Sales Content study finding re-confirmed across multiple sources. Enterprise CI tools with six-figure contracts still can't crack 31% rep usage. Distribution is the bottleneck, not the data.
+- **CRM-native battlecard delivery**: Gong + Salesforce integration, surfacing battlecard inside opportunity record triggered by competitor mention on a call. Enterprise-only feature. SMB teams get a Slack message if they're lucky. Gap is the same problem.
+
+**Angles not previously covered:**
+- Monitoring → battlecard pipeline (steps 1–4 vs step 5 that everyone sells)
+- CI distribution as the adoption failure root cause (Slack as the fix, not fancier dashboards)
+- The hidden analyst cost math on top of enterprise subscriptions
+
+**Content produced this cycle (pre-staged for Monday May 18):**
+- `twitter/2026-05-18-slack-delivery-last-mile.md` — Slack/Teams as CI last-mile delivery (8/10, READY)
+- `twitter/2026-05-18-battlecard-freshness-problem.md` — 60-70% stat + freshness qualifier (8.5/10, READY)
+- `twitter/2026-05-18-reply-18x-growth.md` — 1.8x growth stat + no minimum contract angle (8/10, READY)
+- `twitter/2026-05-18-reply-8hrs-week-manual.md` — 8-15hr/week hidden analyst cost math (8/10, READY)
+- `twitter/2026-05-18-reply-crm-native-smb-gap.md` — enterprise Gong/Salesforce vs SMB Slack message (8.5/10, READY)
+- `twitter/2026-05-18-reply-monitoring-to-battlecard.md` — 5-step pipeline, KompWatch does 1-4 (8/10, READY)
+- `twitter/2026-05-18-reply-who-owns-ci-monday.md` — CI ownership vacuum at <100 person companies (7.5/10, READY)
+- `reddit/2026-05-18-comment-slack-ci-last-mile.md` — r/SaaS Slack distribution angle (8/10, READY)
+- `reddit/2026-05-18-comment-battlecard-data-freshness.md` — r/ProductManagement stale data root cause (8/10, READY)
+- `linkedin/2026-05-18-ci-last-mile-distribution.md` — CI adoption problem is distribution, not data (8/10, READY)
+
+**Monday May 18 publish slate:**
+- Twitter: slack-delivery-last-mile.md + battlecard-freshness-problem.md (2 tweets) + 5 replies (18x-growth, 8hrs-week-manual, crm-native-smb-gap, monitoring-to-battlecard, who-owns-ci-monday)
+- Reddit: comment-slack-ci-last-mile.md + comment-battlecard-data-freshness.md (2 comments)
+- LinkedIn: ci-last-mile-distribution.md (1 post)
+
+**Publishing status:** TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET all missing. All Friday and Monday platforms blocked. Content queue now 70+ pieces READY. Credentials needed in Vaultwarden under KompWatch folder.
+
+---
+
+## Keyword Research — 2026-05-15 (Friday cycle, run 16)
+
+**Fresh angles used (from prior research + shipped product context):**
+- **Content zone classification shipped** — AI now labels detected changes by zone (pricing/feature/blog/jobs/positioning). Building-in-public angle. Direct contrast with tools that just say "something changed here."
+- **Alert signal scoring (0-100) shipped** — confidence weighting per change. Pricing rewrite = 87. Footer link move = 12. Solves the alert fatigue root cause (treating all changes equally is a design assumption failure).
+- **LLM visibility gap** — monitoring a competitor's website is now table stakes; knowing if they're the top ChatGPT answer for your use case is the next layer. Tools like Peec AI and AIclicks at $49/mo entry. KompWatch LLM visibility layer in development.
+- **Job listings as competitive intel** — pattern over time, not individual jobs. 3 ML engineer postings = building something. Pulled SDR reqs = not expanding. Working on automating this.
+- **SPA monitoring still hard** — lazy-loading and interaction-required rendering breaks Playwright. Honest limitation angle.
+- **Friday ritual** — the 40-minute Friday tab-switching replaced by a weekly digest. Simple, direct founder story.
+
+**Content produced this cycle (Friday May 15):**
+- `twitter/2026-05-15-content-zone-shipped.md` — content zone classification building-in-public (8/10, READY)
+- `twitter/2026-05-15-friday-digest-angle.md` — Friday tab ritual replaced by email digest (8.5/10, READY)
+- `twitter/2026-05-15-reply-confidence-score.md` — 0-100 confidence score, scores 12 vs 87 (8/10, READY)
+- `twitter/2026-05-15-reply-llm-visibility-gap.md` — LLM visibility as new CI layer (7.5/10, READY)
+- `twitter/2026-05-15-reply-job-listings-strategy.md` — job posting patterns as strategic intel (8/10, READY)
+- `twitter/2026-05-15-reply-zone-use-case.md` — zone classification urgency framework (8/10, READY)
+- `twitter/2026-05-15-reply-spa-still-breaks.md` — honest SPA limitation update (9/10, READY)
+- `reddit/2026-05-15-comment-friday-ci-ritual.md` — r/SaaS Friday CI tab ritual (8/10, READY)
+- `reddit/2026-05-15-comment-confidence-scoring-ci.md` — r/ProductManagement alert fatigue + confidence scoring (8/10, READY)
+- `reddit/2026-05-15-post-what-changed-this-week.md` — r/SaaS, content zone + signal scoring shipped (8.5/10, READY)
+- `linkedin/2026-05-15-confidence-scoring-alert-fatigue.md` — alert fatigue as design assumption failure (8/10, READY)
+
+**Friday May 15 publish slate:**
+- Twitter: content-zone-shipped.md + friday-digest-angle.md (2 tweets) + 5 replies (confidence-score, llm-visibility-gap, job-listings-strategy, zone-use-case, spa-still-breaks)
+- Reddit: comment-friday-ci-ritual.md + comment-confidence-scoring-ci.md (2 comments) + post-what-changed-this-week.md (1 post)
+- LinkedIn: confidence-scoring-alert-fatigue.md (1 post)
+
+**Publishing status:** TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET all still missing. All platforms blocked. Content queue now 60+ pieces READY. Credentials needed in Vaultwarden under KompWatch folder.
+
+---
+
 ## Keyword Research — 2026-05-09 (Saturday cycle, run 15)
 
 **Fresh data from WebSearch (May 2026):**
