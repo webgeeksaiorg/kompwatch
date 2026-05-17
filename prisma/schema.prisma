@@ -130,6 +130,7 @@ model Change {
   details          String?    @db.Text // Full diff or detailed description
   severity         Severity   @default(MEDIUM)
   confidenceScore  Float      @default(1.0) // AI confidence 0.0–1.0 (1 = certain, 0 = noise)
+  signalScore      Float      @default(0.5) // Composite signal score 0.0–1.0 (weighted: confidence + severity + type + zone + corroboration)
   contentZone      ContentZone @default(UNKNOWN) // Strategic business area (AI-classified)
   pageUrl          String?    // Which page changed
 

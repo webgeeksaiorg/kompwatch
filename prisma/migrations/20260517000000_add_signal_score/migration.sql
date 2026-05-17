@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Change" ADD COLUMN "signalScore" DOUBLE PRECISION NOT NULL DEFAULT 0.5;

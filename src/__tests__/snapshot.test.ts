@@ -273,7 +273,7 @@ describe("captureSnapshot", () => {
     expect(mockSendInstantAlertWebhook).not.toHaveBeenCalled();
   });
 
-  it("filters out low-confidence changes (below 40%)", async () => {
+  it("filters out weak-signal changes via composite signal score", async () => {
     const prev = {
       pricingHtml: "<p>$39/mo</p>",
       featuresHtml: null,
@@ -303,7 +303,7 @@ describe("captureSnapshot", () => {
         summary: "Formatting noise",
         details: "d",
         severity: "LOW",
-        confidence: 25,
+        confidence: 5, // Very low confidence + weak type/zone = below signal threshold
         pageUrl: null,
       },
     ]);
@@ -316,9 +316,10 @@ describe("captureSnapshot", () => {
     expect(call.data).toHaveLength(1);
     expect(call.data[0].summary).toBe("Real pricing change");
     expect(call.data[0].confidenceScore).toBe(0.92);
+    expect(call.data[0].signalScore).toBeGreaterThan(0);
   });
 
-  it("does not persist anything when all changes are low-confidence", async () => {
+  it("does not persist anything when all changes have weak signal scores", async () => {
     const prev = {
       pricingHtml: "<p>$39/mo</p>",
       featuresHtml: null,
@@ -339,7 +340,7 @@ describe("captureSnapshot", () => {
         summary: "Noise 1",
         details: "d",
         severity: "LOW",
-        confidence: 20,
+        confidence: 5, // Extremely low confidence, weak type/zone → below signal threshold
         pageUrl: null,
       },
       {
@@ -348,7 +349,7 @@ describe("captureSnapshot", () => {
         summary: "Noise 2",
         details: "d",
         severity: "LOW",
-        confidence: 35,
+        confidence: 10,
         pageUrl: null,
       },
     ]);
@@ -359,7 +360,7 @@ describe("captureSnapshot", () => {
     expect(mockChangeCreateMany).not.toHaveBeenCalled();
   });
 
-  it("skips instant alerts for changes with low confidence even if severity is high", async () => {
+  it("skips instant alerts for changes with weak signal score even if severity is high", async () => {
     mockFindUnique.mockResolvedValue({
       ...baseCompetitor,
       user: {
@@ -383,12 +384,12 @@ describe("captureSnapshot", () => {
     mockSnapshotCreate.mockResolvedValue({ id: "snap" });
     mockDetectChanges.mockResolvedValue([
       {
-        changeType: "PRICING",
-        contentZone: "MONETIZATION",
+        changeType: "GENERAL",
+        contentZone: "UNKNOWN",
         summary: "Maybe changed",
         details: "d",
         severity: "HIGH",
-        confidence: 55, // above 40 (persisted) but below 70 (no alert)
+        confidence: 30, // Low confidence + weak type/zone = persisted but below alert threshold
         pageUrl: null,
       },
     ]);
@@ -396,7 +397,7 @@ describe("captureSnapshot", () => {
 
     await captureSnapshot("c1");
 
-    // Change is persisted (confidence >= 40) but no alert fired (confidence < 70)
+    // Change is persisted (signal score above PERSIST) but no alert (below INSTANT_ALERT)
     expect(mockChangeCreateMany).toHaveBeenCalledOnce();
     expect(mockSendInstantAlertWebhook).not.toHaveBeenCalled();
   });
