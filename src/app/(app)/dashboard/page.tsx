@@ -4,6 +4,7 @@ import { db } from "@/lib/db";
 import { PLANS } from "@/lib/stripe";
 import { severitiesAtOrAbove } from "@/lib/severity";
 import { splitChangeDetails } from "@/lib/change-context";
+import { signalLabel } from "@/lib/signal-score";
 import { OnboardingChecklist } from "./onboarding-checklist";
 import { ExportChangesButton } from "@/components/dashboard/export-changes-button";
 import { EmptyStateOnboarding } from "@/components/dashboard/empty-state-onboarding";
@@ -37,9 +38,7 @@ const ZONE_LABELS: Record<string, { text: string; className: string }> = {
 };
 
 function confidenceLabel(score: number): { text: string; className: string } | null {
-  if (score >= 0.9) return null; // High confidence — no need to flag
-  if (score >= 0.7) return { text: "Likely", className: "text-yellow-600 bg-yellow-50 border-yellow-200" };
-  return { text: "Uncertain", className: "text-amber-700 bg-amber-50 border-amber-200" };
+  return signalLabel(score);
 }
 
 function timeAgo(date: Date): string {
@@ -314,7 +313,7 @@ export default async function DashboardPage() {
             <div className="space-y-4">
               {recentChanges.map((change) => {
                 const { implication } = splitChangeDetails(change.details);
-                const conf = confidenceLabel(change.confidenceScore);
+                const conf = confidenceLabel(change.signalScore);
                 return (
                 <div key={change.id} className="relative flex gap-4 pl-9">
                   {/* Timeline dot */}
@@ -353,7 +352,7 @@ export default async function DashboardPage() {
                         {conf && (
                           <span
                             className={`inline-flex rounded-full border px-1.5 py-0.5 text-[10px] font-medium ${conf.className}`}
-                            title={`AI confidence: ${Math.round(change.confidenceScore * 100)}%`}
+                            title={`Signal score: ${Math.round(change.signalScore * 100)}%`}
                           >
                             {conf.text}
                           </span>

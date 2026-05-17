@@ -7,6 +7,7 @@ import {
   changeToInstantAlert,
 } from "@/lib/webhooks";
 import { planAllowsInstantAlerts } from "@/lib/stripe";
+import { computeSignalScore, SIGNAL_THRESHOLDS } from "@/lib/signal-score";
 
 export interface CaptureSnapshotResult {
   competitorId: string;
@@ -90,9 +91,20 @@ export async function captureSnapshot(
       );
 
       if (changes.length > 0) {
-        // Filter out low-confidence noise (below 40%) before persisting
-        const MIN_CONFIDENCE = 40;
-        const meaningful = changes.filter((c) => c.confidence >= MIN_CONFIDENCE);
+        // Compute composite signal scores for each change
+        const scored = changes.map((c) => ({
+          ...c,
+          signalScore: computeSignalScore({
+            confidence: c.confidence,
+            severity: c.severity,
+            changeType: c.changeType,
+            contentZone: c.contentZone,
+            batchSize: changes.length,
+          }),
+        }));
+
+        // Filter using signal score threshold instead of raw confidence
+        const meaningful = scored.filter((c) => c.signalScore >= SIGNAL_THRESHOLDS.PERSIST);
 
         if (meaningful.length > 0) {
           await db.change.createMany({
@@ -104,6 +116,7 @@ export async function captureSnapshot(
               details: c.details,
               severity: c.severity,
               confidenceScore: c.confidence / 100, // store as 0.0–1.0
+              signalScore: c.signalScore,
               pageUrl: c.pageUrl || null,
             })),
           });
@@ -117,11 +130,11 @@ export async function captureSnapshot(
           owner.webhookUrl &&
           planAllowsInstantAlerts(owner.plan)
         ) {
-          const ALERT_MIN_CONFIDENCE = 70;
+          // Use signal score for alert filtering (replaces raw confidence threshold)
           const alertable = meaningful.filter(
             (c) =>
               severityMeetsThreshold(c.severity, owner.instantAlertMinSeverity) &&
-              c.confidence >= ALERT_MIN_CONFIDENCE,
+              c.signalScore >= SIGNAL_THRESHOLDS.INSTANT_ALERT,
           );
           for (const c of alertable) {
             await sendInstantAlertWebhook(
