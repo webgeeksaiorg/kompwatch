@@ -10,6 +10,8 @@ import { ExportChangesButton } from "@/components/dashboard/export-changes-butto
 import { EmptyStateOnboarding } from "@/components/dashboard/empty-state-onboarding";
 import { SignupTracker } from "@/components/dashboard/signup-tracker";
 import { ActivityHeatmap } from "@/components/dashboard/activity-heatmap";
+import { ZoneFilter } from "@/components/dashboard/zone-filter";
+import type { ContentZone } from "@prisma/client";
 
 const SEVERITY_COLORS: Record<string, string> = {
   LOW: "bg-gray-100 text-gray-600",
@@ -53,8 +55,27 @@ function timeAgo(date: Date): string {
   return date.toLocaleDateString();
 }
 
-export default async function DashboardPage() {
+const VALID_ZONES = new Set<string>([
+  "POSITIONING", "MONETIZATION", "PRODUCT", "MARKETING",
+  "TALENT", "LEGAL", "OPERATIONS",
+]);
+
+export default async function DashboardPage({
+  searchParams,
+}: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}) {
   const user = await requireAuth();
+  const params = await searchParams;
+
+  // Parse zone filter from URL: ?zone=PRODUCT&zone=MONETIZATION
+  const rawZones = params.zone;
+  const zoneParam = Array.isArray(rawZones)
+    ? rawZones
+    : rawZones
+      ? [rawZones]
+      : [];
+  const activeZones = zoneParam.filter((z) => VALID_ZONES.has(z));
 
   const allowedSeverities = severitiesAtOrAbove(user.dashboardMinSeverity);
 
@@ -79,6 +100,9 @@ export default async function DashboardPage() {
       where: {
         competitor: { userId: user.id },
         severity: { in: allowedSeverities },
+        ...(activeZones.length > 0 && {
+          contentZone: { in: activeZones as ContentZone[] },
+        }),
       },
       include: { competitor: { select: { name: true, url: true } } },
       orderBy: { createdAt: "desc" },
@@ -299,6 +323,14 @@ export default async function DashboardPage() {
             </div>
           )}
         </div>
+        {/* Content zone filter */}
+        {competitors.length > 0 && (
+          <div className="mb-4">
+            <Suspense>
+              <ZoneFilter activeZones={activeZones} />
+            </Suspense>
+          </div>
+        )}
         {recentChanges.length === 0 ? (
           <div className="rounded-lg border border-dashed border-gray-300 bg-white p-8 text-center">
             <p className="text-sm text-gray-500">

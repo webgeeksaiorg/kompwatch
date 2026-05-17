@@ -1,9 +1,13 @@
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { requireAuth } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { splitChangeDetails } from "@/lib/change-context";
+import { signalLabel } from "@/lib/signal-score";
 import { ExportChangesButton } from "@/components/dashboard/export-changes-button";
 import { BattlecardButton } from "@/components/dashboard/battlecard-button";
+import { ZoneFilter } from "@/components/dashboard/zone-filter";
+import type { ContentZone } from "@prisma/client";
 
 const SEVERITY_COLORS: Record<string, string> = {
   LOW: "bg-gray-100 text-gray-600",
@@ -31,11 +35,10 @@ const ZONE_LABELS: Record<string, { text: string; className: string }> = {
   OPERATIONS: { text: "Ops", className: "bg-teal-50 text-teal-700" },
 };
 
-function confidenceLabel(score: number): { text: string; className: string } | null {
-  if (score >= 0.9) return null;
-  if (score >= 0.7) return { text: "Likely", className: "text-yellow-600 bg-yellow-50 border-yellow-200" };
-  return { text: "Uncertain", className: "text-amber-700 bg-amber-50 border-amber-200" };
-}
+const VALID_ZONES = new Set<string>([
+  "POSITIONING", "MONETIZATION", "PRODUCT", "MARKETING",
+  "TALENT", "LEGAL", "OPERATIONS",
+]);
 
 function timeAgo(date: Date): string {
   const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
@@ -51,17 +54,30 @@ function timeAgo(date: Date): string {
 
 export default async function CompetitorDetailPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ id: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const { id } = await params;
   const user = await requireAuth();
+  const sp = await searchParams;
+
+  // Parse zone filter from URL: ?zone=PRODUCT&zone=MONETIZATION
+  const rawZones = sp.zone;
+  const zoneParam = Array.isArray(rawZones) ? rawZones : rawZones ? [rawZones] : [];
+  const activeZones = zoneParam.filter((z) => VALID_ZONES.has(z));
 
   const competitor = await db.competitor.findUnique({
     where: { id },
     include: {
       _count: { select: { snapshots: true, changes: true } },
       changes: {
+        where: {
+          ...(activeZones.length > 0 && {
+            contentZone: { in: activeZones as ContentZone[] },
+          }),
+        },
         orderBy: { createdAt: "desc" },
         take: 50,
         select: {
@@ -70,6 +86,7 @@ export default async function CompetitorDetailPage({
           contentZone: true,
           severity: true,
           confidenceScore: true,
+          signalScore: true,
           summary: true,
           details: true,
           pageUrl: true,
@@ -189,10 +206,21 @@ export default async function CompetitorDetailPage({
           )}
         </div>
 
+        {/* Content zone filter */}
+        {competitor._count.changes > 0 && (
+          <div className="mb-4">
+            <Suspense>
+              <ZoneFilter activeZones={activeZones} />
+            </Suspense>
+          </div>
+        )}
+
         {competitor.changes.length === 0 ? (
           <div className="rounded-lg border border-dashed border-gray-300 bg-white p-8 text-center">
             <p className="text-sm text-gray-500">
-              No changes detected yet. We&apos;ll start tracking once the next snapshot runs.
+              {activeZones.length > 0
+                ? "No changes match the selected zones. Try clearing the filter."
+                : "No changes detected yet. We\u2019ll start tracking once the next snapshot runs."}
             </p>
           </div>
         ) : (
@@ -202,7 +230,7 @@ export default async function CompetitorDetailPage({
             <div className="space-y-4">
               {competitor.changes.map((change) => {
                 const { factual, implication } = splitChangeDetails(change.details);
-                const conf = confidenceLabel(change.confidenceScore);
+                const conf = signalLabel(change.signalScore);
                 return (
                 <div key={change.id} className="relative flex gap-4 pl-9">
                   <div
@@ -237,7 +265,7 @@ export default async function CompetitorDetailPage({
                         {conf && (
                           <span
                             className={`inline-flex rounded-full border px-1.5 py-0.5 text-[10px] font-medium ${conf.className}`}
-                            title={`AI confidence: ${Math.round(change.confidenceScore * 100)}%`}
+                            title={`Signal score: ${Math.round(change.signalScore * 100)}%`}
                           >
                             {conf.text}
                           </span>
