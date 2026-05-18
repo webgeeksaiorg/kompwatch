@@ -8,7 +8,8 @@ KompWatch delivers alerts via **email digest** and **Slack / webhook** depending
 |---|---|---|---|
 | Email digest | Weekly | Daily | Real-time |
 | Slack / Teams / webhook | — | Digest cadence | Real-time |
-| Real-time instant alerts | — | — | ✓ |
+| Instant pricing-change alerts | — | ✓ | ✓ |
+| Real-time alerts (all change types) | — | — | ✓ |
 
 ## How Do I Connect Slack?
 
@@ -33,9 +34,21 @@ Follow the same steps as Slack:
 
 Yes — paste any `https://` URL. Payloads are sent as JSON `POST` requests. For Zapier, use a "Webhooks by Zapier" trigger URL. See [Webhook Payload Format →](./webhook-payload-format.md) for the full schema, field reference, HMAC signature verification, and retry behavior.
 
-## What Are Real-Time Alerts? (Team)
+## What Are Instant Pricing Alerts? (Pro and Team)
 
-**Team plan only.** Real-time alerts push individual changes to your webhook the moment they're detected — no waiting for a daily digest.
+**Pro and Team plans.** When KompWatch detects a `PRICING`-type change, it sends an immediate alert — email and/or webhook — without waiting for your next digest cycle.
+
+To enable or configure:
+1. Go to **Settings → Notifications → Instant alerts**
+2. Toggle on **Pricing changes**
+3. Choose your delivery channel: Email, Webhook (Slack/Teams), or both
+4. Set your **severity threshold** (default: HIGH — price changes, tier restructuring)
+
+See [Instant Pricing-Change Alerts →](./instant-pricing-alerts.md) for the full guide, including what counts as a pricing change and why an alert might not fire.
+
+## What Are Real-Time Alerts (All Changes)? (Team)
+
+**Team plan only.** Real-time alerts push *any* change type to your webhook the moment it's detected — not just pricing changes.
 
 To enable:
 1. Make sure a webhook URL is saved and enabled
@@ -46,7 +59,7 @@ To enable:
    - *Medium and above* — new features, job signal changes
    - *All changes* — every detected diff (noisy)
 
-Pro accounts receive digest-cadence webhook delivery (daily). Upgrade to Team for real-time.
+Pro accounts get instant alerts for pricing changes only. Upgrade to Team for real-time delivery across all change types.
 
 ## How Do I Test My Webhook?
 
@@ -75,6 +88,14 @@ Yes — sign up with a shared alias (`competitive@yourcompany.com`). Everyone on
 ## Can I Change the Email Address My Digests Go To?
 
 Not yet via Settings. Email [support@kompwatch.com](mailto:support@kompwatch.com) and we'll update your account email manually.
+
+## Related Articles
+
+- [Instant Pricing-Change Alerts](./instant-pricing-alerts.md)
+- [Webhook Delivery History](./webhook-delivery-history.md)
+- [Webhook Payload Format](./webhook-payload-format.md)
+- [Per-Competitor Notification Settings](./per-competitor-notification-settings.md)
+- [Automating KompWatch with Zapier, Make.com, or n8n](./zapier-make-n8n-automation.md)
 
 ---
 *Questions? Email [support@kompwatch.com](mailto:support@kompwatch.com) and we'll respond within 24 hours.*
