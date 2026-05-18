@@ -1,10 +1,15 @@
 import type { DigestCompetitorGroup } from "@/lib/digest";
-import type { Change, ChangeType, Severity } from "@prisma/client";
+import type { Change, ChangeType, Severity, WebhookEventType } from "@prisma/client";
+import { db } from "@/lib/db";
 
 /**
  * Webhook integration for Slack, Microsoft Teams, and generic webhook endpoints.
  * Auto-detects the platform from the URL and formats the payload accordingly.
+ * Logs every delivery attempt to WebhookDelivery for user visibility.
  */
+
+const MAX_RETRIES = 2;
+const RETRY_DELAYS = [1_000, 3_000]; // ms between retries
 
 type WebhookPlatform = "slack" | "teams" | "generic";
 
@@ -172,13 +177,92 @@ const SEVERITY_ICON: Record<string, string> = {
 };
 
 /**
+ * Low-level fetch with retry. Returns detailed result for logging.
+ */
+async function fetchWithRetry(
+  webhookUrl: string,
+  payload: object,
+): Promise<{ ok: boolean; httpStatus?: number; error?: string; retryCount: number }> {
+  let lastError: string | undefined;
+  let lastStatus: number | undefined;
+
+  for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+    if (attempt > 0) {
+      await new Promise((r) => setTimeout(r, RETRY_DELAYS[attempt - 1]));
+    }
+
+    try {
+      const res = await fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        signal: AbortSignal.timeout(10_000),
+      });
+
+      lastStatus = res.status;
+      if (res.ok) {
+        return { ok: true, httpStatus: res.status, retryCount: attempt };
+      }
+      lastError = `HTTP ${res.status}: ${res.statusText}`;
+
+      // Don't retry on 4xx (client errors) — only retry on 5xx / network failures
+      if (res.status >= 400 && res.status < 500) {
+        return { ok: false, httpStatus: res.status, error: lastError, retryCount: attempt };
+      }
+    } catch (err) {
+      lastError = err instanceof Error ? err.message : "Unknown webhook error";
+      lastStatus = undefined;
+    }
+  }
+
+  return { ok: false, httpStatus: lastStatus, error: lastError, retryCount: MAX_RETRIES };
+}
+
+/**
+ * Log a webhook delivery attempt. Fire-and-forget — never blocks the caller.
+ */
+async function logDelivery(params: {
+  userId: string;
+  eventType: WebhookEventType;
+  platform: string;
+  webhookUrl: string;
+  success: boolean;
+  httpStatus?: number;
+  errorMessage?: string;
+  retryCount: number;
+  changeId?: string;
+  digestId?: string;
+}): Promise<void> {
+  try {
+    await db.webhookDelivery.create({
+      data: {
+        userId: params.userId,
+        eventType: params.eventType,
+        platform: params.platform,
+        webhookUrl: params.webhookUrl,
+        success: params.success,
+        httpStatus: params.httpStatus ?? null,
+        errorMessage: params.errorMessage ?? null,
+        retryCount: params.retryCount,
+        changeId: params.changeId ?? null,
+        digestId: params.digestId ?? null,
+      },
+    });
+  } catch {
+    // Best-effort logging — don't break the caller
+  }
+}
+
+/**
  * Send a webhook notification with digest data.
  * Returns { ok: true } on success, { ok: false, error: string } on failure.
+ * Logs delivery to WebhookDelivery table and retries on 5xx/network errors.
  */
 export async function sendWebhookNotification(
   webhookUrl: string,
   groups: DigestCompetitorGroup[],
-  period: "DAILY" | "WEEKLY"
+  period: "DAILY" | "WEEKLY",
+  opts?: { userId?: string; digestId?: string },
 ): Promise<{ ok: boolean; error?: string }> {
   if (groups.length === 0) {
     return { ok: true }; // Nothing to notify about
@@ -198,24 +282,26 @@ export async function sendWebhookNotification(
       payload = formatGenericPayload(groups, period);
   }
 
-  try {
-    const res = await fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-      signal: AbortSignal.timeout(10_000),
-    });
+  const result = await fetchWithRetry(webhookUrl, payload);
 
-    if (!res.ok) {
-      return { ok: false, error: `HTTP ${res.status}: ${res.statusText}` };
-    }
-    return { ok: true };
-  } catch (err) {
-    return {
-      ok: false,
-      error: err instanceof Error ? err.message : "Unknown webhook error",
-    };
+  if (opts?.userId) {
+    logDelivery({
+      userId: opts.userId,
+      eventType: "DIGEST",
+      platform,
+      webhookUrl,
+      success: result.ok,
+      httpStatus: result.httpStatus,
+      errorMessage: result.error,
+      retryCount: result.retryCount,
+      digestId: opts.digestId,
+    });
   }
+
+  if (!result.ok) {
+    return { ok: false, error: result.error };
+  }
+  return { ok: true };
 }
 
 /** Validate that a URL looks like a valid webhook endpoint */
@@ -321,10 +407,12 @@ export function formatInstantAlertGenericPayload(change: InstantAlertChange): ob
 /**
  * Send a real-time alert for a single change. Used by the snapshot cron when a
  * Team-tier user has instant alerts enabled and a change crosses their severity threshold.
+ * Retries on 5xx/network errors and logs delivery status.
  */
 export async function sendInstantAlertWebhook(
   webhookUrl: string,
-  change: InstantAlertChange
+  change: InstantAlertChange,
+  opts?: { userId?: string; changeId?: string },
 ): Promise<{ ok: boolean; error?: string }> {
   const platform = detectPlatform(webhookUrl);
   let payload: object;
@@ -339,31 +427,36 @@ export async function sendInstantAlertWebhook(
       payload = formatInstantAlertGenericPayload(change);
   }
 
-  try {
-    const res = await fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-      signal: AbortSignal.timeout(10_000),
+  const result = await fetchWithRetry(webhookUrl, payload);
+
+  if (opts?.userId) {
+    logDelivery({
+      userId: opts.userId,
+      eventType: "INSTANT_ALERT",
+      platform,
+      webhookUrl,
+      success: result.ok,
+      httpStatus: result.httpStatus,
+      errorMessage: result.error,
+      retryCount: result.retryCount,
+      changeId: opts.changeId,
     });
-    if (!res.ok) {
-      return { ok: false, error: `HTTP ${res.status}: ${res.statusText}` };
-    }
-    return { ok: true };
-  } catch (err) {
-    return {
-      ok: false,
-      error: err instanceof Error ? err.message : "Unknown webhook error",
-    };
   }
+
+  if (!result.ok) {
+    return { ok: false, error: result.error };
+  }
+  return { ok: true };
 }
 
 /**
  * Send a friendly "Hello from KompWatch" test message so users can verify
  * their webhook URL works before the next digest fires.
+ * Logs the delivery attempt for visibility in settings.
  */
 export async function sendTestWebhook(
-  webhookUrl: string
+  webhookUrl: string,
+  opts?: { userId?: string },
 ): Promise<{ ok: boolean; error?: string }> {
   const platform = detectPlatform(webhookUrl);
   let payload: object;
@@ -416,23 +509,25 @@ export async function sendTestWebhook(
       };
   }
 
-  try {
-    const res = await fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-      signal: AbortSignal.timeout(10_000),
+  const result = await fetchWithRetry(webhookUrl, payload);
+
+  if (opts?.userId) {
+    logDelivery({
+      userId: opts.userId,
+      eventType: "TEST",
+      platform,
+      webhookUrl,
+      success: result.ok,
+      httpStatus: result.httpStatus,
+      errorMessage: result.error,
+      retryCount: result.retryCount,
     });
-    if (!res.ok) {
-      return { ok: false, error: `HTTP ${res.status}: ${res.statusText}` };
-    }
-    return { ok: true };
-  } catch (err) {
-    return {
-      ok: false,
-      error: err instanceof Error ? err.message : "Unknown webhook error",
-    };
   }
+
+  if (!result.ok) {
+    return { ok: false, error: result.error };
+  }
+  return { ok: true };
 }
 
 // Severity ordering helpers live in @/lib/severity. Re-exported here for

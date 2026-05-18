@@ -1,4 +1,14 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
+
+// Mock db before importing webhooks so logDelivery calls don't hit a real DB
+vi.mock("@/lib/db", () => ({
+  db: {
+    webhookDelivery: {
+      create: vi.fn().mockResolvedValue({}),
+    },
+  },
+}));
+
 import {
   detectPlatform,
   formatSlackPayload,
@@ -175,8 +185,8 @@ describe("sendWebhookNotification", () => {
     expect(body.blocks).toBeDefined();
   });
 
-  it("returns error on HTTP failure", async () => {
-    vi.spyOn(globalThis, "fetch").mockResolvedValue(
+  it("returns error on 4xx without retrying", async () => {
+    const fetchSpy = vi.spyOn(globalThis, "fetch").mockResolvedValue(
       new Response("forbidden", { status: 403, statusText: "Forbidden" })
     );
 
@@ -188,10 +198,29 @@ describe("sendWebhookNotification", () => {
 
     expect(result.ok).toBe(false);
     expect(result.error).toContain("403");
+    // 4xx should NOT be retried
+    expect(fetchSpy).toHaveBeenCalledOnce();
   });
 
-  it("returns error on network failure", async () => {
-    vi.spyOn(globalThis, "fetch").mockRejectedValue(new Error("Network error"));
+  it("retries on 5xx errors then returns failure", async () => {
+    const fetchSpy = vi.spyOn(globalThis, "fetch").mockResolvedValue(
+      new Response("error", { status: 500, statusText: "Internal Server Error" })
+    );
+
+    const result = await sendWebhookNotification(
+      "https://hooks.slack.com/services/test",
+      sampleGroups,
+      "DAILY"
+    );
+
+    expect(result.ok).toBe(false);
+    expect(result.error).toContain("500");
+    // Initial + 2 retries = 3 total
+    expect(fetchSpy).toHaveBeenCalledTimes(3);
+  }, 15_000);
+
+  it("retries on network failure then returns error", async () => {
+    const fetchSpy = vi.spyOn(globalThis, "fetch").mockRejectedValue(new Error("Network error"));
 
     const result = await sendWebhookNotification(
       "https://hooks.slack.com/services/test",
@@ -201,7 +230,24 @@ describe("sendWebhookNotification", () => {
 
     expect(result.ok).toBe(false);
     expect(result.error).toContain("Network error");
-  });
+    // Initial + 2 retries = 3 total
+    expect(fetchSpy).toHaveBeenCalledTimes(3);
+  }, 15_000);
+
+  it("succeeds on retry after initial 5xx failure", async () => {
+    const fetchSpy = vi.spyOn(globalThis, "fetch")
+      .mockResolvedValueOnce(new Response("error", { status: 502, statusText: "Bad Gateway" }))
+      .mockResolvedValueOnce(new Response("ok", { status: 200 }));
+
+    const result = await sendWebhookNotification(
+      "https://hooks.slack.com/services/test",
+      sampleGroups,
+      "DAILY"
+    );
+
+    expect(result.ok).toBe(true);
+    expect(fetchSpy).toHaveBeenCalledTimes(2);
+  }, 15_000);
 
   it("uses Teams format for Teams URLs", async () => {
     const fetchSpy = vi.spyOn(globalThis, "fetch").mockResolvedValue(
@@ -340,7 +386,7 @@ describe("sendInstantAlertWebhook", () => {
     expect(body.kind).toBe("instant_alert");
   });
 
-  it("returns error on HTTP failure", async () => {
+  it("returns error on HTTP failure after retries", async () => {
     vi.spyOn(globalThis, "fetch").mockResolvedValue(
       new Response("nope", { status: 500, statusText: "Internal Error" })
     );
@@ -352,7 +398,7 @@ describe("sendInstantAlertWebhook", () => {
 
     expect(result.ok).toBe(false);
     expect(result.error).toContain("500");
-  });
+  }, 15_000);
 });
 
 describe("sendTestWebhook", () => {
@@ -385,13 +431,14 @@ describe("sendTestWebhook", () => {
     expect(body.kind).toBe("test");
   });
 
-  it("returns failure when endpoint rejects", async () => {
-    vi.spyOn(globalThis, "fetch").mockResolvedValue(
+  it("returns failure when endpoint rejects (no retry on 4xx)", async () => {
+    const fetchSpy = vi.spyOn(globalThis, "fetch").mockResolvedValue(
       new Response("forbidden", { status: 403, statusText: "Forbidden" })
     );
 
     const result = await sendTestWebhook("https://hooks.slack.com/services/test");
     expect(result.ok).toBe(false);
     expect(result.error).toContain("403");
+    expect(fetchSpy).toHaveBeenCalledOnce();
   });
 });

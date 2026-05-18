@@ -48,9 +48,10 @@ model User {
   acquisitionRef       String?  // UTM ref parameter value
 
   // Relations
-  competitors  Competitor[]
-  digests      Digest[]
-  sessions     Session[]
+  competitors        Competitor[]
+  digests            Digest[]
+  sessions           Session[]
+  webhookDeliveries  WebhookDelivery[]
 
   @@index([email])
   @@index([stripeCustomerId])
@@ -195,6 +196,41 @@ model Digest {
 enum DigestPeriod {
   DAILY
   WEEKLY
+}
+
+// ── Webhook Delivery Log ─────────────────────────────────────
+// Tracks every outgoing webhook delivery attempt (Slack, Teams, custom)
+// so users can see delivery status and diagnose failures.
+
+model WebhookDelivery {
+  id        String   @id @default(cuid())
+  userId    String
+  createdAt DateTime @default(now())
+
+  // What was sent
+  eventType    WebhookEventType // DIGEST, INSTANT_ALERT, TEST
+  platform     String           // "slack", "teams", "generic"
+  webhookUrl   String           // Masked in API responses
+
+  // Delivery result
+  success      Boolean
+  httpStatus   Int?             // Response status code (null if network error)
+  errorMessage String?          // Error details on failure
+  retryCount   Int     @default(0) // Number of retry attempts made
+
+  // Optional context
+  changeId     String?          // For INSTANT_ALERT: which change triggered it
+  digestId     String?          // For DIGEST: which digest triggered it
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+}
+
+enum WebhookEventType {
+  DIGEST
+  INSTANT_ALERT
+  TEST
 }
 
 // ── Stripe Webhook Events (idempotency) ──────────────────────

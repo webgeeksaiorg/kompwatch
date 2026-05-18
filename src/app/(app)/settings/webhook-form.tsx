@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { WebhookDeliveryLog } from "./webhook-delivery-log";
 
 type Severity = "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
 type PlanTier = "FREE" | "PRO" | "TEAM";
@@ -305,6 +306,11 @@ export function WebhookForm({
           {error && <span className="text-red-600">{error}</span>}
         </div>
       )}
+
+      {/* Delivery history */}
+      <div className="border-t border-gray-100 pt-5">
+        <WebhookDeliveryLog />
+      </div>
     </div>
   );
 }

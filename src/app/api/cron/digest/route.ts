@@ -151,7 +151,10 @@ export async function POST(req: NextRequest) {
       // Send webhook notification if enabled
       let webhookSent = false;
       if (user.webhookEnabled && user.webhookUrl) {
-        const whResult = await sendWebhookNotification(user.webhookUrl, groups, period);
+        const whResult = await sendWebhookNotification(user.webhookUrl, groups, period, {
+          userId: user.id,
+          digestId: digest.id,
+        });
         webhookSent = whResult.ok;
       }
 
