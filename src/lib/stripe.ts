@@ -97,3 +97,7 @@ export function planAllowsWebhooks(plan: Plan): boolean {
 export function planAllowsInstantAlerts(plan: Plan): boolean {
   return PLANS[plan].instantAlerts;
 }
+
+export function planAllowsApiAccess(plan: Plan): boolean {
+  return plan === "TEAM";
+}

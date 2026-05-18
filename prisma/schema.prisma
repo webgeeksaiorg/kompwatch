@@ -52,6 +52,7 @@ model User {
   digests            Digest[]
   sessions           Session[]
   webhookDeliveries  WebhookDelivery[]
+  apiKeys            ApiKey[]
 
   @@index([email])
   @@index([stripeCustomerId])
@@ -72,6 +73,25 @@ model Session {
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([token])
+}
+
+// ── API Keys (MCP + API access, Team tier) ──────────────────
+
+model ApiKey {
+  id        String   @id @default(cuid())
+  userId    String
+  name      String   // User-facing label, e.g. "My MCP key"
+  keyHash   String   @unique // SHA-256 hash of the raw key (never store plaintext)
+  prefix    String   // First 8 chars of key for display, e.g. "kw_abc12..."
+  lastUsedAt DateTime?
+  expiresAt  DateTime?
+  revokedAt  DateTime?
+  createdAt  DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([keyHash])
 }
 
 // ── Competitor Tracking ───────────────────────────────────────
