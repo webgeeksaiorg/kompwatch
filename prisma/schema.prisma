@@ -43,6 +43,11 @@ model User {
   instantAlertsEnabled     Boolean  @default(false)
   instantAlertMinSeverity  Severity @default(HIGH)
 
+  // Instant pricing-change email alerts (Pro+ tier) — bypass digest cadence for PRICING
+  // changes at MEDIUM+ severity. Default ON for paid plans (no-op on FREE).
+  // Addresses #1 G2 complaint on Klue/Kompyte: "alerts not fast enough".
+  instantPricingAlertsEnabled Boolean @default(true)
+
   // UTM attribution (for analyst agent CAC tracking)
   acquisitionSource    String?  // "organic", "outreach", "directory", "social"
   acquisitionRef       String?  // UTM ref parameter value

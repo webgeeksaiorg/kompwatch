@@ -1,33 +1,91 @@
-# Does KompWatch Have an MCP Server or API?
+# KompWatch MCP Server — AI Workflow Integration
 
-Not yet — but both are coming soon. MCP server support and a public API are on the roadmap. Both Crayon and Klue have recently shipped MCP servers for their platforms. Here's where KompWatch stands and what's coming.
+KompWatch ships a live MCP (Model Context Protocol) server that lets Claude Desktop, Cursor, and other MCP-compatible AI assistants query your competitive intelligence data in real time — directly inside your AI workflow.
 
-## What Is an MCP Server?
+## Which Plans Include MCP Access?
 
-MCP is an open standard that lets AI assistants (like Claude Desktop, Cursor, or other MCP-compatible tools) query external data sources in real time. An MCP-enabled CI tool lets Claude query your competitive intelligence data from inside an AI workflow — asking things like "what has Acme changed in the past 30 days?" without leaving your AI assistant.
+MCP access is available on the **Team plan** ($149/mo). Pro and Free accounts receive competitive data via email digest and webhooks only.
 
-## Does KompWatch Support MCP Today?
+## What Tools Does the MCP Server Expose?
 
-Not yet — but MCP server access and a REST API are **coming soon**. Competitive intelligence data is currently delivered via **email digest** and **webhooks** (Slack, Teams, or any HTTP endpoint). If you want to be notified when API/MCP access launches, email [support@kompwatch.com](mailto:support@kompwatch.com) and we'll add you to the early-access list.
+| Tool | Description |
+|------|-------------|
+| `list-competitors` | List all tracked competitors with latest change type, summary, severity, and snapshot/change counts |
+| `get-competitor` | Detailed view of a specific competitor — recent changes, content zones, confidence scores, latest snapshot metadata (blog titles, job titles, tech stack) |
+| `search-changes` | Search and filter changes across all competitors by type, severity, content zone, date range, or keyword |
+| `get-digest-summary` | Competitive summary grouped by competitor — the same signal your email digest contains, queryable on demand |
 
-## Can I Still Use KompWatch Data in AI Workflows?
+## How Do I Connect to the MCP Server?
 
-Yes, via webhook + automation:
+**Step 1 — Generate an API key:**
+Go to **Settings → API** and click **Generate API key**. Copy it immediately — it's only shown once.
 
-1. **Outbound webhook** — in **Settings → Webhooks**, configure a webhook URL. KompWatch will POST a JSON payload of new changes to that endpoint whenever your digest fires.
-2. **Route to your AI tool** — use Zapier, Make, or a custom function to forward that payload to wherever you run AI workflows.
+**Step 2 — Configure your MCP client:**
 
-The payload includes competitor name, change type, severity, and the AI-generated summary — so a downstream prompt already has structured input to work with.
+For **Claude Desktop**, add this to your `claude_desktop_config.json`:
 
-## When Will MCP and API Access Be Available?
+```json
+{
+  "mcpServers": {
+    "kompwatch": {
+      "url": "https://kompwatch.com/api/mcp",
+      "headers": {
+        "Authorization": "Bearer YOUR_API_KEY"
+      }
+    }
+  }
+}
+```
 
-We're actively building toward this. If you want to be notified the day API or MCP access launches, email [support@kompwatch.com](mailto:support@kompwatch.com) with your use case — use-case demand shapes what we build first.
+For **Cursor**, add it under **Settings → MCP → Add server** with the same URL and header.
 
-## How Does This Compare to Crayon's and Klue's MCP Servers?
+**Step 3 — Test the connection:**
+In Claude Desktop, try asking: *"What competitors am I tracking in KompWatch?"* — Claude will call `list-competitors` and return your data.
 
-Both Crayon ($5K–$80K+/yr) and Klue (enterprise pricing) have shipped MCP server integrations — a sign that AI workflow integration is becoming table stakes for enterprise CI platforms. For most teams, those price points are a steep bar.
+## What Can I Do With the MCP Integration?
 
-KompWatch focuses on delivering clean, structured competitive signals via email and webhook — the same intelligence that an MCP server would expose, delivered where most teams already look. MCP support is a natural next step we're building toward as AI-native workflows become more common across smaller teams.
+Example queries you can ask Claude once connected:
+
+- *"Show me all pricing changes from the last 30 days across my tracked competitors."*
+- *"What has Acme changed in the last week? Any signals about their roadmap direction?"*
+- *"Search for any changes mentioning 'enterprise' or 'annual' in the summaries."*
+- *"Give me a competitive digest summary — group all recent changes by competitor."*
+- *"Which competitor had the most HIGH-severity changes in the past month?"*
+
+The MCP server only returns data scoped to your account — other users' competitors are never exposed.
+
+## What Data Is Returned?
+
+Each change includes:
+- **Type**: `PRICING`, `FEATURE`, `BLOG`, `JOB`, `TECH`, or `GENERAL`
+- **Content zone**: `POSITIONING`, `MONETIZATION`, `PRODUCT`, `MARKETING`, `TALENT`, `LEGAL`, `OPERATIONS`
+- **Severity**: `LOW`, `MEDIUM`, `HIGH`, or `CRITICAL`
+- **AI confidence score** and **signal score** (see [AI Confidence Scoring](./ai-confidence-scoring.md))
+- **Plain-English summary** and extended details
+- **Page URL** where the change was detected
+- **Detected timestamp**
+
+## How Do I Keep My API Key Secure?
+
+- Store your API key in environment variables, not hardcoded in config files
+- Rotate it from **Settings → API** if you suspect it's been exposed
+- Your API key authenticates as your account — anyone with it can read your competitor data
+
+## Is the MCP Server Stateless?
+
+Yes. Each request is independently authenticated and executed — there's no persistent session. This means you can safely use it from multiple clients simultaneously.
+
+## Can I Use This Without an MCP Client?
+
+Yes — the MCP endpoint (`POST https://kompwatch.com/api/mcp`) can also be called directly as a JSON API if you're building a custom integration. Authentication is `Authorization: Bearer <api_key>` on every request.
+
+## Related Articles
+
+- [Integrations and Notifications](./integrations-and-notifications.md)
+- [Webhook Payload Format](./webhook-payload-format.md)
+- [AI Confidence Scoring](./ai-confidence-scoring.md)
+- [Content Zone Classification](./content-zone-classification.md)
+- [Data Security](./data-security.md)
 
 ---
-*Questions? Email [support@kompwatch.com](mailto:support@kompwatch.com) and we'll respond within 24 hours.*
+*Questions about the MCP integration? Email [support@kompwatch.com](mailto:support@kompwatch.com) and we'll respond within 24 hours.*

@@ -116,7 +116,9 @@ If your endpoint returns a non-2xx status code or times out (>10 seconds), KompW
 | 2 | 1 minute |
 | 3 | 5 minutes |
 
-After 3 failed attempts, the webhook is dropped and a warning is shown in **Settings → Webhook**. Your endpoint must return 200 within 10 seconds to avoid retries — perform long-running processing asynchronously.
+After 3 failed attempts (1 initial + 2 retries), the delivery is marked permanently failed and recorded in the **delivery history log** in Settings → Webhook. Your endpoint must return a 2xx status within 10 seconds to avoid retries — perform long-running processing asynchronously.
+
+> **Tip:** Check [Webhook Delivery History](./webhook-delivery-history.md) to view the status of recent deliveries, diagnose failures by HTTP status code, and confirm retries.
 
 ## Testing Your Endpoint
 
@@ -137,6 +139,7 @@ KompWatch also lets you set a **minimum severity threshold** for webhooks in Set
 
 ## Related Articles
 
+- [Webhook Delivery History](./webhook-delivery-history.md)
 - [Integrations and Notifications](./integrations-and-notifications.md)
 - [AI Confidence Scoring](./ai-confidence-scoring.md)
 - [Content Zone Classification](./content-zone-classification.md)
