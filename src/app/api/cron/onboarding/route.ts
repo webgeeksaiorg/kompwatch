@@ -4,20 +4,24 @@ import { getResend, FROM_EMAIL } from "@/lib/resend";
 import {
   getNextOnboardingStep,
   getOnboardingEmailBuilder,
+  MAX_ONBOARDING_STEP,
 } from "@/lib/onboarding";
 
 /**
  * POST /api/cron/onboarding
  *
- * Cron endpoint that processes the onboarding drip campaign.
+ * Cron endpoint that processes the onboarding drip + free-to-paid nurture campaign.
  * Protected by CRON_SECRET — only callable by the scheduler.
  *
  * Schedule: Run hourly (same cadence as digest cron).
  *
  * Drip sequence:
- *   Step 1: Welcome email  (T+0 — also sent immediately on signup)
- *   Step 2: Value email    (T+2 days — feature highlights)
- *   Step 3: Trial reminder (T+5 days — upgrade nudge, Free users only)
+ *   Step 1: Welcome      (T+0)       — sent immediately on signup
+ *   Step 2: Value        (T+2 days)  — feature highlights
+ *   Step 3: Trial        (T+5 days)  — upgrade nudge, Free users only
+ *   Step 4: Social proof (T+7 days)  — teams like yours, Free users only
+ *   Step 5: Cost savings (T+10 days) — ROI of automation, Free users only
+ *   Step 6: Final nudge  (T+14 days) — last conversion push, Free users only
  */
 export async function POST(req: NextRequest) {
   const authHeader = req.headers.get("authorization");
@@ -27,9 +31,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  // Find users who haven't completed onboarding (step < 3)
+  // Find users who haven't completed the full sequence (steps 1-6)
   const users = await db.user.findMany({
-    where: { onboardingStep: { lt: 3 } },
+    where: { onboardingStep: { lt: MAX_ONBOARDING_STEP } },
     select: {
       id: true,
       email: true,
@@ -52,12 +56,12 @@ export async function POST(req: NextRequest) {
     const nextStep = getNextOnboardingStep(user);
 
     if (!nextStep) {
-      // Not due yet or skipped (e.g. paid user skips trial reminder)
-      if (user.onboardingStep === 2 && user.plan !== "FREE") {
-        // Mark paid users as complete — skip trial reminder
+      // Not due yet or skipped (e.g. paid user skips trial/nurture)
+      if (user.onboardingStep >= 2 && user.plan !== "FREE") {
+        // Mark paid users as complete — skip trial reminder + nurture
         await db.user.update({
           where: { id: user.id },
-          data: { onboardingStep: 3 },
+          data: { onboardingStep: MAX_ONBOARDING_STEP },
         });
       }
       results.push({
