@@ -58,10 +58,10 @@ In this case: keep the changes in your history, note the pattern in your own com
 ## Frequently Asked Questions
 
 **Will KompWatch eventually learn to ignore variant noise automatically?**
-Yes — this is on the product roadmap. Future versions will use cross-snapshot consistency checking to suppress changes that appear and disappear within 1–2 cycles. For now, the severity filter and CSS selector scoping are the best tools.
+Yes — and it already does. KompWatch's [AI confidence scoring system](./ai-confidence-scoring.md) includes a **persistence check**: transient changes that appear in one snapshot but not the next score lower confidence and are filtered out before reaching your digest. Changes below 40% confidence are discarded entirely and never stored. You can also raise the instant-alert confidence threshold in **Settings → Notifications → Alert Confidence Threshold** (default: 70%) to further reduce noise from borderline detections.
 
 **Can I flag a competitor as "A/B-testing heavy" so KompWatch treats it differently?**
-Not yet as a formal setting. Use a narrow CSS selector and a medium+ severity threshold as a workaround until per-competitor noise profiles are supported.
+Not yet as a formal per-competitor setting. As a workaround: use a narrow CSS selector, raise your severity threshold to Medium+, and raise the **Alert Confidence Threshold** in Settings → Notifications to 85% for maximum noise suppression. Per-competitor noise profiles are on the roadmap.
 
 **The same "change" keeps reappearing every few cycles. Is that an A/B test?**
 Possibly — or the competitor is on a deployment pipeline that repeatedly rolls out the same update. Check the diff: if the content is identical across multiple detections, it's likely a persistent A/B variant being re-served. Dismiss once and raise your severity threshold.

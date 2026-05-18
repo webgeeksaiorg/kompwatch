@@ -34,7 +34,18 @@ This is the highest-leverage change you can make. Open **Competitors → [Name] 
 
 ---
 
-## Step 2 — Set a severity floor in your digest settings
+## Step 2 — Raise the confidence threshold
+
+KompWatch's AI assigns a **confidence score** (0–100%) to every detected change — a measure of how likely the change is genuine vs. noise (A/B test variant, CDN drift, session token). You can raise the minimum confidence required to fire an instant alert:
+
+1. Go to **Settings → Notifications → Alert Confidence Threshold**
+2. Set to **85%** for low-noise environments, or **50%** for maximum coverage
+
+Changes below 40% confidence are discarded automatically and never stored. Changes between 40–69% are stored but excluded from instant alerts by default. See [AI Confidence Scoring →](./ai-confidence-scoring.md) for the full breakdown.
+
+---
+
+## Step 3 — Set a severity floor in your digest settings
 
 Go to **Settings → Digest Preferences** and set the minimum severity to include:
 
@@ -49,7 +60,7 @@ For most teams, **MEDIUM** is the right floor. You'll get roughly 80% less volum
 
 ---
 
-## Step 3 — Reduce snapshot frequency for slow-moving pages
+## Step 4 — Reduce snapshot frequency for slow-moving pages
 
 Not every competitor needs hourly snapshots. Pricing pages typically change a few times per quarter. For competitors you watch but don't consider primary threats:
 
@@ -95,6 +106,7 @@ If you're on the **Team plan** and multiple teammates are getting overwhelmed:
 
 ## Related articles
 
+- [AI Confidence Scoring — How KompWatch Filters Change Noise](./ai-confidence-scoring.md)
 - [CSS Selectors — How to Scope What KompWatch Tracks](./css-selectors.md)
 - [Understanding Your Digest](./understanding-your-digest.md)
 - [Which Pages to Monitor Per Competitor](./which-pages-to-monitor-per-competitor.md)
