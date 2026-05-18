@@ -91,6 +91,16 @@ describe("POST /api/leads", () => {
     expect(json).toEqual({ ok: true, duplicate: true });
   });
 
+  it("accepts free-snapshot source", async () => {
+    const res = await POST(makeReq({ email: "lead@example.com", source: "free-snapshot" }));
+    expect(res.status).toBe(200);
+    const json = await res.json();
+    expect(json).toEqual({ ok: true });
+    expect(mockDb.emailLead.create).toHaveBeenCalledWith({
+      data: { email: "lead@example.com", source: "free-snapshot" },
+    });
+  });
+
   it("returns 500 on unexpected DB errors", async () => {
     mockDb.emailLead.create.mockRejectedValueOnce(new Error("db down"));
     const res = await POST(makeReq({ email: "user@example.com", source: "sample-digest" }));
