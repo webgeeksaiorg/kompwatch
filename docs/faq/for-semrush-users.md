@@ -21,7 +21,7 @@ KompWatch is a standalone, focused CI tool. It does one thing — monitors compe
 | Slack / Teams webhook | ✓ Pro and Team plans | ✓ Available |
 | Job listing monitoring | ✓ Included | ✓ Included |
 | Independent product roadmap | ✓ Not inside an enterprise suite | ✗ Roadmap driven by Semrush/Adobe priorities |
-| MCP server (AI tool integration) | ✓ In development | ✗ Not available |
+| MCP server (AI tool integration) | ✓ Live (Team plan) | ✗ Not available |
 | Setup time | ~10 minutes, self-serve | Onboarding session required |
 
 ## What Happens to My Kompyte Data?

@@ -26,6 +26,7 @@ const ALLOWED_SOURCES = new Set([
   "vs-already-dev",
   "vs-rivalsense",
   "llm-visibility-waitlist",
+  "free-snapshot",
 ]);
 
 export async function POST(req: NextRequest) {
