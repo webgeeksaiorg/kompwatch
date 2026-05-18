@@ -1,29 +1,45 @@
 import type { User } from "@prisma/client";
 
 /**
- * Onboarding drip campaign — 3 emails over 5 days:
- *   Step 1: Welcome (T+0)       — sent immediately on signup
- *   Step 2: Value    (T+2 days) — highlight key features, encourage adding competitors
- *   Step 3: Trial    (T+5 days) — nudge to upgrade if still on Free plan
+ * Onboarding drip + free-to-paid nurture campaign — 6 emails over 14 days:
+ *
+ * Onboarding (all users):
+ *   Step 1: Welcome      (T+0)        — sent immediately on signup
+ *   Step 2: Value        (T+2 days)   — highlight key features, encourage adding competitors
+ *   Step 3: Trial        (T+5 days)   — nudge to upgrade if still on Free plan
+ *
+ * Nurture (free users only):
+ *   Step 4: Social proof (T+7 days)   — teams like yours are catching pricing changes
+ *   Step 5: Cost savings (T+10 days)  — the hidden cost of manual monitoring
+ *   Step 6: Final nudge  (T+14 days)  — last conversion push with ROI framing
  */
 
 export const ONBOARDING_STEPS = [
   { step: 1, delayDays: 0, key: "welcome" as const },
   { step: 2, delayDays: 2, key: "value" as const },
   { step: 3, delayDays: 5, key: "trial" as const },
+  { step: 4, delayDays: 7, key: "social-proof" as const },
+  { step: 5, delayDays: 10, key: "cost-savings" as const },
+  { step: 6, delayDays: 14, key: "final-nudge" as const },
 ] as const;
 
 export type OnboardingStepKey = (typeof ONBOARDING_STEPS)[number]["key"];
+
+/** Maximum step number — sequence is complete at or above this */
+export const MAX_ONBOARDING_STEP = 6;
+
+/** Steps 4+ are nurture-only and only sent to FREE users */
+const NURTURE_START_STEP = 4;
 
 /** Determine which step a user should receive next, or null if done */
 export function getNextOnboardingStep(
   user: Pick<User, "createdAt" | "onboardingStep" | "plan">
 ): (typeof ONBOARDING_STEPS)[number] | null {
   // Already completed all steps
-  if (user.onboardingStep >= 3) return null;
+  if (user.onboardingStep >= MAX_ONBOARDING_STEP) return null;
 
-  // Skip trial reminder for paid users
-  if (user.onboardingStep === 2 && user.plan !== "FREE") return null;
+  // Skip trial reminder and nurture for paid users
+  if (user.onboardingStep >= 2 && user.plan !== "FREE") return null;
 
   const nextStep = ONBOARDING_STEPS.find((s) => s.step === user.onboardingStep + 1);
   if (!nextStep) return null;
@@ -227,6 +243,197 @@ No pressure — the free plan is yours forever. Upgrade only when it makes sense
   };
 }
 
+// ── Nurture emails (Free users, day 7/10/14) ──────────────────
+
+export function buildSocialProofEmail(
+  user: Pick<User, "name" | "email">
+): OnboardingEmail {
+  const greeting = user.name ? `Hi ${user.name}` : "Hi there";
+  return {
+    subject: "How SaaS teams use KompWatch to stay ahead",
+    html: emailWrapper(`
+      <h1 style="margin:0 0 8px;font-size:22px;color:#111;">${greeting}, you're in good company</h1>
+      <p style="color:#444;font-size:15px;line-height:1.6;">
+        Product marketing teams, founders, and CI analysts use KompWatch to
+        automate the competitor research they used to do by hand.
+      </p>
+
+      <div style="margin:20px 0;padding:16px;background:#f0f7ff;border-radius:6px;border-left:4px solid #2563eb;">
+        <p style="margin:0;color:#444;font-size:14px;line-height:1.5;">
+          <strong style="color:#111;">&ldquo;We caught a competitor&rsquo;s pricing increase
+          the day it happened. Our sales team had updated battlecards before their
+          SDRs even knew about the change.&rdquo;</strong>
+        </p>
+        <p style="margin:8px 0 0;color:#666;font-size:13px;">
+          &mdash; Product Marketing Manager, B2B SaaS (10 competitors tracked)
+        </p>
+      </div>
+
+      <h3 style="margin:20px 0 8px;font-size:16px;color:#111;">What teams catch with KompWatch:</h3>
+      <ul style="color:#444;font-size:14px;line-height:1.8;padding-left:20px;">
+        <li>Pricing page changes &mdash; before customers ask about them</li>
+        <li>New feature launches &mdash; from changelog and feature page diffs</li>
+        <li>Hiring surges &mdash; 12 new ML engineers = AI pivot incoming</li>
+        <li>Blog strategy shifts &mdash; new positioning or vertical targeting</li>
+      </ul>
+
+      <div style="text-align:center;margin:24px 0;">
+        ${ctaButton("See Your Dashboard", `${BASE_URL}/dashboard`)}
+      </div>
+
+      <p style="color:#666;font-size:13px;">
+        You&rsquo;re on the free plan (2 competitors, weekly digest).
+        <a href="${BASE_URL}/pricing" style="color:#2563eb;">Upgrade to Pro</a> to
+        track up to 10 competitors with daily digests.
+      </p>
+    `),
+    text: `${greeting}, you're in good company
+
+Product marketing teams, founders, and CI analysts use KompWatch to automate competitor research they used to do by hand.
+
+"We caught a competitor's pricing increase the day it happened. Our sales team had updated battlecards before their SDRs even knew about the change."
+— Product Marketing Manager, B2B SaaS (10 competitors tracked)
+
+What teams catch with KompWatch:
+- Pricing page changes — before customers ask about them
+- New feature launches — from changelog and feature page diffs
+- Hiring surges — 12 new ML engineers = AI pivot incoming
+- Blog strategy shifts — new positioning or vertical targeting
+
+See your dashboard: ${BASE_URL}/dashboard
+
+You're on the free plan (2 competitors, weekly digest). Upgrade to Pro to track up to 10 competitors with daily digests: ${BASE_URL}/pricing
+`,
+  };
+}
+
+export function buildCostSavingsEmail(
+  user: Pick<User, "name" | "email">
+): OnboardingEmail {
+  const greeting = user.name ? `Hi ${user.name}` : "Hi there";
+  return {
+    subject: "The hidden cost of manual competitor monitoring",
+    html: emailWrapper(`
+      <h1 style="margin:0 0 8px;font-size:22px;color:#111;">${greeting}, let&rsquo;s talk about time</h1>
+      <p style="color:#444;font-size:15px;line-height:1.6;">
+        The average PMM spends <strong>3&ndash;5 hours per week</strong> manually
+        checking competitor websites. That&rsquo;s 160&ndash;260 hours per year &mdash;
+        or <strong>$12K&ndash;$20K</strong> in loaded labor cost.
+      </p>
+
+      <div style="margin:20px 0;padding:16px;background:#fef3f2;border-radius:6px;">
+        <h3 style="margin:0 0 6px;font-size:15px;color:#991b1b;">Manual monitoring costs</h3>
+        <table style="width:100%;font-size:14px;color:#444;" cellpadding="4">
+          <tr><td>Hours per week</td><td style="text-align:right;font-weight:600;">3&ndash;5 hrs</td></tr>
+          <tr><td>Annual time cost (@$75/hr)</td><td style="text-align:right;font-weight:600;">$11,700&ndash;$19,500</td></tr>
+          <tr><td>Missed changes you never see</td><td style="text-align:right;font-weight:600;color:#991b1b;">Unknown</td></tr>
+        </table>
+      </div>
+
+      <div style="margin:20px 0;padding:16px;background:#f0fdf4;border-radius:6px;">
+        <h3 style="margin:0 0 6px;font-size:15px;color:#166534;">KompWatch Pro</h3>
+        <table style="width:100%;font-size:14px;color:#444;" cellpadding="4">
+          <tr><td>Monthly cost</td><td style="text-align:right;font-weight:600;">$49/mo ($588/yr)</td></tr>
+          <tr><td>Time saved</td><td style="text-align:right;font-weight:600;">~80% of manual work</td></tr>
+          <tr><td>Changes you miss</td><td style="text-align:right;font-weight:600;color:#166534;">Zero &mdash; every page, every scan</td></tr>
+        </table>
+      </div>
+
+      <p style="color:#444;font-size:15px;line-height:1.6;">
+        That&rsquo;s a <strong>20&ndash;33x return</strong> on a Pro subscription.
+        And unlike enterprise CI tools ($20K&ndash;$40K/yr), there&rsquo;s no annual
+        lock-in or sales call required.
+      </p>
+
+      <div style="text-align:center;margin:24px 0;">
+        ${ctaButton("See the ROI Calculator", `${BASE_URL}/pricing#roi-calculator`)}
+      </div>
+    `),
+    text: `${greeting}, let's talk about time
+
+The average PMM spends 3-5 hours per week manually checking competitor websites. That's 160-260 hours per year — or $12K-$20K in loaded labor cost.
+
+Manual monitoring costs:
+- Hours per week: 3-5 hrs
+- Annual time cost (@$75/hr): $11,700-$19,500
+- Missed changes you never see: Unknown
+
+KompWatch Pro:
+- Monthly cost: $49/mo ($588/yr)
+- Time saved: ~80% of manual work
+- Changes you miss: Zero — every page, every scan
+
+That's a 20-33x return on a Pro subscription. And unlike enterprise CI tools ($20K-$40K/yr), there's no annual lock-in or sales call required.
+
+See the ROI calculator: ${BASE_URL}/pricing#roi-calculator
+`,
+  };
+}
+
+export function buildFinalNudgeEmail(
+  user: Pick<User, "name" | "email">
+): OnboardingEmail {
+  const greeting = user.name ? `Hi ${user.name}` : "Hi there";
+  return {
+    subject: "Your competitors changed this week. Did you notice?",
+    html: emailWrapper(`
+      <h1 style="margin:0 0 8px;font-size:22px;color:#111;">${greeting}, quick check-in</h1>
+      <p style="color:#444;font-size:15px;line-height:1.6;">
+        You&rsquo;ve been on KompWatch for two weeks now. In that time, the
+        average tracked competitor makes <strong>2&ndash;4 meaningful changes</strong>
+        to their website &mdash; pricing tweaks, new features, blog posts, job listings.
+      </p>
+      <p style="color:#444;font-size:15px;line-height:1.6;">
+        On the free plan, you&rsquo;re tracking 2 competitors with weekly digests. That
+        means you might be seeing changes <strong>up to 7 days late</strong>.
+      </p>
+
+      <div style="margin:20px 0;padding:16px;background:#f0f7ff;border-radius:6px;">
+        <h3 style="margin:0 0 6px;font-size:15px;color:#1e40af;">What Pro gives you</h3>
+        <ul style="color:#444;font-size:14px;line-height:1.8;padding-left:20px;margin:0;">
+          <li><strong>10 competitors</strong> &mdash; cover your full landscape</li>
+          <li><strong>Daily digests</strong> &mdash; changes in your inbox every morning</li>
+          <li><strong>6-hour snapshots</strong> &mdash; catch changes the same day</li>
+          <li><strong>Instant pricing alerts</strong> &mdash; the moment a price changes</li>
+          <li><strong>Slack notifications</strong> &mdash; alerts where your team already works</li>
+        </ul>
+      </div>
+
+      <div style="text-align:center;margin:24px 0;">
+        ${ctaButton("Upgrade to Pro — $49/mo", `${BASE_URL}/pricing`)}
+      </div>
+
+      <p style="color:#666;font-size:13px;">
+        No annual contract. Cancel anytime. Your free plan stays active if you
+        decide Pro isn&rsquo;t for you.
+      </p>
+      <p style="color:#999;font-size:12px;margin-top:16px;">
+        This is the last email in our getting-started sequence. You&rsquo;ll continue
+        receiving your regular competitor digests as scheduled.
+      </p>
+    `),
+    text: `${greeting}, quick check-in
+
+You've been on KompWatch for two weeks now. In that time, the average tracked competitor makes 2-4 meaningful changes to their website — pricing tweaks, new features, blog posts, job listings.
+
+On the free plan, you're tracking 2 competitors with weekly digests. That means you might be seeing changes up to 7 days late.
+
+What Pro gives you:
+- 10 competitors — cover your full landscape
+- Daily digests — changes in your inbox every morning
+- 6-hour snapshots — catch changes the same day
+- Instant pricing alerts — the moment a price changes
+- Slack notifications — alerts where your team already works
+
+Upgrade to Pro — $49/mo: ${BASE_URL}/pricing
+
+No annual contract. Cancel anytime. Your free plan stays active if you decide Pro isn't for you.
+
+This is the last email in our getting-started sequence. You'll continue receiving your regular competitor digests as scheduled.
+`,
+  };
+}
+
 /** Get the email builder for a given step key */
 export function getOnboardingEmailBuilder(
   key: OnboardingStepKey
@@ -238,5 +445,11 @@ export function getOnboardingEmailBuilder(
       return buildValueEmail;
     case "trial":
       return buildTrialReminderEmail;
+    case "social-proof":
+      return buildSocialProofEmail;
+    case "cost-savings":
+      return buildCostSavingsEmail;
+    case "final-nudge":
+      return buildFinalNudgeEmail;
   }
 }
