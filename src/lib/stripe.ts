@@ -101,3 +101,11 @@ export function planAllowsInstantAlerts(plan: Plan): boolean {
 export function planAllowsApiAccess(plan: Plan): boolean {
   return plan === "TEAM";
 }
+
+/**
+ * Pro+ tiers can receive instant PRICING-change email alerts that bypass
+ * the digest cadence. FREE users must wait for the weekly digest.
+ */
+export function planAllowsInstantPricingAlerts(plan: Plan): boolean {
+  return plan === "PRO" || plan === "TEAM";
+}

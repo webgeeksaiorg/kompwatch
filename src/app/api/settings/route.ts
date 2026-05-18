@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCurrentUser } from "@/lib/auth";
 import { db } from "@/lib/db";
-import { planAllowsWebhooks, planAllowsInstantAlerts } from "@/lib/stripe";
+import {
+  planAllowsWebhooks,
+  planAllowsInstantAlerts,
+  planAllowsInstantPricingAlerts,
+} from "@/lib/stripe";
 import { z } from "zod";
 
 const updateSchema = z.object({
@@ -13,6 +17,7 @@ const updateSchema = z.object({
   webhookEnabled: z.boolean().optional(),
   instantAlertsEnabled: z.boolean().optional(),
   instantAlertMinSeverity: z.enum(["LOW", "MEDIUM", "HIGH", "CRITICAL"]).optional(),
+  instantPricingAlertsEnabled: z.boolean().optional(),
 });
 
 export async function PATCH(req: NextRequest) {
@@ -46,6 +51,16 @@ export async function PATCH(req: NextRequest) {
     );
   }
 
+  // Instant pricing alerts are a Pro+ benefit. Free users can't toggle the
+  // setting — they always wait for the weekly digest.
+  const touchesInstantPricing = "instantPricingAlertsEnabled" in data;
+  if (touchesInstantPricing && !planAllowsInstantPricingAlerts(user.plan)) {
+    return NextResponse.json(
+      { error: "Instant pricing alerts require a Pro or Team plan." },
+      { status: 403 }
+    );
+  }
+
   const updated = await db.user.update({
     where: { id: user.id },
     data,
@@ -60,5 +75,6 @@ export async function PATCH(req: NextRequest) {
     webhookEnabled: updated.webhookEnabled,
     instantAlertsEnabled: updated.instantAlertsEnabled,
     instantAlertMinSeverity: updated.instantAlertMinSeverity,
+    instantPricingAlertsEnabled: updated.instantPricingAlertsEnabled,
   });
 }

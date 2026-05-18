@@ -59,6 +59,8 @@ export default async function SettingsPage() {
           initialEnabled={user.digestEnabled}
           initialMinSeverity={user.digestMinSeverity}
           digestFrequency={plan.digest}
+          initialInstantPricingEnabled={user.instantPricingAlertsEnabled}
+          plan={user.plan}
         />
       </div>
 

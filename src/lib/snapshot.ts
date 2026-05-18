@@ -8,6 +8,10 @@ import {
 } from "@/lib/webhooks";
 import { planAllowsInstantAlerts } from "@/lib/stripe";
 import { computeSignalScore, SIGNAL_THRESHOLDS } from "@/lib/signal-score";
+import {
+  sendInstantPricingAlert,
+  shouldSendInstantPricingAlert,
+} from "@/lib/pricing-alert";
 
 export interface CaptureSnapshotResult {
   competitorId: string;
@@ -34,11 +38,14 @@ export async function captureSnapshot(
       user: {
         select: {
           id: true,
+          email: true,
+          name: true,
           plan: true,
           webhookEnabled: true,
           webhookUrl: true,
           instantAlertsEnabled: true,
           instantAlertMinSeverity: true,
+          instantPricingAlertsEnabled: true,
         },
       },
     },
@@ -151,6 +158,49 @@ export async function captureSnapshot(
                 { name: competitor.name, url: competitor.url },
               ),
               { userId: owner.id },
+            );
+          }
+        }
+
+        // ── Instant pricing-change email (Pro+ tier, default on) ──────
+        // Bypass the digest cadence for PRICING changes at MEDIUM+ severity.
+        // Runs independently of the Slack webhook path above — a Pro user
+        // who hasn't configured Slack still gets emailed instantly.
+        const pricingAlerts = meaningful.filter((c) =>
+          shouldSendInstantPricingAlert(
+            {
+              changeType: c.changeType,
+              severity: c.severity,
+              summary: c.summary,
+              details: c.details,
+              pageUrl: c.pageUrl || null,
+              confidence: c.confidence,
+            },
+            {
+              plan: owner.plan,
+              instantPricingAlertsEnabled: owner.instantPricingAlertsEnabled,
+            },
+          ),
+        );
+        for (const c of pricingAlerts) {
+          try {
+            await sendInstantPricingAlert(
+              { email: owner.email, name: owner.name },
+              { name: competitor.name, url: competitor.url },
+              {
+                changeType: c.changeType,
+                severity: c.severity,
+                summary: c.summary,
+                details: c.details,
+                pageUrl: c.pageUrl || null,
+                confidence: c.confidence,
+              },
+            );
+          } catch (err) {
+            // Don't let a single bad email break the snapshot cycle —
+            // the change is still persisted and will appear in the next digest.
+            console.error(
+              `[snapshot] instant pricing alert failed for competitor=${competitor.id}: ${err instanceof Error ? err.message : String(err)}`,
             );
           }
         }
