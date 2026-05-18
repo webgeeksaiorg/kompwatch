@@ -6,6 +6,7 @@ import { ProfileForm } from "./profile-form";
 import { NotificationPrefsForm } from "./notification-prefs-form";
 import { WebhookForm } from "./webhook-form";
 import { DashboardFilterForm } from "./dashboard-filter-form";
+import { ApiKeysForm } from "./api-keys-form";
 
 export default async function SettingsPage() {
   const user = await requireAuth();
@@ -86,6 +87,18 @@ export default async function SettingsPage() {
           plan={user.plan}
         />
       </div>
+
+      {/* API Keys & MCP (Team tier) */}
+      {user.plan === "TEAM" && (
+        <div className="mb-6 rounded-lg border border-gray-200 bg-white p-6">
+          <h2 className="text-lg font-semibold text-gray-900">API Keys &amp; MCP</h2>
+          <p className="mt-1 mb-4 text-sm text-gray-500">
+            Connect AI assistants and external tools via the Model Context Protocol (MCP).
+            Create API keys to authenticate your MCP client.
+          </p>
+          <ApiKeysForm />
+        </div>
+      )}
 
       {/* Subscription */}
       <div className="mb-6 rounded-lg border border-gray-200 bg-white p-6">

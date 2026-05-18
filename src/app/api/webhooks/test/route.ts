@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid webhook URL." }, { status: 400 });
   }
 
-  const result = await sendTestWebhook(parsed.data.url);
+  const result = await sendTestWebhook(parsed.data.url, { userId: user.id });
   if (!result.ok) {
     return NextResponse.json(
       { ok: false, error: result.error ?? "Webhook delivery failed." },

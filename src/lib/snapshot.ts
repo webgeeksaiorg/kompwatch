@@ -33,6 +33,7 @@ export async function captureSnapshot(
       snapshots: { orderBy: { createdAt: "desc" }, take: 1 },
       user: {
         select: {
+          id: true,
           plan: true,
           webhookEnabled: true,
           webhookUrl: true,
@@ -149,6 +150,7 @@ export async function captureSnapshot(
                 },
                 { name: competitor.name, url: competitor.url },
               ),
+              { userId: owner.id },
             );
           }
         }
