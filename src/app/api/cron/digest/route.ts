@@ -83,7 +83,7 @@ export async function POST(req: NextRequest) {
       continue;
     }
 
-    // Find undigested changes for this user's competitors, filtered by severity preference
+    // Find undigested changes for this user's competitors, filtered by severity + signal score
     const sinceDate = lastDigest?.createdAt ?? new Date(0);
     const severityFilter = severitiesAtOrAbove(user.digestMinSeverity);
 
@@ -93,6 +93,7 @@ export async function POST(req: NextRequest) {
         digestId: null,
         createdAt: { gt: sinceDate },
         severity: { in: severityFilter },
+        signalScore: { gte: user.digestMinSignalScore },
       },
       include: { competitor: true },
       orderBy: { createdAt: "desc" },

@@ -45,6 +45,7 @@ export async function GET(req: NextRequest) {
         contentZone: c.contentZone,
         severity: c.severity,
         confidence: c.confidenceScore,
+        signalScore: c.signalScore,
         summary: c.summary,
         pageUrl: c.pageUrl ?? null,
       })),
@@ -58,7 +59,7 @@ export async function GET(req: NextRequest) {
     });
   }
 
-  const headers = ["Date", "Competitor", "URL", "Type", "Zone", "Severity", "Confidence", "Summary", "Page URL"];
+  const headers = ["Date", "Competitor", "URL", "Type", "Zone", "Severity", "Confidence", "Signal Score", "Summary", "Page URL"];
   const rows = changes.map((c) => [
     c.createdAt.toISOString(),
     escapeCsvField(c.competitor.name),
@@ -67,6 +68,7 @@ export async function GET(req: NextRequest) {
     c.contentZone,
     c.severity,
     String(c.confidenceScore),
+    String(c.signalScore),
     escapeCsvField(c.summary),
     c.pageUrl ? escapeCsvField(c.pageUrl) : "",
   ]);

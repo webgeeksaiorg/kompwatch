@@ -1,10 +1,11 @@
 import { Change, Competitor, User } from "@prisma/client";
 import { splitChangeDetails } from "@/lib/change-context";
+import { signalLabel } from "@/lib/signal-score";
 
 /** Group changes by competitor for digest rendering */
 export interface DigestCompetitorGroup {
   competitor: Pick<Competitor, "name" | "url">;
-  changes: Pick<Change, "changeType" | "contentZone" | "summary" | "details" | "severity" | "createdAt">[];
+  changes: Pick<Change, "changeType" | "contentZone" | "summary" | "details" | "severity" | "signalScore" | "createdAt">[];
 }
 
 /** Build grouped change data for a digest */
@@ -28,6 +29,7 @@ export function groupChangesByCompetitor(
       summary: change.summary,
       details: change.details,
       severity: change.severity,
+      signalScore: change.signalScore,
       createdAt: change.createdAt,
     });
   }
@@ -76,17 +78,22 @@ export function renderDigestHtml(
     .map((group) => {
       const changeRows = group.changes
         .map(
-          (c) =>
-            `<tr>
+          (c) => {
+            const signal = signalLabel(c.signalScore);
+            const signalBadge = signal
+              ? ` <span style="background:${signal.text === "Noise" ? "#f3f4f6" : signal.text === "Weak" ? "#fffbeb" : "#fefce8"};color:${signal.text === "Noise" ? "#6b7280" : signal.text === "Weak" ? "#b45309" : "#ca8a04"};border-radius:4px;padding:2px 6px;font-size:10px;">${signal.text} signal</span>`
+              : "";
+            return `<tr>
               <td style="padding:8px 12px;border-bottom:1px solid #eee;">${SEVERITY_EMOJI[c.severity] || "⚪"}</td>
               <td style="padding:8px 12px;border-bottom:1px solid #eee;">
-                <span style="background:#f0f0f0;border-radius:4px;padding:2px 8px;font-size:12px;">${CHANGE_TYPE_LABEL[c.changeType] || c.changeType}</span>${ZONE_LABEL[c.contentZone] ? ` <span style="background:#ede9fe;color:#6d28d9;border-radius:4px;padding:2px 8px;font-size:11px;">${ZONE_LABEL[c.contentZone]}</span>` : ""}
+                <span style="background:#f0f0f0;border-radius:4px;padding:2px 8px;font-size:12px;">${CHANGE_TYPE_LABEL[c.changeType] || c.changeType}</span>${ZONE_LABEL[c.contentZone] ? ` <span style="background:#ede9fe;color:#6d28d9;border-radius:4px;padding:2px 8px;font-size:11px;">${ZONE_LABEL[c.contentZone]}</span>` : ""}${signalBadge}
               </td>
               <td style="padding:8px 12px;border-bottom:1px solid #eee;">
                 <strong>${escapeHtml(c.summary)}</strong>
                 ${c.details ? `<br/><span style="color:#666;font-size:13px;">${renderDetailsHtml(c.details)}</span>` : ""}
               </td>
-            </tr>`
+            </tr>`;
+          }
         )
         .join("");
 
@@ -144,8 +151,11 @@ export function renderDigestText(
     .map((group) => {
       const lines = group.changes
         .map(
-          (c) =>
-            `  ${SEVERITY_EMOJI[c.severity] || "-"} [${CHANGE_TYPE_LABEL[c.changeType] || c.changeType}]${ZONE_LABEL[c.contentZone] ? ` [${ZONE_LABEL[c.contentZone]}]` : ""} ${c.summary}${c.details ? `\n    ${c.details}` : ""}`
+          (c) => {
+            const signal = signalLabel(c.signalScore);
+            const signalTag = signal ? ` [${signal.text}]` : "";
+            return `  ${SEVERITY_EMOJI[c.severity] || "-"} [${CHANGE_TYPE_LABEL[c.changeType] || c.changeType}]${ZONE_LABEL[c.contentZone] ? ` [${ZONE_LABEL[c.contentZone]}]` : ""}${signalTag} ${c.summary}${c.details ? `\n    ${c.details}` : ""}`;
+          }
         )
         .join("\n");
       return `${group.competitor.name} (${group.competitor.url})\n${lines}`;

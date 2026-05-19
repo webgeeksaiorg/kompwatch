@@ -34,7 +34,9 @@ model User {
   // Notification preferences
   digestEnabled        Boolean  @default(true)
   digestMinSeverity    Severity @default(LOW)  // Only include changes at or above this severity
+  digestMinSignalScore Float    @default(0.0)  // Only include changes with signal score >= this (0.0–1.0)
   dashboardMinSeverity Severity @default(LOW)  // Filter dashboard changes timeline by severity
+  dashboardMinSignalScore Float @default(0.0)  // Filter dashboard changes by signal score (0.0–1.0)
 
   // Webhook notifications (Slack / Teams / custom)
   webhookUrl           String?  // Incoming webhook URL (Slack, Teams, or custom)

@@ -35,6 +35,7 @@ const sampleGroups: DigestCompetitorGroup[] = [
         summary: "Pro plan increased from $49 to $59",
         details: "Monthly price raised by $10",
         severity: "HIGH",
+        signalScore: 0.9,
         createdAt: new Date("2026-04-12T10:00:00Z"),
       },
       {
@@ -43,6 +44,7 @@ const sampleGroups: DigestCompetitorGroup[] = [
         summary: "New blog post: AI in 2026",
         details: null,
         severity: "LOW",
+        signalScore: 0.5,
         createdAt: new Date("2026-04-12T11:00:00Z"),
       },
     ],
@@ -56,6 +58,7 @@ const sampleGroups: DigestCompetitorGroup[] = [
         summary: "Launched Slack integration",
         details: null,
         severity: "MEDIUM",
+        signalScore: 0.7,
         createdAt: new Date("2026-04-12T12:00:00Z"),
       },
     ],

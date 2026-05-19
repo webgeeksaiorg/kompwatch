@@ -10,15 +10,24 @@ const SEVERITY_OPTIONS = [
   { value: "CRITICAL", label: "Critical", description: "Pivots, acquisitions, shutdown signals only" },
 ] as const;
 
+const SIGNAL_SCORE_OPTIONS = [
+  { value: 0, label: "All", description: "Include all changes (no signal filtering)" },
+  { value: 0.4, label: "Skip noise", description: "Filter out low-confidence noise (score < 40%)" },
+  { value: 0.6, label: "Moderate+", description: "Only moderate-to-strong signals (score >= 60%)" },
+  { value: 0.8, label: "Strong only", description: "Only high-confidence, actionable changes (score >= 80%)" },
+] as const;
+
 export function NotificationPrefsForm({
   initialEnabled,
   initialMinSeverity,
+  initialMinSignalScore,
   digestFrequency,
   initialInstantPricingEnabled,
   plan,
 }: {
   initialEnabled: boolean;
   initialMinSeverity: string;
+  initialMinSignalScore: number;
   digestFrequency: string;
   initialInstantPricingEnabled: boolean;
   plan: "FREE" | "PRO" | "TEAM";
@@ -26,6 +35,7 @@ export function NotificationPrefsForm({
   const router = useRouter();
   const [enabled, setEnabled] = useState(initialEnabled);
   const [minSeverity, setMinSeverity] = useState(initialMinSeverity);
+  const [minSignalScore, setMinSignalScore] = useState(initialMinSignalScore);
   const [instantPricing, setInstantPricing] = useState(
     initialInstantPricingEnabled,
   );
@@ -72,6 +82,11 @@ export function NotificationPrefsForm({
   function handleSeverityChange(value: string) {
     setMinSeverity(value);
     save({ digestMinSeverity: value });
+  }
+
+  function handleSignalScoreChange(value: number) {
+    setMinSignalScore(value);
+    save({ digestMinSignalScore: value });
   }
 
   function handleInstantPricingToggle() {
@@ -131,6 +146,41 @@ export function NotificationPrefsForm({
                   value={opt.value}
                   checked={minSeverity === opt.value}
                   onChange={() => handleSeverityChange(opt.value)}
+                  className="sr-only"
+                />
+                <div>
+                  <span className="text-sm font-medium text-gray-900">{opt.label}</span>
+                  <span className="ml-2 text-xs text-gray-500">{opt.description}</span>
+                </div>
+              </label>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Signal score threshold */}
+      {enabled && (
+        <div>
+          <p className="text-sm font-medium text-gray-900">Signal score filter</p>
+          <p className="mb-3 text-xs text-gray-500">
+            AI confidence weighting — filter out noisy or low-confidence changes from your digest.
+          </p>
+          <div className="space-y-2">
+            {SIGNAL_SCORE_OPTIONS.map((opt) => (
+              <label
+                key={opt.value}
+                className={`flex cursor-pointer items-center rounded-lg border p-3 transition-colors ${
+                  minSignalScore === opt.value
+                    ? "border-brand-500 bg-brand-50"
+                    : "border-gray-200 hover:border-gray-300"
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="minSignalScore"
+                  value={opt.value}
+                  checked={minSignalScore === opt.value}
+                  onChange={() => handleSignalScoreChange(opt.value)}
                   className="sr-only"
                 />
                 <div>
