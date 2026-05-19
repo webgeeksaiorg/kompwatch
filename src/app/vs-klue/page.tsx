@@ -60,7 +60,7 @@ const comparisonRows: {
   { feature: "Email digests", kompwatch: true, klue: true },
   { feature: "Slack / webhook alerts", kompwatch: true, klue: true },
   { feature: "Tech stack detection", kompwatch: "Pro+", klue: true },
-  { feature: "Battlecards", kompwatch: "Roadmap", klue: true },
+  { feature: "Battlecards", kompwatch: "One-click export", klue: true },
   { feature: "Time-to-first-insight", kompwatch: "Under 2 minutes", klue: "Weeks (sales + onboarding)" },
 ];
 
@@ -154,7 +154,7 @@ export default function VsKluePage() {
               The pricing gap is real
             </h2>
             <p className="mt-2 text-sm text-gray-600">
-              Public pricing data from vendr.com and G2 reviews (April 2026).
+              Public pricing data from vendr.com and G2 reviews (May 2026).
             </p>
           </div>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -256,8 +256,8 @@ export default function VsKluePage() {
                 Compete Agent &amp; battlecard CMS
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-gray-600">
-                Klue&rsquo;s 2026 roadmap is headlined by its &ldquo;Compete
-                Agent&rdquo; AI product and an enterprise battlecard CMS for
+                Klue launched its &ldquo;Compete Agent&rdquo; AI product
+                in May 2026 and continues expanding its enterprise battlecard CMS for
                 50+ rep sales orgs. If you&rsquo;re a PM or founder doing CI
                 yourself, those features aren&rsquo;t for you &mdash; but
                 you&rsquo;re paying for them.
@@ -334,7 +334,7 @@ export default function VsKluePage() {
           </div>
 
           <p className="mt-4 text-center text-xs text-gray-400">
-            Comparison based on publicly available information as of April 2026. Klue pricing
+            Comparison based on publicly available information as of May 2026. Klue pricing
             requires a sales call; estimates from vendr.com and review sites.
           </p>
         </div>
@@ -398,7 +398,7 @@ export default function VsKluePage() {
         faqs={[
           {
             question: "How much does Klue cost?",
-            answer: "Klue pricing is quote-based and requires a sales call. Based on public data from vendr.com and review sites (April 2026), annual contracts typically range from $20,000 to $40,000/yr depending on team size and features. KompWatch starts at $49/mo ($588/yr) with self-serve signup — no sales call needed.",
+            answer: "Klue pricing is quote-based and requires a sales call. Based on public data from vendr.com and review sites (May 2026), annual contracts typically range from $20,000 to $40,000/yr depending on team size and features. KompWatch starts at $49/mo ($588/yr) with self-serve signup — no sales call needed.",
           },
           {
             question: "What is the difference between KompWatch and Klue?",
@@ -414,7 +414,7 @@ export default function VsKluePage() {
           },
           {
             question: "Does KompWatch have battlecards like Klue?",
-            answer: "Battlecards are on KompWatch's roadmap. Today, KompWatch focuses on automated competitor monitoring with AI-generated change summaries delivered via email and Slack. If your team needs a battlecard CMS for sales reps, Klue may be a better fit right now.",
+            answer: "Yes — KompWatch now offers one-click battlecard export. Generate a sales-ready battlecard from any competitor's tracked changes in seconds. It's lighter than Klue's full battlecard CMS for 50+ rep sales orgs, but covers the core use case at a fraction of the cost.",
           },
           {
             question: "Does Klue require Microsoft 365?",
@@ -422,7 +422,7 @@ export default function VsKluePage() {
           },
           {
             question: "Why is Klue so expensive?",
-            answer: "Klue raised $62M from Tiger Global and Salesforce Ventures. That level of venture funding requires high ACVs — typically $20K–$40K/yr per customer — to generate the returns investors expect. The product roadmap prioritizes enterprise features (battlecard CMS, Compete Agent AI, CRM integrations) that justify those price points. If you need competitor monitoring without the enterprise overhead, KompWatch starts at $49/mo.",
+            answer: "Klue raised $62M from Tiger Global and Salesforce Ventures. That level of venture funding requires high ACVs — typically $20K–$40K/yr per customer — to generate the returns investors expect. The product prioritizes enterprise features (battlecard CMS, the launched Compete Agent AI, deep CRM integrations) that justify those price points. If you need competitor monitoring without the enterprise overhead, KompWatch starts at $49/mo.",
           },
         ]}
       />

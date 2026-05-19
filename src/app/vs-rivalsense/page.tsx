@@ -159,7 +159,7 @@ export default function VsRivalSensePage() {
               Same monthly bill — bigger plan
             </h2>
             <p className="mt-2 text-sm text-gray-600">
-              Public pricing data from rivalsense.com (April 2026).
+              Public pricing data from rivalsense.com (May 2026).
             </p>
           </div>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -242,7 +242,7 @@ export default function VsRivalSensePage() {
           </div>
 
           <p className="mt-4 text-center text-xs text-gray-400">
-            Comparison based on publicly available information as of April 2026. RivalSense pricing
+            Comparison based on publicly available information as of May 2026. RivalSense pricing
             sourced from rivalsense.com.
           </p>
         </div>
@@ -306,7 +306,7 @@ export default function VsRivalSensePage() {
         faqs={[
           {
             question: "How much does RivalSense cost?",
-            answer: "RivalSense pricing (April 2026) starts at $44.99/mo for the Basic plan (3 competitors), $111/mo for Growth, and $222.99/mo for Business. KompWatch Pro is $49/mo for 10 competitors with AI digests and job tracking included — and there is a free plan with 2 competitors.",
+            answer: "RivalSense pricing (May 2026) starts at $44.99/mo for the Basic plan (3 competitors), $111/mo for Growth, and $222.99/mo for Business. KompWatch Pro is $49/mo for 10 competitors with AI digests and job tracking included — and there is a free plan with 2 competitors.",
           },
           {
             question: "What is the difference between KompWatch and RivalSense?",
@@ -314,7 +314,7 @@ export default function VsRivalSensePage() {
           },
           {
             question: "Does RivalSense have AI summaries?",
-            answer: "Based on public information as of April 2026, RivalSense provides change alerts but does not include AI-generated plain-English summaries. KompWatch uses Claude to generate digests of what changed across pricing, features, blogs, and job pages — so you read summaries instead of raw diffs.",
+            answer: "Based on public information as of May 2026, RivalSense provides change alerts but does not include AI-generated plain-English summaries. KompWatch uses Claude to generate digests of what changed across pricing, features, blogs, and job pages — so you read summaries instead of raw diffs.",
           },
           {
             question: "Can I try KompWatch for free?",

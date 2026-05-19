@@ -199,7 +199,7 @@ const comparisonRows: {
   },
   {
     feature: "Battlecards",
-    kompwatch: "Roadmap",
+    kompwatch: "One-click export",
     klue: true,
     crayon: true,
     kompyte: true,
@@ -874,7 +874,7 @@ export default function PricingPage() {
 
         <div className="mt-6 text-center">
           <p className="text-xs text-gray-400">
-            Competitor cost details sourced from G2, Gartner Peer Insights, and customer reviews (April 2026).
+            Competitor cost details sourced from G2, Gartner Peer Insights, and customer reviews (May 2026).
           </p>
         </div>
       </div>
@@ -924,7 +924,7 @@ export default function PricingPage() {
         </div>
 
         <p className="mt-4 text-center text-xs text-gray-400">
-          Comparison based on publicly available information as of April 2026.
+          Comparison based on publicly available information as of May 2026.
           Klue and Crayon pricing requires a sales call; estimates from review sites.
         </p>
       </div>

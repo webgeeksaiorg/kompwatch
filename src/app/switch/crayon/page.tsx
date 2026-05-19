@@ -286,7 +286,7 @@ export default function SwitchCrayonPage() {
             The cost of staying vs. switching
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            Crayon pricing data from vendr.com (April 2026).
+            Crayon pricing data from vendr.com (May 2026).
           </p>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
             <div className="rounded-xl border border-gray-200 bg-white p-6">

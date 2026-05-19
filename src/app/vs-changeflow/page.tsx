@@ -247,7 +247,7 @@ export default function VsChangeflowPage() {
           </div>
 
           <p className="mt-4 text-center text-xs text-gray-400">
-            Comparison based on publicly available information as of April 2026.
+            Comparison based on publicly available information as of May 2026.
           </p>
         </div>
       </section>

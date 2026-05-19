@@ -162,7 +162,7 @@ export default function VsPeerPandaPage() {
               Same shape, different price
             </h2>
             <p className="mt-2 text-sm text-gray-600">
-              Public pricing data from peerpanda.com, Capterra, and GetApp listings (April 2026).
+              Public pricing data from peerpanda.com, Capterra, and GetApp listings (May 2026).
             </p>
           </div>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -245,7 +245,7 @@ export default function VsPeerPandaPage() {
           </div>
 
           <p className="mt-4 text-center text-xs text-gray-400">
-            Comparison based on publicly available information as of April 2026. PeerPanda pricing
+            Comparison based on publicly available information as of May 2026. PeerPanda pricing
             from peerpanda.com pricing page and Capterra listing.
           </p>
         </div>
@@ -308,7 +308,7 @@ export default function VsPeerPandaPage() {
         faqs={[
           {
             question: "How much does PeerPanda cost?",
-            answer: "PeerPanda offers four tiers: a limited Free plan, Starter at $29/mo, Professional at $79/mo (15 competitors), and Enterprise at $199/mo. Pricing is publicly listed on peerpanda.com (April 2026). KompWatch Pro is $49/mo for 10 competitors — 38% cheaper than PeerPanda Professional for teams that track 10 or fewer rivals.",
+            answer: "PeerPanda offers four tiers: a limited Free plan, Starter at $29/mo, Professional at $79/mo (15 competitors), and Enterprise at $199/mo. Pricing is publicly listed on peerpanda.com (May 2026). KompWatch Pro is $49/mo for 10 competitors — 38% cheaper than PeerPanda Professional for teams that track 10 or fewer rivals.",
           },
           {
             question: "What is the difference between KompWatch and PeerPanda?",

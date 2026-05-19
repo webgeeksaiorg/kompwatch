@@ -380,7 +380,7 @@ export default function SwitchingFromKompytePage() {
           {
             question: "Does KompWatch have battlecards like Kompyte?",
             answer:
-              "Not yet — battlecard generation is on our roadmap. If battlecards are a must-have for your sales team today, Kompyte is the better fit. KompWatch focuses on monitoring and AI-powered digests.",
+              "Yes — KompWatch now offers one-click battlecard export. Generate a sales-ready battlecard from any competitor's tracked changes in seconds. It's lighter than Kompyte's full CMS, but covers the core use case.",
           },
           {
             question: "Can I run KompWatch and Kompyte at the same time?",

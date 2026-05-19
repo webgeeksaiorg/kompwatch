@@ -160,7 +160,7 @@ export default function VsAlreadyDevPage() {
               Same price point, but KompWatch starts free
             </h2>
             <p className="mt-2 text-sm text-gray-600">
-              Public pricing data from Already.dev&rsquo;s website (April 2026).
+              Public pricing data from Already.dev&rsquo;s website (May 2026).
             </p>
           </div>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -242,7 +242,7 @@ export default function VsAlreadyDevPage() {
           </div>
 
           <p className="mt-4 text-center text-xs text-gray-400">
-            Comparison based on publicly available information as of April 2026. Already.dev
+            Comparison based on publicly available information as of May 2026. Already.dev
             pricing from their public website.
           </p>
         </div>

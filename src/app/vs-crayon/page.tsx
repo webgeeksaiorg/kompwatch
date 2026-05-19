@@ -62,7 +62,7 @@ const comparisonRows: {
   { feature: "Email digests", kompwatch: true, crayon: true },
   { feature: "Slack / webhook alerts", kompwatch: true, crayon: true },
   { feature: "Tech stack detection", kompwatch: "Pro+", crayon: true },
-  { feature: "Battlecards", kompwatch: "Roadmap", crayon: true },
+  { feature: "Battlecards", kompwatch: "One-click export", crayon: true },
   { feature: "Time-to-first-insight", kompwatch: "Under 2 minutes", crayon: "Weeks (sales + onboarding)" },
 ];
 
@@ -195,7 +195,7 @@ export default function VsCrayonPage() {
               The pricing gap is real
             </h2>
             <p className="mt-2 text-sm text-gray-600">
-              Public pricing data from vendr.com and G2 reviews (April 2026).
+              Public pricing data from vendr.com and G2 reviews (May 2026).
             </p>
           </div>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -369,7 +369,7 @@ export default function VsCrayonPage() {
           </div>
 
           <p className="mt-4 text-center text-xs text-gray-400">
-            Comparison based on publicly available information as of April 2026. Crayon pricing
+            Comparison based on publicly available information as of May 2026. Crayon pricing
             requires a sales call; estimates from vendr.com and review sites.
           </p>
         </div>

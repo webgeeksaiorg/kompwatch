@@ -228,8 +228,8 @@ export default function SwitchingFromKluePage() {
               </div>
               <h3 className="mt-4 text-base font-semibold text-gray-900">SMB fit</h3>
               <p className="mt-2 text-sm leading-relaxed text-gray-600">
-                &ldquo;No SMB tier&rdquo; is the #1 G2 complaint about Klue. Klue&rsquo;s 2026
-                roadmap (Compete Agent, Microsoft Teams integration) keeps deepening enterprise
+                &ldquo;No SMB tier&rdquo; is the #1 G2 complaint about Klue. Klue&rsquo;s
+                launched Compete Agent and Microsoft Teams integration keep deepening enterprise
                 lock-in. KompWatch is built for the 1–50 person teams Klue won&rsquo;t serve.
               </p>
             </div>
@@ -356,7 +356,7 @@ export default function SwitchingFromKluePage() {
               The renewal math
             </h2>
             <p className="mt-2 text-sm text-gray-600">
-              Klue pricing data from vendr.com and G2 reviews (April 2026).
+              Klue pricing data from vendr.com and G2 reviews (May 2026).
             </p>
           </div>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -441,12 +441,12 @@ export default function SwitchingFromKluePage() {
           {
             question: "Will I lose my battlecards if I switch?",
             answer:
-              "KompWatch doesn't have a battlecard CMS yet (it's on our roadmap). If your sales reps actively consume Klue battlecards inside Salesforce or Slack, export them as PDFs before deactivating, or keep Klue for the battlecard layer while using KompWatch for monitoring. Many teams find the monitoring data is the high-value piece — battlecards are nice-to-have once the underlying intel is flowing.",
+              "KompWatch now offers one-click battlecard export — generate a sales-ready battlecard from any competitor's tracked changes. It's lighter than Klue's full battlecard CMS, but covers the core use case. If your sales reps need deep CRM-embedded battlecards inside Salesforce or Slack, you can keep Klue for the battlecard layer while using KompWatch for monitoring. Many teams find the monitoring data is the high-value piece.",
           },
           {
             question: "How does KompWatch pricing compare to Klue?",
             answer:
-              "Klue's pricing is quote-only and starts around $20,000/yr based on public data from vendr.com and G2 reviews (April 2026), with full-team tiers reaching $40,000/yr. KompWatch Pro is $49/mo ($588/yr) — roughly 34× less expensive at Klue's entry tier, with month-to-month billing and no annual lock-in.",
+              "Klue's pricing is quote-only and starts around $20,000/yr based on public data from vendr.com and G2 reviews (May 2026), with full-team tiers reaching $40,000/yr. KompWatch Pro is $49/mo ($588/yr) — roughly 34× less expensive at Klue's entry tier, with month-to-month billing and no annual lock-in.",
           },
           {
             question: "What about Klue's Compete Agent — is there an equivalent?",

@@ -240,7 +240,7 @@ export default function VsBattlecardPage() {
           </div>
 
           <p className="mt-4 text-center text-xs text-gray-400">
-            Comparison based on publicly available information as of April 2026. Battlecard
+            Comparison based on publicly available information as of May 2026. Battlecard
             pricing from their public website.
           </p>
         </div>
