@@ -11,16 +11,18 @@ KompWatch is built for **web-page monitoring** — it takes snapshots of competi
 | Blog / changelog | Yes |
 | Job listings page | Yes |
 | Product feature pages | Yes |
+| Hacker News mentions | Yes — via [Community Monitoring](./community-platform-monitoring.md) |
+| Reddit mentions | Yes — via [Community Monitoring](./community-platform-monitoring.md) |
+| G2 / Capterra review profiles | Yes — see [Monitoring Competitor Reviews](./monitoring-competitor-reviews.md) |
 | Twitter/X feed | No |
 | LinkedIn posts | No |
-| G2 / Capterra reviews | No |
 | Press releases (if on their site) | Yes |
 
-## Why Social Media Is Out of Scope (for Now)
+## Why Major Social Platforms (Twitter/X, LinkedIn) Are Out of Scope
 
-Social media platforms actively block automated access, change their APIs frequently, and require per-platform OAuth integrations. Scraping social media at scale would produce unreliable signal and risk violating platform terms of service.
+Twitter/X and LinkedIn actively block automated access, change their APIs frequently, and require per-platform OAuth integrations. Scraping them at scale would produce unreliable signal and risk violating platform terms of service.
 
-KompWatch focuses on what competitors **publish on their own site** — that's where product and pricing decisions actually live.
+KompWatch focuses on what competitors **publish on their own site** and on open community platforms (HN, Reddit, G2) — that's where the most actionable competitive signals live.
 
 ## Workarounds for Social Listening
 
