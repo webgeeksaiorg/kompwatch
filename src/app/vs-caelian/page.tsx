@@ -159,7 +159,7 @@ export default function VsCaelianPage() {
               Same intel, 4&times; less — and zero analyst hours
             </h2>
             <p className="mt-2 text-sm text-gray-600">
-              Public pricing data and Vendr analysis (April 2026).
+              Public pricing data and Vendr analysis (May 2026).
             </p>
           </div>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -239,7 +239,7 @@ export default function VsCaelianPage() {
           </div>
 
           <p className="mt-4 text-center text-xs text-gray-400">
-            Comparison based on publicly available information as of April 2026. Analyst hour
+            Comparison based on publicly available information as of May 2026. Analyst hour
             estimates from Vendr and Caelian customer reviews.
           </p>
         </div>

@@ -246,7 +246,7 @@ export default function VsUnkoverPage() {
           </div>
 
           <p className="mt-4 text-center text-xs text-gray-400">
-            Comparison based on publicly available information as of April 2026. Unkover details
+            Comparison based on publicly available information as of May 2026. Unkover details
             sourced from unkover.com.
           </p>
         </div>
@@ -318,7 +318,7 @@ export default function VsUnkoverPage() {
           },
           {
             question: "Does Unkover monitor competitor websites for changes?",
-            answer: "Based on public information as of April 2026, Unkover focuses on competitor email monitoring, not website change detection. If a competitor edits their pricing page or launches a feature without emailing about it, Unkover typically won't surface it. KompWatch watches the websites directly and detects changes within the snapshot interval.",
+            answer: "Based on public information as of May 2026, Unkover focuses on competitor email monitoring, not website change detection. If a competitor edits their pricing page or launches a feature without emailing about it, Unkover typically won't surface it. KompWatch watches the websites directly and detects changes within the snapshot interval.",
           },
           {
             question: "Can I try KompWatch for free?",

@@ -159,7 +159,7 @@ export default function VsSeetoPage() {
               More coverage at half the cost
             </h2>
             <p className="mt-2 text-sm text-gray-600">
-              Public pricing data from Seeto&rsquo;s website and G2 reviews (April 2026).
+              Public pricing data from Seeto&rsquo;s website and G2 reviews (May 2026).
             </p>
           </div>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -239,7 +239,7 @@ export default function VsSeetoPage() {
           </div>
 
           <p className="mt-4 text-center text-xs text-gray-400">
-            Comparison based on publicly available information as of April 2026. Seeto pricing
+            Comparison based on publicly available information as of May 2026. Seeto pricing
             from their public pricing page.
           </p>
         </div>

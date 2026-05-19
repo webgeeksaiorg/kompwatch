@@ -63,7 +63,7 @@ const comparisonRows: {
   { feature: "Email digests", kompwatch: true, kompyte: true },
   { feature: "Slack / webhook alerts", kompwatch: true, kompyte: true },
   { feature: "Tech stack detection", kompwatch: "Pro+", kompyte: false },
-  { feature: "Battlecards", kompwatch: "Roadmap", kompyte: true },
+  { feature: "Battlecards", kompwatch: "One-click export", kompyte: true },
   { feature: "Time-to-first-insight", kompwatch: "Under 2 minutes", kompyte: "Days (sales + onboarding)" },
 ];
 
@@ -195,7 +195,7 @@ export default function VsKompytePage() {
               The pricing gap is real
             </h2>
             <p className="mt-2 text-sm text-gray-600">
-              Public pricing data from vendr.com and G2 reviews (April 2026).
+              Public pricing data from vendr.com and G2 reviews (May 2026).
             </p>
           </div>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -377,7 +377,7 @@ export default function VsKompytePage() {
           </div>
 
           <p className="mt-4 text-center text-xs text-gray-400">
-            Comparison based on publicly available information as of April 2026. Kompyte pricing
+            Comparison based on publicly available information as of May 2026. Kompyte pricing
             requires a sales call; estimates from vendr.com and review sites.
           </p>
         </div>
@@ -442,7 +442,7 @@ export default function VsKompytePage() {
         faqs={[
           {
             question: "How much does Kompyte cost?",
-            answer: "Kompyte pricing requires a sales call. Based on public data from review sites (April 2026), annual contracts start at approximately $8,000/yr. KompWatch starts at $49/mo ($588/yr) with self-serve signup — roughly 13x less expensive.",
+            answer: "Kompyte pricing requires a sales call. Based on public data from review sites (May 2026), annual contracts start at approximately $8,000/yr. KompWatch starts at $49/mo ($588/yr) with self-serve signup — roughly 13x less expensive.",
           },
           {
             question: "What is the difference between KompWatch and Kompyte?",

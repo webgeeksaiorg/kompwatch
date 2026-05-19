@@ -246,7 +246,7 @@ export default function VsOwlerPage() {
           </div>
 
           <p className="mt-4 text-center text-xs text-gray-400">
-            Comparison based on publicly available information as of April 2026. Owler pricing sourced
+            Comparison based on publicly available information as of May 2026. Owler pricing sourced
             from owler.com.
           </p>
         </div>
@@ -318,7 +318,7 @@ export default function VsOwlerPage() {
           },
           {
             question: "Does Owler monitor competitor websites for changes?",
-            answer: "Based on public information as of April 2026, Owler does not monitor competitor websites directly for change detection. It aggregates news mentions, press releases, and structured data about companies. If a competitor edits their pricing page or launches a feature without a press release, Owler typically won't surface it. KompWatch watches the websites themselves and detects changes within the snapshot interval.",
+            answer: "Based on public information as of May 2026, Owler does not monitor competitor websites directly for change detection. It aggregates news mentions, press releases, and structured data about companies. If a competitor edits their pricing page or launches a feature without a press release, Owler typically won't surface it. KompWatch watches the websites themselves and detects changes within the snapshot interval.",
           },
           {
             question: "Can I try KompWatch for free, like Owler?",

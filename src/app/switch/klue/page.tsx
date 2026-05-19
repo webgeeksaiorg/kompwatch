@@ -57,9 +57,9 @@ const timelineEvents = [
   {
     date: "2026",
     risk: true,
-    title: "Compete Agent + battlecard CMS — built for 50+ rep sales orgs",
+    title: "Compete Agent launched — built for 50+ rep sales orgs",
     detail:
-      "Klue's roadmap is now headlined by an enterprise battlecard CMS and an AI 'Compete Agent.' If you're a PM, founder, or marketer doing CI yourself, those features aren't for you — but you're paying for them at every renewal.",
+      "Klue's primary GTM is now its 'Compete Agent' AI product and an enterprise battlecard CMS. If you're a PM, founder, or marketer doing CI yourself, those features aren't for you — but you're paying for them at every renewal.",
   },
 ];
 
@@ -257,7 +257,7 @@ export default function SwitchKluePage() {
             The cost of staying vs. switching
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            Klue pricing data from vendr.com and review sites (April 2026). Quote-only — exact
+            Klue pricing data from vendr.com and review sites (May 2026). Quote-only — exact
             number depends on team size and tier.
           </p>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -453,7 +453,7 @@ export default function SwitchKluePage() {
           {
             question: "Why does Klue cost $20K–$40K/yr?",
             answer:
-              "Klue raised $62M from Tiger Global and Salesforce Ventures. That level of venture funding requires high ACVs to generate the returns investors expect, so the product roadmap prioritizes enterprise features (battlecard CMS, Compete Agent AI, deep CRM integrations) that justify a $20K minimum. The pricing isn't going down — it's going up as Klue moves further upmarket.",
+              "Klue raised $62M from Tiger Global and Salesforce Ventures. That level of venture funding requires high ACVs to generate the returns investors expect, so the product prioritizes enterprise features (battlecard CMS, the launched Compete Agent AI, deep CRM integrations) that justify a $20K minimum. The pricing isn't going down — it's going up as Klue moves further upmarket.",
           },
           {
             question:
@@ -476,7 +476,7 @@ export default function SwitchKluePage() {
             question:
               "What about Klue's Compete Agent and battlecard CMS?",
             answer:
-              "Klue's 2026 roadmap is headlined by its 'Compete Agent' AI product and an enterprise battlecard CMS for 50+ rep sales orgs. If you're a founder, PM, or marketer doing CI yourself, those features aren't for you — but you're paying for them. KompWatch focuses on automated monitoring with AI digests and a one-click battlecard export. Lighter than Klue's full CMS, but covers the core use case at 1/40th the cost.",
+              "Klue launched its 'Compete Agent' AI product in May 2026 and continues expanding its enterprise battlecard CMS for 50+ rep sales orgs. If you're a founder, PM, or marketer doing CI yourself, those features aren't for you — but you're paying for them. KompWatch focuses on automated monitoring with AI digests and a one-click battlecard export. Lighter than Klue's full CMS, but covers the core use case at 1/40th the cost.",
           },
           {
             question:

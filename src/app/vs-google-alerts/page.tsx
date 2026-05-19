@@ -235,7 +235,7 @@ export default function VsGoogleAlertsPage() {
           </div>
 
           <p className="mt-4 text-center text-xs text-gray-400">
-            Comparison based on publicly documented Google Alerts behavior as of April 2026.
+            Comparison based on publicly documented Google Alerts behavior as of May 2026.
           </p>
         </div>
       </section>

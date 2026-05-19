@@ -343,7 +343,7 @@ export default function SwitchingFromCrayonPage() {
               The renewal math
             </h2>
             <p className="mt-2 text-sm text-gray-600">
-              Median Crayon contract data from vendr.com (April 2026).
+              Median Crayon contract data from vendr.com (May 2026).
             </p>
           </div>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -428,12 +428,12 @@ export default function SwitchingFromCrayonPage() {
           {
             question: "Will I lose my battlecards if I switch?",
             answer:
-              "KompWatch doesn't have a battlecard CMS yet (it's on our roadmap). If your sales team actively uses Crayon battlecards, export them as PDFs before deactivating, or keep Crayon for the battlecard layer while using KompWatch for monitoring. Many teams find the monitoring data is the high-value piece and battlecards become low-touch over time.",
+              "KompWatch now offers one-click battlecard export — generate a sales-ready battlecard from any competitor's tracked changes. It's lighter than Crayon's full battlecard CMS, but covers the core use case. If your sales team needs deep CRM-embedded battlecards, you can keep Crayon for the battlecard layer while using KompWatch for monitoring. Many teams find the monitoring data is the high-value piece.",
           },
           {
             question: "How does KompWatch pricing compare to Crayon?",
             answer:
-              "Crayon's median customer pays $28,750/yr based on public vendr.com data (April 2026), with plans ranging from $5,000/yr to $80,000+/yr depending on team size. KompWatch Pro is $49/mo ($588/yr) — roughly 49x less expensive at the median, with month-to-month billing and no annual lock-in.",
+              "Crayon's median customer pays $28,750/yr based on public vendr.com data (May 2026), with plans ranging from $5,000/yr to $80,000+/yr depending on team size. KompWatch Pro is $49/mo ($588/yr) — roughly 49x less expensive at the median, with month-to-month billing and no annual lock-in.",
           },
           {
             question: "What about the SoftwareOne acquisition — should I be worried?",

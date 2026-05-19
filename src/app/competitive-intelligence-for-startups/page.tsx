@@ -440,7 +440,7 @@ export default function CompetitiveIntelligenceForStartupsPage() {
           </div>
 
           <p className="mt-6 text-center text-xs text-gray-500">
-            Pricing pulled from public pricing pages, Capterra, and GetApp listings (April 2026).
+            Pricing pulled from public pricing pages, Capterra, and GetApp listings (May 2026).
             Enterprise CI vendors typically don&rsquo;t publish pricing — quotes from{" "}
             <Link href="/vs-crayon" className="underline hover:text-gray-700">Crayon</Link> and{" "}
             <Link href="/vs-klue" className="underline hover:text-gray-700">Klue</Link> teardowns.
