@@ -42,7 +42,13 @@ Until KompWatch adds native review-platform support, these approaches work well:
 
 ## Is Native Review Monitoring on the Roadmap?
 
-We track demand for this. If G2/Capterra monitoring is important to your workflow, email [support@kompwatch.com](mailto:support@kompwatch.com) — customer demand directly shapes what we build next.
+Yes — **native G2 and Capterra review tracking is in final QA and shipping very soon**. Once live, it will let you:
+
+- Track your competitors' G2/Capterra review counts, ratings, and category rankings automatically
+- Get alerts when a competitor's review score or ranking shifts
+- See review-site changes alongside website changes in a single digest
+
+Until then, the Trustpilot and Capterra direct-monitoring workarounds above work well for most teams. If G2/Capterra monitoring is critical to your workflow, email [support@kompwatch.com](mailto:support@kompwatch.com) to be notified the moment it ships.
 
 ---
 *For related topics, see [Social Media Monitoring](./social-media-monitoring.md) and [What Does KompWatch Track](./what-does-kompwatch-track.md)*
