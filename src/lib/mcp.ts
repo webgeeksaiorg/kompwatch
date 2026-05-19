@@ -197,7 +197,7 @@ export function createMcpServer(userId: string): McpServer {
         .optional()
         .describe("Filter by specific competitor ID"),
       changeType: z
-        .enum(["PRICING", "FEATURE", "BLOG", "JOB", "TECH", "GENERAL"])
+        .enum(["PRICING", "FEATURE", "BLOG", "JOB", "TECH", "GENERAL", "COMMUNITY"])
         .optional()
         .describe("Filter by change type"),
       severity: z

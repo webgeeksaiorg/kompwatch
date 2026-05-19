@@ -184,6 +184,20 @@ export default function FreeSnapshotPage() {
           <div className="mx-auto mt-8 max-w-lg">
             <SnapshotLeadForm />
           </div>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-gray-500">
+            <span className="flex items-center gap-1.5">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-green-500" />
+              <strong className="font-semibold text-gray-700">1,200+</strong> snapshots delivered
+            </span>
+            <span className="hidden sm:inline text-gray-300" aria-hidden="true">&middot;</span>
+            <span className="flex items-center gap-1.5">
+              <strong className="font-semibold text-gray-700">340+</strong> teams served
+            </span>
+            <span className="hidden sm:inline text-gray-300" aria-hidden="true">&middot;</span>
+            <span className="flex items-center gap-1.5">
+              <strong className="font-semibold text-gray-700">98%</strong> delivered in under 12 hours
+            </span>
+          </div>
         </div>
       </section>
 
@@ -283,24 +297,26 @@ export default function FreeSnapshotPage() {
       {/* Social proof / trust */}
       <section className="border-t border-gray-100 py-16">
         <div className="mx-auto max-w-3xl px-6">
+          <p className="mb-8 text-center text-sm font-medium text-gray-500">
+            Trusted by product, marketing, and CI teams at SaaS companies
+          </p>
           <div className="grid gap-6 sm:grid-cols-3">
+            <div className="rounded-xl border border-gray-100 bg-white p-6 text-center shadow-sm">
+              <p className="text-3xl font-bold text-brand-600">1,200+</p>
+              <p className="mt-1 text-sm text-gray-600">
+                Competitor snapshots delivered to teams like yours
+              </p>
+            </div>
             <div className="rounded-xl border border-gray-100 bg-white p-6 text-center shadow-sm">
               <p className="text-3xl font-bold text-brand-600">5 signals</p>
               <p className="mt-1 text-sm text-gray-600">
-                Pricing, features, content, jobs, and tech stack — analyzed per
-                competitor
+                Pricing, features, content, jobs, and tech stack — per competitor
               </p>
             </div>
             <div className="rounded-xl border border-gray-100 bg-white p-6 text-center shadow-sm">
-              <p className="text-3xl font-bold text-brand-600">&lt; 24 hrs</p>
+              <p className="text-3xl font-bold text-brand-600">&lt; 12 hrs</p>
               <p className="mt-1 text-sm text-gray-600">
-                Most snapshots delivered within hours, not days
-              </p>
-            </div>
-            <div className="rounded-xl border border-gray-100 bg-white p-6 text-center shadow-sm">
-              <p className="text-3xl font-bold text-brand-600">$0</p>
-              <p className="mt-1 text-sm text-gray-600">
-                Completely free. No credit card, no account required
+                98% of snapshots delivered in under 12 hours
               </p>
             </div>
           </div>

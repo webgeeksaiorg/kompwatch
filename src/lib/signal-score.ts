@@ -32,6 +32,7 @@ const CHANGE_TYPE_RELIABILITY: Record<ChangeType, number> = {
   BLOG: 0.85, // Blog posts are easy to verify
   TECH: 0.70, // Tech stack detection can be noisy
   GENERAL: 0.50, // General content changes are often cosmetic
+  COMMUNITY: 0.75, // Community mentions are usually real but context varies
 };
 
 /** How actionable each content zone tends to be (0–1) */

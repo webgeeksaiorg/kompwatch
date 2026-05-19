@@ -21,6 +21,7 @@ const TYPE_LABELS: Record<string, string> = {
   JOB: "Jobs",
   TECH: "Tech",
   GENERAL: "General",
+  COMMUNITY: "Community",
 };
 
 export function RoiReportContent({

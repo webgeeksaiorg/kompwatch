@@ -49,6 +49,7 @@ const CHANGE_TYPE_LABEL: Record<string, string> = {
   JOB: "Jobs",
   TECH: "Tech Stack",
   GENERAL: "General",
+  COMMUNITY: "Community",
 };
 
 const ZONE_LABEL: Record<string, string> = {
