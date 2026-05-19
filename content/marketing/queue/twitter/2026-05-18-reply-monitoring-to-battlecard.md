@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: reply
-status: draft
+status: queued-publish-failed-no-creds
 keywords: [competitor monitoring battlecard pipeline, CI automation workflow, competitive intelligence pipeline]
 ---
 The pipeline most teams want to build but never finish:
@@ -18,4 +18,4 @@ KompWatch is steps 1–4. Working on 5.
 
 ---
 self-check: 8/10
-status: ready
+status: queued-publish-failed-no-creds

@@ -4,13 +4,18 @@ When you sign up for KompWatch, you'll receive a short sequence of emails over y
 
 ## What Emails Will I Receive?
 
-| When | Subject | Purpose |
-|------|---------|---------|
-| Immediately on signup | "Welcome to KompWatch — let's set up your first monitor" | Welcome + quick-start guide |
-| 2 days after signup | "3 ways KompWatch saves you hours every week" | Tips for getting the most out of monitoring, plus an optional link to leave a G2 review |
-| 5 days after signup (Free plan only) | "Your free plan is active — here's what Pro unlocks" | Overview of Pro and Team plan features |
+KompWatch sends up to 6 emails over your first two weeks, depending on your plan:
 
-**Note:** The day-5 email is only sent to users on the Free plan. If you've already upgraded to Pro or Team, you won't receive it.
+| When | Subject | Who receives it |
+|------|---------|----------------|
+| Immediately on signup | "Welcome to KompWatch — let's set up your first monitor" | All users |
+| 2 days after signup | "3 ways KompWatch saves you hours every week" | All users |
+| 5 days after signup | "Your free plan is active — here's what Pro unlocks" | Free plan only |
+| 7 days after signup | "How SaaS teams use KompWatch to stay ahead" | Free plan only |
+| 10 days after signup | "The hidden cost of manual competitor monitoring" | Free plan only |
+| 14 days after signup | "Your competitors changed this week. Did you notice?" | Free plan only |
+
+**Note:** Emails from day 5 onward are only sent to users on the Free plan. If you upgrade to Pro or Team at any point, the remaining nurture emails stop. The day-14 email is the last in the sequence.
 
 ## The Day-2 Email Includes a G2 Review Link — Is That Legitimate?
 
@@ -20,7 +25,7 @@ Yes. The Day-2 email contains a purple "Leave a review on G2" button. This is an
 
 These are automated onboarding emails sent to all new KompWatch accounts. They're designed to help you set up monitoring quickly and understand what KompWatch can do.
 
-They are not marketing newsletters — there's no ongoing subscription after the 5-day sequence ends.
+They are not marketing newsletters — the sequence ends at day 14 (or earlier if you upgrade), after which you'll only receive your regular competitor change digests.
 
 ## How Do I Stop Receiving Them?
 

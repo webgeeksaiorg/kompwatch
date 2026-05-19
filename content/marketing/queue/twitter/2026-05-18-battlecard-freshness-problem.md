@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: queued-publish-failed-no-creds
 keywords: [battlecard freshness, AI battlecard generation, competitive battlecard automation, battlecard stale data]
 ---
 Automated battlecard systems reduce CI content production time by 60–70%.
@@ -18,4 +18,4 @@ Monitoring is the foundation. Battlecard generation is a layer on top. You can't
 
 ---
 self-check: 8.5/10
-status: ready
+status: queued-publish-failed-no-creds

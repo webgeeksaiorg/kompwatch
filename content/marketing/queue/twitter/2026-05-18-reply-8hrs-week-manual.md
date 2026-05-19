@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: reply
-status: draft
+status: queued-publish-failed-no-creds
 keywords: [manual competitive intelligence, CI analyst hours, competitor research time cost]
 ---
 Manual battlecard maintenance: 8–15 hours per week per person (SCIP 2025 benchmark survey).
@@ -14,4 +14,4 @@ The tool isn't the whole cost.
 
 ---
 self-check: 8/10
-status: ready
+status: queued-publish-failed-no-creds

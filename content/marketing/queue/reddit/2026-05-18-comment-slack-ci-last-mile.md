@@ -2,7 +2,7 @@
 platform: reddit
 type: comment
 target: r/SaaS
-status: draft
+status: queued-publish-failed-no-creds
 keywords: [Slack competitor alerts, competitive intelligence Slack, CI workflow tools]
 ---
 The distribution problem is underrated in the CI conversation.
@@ -19,4 +19,4 @@ The best competitor intel in the world doesn't matter if it shows up somewhere n
 
 ---
 self-check: 8/10
-status: ready
+status: queued-publish-failed-no-creds
