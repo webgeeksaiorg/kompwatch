@@ -57,7 +57,7 @@ The MCP server only returns data scoped to your account — other users' competi
 ## What Data Is Returned?
 
 Each change includes:
-- **Type**: `PRICING`, `FEATURE`, `BLOG`, `JOB`, `TECH`, or `GENERAL`
+- **Type**: `PRICING`, `FEATURE`, `BLOG`, `JOB`, `TECH`, `COMMUNITY`, or `GENERAL`
 - **Content zone**: `POSITIONING`, `MONETIZATION`, `PRODUCT`, `MARKETING`, `TALENT`, `LEGAL`, `OPERATIONS`
 - **Severity**: `LOW`, `MEDIUM`, `HIGH`, or `CRITICAL`
 - **AI confidence score** and **signal score** (see [AI Confidence Scoring](./ai-confidence-scoring.md))
