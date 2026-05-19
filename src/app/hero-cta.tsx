@@ -2,27 +2,29 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import {
+  assignVariantInBrowser,
+  HERO_CTA_DEMO_EXPERIMENT,
+  type Variant,
+} from "@/lib/ab";
 
-const VARIANTS = {
-  A: "Start Monitoring Free",
-  B: "Never Miss a Competitor Move — Start Free",
-} as const;
-
-type Variant = keyof typeof VARIANTS;
+/**
+ * EXPERIMENT: Hero CTA A/B test (hero-cta-demo-2026-05)
+ * A — "Start Monitoring Free" → /login  (control)
+ * B — "Try the Live Demo"     → /demo   (demo-first funnel)
+ *
+ * Hypothesis: surfacing /demo as primary CTA lifts qualified signups by ≥10%
+ * because visitors self-qualify via the interactive demo before committing email.
+ */
+const VARIANTS: Record<Variant, { label: string; href: string }> = {
+  A: { label: "Start Monitoring Free", href: "/login" },
+  B: { label: "Try the Live Demo", href: "/demo" },
+};
 
 declare global {
   interface Window {
     plausible?: (event: string, options?: { props?: Record<string, string> }) => void;
   }
-}
-
-function getVariant(): Variant {
-  if (typeof window === "undefined") return "A";
-  const stored = localStorage.getItem("hero_cta_variant_v2");
-  if (stored === "A" || stored === "B") return stored;
-  const variant: Variant = Math.random() < 0.5 ? "A" : "B";
-  localStorage.setItem("hero_cta_variant_v2", variant);
-  return variant;
 }
 
 export function HeroSecondaryCTA() {
@@ -47,28 +49,37 @@ export function HeroCTA() {
   const [variant, setVariant] = useState<Variant | null>(null);
 
   useEffect(() => {
-    setVariant(getVariant());
+    const assigned = assignVariantInBrowser(HERO_CTA_DEMO_EXPERIMENT) ?? "A";
+    setVariant(assigned);
+    window.plausible?.("Hero CTA Impression", {
+      props: {
+        variant: assigned,
+        experiment: HERO_CTA_DEMO_EXPERIMENT,
+      },
+    });
   }, []);
 
   const handleClick = () => {
+    const v = variant ?? "A";
     const subheadlineVariant =
       typeof window !== "undefined"
         ? localStorage.getItem("hero_subheadline_variant") ?? "A"
         : "A";
     window.plausible?.("Hero CTA Click", {
       props: {
-        variant: variant ?? "A",
+        variant: v,
+        experiment: HERO_CTA_DEMO_EXPERIMENT,
         subheadline: subheadlineVariant,
       },
     });
   };
 
-  // Render default text during SSR / before hydration to avoid layout shift
-  const label = variant ? VARIANTS[variant] : VARIANTS.A;
+  // Render control text during SSR / before hydration to avoid layout shift
+  const { label, href } = variant ? VARIANTS[variant] : VARIANTS.A;
 
   return (
     <Link
-      href="/login"
+      href={href}
       onClick={handleClick}
       className="rounded-lg bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
     >

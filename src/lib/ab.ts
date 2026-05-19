@@ -1,6 +1,7 @@
 export type Variant = "A" | "B";
 
 export const PRICING_ANCHOR_EXPERIMENT = "pricing-anchor-monthly-2026-05";
+export const HERO_CTA_DEMO_EXPERIMENT = "hero-cta-demo-2026-05";
 
 const STORAGE_PREFIX = "kw-ab-";
 

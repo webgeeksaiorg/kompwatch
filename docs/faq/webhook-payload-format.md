@@ -58,7 +58,7 @@ Additional event types (e.g. `snapshot.failed`, `competitor.added`) are planned.
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | string | KompWatch internal ID for this change record |
-| `changeType` | enum | `CONTENT`, `VISUAL`, `PRICING`, or `FEATURE` |
+| `changeType` | enum | `PRICING`, `FEATURE`, `CONTENT`, `VISUAL`, `BLOG`, `JOB`, `TECH`, `COMMUNITY`, or `GENERAL` |
 | `contentZone` | enum | `POSITIONING`, `MONETIZATION`, `PRODUCT`, `MARKETING`, `TALENT`, `LEGAL`, `OPERATIONS`, or `UNKNOWN` |
 | `severity` | enum | `LOW`, `MEDIUM`, `HIGH`, or `CRITICAL` |
 | `confidence` | integer | 0–100. Confidence the change is genuine, not transient noise. See [AI Confidence Scoring](./ai-confidence-scoring.md). |
@@ -108,15 +108,15 @@ Always use `rawBody` (unparsed bytes) for the HMAC — parsing to JSON first cha
 
 ## Retry Behavior
 
-If your endpoint returns a non-2xx status code or times out (>10 seconds), KompWatch retries up to **3 times** with exponential backoff:
+If your endpoint returns a non-2xx status code or times out (>10 seconds), KompWatch retries up to **2 additional times** with exponential backoff (3 total attempts):
 
-| Attempt | Delay after failure |
-|---------|-------------------|
-| 1 | Immediate |
-| 2 | 1 minute |
-| 3 | 5 minutes |
+| Attempt | Delay after previous failure |
+|---------|------------------------------|
+| 1 (initial) | — |
+| 2 (retry 1) | 1 minute |
+| 3 (retry 2) | 5 minutes |
 
-After 3 failed attempts (1 initial + 2 retries), the delivery is marked permanently failed and recorded in the **delivery history log** in Settings → Webhook. Your endpoint must return a 2xx status within 10 seconds to avoid retries — perform long-running processing asynchronously.
+After 3 total attempts (1 initial + 2 retries), the delivery is marked permanently failed and recorded in the **delivery history log** in Settings → Webhook. Your endpoint must return a 2xx status within 10 seconds to avoid retries — perform long-running processing asynchronously.
 
 > **Tip:** Check [Webhook Delivery History](./webhook-delivery-history.md) to view the status of recent deliveries, diagnose failures by HTTP status code, and confirm retries.
 
