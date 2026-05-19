@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import {
+  HERO_CTA_DEMO_EXPERIMENT,
   PRICING_ANCHOR_EXPERIMENT,
   getOrAssignVariant,
   pickVariant,
@@ -108,5 +109,11 @@ describe("getOrAssignVariant", () => {
 describe("PRICING_ANCHOR_EXPERIMENT", () => {
   it("has a stable key so analytics segmentation is reproducible", () => {
     expect(PRICING_ANCHOR_EXPERIMENT).toBe("pricing-anchor-monthly-2026-05");
+  });
+});
+
+describe("HERO_CTA_DEMO_EXPERIMENT", () => {
+  it("has a stable key so analytics segmentation is reproducible", () => {
+    expect(HERO_CTA_DEMO_EXPERIMENT).toBe("hero-cta-demo-2026-05");
   });
 });
