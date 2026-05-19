@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: reply
-status: draft
+status: queued-publish-failed-no-creds
 keywords: [CI ownership, competitive intelligence team, who owns competitor tracking]
 ---
 At most companies under 100 people, competitive intelligence is owned by:
@@ -17,4 +17,4 @@ KompWatch is built for the "nobody" category. Automated, not assisted.
 
 ---
 self-check: 7.5/10
-status: ready
+status: queued-publish-failed-no-creds

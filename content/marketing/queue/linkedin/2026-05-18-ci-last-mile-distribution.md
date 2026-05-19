@@ -1,7 +1,7 @@
 ---
 platform: linkedin
 type: post
-status: draft
+status: queued-publish-failed-no-creds
 keywords: [competitive intelligence distribution, Slack CI delivery, CI adoption problem, competitor monitoring workflow]
 ---
 The competitive intelligence adoption problem is almost never about the quality of the intel.
@@ -18,10 +18,10 @@ The tool isn't the bottleneck. Distribution is.
 
 If your CI workflow produces a PDF or a dashboard, you're still competing with inbox noise and context-switching. If it shows up in Slack when a competitor changes their pricing page, it becomes ambient intelligence. Your team knows without anyone having to go check.
 
-This is why Slack and Teams delivery is the next thing I'm building into KompWatch. Not because it's technically impressive — it isn't. Because that's where the intel actually gets used.
+This is why I just shipped Slack and Teams delivery in KompWatch. Not because it's technically impressive — it isn't. Because that's where the intel actually gets used.
 
-Building in public. Working on it now.
+Building in public. Shipped last night.
 
 ---
 self-check: 8/10
-status: ready
+status: queued-publish-failed-no-creds

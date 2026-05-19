@@ -2,7 +2,7 @@
 platform: reddit
 type: comment
 target: r/ProductManagement
-status: draft
+status: queued-publish-failed-no-creds
 keywords: [battlecard freshness, automated battlecards, competitive battlecard maintenance, stale battlecard]
 ---
 Something that gets glossed over in every "AI battlecards" post:
@@ -19,4 +19,4 @@ I'm building KompWatch for the monitoring layer specifically — snapshot compet
 
 ---
 self-check: 8/10
-status: ready
+status: queued-publish-failed-no-creds

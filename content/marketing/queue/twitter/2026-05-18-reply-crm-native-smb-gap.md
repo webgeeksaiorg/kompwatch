@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: reply
-status: draft
+status: queued-publish-failed-no-creds
 keywords: [CRM competitive intelligence, Salesforce battlecard, HubSpot CI integration, SMB competitive intel]
 ---
 Enterprise CI workflow in 2026:
@@ -18,4 +18,4 @@ Both are $49/mo problems. Neither costs $30K to fix.
 
 ---
 self-check: 8.5/10
-status: ready
+status: queued-publish-failed-no-creds
