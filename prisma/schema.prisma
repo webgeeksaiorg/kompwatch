@@ -116,6 +116,7 @@ model Competitor {
   trackFeatures   Boolean @default(true)
   trackJobs       Boolean @default(true)
   trackTech       Boolean @default(false) // Pro+
+  trackCommunity  Boolean @default(true)  // HN, Reddit, G2 mentions
 
   // Relations
   user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -178,6 +179,7 @@ enum ChangeType {
   JOB           // New job listings, removed listings
   TECH          // Technology stack changes
   GENERAL       // Other page content changes
+  COMMUNITY     // Mentions on HN, Reddit, G2 — community signal monitoring
 }
 
 // Strategic business area a change relates to (cross-cuts changeType)

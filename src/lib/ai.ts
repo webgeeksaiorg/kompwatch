@@ -23,7 +23,7 @@ export type ContentZoneType =
   | "UNKNOWN";
 
 export interface DetectedChange {
-  changeType: "PRICING" | "FEATURE" | "BLOG" | "JOB" | "TECH" | "GENERAL";
+  changeType: "PRICING" | "FEATURE" | "BLOG" | "JOB" | "TECH" | "GENERAL" | "COMMUNITY";
   contentZone: ContentZoneType;
   summary: string;
   details: string;

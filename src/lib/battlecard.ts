@@ -43,6 +43,7 @@ const CHANGE_TYPE_LABELS: Record<ChangeType, string> = {
   JOB: "Jobs",
   TECH: "Tech",
   GENERAL: "General",
+  COMMUNITY: "Community",
 };
 
 const SEVERITY_COLORS: Record<Severity, string> = {

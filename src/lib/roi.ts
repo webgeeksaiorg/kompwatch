@@ -73,6 +73,7 @@ export async function generateRoiReport(userId: string): Promise<RoiReport> {
     JOB: 0,
     TECH: 0,
     GENERAL: 0,
+    COMMUNITY: 0,
   };
   for (const c of changes) byType[c.changeType]++;
 
