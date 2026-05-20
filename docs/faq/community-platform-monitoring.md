@@ -9,7 +9,7 @@ Yes. KompWatch now includes **community signal monitoring** — it automatically
 | Competitor's own website | Live | Pricing, features, blog, job listings |
 | Hacker News (stories & comments) | Live | Via Algolia search API, last 24h |
 | Reddit posts | Live | Across all subreddits, last 24h |
-| G2 / Capterra review profiles | Live | See [Review Monitoring FAQ](./monitoring-competitor-reviews.md) |
+| G2 / Capterra review profiles | Shipping soon | See [Review Monitoring FAQ](./monitoring-competitor-reviews.md) |
 | Product Hunt listings | Workaround available | See below |
 
 ## How It Works
