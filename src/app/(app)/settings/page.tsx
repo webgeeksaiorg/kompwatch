@@ -7,6 +7,7 @@ import { NotificationPrefsForm } from "./notification-prefs-form";
 import { WebhookForm } from "./webhook-form";
 import { DashboardFilterForm } from "./dashboard-filter-form";
 import { ApiKeysForm } from "./api-keys-form";
+import { TrackedCTA } from "@/components/tracked-cta";
 
 export default async function SettingsPage() {
   const user = await requireAuth();
@@ -155,12 +156,14 @@ export default async function SettingsPage() {
               Upgrade to Pro or Team for more competitors, faster snapshots, and
               daily digests.
             </p>
-            <a
+            <TrackedCTA
               href="/pricing"
+              event="upgrade-cta-clicked"
+              eventProps={{ source: "settings-plan" }}
               className="mt-3 inline-block rounded-lg bg-brand-600 px-4 py-2 text-sm font-medium text-white hover:bg-brand-700"
             >
               View Plans
-            </a>
+            </TrackedCTA>
           </div>
         )}
       </div>

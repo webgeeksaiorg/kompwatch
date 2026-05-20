@@ -70,7 +70,11 @@ export function AddCompetitorForm({
       <div className="rounded-lg border border-amber-200 bg-amber-50 p-4">
         <p className="text-sm text-amber-800">
           You&apos;ve reached the {plan} plan limit.{" "}
-          <a href="/pricing" className="font-medium underline hover:text-amber-900">
+          <a
+            href="/pricing"
+            className="font-medium underline hover:text-amber-900"
+            onClick={() => window.plausible?.("upgrade-cta-clicked", { props: { source: "competitors-limit" } })}
+          >
             Upgrade your plan
           </a>{" "}
           to track more competitors.
