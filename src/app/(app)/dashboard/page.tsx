@@ -11,6 +11,7 @@ import { EmptyStateOnboarding } from "@/components/dashboard/empty-state-onboard
 import { SignupTracker } from "@/components/dashboard/signup-tracker";
 import { ActivityHeatmap } from "@/components/dashboard/activity-heatmap";
 import { ZoneFilter } from "@/components/dashboard/zone-filter";
+import { TrackedCTA } from "@/components/tracked-cta";
 import type { ContentZone } from "@prisma/client";
 
 const SEVERITY_COLORS: Record<string, string> = {
@@ -177,12 +178,14 @@ export default async function DashboardPage({
               Upgrade to Pro for 10 competitors, daily digests, and priority support.
             </p>
           </div>
-          <a
+          <TrackedCTA
             href="/pricing"
+            event="upgrade-cta-clicked"
+            eventProps={{ source: "dashboard-banner" }}
             className="mt-3 inline-flex items-center rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-700 sm:mt-0 sm:ml-4 sm:shrink-0"
           >
             Upgrade to Pro &mdash; $49/mo
-          </a>
+          </TrackedCTA>
         </div>
       )}
 
@@ -205,12 +208,14 @@ export default async function DashboardPage({
           <p className="text-sm text-gray-500">Plan</p>
           <p className="mt-1 text-2xl font-bold text-gray-900">{user.plan}</p>
           {user.plan === "FREE" && (
-            <a
+            <TrackedCTA
               href="/pricing"
+              event="upgrade-cta-clicked"
+              eventProps={{ source: "dashboard-plan-card" }}
               className="mt-1 inline-block text-xs font-medium text-brand-600 hover:text-brand-700"
             >
               Upgrade &rarr;
-            </a>
+            </TrackedCTA>
           )}
         </div>
         <div className="rounded-lg border border-gray-200 bg-white p-5">

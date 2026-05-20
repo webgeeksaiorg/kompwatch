@@ -136,6 +136,7 @@ export function WebhookForm({
         <a
           href="/pricing"
           className="mt-3 inline-block rounded-lg bg-brand-600 px-4 py-2 text-sm font-medium text-white hover:bg-brand-700"
+          onClick={() => window.plausible?.("upgrade-cta-clicked", { props: { source: "webhook-gate" } })}
         >
           See plans
         </a>
@@ -272,7 +273,7 @@ export function WebhookForm({
         {!instantAlertsAllowed ? (
           <div className="mt-3 rounded-lg border border-amber-200 bg-amber-50 p-3">
             <p className="text-xs text-amber-900">
-              Real-time alerts are a Team-tier feature. <a href="/pricing" className="font-medium underline">Upgrade to Team</a> to push high-severity changes to Slack as they happen.
+              Real-time alerts are a Team-tier feature. <a href="/pricing" className="font-medium underline" onClick={() => window.plausible?.("upgrade-cta-clicked", { props: { source: "instant-alerts-gate" } })}>Upgrade to Team</a> to push high-severity changes to Slack as they happen.
             </p>
           </div>
         ) : (
