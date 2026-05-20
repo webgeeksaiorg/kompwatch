@@ -38,3 +38,35 @@ export async function trackEvent(
     // Analytics is non-critical — never block the request
   }
 }
+
+/**
+ * Fire a Plausible event from contexts without a request (cron jobs,
+ * background tasks). Uses a synthetic User-Agent since there's no
+ * incoming request to forward headers from.
+ */
+export async function trackServerEvent(
+  name: string,
+  url: string,
+  props?: Record<string, string>,
+): Promise<void> {
+  if (!PLAUSIBLE_DOMAIN) return;
+
+  try {
+    await fetch(`${PLAUSIBLE_HOST}/api/event`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "User-Agent": "KompWatch/1.0 (server)",
+        "X-Forwarded-For": "127.0.0.1",
+      },
+      body: JSON.stringify({
+        name,
+        url: `https://${PLAUSIBLE_DOMAIN}${url}`,
+        domain: PLAUSIBLE_DOMAIN,
+        ...(props && Object.keys(props).length > 0 ? { props } : {}),
+      }),
+    });
+  } catch {
+    // Analytics is non-critical — never block the task
+  }
+}

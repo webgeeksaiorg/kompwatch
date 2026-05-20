@@ -12,6 +12,7 @@ import {
   sendInstantPricingAlert,
   shouldSendInstantPricingAlert,
 } from "@/lib/pricing-alert";
+import { trackServerEvent } from "@/lib/plausible";
 
 export interface CaptureSnapshotResult {
   competitorId: string;
@@ -205,6 +206,13 @@ export async function captureSnapshot(
           }
         }
       }
+    }
+
+    // Onboarding funnel: track first snapshot for the user
+    if (!prevSnapshot) {
+      trackServerEvent("onboarding-first-snapshot", "/dashboard", {
+        plan: competitor.user.plan,
+      });
     }
 
     return {

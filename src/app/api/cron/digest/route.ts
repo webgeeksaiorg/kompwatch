@@ -10,6 +10,7 @@ import {
 } from "@/lib/digest";
 import { sendWebhookNotification } from "@/lib/webhooks";
 import { severitiesAtOrAbove } from "@/lib/severity";
+import { trackEvent } from "@/lib/plausible";
 import type { Plan } from "@prisma/client";
 
 /**
@@ -157,6 +158,14 @@ export async function POST(req: NextRequest) {
           digestId: digest.id,
         });
         webhookSent = whResult.ok;
+      }
+
+      // Onboarding funnel: track first digest sent to user
+      const isFirstDigest = user.digests.length === 0;
+      if (isFirstDigest) {
+        trackEvent("onboarding-first-digest", "/digests", {
+          plan: user.plan,
+        });
       }
 
       results.push({
