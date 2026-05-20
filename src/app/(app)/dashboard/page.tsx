@@ -12,6 +12,7 @@ import { SignupTracker } from "@/components/dashboard/signup-tracker";
 import { ActivityHeatmap } from "@/components/dashboard/activity-heatmap";
 import { ZoneFilter } from "@/components/dashboard/zone-filter";
 import { TrackedCTA } from "@/components/tracked-cta";
+import { FirstChangePrompt } from "@/components/dashboard/first-change-prompt";
 import type { ContentZone } from "@prisma/client";
 
 const SEVERITY_COLORS: Record<string, string> = {
@@ -163,6 +164,11 @@ export default async function DashboardPage({
           hasCustomSeverity={user.digestMinSeverity !== "LOW"}
           hasWebhook={!!user.webhookUrl}
         />
+      )}
+
+      {/* First-change upgrade prompt — aha moment for free-tier users */}
+      {user.plan === "FREE" && totalChanges >= 1 && totalChanges <= 5 && (
+        <FirstChangePrompt totalChanges={totalChanges} />
       )}
 
       {/* Upgrade banner for free-tier users near their limit */}

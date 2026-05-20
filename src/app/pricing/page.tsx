@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { getDisplayPrice, getPerCompetitorPrice } from "@/lib/pricing";
 import {
   PRICING_ANCHOR_EXPERIMENT,
+  FOUNDING_100_EXPERIMENT,
   assignVariantInBrowser,
   type Variant,
 } from "@/lib/ab";
@@ -399,6 +400,7 @@ export default function PricingPage() {
   // hydration, ~50% of users swap to "B" (monthly anchor). Variant is sticky
   // per session so a user sees the same framing across reloads.
   const [anchorVariant, setAnchorVariant] = useState<Variant>("A");
+  const [foundingVariant, setFoundingVariant] = useState<Variant>("B"); // B = control (no founding UI)
 
   useEffect(() => {
     const assigned =
@@ -408,6 +410,16 @@ export default function PricingPage() {
       props: {
         variant: assigned,
         experiment: PRICING_ANCHOR_EXPERIMENT,
+      },
+    });
+
+    const foundingAssigned =
+      assignVariantInBrowser(FOUNDING_100_EXPERIMENT) ?? "B";
+    setFoundingVariant(foundingAssigned);
+    window.plausible?.("founding-100-impression", {
+      props: {
+        variant: foundingAssigned,
+        experiment: FOUNDING_100_EXPERIMENT,
       },
     });
   }, []);
@@ -490,6 +502,7 @@ export default function PricingPage() {
       props: {
         plan,
         anchor_variant: anchorVariant,
+        founding_variant: foundingVariant,
         billing_period: billingPeriod,
       },
     });
@@ -658,6 +671,30 @@ export default function PricingPage() {
         </span>
       </div>
 
+      {/* Founding 100 banner — shown in variant A when annual billing is selected */}
+      {foundingVariant === "A" && annual && (
+        <div className="mx-auto mt-8 w-full max-w-2xl rounded-2xl border border-amber-200 bg-gradient-to-r from-amber-50 to-yellow-50 p-5 shadow-sm">
+          <div className="flex items-center justify-center gap-2">
+            <svg className="h-5 w-5 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+            </svg>
+            <h3 className="text-base font-bold text-amber-900">
+              Founding 100 — Lock in your price forever
+            </h3>
+          </div>
+          <p className="mt-2 text-center text-sm text-amber-800">
+            The first 100 annual subscribers keep today&rsquo;s rate <strong>permanently</strong> &mdash; even when prices go up.
+            Slots are claimed at checkout, first-come first-served.
+          </p>
+          <div className="mt-3 flex items-center justify-center gap-2">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-800 ring-1 ring-inset ring-amber-300">
+              <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
+              Slots remaining
+            </span>
+          </div>
+        </div>
+      )}
+
       <div
         id="pricing"
         className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
@@ -681,7 +718,16 @@ export default function PricingPage() {
                   Most popular
                 </span>
               )}
-              <h2 className="text-lg font-semibold text-gray-900">{plan.name}</h2>
+              <div className="flex items-center gap-2">
+                <h2 className="text-lg font-semibold text-gray-900">{plan.name}</h2>
+                {foundingVariant === "A" &&
+                  annual &&
+                  (plan.key === "PRO" || plan.key === "TEAM") && (
+                    <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-amber-800 ring-1 ring-inset ring-amber-300">
+                      Founding rate
+                    </span>
+                  )}
+              </div>
               <p className="mt-1 text-sm text-gray-500">{plan.description}</p>
               {isEnterprise ? (
                 <>
@@ -706,6 +752,17 @@ export default function PricingPage() {
                       <span className="line-through">${plan.monthlyPrice}/mo</span>
                     </p>
                   )}
+                  {foundingVariant === "A" &&
+                    annual &&
+                    plan.monthlyPrice > 0 &&
+                    !isEnterprise && (
+                      <p className="mt-1.5 flex items-center gap-1 text-xs font-medium text-amber-700">
+                        <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                        Locked forever as a founding member
+                      </p>
+                    )}
                 </>
               )}
 
