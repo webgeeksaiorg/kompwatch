@@ -19,6 +19,8 @@ const makeChange = (overrides: Partial<Change & { competitor: Competitor }> = {}
     summary: "Pro plan increased from $49 to $59",
     details: "The Pro tier monthly price was raised by $10.",
     severity: "HIGH",
+    confidenceScore: 0.9,
+    signalScore: 0.85,
     pageUrl: null,
     digestId: null,
     competitor: {
@@ -78,7 +80,7 @@ describe("digestSubject", () => {
       {
         competitor: { name: "Acme", url: "https://acme.com" },
         changes: [
-          { changeType: "BLOG", contentZone: "MARKETING", summary: "New post", details: null, severity: "LOW", createdAt: new Date() },
+          { changeType: "BLOG", contentZone: "MARKETING", summary: "New post", details: null, severity: "LOW", signalScore: 0.5, createdAt: new Date() },
         ],
       },
     ];
@@ -92,7 +94,7 @@ describe("digestSubject", () => {
       {
         competitor: { name: "Acme", url: "https://acme.com" },
         changes: [
-          { changeType: "PRICING", contentZone: "MONETIZATION", summary: "Price hike", details: null, severity: "HIGH", createdAt: new Date() },
+          { changeType: "PRICING", contentZone: "MONETIZATION", summary: "Price hike", details: null, severity: "HIGH", signalScore: 0.9, createdAt: new Date() },
         ],
       },
     ];
@@ -106,8 +108,8 @@ describe("digestSubject", () => {
       {
         competitor: { name: "A", url: "https://a.com" },
         changes: [
-          { changeType: "BLOG", contentZone: "MARKETING", summary: "p1", details: null, severity: "LOW", createdAt: new Date() },
-          { changeType: "BLOG", contentZone: "MARKETING", summary: "p2", details: null, severity: "LOW", createdAt: new Date() },
+          { changeType: "BLOG", contentZone: "MARKETING", summary: "p1", details: null, severity: "LOW", signalScore: 0.5, createdAt: new Date() },
+          { changeType: "BLOG", contentZone: "MARKETING", summary: "p2", details: null, severity: "LOW", signalScore: 0.5, createdAt: new Date() },
         ],
       },
     ];
@@ -121,7 +123,7 @@ describe("renderDigestHtml", () => {
       {
         competitor: { name: "Acme Corp", url: "https://acme.com" },
         changes: [
-          { changeType: "PRICING", contentZone: "MONETIZATION", summary: "Price increased", details: "Pro plan $49 → $59", severity: "HIGH", createdAt: new Date() },
+          { changeType: "PRICING", contentZone: "MONETIZATION", summary: "Price increased", details: "Pro plan $49 → $59", severity: "HIGH", signalScore: 0.9, createdAt: new Date() },
         ],
       },
     ];
@@ -139,7 +141,7 @@ describe("renderDigestHtml", () => {
       {
         competitor: { name: '<script>alert("xss")</script>', url: "https://evil.com" },
         changes: [
-          { changeType: "GENERAL", contentZone: "UNKNOWN", summary: '<img onerror="hack">', details: null, severity: "LOW", createdAt: new Date() },
+          { changeType: "GENERAL", contentZone: "UNKNOWN", summary: '<img onerror="hack">', details: null, severity: "LOW", signalScore: 0.3, createdAt: new Date() },
         ],
       },
     ];
@@ -161,6 +163,7 @@ describe("renderDigestHtml", () => {
             details:
               "Acme increased the Pro tier from $49/mo to $59/mo (20% hike).\nWhat this means for you: A price-sensitive prospect who balked at $49 may now see KompWatch as the obvious value pick.",
             severity: "HIGH",
+            signalScore: 0.9,
             createdAt: new Date(),
           },
         ],
@@ -185,6 +188,7 @@ describe("renderDigestHtml", () => {
             details:
               'Acme shipped <script>alert("x")</script>.\nWhat this means for you: <img onerror="bad">',
             severity: "MEDIUM",
+            signalScore: 0.7,
             createdAt: new Date(),
           },
         ],
@@ -196,12 +200,42 @@ describe("renderDigestHtml", () => {
     expect(html).toContain("&lt;script&gt;");
   });
 
+  it("shows signal score badge for weak-signal changes in HTML", () => {
+    const groups: DigestCompetitorGroup[] = [
+      {
+        competitor: { name: "Acme Corp", url: "https://acme.com" },
+        changes: [
+          { changeType: "GENERAL", contentZone: "UNKNOWN", summary: "Minor copy tweak", details: null, severity: "LOW", signalScore: 0.35, createdAt: new Date() },
+          { changeType: "PRICING", contentZone: "MONETIZATION", summary: "Major price hike", details: null, severity: "HIGH", signalScore: 0.9, createdAt: new Date() },
+        ],
+      },
+    ];
+    const html = renderDigestHtml(testUser, groups, "DAILY");
+    // Weak signal should show "Noise signal" badge
+    expect(html).toContain("Noise signal");
+    // Strong signal should NOT show any badge
+    expect(html).not.toContain("Strong signal");
+  });
+
+  it("shows signal score label in plain text for non-strong signals", () => {
+    const groups: DigestCompetitorGroup[] = [
+      {
+        competitor: { name: "Acme Corp", url: "https://acme.com" },
+        changes: [
+          { changeType: "GENERAL", contentZone: "UNKNOWN", summary: "Weak change", details: null, severity: "LOW", signalScore: 0.45, createdAt: new Date() },
+        ],
+      },
+    ];
+    const text = renderDigestText(testUser, groups, "DAILY");
+    expect(text).toContain("[Weak]");
+  });
+
   it("uses generic greeting when no name", () => {
     const groups: DigestCompetitorGroup[] = [
       {
         competitor: { name: "Test", url: "https://test.com" },
         changes: [
-          { changeType: "BLOG", contentZone: "MARKETING", summary: "New post", details: null, severity: "LOW", createdAt: new Date() },
+          { changeType: "BLOG", contentZone: "MARKETING", summary: "New post", details: null, severity: "LOW", signalScore: 0.5, createdAt: new Date() },
         ],
       },
     ];
@@ -216,7 +250,7 @@ describe("renderDigestText", () => {
       {
         competitor: { name: "Acme Corp", url: "https://acme.com" },
         changes: [
-          { changeType: "PRICING", contentZone: "MONETIZATION", summary: "Price increased", details: "Details here", severity: "HIGH", createdAt: new Date() },
+          { changeType: "PRICING", contentZone: "MONETIZATION", summary: "Price increased", details: "Details here", severity: "HIGH", signalScore: 0.9, createdAt: new Date() },
         ],
       },
     ];

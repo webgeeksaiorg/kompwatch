@@ -24,6 +24,7 @@ const sampleChanges = [
     contentZone: "MONETIZATION",
     severity: "HIGH",
     confidenceScore: 0.95,
+    signalScore: 0.88,
     summary: 'Price jumped from $99 to $129 — includes "Pro" tier rename, affecting billing',
     pageUrl: "https://acme.example/pricing",
     competitor: { name: "Acme, Inc.", url: "https://acme.example" },
@@ -34,6 +35,7 @@ const sampleChanges = [
     contentZone: "MARKETING",
     severity: "LOW",
     confidenceScore: 0.8,
+    signalScore: 0.52,
     summary: "New blog post about roadmap",
     pageUrl: null,
     competitor: { name: "Beta Co", url: "https://beta.example" },
@@ -61,7 +63,7 @@ describe("GET /api/export/changes", () => {
 
     const body = await res.text();
     expect(body.split("\n")[0]).toBe(
-      "Date,Competitor,URL,Type,Zone,Severity,Confidence,Summary,Page URL"
+      "Date,Competitor,URL,Type,Zone,Severity,Confidence,Signal Score,Summary,Page URL"
     );
     // Name with comma + summary with quotes/comma should be quoted & escaped
     expect(body).toContain('"Acme, Inc."');
@@ -86,6 +88,8 @@ describe("GET /api/export/changes", () => {
       pageUrl: "https://acme.example/pricing",
     });
     expect(payload.changes[0].date).toBe("2026-04-20T10:00:00.000Z");
+    expect(payload.changes[0].signalScore).toBe(0.88);
+    expect(payload.changes[1].signalScore).toBe(0.52);
     // null pageUrl should be preserved as null, not omitted
     expect(payload.changes[1].pageUrl).toBeNull();
   });

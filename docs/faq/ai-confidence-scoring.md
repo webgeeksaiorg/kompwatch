@@ -55,9 +55,13 @@ If you notice a stored change that looks real but was marked Uncertain, use the 
 
 ---
 
-## Adjusting the Instant-Alert Confidence Threshold
+## Adjusting Confidence Thresholds
 
-Go to **Settings → Notifications → Alert Confidence Threshold** to change the cutoff for real-time alerts.
+KompWatch lets you set confidence thresholds independently for **alerts**, **digests**, and **exports**. All three are in **Settings → Notifications → Confidence Filters**.
+
+### Instant-Alert Threshold
+
+Controls which changes fire a real-time webhook or email alert.
 
 | Threshold | Use case |
 |-----------|----------|
@@ -65,7 +69,25 @@ Go to **Settings → Notifications → Alert Confidence Threshold** to change th
 | 70% (default) | Balanced — works well for most teams |
 | 85% | Minimal noise — best for teams overwhelmed by low-signal alerts |
 
-Raising the threshold reduces alert volume but may delay surfacing some real changes. Lowering it increases coverage at the cost of more noise. The **40% hard discard floor is not adjustable** — changes below that confidence are never stored regardless of this setting.
+### Digest Confidence Filter
+
+Controls the minimum confidence required for a change to appear in your digest email.
+
+- **Default: 40%** — all stored changes are included (only the hard-discard noise is excluded)
+- Raise to **60–70%** if your digests feel cluttered with uncertain, transient-looking changes
+- Lower to **40%** (the floor) for maximum visibility
+
+This setting applies to both the periodic digest email and the in-app digest view.
+
+### Export Confidence Filter
+
+When you export change history (CSV or via the REST API), you can choose a minimum confidence level to include in the export. The default matches your digest filter, so exports are consistent with what you see in the UI. Override it per-export from the **Export** dialog or via the `min_confidence` query parameter on the API.
+
+### The Hard Discard Floor
+
+The **40% floor is not adjustable** — changes below that threshold are never stored, regardless of your settings. These are almost certainly transient artefacts (A/B test variants, session tokens, CDN drift).
+
+Raising any threshold reduces noise but may delay surfacing some real changes. Lowering it increases coverage at the cost of more noise.
 
 ---
 

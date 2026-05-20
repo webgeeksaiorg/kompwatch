@@ -22,6 +22,12 @@ async function loadTrackEvent() {
   return mod.trackEvent;
 }
 
+async function loadTrackServerEvent() {
+  vi.resetModules();
+  const mod = await import("@/lib/plausible");
+  return mod.trackServerEvent;
+}
+
 describe("trackEvent (server-side Plausible)", () => {
   let fetchSpy: ReturnType<typeof vi.fn>;
   const originalFetch = global.fetch;
@@ -125,5 +131,72 @@ describe("trackEvent (server-side Plausible)", () => {
     fetchSpy.mockRejectedValueOnce(new Error("plausible down"));
     const trackEvent = await loadTrackEvent();
     await expect(trackEvent("ev", "/x")).resolves.toBeUndefined();
+  });
+});
+
+describe("trackServerEvent (headerless server-side Plausible)", () => {
+  let fetchSpy: ReturnType<typeof vi.fn>;
+  const originalFetch = global.fetch;
+  const originalDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
+  const originalHost = process.env.PLAUSIBLE_HOST;
+
+  beforeEach(() => {
+    fetchSpy = vi.fn().mockResolvedValue(new Response("ok"));
+    global.fetch = fetchSpy as unknown as typeof fetch;
+    process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN = "kompwatch.com";
+    delete process.env.PLAUSIBLE_HOST;
+  });
+
+  afterEach(() => {
+    global.fetch = originalFetch;
+    if (originalDomain === undefined) {
+      delete process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
+    } else {
+      process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN = originalDomain;
+    }
+    if (originalHost === undefined) {
+      delete process.env.PLAUSIBLE_HOST;
+    } else {
+      process.env.PLAUSIBLE_HOST = originalHost;
+    }
+    vi.clearAllMocks();
+  });
+
+  it("posts event with synthetic User-Agent and 127.0.0.1 IP", async () => {
+    const trackServerEvent = await loadTrackServerEvent();
+    await trackServerEvent("onboarding-first-snapshot", "/dashboard", {
+      plan: "FREE",
+    });
+
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
+    const [endpoint, init] = fetchSpy.mock.calls[0];
+    expect(endpoint).toBe("https://analytics.webgeeksai.in/api/event");
+    expect(init.headers["User-Agent"]).toBe("KompWatch/1.0 (server)");
+    expect(init.headers["X-Forwarded-For"]).toBe("127.0.0.1");
+
+    const body = JSON.parse(init.body as string);
+    expect(body.name).toBe("onboarding-first-snapshot");
+    expect(body.url).toBe("https://kompwatch.com/dashboard");
+    expect(body.domain).toBe("kompwatch.com");
+    expect(body.props).toEqual({ plan: "FREE" });
+  });
+
+  it("does not call headers() from next/headers", async () => {
+    const trackServerEvent = await loadTrackServerEvent();
+    await trackServerEvent("ev", "/x");
+    expect(mockHeaders).not.toHaveBeenCalled();
+  });
+
+  it("skips when domain is unset", async () => {
+    delete process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
+    const trackServerEvent = await loadTrackServerEvent();
+    await trackServerEvent("ev", "/x");
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
+  it("swallows fetch errors", async () => {
+    fetchSpy.mockRejectedValueOnce(new Error("down"));
+    const trackServerEvent = await loadTrackServerEvent();
+    await expect(trackServerEvent("ev", "/x")).resolves.toBeUndefined();
   });
 });

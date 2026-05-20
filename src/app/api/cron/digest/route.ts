@@ -10,6 +10,7 @@ import {
 } from "@/lib/digest";
 import { sendWebhookNotification } from "@/lib/webhooks";
 import { severitiesAtOrAbove } from "@/lib/severity";
+import { trackEvent } from "@/lib/plausible";
 import type { Plan } from "@prisma/client";
 
 /**
@@ -83,7 +84,7 @@ export async function POST(req: NextRequest) {
       continue;
     }
 
-    // Find undigested changes for this user's competitors, filtered by severity preference
+    // Find undigested changes for this user's competitors, filtered by severity + signal score
     const sinceDate = lastDigest?.createdAt ?? new Date(0);
     const severityFilter = severitiesAtOrAbove(user.digestMinSeverity);
 
@@ -93,6 +94,7 @@ export async function POST(req: NextRequest) {
         digestId: null,
         createdAt: { gt: sinceDate },
         severity: { in: severityFilter },
+        signalScore: { gte: user.digestMinSignalScore },
       },
       include: { competitor: true },
       orderBy: { createdAt: "desc" },
@@ -156,6 +158,14 @@ export async function POST(req: NextRequest) {
           digestId: digest.id,
         });
         webhookSent = whResult.ok;
+      }
+
+      // Onboarding funnel: track first digest sent to user
+      const isFirstDigest = user.digests.length === 0;
+      if (isFirstDigest) {
+        trackEvent("onboarding-first-digest", "/digests", {
+          plan: user.plan,
+        });
       }
 
       results.push({

@@ -78,6 +78,7 @@ export default async function DashboardPage({
   const activeZones = zoneParam.filter((z) => VALID_ZONES.has(z));
 
   const allowedSeverities = severitiesAtOrAbove(user.dashboardMinSeverity);
+  const minSignalScore = user.dashboardMinSignalScore;
 
   // Heatmap: changes per day for the past 26 weeks
   const heatmapSince = new Date();
@@ -100,6 +101,7 @@ export default async function DashboardPage({
       where: {
         competitor: { userId: user.id },
         severity: { in: allowedSeverities },
+        signalScore: { gte: minSignalScore },
         ...(activeZones.length > 0 && {
           contentZone: { in: activeZones as ContentZone[] },
         }),

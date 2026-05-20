@@ -58,6 +58,7 @@ export default async function SettingsPage() {
         <NotificationPrefsForm
           initialEnabled={user.digestEnabled}
           initialMinSeverity={user.digestMinSeverity}
+          initialMinSignalScore={user.digestMinSignalScore}
           digestFrequency={plan.digest}
           initialInstantPricingEnabled={user.instantPricingAlertsEnabled}
           plan={user.plan}
@@ -72,6 +73,7 @@ export default async function SettingsPage() {
         </p>
         <DashboardFilterForm
           initialMinSeverity={user.dashboardMinSeverity}
+          initialMinSignalScore={user.dashboardMinSignalScore}
         />
       </div>
 

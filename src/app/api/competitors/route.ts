@@ -3,6 +3,7 @@ import { getCurrentUser } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { PLANS } from "@/lib/stripe";
 import { captureSnapshotInBackground } from "@/lib/snapshot";
+import { trackEvent } from "@/lib/plausible";
 import { z } from "zod";
 
 const createSchema = z.object({
@@ -74,6 +75,12 @@ export async function POST(req: NextRequest) {
   // instead of waiting up to 24h for the next cron cycle. Runs in the
   // background — response is not blocked on Playwright + Anthropic.
   captureSnapshotInBackground(competitor.id);
+
+  // Onboarding funnel: track competitor additions (first one is the key milestone)
+  trackEvent("onboarding-competitor-added", "/competitors", {
+    first: currentCount === 0 ? "true" : "false",
+    plan: user.plan,
+  });
 
   return NextResponse.json({ competitor }, { status: 201 });
 }
