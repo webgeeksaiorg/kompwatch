@@ -9,16 +9,16 @@ export default async function SharedReportPage({
   params: Promise<{ token: string }>;
 }) {
   const { token } = await params;
-  const userId = verifyShareToken(decodeURIComponent(token));
-  if (!userId) notFound();
+  const verified = verifyShareToken(decodeURIComponent(token));
+  if (!verified) notFound();
 
   const user = await db.user.findUnique({
-    where: { id: userId },
+    where: { id: verified.userId },
     select: { id: true, name: true },
   });
   if (!user) notFound();
 
-  const report = await generateRoiReport(user.id);
+  const report = await generateRoiReport(user.id, verified.period);
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:py-16">
