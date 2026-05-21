@@ -42,6 +42,16 @@ A service disruption can occasionally delay digest emails. If you haven't receiv
 
 For general digest troubleshooting unrelated to downtime, see [My Digest Email Didn't Arrive](digest-not-arriving.md).
 
+## I Got a "Page Not Found" (404) Error
+
+If a KompWatch page returns a 404, the most likely causes are:
+
+1. **Mistyped or outdated URL** — double-check the address. Comparison pages use the format `/vs-[competitor-slug]` (e.g., `/vs-crayon`).
+2. **Brief post-deploy propagation** — occasionally after a new release, some pages may 404 for 1–3 minutes while the server fully restarts. Wait a moment and refresh.
+3. **Removed or renamed page** — if you bookmarked a URL that has since changed, check the [sitemap](https://kompwatch.com/sitemap.xml) or navigate from the homepage.
+
+If a 404 persists for more than 5 minutes on a page that previously worked, email [support@kompwatch.com](mailto:support@kompwatch.com) with the URL and we'll investigate.
+
 ## I Got a 500 Error or "Something Went Wrong"
 
 This usually indicates a transient server error. Please:
