@@ -102,6 +102,12 @@ The number of competitors you can track depends on your plan:
 
 When you're one slot away from your limit, or have reached it, a **upgrade prompt** appears at the top of the dashboard. Clicking it takes you directly to the [pricing page](https://kompwatch.com/pricing) to upgrade. If you've reached your limit, the **Add Competitor** button will also be disabled until you upgrade. [Upgrade your plan →](https://kompwatch.com/pricing)
 
+## First-Change Upgrade Prompt
+
+When KompWatch detects your **first competitor change** on the Free plan, a celebratory banner appears at the top of your dashboard: *"Your first competitor change detected!"* This is just a nudge to let you know the monitoring is working and to show what's available on Pro (10 competitors, daily digests, Slack/Teams alerts).
+
+You can dismiss it at any time with the × button — it won't reappear on the same browser. If you upgrade, it disappears automatically.
+
 ## Exporting Your Data
 
 Use the **Export CSV** or **Export JSON** buttons on the dashboard (all changes) or on any competitor detail page (per-competitor) to download your detected changes. CSV opens cleanly in Excel and Google Sheets; JSON is structured for scripts and BI tools. See [Exporting Your Data →](exporting-your-data.md)
