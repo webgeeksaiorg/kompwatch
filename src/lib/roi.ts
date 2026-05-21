@@ -28,12 +28,49 @@ export interface RoiReport {
 const MINUTES_PER_CHANGE = 15;
 const ANALYST_HOURLY_RATE = 75;
 
+// ── Period Helpers ──────────────────────────────────────────
+
+export type ReportPeriod = "7d" | "30d" | "90d" | "last-month" | "this-month";
+
+export function resolvePeriod(period: ReportPeriod): { start: Date; end: Date; label: string } {
+  const now = new Date();
+
+  switch (period) {
+    case "7d": {
+      const start = new Date(now);
+      start.setDate(start.getDate() - 7);
+      return { start, end: now, label: `Last 7 days` };
+    }
+    case "30d": {
+      const start = new Date(now);
+      start.setDate(start.getDate() - 30);
+      return { start, end: now, label: `Last 30 days` };
+    }
+    case "90d": {
+      const start = new Date(now);
+      start.setDate(start.getDate() - 90);
+      return { start, end: now, label: `Last 90 days` };
+    }
+    case "last-month": {
+      const start = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+      const end = new Date(now.getFullYear(), now.getMonth(), 0, 23, 59, 59, 999);
+      const monthName = start.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+      return { start, end, label: monthName };
+    }
+    case "this-month": {
+      const start = new Date(now.getFullYear(), now.getMonth(), 1);
+      return { start, end: now, label: `${start.toLocaleDateString("en-US", { month: "long", year: "numeric" })} (to date)` };
+    }
+  }
+}
+
 // ── Data Aggregation ─────────────────────────────────────────
 
-export async function generateRoiReport(userId: string): Promise<RoiReport> {
-  const now = new Date();
-  const thirtyDaysAgo = new Date(now);
-  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+export async function generateRoiReport(
+  userId: string,
+  period: ReportPeriod = "30d",
+): Promise<RoiReport> {
+  const { start, end, label } = resolvePeriod(period);
 
   const [competitors, changes, digestCount] = await Promise.all([
     db.competitor.findMany({
@@ -43,7 +80,7 @@ export async function generateRoiReport(userId: string): Promise<RoiReport> {
     db.change.findMany({
       where: {
         competitor: { userId },
-        createdAt: { gte: thirtyDaysAgo },
+        createdAt: { gte: start, lte: end },
       },
       select: {
         severity: true,
@@ -52,7 +89,7 @@ export async function generateRoiReport(userId: string): Promise<RoiReport> {
       },
     }),
     db.digest.count({
-      where: { userId, sentAt: { gte: thirtyDaysAgo } },
+      where: { userId, sentAt: { gte: start, lte: end } },
     }),
   ]);
 
@@ -99,9 +136,9 @@ export async function generateRoiReport(userId: string): Promise<RoiReport> {
 
   return {
     period: {
-      start: thirtyDaysAgo,
-      end: now,
-      label: `${thirtyDaysAgo.toLocaleDateString("en-US", { month: "short", day: "numeric" })} – ${now.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}`,
+      start,
+      end,
+      label,
     },
     competitors: {
       total: competitors.length,
@@ -133,12 +170,13 @@ function getSecret(): string {
   return secret;
 }
 
-/** Create a signed share token encoding userId + expiry */
-export function createShareToken(userId: string): string {
+/** Create a signed share token encoding userId + expiry + period */
+export function createShareToken(userId: string, period: ReportPeriod = "30d"): string {
   const payload = JSON.stringify({
     userId,
     exp: Date.now() + SHARE_MAX_AGE,
     kind: "roi-share",
+    period,
   });
   const iv = crypto.randomBytes(16);
   const key = crypto.scryptSync(getSecret(), "roi-salt", 32);
@@ -147,8 +185,10 @@ export function createShareToken(userId: string): string {
   return iv.toString("hex") + "." + encrypted.toString("hex");
 }
 
-/** Verify a share token and return the userId if valid */
-export function verifyShareToken(token: string): string | null {
+/** Verify a share token and return userId + period if valid */
+export function verifyShareToken(
+  token: string,
+): { userId: string; period: ReportPeriod } | null {
   try {
     const [ivHex, encHex] = token.split(".");
     if (!ivHex || !encHex) return null;
@@ -160,7 +200,8 @@ export function verifyShareToken(token: string): string | null {
     const payload = JSON.parse(decrypted.toString("utf8"));
     if (payload.kind !== "roi-share") return null;
     if (payload.exp < Date.now()) return null;
-    return payload.userId;
+    const period: ReportPeriod = payload.period ?? "30d";
+    return { userId: payload.userId, period };
   } catch {
     return null;
   }

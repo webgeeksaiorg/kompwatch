@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import type { ReportPeriod } from "@/lib/roi";
 
-export function ShareReportButton() {
+export function ShareReportButton({ period = "30d" }: { period?: ReportPeriod }) {
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
   const [error, setError] = useState("");
@@ -11,7 +12,11 @@ export function ShareReportButton() {
     setLoading(true);
     setError("");
     try {
-      const res = await fetch("/api/reports/share", { method: "POST" });
+      const res = await fetch("/api/reports/share", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ period }),
+      });
       if (!res.ok) {
         const data = await res.json();
         setError(data.error ?? "Failed to generate link.");

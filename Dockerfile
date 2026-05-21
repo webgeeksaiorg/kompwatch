@@ -15,6 +15,9 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+# Ensure public directory exists (required by Next.js standalone output)
+RUN mkdir -p public
+
 # Generate Prisma client and build Next.js
 RUN npx prisma generate
 RUN npm run build
@@ -29,8 +32,10 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-# Copy standalone output
+# Copy public assets (directory must exist even if empty)
 COPY --from=builder /app/public ./public
+
+# Copy standalone server and static assets
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 

@@ -43,11 +43,17 @@ No. The public report reflects the data at the moment the viewer loads the page 
 
 ## What time period does the report cover?
 
-Always the **last 30 rolling days** from today. There is no way to select a custom date range at this time. If you need a snapshot of a specific period, generate and share the link during that window.
+You can choose from three rolling windows: **Last 7 days**, **Last 30 days**, or **Last 90 days**. Use the period selector in the top-right corner of the ROI Report page. The default view is 30 days.
+
+All figures — changes detected, digests sent, and estimated value — update automatically when you switch periods.
+
+## Can I export the report as a PDF?
+
+Yes. Click **Export PDF** in the top-right corner of the ROI Report page. KompWatch generates a clean, print-ready PDF of the current period's report and downloads it to your device. This is useful for attaching to budget reviews, QBRs, or email threads where a live link isn't practical.
 
 ## Can I include the report in a presentation or email?
 
-Yes. Copy the shareable URL into a slide deck, email, or Slack message. Recipients click it to view the live report in their browser — no PDF required.
+Yes. Either copy the shareable URL into a slide deck, email, or Slack message (recipients view the live report in their browser — no account needed), or export a PDF for attachments. The shareable link reflects whatever period is currently selected when you generate it.
 
 ## The report shows $0 / 0 changes. Is something wrong?
 
