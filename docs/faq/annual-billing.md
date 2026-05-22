@@ -19,11 +19,24 @@ KompWatch offers annual billing at a 20% discount versus paying month-to-month. 
 
 Annual plans are billed **upfront** — one payment covers the full year. You'll see a single charge for the full annual amount (e.g. $468 for Pro Annual) rather than twelve monthly charges.
 
+## What Does "Cancel Anytime" Mean for Annual Plans?
+
+The **cancel-anytime guarantee** means there are no long-term contracts or cancellation fees. You can cancel your annual subscription at any time — no questions asked, no penalties.
+
+When you cancel an annual plan:
+- Cancellation takes effect at the **end of your paid annual period**
+- You keep **full access** for the remainder of the year you've already paid for
+- You will **not be charged** at the next renewal date
+
+Think of it like a magazine subscription: once you cancel, you still get the issues you've paid for, but you won't be billed again.
+
+We do not offer pro-rated refunds for unused months on annual plans. If you have an exceptional circumstance, [contact us](mailto:support@kompwatch.com) and a team member will review it.
+
 ## What Happens If I Cancel an Annual Plan?
 
 Cancellations take effect at the **end of your annual period**. You keep full access for the remainder of the year you've paid for and will not be charged again.
 
-We do not offer pro-rated refunds for unused months on annual plans. If you have an exceptional circumstance, [contact us](mailto:support@kompwatch.com) and a team member will review it.
+To cancel, go to [Settings → Manage Subscription](https://kompwatch.com/settings) and open the Stripe Customer Portal.
 
 ## Can I Downgrade Mid-Year?
 
