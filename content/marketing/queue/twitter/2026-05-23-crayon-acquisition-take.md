@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: queued
+status: ready
 keywords: [crayon acquisition, competitor monitoring, competitive intelligence tools, SaaS]
 ---
 
