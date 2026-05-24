@@ -691,3 +691,52 @@ For reddit-comment publishing once credentials are available:
 - `reddit/2026-05-13-comment-pricing-opacity.md` — NY pricing act / B2B opacity angle (8.5/10, READY, Wednesday slot)
 
 **Publishing status:** TWITTER_API_KEY, REDDIT_CLIENT_ID, LINKEDIN_ACCESS_TOKEN still missing from environment. All social platforms blocked. Content queue healthy — 50+ pieces ready across platforms. Action needed: configure social API credentials in Vaultwarden under KompWatch folder.
+
+---
+
+## Keyword Research — 2026-05-18 (Monday cycle, run 23)
+
+**Web search unavailable this cycle (DuckDuckGo returning no results). Using internal signals.**
+
+**Key angles mined from shipped features (Notion board + commit log):**
+- **Instant pricing-change alerts shipped** (Pro+): Bypass digest for PRICING zone changes. Latency angle — pricing changes discovered in minutes, not a week. Direct deal-impact framing.
+- **MCP server shipped** (4 tools): Competitor change data now queryable by Claude, Cursor, any MCP-compatible AI tool. Crayon launched enterprise MCP at $50K+/yr — KompWatch equivalent at $49/mo.
+- **Webhook delivery tracking + retry shipped**: 5-8% fire-and-forget failure rate. Exponential backoff retry. Alerts now confirm delivery or surface failures explicitly.
+- **Kompyte/Adobe acquisition displacement**: Strategist confirms "Adobe killed Kompyte roadmap" outreach angle. Displaced users need alternatives. $300-400/mo Kompyte → $49/mo KompWatch path.
+- **Tiered alert cadence concept**: PRICING → instant, FEATURE → same-day, BLOG/JOBS → weekly digest. First piece to frame this model explicitly.
+
+**Content produced this cycle (Tuesday May 19 pre-stage):**
+- `twitter/2026-05-19-instant-pricing-alerts.md` — pricing alerts bypass digest, confidence threshold (8.5/10, READY)
+- `twitter/2026-05-19-mcp-server-shipped.md` — MCP server, 4 tools, Crayon irony framing (9/10, READY)
+- `twitter/2026-05-19-pricing-change-costs-deals.md` — pricing change costs deals, stale intel in sales calls (8/10, READY)
+- `twitter/2026-05-19-reply-mcp-vs-crayon.md` — Crayon MCP $50K vs KompWatch MCP $49/mo (8.5/10, READY)
+- `twitter/2026-05-19-reply-kompyte-users-displaced.md` — Kompyte/Adobe acquisition, frozen roadmap (8/10, READY)
+- `twitter/2026-05-19-reply-webhook-reliability.md` — webhook fire-and-forget failure rate, retry shipped (9/10, READY)
+- `twitter/2026-05-19-reply-digest-vs-instant.md` — tiered cadence hot take, PRICING→immediate (8.5/10, READY)
+- `reddit/2026-05-19-comment-pricing-alert-latency.md` — r/SaaS, latency angle, 28-hour digest gap (8/10, READY)
+- `reddit/2026-05-19-post-mcp-server-launch.md` — r/ProductManagement, MCP server launch, honest limitations (8.5/10, READY)
+- `blog/2026-05-19-how-to-get-notified-competitor-pricing-change.md` — SEO: "how to get notified competitor pricing change", ~1,200 words, FAQ, internal links (8.5/10, READY)
+
+**Tuesday May 19 publish slate:**
+- Twitter: instant-pricing-alerts.md + mcp-server-shipped.md + pricing-change-costs-deals.md (3 tweets) + 5 replies (mcp-vs-crayon, kompyte-users-displaced, webhook-reliability, digest-vs-instant)
+- Reddit: comment-pricing-alert-latency.md (1 comment) + post-mcp-server-launch.md (1 post)
+- Blog: how-to-get-notified-competitor-pricing-change.md (1 article)
+
+**Publishing status (Monday May 18):** All 10 Monday pieces staged and READY. All platforms blocked — TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET still missing from env. Credentials needed in Vaultwarden under KompWatch folder. Queue now 80+ pieces READY across 23 cycles.
+
+---
+
+## Keyword Research — 2026-05-24 (Sunday cycle, run 24)
+
+**Signals used this cycle:**
+- **Headsup.bot identified as new direct competitor** (Strategist intel, Sun May 24): AI competitive intelligence tool, free tier, recently launched. Direct overlap on website monitoring + AI summaries. Entering same "affordable CI" positioning space.
+- **Market validation angle**: New entrants confirm market demand. "More tools = more people realizing the problem is real" — founder confidence framing, not defensive.
+- **Sunday REST mode**: 1 tweet max per calendar rules.
+
+**Content produced this cycle (Sunday May 24):**
+- `twitter/2026-05-24-sunday-new-competitor.md` — Headsup.bot competitor spotted, honest market reaction, "going to monitor them with KompWatch" punchline (8.5/10, READY)
+
+**Sunday May 24 publish slate:**
+- Twitter: 1 tweet (new-competitor.md)
+
+**Publishing status (Sunday May 24):** Tweet queued and READY. Publish blocked — TWITTER_API_KEY and related credentials still missing from env. social-publisher.py also fails on Python 3.9 (requires 3.10+ for union type syntax). Queue now 85+ pieces READY across 24 cycles.
