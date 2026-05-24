@@ -1,16 +1,17 @@
 # REST API and Developer Access
 
-KompWatch offers several ways to access your competitive intelligence data programmatically. There is no public key-authenticated REST API yet — it is on the roadmap — but current options cover most developer use cases.
+KompWatch offers several ways to access your competitive intelligence data programmatically. Team plan users get API key authentication (prefix `kw_`) and full access to the MCP server. All plans get webhook push and session-authenticated export endpoints.
 
 ---
 
 ## What's Available Today
 
-| Method | Direction | Auth | Best for |
-|--------|-----------|------|----------|
-| **Export endpoints** | Pull (on-demand) | Session cookie | Scripts, BI tools, scheduled exports |
-| **Webhooks** | Push (event-driven) | HMAC signature | Real-time integrations, Slack bots, automation |
-| **CSV / JSON download** | Pull (manual) | Browser session | Ad-hoc analysis, spreadsheets |
+| Method | Direction | Auth | Plan | Best for |
+|--------|-----------|------|------|----------|
+| **MCP server** | Pull (interactive) | API key (`kw_`) | Team | AI assistants — Claude Desktop, Cursor |
+| **Webhooks** | Push (event-driven) | HMAC signature | Pro + Team | Real-time integrations, Slack bots, automation |
+| **Export endpoints** | Pull (on-demand) | Session cookie | All | Scripts, BI tools, scheduled exports |
+| **CSV / JSON download** | Pull (manual) | Browser session | All | Ad-hoc analysis, spreadsheets |
 
 ---
 
@@ -80,27 +81,27 @@ See [Filtering Slack Alerts by Content Zone](./filtering-alerts-by-content-zone.
 
 ---
 
-## MCP Server Integration
+## MCP Server Integration (Team Plan)
 
-KompWatch does not yet have an MCP server, but one is on the roadmap. MCP would let AI assistants like Claude Desktop or Cursor query your competitive intelligence data in real time — asking questions like "what has Acme changed in the past 30 days?" from inside an AI workflow.
+The KompWatch MCP server is live. It lets AI assistants like Claude Desktop or Cursor query your competitive intelligence data in real time — asking questions like "what has Acme changed in the past 30 days?" from inside an AI workflow.
 
-In the meantime, you can feed KompWatch data into AI workflows via webhook → Zapier → your AI tool. The webhook payload already includes an AI-generated summary (`change.summary`), so downstream prompts get structured input without further processing.
+**Endpoint:** `https://kompwatch.com/api/mcp`
+**Auth:** `Authorization: Bearer kw_<your_api_key>`
+**Plan required:** Team ($149/mo)
 
-See [MCP Server and AI Integrations](./mcp-server-and-ai-integrations.md) for details and the early-access sign-up.
+Generate your API key in **Settings → API Keys**.
+
+Available tools: `list-competitors`, `get-competitor`, `search-changes`, `get-digest-summary`
+
+See [MCP Server and AI Integrations](./mcp-server-and-ai-integrations.md) for full setup instructions, tool reference, and Claude Desktop / Cursor config examples.
 
 ---
 
 ## Public REST API (Roadmap)
 
-A key-authenticated REST API covering competitors, snapshots, changes, and digests is on the roadmap. It will include:
+A broader key-authenticated REST API (write operations, snapshot triggers, pagination) is on the roadmap. Current programmatic access is via the MCP server (Team) and export endpoints (all plans).
 
-- **API keys** — no session cookie required; suitable for server-to-server use
-- **`GET /competitors`** — list all competitors and their status
-- **`GET /competitors/:id/changes`** — paginated change history with filters
-- **`GET /digests`** — list and retrieve digests
-- **`POST /competitors/:id/snapshot`** — trigger an on-demand snapshot
-
-If you have a specific use case that the REST API would unblock — automated reports, custom dashboards, internal tooling — email [support@kompwatch.com](mailto:support@kompwatch.com) with a description. Use-case demand shapes what ships first.
+If you have a specific use case that would unblock automated reports, custom dashboards, or internal tooling — email [support@kompwatch.com](mailto:support@kompwatch.com) with a description. Use-case demand shapes what ships first.
 
 ---
 
