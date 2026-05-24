@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getCurrentUser } from "@/lib/auth";
 import { getStripe, getPriceId, type BillingPeriod } from "@/lib/stripe";
 import { db } from "@/lib/db";
+import { trackEvent } from "@/lib/plausible";
 
 export async function POST(req: NextRequest) {
   const user = await getCurrentUser();
@@ -55,6 +56,13 @@ export async function POST(req: NextRequest) {
     },
     allow_promotion_codes: true,
   });
+
+  // Funnel: upgrade-initiated (user clicked Pro/Team → reached Stripe checkout)
+  trackEvent("upgrade-initiated", "/pricing", {
+    plan,
+    billingPeriod,
+    priceId,
+  }).catch(() => {});
 
   return NextResponse.json({ url: session.url });
 }
