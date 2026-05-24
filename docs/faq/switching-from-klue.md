@@ -26,7 +26,7 @@ Teams that move from Klue to KompWatch typically cite:
 | Job listing signals | ✓ Included | ✗ Not available |
 | Battlecard generation | ✓ One-click HTML export | ✓ Included |
 | Win/loss integrations | ✗ Not in scope | ✓ Included |
-| MCP server / AI agent integration | ✗ Roadmap | ✓ Included |
+| MCP server / AI agent integration | ✓ Team plan | ✓ Included |
 | No analyst hours required | ✓ | ✗ (curator setup required) |
 | Headless browser (JS sites) | ✓ | ✓ |
 
