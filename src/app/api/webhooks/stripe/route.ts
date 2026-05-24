@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import { getStripe, planFromStripePriceId } from "@/lib/stripe";
 import { db } from "@/lib/db";
+import { trackServerEvent } from "@/lib/plausible";
 
 // Map Stripe price IDs to plan tiers (covers both monthly and annual prices).
 function planFromPriceId(priceId: string): "PRO" | "TEAM" | null {
@@ -29,6 +30,17 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
       plan,
     },
   });
+
+  // Funnel: upgrade-completed (subscription is live, plan upgraded in DB).
+  // This is the moneymoment — the funnel-complete event. Tracks revenue
+  // by plan + billing cycle so we can attribute paid conversions to source.
+  const amountCents = session.amount_total ?? 0;
+  trackServerEvent("upgrade-completed", "/checkout/success", {
+    plan,
+    priceId,
+    amountUsd: (amountCents / 100).toFixed(2),
+    currency: session.currency || "usd",
+  }).catch(() => {});
 }
 
 async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
