@@ -42,7 +42,7 @@ Until KompWatch adds native review-platform support, these approaches work well:
 
 ## Is Native Review Monitoring on the Roadmap?
 
-Yes — **native G2 and Capterra review tracking is in final QA and shipping very soon**. Once live, it will let you:
+Yes — **native G2 and Capterra review tracking is on the roadmap**. Once live, it will let you:
 
 - Track your competitors' G2/Capterra review counts, ratings, and category rankings automatically
 - Get alerts when a competitor's review score or ranking shifts
