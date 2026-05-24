@@ -24,7 +24,7 @@ Most teams that leave Crayon for KompWatch cite:
 | Job listing signals | ✓ Included | ✓ Included |
 | Battlecard generation | ✓ One-click HTML export | ✓ Included |
 | Win/loss tracking | ✗ Not in scope | ✓ Included |
-| MCP server / AI agent integration | ✗ Roadmap | ✓ Included |
+| MCP server / AI agent integration | ✓ Team plan | ✓ Included |
 | CRM sync | Partial (via webhook) | ✓ Salesforce native |
 | Headless browser (JS sites) | ✓ | ✓ |
 | No analyst hours required | ✓ | ✗ (setup + maintenance) |
