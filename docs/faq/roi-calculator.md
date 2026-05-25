@@ -55,7 +55,7 @@ If the number feels high, the most common cause is an overestimated hours/week i
 
 ## Can I Share These Numbers With My Manager?
 
-The calculator is designed to help you build a business case, but the output is an estimate based on your inputs — not measured data from your account. For numbers backed by your actual KompWatch usage, use the **Shareable ROI Report** (Pro/Team): go to [kompwatch.com/reports/roi](https://kompwatch.com/reports/roi) to generate a report with your real change volume, hours saved, and severity breakdown. That report is shareable via link and is more credible in a stakeholder conversation.
+The calculator is designed to help you build a business case, but the output is an estimate based on your inputs — not measured data from your account. For numbers backed by your actual KompWatch usage, pull real change counts directly from **Competitors → [Name] → Change History**, filtered by severity. A shareable ROI report with automatic metrics is on the roadmap — watch the [product changelog](./product-changelog.md) for the release.
 
 See [Proving the ROI of Competitive Intelligence](./proving-roi-of-competitive-intelligence.md) for a full guide on making the business case.
 

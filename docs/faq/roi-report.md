@@ -1,17 +1,17 @@
 # ROI Report & Stakeholder Sharing
 
-## What is the ROI report?
+> **Status:** The shareable ROI Report is on the roadmap. It is not yet available in the dashboard. This article describes the planned feature so you can plan ahead.
 
-The ROI report is a monthly summary of the competitive intelligence value KompWatch has delivered to your team. It lives at **Reports → ROI Report** in your dashboard and covers the last 30 days.
+## What will the ROI report include?
 
-The report shows:
+The ROI report will be a monthly summary of the competitive intelligence value KompWatch has delivered to your team. It will show:
 
 - **Changes detected** — total count, broken down by severity (Low / Medium / High / Critical) and type (Pricing, Feature, Blog, Job, Tech, General)
 - **Per-competitor breakdown** — which competitors changed most, ranked by activity
 - **Digests sent** — how many AI digest emails were delivered in the period
 - **Estimated value** — hours of manual monitoring replaced and an equivalent dollar figure
 
-## How is the estimated value calculated?
+## How will the estimated value be calculated?
 
 Each detected change is estimated to replace approximately **15 minutes of manual monitoring work** — finding the change, reading it, and writing up a summary. KompWatch uses a blended analyst rate of **$75/hour** as a baseline.
 
@@ -19,48 +19,19 @@ Each detected change is estimated to replace approximately **15 minutes of manua
 
 For example, 40 detected changes = ~10 hours replaced = ~$750 in estimated analyst time saved.
 
-This is a conservative estimate. Your actual savings depend on how many people would otherwise review competitor sites manually and how often.
+## Proving ROI now (before the report ships)
 
-## How do I share the report with my manager or executive?
+You can build a stakeholder-ready summary today using data from your dashboard:
 
-Click **Share report** in the top-right corner of the ROI Report page. KompWatch generates a secure, shareable link and copies it to your clipboard automatically.
+1. **Go to Competitors → [Name] → Change History** — filter by High/Critical severity and count significant catches over the past 30 days
+2. **Use the digest archive** at [kompwatch.com/digests](https://kompwatch.com/digests) to pull specific examples with timestamps
+3. **Apply the formula manually:** `changes × 15 min ÷ 60 × $75` for an estimated hours-saved figure
 
-The person receiving the link can view the report without logging in — no KompWatch account needed. This makes it easy to share with executives, finance, or other stakeholders.
+See [Proving the ROI of Competitive Intelligence](./proving-roi-of-competitive-intelligence.md) for a full guide on making the business case with current tools.
 
-## How long does the shareable link last?
+## When will the ROI report ship?
 
-Shareable links are valid for **30 days** from the moment they are generated. After 30 days the link expires and returns an error. Generate a fresh link at any time from the Reports page.
+The ROI report is on the product roadmap. Watch the [product changelog](./product-changelog.md) for the release announcement. If it's a priority for your team, email [support@kompwatch.com](mailto:support@kompwatch.com) — demand shapes the roadmap.
 
-## Is the shareable link secure?
-
-Yes. Links are signed with AES-256 encryption tied to your account. The link encodes your user identity and an expiry timestamp — it cannot be guessed or forged. Anyone with the link can view your report, so treat it like a document link rather than a public URL.
-
-If you believe a link has been shared in error, it will expire automatically within 30 days. There is no way to revoke a specific link early, so generate new links only when you intend to share them.
-
-## Does the shareable report update in real time?
-
-No. The public report reflects the data at the moment the viewer loads the page — it pulls live data for the 30-day window ending now. This means the figures a stakeholder sees will match what you see when you both view it around the same time.
-
-## What time period does the report cover?
-
-You can choose from three rolling windows: **Last 7 days**, **Last 30 days**, or **Last 90 days**. Use the period selector in the top-right corner of the ROI Report page. The default view is 30 days.
-
-All figures — changes detected, digests sent, and estimated value — update automatically when you switch periods.
-
-## Can I export the report as a PDF?
-
-Yes. Click **Export PDF** in the top-right corner of the ROI Report page. KompWatch generates a clean, print-ready PDF of the current period's report and downloads it to your device. This is useful for attaching to budget reviews, QBRs, or email threads where a live link isn't practical.
-
-## Can I include the report in a presentation or email?
-
-Yes. Either copy the shareable URL into a slide deck, email, or Slack message (recipients view the live report in their browser — no account needed), or export a PDF for attachments. The shareable link reflects whatever period is currently selected when you generate it.
-
-## The report shows $0 / 0 changes. Is something wrong?
-
-If you just set up KompWatch, the 30-day window may not contain enough data yet. Changes only appear after KompWatch has taken at least two snapshots of a competitor (it needs a baseline to compare against). Give it 24–48 hours after adding competitors and then revisit.
-
-If you have been running KompWatch for a while and still see zero changes, check that your competitors are **Active** in the dashboard and that the CSS selectors you chose are capturing content that actually changes.
-
-## Which plan includes the ROI report?
-
-The ROI report is available on all plans, including Free.
+---
+*Questions? Email [support@kompwatch.com](mailto:support@kompwatch.com) and we'll respond within 24 hours.*
