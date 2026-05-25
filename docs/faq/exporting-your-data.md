@@ -1,35 +1,11 @@
 # Exporting Your Data
 
-KompWatch lets you export competitive intelligence in three ways:
+KompWatch lets you export competitive intelligence in two ways:
 
-- **Battlecard export (HTML)** — one-click download of a formatted sales battlecard per competitor, ready to share with sales reps or attach to a CRM deal note
 - **Digest export (PDF or CSV)** — download a formatted report for a specific digest to share with your team or store in a shared folder
 - **Change export (CSV or JSON)** — export raw change records for custom analysis, BI tools, or spreadsheets
 
----
-
-## Battlecard Export (HTML)
-
-Generate a formatted sales battlecard directly from a competitor's change history — no copy-pasting required.
-
-### How to export a battlecard
-
-1. Go to [kompwatch.com/competitors](https://kompwatch.com/competitors) and click on a competitor
-2. On the competitor detail page, click **Export Battlecard** (next to the CSV/JSON export buttons)
-3. A self-contained HTML file downloads instantly
-
-### What's in the battlecard
-
-- **Overview stats** — total changes, HIGH/CRITICAL count, monitoring period
-- **Key intel** — all HIGH and CRITICAL severity changes with AI summaries
-- **Full change log** — complete history ordered by most recent
-- **Auto-detected platform badges** for Slack, Teams, or generic distribution
-
-The HTML file is self-contained and portable — open it in any browser, print to PDF, or attach it directly to a deal note in your CRM.
-
-> **Tip:** PDF and PowerPoint native export are on the roadmap. For now, use browser Print → Save as PDF to convert the HTML battlecard to a PDF.
-
-See [Creating Sales Battlecards →](creating-sales-battlecards.md) for tips on battlecard-optimized monitoring setup.
+> **Battlecard Export (Coming Soon):** One-click HTML battlecard export is on the roadmap and not yet available. Until it ships, export changes as JSON and paste the `summary` field into your battlecard template. See [Creating Sales Battlecards →](creating-sales-battlecards.md) for the manual workflow.
 
 ---
 

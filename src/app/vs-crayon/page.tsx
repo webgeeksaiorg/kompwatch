@@ -3,6 +3,7 @@ import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
 import { ComparisonFAQ } from "@/components/comparison-faq";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
+import { SoftwareApplicationSchema } from "@/components/software-schema";
 import { CompetitorUrlCapture } from "@/components/competitor-url-capture";
 
 const siteUrl = "https://kompwatch.com";
@@ -96,6 +97,7 @@ export default function VsCrayonPage() {
   return (
     <div className="bg-white">
       <BreadcrumbSchema items={[{ name: "KompWatch vs Crayon", path: "/vs-crayon" }]} />
+      <SoftwareApplicationSchema />
       {/* Nav */}
       <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-sm">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
@@ -119,7 +121,7 @@ export default function VsCrayonPage() {
         </nav>
       </header>
 
-      {/* Hero */}
+      {/* Hero — price anchor experiment (ticket 61d3) */}
       <section className="mx-auto max-w-4xl px-6 pb-16 pt-20 text-center">
         <div className="inline-flex items-center gap-2 rounded-full border border-amber-300 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-800">
           <span className="relative flex h-2 w-2">
@@ -128,21 +130,35 @@ export default function VsCrayonPage() {
           </span>
           Crayon acquired by SoftwareOne for $1.4B &mdash; April 2026
         </div>
+
+        {/* Price anchor: lead with the savings number */}
+        <div className="mx-auto mt-8 flex max-w-xl items-center justify-center gap-4 sm:gap-6">
+          <div className="text-center">
+            <div className="text-sm font-medium text-gray-500">Crayon (median)</div>
+            <div className="mt-1 text-2xl font-bold text-gray-400 line-through sm:text-3xl">$28,750<span className="text-base font-normal">/yr</span></div>
+          </div>
+          <div className="text-2xl text-gray-300" aria-hidden="true">&rarr;</div>
+          <div className="text-center">
+            <div className="text-sm font-medium text-brand-600">KompWatch Pro</div>
+            <div className="mt-1 text-2xl font-bold text-gray-900 sm:text-3xl">$588<span className="text-base font-normal">/yr</span></div>
+          </div>
+        </div>
+
         <h1 className="mt-6 text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl">
-          KompWatch vs Crayon{" "}
-          <span className="text-brand-600">— same insights, fraction of the cost</span>
+          Save $28,162/yr{" "}
+          <span className="text-brand-600">on competitor monitoring</span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
           Crayon&rsquo;s median customer pays{" "}
-          <strong className="text-gray-900">$28,750/yr</strong> (vendr.com data) and just got acquired by
-          SoftwareOne &mdash; a $4B IT-services consolidator with a public CHF 80&ndash;100M cost-synergy target.
-          KompWatch tracks the same competitor signals (pricing, features, blogs, jobs) starting at{" "}
-          <strong className="text-gray-900">$49/mo</strong>, with self-serve signup in under 2 minutes.
+          <strong className="text-gray-900">$28,750/yr</strong> for competitive intelligence.
+          KompWatch tracks the same signals &mdash; pricing, features, blogs, jobs &mdash; for{" "}
+          <strong className="text-gray-900">$49/mo</strong>. Self-serve signup, no sales call,
+          cancel anytime. That&rsquo;s{" "}
+          <strong className="text-brand-600">98% less</strong> for the same core monitoring.
         </p>
         <p className="mx-auto mt-4 max-w-2xl rounded-lg border border-amber-200 bg-amber-50/70 px-4 py-3 text-sm font-medium leading-relaxed text-amber-900">
-          Pricing uncertainty ahead. SoftwareOne&rsquo;s CHF 80&ndash;100M cost-synergy target means
-          headcount cuts, support changes, and pricing increases are likely within 12&ndash;18 months.
-          Lock in KompWatch&rsquo;s $49/mo before Crayon&rsquo;s post-acquisition repricing hits.
+          SoftwareOne&rsquo;s CHF 80&ndash;100M cost-synergy target means Crayon pricing is likely
+          going up, not down. Lock in KompWatch&rsquo;s $49/mo before post-acquisition repricing hits.
         </p>
         <CompetitorUrlCapture competitor="Crayon" placeholder="https://crayon.co or any competitor URL" />
         <p className="mt-3 text-xs text-gray-400">
@@ -151,11 +167,11 @@ export default function VsCrayonPage() {
         <div className="mt-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
           <TrackedCTA
             href="/pricing"
-            event="Acquisition Urgency Pricing CTA Click"
-            eventProps={{ competitor: "Crayon", section: "hero", variant: "acquisition-urgency" }}
+            event="Price Anchor Pricing CTA Click"
+            eventProps={{ competitor: "Crayon", section: "hero", variant: "price-anchor" }}
             className="inline-flex items-center text-sm font-semibold text-brand-600 hover:text-brand-700"
           >
-            Lock in KompWatch pricing &rarr;
+            See KompWatch pricing &rarr;
           </TrackedCTA>
           <Link
             href="#comparison"
