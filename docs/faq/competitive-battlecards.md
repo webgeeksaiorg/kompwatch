@@ -52,16 +52,22 @@ KompWatch tracks competitors' public pricing pages. If a competitor's pricing pa
 
 ## Exporting Battlecards
 
-One-click battlecard export is on the roadmap. When it ships, you'll be able to generate a pre-structured HTML battlecard from any competitor's change history in one click.
+KompWatch generates a downloadable HTML battlecard directly from your competitor's change history — no copy-pasting required.
 
-For now, use the JSON export to pull your battlecard raw material:
+1. Go to **Competitors → [Name]** to open a competitor's detail page
+2. Click the **Battlecard** button (top-right of the detail page)
+3. KompWatch generates and downloads an HTML file with your battlecard ready to share
+
+The exported battlecard includes severity color-coding, AI-generated change summaries, the "What this means for you" strategic implication for each entry, and a pricing comparison section.
+
+You can also pull raw battlecard material via JSON export:
 
 1. Go to **Settings → Export → JSON** to download all changes for a competitor
 2. Filter by `"severity": "HIGH"` or `"severity": "CRITICAL"`
 3. The `summary` and `strategicImplication` fields contain the AI-written content
 4. Paste into your battlecard template (Notion, Google Slides, Confluence, etc.)
 
-See [Exporting Your Data](./exporting-your-data.md) for full export options.
+See [Exporting Your Data](./exporting-your-data.md) for full export options including the battlecard HTML download.
 
 ## Keeping Battlecards Fresh
 

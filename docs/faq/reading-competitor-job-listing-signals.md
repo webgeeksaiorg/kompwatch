@@ -21,15 +21,15 @@ None of this is speculative. Hiring is expensive. Companies don't post roles the
 
 ## How KompWatch Tracks This
 
-KompWatch automatically checks `/careers`, `/jobs`, and `/about#careers` for every competitor you monitor. New listings appear as `JOB` type changes in your digest.
+To monitor a competitor's careers page, add it as a separate URL entry in KompWatch — for example, `https://competitor.com/careers`. KompWatch will snapshot it on your plan's cadence and flag changes to the listings.
 
-Job changes are classified by severity:
+Automatic job-listing detection (dedicated `JOB` change type with severity classification) is on the roadmap and not yet available. Until it ships, job page changes appear as standard `CONTENT` changes in your digest, with the AI summary describing what changed on the page.
 
-- **LOW** — a single new role, unrelated to core product
-- **MEDIUM** — 2–4 new roles, or a notable strategic hire (VP, Head of X)
-- **HIGH** — cluster of roles signaling a new product direction or market entry
+**Workaround for now:**
 
-MEDIUM and HIGH job changes are always included in your weekly digest. Pro plan subscribers receive them on every 6-hour snapshot cycle.
+1. Add the competitor's `/careers` URL as a KompWatch entry
+2. Set a CSS selector targeting the listings block (e.g. `.jobs-list`, `#open-positions`) to reduce noise from nav/footer changes
+3. Review `CONTENT` changes on that entry — the AI summary will describe new or removed roles
 
 ## Setting a Custom Careers URL
 

@@ -48,24 +48,17 @@ What KompWatch does replace: the underlying monitoring that powers those platfor
 
 ## One-Click Battlecard Export
 
-KompWatch now generates a downloadable HTML battlecard directly from your competitor's change history — no copy-pasting required.
+KompWatch generates a downloadable HTML battlecard directly from your competitor's change history — no copy-pasting required.
 
-**How to use it:**
+1. Go to **Competitors → [Name]** on your dashboard
+2. Click **Export Battlecard** (next to the CSV/JSON export buttons)
+3. A self-contained HTML file downloads instantly — open it in any browser, print to PDF, or attach directly to a CRM deal note
 
-1. Go to **Competitors → [Competitor Name]**
-2. Click the **Export Battlecard** button (next to the CSV/JSON export options)
-3. A formatted HTML file downloads instantly — open it in any browser, or print to PDF from there
+The exported battlecard includes severity color-coding, AI-generated change summaries, and a full change log ordered by most recent.
 
-**What the battlecard includes:**
+> **Tip:** PDF and PowerPoint native export are on the roadmap. For now, use browser Print → Save as PDF to convert the HTML battlecard to a PDF.
 
-- Overview stats (total changes, high/critical count, monitoring period)
-- Key intel section — all HIGH and CRITICAL severity changes with AI summaries
-- Full change log — complete history ordered by recency
-- Auto-detected platform badges (Slack, Teams, or generic)
-
-The HTML file is self-contained and shareable — send it directly to your sales rep or attach it to a deal note in your CRM.
-
-PDF and PowerPoint native export are on the future roadmap.
+See [Exporting Your Data →](./exporting-your-data.md) for full export options.
 
 ## Questions?
 
