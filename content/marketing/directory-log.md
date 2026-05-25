@@ -740,3 +740,31 @@ For reddit-comment publishing once credentials are available:
 - Twitter: 1 tweet (new-competitor.md)
 
 **Publishing status (Sunday May 24):** Tweet queued and READY. Publish blocked — TWITTER_API_KEY and related credentials still missing from env. social-publisher.py also fails on Python 3.9 (requires 3.10+ for union type syntax). Queue now 85+ pieces READY across 24 cycles.
+
+---
+
+## Keyword Research — 2026-05-25 (Monday cycle 2, run 25)
+
+**Signals used this cycle:**
+- **Headsup.bot direct competitor** (Strategist intel): free tier, AI summaries, same positioning — responded with honest "monitoring them with KompWatch" angle
+- **Adobe/Semrush $1.9B acquisition** (Apr 28): affordable CI mid-market now completely gone — strong LinkedIn story angle
+- **Monday morning tab-check pattern**: high-resonance founder pain story — used as tweet thread
+- **Pricing experiment detection**: niche but useful technical insight for PM audience
+
+**Self-check scores:**
+- `twitter/2026-05-25-monday-tab-audit.md` — humans make bad cron jobs, founder pain, specific (8.5/10, READY)
+- `twitter/2026-05-25-headsup-competitor-check.md` — honest competitor reaction, specific technical detail (8/10, READY)
+- `twitter/2026-05-25-reply-track-without-crayon.md` — helpful, honest about limitations (8/10, READY)
+- `twitter/2026-05-25-reply-alert-fatigue-real.md` — specific problem, not hand-wavy (8.5/10, READY)
+- `twitter/2026-05-25-reply-diy-cron-limits.md` — technical specificity, builder credibility (9/10, READY)
+- `twitter/2026-05-25-reply-ci-tool-maintenance-cost.md` — contrasts enterprise vs small team clearly (8/10, READY)
+- `twitter/2026-05-25-reply-pricing-experiment-detection.md` — genuinely useful insight, not self-promotional (8.5/10, READY)
+- `reddit/2026-05-25-comment-pm-competitor-digest.md` — r/ProductManagement, honest limitation included (8/10, READY)
+- `linkedin/2026-05-25-ci-market-gap-founder-story.md` — acquisition narrative, founder vulnerability, specific numbers (9/10, READY)
+
+**Monday May 25 publish slate (cycle 2):**
+- Twitter: monday-tab-audit.md + headsup-competitor-check.md (2 tweets) + 5 replies
+- Reddit: comment-pm-competitor-digest.md (1 comment) + tool-graveyard from cycle 1 (1 comment)
+- LinkedIn: ci-market-gap-founder-story.md (1 post)
+
+**Publishing status (Monday May 25, cycle 2):** All 9 new pieces READY. Publish blocked — social-publisher.py fails on Python 3.9 (union type syntax `str | None` requires Python 3.10+). Credentials issue still unresolved. Queue now 95+ pieces READY across 25 cycles.

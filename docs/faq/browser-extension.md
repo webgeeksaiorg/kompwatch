@@ -33,11 +33,10 @@ For a full comparison: [Klue Compete Agent vs KompWatch →](./klue-compete-agen
 
 ## API and MCP Access
 
-KompWatch covers developer integration use cases via:
+KompWatch covers the *developer integration* use cases browser extensions address at enterprise CI tools:
 
-- **MCP server (live, Team plan)** — query your competitive intelligence from Claude Desktop, Cursor, or any MCP-compatible AI assistant. See [MCP Server and AI Integrations](./mcp-server-and-ai-integrations.md).
-- **Public REST API** — on the roadmap; pull competitive data into any internal tool, CRM, or AI workflow
-- **Webhooks (live, Pro+)** — real-time change events delivered to any endpoint. See [Webhook Payload Format](./webhook-payload-format.md).
+- **MCP server (live — Team plan)** — query your competitive intelligence from Claude Desktop, Cursor, or any MCP-compatible AI assistant. See [MCP Server and AI Integrations →](./mcp-server-and-ai-integrations.md)
+- **Public REST API** — broader key-authenticated API (write operations, snapshot triggers, pagination) is on the roadmap. Current programmatic access is via the MCP server (Team) and export endpoints (all plans).
 
 If a browser extension is important to your workflow, email [support@kompwatch.com](mailto:support@kompwatch.com) with your use case — demand shapes the build order.
 
