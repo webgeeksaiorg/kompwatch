@@ -51,15 +51,23 @@ Critical and High severity changes — pricing overhauls, major feature launches
 
 For custom routing or webhook integration with your CRM or sales tool, see [Integrations and Notifications](./integrations-and-notifications.md).
 
-## Building Informal Battlecards
+## Building Battlecards with KompWatch
 
-KompWatch doesn't generate battlecards automatically (it's on the roadmap), but you can build a running battlecard from your digest history:
+KompWatch generates a downloadable HTML battlecard directly from any competitor's change history — no copy-pasting required.
 
 1. Go to [kompwatch.com/competitors/[id]](https://kompwatch.com/competitors) and open any tracked competitor
-2. Browse the **change history** — High and Critical changes are the battlecard material
-3. Export via **Settings → Export → JSON** and paste the summaries into your battlecard template
+2. Click the **Battlecard** button (top-right of the detail page)
+3. KompWatch generates and downloads an HTML file with your battlecard ready to share with sales
 
-See [Exporting Your Data](./exporting-your-data.md) for export options.
+The battlecard includes severity color-coding, AI-generated change summaries, the "What this means for you" strategic implication for each entry, and a pricing comparison section.
+
+You can also pull raw battlecard material via JSON export if you prefer to use your own template:
+
+1. Go to **Settings → Export → JSON** to download all changes for a competitor
+2. Filter by `"severity": "HIGH"` or `"severity": "CRITICAL"`
+3. The `summary` and `strategicImplication` fields contain the AI-written content
+
+See [Exporting Your Data](./exporting-your-data.md) and [Building Competitive Battlecards](./competitive-battlecards.md) for full details.
 
 ## What KompWatch Does Not Replace
 
