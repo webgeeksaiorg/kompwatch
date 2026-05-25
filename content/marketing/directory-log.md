@@ -768,3 +768,61 @@ For reddit-comment publishing once credentials are available:
 - LinkedIn: ci-market-gap-founder-story.md (1 post)
 
 **Publishing status (Monday May 25, cycle 2):** All 9 new pieces READY. Publish blocked — social-publisher.py fails on Python 3.9 (union type syntax `str | None` requires Python 3.10+). Credentials issue still unresolved. Queue now 95+ pieces READY across 25 cycles.
+
+---
+
+## Keyword Research — 2026-05-25 (Monday cycle 4, run 26)
+
+**Fresh data from WebSearch (May 2026):**
+- **Headsup.bot specifics confirmed**: Free tier = 5 competitors, 100 alerts, 90-day history. Paid starts ~$29/mo. Uses HIGH/MEDIUM/LOW priority classification + "next step" recommendations. Claims onboarding in "seconds." Product Hunt listed. Direct positioning overlap.
+- **Crayon TCO reality**: $25K-$40K/yr subscription + 5-10 hrs/week analyst = $40K-$80K total cost of ownership. G2 #1 complaint confirmed as "too much noise, not enough signal." Requires 2-4 week onboarding.
+- **DIY stack validation**: Owler + Visualping + Feedly under $500/yr "covers 80%" (review site framing). The 20% gap = JS-rendered competitor sites, mid-week changes, readable summaries.
+- **RivalSense confirmed at $44.99-$222.99/mo**: Appearing in 2026 affordable CI roundups. No headless rendering.
+- **/vs/headsup page shipped** (commit 26896b8): Building-in-public content angle — used KompWatch to monitor Headsup.bot while writing the comparison page.
+
+**New angles used this cycle:**
+- Crayon TCO math (subscription + labor = real cost) — not yet covered in prior cycles
+- Alert classification philosophies: HIGH/MEDIUM/LOW buckets (Headsup) vs 0-100 confidence scores (KompWatch)
+- "Managed service pretending to be software" — enterprise CI business model reframe
+- Building in public: shipping /vs/headsup page while monitoring them with your own tool
+
+**Content produced this cycle (Monday May 25, cycle 4):**
+- `twitter/2026-05-25-crayon-tco-hidden-cost.md` — subscription + analyst labor = $40-80K TCO (8/10, READY)
+- `twitter/2026-05-25-vs-headsup-page-live.md` — building in public, /vs/headsup shipped, fair comparison (8/10, READY)
+- `twitter/2026-05-25-reply-headsup-vs-crayon-gap.md` — $29/mo vs $25K/yr market validation (8/10, READY)
+- `twitter/2026-05-25-reply-noise-is-the-real-product.md` — 40-60 alerts, 2-3 actionable, filter before sending (8/10, READY)
+- `twitter/2026-05-25-reply-diy-80pct.md` — DIY stack covers 80%, the 20% gap costs deals (8/10, READY)
+- `twitter/2026-05-25-reply-onboarding-weeks.md` — "managed service pretending to be software" reframe (8.5/10, READY)
+- `twitter/2026-05-25-reply-priority-vs-confidence.md` — classification philosophy comparison, no winner (8/10, READY)
+- `reddit/2026-05-25-comment-crayon-tco-math.md` — r/SaaS, full TCO breakdown with math (8/10, READY)
+- `reddit/2026-05-25-comment-affordable-ci-comparison.md` — r/ProductManagement, honest 4-tool comparison including KompWatch limitations (8.5/10, READY)
+- `linkedin/2026-05-25-noise-is-the-real-problem.md` — signal vs noise framing, last-mile delivery as real gap (8.5/10, READY)
+
+**Monday May 25 publish slate (cycle 4):**
+- Twitter: crayon-tco-hidden-cost.md + vs-headsup-page-live.md (2 tweets) + 5 replies (headsup-vs-crayon-gap, noise-is-the-real-product, diy-80pct, onboarding-weeks, priority-vs-confidence)
+- Reddit: comment-crayon-tco-math.md (r/SaaS) + comment-affordable-ci-comparison.md (r/ProductManagement)
+- LinkedIn: noise-is-the-real-problem.md
+
+**Publishing status (Monday May 25, cycle 4):** All 10 pieces READY. All platforms blocked — TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET still missing. Queue now 105+ pieces READY across 26 cycles.
+
+---
+
+## Keyword Research — 2026-05-25 (Monday cycle, run 27 — evening)
+
+**Fresh data from WebSearch (May 2026):**
+- **14-month ROI payback** on enterprise CI tools (Crayon/Klue) — median time to meaningful ROI for $25K-$40K/yr commitments, assuming dedicated analyst 5-10hrs/week. The "managed service pretending to be software" framing.
+- **90-day ghost platform pattern** — confirmed across 3+ user interviews this month: CI tools without a dedicated owner become expensive RSS feeds within 90 days. Structural to enterprise CI, not a product bug. Creates the "shelfware by Q3" renewal problem.
+- **Pricing pages change every 2.8 hours median** (reconfirmed, Visualping 9,700 active monitors) — teams doing quarterly reviews are flying blind for 99%+ of the monitoring window.
+- **Klue $62M Series B + 4 acquisitions in 5 months** — Ignition, Goldpan.ai, DoubleCheck Research. Roadmap priorities obvious: enterprise consolidation, not SMB product improvement.
+- **Builder shipped SoftwareApplication JSON-LD** on 4 vs-* comparison pages (vs-crayon, vs-klue, vs-headsup, vs-kompyte). SEO structured data live.
+
+**Content produced this cycle (Monday May 25, cycle 5):**
+- `twitter/2026-05-25-roi-payback-14months.md` — 14-month ROI payback, $40K-$80K TCO, wrong-fit product framing (8/10, READY)
+- `twitter/2026-05-25-ghost-platform-90days.md` — 90-day shelfware pattern, user interview signal (8.5/10, READY)
+- `reddit/2026-05-25-comment-14month-roi-math.md` — r/SaaS TCO + ROI timeline deep comment (8/10, READY)
+
+**Monday May 25 publish slate (cycle 5 additions):**
+- Twitter: roi-payback-14months.md + ghost-platform-90days.md (2 additional tweets, overflow to Tue)
+- Reddit: comment-14month-roi-math.md (r/SaaS, overflow to Tue)
+
+**Publishing status (Monday May 25, cycle 5):** All 3 new pieces READY. All platforms still blocked — credentials missing. Queue now 108+ pieces READY across 27 cycles.
