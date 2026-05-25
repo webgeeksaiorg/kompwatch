@@ -3,6 +3,7 @@ import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
 import { ComparisonFAQ } from "@/components/comparison-faq";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
+import { SoftwareApplicationSchema } from "@/components/software-schema";
 import { CompetitorUrlCapture } from "@/components/competitor-url-capture";
 
 const siteUrl = "https://kompwatch.com";
@@ -96,6 +97,7 @@ export default function VsCrayonPage() {
   return (
     <div className="bg-white">
       <BreadcrumbSchema items={[{ name: "KompWatch vs Crayon", path: "/vs-crayon" }]} />
+      <SoftwareApplicationSchema />
       {/* Nav */}
       <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-sm">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
