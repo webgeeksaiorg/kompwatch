@@ -1,6 +1,6 @@
 # Creating Sales Battlecards with KompWatch
 
-KompWatch monitors competitor websites, surfaces change signals, and generates one-click HTML battlecard exports ready to share with your sales team. If you're coming from Crayon or Klue, here's how it fits in your competitive enablement workflow — and where the boundaries are today.
+KompWatch monitors competitor websites and surfaces change signals — pricing moves, feature launches, messaging shifts — ready to feed your sales battlecard workflow. If you're coming from Crayon or Klue, here's how it fits in your competitive enablement workflow — and where the boundaries are today.
 
 ## What KompWatch Contributes to Battlecards
 
@@ -48,17 +48,15 @@ What KompWatch does replace: the underlying monitoring that powers those platfor
 
 ## One-Click Battlecard Export
 
-KompWatch generates a downloadable HTML battlecard directly from your competitor's change history — no copy-pasting required.
+One-click HTML battlecard export is **in review and not yet available**. Until it ships, export raw change data via JSON and assemble your battlecard manually:
 
-1. Go to **Competitors → [Name]** on your dashboard
-2. Click **Export Battlecard** (next to the CSV/JSON export buttons)
-3. A self-contained HTML file downloads instantly — open it in any browser, print to PDF, or attach directly to a CRM deal note
+1. Go to **Settings → Export → JSON** to download all changes for a competitor
+2. Filter by `"severity": "HIGH"` or `"severity": "CRITICAL"`
+3. The `summary` field contains the AI-written change description — paste it directly into your battlecard template (Notion, Google Slides, Confluence, etc.)
 
-The exported battlecard includes severity color-coding, AI-generated change summaries, and a full change log ordered by most recent.
+Watch the [product changelog](./product-changelog.md) for the battlecard export release announcement.
 
-> **Tip:** PDF and PowerPoint native export are on the roadmap. For now, use browser Print → Save as PDF to convert the HTML battlecard to a PDF.
-
-See [Exporting Your Data →](./exporting-your-data.md) for full export options.
+See [Exporting Your Data →](./exporting-your-data.md) for current export options (CSV and JSON).
 
 ## Questions?
 
