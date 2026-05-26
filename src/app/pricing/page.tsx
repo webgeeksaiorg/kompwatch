@@ -5,6 +5,7 @@ import { getDisplayPrice, getPerCompetitorPrice } from "@/lib/pricing";
 import {
   PRICING_ANCHOR_EXPERIMENT,
   FOUNDING_100_EXPERIMENT,
+  HEADSUP_SWITCHER_EXPERIMENT,
   assignVariantInBrowser,
   type Variant,
 } from "@/lib/ab";
@@ -401,6 +402,10 @@ export default function PricingPage() {
   // per session so a user sees the same framing across reloads.
   const [anchorVariant, setAnchorVariant] = useState<Variant>("A");
   const [foundingVariant, setFoundingVariant] = useState<Variant>("B"); // B = control (no founding UI)
+  // Headsup.bot switcher banner — only shown when visitor came from /vs-headsup
+  // (referrer or ?from=headsup). Variant A = banner visible, B = control.
+  const [switcherVariant, setSwitcherVariant] = useState<Variant>("B");
+  const [cameFromHeadsup, setCameFromHeadsup] = useState(false);
 
   useEffect(() => {
     const assigned =
@@ -422,6 +427,35 @@ export default function PricingPage() {
         experiment: FOUNDING_100_EXPERIMENT,
       },
     });
+
+    // Detect Headsup.bot referral funnel. We accept either an explicit
+    // ?from=headsup URL parameter (links we control on /vs-headsup) or a
+    // referrer that points at our own /vs-headsup page. We do NOT inspect
+    // external referrers — that's noisy and most browsers strip them.
+    let fromHeadsup = false;
+    try {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("from") === "headsup") fromHeadsup = true;
+      if (!fromHeadsup && typeof document.referrer === "string") {
+        // Same-origin internal referrer — safe to rely on.
+        if (document.referrer.includes("/vs-headsup")) fromHeadsup = true;
+      }
+    } catch {
+      // URL parsing failures shouldn't block the page; default to control.
+    }
+    setCameFromHeadsup(fromHeadsup);
+
+    if (fromHeadsup) {
+      const switcherAssigned =
+        assignVariantInBrowser(HEADSUP_SWITCHER_EXPERIMENT) ?? "B";
+      setSwitcherVariant(switcherAssigned);
+      window.plausible?.("headsup-switcher-impression", {
+        props: {
+          variant: switcherAssigned,
+          experiment: HEADSUP_SWITCHER_EXPERIMENT,
+        },
+      });
+    }
   }, []);
 
   const handleExitIntent = useCallback(
@@ -573,6 +607,66 @@ export default function PricingPage() {
           Start free. Upgrade when you need more competitors or faster digests.
         </p>
       </div>
+
+      {/* Headsup.bot switcher banner — only when visitor came from /vs-headsup
+          AND was assigned variant A. Personalised welcome + "why teams switch". */}
+      {cameFromHeadsup && switcherVariant === "A" && (
+        <div className="mx-auto mt-8 w-full max-w-2xl rounded-2xl border border-sky-200 bg-gradient-to-r from-sky-50 to-indigo-50 p-5 shadow-sm">
+          <div className="flex items-center justify-center gap-2">
+            <svg className="h-5 w-5 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+            </svg>
+            <h3 className="text-base font-bold text-sky-900">
+              Coming from Headsup.bot? Here&rsquo;s why teams switch.
+            </h3>
+          </div>
+          <ul className="mx-auto mt-3 max-w-lg space-y-1.5 text-sm text-sky-900/90">
+            <li className="flex items-start gap-2">
+              <span aria-hidden className="mt-0.5 text-sky-600">✓</span>
+              <span><strong>AI-written change summaries</strong> &mdash; not just raw diff alerts to read yourself.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span aria-hidden className="mt-0.5 text-sky-600">✓</span>
+              <span><strong>Severity classification</strong> (Low / Medium / High / Critical) so you can ignore the noise.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span aria-hidden className="mt-0.5 text-sky-600">✓</span>
+              <span><strong>Full Playwright rendering</strong> &mdash; catches React/SPA pricing pages lightweight scrapers miss.</span>
+            </li>
+          </ul>
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="/login"
+              onClick={() =>
+                window.plausible?.("headsup-switcher-cta-click", {
+                  props: {
+                    variant: switcherVariant,
+                    location: "switcher-banner",
+                    experiment: HEADSUP_SWITCHER_EXPERIMENT,
+                  },
+                })
+              }
+              className="rounded-lg bg-sky-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-sky-700"
+            >
+              Start free &mdash; 2 competitors
+            </a>
+            <a
+              href="/vs-headsup"
+              onClick={() =>
+                window.plausible?.("headsup-switcher-compare-click", {
+                  props: {
+                    variant: switcherVariant,
+                    experiment: HEADSUP_SWITCHER_EXPERIMENT,
+                  },
+                })
+              }
+              className="text-sm font-medium text-sky-700 underline-offset-2 hover:underline"
+            >
+              See full side-by-side &rarr;
+            </a>
+          </div>
+        </div>
+      )}
 
       {/* Price anchoring — enterprise CI cost vs KompWatch (A/B variant) */}
       <div
