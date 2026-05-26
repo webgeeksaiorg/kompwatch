@@ -105,7 +105,7 @@ export default function VsHeadsupPage() {
             <Link href="/#features" className="text-sm text-gray-600 hover:text-gray-900">
               Features
             </Link>
-            <Link href="/pricing" className="text-sm text-gray-600 hover:text-gray-900">
+            <Link href="/pricing?from=headsup" className="text-sm text-gray-600 hover:text-gray-900">
               Pricing
             </Link>
             <Link

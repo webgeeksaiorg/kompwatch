@@ -2,6 +2,8 @@ import { describe, it, expect } from "vitest";
 import {
   HERO_CTA_DEMO_EXPERIMENT,
   PRICING_ANCHOR_EXPERIMENT,
+  FOUNDING_100_EXPERIMENT,
+  HEADSUP_SWITCHER_EXPERIMENT,
   getOrAssignVariant,
   pickVariant,
 } from "@/lib/ab";
@@ -115,5 +117,17 @@ describe("PRICING_ANCHOR_EXPERIMENT", () => {
 describe("HERO_CTA_DEMO_EXPERIMENT", () => {
   it("has a stable key so analytics segmentation is reproducible", () => {
     expect(HERO_CTA_DEMO_EXPERIMENT).toBe("hero-cta-demo-2026-05");
+  });
+});
+
+describe("FOUNDING_100_EXPERIMENT", () => {
+  it("has a stable key so analytics segmentation is reproducible", () => {
+    expect(FOUNDING_100_EXPERIMENT).toBe("founding-100-annual-2026-05");
+  });
+});
+
+describe("HEADSUP_SWITCHER_EXPERIMENT", () => {
+  it("has a stable key so analytics segmentation is reproducible", () => {
+    expect(HEADSUP_SWITCHER_EXPERIMENT).toBe("headsup-switcher-banner-2026-05");
   });
 });
