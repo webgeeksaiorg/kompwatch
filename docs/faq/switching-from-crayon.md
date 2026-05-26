@@ -22,7 +22,7 @@ Most teams that leave Crayon for KompWatch cite:
 | CSS selector targeting | ✓ Watch specific page sections | Limited |
 | AI-generated digests | ✓ Claude-powered, daily or weekly | ✓ Sparks AI summaries |
 | Job listing signals | ✓ Included | ✓ Included |
-| Battlecard generation | ✓ One-click HTML export | ✓ Included |
+| Battlecard generation | In review (export via JSON today) | ✓ Included |
 | Win/loss tracking | ✗ Not in scope | ✓ Included |
 | MCP server / AI agent integration | ✓ Team plan | ✓ Included |
 | CRM sync | Partial (via webhook) | ✓ Salesforce native |
@@ -54,9 +54,9 @@ If you're mid-contract with Crayon and want to evaluate before renewal, KompWatc
 
 ## What About Battlecards?
 
-KompWatch now includes one-click battlecard export. From any competitor's detail page, click **Export Battlecard** to download a formatted HTML battlecard — pre-structured with an overview, key intel (HIGH/CRITICAL changes), and full change log. Open in any browser or print to PDF.
+One-click battlecard export is **in review and not yet available**. In the meantime, export raw change data via **Settings → Export → JSON**, filter for `"severity": "HIGH"` or `"CRITICAL"`, and paste the AI-generated `summary` fields into your battlecard template (Notion, Google Slides, Confluence, etc.).
 
-If you relied on Crayon's CRM-embedded battlecards with Salesforce sync, that specific workflow isn't replicated yet. Most teams switching from Crayon use the HTML export for sharing and manage their CRM battlecard templates separately.
+If you relied on Crayon's CRM-embedded battlecards with Salesforce sync, that specific workflow isn't replicated yet. Watch the [product changelog](./product-changelog.md) for the battlecard export release.
 
 ## Questions About the Switch?
 
