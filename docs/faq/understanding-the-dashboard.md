@@ -33,6 +33,22 @@ When you log in at [kompwatch.com/dashboard](https://kompwatch.com/dashboard), y
 
 The **Recent Changes** timeline shows the latest detected changes across all your competitors, ordered by most recent first.
 
+### Filtering by Change Type
+
+Use the **Change Type** filter (dropdown above the timeline) to show only the change categories you care about:
+
+| Filter | Shows |
+|--------|-------|
+| **All** (default) | Every detected change |
+| **Pricing** | Price, plan, or trial offer changes |
+| **Feature** | Product capability additions or removals |
+| **Blog** | New blog posts or announcements |
+| **Jobs** | Job posting adds and removals |
+| **Tech** | Technology stack or integration changes |
+| **General** | Miscellaneous page changes |
+
+You can combine the Change Type filter with the existing **Severity** filter to narrow down to, for example, only `HIGH` severity `Pricing` changes. Both filters persist for your session.
+
 Each change card shows:
 - **Competitor name and URL** — which competitor changed
 - **Change type** — one of:

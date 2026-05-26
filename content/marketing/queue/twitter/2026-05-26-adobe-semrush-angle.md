@@ -1,7 +1,8 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: ready
+score: 8/10
 keywords: [semrush acquisition, adobe semrush, competitor monitoring tools, competitive intelligence]
 ---
 

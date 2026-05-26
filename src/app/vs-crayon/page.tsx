@@ -347,6 +347,96 @@ export default function VsCrayonPage() {
         </div>
       </section>
 
+      {/* Acquisition risk timeline — ticket 5edd */}
+      <section className="border-b border-gray-100 bg-white py-20">
+        <div className="mx-auto max-w-4xl px-6">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+              What happens when your CI vendor gets acquired
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-sm text-gray-600">
+              SoftwareOne closed on Crayon in April 2026. Here&rsquo;s what the
+              post-acquisition playbook typically looks like for niche products
+              inside large IT-services rollups &mdash; and what Crayon customers
+              should watch for.
+            </p>
+          </div>
+
+          <ol className="relative mt-12 border-l-2 border-gray-200 pl-8">
+            {[
+              {
+                phase: "Months 0–6",
+                label: "Integration & reassurance",
+                detail:
+                  "Public messaging stays positive: \"nothing changes for customers.\" Behind the scenes, org charts merge, roadmap reviews begin, and discretionary R&D spend freezes while the new parent evaluates overlap.",
+                risk: "Feature velocity slows. Bug-fix SLAs may slip as teams reorganize.",
+              },
+              {
+                phase: "Months 6–12",
+                label: "Cost synergies kick in",
+                detail:
+                  "SoftwareOne committed to CHF 80–100M in annual savings within 18 months. That money comes from headcount, duplicate tooling, and \"rationalized\" product lines. Crayon's standalone support, CS, and engineering teams are the obvious targets.",
+                risk: "Support quality drops. Dedicated CSMs get reassigned. Self-serve documentation stalls.",
+              },
+              {
+                phase: "Months 12–18",
+                label: "Packaging & pricing changes",
+                detail:
+                  "The acquired product gets rebundled into the parent's enterprise SKUs. Standalone pricing disappears or increases to push customers toward bundled deals. SMB and mid-market tiers are the first to go.",
+                risk: "Renewal quotes jump 20–40%. Free or low-cost tiers are sunset. Annual commitments become mandatory.",
+              },
+              {
+                phase: "Months 18–36",
+                label: "Platform migration or sunset",
+                detail:
+                  "The parent either migrates the product onto its own platform (breaking integrations and workflows) or quietly sunsets it in favor of a \"next-gen\" replacement that serves the parent's core enterprise audience.",
+                risk: "Forced migration, broken workflows, or end-of-life notice with 12-month runway.",
+              },
+            ].map((step, i) => (
+              <li key={i} className="relative mb-10 last:mb-0">
+                <span className="absolute -left-11 flex h-6 w-6 items-center justify-center rounded-full border-2 border-gray-200 bg-white text-xs font-bold text-gray-500">
+                  {i + 1}
+                </span>
+                <div className="rounded-xl border border-gray-200 bg-gray-50 p-5">
+                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                    <span className="text-xs font-semibold uppercase tracking-wide text-amber-700">
+                      {step.phase}
+                    </span>
+                    <h3 className="text-base font-semibold text-gray-900">{step.label}</h3>
+                  </div>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-600">{step.detail}</p>
+                  <p className="mt-2 text-sm leading-relaxed">
+                    <span className="font-medium text-red-700">Risk: </span>
+                    <span className="text-gray-700">{step.risk}</span>
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
+
+          <div className="mt-12 rounded-2xl border border-brand-200 bg-brand-50/50 p-6 text-center sm:p-8">
+            <p className="text-sm font-semibold text-gray-900">
+              You don&rsquo;t have to wait to find out which phase hits hardest.
+            </p>
+            <p className="mx-auto mt-2 max-w-xl text-sm text-gray-600">
+              Start a free KompWatch account now and run it alongside Crayon. If
+              the same signals land in your inbox at 2% of the cost, you have
+              your answer before renewal day.
+            </p>
+            <div className="mt-5">
+              <TrackedCTA
+                href="/login"
+                event="Acquisition Risk CTA Click"
+                eventProps={{ competitor: "Crayon", section: "acquisition-risk" }}
+                className="inline-block rounded-lg bg-brand-600 px-6 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
+              >
+                Start free — hedge your renewal risk
+              </TrackedCTA>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Comparison Table */}
       <section id="comparison" className="py-20">
         <div className="mx-auto max-w-5xl px-6">
@@ -607,6 +697,10 @@ export default function VsCrayonPage() {
           {
             question: "Does KompWatch have a free plan?",
             answer: "Yes. KompWatch's free plan lets you track up to 2 competitors with weekly AI digests — no credit card required. Upgrade to Pro ($49/mo) for 10 competitors and daily digests, or Team ($149/mo) for 50 competitors and real-time alerts.",
+          },
+          {
+            question: "What are the risks of staying on Crayon after the SoftwareOne acquisition?",
+            answer: "Post-acquisition playbooks at large IT-services consolidators follow a predictable pattern: months 0–6 feature velocity slows during integration; months 6–12 cost synergies hit support and engineering headcount; months 12–18 packaging and pricing change (especially for SMB/mid-market tiers); months 18–36 the product is either migrated to the parent platform or quietly sunset. SoftwareOne's public CHF 80–100M cost-synergy target accelerates this timeline. If your Crayon renewal is within 12 months, evaluate alternatives now while you still have leverage.",
           },
           {
             question: "Is KompWatch good enough for enterprise teams?",

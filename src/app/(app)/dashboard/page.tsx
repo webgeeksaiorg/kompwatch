@@ -11,9 +11,10 @@ import { EmptyStateOnboarding } from "@/components/dashboard/empty-state-onboard
 import { SignupTracker } from "@/components/dashboard/signup-tracker";
 import { ActivityHeatmap } from "@/components/dashboard/activity-heatmap";
 import { ZoneFilter } from "@/components/dashboard/zone-filter";
+import { ChangeTypeFilter } from "@/components/dashboard/change-type-filter";
 import { TrackedCTA } from "@/components/tracked-cta";
 import { FirstChangePrompt } from "@/components/dashboard/first-change-prompt";
-import type { ContentZone } from "@prisma/client";
+import type { ContentZone, ChangeType } from "@prisma/client";
 
 const SEVERITY_COLORS: Record<string, string> = {
   LOW: "bg-gray-100 text-gray-600",
@@ -62,6 +63,10 @@ const VALID_ZONES = new Set<string>([
   "TALENT", "LEGAL", "OPERATIONS",
 ]);
 
+const VALID_CHANGE_TYPES = new Set<string>([
+  "PRICING", "FEATURE", "BLOG", "JOB", "TECH", "GENERAL", "COMMUNITY",
+]);
+
 export default async function DashboardPage({
   searchParams,
 }: {
@@ -78,6 +83,15 @@ export default async function DashboardPage({
       ? [rawZones]
       : [];
   const activeZones = zoneParam.filter((z) => VALID_ZONES.has(z));
+
+  // Parse change type filter from URL: ?changeType=PRICING&changeType=FEATURE
+  const rawChangeTypes = params.changeType;
+  const changeTypeParam = Array.isArray(rawChangeTypes)
+    ? rawChangeTypes
+    : rawChangeTypes
+      ? [rawChangeTypes]
+      : [];
+  const activeChangeTypes = changeTypeParam.filter((t) => VALID_CHANGE_TYPES.has(t));
 
   const allowedSeverities = severitiesAtOrAbove(user.dashboardMinSeverity);
   const minSignalScore = user.dashboardMinSignalScore;
@@ -106,6 +120,9 @@ export default async function DashboardPage({
         signalScore: { gte: minSignalScore },
         ...(activeZones.length > 0 && {
           contentZone: { in: activeZones as ContentZone[] },
+        }),
+        ...(activeChangeTypes.length > 0 && {
+          changeType: { in: activeChangeTypes as ChangeType[] },
         }),
       },
       include: { competitor: { select: { name: true, url: true } } },
@@ -338,9 +355,12 @@ export default async function DashboardPage({
         </div>
         {/* Content zone filter */}
         {competitors.length > 0 && (
-          <div className="mb-4">
+          <div className="mb-4 space-y-2">
             <Suspense>
               <ZoneFilter activeZones={activeZones} />
+            </Suspense>
+            <Suspense>
+              <ChangeTypeFilter activeTypes={activeChangeTypes} />
             </Suspense>
           </div>
         )}
