@@ -27,9 +27,15 @@ const TYPE_LABELS: Record<string, string> = {
 export function RoiReportContent({
   report,
   orgName,
+  hideHeader,
+  hideValue,
+  hideMetrics,
 }: {
   report: RoiReport;
   orgName?: string;
+  hideHeader?: boolean;
+  hideValue?: boolean;
+  hideMetrics?: boolean;
 }) {
   const maxByCompetitor = Math.max(
     ...report.changes.byCompetitor.map((c) => c.count),
@@ -43,57 +49,63 @@ export function RoiReportContent({
   return (
     <div className="space-y-8">
       {/* Header */}
-      <div>
-        <h1 className="text-2xl font-bold text-gray-900">
-          Competitive Intelligence ROI Report
-        </h1>
-        <p className="mt-1 text-sm text-gray-500">
-          {orgName ? `${orgName} · ` : ""}
-          {report.period.label}
-        </p>
-      </div>
+      {!hideHeader && (
+        <div>
+          <h1 className="text-2xl font-bold text-gray-900">
+            Competitive Intelligence ROI Report
+          </h1>
+          <p className="mt-1 text-sm text-gray-500">
+            {orgName ? `${orgName} · ` : ""}
+            {report.period.label}
+          </p>
+        </div>
+      )}
 
       {/* Value highlight */}
-      <div className="rounded-xl border border-brand-200 bg-gradient-to-br from-brand-50 to-white p-6">
-        <p className="text-sm font-medium text-brand-700">Estimated value delivered</p>
-        <p className="mt-1 text-4xl font-bold text-brand-900">
-          ${report.estimatedValue.dollarValue.toLocaleString()}
-        </p>
-        <p className="mt-2 text-sm text-brand-600">
-          {report.estimatedValue.hoursReplaced} hours of manual monitoring replaced
-        </p>
-        <p className="mt-1 text-xs text-gray-500">
-          {report.estimatedValue.description}
-        </p>
-      </div>
+      {!hideValue && (
+        <div className="rounded-xl border border-brand-200 bg-gradient-to-br from-brand-50 to-white p-6">
+          <p className="text-sm font-medium text-brand-700">Estimated value delivered</p>
+          <p className="mt-1 text-4xl font-bold text-brand-900">
+            ${report.estimatedValue.dollarValue.toLocaleString()}
+          </p>
+          <p className="mt-2 text-sm text-brand-600">
+            {report.estimatedValue.hoursReplaced} hours of manual monitoring replaced
+          </p>
+          <p className="mt-1 text-xs text-gray-500">
+            {report.estimatedValue.description}
+          </p>
+        </div>
+      )}
 
       {/* Key metrics grid */}
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-        <div className="rounded-lg border border-gray-200 bg-white p-4">
-          <p className="text-xs font-medium text-gray-500">Changes detected</p>
-          <p className="mt-1 text-2xl font-bold text-gray-900">
-            {report.changes.total}
-          </p>
+      {!hideMetrics && (
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <div className="rounded-lg border border-gray-200 bg-white p-4">
+            <p className="text-xs font-medium text-gray-500">Changes detected</p>
+            <p className="mt-1 text-2xl font-bold text-gray-900">
+              {report.changes.total}
+            </p>
+          </div>
+          <div className="rounded-lg border border-gray-200 bg-white p-4">
+            <p className="text-xs font-medium text-gray-500">High-impact alerts</p>
+            <p className="mt-1 text-2xl font-bold text-orange-600">
+              {report.changes.highImpact}
+            </p>
+          </div>
+          <div className="rounded-lg border border-gray-200 bg-white p-4">
+            <p className="text-xs font-medium text-gray-500">Competitors tracked</p>
+            <p className="mt-1 text-2xl font-bold text-gray-900">
+              {report.competitors.active}
+            </p>
+          </div>
+          <div className="rounded-lg border border-gray-200 bg-white p-4">
+            <p className="text-xs font-medium text-gray-500">Digests delivered</p>
+            <p className="mt-1 text-2xl font-bold text-gray-900">
+              {report.digests.sent}
+            </p>
+          </div>
         </div>
-        <div className="rounded-lg border border-gray-200 bg-white p-4">
-          <p className="text-xs font-medium text-gray-500">High-impact alerts</p>
-          <p className="mt-1 text-2xl font-bold text-orange-600">
-            {report.changes.highImpact}
-          </p>
-        </div>
-        <div className="rounded-lg border border-gray-200 bg-white p-4">
-          <p className="text-xs font-medium text-gray-500">Competitors tracked</p>
-          <p className="mt-1 text-2xl font-bold text-gray-900">
-            {report.competitors.active}
-          </p>
-        </div>
-        <div className="rounded-lg border border-gray-200 bg-white p-4">
-          <p className="text-xs font-medium text-gray-500">Digests delivered</p>
-          <p className="mt-1 text-2xl font-bold text-gray-900">
-            {report.digests.sent}
-          </p>
-        </div>
-      </div>
+      )}
 
       {/* Severity breakdown */}
       <div className="rounded-lg border border-gray-200 bg-white p-5">

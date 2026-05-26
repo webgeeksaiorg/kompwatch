@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
-import { verifyShareToken, generateRoiReport } from "@/lib/roi";
+import { verifyShareToken, generateStakeholderReport } from "@/lib/roi";
 import { db } from "@/lib/db";
-import { RoiReportContent } from "@/components/dashboard/roi-report-content";
+import { StakeholderReportContent } from "@/components/dashboard/stakeholder-report-content";
 
 export default async function SharedReportPage({
   params,
@@ -18,7 +18,7 @@ export default async function SharedReportPage({
   });
   if (!user) notFound();
 
-  const report = await generateRoiReport(user.id, verified.period);
+  const report = await generateStakeholderReport(user.id, verified.period);
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:py-16">
@@ -33,7 +33,7 @@ export default async function SharedReportPage({
           Start monitoring &rarr;
         </a>
       </div>
-      <RoiReportContent report={report} orgName={user.name ?? undefined} />
+      <StakeholderReportContent report={report} orgName={user.name ?? undefined} />
     </div>
   );
 }

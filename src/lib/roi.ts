@@ -1,6 +1,7 @@
 import crypto from "crypto";
 import { db } from "./db";
-import type { ChangeType, Severity } from "@prisma/client";
+import type { ChangeType, ContentZone, Severity } from "@prisma/client";
+import { splitChangeDetails } from "./change-context";
 
 // ── Types ────────────────────────────────────────────────────
 
@@ -156,6 +157,123 @@ export async function generateRoiReport(
       hoursReplaced,
       dollarValue,
       description: `${totalChanges} changes × ~${MINUTES_PER_CHANGE} min of manual monitoring each at $${ANALYST_HOURLY_RATE}/hr analyst rate`,
+    },
+  };
+}
+
+// ── Stakeholder Report ──────────────────────────────────────
+
+export interface StakeholderHighlight {
+  competitorName: string;
+  changeType: ChangeType;
+  contentZone: ContentZone;
+  severity: Severity;
+  summary: string;
+  implication: string | null;
+  detectedAt: Date;
+}
+
+export interface StakeholderReport extends RoiReport {
+  byZone: Record<ContentZone, number>;
+  highlights: StakeholderHighlight[];
+  trend: {
+    previousPeriodChanges: number;
+    changePercent: number | null; // null when no prior data
+  };
+}
+
+const CONTENT_ZONES: ContentZone[] = [
+  "POSITIONING",
+  "MONETIZATION",
+  "PRODUCT",
+  "MARKETING",
+  "TALENT",
+  "LEGAL",
+  "OPERATIONS",
+  "UNKNOWN",
+];
+
+export async function generateStakeholderReport(
+  userId: string,
+  period: ReportPeriod = "30d",
+): Promise<StakeholderReport> {
+  const base = await generateRoiReport(userId, period);
+  const { start, end } = base.period;
+
+  // Duration of the selected period in ms
+  const periodMs = end.getTime() - start.getTime();
+  const prevStart = new Date(start.getTime() - periodMs);
+
+  const [zoneChanges, topChanges, previousCount] = await Promise.all([
+    // Content zone breakdown
+    db.change.findMany({
+      where: {
+        competitor: { userId },
+        createdAt: { gte: start, lte: end },
+      },
+      select: { contentZone: true },
+    }),
+    // Top high-impact changes with details
+    db.change.findMany({
+      where: {
+        competitor: { userId },
+        createdAt: { gte: start, lte: end },
+        severity: { in: ["HIGH", "CRITICAL"] },
+      },
+      select: {
+        changeType: true,
+        contentZone: true,
+        severity: true,
+        summary: true,
+        details: true,
+        createdAt: true,
+        competitor: { select: { name: true } },
+      },
+      orderBy: [{ severity: "desc" }, { signalScore: "desc" }],
+      take: 5,
+    }),
+    // Previous period count for trend
+    db.change.count({
+      where: {
+        competitor: { userId },
+        createdAt: { gte: prevStart, lt: start },
+      },
+    }),
+  ]);
+
+  // Zone breakdown
+  const byZone = Object.fromEntries(
+    CONTENT_ZONES.map((z) => [z, 0]),
+  ) as Record<ContentZone, number>;
+  for (const c of zoneChanges) byZone[c.contentZone]++;
+
+  // Highlights
+  const highlights: StakeholderHighlight[] = topChanges.map((c) => {
+    const { implication } = splitChangeDetails(c.details);
+    return {
+      competitorName: c.competitor.name,
+      changeType: c.changeType,
+      contentZone: c.contentZone,
+      severity: c.severity,
+      summary: c.summary,
+      implication,
+      detectedAt: c.createdAt,
+    };
+  });
+
+  // Trend
+  const changePercent =
+    previousCount > 0
+      ? Math.round(((base.changes.total - previousCount) / previousCount) * 100)
+      : null;
+
+  return {
+    ...base,
+    byZone,
+    highlights,
+    trend: {
+      previousPeriodChanges: previousCount,
+      changePercent,
     },
   };
 }
