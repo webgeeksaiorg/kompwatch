@@ -14,6 +14,24 @@ Tracks where KompWatch has been submitted for listing/discovery.
 | — | awesome-saas-tools | pending | — |
 | — | awesome-competitive-intelligence | pending | GitHub repo: github.com/aj-dev-sys/awesome-competitive-intelligence — add KompWatch as headless-browser-based option |
 
+## Keyword Research — 2026-05-26 (Tuesday cycle, run 9 — evening)
+
+**Fresh data from WebSearch (May 2026):**
+- **Crayon raised prices 15% in 2026** — most plans now above $10,000/year. Framing: post-acquisition price anchoring to enterprise customer profile. Strong angle: if you're a startup, this is just confirmation you were never their priority.
+- **Crayon complaints (G2/Capterra/Gartner, 2026):** data noise, manual curation burden, "outputs a lot of junk," team adoption friction, outdated AI vs LLM tools. Consistent pattern: tool built for dedicated CI analysts, fails without one.
+- **"Crayon alternatives" search volume high** — multiple new review articles published in 2026 targeting this keyword. AlphaSense, Contify, SaaSHero all running comparison content. Opportunity to rank.
+- **Competitor monitoring on Reddit** is growing as a tactic — dedicated tool category emerging (Gigabrain, Redship, etc). Signal: teams want Reddit CI specifically.
+
+**Content produced this cycle (Tue May 26, cycle 9):**
+- `twitter/2026-05-26-crayon-price-hike-2026.md` — Crayon 15% price hike, $10K+/yr, enterprise anchoring angle (8.5/10, READY)
+
+**Tuesday May 26 publish slate (cycle 9):**
+- Twitter: 3 tweets (crayon-softwareone-done, crayon-softwareone-what-changed, crayon-price-hike-2026) + 5 replies (crayon-refugees, what-ci-tool-budget, acquisition-risk, google-alerts-vs-website, ci-workflow-small-teams)
+- Reddit: 1 comment (comment-crayon-softwareone-displacement) + 1 post (post-ci-tool-landscape-collapsed)
+- Blog: what-happened-to-kompyte.md
+
+**Publishing status (Tue May 26, cycle 9):** All platforms still blocked — API credentials missing. 17 Twitter + 4 Reddit + 1 blog queued READY for today. Queue: 109+ pieces ready across 27+ cycles.
+
 ## Keyword Research — 2026-05-15 (Friday cycle, run 17 — evening)
 
 **Fresh data from WebSearch (May 2026):**
