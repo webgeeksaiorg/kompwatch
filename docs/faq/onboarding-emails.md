@@ -17,6 +17,14 @@ KompWatch sends up to 6 emails over your first two weeks, depending on your plan
 
 **Note:** Emails from day 5 onward are only sent to users on the Free plan. If you upgrade to Pro or Team at any point, the remaining nurture emails stop. The day-14 email is the last in the sequence.
 
+## Why Does the Welcome Email Say "Add Your First Competitor" If My Dashboard Already Has One?
+
+When you sign up, KompWatch automatically pre-seeds a **demo competitor — Acme Analytics** — with sample snapshots and detected changes so your dashboard isn't empty on day one. You'll see example pricing and feature changes waiting for you the moment you log in.
+
+The welcome email's "Add Your First Competitor" button is an invitation to add a **real** competitor you want to monitor. The demo competitor is example data — it doesn't count against your plan's competitor limit, and you can delete it at any time from the [Competitors page](https://kompwatch.com/competitors) once you've had a look around.
+
+**In short:** demo competitor → immediate dashboard value; the welcome email → nudge to start real monitoring. Both are intentional.
+
 ## The Day-2 Email Includes a G2 Review Link — Is That Legitimate?
 
 Yes. The Day-2 email contains a purple "Leave a review on G2" button. This is an optional request — it helps other teams discover KompWatch and is entirely up to you. Clicking it takes you directly to [KompWatch's G2 listing](https://www.g2.com). We never ask for any personal information through G2 beyond what you choose to share in a public review.
