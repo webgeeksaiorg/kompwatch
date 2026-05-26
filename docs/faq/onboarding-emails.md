@@ -9,11 +9,14 @@ KompWatch sends up to 6 emails over your first two weeks, depending on your plan
 | When | Subject | Who receives it |
 |------|---------|----------------|
 | Immediately on signup | "Welcome to KompWatch — let's set up your first monitor" | All users |
+| Immediately on signup | "Your first KompWatch digest — here's what competitor monitoring looks like" | All users |
 | 2 days after signup | "3 ways KompWatch saves you hours every week" | All users |
 | 5 days after signup | "Your free plan is active — here's what Pro unlocks" | Free plan only |
 | 7 days after signup | "How SaaS teams use KompWatch to stay ahead" | Free plan only |
 | 10 days after signup | "The hidden cost of manual competitor monitoring" | Free plan only |
 | 14 days after signup | "Your competitors changed this week. Did you notice?" | Free plan only |
+
+**Welcome digest:** The second immediate email is a sample competitor digest using demo data from "Acme Analytics." It shows you what your real weekly digest will look like — change summaries, severity badges, and AI-generated explanations — before your first real snapshot has run. It's clearly marked as demo data. See [Getting Started](getting-started.md) for more on this.
 
 **Note:** Emails from day 5 onward are only sent to users on the Free plan. If you upgrade to Pro or Team at any point, the remaining nurture emails stop. The day-14 email is the last in the sequence.
 
