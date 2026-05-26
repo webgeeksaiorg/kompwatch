@@ -9,6 +9,8 @@ Click any competitor's name on the Competitors page (or dashboard) to open its *
 - **Status badge** — Active or Paused
 - **Snapshot and change counts** — total snapshots taken and changes detected since you started tracking
 - **Full change history** — up to 50 most recent changes, each showing severity, change type, AI summary, and the page that changed
+- **Change-type filter** — filter the history by change type (Pricing, Feature, Content, Visual) using the filter bar at the top of the change list, the same filter available on the main dashboard
+- **Zone filter** — filter by strategic business area (Monetization, Positioning, Product, etc.) using the Zone dropdown; see [Content Zone Classification](./content-zone-classification.md) for details
 - **"Tracking since" date** — when monitoring began for this competitor
 
 Use the detail page to do a quick competitive audit before a sales call, board meeting, or product planning session.
