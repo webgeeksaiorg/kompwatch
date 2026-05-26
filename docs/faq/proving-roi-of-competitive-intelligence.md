@@ -2,16 +2,15 @@
 
 If you're renewing a subscription, requesting budget approval, or just want to show your manager that competitor monitoring is worth the spend, this article gives you a practical framework for making the business case.
 
-## The Quickest Path: Pull Change Data From the Dashboard
+## The Quickest Path: Use the ROI Report
 
-A one-click shareable ROI report is on the roadmap. Until it ships, here's the fastest manual path:
+Go to [kompwatch.com/reports/roi](https://kompwatch.com/reports/roi) — the Stakeholder ROI Report is live. It automatically shows estimated dollar value, hours saved, change counts by severity and type, and your most active competitors, all in one shareable view.
 
-1. Go to **Competitors → [Name] → Change History** for each tracked competitor
-2. Filter by **High** and **Critical** severity — these are the changes worth highlighting
-3. Count them and apply the estimate: `changes × 15 min ÷ 60 × $75/hr` for hours and dollar value saved
-4. Pull 2–3 specific examples with dates and AI summaries to make the case concrete
+- **Share report** — generates a stakeholder link (no KompWatch account needed to view)
+- **Download PDF** — exports a branded, print-ready PDF for budget presentations
+- **Period selector** — switch between 7 days, 30 days, 90 days, last month, or this month
 
-This takes about 10 minutes and produces numbers that are more credible than a calculator estimate because they're grounded in real catches from your account.
+For additional context, you can supplement the report with specific examples from your change history (see below).
 
 ---
 

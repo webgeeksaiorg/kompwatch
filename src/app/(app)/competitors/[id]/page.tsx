@@ -7,7 +7,8 @@ import { signalLabel } from "@/lib/signal-score";
 import { ExportChangesButton } from "@/components/dashboard/export-changes-button";
 import { BattlecardButton } from "@/components/dashboard/battlecard-button";
 import { ZoneFilter } from "@/components/dashboard/zone-filter";
-import type { ContentZone } from "@prisma/client";
+import { ChangeTypeFilter } from "@/components/dashboard/change-type-filter";
+import type { ContentZone, ChangeType } from "@prisma/client";
 
 const SEVERITY_COLORS: Record<string, string> = {
   LOW: "bg-gray-100 text-gray-600",
@@ -40,6 +41,10 @@ const VALID_ZONES = new Set<string>([
   "TALENT", "LEGAL", "OPERATIONS",
 ]);
 
+const VALID_CHANGE_TYPES = new Set<string>([
+  "PRICING", "FEATURE", "BLOG", "JOB", "TECH", "GENERAL", "COMMUNITY",
+]);
+
 function timeAgo(date: Date): string {
   const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
   if (seconds < 60) return "just now";
@@ -68,6 +73,15 @@ export default async function CompetitorDetailPage({
   const zoneParam = Array.isArray(rawZones) ? rawZones : rawZones ? [rawZones] : [];
   const activeZones = zoneParam.filter((z) => VALID_ZONES.has(z));
 
+  // Parse change type filter from URL: ?changeType=PRICING&changeType=FEATURE
+  const rawChangeTypes = sp.changeType;
+  const changeTypeParam = Array.isArray(rawChangeTypes)
+    ? rawChangeTypes
+    : rawChangeTypes
+      ? [rawChangeTypes]
+      : [];
+  const activeChangeTypes = changeTypeParam.filter((t) => VALID_CHANGE_TYPES.has(t));
+
   const competitor = await db.competitor.findUnique({
     where: { id },
     include: {
@@ -76,6 +90,9 @@ export default async function CompetitorDetailPage({
         where: {
           ...(activeZones.length > 0 && {
             contentZone: { in: activeZones as ContentZone[] },
+          }),
+          ...(activeChangeTypes.length > 0 && {
+            changeType: { in: activeChangeTypes as ChangeType[] },
           }),
         },
         orderBy: { createdAt: "desc" },
@@ -208,9 +225,12 @@ export default async function CompetitorDetailPage({
 
         {/* Content zone filter */}
         {competitor._count.changes > 0 && (
-          <div className="mb-4">
+          <div className="mb-4 space-y-2">
             <Suspense>
               <ZoneFilter activeZones={activeZones} />
+            </Suspense>
+            <Suspense>
+              <ChangeTypeFilter activeTypes={activeChangeTypes} />
             </Suspense>
           </div>
         )}
@@ -218,8 +238,8 @@ export default async function CompetitorDetailPage({
         {competitor.changes.length === 0 ? (
           <div className="rounded-lg border border-dashed border-gray-300 bg-white p-8 text-center">
             <p className="text-sm text-gray-500">
-              {activeZones.length > 0
-                ? "No changes match the selected zones. Try clearing the filter."
+              {activeZones.length > 0 || activeChangeTypes.length > 0
+                ? "No changes match the selected filters. Try clearing them."
                 : "No changes detected yet. We\u2019ll start tracking once the next snapshot runs."}
             </p>
           </div>

@@ -1,6 +1,6 @@
 import { requireAuth } from "@/lib/auth";
-import { generateRoiReport, type ReportPeriod } from "@/lib/roi";
-import { RoiReportContent } from "@/components/dashboard/roi-report-content";
+import { generateStakeholderReport, type ReportPeriod } from "@/lib/roi";
+import { StakeholderReportContent } from "@/components/dashboard/stakeholder-report-content";
 import { ShareReportButton } from "./share-button";
 import { RoiReportShell } from "./report-shell";
 
@@ -17,7 +17,7 @@ export default async function RoiReportPage({
     ? (params.period as ReportPeriod)
     : "30d";
 
-  const report = await generateRoiReport(user.id, period);
+  const report = await generateStakeholderReport(user.id, period);
 
   return (
     <div>
@@ -38,7 +38,7 @@ export default async function RoiReportPage({
         </RoiReportShell>
       </div>
 
-      <RoiReportContent report={report} orgName={user.name ?? undefined} />
+      <StakeholderReportContent report={report} orgName={user.name ?? undefined} />
     </div>
   );
 }

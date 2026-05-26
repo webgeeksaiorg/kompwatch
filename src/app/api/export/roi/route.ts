@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCurrentUser } from "@/lib/auth";
 import {
-  generateRoiReport,
+  generateStakeholderReport,
   type ReportPeriod,
-  type RoiReport,
+  type StakeholderReport,
 } from "@/lib/roi";
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 
@@ -20,7 +20,7 @@ export async function GET(req: NextRequest) {
     ? (period as ReportPeriod)
     : "30d";
 
-  const report = await generateRoiReport(user.id, validPeriod);
+  const report = await generateStakeholderReport(user.id, validPeriod);
   const pdfBytes = await generateRoiPdf(report, user.name ?? undefined);
   const datestamp = new Date().toISOString().slice(0, 10);
 
@@ -41,7 +41,7 @@ const LINE_HEIGHT = 14;
 const CONTENT_WIDTH = PAGE_WIDTH - MARGIN * 2;
 
 async function generateRoiPdf(
-  report: RoiReport,
+  report: StakeholderReport,
   orgName?: string,
 ): Promise<Uint8Array> {
   const doc = await PDFDocument.create();
@@ -142,6 +142,87 @@ async function generateRoiPdf(
     });
   }
   y -= 46;
+
+  // ── Executive summary ──
+  checkPageBreak(60);
+  page.drawText("Executive Summary", {
+    x: MARGIN,
+    y,
+    size: 11,
+    font: fontBold,
+    color: rgb(0.1, 0.1, 0.1),
+  });
+  y -= 16;
+
+  let summaryText = `KompWatch detected ${report.changes.total} competitor changes across ${report.competitors.active} tracked competitors during ${report.period.label}.`;
+  if (report.changes.highImpact > 0) {
+    summaryText += ` ${report.changes.highImpact} were high-impact alerts.`;
+  }
+  if (report.trend.changePercent !== null) {
+    const dir = report.trend.changePercent >= 0 ? "up" : "down";
+    summaryText += ` Activity is ${dir} ${Math.abs(report.trend.changePercent)}% vs prior period.`;
+  }
+
+  // Word-wrap summary text
+  const summaryWords = summaryText.split(" ");
+  let line = "";
+  for (const word of summaryWords) {
+    const test = line ? `${line} ${word}` : word;
+    if (font.widthOfTextAtSize(test, 9) > CONTENT_WIDTH) {
+      page.drawText(line, { x: MARGIN, y, size: 9, font, color: rgb(0.3, 0.3, 0.3) });
+      y -= LINE_HEIGHT;
+      checkPageBreak(LINE_HEIGHT);
+      line = word;
+    } else {
+      line = test;
+    }
+  }
+  if (line) {
+    page.drawText(line, { x: MARGIN, y, size: 9, font, color: rgb(0.3, 0.3, 0.3) });
+    y -= LINE_HEIGHT;
+  }
+  y -= 10;
+
+  // ── Strategic highlights ──
+  if (report.highlights.length > 0) {
+    checkPageBreak(80);
+    page.drawText("Strategic Highlights", {
+      x: MARGIN,
+      y,
+      size: 11,
+      font: fontBold,
+      color: rgb(0.1, 0.1, 0.1),
+    });
+    y -= 18;
+
+    for (const h of report.highlights) {
+      checkPageBreak(36);
+      const sevLabel = h.severity === "CRITICAL" ? "[!] " : "";
+      page.drawText(`${sevLabel}${h.competitorName}`, {
+        x: MARGIN,
+        y,
+        size: 9,
+        font: fontBold,
+        color: rgb(0.15, 0.15, 0.15),
+      });
+      y -= 13;
+
+      // Truncate summary if needed
+      let sumText = h.summary;
+      while (sumText.length > 3 && font.widthOfTextAtSize(sumText, 8) > CONTENT_WIDTH) {
+        sumText = sumText.slice(0, -1);
+      }
+      page.drawText(sumText, {
+        x: MARGIN + 8,
+        y,
+        size: 8,
+        font,
+        color: rgb(0.3, 0.3, 0.3),
+      });
+      y -= 16;
+    }
+    y -= 6;
+  }
 
   // ── Separator ──
   page.drawLine({
