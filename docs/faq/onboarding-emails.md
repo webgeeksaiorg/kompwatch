@@ -9,13 +9,24 @@ KompWatch sends up to 6 emails over your first two weeks, depending on your plan
 | When | Subject | Who receives it |
 |------|---------|----------------|
 | Immediately on signup | "Welcome to KompWatch — let's set up your first monitor" | All users |
+| Immediately on signup | "Your first KompWatch digest — here's what competitor monitoring looks like" | All users |
 | 2 days after signup | "3 ways KompWatch saves you hours every week" | All users |
 | 5 days after signup | "Your free plan is active — here's what Pro unlocks" | Free plan only |
 | 7 days after signup | "How SaaS teams use KompWatch to stay ahead" | Free plan only |
 | 10 days after signup | "The hidden cost of manual competitor monitoring" | Free plan only |
 | 14 days after signup | "Your competitors changed this week. Did you notice?" | Free plan only |
 
+**Welcome digest:** The second immediate email is a sample competitor digest using demo data from "Acme Analytics." It shows you what your real weekly digest will look like — change summaries, severity badges, and AI-generated explanations — before your first real snapshot has run. It's clearly marked as demo data. See [Getting Started](getting-started.md) for more on this.
+
 **Note:** Emails from day 5 onward are only sent to users on the Free plan. If you upgrade to Pro or Team at any point, the remaining nurture emails stop. The day-14 email is the last in the sequence.
+
+## Why Does the Welcome Email Say "Add Your First Competitor" If My Dashboard Already Has One?
+
+When you sign up, KompWatch automatically pre-seeds a **demo competitor — Acme Analytics** — with sample snapshots and detected changes so your dashboard isn't empty on day one. You'll see example pricing and feature changes waiting for you the moment you log in.
+
+The welcome email's "Add Your First Competitor" button is an invitation to add a **real** competitor you want to monitor. The demo competitor is example data — it doesn't count against your plan's competitor limit, and you can delete it at any time from the [Competitors page](https://kompwatch.com/competitors) once you've had a look around.
+
+**In short:** demo competitor → immediate dashboard value; the welcome email → nudge to start real monitoring. Both are intentional.
 
 ## The Day-2 Email Includes a G2 Review Link — Is That Legitimate?
 

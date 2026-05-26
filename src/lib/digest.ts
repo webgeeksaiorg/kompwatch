@@ -204,3 +204,81 @@ function renderDetailsHtml(details: string): string {
   const implicationHtml = `<br/><strong style="color:#1a1a1a;">What this means for you:</strong> ${escapeHtml(implication)}`;
   return `${factualHtml}${implicationHtml}`;
 }
+
+// ── Welcome digest (sent immediately on signup with demo data) ──
+
+const BASE_URL = process.env.NEXTAUTH_URL || "https://kompwatch.com";
+
+/** Demo change data used to populate the welcome digest */
+const DEMO_CHANGES: DigestCompetitorGroup[] = [
+  {
+    competitor: { name: "Acme Analytics", url: "https://www.example-competitor.com" },
+    changes: [
+      {
+        changeType: "PRICING",
+        contentZone: "MONETIZATION",
+        summary: "Increased Pro plan price from $49/mo to $59/mo",
+        details:
+          "The Pro tier pricing page now shows $59/mo (previously $49/mo). The Team plan remains at $149/mo. This is a 20% price increase on their most popular tier.",
+        severity: "HIGH",
+        signalScore: 0.85,
+        createdAt: new Date(),
+      },
+      {
+        changeType: "FEATURE",
+        contentZone: "PRODUCT",
+        summary: "Launched new AI-powered reporting feature",
+        details:
+          'New "AI Insights" section added to the features page. Appears to use automated analysis to generate weekly summaries. Positioned as a premium feature for Team plans.',
+        severity: "MEDIUM",
+        signalScore: 0.65,
+        createdAt: new Date(),
+      },
+      {
+        changeType: "BLOG",
+        contentZone: "MARKETING",
+        summary: "Published blog post: \"Why We're Betting Big on AI\"",
+        details:
+          "New blog post discussing their AI strategy and roadmap. Mentions upcoming features including predictive analytics and natural language queries.",
+        severity: "LOW",
+        signalScore: 0.4,
+        createdAt: new Date(),
+      },
+    ],
+  },
+];
+
+/**
+ * Build a welcome digest email using demo competitor data.
+ * Sent immediately on signup so users see what a real digest looks like.
+ */
+export function buildWelcomeDigest(user: Pick<User, "name" | "email">): {
+  subject: string;
+  html: string;
+  text: string;
+} {
+  const greeting = user.name ? `Hi ${user.name}` : "Hi there";
+
+  const digestHtmlBody = renderDigestHtml(user, DEMO_CHANGES, "WEEKLY");
+
+  // Wrap the rendered digest with a sample-data banner
+  const html = digestHtmlBody.replace(
+    `<p style="margin:0 0 20px;color:#666;font-size:14px;">${greeting}, here's your weekly competitor update.</p>`,
+    `<p style="margin:0 0 12px;color:#666;font-size:14px;">${greeting}, here's a preview of your weekly competitor digest.</p>
+      <div style="background:#fffbeb;border:1px solid #fbbf24;border-radius:6px;padding:10px 14px;margin-bottom:20px;font-size:13px;color:#92400e;">
+        <strong>Sample digest</strong> — This uses demo data from "Acme Analytics" so you can see exactly what your digests will look like. Add a real competitor to start receiving actual updates.
+      </div>`
+  );
+
+  const textBody = renderDigestText(user, DEMO_CHANGES, "WEEKLY");
+  const text = textBody.replace(
+    `${greeting}, here's your weekly competitor update.`,
+    `${greeting}, here's a preview of your weekly competitor digest.\n\n[SAMPLE DIGEST] This uses demo data from "Acme Analytics" so you can see exactly what your digests will look like. Add a real competitor to start receiving actual updates.`
+  );
+
+  return {
+    subject: "Your first KompWatch digest — here's what competitor monitoring looks like",
+    html,
+    text,
+  };
+}

@@ -4,6 +4,7 @@ import {
   renderDigestHtml,
   renderDigestText,
   digestSubject,
+  buildWelcomeDigest,
   DigestCompetitorGroup,
 } from "@/lib/digest";
 import type { Change, Competitor } from "@prisma/client";
@@ -260,5 +261,51 @@ describe("renderDigestText", () => {
     expect(text).toContain("Price increased");
     expect(text).toContain("Weekly Digest");
     expect(text).toContain("Details here");
+  });
+});
+
+describe("buildWelcomeDigest", () => {
+  it("returns subject, html, and text", () => {
+    const result = buildWelcomeDigest(testUser);
+    expect(result.subject).toBeTruthy();
+    expect(result.html).toContain("<!DOCTYPE html>");
+    expect(result.text).toBeTruthy();
+  });
+
+  it("includes sample digest banner in HTML", () => {
+    const result = buildWelcomeDigest(testUser);
+    expect(result.html).toContain("Sample digest");
+    expect(result.html).toContain("Acme Analytics");
+    expect(result.html).toContain("demo data");
+  });
+
+  it("includes sample notice in plain text", () => {
+    const result = buildWelcomeDigest(testUser);
+    expect(result.text).toContain("[SAMPLE DIGEST]");
+    expect(result.text).toContain("Acme Analytics");
+  });
+
+  it("includes all three demo change types", () => {
+    const result = buildWelcomeDigest(testUser);
+    expect(result.html).toContain("Increased Pro plan price");
+    expect(result.html).toContain("AI-powered reporting");
+    expect(result.html).toContain("Betting Big on AI");
+  });
+
+  it("uses personalized greeting when name is set", () => {
+    const result = buildWelcomeDigest({ name: "Bob", email: "bob@test.com" });
+    expect(result.html).toContain("Hi Bob");
+    expect(result.text).toContain("Hi Bob");
+  });
+
+  it("uses generic greeting when name is null", () => {
+    const result = buildWelcomeDigest({ name: null, email: "anon@test.com" });
+    expect(result.html).toContain("Hi there");
+    expect(result.text).toContain("Hi there");
+  });
+
+  it("has a descriptive subject line", () => {
+    const result = buildWelcomeDigest(testUser);
+    expect(result.subject).toContain("first KompWatch digest");
   });
 });

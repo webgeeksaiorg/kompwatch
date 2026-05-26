@@ -46,7 +46,9 @@ This is expected — see [Why Don't I See Any Changes Yet?](why-no-changes-yet.m
 
 ## Step 4: Receive Your Digest
 
-When changes are detected, KompWatch emails you a digest summarizing what changed, the severity, and an AI-generated explanation. Digest frequency depends on your plan:
+**Welcome digest:** Immediately after signing up, you'll receive a sample digest email based on the Acme Analytics demo competitor. This shows you what your real digest will look like — format, change summaries, severity badges, and the "What this means for you" line — so you know what to expect before your first real snapshot runs. It's demo data, not a live alert.
+
+When real changes are detected, KompWatch emails you a digest summarizing what changed, the severity, and an AI-generated explanation. Digest frequency depends on your plan:
 
 | Plan | Digest |
 |------|--------|

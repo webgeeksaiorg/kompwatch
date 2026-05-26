@@ -3,6 +3,7 @@ import { verifyMagicToken, createSession } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { getResend, FROM_EMAIL } from "@/lib/resend";
 import { buildWelcomeEmail } from "@/lib/onboarding";
+import { buildWelcomeDigest } from "@/lib/digest";
 import { seedDemoCompetitor } from "@/lib/demo-seed";
 import { trackEvent } from "@/lib/plausible";
 
@@ -56,6 +57,21 @@ export async function GET(req: NextRequest) {
       await seedDemoCompetitor(user.id);
     } catch {
       // Demo seed is non-critical — don't block signup
+    }
+
+    // Send a welcome digest with demo data so users see what digests look like
+    try {
+      const resend = getResend();
+      const welcomeDigest = buildWelcomeDigest(user);
+      await resend.emails.send({
+        from: FROM_EMAIL,
+        to: user.email,
+        subject: welcomeDigest.subject,
+        html: welcomeDigest.html,
+        text: welcomeDigest.text,
+      });
+    } catch {
+      // Welcome digest is non-critical — don't block signup
     }
   }
 
