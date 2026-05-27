@@ -17,7 +17,7 @@ KompWatch is built for teams that want powerful competitor monitoring without en
 | Slack / webhook alerts | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | Growth+ | ✓ | ✓ | ✗ |
 | CSV / JSON export | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
 | Headless browser (JS sites) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | ✗ |
-| Battlecards | ✓ One-click HTML export | ✓ | ✓ | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
+| Battlecards | In review (JSON export today) | ✓ | ✓ | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
 | MCP server (AI agent integration) | ✓ Team plan | ✓ | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
 | No analyst hours needed | ✓ | ✗ | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | No sales call required | ✓ | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
@@ -58,7 +58,7 @@ Kompyte (~$8K/yr) is a mid-market platform that lacks AI summaries and job track
 
 ## When an Enterprise Tool Might Be Better
 
-- You need **battlecards embedded natively in your CRM** (Salesforce sync) — KompWatch exports HTML battlecards but doesn't sync to CRM workflows yet
+- You need **battlecards embedded natively in your CRM** (Salesforce sync) — KompWatch's battlecard export feature is in review; CRM sync is not yet in scope
 - You have a dedicated competitive intelligence team that needs **advanced analytics** and **win/loss integrations**
 - Procurement requires an annual contract with SLA commitments
 
@@ -131,6 +131,8 @@ Several newer tools have entered the self-serve monitoring space. Here's how the
 **Parano.ai** — continuous monitoring of competitor assets (pricing, positioning, product signals) with Slack and email delivery. Listed as a rising Crayon/Klue alternative in 2026 CI roundups. Positioned at the mid-market; KompWatch starts free with self-serve signup.
 
 **Trackmore** — focuses specifically on competitor changelogs and release notes. AI interprets the meaning of changes and suggests recommended actions. Narrower scope than KompWatch (changelog-only vs. pricing, features, blogs, job listings, and tech stack).
+
+**Spire21** — a new entrant (early access, 2026) targeting startup teams monitoring early-stage competitors. Startup-specific onboarding flow. KompWatch starts free with no early-access gate, uses headless Playwright rendering for JavaScript-heavy sites, and includes AI-generated digests, job listing tracking, and CSS selector targeting out of the box.
 
 If you're evaluating any of these, KompWatch's free plan (2 competitors, no credit card) lets you compare directly without a commitment.
 
