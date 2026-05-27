@@ -29,6 +29,8 @@ If you're a Kompyte customer, see [For Semrush/Kompyte Users →](./for-semrush-
 
 Crayon — one of the two dominant enterprise CI platforms — was acquired by SoftwareOne at $1.4B. SoftwareOne is an IT services and software reseller. Their core business is enterprise software licensing and managed services. Crayon's SMB customers are not SoftwareOne's target market.
 
+The [KompWatch vs Crayon comparison page](https://kompwatch.com/vs-crayon) includes a detailed 4-phase post-acquisition risk timeline — integration (months 1–6), cost synergies (months 6–12), repackaging (months 12–18), and migration/sunset pressure (18+) — specific to how SoftwareOne typically absorbs acquired products. If you're a Crayon customer, that section gives the most precise view of the likely trajectory.
+
 If you're a Crayon customer evaluating alternatives, see [Switching from Crayon →](./switching-from-crayon.md).
 
 ---

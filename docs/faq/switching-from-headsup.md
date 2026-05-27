@@ -53,6 +53,10 @@ KompWatch does not import historical alert data from Headsup.bot. Your monitorin
 
 KompWatch's free tier (2 competitors, no credit card) lets you evaluate side-by-side before committing. Run the same competitor URLs in both tools for 2–4 weeks and compare alert volume, rendering accuracy on JS-heavy pages, and whether AI-generated summaries give your team more actionable context than raw diffs.
 
+## Special Offer for Headsup.bot Users
+
+If you arrive at [kompwatch.com/pricing](https://kompwatch.com/pricing) from the [KompWatch vs Headsup.bot comparison page](https://kompwatch.com/vs-headsup), you'll see a personalized switcher banner highlighting the three key upgrades most relevant to teams coming from Headsup.bot — AI-powered summaries, change severity scoring, and full headless browser rendering. The banner links directly to sign-up and the full comparison.
+
 ## Questions About the Switch?
 
 Email [support@kompwatch.com](mailto:support@kompwatch.com) with your current competitor list and we'll help you set up equivalent monitoring, including suggested CSS selectors for common SaaS competitor pages.
