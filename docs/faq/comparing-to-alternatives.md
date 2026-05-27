@@ -20,6 +20,7 @@ KompWatch is built for teams that want powerful competitor monitoring without en
 | Battlecards | In review (JSON export today) | ✓ | ✓ | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
 | MCP server (AI agent integration) | ✓ Team plan | ✓ | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
 | No analyst hours needed | ✓ | ✗ | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| No engineering setup required | ✓ | ✗ | ✗ (8–15 wk onboarding) | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | No sales call required | ✓ | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 
 *Competitor pricing is approximate and subject to change. See [kompwatch.com/pricing](https://kompwatch.com/pricing) for current KompWatch prices.*
