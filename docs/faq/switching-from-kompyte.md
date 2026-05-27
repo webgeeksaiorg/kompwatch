@@ -21,7 +21,7 @@ Most teams that switch from Kompyte to KompWatch cite:
 | AI-generated digests | ✓ Claude-powered, daily or weekly | ✓ AI summaries |
 | Slack integration | ✓ Included | ✓ Included |
 | Job listing signals | ✓ Included | ✓ Included |
-| Battlecard generation | ✓ One-click HTML export | ✓ Included |
+| Battlecard generation | In review (not yet available) | ✓ Included |
 | Win/loss tracking | ✗ Not in scope | ✓ Included |
 | CRM sync (Salesforce, HubSpot) | Partial (via webhook) | ✓ Native integrations |
 | Setup time | ~10 minutes | Days to weeks (onboarding required) |
@@ -47,9 +47,9 @@ KompWatch does not import historical data from Kompyte. Your monitoring history 
 
 ## What About Battlecards?
 
-KompWatch now includes one-click battlecard export. From any competitor's detail page, click **Export Battlecard** to download a formatted HTML battlecard — pre-structured with an overview, key intel (HIGH/CRITICAL changes), and a full change log. Open in any browser or print to PDF.
+One-click battlecard export is **in review and not yet available**. Until it ships, export raw change data via **Settings → Export → JSON**, filter for `"severity": "HIGH"` or `"CRITICAL"`, and paste the AI-generated `summary` fields into your battlecard template (Notion, Google Slides, Confluence, etc.).
 
-If you relied on Kompyte's native battlecard generation or CRM-synced templates, the HTML export covers the core use case but doesn't replicate CRM sync. Most teams use the HTML export for sales sharing and maintain CRM battlecard templates separately.
+If you relied on Kompyte's native battlecard generation or CRM-synced templates, that specific workflow isn't replicated yet. Watch the [product changelog](./product-changelog.md) for the battlecard export release.
 
 ## Running Both in Parallel
 

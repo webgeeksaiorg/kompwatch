@@ -24,7 +24,7 @@ Teams that move from Klue to KompWatch typically cite:
 | CSS selector targeting | ✓ Watch specific page sections | Limited |
 | AI-generated digests | ✓ Claude-powered, daily or weekly | ✓ Compete Agent AI |
 | Job listing signals | ✓ Included | ✗ Not available |
-| Battlecard generation | ✓ One-click HTML export | ✓ Included |
+| Battlecard generation | In review (not yet available) | ✓ Included |
 | Win/loss integrations | ✗ Not in scope | ✓ Included |
 | MCP server / AI agent integration | ✓ Team plan | ✓ Included |
 | No analyst hours required | ✓ | ✗ (curator setup required) |
@@ -51,9 +51,9 @@ KompWatch does not import historical data from Klue. Your monitoring history sta
 
 ## What About Battlecards?
 
-KompWatch now includes one-click battlecard export. From any competitor's detail page, click **Export Battlecard** to download a formatted HTML battlecard — pre-structured with an overview, key intel (HIGH/CRITICAL changes), and full change log. Open in any browser or print to PDF.
+One-click battlecard export is **in review and not yet available**. Until it ships, export raw change data via **Settings → Export → JSON**, filter for `"severity": "HIGH"` or `"CRITICAL"`, and paste the AI-generated `summary` fields into your battlecard template (Notion, Google Slides, Confluence, etc.).
 
-If you relied on Klue's CRM-embedded battlecards or Salesforce battlecard sync, that specific workflow isn't replicated yet. Most teams use the HTML export for sales sharing and maintain their CRM templates separately.
+If you relied on Klue's CRM-embedded battlecards or Salesforce battlecard sync, that specific workflow isn't replicated yet. Watch the [product changelog](./product-changelog.md) for the battlecard export release.
 
 ## Running Both in Parallel
 
