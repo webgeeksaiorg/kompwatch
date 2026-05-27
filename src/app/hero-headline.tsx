@@ -1,6 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import {
+  assignVariantInBrowser,
+  HERO_NO_CI_TEAM_EXPERIMENT,
+  type Variant as ABVariant,
+} from "@/lib/ab";
 
 const VARIANTS = {
   A: {
@@ -17,7 +22,12 @@ const VARIANTS = {
   },
 } as const;
 
-type Variant = keyof typeof VARIANTS;
+const EXPERIMENT_COPY = {
+  before: "Competitor intel ",
+  highlight: "without the analyst tax",
+};
+
+type PoolVariant = keyof typeof VARIANTS;
 
 declare global {
   interface Window {
@@ -25,33 +35,44 @@ declare global {
   }
 }
 
-function getVariant(): Variant {
+function getPoolVariant(): PoolVariant {
   if (typeof window === "undefined") return "A";
   const stored = localStorage.getItem("hero_headline_variant");
   if (stored === "A" || stored === "B" || stored === "C") return stored;
   const roll = Math.random();
-  const variant: Variant = roll < 1 / 3 ? "A" : roll < 2 / 3 ? "B" : "C";
+  const variant: PoolVariant = roll < 1 / 3 ? "A" : roll < 2 / 3 ? "B" : "C";
   localStorage.setItem("hero_headline_variant", variant);
   return variant;
 }
 
 export function HeroHeadline() {
-  const [variant, setVariant] = useState<Variant | null>(null);
+  const [text, setText] = useState<{ before: string; highlight: string } | null>(null);
+  const [experimentVariant, setExperimentVariant] = useState<string>("A");
 
   useEffect(() => {
-    const v = getVariant();
-    setVariant(v);
-    window.plausible?.("Hero Headline View", {
-      props: { variant: v },
-    });
+    const ab = assignVariantInBrowser(HERO_NO_CI_TEAM_EXPERIMENT) ?? "A";
+    setExperimentVariant(ab);
+
+    if (ab === "B") {
+      setText(EXPERIMENT_COPY);
+      window.plausible?.("Hero Headline View", {
+        props: { variant: "experiment-no-ci-team", experiment: HERO_NO_CI_TEAM_EXPERIMENT },
+      });
+    } else {
+      const pool = getPoolVariant();
+      setText(VARIANTS[pool]);
+      window.plausible?.("Hero Headline View", {
+        props: { variant: pool },
+      });
+    }
   }, []);
 
-  const text = variant ? VARIANTS[variant] : VARIANTS.A;
+  const display = text ?? VARIANTS.A;
 
   return (
     <h1 className="mt-6 text-5xl font-bold leading-tight tracking-tight text-gray-900 sm:text-6xl">
-      {text.before}
-      <span className="text-brand-600">{text.highlight}</span>
+      {display.before}
+      <span className="text-brand-600">{display.highlight}</span>
     </h1>
   );
 }
