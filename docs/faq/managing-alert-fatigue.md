@@ -86,9 +86,10 @@ Leave hourly cadence for your top 2–3 direct competitors only.
 If a specific competitor generates 10+ low-value alerts per week:
 
 1. Go to **Competitors → [Name] → Change History**
-2. Filter by **Severity: LOW**
-3. Look at the `diff` field — what's actually changing? Nav text? Cookie consent text? Dynamic ad content?
-4. Update the selector to exclude that region, or switch to a more specific sub-selector
+2. Filter by **Severity: LOW** to surface the lowest-signal changes first
+3. Use the **Change Type** filter bar (Pricing / Feature / Content / Visual) to isolate the category of noise — Visual and Content changes are typically the highest-volume noise sources
+4. Look at the `diff` field — what's actually changing? Nav text? Cookie consent text? Dynamic ad content?
+5. Update the selector to exclude that region, or switch to a more specific sub-selector
 
 If the page is a JavaScript SPA with a lot of client-side dynamic content, see [Monitoring JavaScript / SPA Sites](./monitoring-javascript-spa-sites.md) for additional strategies.
 
