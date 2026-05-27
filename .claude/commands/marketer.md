@@ -5,7 +5,7 @@
 >
 > **Your one rule:** If it sounds like AI wrote it, delete it and start over.
 >
-> **Publishing:** After self-check passes (score >= 7/10), save to queue AND publish via `python3 /app/scripts/social-publisher.py <platform> <args>`. The publisher script enforces rate limits — you don't need to track them.
+> **Publishing:** After self-check passes (score >= 7/10), save to queue AND publish via `python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/social-publisher.py <platform> <args>`. The publisher script enforces rate limits — you don't need to track them.
 
 ## Read Before Every Cycle
 
@@ -88,7 +88,7 @@ Track in `content/marketing/directory-log.md`. Submit 1-2 per week:
 
 ### Step 6: LOG
 ```bash
-python3 /app/scripts/notion-write.py post-message competewatch "Marketer: prepared [N] pieces for [platforms]. Keywords: [list]. Queue: content/marketing/queue/" "Marketing,Content"
+python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/notion-write.py post-message competewatch "Marketer: prepared [N] pieces for [platforms]. Keywords: [list]. Queue: content/marketing/queue/" "Marketing,Content"
 ```
 
 ## Content Angles

@@ -14,9 +14,9 @@
 | Anti-signal | Enterprise (>500), agency, non-tech, already using Crayon/Klue |
 
 ## Pre-Flight Checks (MANDATORY before any sends)
-1. **Warmup check:** Run `python3 /app/scripts/email-warmup.py status`.
-   - If "NOT_STARTED": Run `python3 /app/scripts/email-warmup.py start` to initialize. Then run `python3 /app/scripts/email-warmup.py send-warmup 5`. Log and exit this cycle.
-   - If "WARMING": Send only warmup emails up to the daily limit shown. Use `python3 /app/scripts/email-warmup.py send-warmup <limit>`. Do NOT send real outreach yet. Log and exit.
+1. **Warmup check:** Run `python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/email-warmup.py status`.
+   - If "NOT_STARTED": Run `python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/email-warmup.py start` to initialize. Then run `python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/email-warmup.py send-warmup 5`. Log and exit this cycle.
+   - If "WARMING": Send only warmup emails up to the daily limit shown. Use `python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/email-warmup.py send-warmup <limit>`. Do NOT send real outreach yet. Log and exit.
    - If "READY": Proceed normally (up to 50/day real outreach).
 2. **Daily limit:** Read `runtime/outreach/daily-count.txt`. If >= 50 → stop for today.
 3. **Suppression list:** `runtime/outreach/suppression.csv` — never email anyone on this list.
@@ -50,16 +50,16 @@ Check `runtime/outreach/replies/` for new inbound emails.
 
 ```bash
 # Update lead status
-python3 /app/scripts/notion-write.py update-lead <page_id> "Call Booked" "Replied positive, Calendly sent"
+python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/notion-write.py update-lead <page_id> "Call Booked" "Replied positive, Calendly sent"
 
 # Send Calendly reply
-python3 /app/scripts/resend-email.py send <email> "Re: <original_subject>" "Thanks for the interest! Here's a link to grab a quick 15-min walkthrough: https://calendly.com/competewatch/demo"
+python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/resend-email.py send <email> "Re: <original_subject>" "Thanks for the interest! Here's a link to grab a quick 15-min walkthrough: https://calendly.com/competewatch/demo"
 ```
 
 ### Step 3: DISCOVER LEADS (10 min)
 ```bash
 # Find emails for target companies
-python3 /app/scripts/email-finder.py find <company_domain>
+python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/email-finder.py find <company_domain>
 ```
 Use WebSearch to find companies matching ICP:
 - "SaaS companies [vertical] site:linkedin.com"
@@ -70,7 +70,7 @@ Use WebSearch to find companies matching ICP:
 
 Add qualified leads to Notion:
 ```bash
-python3 /app/scripts/notion-write.py add-lead competewatch "<company>" "<name>" "<email>" "Found via <source>. Hook: <personalization>"
+python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/notion-write.py add-lead competewatch "<company>" "<name>" "<email>" "Found via <source>. Hook: <personalization>"
 ```
 
 ### Step 4: PERSONALIZE & SEND (10 min)
@@ -89,14 +89,14 @@ For each lead, use WebFetch to read their website. Find a personalization hook:
 | 4 | Day 14 | Breakup. "No worries if timing's off. Here's a free competitive landscape for {company}." |
 
 ```bash
-python3 /app/scripts/resend-email.py send "<email>" "<subject>" "<body>" --from "founder@outreach.kompwatch.com" --reply-to "founder@kompwatch.com"
+python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/resend-email.py send "<email>" "<subject>" "<body>" --from "founder@outreach.kompwatch.com" --reply-to "founder@kompwatch.com"
 ```
 
 Log every send: append to `runtime/outreach/sent-history.csv` (date, email, company, touch, subject).
 
 ### Step 5: LOG
 ```bash
-python3 /app/scripts/notion-write.py post-message competewatch "Outreach: sent {N} emails (T1:{a}, T2:{b}, T3:{c}, T4:{d}). New leads: {M}. Replies: {R}. Hot leads: {names}." "Outreach,Sales"
+python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/notion-write.py post-message competewatch "Outreach: sent {N} emails (T1:{a}, T2:{b}, T3:{c}, T4:{d}). New leads: {M}. Replies: {R}. Hot leads: {names}." "Outreach,Sales"
 ```
 
 ## Volume Limits

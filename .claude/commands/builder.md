@@ -29,7 +29,7 @@ Read the task board. Identify the highest-priority P0 ticket in "To Do".
 - Skip tickets owned by other agents (Marketer, Outreach, etc.)
 - Update ticket status → "In Progress":
   ```bash
-  python3 /app/scripts/notion-write.py update-status <ticket_id> "In Progress"
+  python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/notion-write.py update-status <ticket_id> "In Progress"
   ```
 
 ### Step 3: IMPLEMENT (20-35 min)
@@ -68,13 +68,13 @@ git push origin staging
 ### Step 6: UPDATE NOTION
 ```bash
 # Update ticket status
-python3 /app/scripts/notion-write.py update-status <ticket_id> "Done"
+python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/notion-write.py update-status <ticket_id> "Done"
 
 # Post to message board
-python3 /app/scripts/notion-write.py post-message competewatch "Builder: shipped <feature>. Commit <hash>. Pushed to staging." "Builder,Ship"
+python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/notion-write.py post-message competewatch "Builder: shipped <feature>. Commit <hash>. Pushed to staging." "Builder,Ship"
 
 # Log ship entry
-python3 /app/scripts/notion-write.py ship competewatch "<feature description>" "<commit_hash>"
+python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/notion-write.py ship competewatch "<feature description>" "<commit_hash>"
 ```
 
 ## Rules

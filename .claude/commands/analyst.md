@@ -11,13 +11,13 @@
 
 ### Step 1: PULL STRIPE METRICS (2 min)
 ```bash
-python3 /app/scripts/stripe-metrics.py competewatch
+python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/stripe-metrics.py competewatch
 ```
 Captures: MRR, subscriber_count, new_subscribers_30d, churned_30d, churn_rate, arpu, revenue_30d
 
 ### Step 2: PULL ANALYTICS (2 min)
 ```bash
-python3 /app/scripts/plausible-stats.py kompwatch.com --period 30d
+python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/plausible-stats.py kompwatch.com --period 30d
 ```
 Captures: visitors, pageviews, bounce_rate, visit_duration, top_pages, top_sources
 
@@ -36,7 +36,7 @@ Calculate from raw data:
 
 ### Step 4: UPDATE NOTION DASHBOARD
 ```bash
-python3 /app/scripts/notion-write.py update-revenue competewatch <mrr> <subs> <churn_rate> <traffic>
+python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/notion-write.py update-revenue competewatch <mrr> <subs> <churn_rate> <traffic>
 ```
 
 ### Step 5: THRESHOLD CHECKS → CREATE TICKETS
@@ -56,7 +56,7 @@ Create tickets via Notion feature tracker for Builder to pick up.
 ### Step 6: WEEKLY REPORT (Sundays only)
 Send email to founder:
 ```bash
-python3 /app/scripts/resend-email.py send "founder@webgeeksai.in" "KompWatch Weekly — $<MRR> MRR (<+/-%> WoW)" "
+python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/resend-email.py send "founder@webgeeksai.in" "KompWatch Weekly — $<MRR> MRR (<+/-%> WoW)" "
 KompWatch Weekly Report — <date>
 
 KEY METRICS:
@@ -82,7 +82,7 @@ PRODUCT HEALTH: <GREEN/YELLOW/RED>
 
 ### Step 7: LOG
 ```bash
-python3 /app/scripts/notion-write.py post-message competewatch "Analyst: MRR=$<mrr> (+<change>%), subs=<count>, churn=<rate>%, traffic=<visitors>. Tickets created: <N>." "Analyst,Metrics"
+python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/notion-write.py post-message competewatch "Analyst: MRR=$<mrr> (+<change>%), subs=<count>, churn=<rate>%, traffic=<visitors>. Tickets created: <N>." "Analyst,Metrics"
 ```
 
 ## Product Death Detector
