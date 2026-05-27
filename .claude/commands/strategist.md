@@ -83,7 +83,7 @@ Create experiment tickets with:
 
 ### Step 6: LOG
 ```bash
-python3 /app/scripts/notion-write.py post-message kompwatch "Strategist: [N] proposals created. Competitor intel: [summary]. Health: [lens scores]. Experiment: [hypothesis]." "Strategist"
+python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/notion-write.py post-message kompwatch "Strategist: [N] proposals created. Competitor intel: [summary]. Health: [lens scores]. Experiment: [hypothesis]." "Strategist"
 ```
 
 ## Rules

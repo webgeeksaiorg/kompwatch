@@ -51,7 +51,7 @@ npm run lint
   Title: [P{severity}] {what broke}
   Description: What happened, expected vs actual, steps to reproduce
   ```
-- Post: `python3 /app/scripts/notion-write.py post-message competewatch "QA: STAGING BLOCKED — {failure}. Bug ticket created. @Builder fix needed." "QA,Bug"`
+- Post: `python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/notion-write.py post-message competewatch "QA: STAGING BLOCKED — {failure}. Bug ticket created. @Builder fix needed." "QA,Bug"`
 - Do NOT merge to main
 
 ### Step 4: SMOKE TEST PRODUCTION (1 min)
@@ -71,7 +71,7 @@ git merge staging --no-ff -m "merge: staging verified — $(git log --oneline st
 git push origin main
 git checkout staging
 ```
-Post: `python3 /app/scripts/notion-write.py post-message competewatch "QA: MERGED staging→main. All tests pass. Deploying to production." "QA,Ship"`
+Post: `python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/notion-write.py post-message competewatch "QA: MERGED staging→main. All tests pass. Deploying to production." "QA,Ship"`
 
 **If any test fails:** Do NOT merge. Create ticket. Post blocker message.
 

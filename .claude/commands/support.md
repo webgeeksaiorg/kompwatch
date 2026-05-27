@@ -33,7 +33,7 @@ For each open ticket:
 | "How does pricing work?" | Link to /pricing page | Resolve |
 | Bug report | Create P1 bug ticket for Builder | Resolve (ticket created, send 48h ETA) |
 | Feature request | Log to feature tracker as P2 | Resolve |
-| Billing dispute (<$100) | Issue refund via `python3 /app/scripts/stripe-refund.py refund <charge_id> <amount> "<reason>"` + apology email | Resolve |
+| Billing dispute (<$100) | Issue refund via `python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/stripe-refund.py refund <charge_id> <amount> "<reason>"` + apology email | Resolve |
 | Billing dispute (>=$100) | Offer 50% account credit via `stripe-refund.py credit` + Calendly link for call | Resolve |
 | Complex technical issue | Create P1 bug ticket, send acknowledgment with 48h ETA | Resolve |
 | Legal/GDPR/data deletion | Create ticket for CEO agent with Priority=urgent | Escalate to CEO |
@@ -41,20 +41,20 @@ For each open ticket:
 
 **Refund rules (hard limits enforced by script, not by you):**
 - Max $100 per refund, max $500/month total, max 10 refunds/month
-- Check limits first: `python3 /app/scripts/stripe-refund.py check-limits`
+- Check limits first: `python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/stripe-refund.py check-limits`
 - If LIMIT_EXCEEDED: apologize, offer Calendly link for founder call instead
 
 **Send reply:**
 ```bash
-python3 /app/scripts/resend-email.py send "<customer_email>" "Re: <subject>" "<response_with_ai_disclosure>"
+python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/resend-email.py send "<customer_email>" "Re: <subject>" "<response_with_ai_disclosure>"
 ```
 
 **Update ticket:**
 ```bash
 # Resolved
-python3 /app/scripts/notion-write.py update-support <ticket_id> "Resolved" "Auto-replied with docs link"
+python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/notion-write.py update-support <ticket_id> "Resolved" "Auto-replied with docs link"
 # Escalated
-python3 /app/scripts/notion-write.py update-support <ticket_id> "Escalated" "Billing dispute — needs human review"
+python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/notion-write.py update-support <ticket_id> "Escalated" "Billing dispute — needs human review"
 ```
 
 ### Step 3: DETECT PATTERNS (2 min)
@@ -72,7 +72,7 @@ If a question isn't covered in `docs/`:
 
 ### Step 5: LOG
 ```bash
-python3 /app/scripts/notion-write.py post-message competewatch "Support: resolved {N}, escalated {M}. Common theme: {topic if any}." "Support"
+python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/notion-write.py post-message competewatch "Support: resolved {N}, escalated {M}. Common theme: {topic if any}." "Support"
 ```
 
 ## Rules

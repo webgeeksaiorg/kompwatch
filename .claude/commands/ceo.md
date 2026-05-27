@@ -65,7 +65,7 @@ If any metric is trending badly for 2+ weeks, create a strategic ticket for Stra
 
 ### Step 6: LOG
 ```bash
-python3 /app/scripts/notion-write.py post-message kompwatch "CEO: Approved [N], rejected [M]. Escalations: [summary]. Product health: [GREEN/YELLOW/RED]." "CEO"
+python3 /Users/webgeeks/alt_proj/agents/orchestrator/scripts/notion-write.py post-message kompwatch "CEO: Approved [N], rejected [M]. Escalations: [summary]. Product health: [GREEN/YELLOW/RED]." "CEO"
 ```
 
 ## Governance Authority
