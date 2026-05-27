@@ -65,6 +65,7 @@ const comparisonRows: {
   { feature: "Tech stack detection", kompwatch: "Pro+", crayon: true },
   { feature: "Battlecards", kompwatch: "One-click export", crayon: true },
   { feature: "Time-to-first-insight", kompwatch: "Under 2 minutes", crayon: "Weeks (sales + onboarding)" },
+  { feature: "Engineering setup required", kompwatch: false, crayon: "Integration + SSO + connectors" },
 ];
 
 function ComparisonCell({ value, highlight }: { value: CellValue; highlight?: boolean }) {
@@ -618,6 +619,132 @@ export default function VsCrayonPage() {
         </div>
       </section>
 
+
+      {/* No engineering setup required — ticket 04c6 */}
+      <section className="border-t border-gray-100 bg-white py-20">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+              No engineering setup required
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-sm text-gray-600">
+              Crayon requires a sales call, a dedicated implementation phase, and
+              engineering time to integrate with your stack. KompWatch is paste-a-URL
+              simple &mdash; your PM can set it up over coffee.
+            </p>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
+            {/* Crayon setup process */}
+            <div className="rounded-xl border border-gray-200 bg-gray-50 p-6">
+              <div className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+                Crayon setup
+              </div>
+              <div className="mt-1 text-sm font-medium text-gray-400">
+                Weeks to first insight
+              </div>
+              <ol className="mt-5 space-y-4">
+                {[
+                  { step: "Sales call + demo", time: "1–2 weeks", detail: "Mandatory qualification call, custom pricing negotiation" },
+                  { step: "Contract & procurement", time: "2–4 weeks", detail: "Legal review, annual commitment, PO approval" },
+                  { step: "Implementation kickoff", time: "1–2 weeks", detail: "Dedicated onboarding manager, scoping sessions" },
+                  { step: "Engineering integration", time: "2–4 weeks", detail: "Salesforce connector, SSO/SAML, webhook plumbing, API keys" },
+                  { step: "Competitor configuration", time: "1–2 weeks", detail: "Analyst-assisted setup, taxonomy mapping, alert tuning" },
+                  { step: "Team training", time: "1 week", detail: "Battlecard workflows, dashboard walkthroughs, admin training" },
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gray-200 text-xs font-bold text-gray-500">
+                      {i + 1}
+                    </span>
+                    <div>
+                      <div className="flex flex-wrap items-baseline gap-x-2">
+                        <span className="text-sm font-semibold text-gray-700">{item.step}</span>
+                        <span className="text-xs text-gray-400">{item.time}</span>
+                      </div>
+                      <p className="mt-0.5 text-xs text-gray-500">{item.detail}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+              <div className="mt-6 rounded-lg border border-gray-200 bg-white px-4 py-3 text-center">
+                <span className="text-sm font-semibold text-gray-700">Total: 8–15 weeks</span>
+                <span className="ml-2 text-xs text-gray-400">before your first actionable insight</span>
+              </div>
+            </div>
+
+            {/* KompWatch setup process */}
+            <div className="rounded-xl border-2 border-brand-600 bg-white p-6 shadow-md">
+              <div className="text-xs font-semibold uppercase tracking-wide text-brand-600">
+                KompWatch setup
+              </div>
+              <div className="mt-1 text-sm font-medium text-brand-600">
+                Under 2 minutes to first insight
+              </div>
+              <ol className="mt-5 space-y-4">
+                {[
+                  { step: "Sign up", time: "30 seconds", detail: "Email + magic link. No sales call, no credit card." },
+                  { step: "Paste competitor URLs", time: "60 seconds", detail: "Add up to 2 competitors free. Pick a CSS selector or use the default." },
+                  { step: "Get your first digest", time: "Next cycle", detail: "AI-generated change summary lands in your inbox. Done." },
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-100 text-xs font-bold text-brand-700">
+                      {i + 1}
+                    </span>
+                    <div>
+                      <div className="flex flex-wrap items-baseline gap-x-2">
+                        <span className="text-sm font-semibold text-gray-900">{item.step}</span>
+                        <span className="text-xs text-brand-600">{item.time}</span>
+                      </div>
+                      <p className="mt-0.5 text-xs text-gray-600">{item.detail}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+              <div className="mt-6 rounded-lg border border-brand-200 bg-brand-50 px-4 py-3 text-center">
+                <span className="text-sm font-semibold text-brand-700">Total: under 2 minutes</span>
+                <span className="ml-2 text-xs text-brand-600">zero engineering resources needed</span>
+              </div>
+
+              <div className="mt-6 space-y-2">
+                {[
+                  "No sales call or demo required",
+                  "No engineering integration — works out of the box",
+                  "No Salesforce connector or SSO plumbing",
+                  "No dedicated onboarding manager or training sessions",
+                  "No annual contract — cancel anytime",
+                ].map((point, i) => (
+                  <div key={i} className="flex items-center gap-2 text-sm text-gray-700">
+                    <svg className="h-4 w-4 shrink-0 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {point}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 text-center">
+            <p className="text-sm text-gray-600">
+              Your PM, marketer, or founder can set up KompWatch in a single sitting.{" "}
+              <span className="font-semibold text-gray-900">
+                No tickets filed, no sprint capacity borrowed, no vendor kickoff calls.
+              </span>
+            </p>
+            <div className="mt-6">
+              <TrackedCTA
+                href="/login"
+                event="No Engineering CTA Click"
+                eventProps={{ competitor: "Crayon", section: "no-engineering-setup" }}
+                className="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
+              >
+                Start free — zero setup required
+                <span aria-hidden="true">&rarr;</span>
+              </TrackedCTA>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Mid-page CTA */}
       <section className="bg-brand-50 py-12">
