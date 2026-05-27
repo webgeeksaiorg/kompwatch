@@ -1,6 +1,6 @@
 # Can I Trust KompWatch? Where Are the Reviews?
 
-KompWatch launched in early 2026. It's a newer product — you won't find us yet in G2 roundups, Capterra listings, or the major "best CI tools" comparison articles. Those profiles take time and require customers reviewing publicly. Here's what you can verify right now while that track record builds.
+KompWatch launched in early 2026. We're actively building our public review track record — our founding users are now sharing honest feedback on G2, and you can see those reviews as they appear. Here's what you can verify right now.
 
 ## Things You Can Check Before Signing Up
 
@@ -16,11 +16,11 @@ The free plan tracks 2 competitors indefinitely. If the first digest isn't usefu
 **4. Our comparisons are honest**
 On the [vs Crayon](https://kompwatch.com/vs-crayon), [vs Klue](https://kompwatch.com/vs-klue), and [vs Kompyte](https://kompwatch.com/vs-kompyte) pages, we explicitly say where competitors win — battlecards, CRM integrations, managed services. We don't claim to be a full Crayon replacement for enterprise teams.
 
-## Why Aren't We on G2 or in CI Roundup Articles?
+## G2 Reviews and the Founding User Program
 
-G2 profiles and review-site rankings are built over months. We're early. Most comparison articles list the same 3–4 vendors (Crayon, Klue, Kompyte) that have been in the market for 5–10 years — we're building toward that track record one customer at a time.
+We're actively collecting G2 reviews from founding users. If you're one of our first 100 users, visit [kompwatch.com/review](https://kompwatch.com/review) to share your honest experience. In return, we'll add a permanent **Founding User badge** to your account profile and digests.
 
-The marketing team has noted publicly that KompWatch doesn't appear in current roundups and is actively working to fix that. In the meantime, the best review is running the product yourself.
+G2 profiles and review-site rankings take months to build. Most comparison articles list the same 3–4 vendors (Crayon, Klue, Kompyte) that have been in market for 5–10 years — we're building toward that track record one customer at a time. In the meantime, the best review is running the product yourself.
 
 ## Our Commitment on Billing
 
