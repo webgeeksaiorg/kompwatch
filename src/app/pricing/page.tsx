@@ -954,7 +954,7 @@ export default function PricingPage() {
         })}
       </div>
 
-      {/* Interactive ROI calculator — time-saved widget for conversion */}
+      {/* Interactive ROI calculator — analyst labor savings framing */}
       <RoiCalculator />
 
       {/* No Hidden Fees Section */}

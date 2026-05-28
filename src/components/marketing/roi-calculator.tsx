@@ -73,11 +73,11 @@ export function RoiCalculator() {
           Interactive
         </span>
         <h2 className="mt-3 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
-          Calculate your time-saved ROI
+          How much analyst time does KompWatch replace?
         </h2>
         <p className="mt-2 text-sm text-gray-600 sm:text-base">
-          See exactly how much KompWatch pays back vs. manual competitor
-          monitoring. Move the sliders to match your team.
+          CI analysts cost {formatCurrency(DEFAULTS.hourlyRate * 2_080)}/yr fully loaded.
+          See how much of that labor KompWatch automates&nbsp;&mdash; and what you keep.
         </p>
       </div>
 
@@ -121,18 +121,54 @@ export function RoiCalculator() {
         </div>
 
         {/* Result */}
-        <div className="lg:col-span-2">
+        <div className="lg:col-span-2 space-y-5">
+          {/* Analyst labor comparison */}
+          <div className="rounded-2xl border border-gray-200 bg-gray-50 p-5">
+            <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+              Analyst labor vs. KompWatch
+            </p>
+            <div className="mt-3 space-y-2">
+              <div className="flex items-baseline justify-between gap-2">
+                <span className="text-sm text-gray-600">CI analyst cost</span>
+                <span className="text-sm font-semibold text-gray-900">
+                  {formatCurrency(result.analystAnnualCost)}/yr
+                </span>
+              </div>
+              <div className="flex items-baseline justify-between gap-2">
+                <span className="text-sm text-gray-600">FTE replaced by KompWatch</span>
+                <span className="text-sm font-semibold text-brand-700">
+                  {result.fteEquivalent.toFixed(2)} FTE
+                </span>
+              </div>
+              <div className="flex items-baseline justify-between gap-2">
+                <span className="text-sm text-gray-600">KompWatch cost</span>
+                <span className="text-sm font-semibold text-gray-900">
+                  {result.kompwatchAnnualCost === 0
+                    ? "Free"
+                    : `${formatCurrency(result.kompwatchAnnualCost)}/yr`}
+                </span>
+              </div>
+              <div className="border-t border-gray-200 pt-2 flex items-baseline justify-between gap-2">
+                <span className="text-sm font-medium text-gray-900">Net labor savings</span>
+                <span className="text-lg font-bold text-green-700">
+                  {formatCurrency(result.annualLaborSavings)}/yr
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Primary savings card */}
           <div className="rounded-2xl border border-brand-200 bg-gradient-to-br from-brand-50 to-white p-6 shadow-inner">
             <p className="text-xs font-semibold uppercase tracking-wider text-brand-600">
-              You save with KompWatch
+              Monthly analyst hours reclaimed
             </p>
             <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-              {formatCurrency(result.dollarsSavedPerMonth)}
-              <span className="text-base font-medium text-gray-500">/mo</span>
+              {result.hoursSavedPerMonth.toFixed(1)}
+              <span className="text-base font-medium text-gray-500"> hrs/mo</span>
             </p>
             <p className="mt-1 text-sm text-gray-600">
-              {formatCurrency(result.dollarsSavedPerYear)} per year ·{" "}
-              {result.hoursSavedPerMonth.toFixed(1)} hrs/mo reclaimed
+              {formatCurrency(result.dollarsSavedPerMonth)}/mo in analyst labor ·{" "}
+              {formatCurrency(result.dollarsSavedPerYear)}/yr
             </p>
 
             <div className="mt-5 rounded-lg bg-white/70 px-3 py-2 text-center text-xs font-medium text-brand-700 ring-1 ring-inset ring-brand-200">

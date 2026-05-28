@@ -43,6 +43,11 @@ export interface CalculatorResult {
   netMonthlySavings: number;
   roiMultiple: number; // dollarsSaved / planCost; Infinity for free plan
   paybackDays: number; // how many days until plan pays for itself; 0 for free
+  // Analyst labor framing
+  analystAnnualCost: number; // full-time analyst salary equivalent (hourlyRate × 2,080)
+  fteEquivalent: number; // fraction of FTE replaced by KompWatch
+  kompwatchAnnualCost: number; // recommended plan × 12
+  annualLaborSavings: number; // analyst annual cost × fteEquivalent - kompwatch annual cost
 }
 
 export function recommendPlan(competitors: number): RecommendedPlan {
@@ -73,6 +78,15 @@ export function calculateRoi(input: CalculatorInput): CalculatorResult {
       ? 0
       : (planCost / dollarsSavedPerMonth) * 30;
 
+  // Analyst labor framing: 2,080 = standard annual work hours (40 hrs/wk × 52 wks)
+  const ANNUAL_WORK_HOURS = 2_080;
+  const analystAnnualCost = hourlyRate * ANNUAL_WORK_HOURS;
+  const fteEquivalent = analystAnnualCost > 0
+    ? (hoursSavedPerMonth * 12) / ANNUAL_WORK_HOURS
+    : 0;
+  const kompwatchAnnualCost = recommendedPlan.monthlyPrice * 12;
+  const annualLaborSavings = dollarsSavedPerYear - kompwatchAnnualCost;
+
   return {
     manualHoursPerMonth,
     manualCostPerMonth,
@@ -83,6 +97,10 @@ export function calculateRoi(input: CalculatorInput): CalculatorResult {
     netMonthlySavings,
     roiMultiple,
     paybackDays,
+    analystAnnualCost,
+    fteEquivalent,
+    kompwatchAnnualCost,
+    annualLaborSavings,
   };
 }
 
