@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     "Klue competitor",
     "Klue pricing",
     "Klue Microsoft 365 lock-in",
+    "Klue Gartner Magic Quadrant",
+    "Gartner competitive intelligence",
     "competitive intelligence software",
     "competitor monitoring tool",
     "Klue competitive intelligence alternative",
@@ -298,6 +300,102 @@ export default function VsKluePage() {
         </div>
       </section>
 
+      {/* Gartner Magic Quadrant enterprise trap */}
+      <section className="border-b border-gray-100 bg-white py-20">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-purple-200 bg-purple-50 px-3 py-1 text-xs font-medium text-purple-700">
+              Gartner Magic Quadrant
+            </div>
+            <h2 className="mt-4 text-2xl font-bold tracking-tight text-gray-900">
+              Klue is a Gartner MQ Leader &mdash; and that&rsquo;s the problem
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-sm text-gray-600">
+              Gartner evaluates platforms on criteria that matter for Fortune 500 procurement: SOC 2,
+              SLA commitments, dedicated CSM coverage, native Salesforce integration, and willingness
+              to sign multi-year contracts. If that&rsquo;s not your buying process, the
+              recognition doesn&rsquo;t help you &mdash; but you&rsquo;re still paying for it.
+            </p>
+          </div>
+
+          <div className="mt-10 overflow-x-auto">
+            <table className="w-full text-left text-sm">
+              <thead>
+                <tr className="border-b border-gray-200">
+                  <th className="py-3 pr-4 font-medium text-gray-500">What you expected</th>
+                  <th className="px-4 py-3 font-medium text-gray-500">What you got</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                <tr>
+                  <td className="py-3 pr-4 text-gray-700">A tool your team uses daily</td>
+                  <td className="px-4 py-3 text-gray-600">A platform that required a 3-month onboarding</td>
+                </tr>
+                <tr>
+                  <td className="py-3 pr-4 text-gray-700">Automated alerts when competitors change</td>
+                  <td className="px-4 py-3 text-gray-600">A corpus that needs a CI analyst to curate</td>
+                </tr>
+                <tr>
+                  <td className="py-3 pr-4 text-gray-700">Quick competitive context before a call</td>
+                  <td className="px-4 py-3 text-gray-600">A battlecard CMS that needs to be populated first</td>
+                </tr>
+                <tr>
+                  <td className="py-3 pr-4 text-gray-700">Monthly billing, cancel anytime</td>
+                  <td className="px-4 py-3 text-gray-600">An annual contract with a minimum spend</td>
+                </tr>
+                <tr>
+                  <td className="py-3 pr-4 text-gray-700">Working in a week</td>
+                  <td className="px-4 py-3 text-gray-600">8&ndash;15 weeks to &ldquo;full deployment&rdquo;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-10 rounded-2xl border border-purple-100 bg-purple-50/50 p-6 sm:p-8">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
+              <div className="flex-1">
+                <h3 className="text-base font-semibold text-gray-900">
+                  The enterprise trap in one number
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                  Klue&rsquo;s Gartner MQ recognition validates a platform designed for companies
+                  with dedicated CI analysts, 50+ rep sales orgs, and enterprise procurement
+                  budgets. Their own positioning confirms it &mdash; the &ldquo;Compete
+                  Agent&rdquo; AI layer delivers in-call intel, but only if a human curator has
+                  built and maintained the underlying corpus.
+                </p>
+                <p className="mt-2 text-sm text-gray-600">
+                  If you don&rsquo;t have that person, the Gartner badge is a{" "}
+                  <strong className="text-gray-900">tax on credibility you didn&rsquo;t need</strong>.
+                </p>
+              </div>
+              <div className="flex shrink-0 flex-col items-center rounded-xl border border-purple-200 bg-white px-6 py-4">
+                <div className="text-3xl font-bold text-purple-700">34&times;</div>
+                <div className="mt-1 text-xs text-gray-500 text-center">
+                  price premium for<br />Gartner credibility
+                </div>
+              </div>
+            </div>
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              <TrackedCTA
+                href="/login"
+                event="Gartner Trap CTA Click"
+                eventProps={{ competitor: "Klue", section: "gartner-mq" }}
+                className="inline-block rounded-lg bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
+              >
+                Skip the enterprise trap &mdash; start free
+              </TrackedCTA>
+              <Link
+                href="/docs/faq/gartner-magic-quadrant-ci-platforms"
+                className="text-sm font-semibold text-gray-900 hover:text-brand-600"
+              >
+                Read the full Gartner MQ breakdown &rarr;
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Comparison Table */}
       <section id="comparison" className="py-20">
         <div className="mx-auto max-w-5xl px-6">
@@ -421,6 +519,10 @@ export default function VsKluePage() {
           {
             question: "Does Klue require Microsoft 365?",
             answer: "Not technically, but Klue's February 2026 update added deep Microsoft 365 integration — Teams Calls, Teams Chat, Dynamics 365, and a Copilot MCP Server. The product is increasingly designed around Microsoft's enterprise stack. If your team uses Google Workspace or Slack-first workflows, you may not benefit from Klue's latest features. KompWatch is platform-agnostic — email digests and webhook/Slack alerts work regardless of your productivity suite.",
+          },
+          {
+            question: "Klue is a Gartner Magic Quadrant Leader — does that matter?",
+            answer: "Gartner evaluates CI platforms on criteria designed for Fortune 500 procurement teams: SOC 2 compliance, SLA commitments, dedicated CSM coverage, native Salesforce and Microsoft 365 integrations, and willingness to sign multi-year contracts. If your team is under 150 people and you just want automated competitor alerts, the Gartner recognition validates a platform built for someone else — but you're still paying the enterprise price ($20K–$40K/yr). KompWatch starts at $49/mo with the same core monitoring, no analyst required.",
           },
           {
             question: "Why is Klue so expensive?",
