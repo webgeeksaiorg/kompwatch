@@ -1,6 +1,6 @@
 # How Does the ROI Calculator on the Pricing Page Work?
 
-The interactive ROI calculator on [kompwatch.com/pricing](https://kompwatch.com/pricing#roi-calculator) estimates how much time and money KompWatch saves your team compared to manual competitor monitoring. Here's what each input means, how the math works, and why the numbers are conservative.
+The interactive ROI calculator on [kompwatch.com/pricing](https://kompwatch.com/pricing#roi-calculator) estimates how much analyst time and money KompWatch replaces compared to doing competitor monitoring manually. It shows both a **monthly savings view** and an **analyst labor comparison** — here's what each input and output means.
 
 ## The Three Inputs
 
@@ -52,6 +52,37 @@ The recommendation does **not** factor in hourly rate or hours per week — thos
 For teams with a dedicated competitive intelligence role ($75–100/hr loaded, 5–8 hrs/week), the annual savings figure can reach $10K–$30K. That's accurate: KompWatch replaces a meaningful portion of skilled analyst time that was previously spent on manual webpage checking.
 
 If the number feels high, the most common cause is an overestimated hours/week input. Many teams initially think they spend 5–8 hours/week on competitor research, then realize upon reflection it's closer to 2–3 hrs/week. Adjust the slider down to see a more conservative estimate.
+
+## The Analyst Labor vs. KompWatch Panel
+
+The calculator also shows an **Analyst labor vs. KompWatch** breakdown that reframes savings in FTE terms — useful when you're justifying the purchase to a finance team or a manager who thinks in headcount, not hours.
+
+### CI analyst cost
+
+`hourlyRate × 2,080 hrs/yr`
+
+2,080 is the standard annual work-hours figure (40 hrs/wk × 52 wks). This represents what a full-time competitive intelligence analyst or PMM would cost your organization at the entered loaded hourly rate. At the default $75/hr, that's **$156,000/yr** for one full FTE.
+
+### FTE replaced by KompWatch
+
+`(hours saved per month × 12) ÷ 2,080`
+
+This is the fraction of a full-time analyst that KompWatch automates. For example:
+
+- 3 hrs/week monitored manually → ~13 hrs/month → 80% automated → ~10.4 hrs/month saved → ~125 hrs/year → **~0.06 FTE** replaced
+- 8 hrs/week → ~35 hrs/month → ~28 hrs/month saved → ~333 hrs/year → **~0.16 FTE** replaced
+
+Most small SaaS teams (3–8 hrs/week) see 0.05–0.20 FTE replaced. Enterprise teams with dedicated CI roles tracking 15–25 competitors may see 0.30–0.50 FTE.
+
+### Net labor savings
+
+`(analystAnnualCost × fteEquivalent) − KompWatch annual cost`
+
+This is what stays in your budget. The formula compares the dollar value of analyst time reclaimed versus what KompWatch costs per year. A team saving 0.10 FTE at $156K/yr saves ~$15,600 in analyst labor — minus $588/yr for Pro — for a **net savings of ~$15,000/yr**.
+
+## What Does "FTE Equivalent" Mean Practically?
+
+It doesn't mean KompWatch replaces a person. It means the hours KompWatch automates add up to a meaningful fraction of a full-time role. For most teams, that's 3–15 hours/month of time reclaimed from manual webpage-checking — time that goes back to analysis, strategy, and actual decisions. For teams with a dedicated CI analyst, the FTE framing helps quantify how much higher-value work that person can take on.
 
 ## Can I Share These Numbers With My Manager?
 
