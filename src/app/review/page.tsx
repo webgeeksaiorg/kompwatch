@@ -204,7 +204,50 @@ export default function ReviewPage() {
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* FAQ with JSON-LD FAQPage schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "Does it have to be positive?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "No. We want honest reviews. If something isn\u2019t working for you, say so \u2014 it helps us prioritize fixes and helps other buyers set realistic expectations.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Do I need a G2 account?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yes, but creating one is free. Use your work email for faster verification.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "How do I get the Founding User badge?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Once your G2 review is published, email us at support@kompwatch.com with a link to your review. We\u2019ll add the badge within 24 hours.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Is there a deadline?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "The Founding User badge is limited to the first 100 reviewers. No fixed deadline, but once all 100 spots are claimed, the program closes.",
+                },
+              },
+            ],
+          }),
+        }}
+      />
       <section className="border-t border-gray-100 bg-gray-50 py-16">
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="text-center text-2xl font-bold tracking-tight text-gray-900">
