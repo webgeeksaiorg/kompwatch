@@ -844,3 +844,38 @@ For reddit-comment publishing once credentials are available:
 - Reddit: comment-14month-roi-math.md (r/SaaS, overflow to Tue)
 
 **Publishing status (Monday May 25, cycle 5):** All 3 new pieces READY. All platforms still blocked — credentials missing. Queue now 108+ pieces READY across 27 cycles.
+
+---
+
+## Keyword Research — 2026-05-31 (Sunday cycle, run 28 — REST day)
+
+**Fresh data from WebSearch (May 2026):**
+- **Klue named Gartner MQ Leader (May 26, 2026)** — first-ever Gartner Magic Quadrant for Competitive and Market Intelligence Platforms. Klue and Crayon both Leaders. Key fact: Klue requires $16K–$30K/yr minimum, no free trial, no published pricing. MQ methodology explicitly weights enterprise integration, dedicated analyst workflows, CRM-native delivery — not built for sub-100-person teams. Strong content angle: Gartner validated what we already knew.
+- **Seeto confirmed at $79/mo** — on-demand competitor analysis (you run it), not continuous monitoring. Free tier: 2 analyses/month. Different buyer than KompWatch. "Monitoring vs analysis" distinction not yet covered in prior content.
+- **Caelian: contact-for-quote, C-suite daily briefs** — predictive CI (hiring velocity, regulatory filings), no self-serve, enterprise-only. Validates KompWatch's self-serve positioning.
+- **Visualping pricing pain confirmed** — "$140/month for Slack integration" (G2 complaint). Free tier caps at 5 pages. Fails silently on React/Next.js. "You outgrew Visualping, can't afford Crayon" framing now fully validated.
+- **changedetection.io vs Crayon gap** — G2 "best alternative to changedetection.io" surfaces Crayon as #1 result. Buyers searching for simple monitoring get upsold to $25K enterprise tools. No middle option in results. KompWatch is that middle.
+- **Tech layoffs 142K YTD (May 29, 2026)** — ~50% attributed to AI. CI analyst = first role automated away. Irony: enterprise CI tools require analyst to extract value. Cut the analyst, the $30K tool dies too.
+- **Pricing cheat sheet confirmed:** KompWatch $49/mo, Seeto $79/mo, Visualping Business ~$140/mo Slack tier, Caelian quote-only, Klue $16K–$30K+/yr, Crayon $20K–$100K+/yr.
+
+**Sunday REST day: 1 tweet quota already used (2026-05-31-crayon-new-problem.md, queued prior cycle). No new publishing today.**
+
+**Content produced this cycle (Tuesday Jun 2 pre-stage):**
+- `twitter/2026-06-02-klue-gartner-mq-leader.md` — Gartner MQ reaction, Klue/Crayon enterprise pricing (8/10, READY)
+- `twitter/2026-06-02-visualping-middle-ground.md` — free tier cap / Crayon price canyon, KompWatch as the middle (8/10, READY)
+- `twitter/2026-06-02-seeto-vs-kompwatch.md` — monitoring vs on-demand analysis distinction, honest comparison (8/10, READY)
+- `twitter/2026-06-02-reply-gartner-enterprise-filter.md` — MQ methodology explanation, enterprise procurement framing (8/10, READY)
+- `twitter/2026-06-02-reply-visualping-slack-pricing.md` — $140/mo Slack tier complaint, 20% of teams framing (8/10, READY)
+- `twitter/2026-06-02-reply-changedetection-summary-gap.md` — summarization layer, 3 weeks to build (8.5/10, READY)
+- `twitter/2026-06-02-reply-ci-analyst-layoff-trap.md` — 142K layoffs, enterprise CI analyst trap (8/10, READY)
+- `twitter/2026-06-02-reply-monitoring-vs-analysis.md` — tool category distinction, helpful framing (8.5/10, READY)
+- `reddit/2026-06-02-comment-gartner-mq-enterprise-reality.md` — r/SaaS, MQ context + DIY stack reality (8/10, READY)
+- `reddit/2026-06-02-post-gartner-ci-mq-smb-reality.md` — r/ProductManagement, honest MQ breakdown + tool stack (9/10, READY)
+- `blog/2026-06-02-gartner-ci-magic-quadrant-small-teams.md` — "What Gartner's New CI MQ Means If You're Not Enterprise", ~1200 words, FAQ section, targets "Gartner Magic Quadrant competitive intelligence" + "Klue alternative small teams" (8.5/10, READY)
+
+**Tuesday Jun 2 publish slate:**
+- Twitter: klue-gartner-mq-leader.md + visualping-middle-ground.md + seeto-vs-kompwatch.md (3 tweets) + 5 replies (gartner-enterprise-filter, visualping-slack-pricing, changedetection-summary-gap, ci-analyst-layoff-trap, monitoring-vs-analysis)
+- Reddit: comment-gartner-mq-enterprise-reality.md (r/SaaS) + post-gartner-ci-mq-smb-reality.md (r/ProductManagement)
+- Blog: gartner-ci-magic-quadrant-small-teams.md
+
+**Publishing status (Sunday May 31, cycle 28):** All 11 new pieces READY. All platforms still blocked — TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET missing. Queue now 119+ pieces READY across 28 cycles. Also: social-publisher.py requires Python 3.10+ (`str | None` union type syntax). Credentials + Python version needed in deploy env.
