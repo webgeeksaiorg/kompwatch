@@ -12,6 +12,7 @@ import {
   sendInstantPricingAlert,
   shouldSendInstantPricingAlert,
 } from "@/lib/pricing-alert";
+import { sendFirstChangeEmail } from "@/lib/first-change-email";
 import { trackServerEvent } from "@/lib/plausible";
 
 export interface CaptureSnapshotResult {
@@ -116,6 +117,11 @@ export async function captureSnapshot(
         const meaningful = scored.filter((c) => c.signalScore >= SIGNAL_THRESHOLDS.PERSIST);
 
         if (meaningful.length > 0) {
+          // Check if this competitor has ever had changes before
+          const prevChangeCount = await db.change.count({
+            where: { competitorId: competitor.id },
+          });
+
           await db.change.createMany({
             data: meaningful.map((c) => ({
               competitorId: competitor.id,
@@ -129,6 +135,34 @@ export async function captureSnapshot(
               pageUrl: c.pageUrl || null,
             })),
           });
+
+          // ── First-change trigger email (all plans, one-time) ──────────
+          // Send a celebratory email when a competitor's very first
+          // meaningful changes are detected, so the user knows monitoring
+          // is working.
+          if (prevChangeCount === 0) {
+            const owner = competitor.user;
+            try {
+              await sendFirstChangeEmail(
+                { email: owner.email, name: owner.name },
+                { name: competitor.name, url: competitor.url },
+                meaningful.map((c) => ({
+                  changeType: c.changeType,
+                  severity: c.severity,
+                  summary: c.summary,
+                  details: c.details,
+                })),
+              );
+              trackServerEvent("first-change-email-sent", "/dashboard", {
+                plan: owner.plan,
+                competitorId: competitor.id,
+              });
+            } catch (err) {
+              console.error(
+                `[snapshot] first-change email failed for competitor=${competitor.id}: ${err instanceof Error ? err.message : String(err)}`,
+              );
+            }
+          }
         }
         changesDetected = meaningful.length;
 
