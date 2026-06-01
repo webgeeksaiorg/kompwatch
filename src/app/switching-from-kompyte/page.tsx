@@ -3,6 +3,8 @@ import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
 import { ComparisonFAQ } from "@/components/comparison-faq";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
+import { SoftwareApplicationSchema } from "@/components/software-schema";
+import { CompetitorUrlCapture } from "@/components/competitor-url-capture";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -50,7 +52,7 @@ const howToJsonLd = {
 export const metadata: Metadata = {
   title: "Switching from Kompyte to KompWatch — Migration Guide",
   description:
-    "Moving from Kompyte? KompWatch is the fastest alternative — self-serve signup, AI digests, and competitor monitoring from $49/mo. Set up in under 10 minutes.",
+    "Moving from Kompyte? Adobe acquired Semrush in 2026 — Kompyte is now three layers deep. KompWatch is the independent alternative — self-serve signup, AI digests, and competitor monitoring from $49/mo. Set up in under 10 minutes.",
   keywords: [
     "switching from Kompyte",
     "Kompyte alternative",
@@ -60,6 +62,8 @@ export const metadata: Metadata = {
     "Kompyte to KompWatch",
     "Semrush Kompyte alternative",
     "Kompyte by Semrush alternative",
+    "Adobe Semrush Kompyte alternative",
+    "Kompyte after Adobe acquisition",
     "competitive intelligence migration",
   ],
   alternates: {
@@ -117,6 +121,7 @@ export default function SwitchingFromKompytePage() {
   return (
     <div className="bg-white">
       <BreadcrumbSchema items={[{ name: "Switching from Kompyte", path: "/switching-from-kompyte" }]} />
+      <SoftwareApplicationSchema />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
@@ -146,20 +151,27 @@ export default function SwitchingFromKompytePage() {
 
       {/* Hero */}
       <section className="mx-auto max-w-4xl px-6 pb-16 pt-20 text-center">
-        <div className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700">
-          Migration guide
+        <div className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-medium text-amber-800">
+          Adobe acquired Semrush — Kompyte is now three layers deep
         </div>
         <h1 className="mt-6 text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl">
           Switching from Kompyte?{" "}
           <span className="text-brand-600">Set up KompWatch in 10 minutes.</span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
-          Kompyte has been a Semrush product since 2022 — competitive intelligence inside a broader
-          SEO and marketing suite, with sales-led pricing. If you&rsquo;re re-evaluating your CI
-          stack, KompWatch gives you the same competitor monitoring with AI digests, at{" "}
+          Adobe acquired Semrush in April 2026 for $9B. Kompyte — already a product-within-a-product
+          since 2022 — is now another layer deeper inside an enterprise suite. If you&rsquo;re
+          re-evaluating your CI stack, KompWatch gives you the same competitor monitoring with AI
+          digests, at{" "}
           <strong className="text-gray-900">~13&times; lower cost</strong>, with zero onboarding friction.
         </p>
-        <div className="mt-10 flex items-center justify-center gap-4">
+        <div className="mt-8 mx-auto max-w-md">
+          <CompetitorUrlCapture
+            competitor="Kompyte"
+            placeholder="Enter a competitor URL to start monitoring"
+          />
+        </div>
+        <div className="mt-6 flex items-center justify-center gap-4">
           <TrackedCTA
             href="/login"
             event="Switching Page Hero CTA Click"
@@ -217,7 +229,7 @@ export default function SwitchingFromKompytePage() {
               </div>
               <h3 className="mt-4 text-base font-semibold text-gray-900">Independent focus</h3>
               <p className="mt-2 text-sm leading-relaxed text-gray-600">
-                Kompyte has been a Semrush product since 2022 — CI as one feature inside a larger SEO suite. KompWatch is independent, founder-led, and focused solely on competitor monitoring.
+                Kompyte was acquired by Semrush in 2022, then Adobe acquired Semrush in 2026. CI is now one feature, three layers deep inside an enterprise suite. KompWatch is independent, founder-led, and focused solely on competitor monitoring.
               </p>
             </div>
           </div>
@@ -375,7 +387,7 @@ export default function SwitchingFromKompytePage() {
           {
             question: "Who owns Kompyte now?",
             answer:
-              "Semrush acquired Kompyte in 2022 and markets it as 'Kompyte by Semrush.' That means CI sits inside a broader SEO and marketing suite where it's one feature among many — not the company's core focus. Niche tools inside larger suites often see slower roadmaps and enterprise-tier pricing. KompWatch is independent and focused only on competitor monitoring.",
+              "Semrush acquired Kompyte in 2022, and Adobe acquired Semrush in April 2026 for approximately $9 billion. Kompyte is now a product within Semrush within Adobe — three layers deep. Niche tools inside larger suites often see slower roadmaps, price increases, and enterprise-only motions. KompWatch is independent, bootstrapped, and focused only on competitor monitoring.",
           },
           {
             question: "Does KompWatch have battlecards like Kompyte?",

@@ -14,6 +14,27 @@ Tracks where KompWatch has been submitted for listing/discovery.
 | — | awesome-saas-tools | pending | — |
 | — | awesome-competitive-intelligence | pending | GitHub repo: github.com/aj-dev-sys/awesome-competitive-intelligence — add KompWatch as headless-browser-based option |
 
+## Marketer Cycle — 2026-05-17 (Sunday, run 18 — REST day)
+
+**Calendar: REST day — 1 tweet max.**
+
+**Publishing attempt:**
+- `twitter/2026-05-17-weekend-blind-spot.md` (8.5/10) — publish attempted; BLOCKED: social-publisher.py requires Python 3.10+ (`str | None` union syntax), system has Python 3.9.6. Status updated to `queued-publish-failed-publisher-python39-incompatible`. All other platforms rest today.
+
+**New content written this cycle:**
+- `linkedin/2026-05-19-mcp-server-competitor-feed.md` — Monday May 19 LinkedIn. MCP server launch angle: 4 tools, competitor context in AI workflow, Crayon $50K vs KompWatch $49/mo protocols identical. Self-check: 8.5/10, READY.
+- `blog/2026-05-20-competitor-monitoring-alert-fatigue.md` — Tuesday May 20 blog article. 1,100 words. Alert fatigue root cause + severity scoring (0-100) + zone classification + FAQ. Self-check: 8/10, READY.
+
+**Keyword research:** Western search providers returning no results this cycle (likely rate-limited or geo-blocked). Using prior research context.
+
+**Blockers (unchanged):**
+- TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET — all missing from Vaultwarden KompWatch folder.
+- social-publisher.py requires Python 3.10+ but system has Python 3.9.6.
+
+**Queue status:** 100+ pieces staged across Twitter, Reddit, LinkedIn, Blog. Monday May 19 slate: Twitter (confidence-filter-shipped.md + free-snapshot-shipped.md) + 5+ replies + Reddit (3 posts) + LinkedIn (mcp-server-competitor-feed.md ← NEW). Tuesday May 20: Blog (competitor-monitoring-alert-fatigue.md ← NEW) ready.
+
+---
+
 ## Keyword Research — 2026-05-26 (Tuesday cycle, run 9 — evening)
 
 **Fresh data from WebSearch (May 2026):**
@@ -844,6 +865,38 @@ For reddit-comment publishing once credentials are available:
 - Reddit: comment-14month-roi-math.md (r/SaaS, overflow to Tue)
 
 **Publishing status (Monday May 25, cycle 5):** All 3 new pieces READY. All platforms still blocked — credentials missing. Queue now 108+ pieces READY across 27 cycles.
+
+## Marketer Cycle — 2026-05-29 (Friday, run 19)
+
+**Calendar: Friday — 2 tweets + 5 replies, 2 Reddit comments + 1 Reddit post, 1 LinkedIn post.**
+
+**Keyword research:** Crayon MCP server launch confirmed live (crayon.co blog). Klue Gartner MQ Leader confirmed from prior Strategist intel. Western search geo-limited this cycle; using confirmed prior intel.
+
+**New content written this cycle (11 pieces):**
+- `twitter/2026-05-29-crayon-mcp-reality-check.md` — Crayon MCP ~$50K vs KompWatch MCP $149/mo, protocol identical (8.5/10, READY)
+- `twitter/2026-05-29-klue-gartner-mq-context.md` — Klue Gartner MQ Leader framing, positioning context (8/10, READY)
+- `twitter/2026-05-29-reply-crayon-mcp-not-exclusive.md` — MCP concept valid, cost is the issue (8/10, READY)
+- `twitter/2026-05-29-reply-ci-process-small-team.md` — 4-step CI process for 5-person teams (8/10, READY)
+- `twitter/2026-05-29-reply-pricing-page-change-rate.md` — pricing pages change every 2-3 days, quarterly reviews miss ~60 (8.5/10, READY)
+- `twitter/2026-05-29-reply-what-tool-competitive-monitoring.md` — honest tool tier breakdown, Klue/Crayon vs KompWatch use cases (7.5/10, READY)
+- `twitter/2026-05-29-reply-friday-week-recap.md` — week recap, 0 ARR, build-in-public vulnerability (7.5/10, READY)
+- `reddit/2026-05-29-comment-crayon-mcp-pricing-signal.md` — r/SaaS, Crayon MCP pricing signal analysis (8/10, READY)
+- `reddit/2026-05-29-comment-ci-review-cadence-shift.md` — r/ProductManagement, monthly→alert-based CI process shift (8/10, READY)
+- `reddit/2026-05-29-post-week3-building-in-public.md` — r/SaaS, week 3 building in public post (8.5/10, READY)
+- `linkedin/2026-05-29-ci-market-enterprise-consolidation.md` — Crayon MCP + Klue Gartner MQ market consolidation framing (8.5/10, READY)
+
+**Publishing attempt:** All 11 pieces — BLOCKED: social-publisher.py requires Python 3.10+ (`str | None` union syntax), system has Python 3.9.6. All statuses updated to `queued-publish-failed-publisher-python39-incompatible`.
+
+**Key angles this cycle:**
+- Crayon MCP server confirmed live — reactive content, hot window for engagement
+- Klue Gartner MQ Leader — enterprise CI consolidation = cleaner gap for KompWatch positioning
+- Friday week recap / building in public — vulnerability + honesty angle
+
+**Blockers (unchanged):**
+- TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET — all missing from Vaultwarden KompWatch folder.
+- social-publisher.py requires Python 3.10+ but system has Python 3.9.6.
+
+**Queue status:** 120+ pieces staged across Twitter, Reddit, LinkedIn, Blog. All READY pending cred/publisher unblock.
 
 ---
 
