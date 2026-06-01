@@ -84,8 +84,35 @@ export async function GET(req: NextRequest) {
   // Create session and set cookie
   await createSession(user.id);
 
-  const dashboardUrl = new URL("/dashboard", req.url);
+  // Check for upgrade intent — redirect to pricing with auto-checkout instead of dashboard
+  const intent = req.nextUrl.searchParams.get("intent");
+  const upgradePlan = req.nextUrl.searchParams.get("plan");
+  const upgradePeriod = req.nextUrl.searchParams.get("period");
+
   const source = req.nextUrl.searchParams.get("utm_source") || "";
+
+  if (intent === "upgrade" && upgradePlan) {
+    const pricingUrl = new URL("/pricing", req.url);
+    pricingUrl.searchParams.set("auto_checkout", upgradePlan);
+    if (upgradePeriod) pricingUrl.searchParams.set("period", upgradePeriod);
+
+    const verifiedProps: Record<string, string> = {
+      is_new: isNewUser ? "true" : "false",
+      intent: "upgrade",
+    };
+    if (source) verifiedProps.source = source;
+    trackEvent("magic-link-verified", "/pricing", verifiedProps);
+
+    if (isNewUser) {
+      const props: Record<string, string> = { plan: "FREE" };
+      if (source) props.source = source;
+      trackEvent("signup", "/pricing", props);
+    }
+
+    return NextResponse.redirect(pricingUrl);
+  }
+
+  const dashboardUrl = new URL("/dashboard", req.url);
 
   // Funnel: magic-link-verified — fires for every successful magic-link click
   // (both new signups and returning logins). Lets us measure email

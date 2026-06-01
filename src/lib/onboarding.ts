@@ -110,7 +110,7 @@ export function buildWelcomeEmail(
       </div>
       <p style="color:#666;font-size:13px;">
         Free plan includes 2 competitors with weekly digests.
-        <a href="${BASE_URL}/settings" style="color:#2563eb;">Upgrade anytime</a> for more.
+        <a href="${BASE_URL}/pricing" style="color:#2563eb;">Upgrade anytime</a> for more.
       </p>
     `),
     text: `${greeting}, welcome to KompWatch!
@@ -124,7 +124,7 @@ Get started in 60 seconds:
 
 Add your first competitor: ${BASE_URL}/competitors
 
-Free plan includes 2 competitors with weekly digests. Upgrade anytime at ${BASE_URL}/settings.
+Free plan includes 2 competitors with weekly digests. Upgrade anytime at ${BASE_URL}/pricing.
 `,
   };
 }
@@ -219,7 +219,7 @@ export function buildTrialReminderEmail(
         <li><strong>Tech stack tracking</strong> &mdash; see what tools they're adopting</li>
       </ul>
       <div style="text-align:center;margin:24px 0;">
-        ${ctaButton("Upgrade to Pro", `${BASE_URL}/settings`)}
+        ${ctaButton("Upgrade to Pro", `${BASE_URL}/pricing`)}
       </div>
       <p style="color:#666;font-size:13px;">
         No pressure &mdash; the free plan is yours forever.
@@ -236,7 +236,7 @@ When you're ready to level up, Pro ($49/mo) gives you:
 - 6-hour snapshots — catch changes 4x faster
 - Tech stack tracking — see what tools they're adopting
 
-Upgrade to Pro: ${BASE_URL}/settings
+Upgrade to Pro: ${BASE_URL}/pricing
 
 No pressure — the free plan is yours forever. Upgrade only when it makes sense for your team.
 `,
