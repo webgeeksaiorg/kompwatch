@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 declare global {
@@ -16,6 +16,18 @@ export function LoginForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "sent" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const searchParams = useSearchParams();
+
+  // Funnel: login-form-view — denominator for magic-link-requested conversion.
+  // Fires once per mount so we can measure form-view → request → verified.
+  useEffect(() => {
+    const props: Record<string, string> = {};
+    for (const key of UTM_KEYS) {
+      const val = searchParams.get(key);
+      if (val) props[key] = val;
+    }
+    window.plausible?.("login-form-view", Object.keys(props).length > 0 ? { props } : undefined);
+    // Intentionally empty deps — view event fires once per page load only.
+  }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -41,10 +53,18 @@ export function LoginForm() {
       }
 
       setStatus("sent");
-      window.plausible?.("magic-link-requested");
+      // Carry UTM source on the client event so Plausible breakdowns can
+      // attribute magic-link requests to acquisition channel.
+      const eventProps: Record<string, string> = {};
+      if (utm.utm_source) eventProps.source = utm.utm_source;
+      window.plausible?.(
+        "magic-link-requested",
+        Object.keys(eventProps).length > 0 ? { props: eventProps } : undefined,
+      );
     } catch (err) {
       setErrorMsg(err instanceof Error ? err.message : "Something went wrong");
       setStatus("error");
+      window.plausible?.("magic-link-error");
     }
   }
 
