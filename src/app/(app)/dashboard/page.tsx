@@ -100,7 +100,7 @@ export default async function DashboardPage({
   const heatmapSince = new Date();
   heatmapSince.setDate(heatmapSince.getDate() - 26 * 7);
 
-  const [competitors, recentChanges, totalChanges, dailyCounts] = await Promise.all([
+  const [competitors, recentChanges, totalChanges, dailyCounts, digestCount] = await Promise.all([
     db.competitor.findMany({
       where: { userId: user.id },
       include: {
@@ -138,6 +138,9 @@ export default async function DashboardPage({
         createdAt: { gte: heatmapSince },
       },
       select: { createdAt: true },
+    }),
+    db.digest.count({
+      where: { userId: user.id },
     }),
   ]);
 
@@ -177,9 +180,11 @@ export default async function DashboardPage({
       {/* Onboarding checklist — shown when user has some progress but not complete */}
       {competitors.length > 0 && (
         <OnboardingChecklist
-          hasCompetitor={competitors.length > 0}
+          competitorCount={competitors.length}
           hasCustomSeverity={user.digestMinSeverity !== "LOW"}
           hasWebhook={!!user.webhookUrl}
+          hasDigest={digestCount > 0}
+          userPlan={user.plan}
         />
       )}
 
