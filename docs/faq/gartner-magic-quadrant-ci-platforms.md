@@ -1,10 +1,10 @@
 # Should I Buy a Gartner Magic Quadrant CI Platform?
 
-Klue has been named in Gartner's competitive intelligence research. If your procurement team is asking for a "Gartner-recognized" tool, here is what that designation actually means — and when it matters for your specific situation.
+Klue was named a **Magic Quadrant Leader** in Gartner's May 2026 competitive intelligence report. If your procurement team is citing this — or asking for a "Gartner-recognized" tool — here is what that designation actually means, and when it matters for your specific situation.
 
-## What Does Gartner Magic Quadrant Recognition Mean?
+## What Does "Magic Quadrant Leader" Mean?
 
-Being named in a Gartner Magic Quadrant signals that a vendor:
+Being named a Leader in a Gartner Magic Quadrant signals that a vendor:
 
 - Meets a minimum revenue and customer-count threshold to qualify for analyst coverage
 - Has passed Gartner's reference check and documentation review
@@ -53,7 +53,7 @@ For that workflow, a Gartner-recognized enterprise platform is over-engineered. 
 
 ## What KompWatch Offers Instead
 
-KompWatch is not (yet) in a Gartner Magic Quadrant. It is a self-serve SaaS tool used by startup and growth-stage teams who want automated competitor monitoring without analyst overhead.
+KompWatch is not in a Gartner Magic Quadrant — by design. It is a self-serve SaaS tool built for startup and growth-stage teams who want automated competitor monitoring without analyst overhead. Qualifying for Gartner coverage requires revenue scale and enterprise go-to-market infrastructure that would push pricing into the $20K–$50K/yr range. We chose not to do that.
 
 | | KompWatch | Klue (MQ) |
 |---|---|---|

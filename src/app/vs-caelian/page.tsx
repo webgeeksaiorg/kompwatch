@@ -3,6 +3,8 @@ import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
 import { ComparisonFAQ } from "@/components/comparison-faq";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
+import { SoftwareApplicationSchema } from "@/components/software-schema";
+import { CompetitorUrlCapture } from "@/components/competitor-url-capture";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -92,6 +94,7 @@ export default function VsCaelianPage() {
   return (
     <div className="bg-white">
       <BreadcrumbSchema items={[{ name: "KompWatch vs Caelian", path: "/vs-caelian" }]} />
+      <SoftwareApplicationSchema />
       {/* Nav */}
       <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-sm">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
@@ -146,8 +149,9 @@ export default function VsCaelianPage() {
             See full comparison &rarr;
           </Link>
         </div>
-        <p className="mt-4 text-xs text-gray-400">
-          No credit card. No analyst onboarding. Free plan forever.
+        <CompetitorUrlCapture competitor="Caelian" placeholder="https://caelian.io or any competitor URL" />
+        <p className="mt-3 text-xs text-gray-400">
+          Paste a competitor URL to start monitoring. No credit card. No analyst onboarding.
         </p>
       </section>
 
