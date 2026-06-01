@@ -2,7 +2,7 @@
 platform: reddit
 type: reply
 target: r/startups or r/SaaS thread about competitive intelligence tools or tracking competitors
-status: draft
+status: queued
 publish_date: 2026-06-01
 keywords: [competitive intelligence for startups, Crayon alternative SMB, competitor monitoring small team]
 ---

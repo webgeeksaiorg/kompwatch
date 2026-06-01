@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: threads about startup processes, competitor research, or founder workflows
-status: draft
+status: queued
 publish_date: 2026-06-01
 keywords: [competitor tracking process, manual competitor monitoring, startup competitive research]
 ---

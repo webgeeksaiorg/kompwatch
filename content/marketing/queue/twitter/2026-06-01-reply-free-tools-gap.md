@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: threads asking about free competitor monitoring or website change detection tools
-status: draft
+status: queued
 publish_date: 2026-06-01
 keywords: [free competitor monitoring, competitor tracking tools, website change detection]
 ---

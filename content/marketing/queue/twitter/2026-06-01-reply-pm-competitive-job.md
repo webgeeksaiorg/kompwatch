@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: threads about product management, competitive research, or PM workflows
-status: draft
+status: queued
 publish_date: 2026-06-01
 keywords: [product manager competitive research, competitor tracking for PMs, competitive intelligence workflow]
 ---
