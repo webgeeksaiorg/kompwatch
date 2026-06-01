@@ -3,6 +3,7 @@ import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
 import { ComparisonFAQ } from "@/components/comparison-faq";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
+import { SoftwareApplicationSchema } from "@/components/software-schema";
 import { CompetitorUrlCapture } from "@/components/competitor-url-capture";
 
 const siteUrl = "https://kompwatch.com";
@@ -183,6 +184,7 @@ export default function ForSemrushUsersPage() {
       <BreadcrumbSchema
         items={[{ name: "KompWatch for Semrush/Kompyte Users", path: "/for-semrush-users" }]}
       />
+      <SoftwareApplicationSchema />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
