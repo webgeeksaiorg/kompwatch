@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 declare global {
@@ -10,12 +10,29 @@ declare global {
 }
 
 const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign"] as const;
+const CHECKOUT_KEYS = ["intent", "plan", "period"] as const;
 
 export function LoginForm() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "sent" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const searchParams = useSearchParams();
+
+  const upgradeIntent = searchParams.get("intent") === "upgrade";
+  const upgradePlan = searchParams.get("plan");
+
+  // Funnel: login-form-view — denominator for magic-link-requested conversion.
+  // Fires once per mount so we can measure form-view → request → verified.
+  useEffect(() => {
+    const props: Record<string, string> = {};
+    for (const key of UTM_KEYS) {
+      const val = searchParams.get(key);
+      if (val) props[key] = val;
+    }
+    if (upgradeIntent) props.intent = "upgrade";
+    window.plausible?.("login-form-view", Object.keys(props).length > 0 ? { props } : undefined);
+    // Intentionally empty deps — view event fires once per page load only.
+  }, []); // eslint-disable-next-line
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -29,10 +46,17 @@ export function LoginForm() {
         if (val) utm[key] = val;
       }
 
+      // Forward checkout intent so the magic link can redirect to checkout after auth
+      const checkout: Record<string, string> = {};
+      for (const key of CHECKOUT_KEYS) {
+        const val = searchParams.get(key);
+        if (val) checkout[key] = val;
+      }
+
       const res = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, ...utm }),
+        body: JSON.stringify({ email, ...utm, ...checkout }),
       });
 
       if (!res.ok) {
@@ -41,10 +65,18 @@ export function LoginForm() {
       }
 
       setStatus("sent");
-      window.plausible?.("magic-link-requested");
+      // Carry UTM source on the client event so Plausible breakdowns can
+      // attribute magic-link requests to acquisition channel.
+      const eventProps: Record<string, string> = {};
+      if (utm.utm_source) eventProps.source = utm.utm_source;
+      window.plausible?.(
+        "magic-link-requested",
+        Object.keys(eventProps).length > 0 ? { props: eventProps } : undefined,
+      );
     } catch (err) {
       setErrorMsg(err instanceof Error ? err.message : "Something went wrong");
       setStatus("error");
+      window.plausible?.("magic-link-error");
     }
   }
 
@@ -80,10 +112,12 @@ export function LoginForm() {
         &larr; Back to home
       </a>
       <h1 className="text-center text-2xl font-bold text-gray-900">
-        Sign in to KompWatch
+        {upgradeIntent ? "Sign in to upgrade" : "Sign in to KompWatch"}
       </h1>
       <p className="mt-2 text-center text-sm text-gray-600">
-        Enter your email and we&apos;ll send you a magic link.
+        {upgradeIntent
+          ? `Verify your email and we\u2019ll take you straight to ${upgradePlan === "TEAM" ? "Team" : "Pro"} checkout.`
+          : "Enter your email and we\u2019ll send you a magic link."}
       </p>
 
       <form onSubmit={handleSubmit} className="mt-8 space-y-4">

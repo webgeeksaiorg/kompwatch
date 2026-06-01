@@ -206,10 +206,10 @@ describe("buildTrialReminderEmail", () => {
     expect(email.html).toContain("10 competitors");
   });
 
-  it("includes upgrade CTA", () => {
+  it("includes upgrade CTA linking to pricing page", () => {
     const email = buildTrialReminderEmail(testUser);
-    expect(email.html).toContain("/settings");
-    expect(email.text).toContain("/settings");
+    expect(email.html).toContain("/pricing");
+    expect(email.text).toContain("/pricing");
   });
 
   it("has no-pressure messaging", () => {

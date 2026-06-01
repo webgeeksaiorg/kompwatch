@@ -458,6 +458,26 @@ export default function PricingPage() {
     }
   }, []);
 
+  // Auto-trigger checkout when redirected back from login with upgrade intent
+  const autoCheckoutFired = useRef(false);
+  useEffect(() => {
+    if (autoCheckoutFired.current) return;
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const autoCheckoutPlan = params.get("auto_checkout");
+      const period = params.get("period");
+      if (autoCheckoutPlan && (autoCheckoutPlan === "PRO" || autoCheckoutPlan === "TEAM")) {
+        autoCheckoutFired.current = true;
+        if (period === "monthly") setAnnual(false);
+        // Small delay to let the page render before initiating checkout
+        setTimeout(() => handleCheckout(autoCheckoutPlan), 500);
+      }
+    } catch {
+      // Don't block page render
+    }
+  // eslint-disable-next-line -- handleCheckout is stable across renders
+  }, []);
+
   const handleExitIntent = useCallback(
     (e: MouseEvent) => {
       if (e.clientY <= 0 && !exitIntentDismissed) {
@@ -548,7 +568,12 @@ export default function PricingPage() {
       });
 
       if (res.status === 401) {
-        window.location.href = "/login";
+        const params = new URLSearchParams({
+          intent: "upgrade",
+          plan,
+          period: billingPeriod,
+        });
+        window.location.href = `/login?${params.toString()}`;
         return;
       }
 
