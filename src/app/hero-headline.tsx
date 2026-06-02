@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import {
   assignVariantInBrowser,
-  HERO_NO_CI_TEAM_EXPERIMENT,
+  HERO_NO_DEMO_EXPERIMENT,
   type Variant as ABVariant,
 } from "@/lib/ab";
 
@@ -23,8 +23,8 @@ const VARIANTS = {
 } as const;
 
 const EXPERIMENT_COPY = {
-  before: "Competitor intel ",
-  highlight: "without the analyst tax",
+  before: "No demo required. ",
+  highlight: "Live in two minutes",
 };
 
 type PoolVariant = keyof typeof VARIANTS;
@@ -50,13 +50,13 @@ export function HeroHeadline() {
   const [experimentVariant, setExperimentVariant] = useState<string>("A");
 
   useEffect(() => {
-    const ab = assignVariantInBrowser(HERO_NO_CI_TEAM_EXPERIMENT) ?? "A";
+    const ab = assignVariantInBrowser(HERO_NO_DEMO_EXPERIMENT) ?? "A";
     setExperimentVariant(ab);
 
     if (ab === "B") {
       setText(EXPERIMENT_COPY);
       window.plausible?.("Hero Headline View", {
-        props: { variant: "experiment-no-ci-team", experiment: HERO_NO_CI_TEAM_EXPERIMENT },
+        props: { variant: "experiment-no-demo", experiment: HERO_NO_DEMO_EXPERIMENT },
       });
     } else {
       const pool = getPoolVariant();

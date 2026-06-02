@@ -6,6 +6,7 @@ export const FOUNDING_100_EXPERIMENT = "founding-100-annual-2026-05";
 export const HEADSUP_SWITCHER_EXPERIMENT = "headsup-switcher-banner-2026-05";
 export const HERO_NO_CI_TEAM_EXPERIMENT = "hero-no-ci-team-2026-05";
 export const PERSONA_HEADERS_EXPERIMENT = "pricing-persona-headers-2026-06";
+export const HERO_NO_DEMO_EXPERIMENT = "hero-no-demo-required-2026-06";
 
 const STORAGE_PREFIX = "kw-ab-";
 

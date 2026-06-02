@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import {
   assignVariantInBrowser,
-  HERO_NO_CI_TEAM_EXPERIMENT,
+  HERO_NO_DEMO_EXPERIMENT,
   type Variant as ABVariant,
 } from "@/lib/ab";
 
@@ -14,7 +14,7 @@ const VARIANTS = {
 } as const;
 
 const EXPERIMENT_COPY =
-  "Crayon and Klue need a full-time analyst to manually curate competitive intel. KompWatch AI does it for $49/mo — same signal, no $80K/yr overhead.";
+  "Crayon and Klue require sales demos and weeks of onboarding. KompWatch: add a URL, get your first AI digest in minutes — $49/mo, no contract.";
 
 type PoolVariant = keyof typeof VARIANTS;
 
@@ -38,12 +38,12 @@ export function HeroSubheadline() {
   const [text, setText] = useState<string | null>(null);
 
   useEffect(() => {
-    const ab = assignVariantInBrowser(HERO_NO_CI_TEAM_EXPERIMENT) ?? "A";
+    const ab = assignVariantInBrowser(HERO_NO_DEMO_EXPERIMENT) ?? "A";
 
     if (ab === "B") {
       setText(EXPERIMENT_COPY);
       window.plausible?.("Hero Subheadline View", {
-        props: { variant: "experiment-no-ci-team", experiment: HERO_NO_CI_TEAM_EXPERIMENT },
+        props: { variant: "experiment-no-demo", experiment: HERO_NO_DEMO_EXPERIMENT },
       });
     } else {
       const pool = getPoolVariant();
