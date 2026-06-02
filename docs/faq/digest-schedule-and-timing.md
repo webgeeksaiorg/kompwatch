@@ -24,7 +24,7 @@ Digests are only sent when new changes have been detected since the last one —
 
 Choose any day of the week from the dropdown. The first digest on the new schedule goes out on the next occurrence of that day.
 
-**Pro plan:** Daily digests go out every morning. You cannot currently change the daily digest to a different frequency (e.g., every 2 days), but you can change the time — see below.
+**Pro plan:** Daily digests go out every morning by default. You can also switch to **Smart** mode (sends only when MEDIUM/HIGH changes occur) or **Weekly** mode in **Settings → Digest Preferences → Digest frequency**. See [Digest Frequency Control](./digest-frequency-control.md) for details.
 
 ---
 
@@ -73,6 +73,7 @@ Your most recent digests are always available in-app at [kompwatch.com/digests](
 ## Related FAQs
 
 - [Understanding Your Competitor Digest](./understanding-your-digest.md)
+- [Digest Frequency Control (Smart / Daily / Weekly)](./digest-frequency-control.md)
 - [My Digest Email Didn't Arrive](./digest-not-arriving.md)
 - [Managing Alert Fatigue](./managing-alert-fatigue.md)
 - [Per-Competitor Notification Settings](./per-competitor-notification-settings.md)
