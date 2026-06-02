@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "vs-changeflow",
     "vs-peerpanda",
     "vs-headsup",
+    "vs-crayon-alternative",
   ];
 
   return [
@@ -92,6 +93,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
+    {
+      url: `${siteUrl}/vs/crayon-alternative`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
     {
       url: `${siteUrl}/switching-from-kompyte`,
       lastModified: now,
