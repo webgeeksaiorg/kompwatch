@@ -10,6 +10,12 @@ const SEVERITY_OPTIONS = [
   { value: "CRITICAL", label: "Critical", description: "Pivots, acquisitions, shutdown signals only" },
 ] as const;
 
+const FREQUENCY_OPTIONS = [
+  { value: "SMART", label: "Smart", description: "Daily when changes are detected, weekly otherwise", paidOnly: false },
+  { value: "DAILY", label: "Daily", description: "Every day at the same time", paidOnly: true },
+  { value: "WEEKLY", label: "Weekly", description: "Once a week on Monday morning", paidOnly: false },
+] as const;
+
 const SIGNAL_SCORE_OPTIONS = [
   { value: 0, label: "All", description: "Include all changes (no signal filtering)" },
   { value: 0.4, label: "Skip noise", description: "Filter out low-confidence noise (score < 40%)" },
@@ -21,19 +27,20 @@ export function NotificationPrefsForm({
   initialEnabled,
   initialMinSeverity,
   initialMinSignalScore,
-  digestFrequency,
+  initialDigestFrequency,
   initialInstantPricingEnabled,
   plan,
 }: {
   initialEnabled: boolean;
   initialMinSeverity: string;
   initialMinSignalScore: number;
-  digestFrequency: string;
+  initialDigestFrequency: string;
   initialInstantPricingEnabled: boolean;
   plan: "FREE" | "PRO" | "TEAM";
 }) {
   const router = useRouter();
   const [enabled, setEnabled] = useState(initialEnabled);
+  const [frequency, setFrequency] = useState(initialDigestFrequency);
   const [minSeverity, setMinSeverity] = useState(initialMinSeverity);
   const [minSignalScore, setMinSignalScore] = useState(initialMinSignalScore);
   const [instantPricing, setInstantPricing] = useState(
@@ -79,6 +86,11 @@ export function NotificationPrefsForm({
     save({ digestEnabled: next });
   }
 
+  function handleFrequencyChange(value: string) {
+    setFrequency(value);
+    save({ digestFrequency: value });
+  }
+
   function handleSeverityChange(value: string) {
     setMinSeverity(value);
     save({ digestMinSeverity: value });
@@ -102,7 +114,7 @@ export function NotificationPrefsForm({
         <div>
           <p className="text-sm font-medium text-gray-900">Email digests</p>
           <p className="text-xs text-gray-500">
-            Receive {digestFrequency.toLowerCase()} email summaries of competitor changes.
+            Receive email summaries of competitor changes.
           </p>
         </div>
         <button
@@ -122,6 +134,52 @@ export function NotificationPrefsForm({
           />
         </button>
       </div>
+
+      {/* Digest frequency */}
+      {enabled && (
+        <div>
+          <p className="text-sm font-medium text-gray-900">Digest frequency</p>
+          <p className="mb-3 text-xs text-gray-500">
+            Choose how often you receive digest emails.
+          </p>
+          <div className="space-y-2">
+            {FREQUENCY_OPTIONS.map((opt) => {
+              const disabled = opt.paidOnly && plan === "FREE";
+              return (
+                <label
+                  key={opt.value}
+                  className={`flex cursor-pointer items-center rounded-lg border p-3 transition-colors ${
+                    frequency === opt.value
+                      ? "border-brand-500 bg-brand-50"
+                      : disabled
+                        ? "cursor-not-allowed border-gray-100 bg-gray-50 opacity-60"
+                        : "border-gray-200 hover:border-gray-300"
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="digestFrequency"
+                    value={opt.value}
+                    checked={frequency === opt.value}
+                    onChange={() => handleFrequencyChange(opt.value)}
+                    disabled={disabled}
+                    className="sr-only"
+                  />
+                  <div>
+                    <span className="text-sm font-medium text-gray-900">{opt.label}</span>
+                    {disabled && (
+                      <span className="ml-2 inline-block rounded bg-gray-100 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-gray-600">
+                        Pro
+                      </span>
+                    )}
+                    <span className="ml-2 text-xs text-gray-500">{opt.description}</span>
+                  </div>
+                </label>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Severity threshold */}
       {enabled && (

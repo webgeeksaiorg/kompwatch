@@ -60,7 +60,7 @@ export default async function SettingsPage() {
           initialEnabled={user.digestEnabled}
           initialMinSeverity={user.digestMinSeverity}
           initialMinSignalScore={user.digestMinSignalScore}
-          digestFrequency={plan.digest}
+          initialDigestFrequency={user.digestFrequency}
           initialInstantPricingEnabled={user.instantPricingAlertsEnabled}
           plan={user.plan}
         />
@@ -145,7 +145,7 @@ export default async function SettingsPage() {
           <div className="rounded-lg border border-gray-100 bg-gray-50 p-4">
             <p className="text-xs font-medium text-gray-500">Digest frequency</p>
             <p className="mt-1 text-xl font-bold capitalize text-gray-900">
-              {plan.digest}
+              {user.digestFrequency.toLowerCase()}
             </p>
           </div>
         </div>
