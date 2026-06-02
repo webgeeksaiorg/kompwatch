@@ -2,7 +2,7 @@
 platform: reddit
 type: post
 target: r/ProductManagement
-status: queued
+status: queued-publish-failed-missing-credentials
 publish_date: 2026-06-02
 keywords: [Gartner Magic Quadrant competitive intelligence, CI tools product managers, Klue Crayon alternative]
 ---

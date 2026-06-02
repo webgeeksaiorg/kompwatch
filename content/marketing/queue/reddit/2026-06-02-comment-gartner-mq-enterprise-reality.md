@@ -2,7 +2,7 @@
 platform: reddit
 type: comment
 target: r/SaaS
-status: queued
+status: queued-publish-failed-missing-credentials
 publish_date: 2026-06-02
 keywords: [Gartner Magic Quadrant CI tools, competitive intelligence small teams, Klue alternative]
 ---
