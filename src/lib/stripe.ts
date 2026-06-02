@@ -102,6 +102,11 @@ export function planAllowsApiAccess(plan: Plan): boolean {
   return plan === "TEAM";
 }
 
+/** Daily digest frequency requires a paid plan. SMART and WEEKLY are available to all. */
+export function planAllowsDailyDigest(plan: Plan): boolean {
+  return plan === "PRO" || plan === "TEAM";
+}
+
 /**
  * Pro+ tiers can receive instant PRICING-change email alerts that bypass
  * the digest cadence. FREE users must wait for the weekly digest.

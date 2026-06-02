@@ -2,7 +2,7 @@
 platform: reddit
 type: reply
 target: r/ProductManagement thread about competitive research processes or staying on top of competitors
-status: draft
+status: queued
 publish_date: 2026-06-01
 keywords: [product manager competitive research, competitor tracking process, PM competitive intelligence]
 ---

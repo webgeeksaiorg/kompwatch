@@ -11,6 +11,7 @@ import { z } from "zod";
 const updateSchema = z.object({
   name: z.string().min(1).max(100).optional(),
   digestEnabled: z.boolean().optional(),
+  digestFrequency: z.enum(["SMART", "DAILY", "WEEKLY"]).optional(),
   digestMinSeverity: z.enum(["LOW", "MEDIUM", "HIGH", "CRITICAL"]).optional(),
   digestMinSignalScore: z.number().min(0).max(1).optional(),
   dashboardMinSeverity: z.enum(["LOW", "MEDIUM", "HIGH", "CRITICAL"]).optional(),
@@ -53,6 +54,14 @@ export async function PATCH(req: NextRequest) {
     );
   }
 
+  // Digest frequency gating: FREE users cannot select DAILY (it's a paid feature).
+  if (data.digestFrequency === "DAILY" && user.plan === "FREE") {
+    return NextResponse.json(
+      { error: "Daily digests require a Pro or Team plan." },
+      { status: 403 }
+    );
+  }
+
   // Instant pricing alerts are a Pro+ benefit. Free users can't toggle the
   // setting — they always wait for the weekly digest.
   const touchesInstantPricing = "instantPricingAlertsEnabled" in data;
@@ -71,6 +80,7 @@ export async function PATCH(req: NextRequest) {
   return NextResponse.json({
     name: updated.name,
     digestEnabled: updated.digestEnabled,
+    digestFrequency: updated.digestFrequency,
     digestMinSeverity: updated.digestMinSeverity,
     digestMinSignalScore: updated.digestMinSignalScore,
     dashboardMinSeverity: updated.dashboardMinSeverity,

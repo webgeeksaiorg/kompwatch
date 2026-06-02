@@ -4,6 +4,7 @@ const {
   mockFindUnique,
   mockSnapshotCreate,
   mockChangeCreateMany,
+  mockChangeCount,
   mockScrapeCompetitor,
   mockDetectChanges,
   mockSendInstantAlertWebhook,
@@ -11,6 +12,7 @@ const {
   mockFindUnique: vi.fn(),
   mockSnapshotCreate: vi.fn(),
   mockChangeCreateMany: vi.fn(),
+  mockChangeCount: vi.fn(),
   mockScrapeCompetitor: vi.fn(),
   mockDetectChanges: vi.fn(),
   mockSendInstantAlertWebhook: vi.fn(),
@@ -20,7 +22,7 @@ vi.mock("@/lib/db", () => ({
   db: {
     competitor: { findUnique: mockFindUnique },
     snapshot: { create: mockSnapshotCreate },
-    change: { createMany: mockChangeCreateMany },
+    change: { createMany: mockChangeCreateMany, count: mockChangeCount },
   },
 }));
 
@@ -31,6 +33,19 @@ vi.mock("@/lib/scraper", () => ({
 
 vi.mock("@/lib/ai", () => ({
   detectChanges: mockDetectChanges,
+}));
+
+vi.mock("@/lib/first-change-email", () => ({
+  sendFirstChangeEmail: vi.fn().mockResolvedValue(undefined),
+}));
+
+vi.mock("@/lib/pricing-alert", () => ({
+  shouldSendInstantPricingAlert: vi.fn().mockReturnValue(false),
+  sendInstantPricingAlert: vi.fn().mockResolvedValue(undefined),
+}));
+
+vi.mock("@/lib/plausible", () => ({
+  trackServerEvent: vi.fn(),
 }));
 
 vi.mock("@/lib/webhooks", async () => {
@@ -79,6 +94,8 @@ beforeEach(() => {
   mockScrapeCompetitor.mockReset();
   mockDetectChanges.mockReset();
   mockSendInstantAlertWebhook.mockReset();
+  mockChangeCount.mockReset();
+  mockChangeCount.mockResolvedValue(0);
 });
 
 describe("captureSnapshot", () => {

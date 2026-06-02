@@ -6,6 +6,7 @@ import {
   PRICING_ANCHOR_EXPERIMENT,
   FOUNDING_100_EXPERIMENT,
   HEADSUP_SWITCHER_EXPERIMENT,
+  PERSONA_HEADERS_EXPERIMENT,
   assignVariantInBrowser,
   type Variant,
 } from "@/lib/ab";
@@ -23,6 +24,7 @@ type Plan = {
   monthlyPrice: number;
   competitors: number | null; // null = unlimited / not applicable
   description: string;
+  persona: string;
   features: string[];
   cta: string;
   href?: string;
@@ -37,6 +39,7 @@ const plans: Plan[] = [
     monthlyPrice: 0,
     competitors: 2,
     description: "Get started with competitor tracking",
+    persona: "For solo founders",
     features: [
       "2 competitors",
       "Weekly email digest",
@@ -52,6 +55,7 @@ const plans: Plan[] = [
     monthlyPrice: 49,
     competitors: 10,
     description: "For teams serious about competitive intelligence",
+    persona: "For PMMs & product marketers",
     features: [
       "10 competitors",
       "Daily email digest",
@@ -69,6 +73,7 @@ const plans: Plan[] = [
     monthlyPrice: 149,
     competitors: 50,
     description: "Full competitive intelligence for growing teams",
+    persona: "For CI teams & strategy leads",
     features: [
       "50 competitors",
       "Daily email digest",
@@ -85,6 +90,7 @@ const plans: Plan[] = [
     monthlyPrice: 799,
     competitors: null,
     description: "Custom competitive intelligence at scale",
+    persona: "For VP Strategy & CI programs",
     features: [
       "Unlimited competitors",
       "Real-time alerts",
@@ -405,6 +411,7 @@ export default function PricingPage() {
   // Headsup.bot switcher banner — only shown when visitor came from /vs-headsup
   // (referrer or ?from=headsup). Variant A = banner visible, B = control.
   const [switcherVariant, setSwitcherVariant] = useState<Variant>("B");
+  const [personaVariant, setPersonaVariant] = useState<Variant>("B"); // B = control (no persona headers)
   const [cameFromHeadsup, setCameFromHeadsup] = useState(false);
 
   useEffect(() => {
@@ -425,6 +432,16 @@ export default function PricingPage() {
       props: {
         variant: foundingAssigned,
         experiment: FOUNDING_100_EXPERIMENT,
+      },
+    });
+
+    const personaAssigned =
+      assignVariantInBrowser(PERSONA_HEADERS_EXPERIMENT) ?? "B";
+    setPersonaVariant(personaAssigned);
+    window.plausible?.("persona-headers-impression", {
+      props: {
+        variant: personaAssigned,
+        experiment: PERSONA_HEADERS_EXPERIMENT,
       },
     });
 
@@ -557,6 +574,7 @@ export default function PricingPage() {
         plan,
         anchor_variant: anchorVariant,
         founding_variant: foundingVariant,
+        persona_variant: personaVariant,
         billing_period: billingPeriod,
       },
     });
@@ -836,6 +854,11 @@ export default function PricingPage() {
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-brand-600 px-3 py-0.5 text-xs font-medium text-white">
                   Most popular
                 </span>
+              )}
+              {personaVariant === "A" && (
+                <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-brand-600">
+                  {plan.persona}
+                </p>
               )}
               <div className="flex items-center gap-2">
                 <h2 className="text-lg font-semibold text-gray-900">{plan.name}</h2>

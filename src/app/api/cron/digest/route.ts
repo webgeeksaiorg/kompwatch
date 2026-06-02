@@ -11,7 +11,7 @@ import {
 import { sendWebhookNotification } from "@/lib/webhooks";
 import { severitiesAtOrAbove } from "@/lib/severity";
 import { trackEvent } from "@/lib/plausible";
-import type { Plan } from "@prisma/client";
+import type { Plan, DigestFrequency } from "@prisma/client";
 
 /**
  * POST /api/cron/digest
@@ -68,26 +68,12 @@ export async function POST(req: NextRequest) {
       continue;
     }
 
-    const period = getDigestPeriod(user.plan);
-    const intervalMs = period === "DAILY" ? 24 * 60 * 60 * 1000 : 7 * 24 * 60 * 60 * 1000;
     const lastDigest = user.digests[0];
-
-    // Check if user is due for a digest
-    if (lastDigest && now.getTime() - lastDigest.createdAt.getTime() < intervalMs) {
-      results.push({
-        userId: user.id,
-        email: user.email,
-        sent: false,
-        changes: 0,
-        reason: "not_due",
-      });
-      continue;
-    }
-
-    // Find undigested changes for this user's competitors, filtered by severity + signal score
     const sinceDate = lastDigest?.createdAt ?? new Date(0);
+    const frequency = user.digestFrequency ?? getDefaultFrequency(user.plan);
     const severityFilter = severitiesAtOrAbove(user.digestMinSeverity);
 
+    // Find undigested changes for this user's competitors
     const changes = await db.change.findMany({
       where: {
         competitor: { userId: user.id },
@@ -107,6 +93,22 @@ export async function POST(req: NextRequest) {
         sent: false,
         changes: 0,
         reason: "no_changes",
+      });
+      continue;
+    }
+
+    // Determine effective digest period based on user frequency setting
+    const period = getEffectivePeriod(frequency, changes.length);
+    const intervalMs = period === "DAILY" ? 24 * 60 * 60 * 1000 : 7 * 24 * 60 * 60 * 1000;
+
+    // Check if user is due for a digest
+    if (lastDigest && now.getTime() - lastDigest.createdAt.getTime() < intervalMs) {
+      results.push({
+        userId: user.id,
+        email: user.email,
+        sent: false,
+        changes: 0,
+        reason: "not_due",
       });
       continue;
     }
@@ -195,6 +197,22 @@ export async function POST(req: NextRequest) {
   });
 }
 
-function getDigestPeriod(plan: Plan): "DAILY" | "WEEKLY" {
+/** Fallback for users who haven't set a preference yet (null column). */
+function getDefaultFrequency(plan: Plan): DigestFrequency {
   return PLANS[plan].digest === "weekly" ? "WEEKLY" : "DAILY";
+}
+
+/**
+ * SMART mode: send daily when there are pending changes, otherwise fall back
+ * to weekly cadence so the user isn't emailed on quiet days.
+ * DAILY / WEEKLY are straightforward fixed cadences.
+ */
+function getEffectivePeriod(
+  frequency: DigestFrequency,
+  pendingChanges: number,
+): "DAILY" | "WEEKLY" {
+  if (frequency === "DAILY") return "DAILY";
+  if (frequency === "WEEKLY") return "WEEKLY";
+  // SMART: daily when changes exist, weekly otherwise
+  return pendingChanges > 0 ? "DAILY" : "WEEKLY";
 }

@@ -33,6 +33,7 @@ model User {
 
   // Notification preferences
   digestEnabled        Boolean  @default(true)
+  digestFrequency      DigestFrequency @default(SMART) // SMART = daily when changes exist, else weekly
   digestMinSeverity    Severity @default(LOW)  // Only include changes at or above this severity
   digestMinSignalScore Float    @default(0.0)  // Only include changes with signal score >= this (0.0–1.0)
   dashboardMinSeverity Severity @default(LOW)  // Filter dashboard changes timeline by severity
@@ -224,6 +225,12 @@ model Digest {
 }
 
 enum DigestPeriod {
+  DAILY
+  WEEKLY
+}
+
+enum DigestFrequency {
+  SMART   // Daily when changes exist, otherwise weekly
   DAILY
   WEEKLY
 }

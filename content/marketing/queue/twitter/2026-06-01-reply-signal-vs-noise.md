@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: threads about competitive intelligence tools, Crayon, Klue, or enterprise software complexity
-status: draft
+status: queued
 publish_date: 2026-06-01
 keywords: [competitor monitoring signal to noise, competitive intelligence noise, Crayon alternative]
 ---

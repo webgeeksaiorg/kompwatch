@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: threads about tech layoffs or competitive intelligence analyst roles
-status: draft
+status: queued
 publish_date: 2026-06-01
 keywords: [competitive intelligence analyst, CI analyst cost, competitor monitoring ROI]
 ---
