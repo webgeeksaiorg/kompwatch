@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "vs-changeflow",
     "vs-peerpanda",
     "vs-headsup",
+    "vs-crayon-alternative",
   ];
 
   return [
