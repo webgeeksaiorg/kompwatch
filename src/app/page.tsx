@@ -513,8 +513,110 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Signal, not noise — benefit section targeting alert-fatigued CI buyers */}
+      <section className="border-t border-gray-100 bg-gray-50 py-24">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900">
+              Signal, not noise
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
+              Most CI tools flood you with every CSS tweak and footer edit.
+              KompWatch&apos;s AI reads every change and only surfaces what actually affects your strategy.
+            </p>
+          </div>
+
+          {/* Noise vs Signal comparison */}
+          <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2">
+            {/* Noise column */}
+            <div className="rounded-xl border border-red-200 bg-red-50/50 p-6">
+              <div className="flex items-center gap-2">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-red-100">
+                  <svg className="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </div>
+                <h3 className="text-base font-semibold text-red-900">What other tools send you</h3>
+              </div>
+              <ul className="mt-4 space-y-3">
+                {[
+                  "Footer copyright updated to 2026",
+                  "Cookie banner text changed",
+                  "New stock photo on about page",
+                  "CSS class names refactored",
+                  "Third-party script version bumped",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-red-800/70">
+                    <svg className="mt-0.5 h-4 w-4 shrink-0 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-4 text-xs font-medium text-red-400">
+                Avg 47 alerts/week per competitor
+              </p>
+            </div>
+
+            {/* Signal column */}
+            <div className="rounded-xl border border-brand-200 bg-brand-50/50 p-6">
+              <div className="flex items-center gap-2">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-100">
+                  <svg className="h-5 w-5 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                </div>
+                <h3 className="text-base font-semibold text-brand-900">What KompWatch sends you</h3>
+              </div>
+              <ul className="mt-4 space-y-3">
+                {[
+                  "Competitor raised Pro tier from $49 to $79/mo",
+                  "New 'AI Assistant' feature added to pricing page",
+                  "Enterprise plan launched with SSO and audit logs",
+                  "Job posting: 'Head of AI/ML' — possible pivot",
+                  "Case study targeting your top vertical published",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-brand-900">
+                    <svg className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-4 text-xs font-medium text-brand-600">
+                Avg 3 alerts/week — only what matters
+              </p>
+            </div>
+          </div>
+
+          {/* Bottom stat line */}
+          <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-8">
+            <div className="flex items-center gap-2 text-sm text-gray-600">
+              <svg className="h-5 w-5 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
+              </svg>
+              <span><strong className="text-gray-900">AI-powered filtering</strong> — not keyword matching</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-gray-600">
+              <svg className="h-5 w-5 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+              </svg>
+              <span><strong className="text-gray-900">Severity scoring</strong> — low / medium / high impact</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-gray-600">
+              <svg className="h-5 w-5 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+              </svg>
+              <span><strong className="text-gray-900">Digest format</strong> — one email, not 50 notifications</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing */}
-      <section id="pricing" className="border-t border-gray-100 bg-gray-50 py-24">
+      <section id="pricing" className="border-t border-gray-100 bg-white py-24">
         <div className="mx-auto max-w-5xl px-6">
           <div className="text-center">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900">
