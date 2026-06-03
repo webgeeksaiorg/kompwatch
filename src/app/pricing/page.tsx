@@ -7,6 +7,7 @@ import {
   FOUNDING_100_EXPERIMENT,
   HEADSUP_SWITCHER_EXPERIMENT,
   PERSONA_HEADERS_EXPERIMENT,
+  PRICING_STRIKETHROUGH_EXPERIMENT,
   assignVariantInBrowser,
   type Variant,
 } from "@/lib/ab";
@@ -30,6 +31,8 @@ type Plan = {
   href?: string;
   popular?: boolean;
   enterprise?: boolean;
+  /** Crossed-out market-rate anchor for A/B strikethrough experiment */
+  marketRate?: { price: string; label: string };
 };
 
 const plans: Plan[] = [
@@ -66,6 +69,7 @@ const plans: Plan[] = [
     ],
     cta: "Upgrade to Pro",
     popular: true,
+    marketRate: { price: "$300", label: "Kompyte equivalent" },
   },
   {
     name: "Team",
@@ -83,6 +87,7 @@ const plans: Plan[] = [
       "Priority support",
     ],
     cta: "Upgrade to Team",
+    marketRate: { price: "$2,400", label: "Crayon equivalent" },
   },
   {
     name: "Enterprise",
@@ -412,6 +417,7 @@ export default function PricingPage() {
   // (referrer or ?from=headsup). Variant A = banner visible, B = control.
   const [switcherVariant, setSwitcherVariant] = useState<Variant>("B");
   const [personaVariant, setPersonaVariant] = useState<Variant>("B"); // B = control (no persona headers)
+  const [strikethroughVariant, setStrikethroughVariant] = useState<Variant>("B"); // B = control (no market-rate anchor)
   const [cameFromHeadsup, setCameFromHeadsup] = useState(false);
 
   useEffect(() => {
@@ -442,6 +448,16 @@ export default function PricingPage() {
       props: {
         variant: personaAssigned,
         experiment: PERSONA_HEADERS_EXPERIMENT,
+      },
+    });
+
+    const strikethroughAssigned =
+      assignVariantInBrowser(PRICING_STRIKETHROUGH_EXPERIMENT) ?? "B";
+    setStrikethroughVariant(strikethroughAssigned);
+    window.plausible?.("pricing-strikethrough-impression", {
+      props: {
+        variant: strikethroughAssigned,
+        experiment: PRICING_STRIKETHROUGH_EXPERIMENT,
       },
     });
 
@@ -575,6 +591,7 @@ export default function PricingPage() {
         anchor_variant: anchorVariant,
         founding_variant: foundingVariant,
         persona_variant: personaVariant,
+        strikethrough_variant: strikethroughVariant,
         billing_period: billingPeriod,
       },
     });
@@ -885,7 +902,17 @@ export default function PricingPage() {
                 </>
               ) : (
                 <>
-                  <p className="mt-4">
+                  {strikethroughVariant === "A" && plan.marketRate && (
+                    <p className="mt-4 mb-0.5 text-xs text-gray-400">
+                      <span className="line-through decoration-red-400/60">
+                        {plan.marketRate.price}/mo
+                      </span>
+                      <span className="ml-1">
+                        {plan.marketRate.label}
+                      </span>
+                    </p>
+                  )}
+                  <p className={strikethroughVariant === "A" && plan.marketRate ? "mt-0" : "mt-4"}>
                     <span className="text-4xl font-bold text-gray-900">
                       ${displayPrice}
                     </span>
