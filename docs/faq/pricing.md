@@ -49,6 +49,21 @@ The badges update automatically based on whether you've selected Monthly or Annu
 
 These are starting prices; actual enterprise quotes for Klue and Crayon are often higher.
 
+## What Are the Crossed-Out Prices on the Pricing Page?
+
+Some visitors see a small crossed-out price above each plan's price — for example, ~~$300/mo~~ Kompyte equivalent above the Pro plan, or ~~$2,400/mo~~ Crayon equivalent above the Team plan.
+
+These are **market-rate anchors** showing what you'd typically pay for an equivalent tier from a legacy competitor:
+
+| KompWatch Plan | Market-rate anchor | Source |
+|---|---|---|
+| Pro ($49/mo) | ~~$300/mo~~ (Kompyte equivalent) | Kompyte enterprise bundle, ~$3,600/yr |
+| Team ($149/mo) | ~~$2,400/mo~~ (Crayon equivalent) | Crayon starting price ~$28,750/yr (Vendr 2026) |
+
+The crossed-out price is shown to help illustrate the cost difference — not because KompWatch raised and then discounted its price. KompWatch's prices have always been $49/mo (Pro) and $149/mo (Team).
+
+Not all visitors see this display — it's part of an ongoing A/B test.
+
 ## Are There Hidden Fees?
 
 No. What you see on the [pricing page](https://kompwatch.com/pricing) is what you pay.
