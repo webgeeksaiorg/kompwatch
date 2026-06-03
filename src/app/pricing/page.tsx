@@ -996,6 +996,26 @@ export default function PricingPage() {
                 </>
               )}
 
+              {plan.key === "FREE" && (
+                <p className="mt-2 flex items-center justify-center gap-1 text-xs text-gray-500">
+                  <svg
+                    className="h-3.5 w-3.5 shrink-0 text-green-500"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    aria-hidden
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  No credit card required
+                </p>
+              )}
+
               {(() => {
                 const savings = getSavingsBadge(plan.monthlyPrice, annual);
                 if (!savings || isEnterprise) return null;

@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const comparisonSlugs = [
     "vs-crayon",
+    "vs-crayon-alternative",
     "vs-klue",
     "vs-kompyte",
     "vs-caelian",
@@ -23,7 +24,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "vs-changeflow",
     "vs-peerpanda",
     "vs-headsup",
-    "vs-crayon-alternative",
   ];
 
   return [
