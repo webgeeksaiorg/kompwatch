@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: reply
-status: draft
+status: queued
 publish_date: 2026-06-04
 target: founders / PMs complaining about enterprise software sales
 keywords: [CI tools no demo, competitor monitoring self-serve, Crayon alternative no sales call]

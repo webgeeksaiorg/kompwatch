@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: queued
 publish_date: 2026-06-04
 keywords: [Klue layoffs, Klue alternative, competitive intelligence tools 2026, CI tool pricing]
 ---
