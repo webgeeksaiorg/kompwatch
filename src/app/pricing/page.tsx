@@ -976,24 +976,37 @@ export default function PricingPage() {
                   {plan.cta}
                 </a>
               ) : (
-                <>
-                  <button
-                    onClick={() => handleCheckout(plan.key)}
-                    disabled={loading !== null}
-                    className={`mt-8 w-full rounded-lg px-4 py-2.5 text-sm font-semibold shadow-sm ${
-                      plan.popular
-                        ? "bg-brand-600 text-white hover:bg-brand-700"
-                        : "bg-white text-gray-900 ring-1 ring-gray-300 hover:bg-gray-50"
-                    } disabled:opacity-50`}
+                <button
+                  onClick={() => handleCheckout(plan.key)}
+                  disabled={loading !== null}
+                  className={`mt-8 w-full rounded-lg px-4 py-2.5 text-sm font-semibold shadow-sm ${
+                    plan.popular
+                      ? "bg-brand-600 text-white hover:bg-brand-700"
+                      : "bg-white text-gray-900 ring-1 ring-gray-300 hover:bg-gray-50"
+                  } disabled:opacity-50`}
+                >
+                  {loading === plan.key ? "Redirecting..." : plan.cta}
+                </button>
+              )}
+
+              {plan.key === "FREE" && (
+                <p className="mt-2 flex items-center justify-center gap-1 text-xs text-gray-500">
+                  <svg
+                    className="h-3.5 w-3.5 shrink-0 text-green-500"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    aria-hidden
                   >
-                    {loading === plan.key ? "Redirecting..." : plan.cta}
-                  </button>
-                  {plan.key === "FREE" && (
-                    <p className="mt-2 text-center text-xs text-gray-400">
-                      No credit card required
-                    </p>
-                  )}
-                </>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  No credit card required
+                </p>
               )}
 
               {plan.key === "FREE" && (
