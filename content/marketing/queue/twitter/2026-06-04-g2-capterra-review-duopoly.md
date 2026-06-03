@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: queued
 publish_date: 2026-06-04
 keywords: [G2 Capterra acquisition, software review sites, competitive intelligence B2B]
 ---

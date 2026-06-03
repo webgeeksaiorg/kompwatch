@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: reply
-status: draft
+status: queued
 publish_date: 2026-06-04
 target: competitive intelligence / CI tools discussion threads
 keywords: [competitor monitoring vs analysis, CI tools comparison, Klue Crayon alternative]

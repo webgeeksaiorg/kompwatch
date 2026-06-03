@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: reply
-status: draft
+status: queued
 publish_date: 2026-06-04
 target: threads about free competitor monitoring methods
 keywords: [Google Alerts competitor monitoring, track competitor pricing free, website monitoring alternative]

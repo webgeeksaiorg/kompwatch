@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: reply
-status: draft
+status: queued
 publish_date: 2026-06-04
 target: SaaS founders / PM discussions on CI tools
 keywords: [competitive intelligence for small teams, CI tool alternatives, right-size CI stack]

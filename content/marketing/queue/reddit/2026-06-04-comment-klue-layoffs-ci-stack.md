@@ -2,7 +2,7 @@
 platform: reddit
 type: comment
 target: r/SaaS
-status: draft
+status: queued
 publish_date: 2026-06-04
 keywords: [Klue layoffs, competitive intelligence tools, Klue alternative, CI tool pricing]
 ---
