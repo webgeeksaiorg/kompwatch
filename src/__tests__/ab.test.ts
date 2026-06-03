@@ -4,6 +4,7 @@ import {
   PRICING_ANCHOR_EXPERIMENT,
   FOUNDING_100_EXPERIMENT,
   HEADSUP_SWITCHER_EXPERIMENT,
+  PRICING_STRIKETHROUGH_EXPERIMENT,
   getOrAssignVariant,
   pickVariant,
 } from "@/lib/ab";
@@ -129,5 +130,11 @@ describe("FOUNDING_100_EXPERIMENT", () => {
 describe("HEADSUP_SWITCHER_EXPERIMENT", () => {
   it("has a stable key so analytics segmentation is reproducible", () => {
     expect(HEADSUP_SWITCHER_EXPERIMENT).toBe("headsup-switcher-banner-2026-05");
+  });
+});
+
+describe("PRICING_STRIKETHROUGH_EXPERIMENT", () => {
+  it("has a stable key so analytics segmentation is reproducible", () => {
+    expect(PRICING_STRIKETHROUGH_EXPERIMENT).toBe("pricing-strikethrough-anchor-2026-06");
   });
 });
