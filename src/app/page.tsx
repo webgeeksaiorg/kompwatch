@@ -7,6 +7,7 @@ import { DemoVideo } from "@/components/marketing/demo-video";
 import { OrganizationSchema } from "@/components/organization-schema";
 import { WebSiteSchema } from "@/components/website-schema";
 import { SoftwareApplicationSchema } from "@/components/software-schema";
+import { SocialProofCounter } from "@/components/marketing/social-proof-counter";
 
 const features = [
   {
@@ -224,20 +225,9 @@ export default function Home() {
           Crayon costs <span className="font-semibold text-gray-700">$25,000+/yr</span>.{" "}
           KompWatch: <span className="font-semibold text-brand-600">$49/mo</span>.
         </p>
-        {/* Social proof counter */}
-        <div className="mt-6 flex items-center justify-center gap-3">
-          <div className="flex -space-x-2">
-            {["bg-brand-400", "bg-emerald-400", "bg-amber-400", "bg-violet-400", "bg-rose-400"].map((bg, i) => (
-              <div
-                key={i}
-                className={`h-7 w-7 rounded-full ${bg} ring-2 ring-white`}
-                aria-hidden="true"
-              />
-            ))}
-          </div>
-          <p className="text-sm text-gray-600">
-            Join <span className="font-semibold text-gray-900">150+</span> teams monitoring competitors
-          </p>
+        {/* Social proof counter — A/B: static teams vs live competitor count */}
+        <div className="mt-6">
+          <SocialProofCounter />
         </div>
         <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm text-gray-600 shadow-sm">
           <svg className="h-4 w-4 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
