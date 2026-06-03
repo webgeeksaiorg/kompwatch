@@ -97,7 +97,7 @@ KompWatch uses a real headless Chromium browser via Playwright, so JavaScript-re
 - [How Monitoring Works](./how-monitoring-works.md)
 - [Adding Competitors](./adding-competitors.md)
 - [Digest Schedule and Timing](./digest-schedule-and-timing.md)
-- [KompWatch vs Visualping — Feature Comparison](https://kompwatch.com/vs-visualping)
+- [KompWatch vs Visualping — Feature Comparison](https://kompwatch.com/vs/visualping-alternative)
 - [Managing Alert Fatigue](./managing-alert-fatigue.md)
 
 ---
