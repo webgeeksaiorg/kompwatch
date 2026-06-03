@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: reply
-status: queued
+status: queued-publish-failed-missing-credentials
 publish_date: 2026-06-02
 keywords: [changedetection io alternative, competitor monitoring AI summary, website change detection]
 ---

@@ -649,6 +649,9 @@ export default function PricingPage() {
         <p className="mt-4 text-lg text-gray-600">
           Start free. Upgrade when you need more competitors or faster digests.
         </p>
+        <p className="mt-2 text-sm text-gray-400">
+          No credit card required to get started.
+        </p>
       </div>
 
       {/* Headsup.bot switcher banner — only when visitor came from /vs-headsup
@@ -973,17 +976,24 @@ export default function PricingPage() {
                   {plan.cta}
                 </a>
               ) : (
-                <button
-                  onClick={() => handleCheckout(plan.key)}
-                  disabled={loading !== null}
-                  className={`mt-8 w-full rounded-lg px-4 py-2.5 text-sm font-semibold shadow-sm ${
-                    plan.popular
-                      ? "bg-brand-600 text-white hover:bg-brand-700"
-                      : "bg-white text-gray-900 ring-1 ring-gray-300 hover:bg-gray-50"
-                  } disabled:opacity-50`}
-                >
-                  {loading === plan.key ? "Redirecting..." : plan.cta}
-                </button>
+                <>
+                  <button
+                    onClick={() => handleCheckout(plan.key)}
+                    disabled={loading !== null}
+                    className={`mt-8 w-full rounded-lg px-4 py-2.5 text-sm font-semibold shadow-sm ${
+                      plan.popular
+                        ? "bg-brand-600 text-white hover:bg-brand-700"
+                        : "bg-white text-gray-900 ring-1 ring-gray-300 hover:bg-gray-50"
+                    } disabled:opacity-50`}
+                  >
+                    {loading === plan.key ? "Redirecting..." : plan.cta}
+                  </button>
+                  {plan.key === "FREE" && (
+                    <p className="mt-2 text-center text-xs text-gray-400">
+                      No credit card required
+                    </p>
+                  )}
+                </>
               )}
 
               {(() => {

@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: queued
+status: queued-publish-failed-missing-credentials
 publish_date: 2026-06-02
 keywords: [Klue Gartner Magic Quadrant, competitive intelligence tools, Klue alternative]
 ---
