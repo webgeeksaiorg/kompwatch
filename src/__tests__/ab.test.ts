@@ -5,6 +5,7 @@ import {
   FOUNDING_100_EXPERIMENT,
   HEADSUP_SWITCHER_EXPERIMENT,
   PRICING_STRIKETHROUGH_EXPERIMENT,
+  QUANTIFIED_NOISE_EXPERIMENT,
   getOrAssignVariant,
   pickVariant,
 } from "@/lib/ab";
@@ -136,5 +137,11 @@ describe("HEADSUP_SWITCHER_EXPERIMENT", () => {
 describe("PRICING_STRIKETHROUGH_EXPERIMENT", () => {
   it("has a stable key so analytics segmentation is reproducible", () => {
     expect(PRICING_STRIKETHROUGH_EXPERIMENT).toBe("pricing-strikethrough-anchor-2026-06");
+  });
+});
+
+describe("QUANTIFIED_NOISE_EXPERIMENT", () => {
+  it("has a stable key so analytics segmentation is reproducible", () => {
+    expect(QUANTIFIED_NOISE_EXPERIMENT).toBe("quantified-noise-claim-2026-06");
   });
 });
