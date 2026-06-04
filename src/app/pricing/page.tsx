@@ -8,6 +8,7 @@ import {
   HEADSUP_SWITCHER_EXPERIMENT,
   PERSONA_HEADERS_EXPERIMENT,
   PRICING_STRIKETHROUGH_EXPERIMENT,
+  ENTERPRISE_COST_TABLE_EXPERIMENT,
   assignVariantInBrowser,
   type Variant,
 } from "@/lib/ab";
@@ -226,6 +227,56 @@ const comparisonRows: {
   },
 ];
 
+const enterpriseCostRows: {
+  label: string;
+  analyst: string;
+  enterprise: string;
+  kompwatch: string;
+}[] = [
+  {
+    label: "Annual cost",
+    analyst: "$85,000+",
+    enterprise: "$20,000–40,000",
+    kompwatch: "$588",
+  },
+  {
+    label: "Setup time",
+    analyst: "3–6 months",
+    enterprise: "4–8 weeks",
+    kompwatch: "5 minutes",
+  },
+  {
+    label: "Coverage",
+    analyst: "5–10 competitors",
+    enterprise: "Depends on plan",
+    kompwatch: "Up to 50+",
+  },
+  {
+    label: "Monitoring frequency",
+    analyst: "Weekly (manual)",
+    enterprise: "Daily",
+    kompwatch: "Hourly",
+  },
+  {
+    label: "AI-generated summaries",
+    analyst: "No",
+    enterprise: "Some tools",
+    kompwatch: "Every change",
+  },
+  {
+    label: "Requires sales call",
+    analyst: "N/A",
+    enterprise: "Yes",
+    kompwatch: "No",
+  },
+  {
+    label: "Contract",
+    analyst: "Full-time hire",
+    enterprise: "12-month minimum",
+    kompwatch: "Cancel anytime",
+  },
+];
+
 function ComparisonCell({
   value,
   highlight,
@@ -418,6 +469,7 @@ export default function PricingPage() {
   const [switcherVariant, setSwitcherVariant] = useState<Variant>("B");
   const [personaVariant, setPersonaVariant] = useState<Variant>("B"); // B = control (no persona headers)
   const [strikethroughVariant, setStrikethroughVariant] = useState<Variant>("B"); // B = control (no market-rate anchor)
+  const [costTableVariant, setCostTableVariant] = useState<Variant>("B"); // B = control (no enterprise cost table)
   const [cameFromHeadsup, setCameFromHeadsup] = useState(false);
 
   useEffect(() => {
@@ -458,6 +510,16 @@ export default function PricingPage() {
       props: {
         variant: strikethroughAssigned,
         experiment: PRICING_STRIKETHROUGH_EXPERIMENT,
+      },
+    });
+
+    const costTableAssigned =
+      assignVariantInBrowser(ENTERPRISE_COST_TABLE_EXPERIMENT) ?? "B";
+    setCostTableVariant(costTableAssigned);
+    window.plausible?.("enterprise-cost-table-impression", {
+      props: {
+        variant: costTableAssigned,
+        experiment: ENTERPRISE_COST_TABLE_EXPERIMENT,
       },
     });
 
@@ -592,6 +654,7 @@ export default function PricingPage() {
         founding_variant: foundingVariant,
         persona_variant: personaVariant,
         strikethrough_variant: strikethroughVariant,
+        cost_table_variant: costTableVariant,
         billing_period: billingPeriod,
       },
     });
@@ -1074,6 +1137,87 @@ export default function PricingPage() {
 
       {/* Interactive ROI calculator — analyst labor savings framing */}
       <RoiCalculator />
+
+      {/* Enterprise cost comparison table — A/B experiment (variant A = visible) */}
+      {costTableVariant === "A" && (
+        <div className="mt-20">
+          <div className="text-center">
+            <p className="text-xs font-semibold uppercase tracking-wider text-brand-600">
+              Cost comparison
+            </p>
+            <h2 className="mt-2 text-2xl font-bold tracking-tight text-gray-900">
+              What does competitive intelligence really cost?
+            </h2>
+            <p className="mt-2 text-sm text-gray-600">
+              Three ways to track competitors &mdash; only one makes sense for growing teams.
+            </p>
+          </div>
+
+          <div className="mt-8 overflow-x-auto">
+            <table className="w-full text-left text-sm">
+              <thead>
+                <tr className="border-b border-gray-200">
+                  <th className="py-3 pr-4 font-medium text-gray-500" />
+                  <th className="px-4 py-3 font-medium text-gray-500">
+                    <div className="flex items-center gap-1.5">
+                      <svg className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                      Hire an analyst
+                    </div>
+                  </th>
+                  <th className="px-4 py-3 font-medium text-gray-500">
+                    <div className="flex items-center gap-1.5">
+                      <svg className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                      </svg>
+                      Enterprise tool
+                    </div>
+                    <span className="text-xs font-normal text-gray-400">Klue, Crayon</span>
+                  </th>
+                  <th className="px-4 py-3 font-semibold text-brand-600">
+                    <div className="flex items-center gap-1.5">
+                      <svg className="h-4 w-4 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                      KompWatch Pro
+                    </div>
+                    <span className="text-xs font-normal text-brand-500">$49/mo annual</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {enterpriseCostRows.map((row) => (
+                  <tr key={row.label}>
+                    <td className="py-3 pr-4 font-medium text-gray-700">{row.label}</td>
+                    <td className="px-4 py-3 text-gray-500">{row.analyst}</td>
+                    <td className="px-4 py-3 text-gray-500">{row.enterprise}</td>
+                    <td className="px-4 py-3 font-medium text-brand-600">{row.kompwatch}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-6 rounded-xl border border-brand-100 bg-brand-50/50 p-5 text-center">
+            <p className="text-sm text-gray-700">
+              <strong className="text-gray-900">Bottom line:</strong> an analyst costs
+              <strong className="text-gray-900"> $85K+/yr</strong>, enterprise tools cost
+              <strong className="text-gray-900"> $20K+/yr</strong>, KompWatch Pro costs
+              <strong className="text-brand-600"> $588/yr</strong>.
+            </p>
+            <p className="mt-1 text-xs text-gray-500">
+              That&rsquo;s <strong className="text-brand-600">97% less</strong> than hiring
+              and <strong className="text-brand-600">97% less</strong> than enterprise tools.
+            </p>
+          </div>
+
+          <p className="mt-4 text-center text-xs text-gray-400">
+            Analyst salary based on Glassdoor median for &ldquo;Competitive Intelligence Analyst&rdquo; (US, June 2026).
+            Enterprise tool pricing from G2 and Gartner Peer Insights reviews.
+          </p>
+        </div>
+      )}
 
       {/* No Hidden Fees Section */}
       <div className="mt-20">
