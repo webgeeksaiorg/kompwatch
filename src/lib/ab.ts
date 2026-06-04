@@ -11,6 +11,7 @@ export const SOCIAL_PROOF_COUNTER_EXPERIMENT = "social-proof-live-counter-2026-0
 export const PRICING_STRIKETHROUGH_EXPERIMENT = "pricing-strikethrough-anchor-2026-06";
 export const ENTERPRISE_COST_TABLE_EXPERIMENT = "pricing-enterprise-cost-table-2026-06";
 export const QUANTIFIED_NOISE_EXPERIMENT = "quantified-noise-claim-2026-06";
+export const PRICING_USECASE_EXPERIMENT = "usecase-pricing-hero-2026-06";
 
 const STORAGE_PREFIX = "kw-ab-";
 
