@@ -105,6 +105,33 @@ If you're on the **Team plan** and multiple teammates are getting overwhelmed:
 
 ---
 
+## What Does "3 Alerts/Week, Not 300" Mean on the Homepage?
+
+Some visitors see a callout on the KompWatch homepage that reads **"3 alerts/week, not 300"** in the features section. Here's exactly what that means and how the figure is derived.
+
+**The claim:** KompWatch users receive an average of **~3 meaningful competitor alerts per week per tracked competitor**, compared to raw-change monitoring tools that surface 100–300+ raw diffs per week for the same competitor.
+
+**How raw-change tools generate 300+ alerts:**
+A typical competitor website changes dozens of times per week — footer copyright text, cookie consent banners, nav link hover states, A/B test variants cycling in/out, CDN-injected analytics scripts, session tokens embedded in the HTML, and CSS micro-tweaks. Raw-change tools (VisualPing, Distill, basic website diff scrapers) report every single one of these as a change event. For a single tracked competitor across 3–5 pages, that's easily 50–300+ raw diffs per week.
+
+**How KompWatch filters to ~3:**
+Before an alert is created, KompWatch applies three sequential filters:
+
+1. **Confidence scoring** — the AI assigns a 0–100% confidence score. Changes below 40% (A/B test variants, CDN drift, dynamic ad content, session tokens) are discarded before storage.
+2. **Severity classification** — the AI classifies each surviving change as LOW / MEDIUM / HIGH / CRITICAL based on what changed. By default, only MEDIUM and above reach your digest.
+3. **Change-type deduplication** — consecutive snapshots that show the same noise pattern are grouped into a single change event, not separate alerts.
+
+After filtering, the median KompWatch user sees **2–4 meaningful alerts per week per competitor** — pricing moves, feature launches, messaging pivots, and job-posting signals.
+
+**The 300 figure is a representative upper bound**, not a universal average. Raw-change volume varies widely: a heavily personalized SPA homepage can generate 500+ raw diffs per week; a simple static pricing page might only generate 20. The "300" figure reflects median raw-change volume observed across comparable monitoring tools for active SaaS competitor sites.
+
+**Why "avg alerts per tracked competitor"?**
+The attribution line says "Based on avg alerts per tracked competitor vs raw-change CI tools" because the per-competitor figure normalizes for the number of competitors tracked — some users monitor 2, others monitor 50.
+
+Not all visitors see this callout — it's part of an ongoing A/B test.
+
+---
+
 ## Related articles
 
 - [AI Confidence Scoring — How KompWatch Filters Change Noise](./ai-confidence-scoring.md)
