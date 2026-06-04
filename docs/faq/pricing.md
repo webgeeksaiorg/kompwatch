@@ -64,6 +64,22 @@ The crossed-out price is shown to help illustrate the cost difference — not be
 
 Not all visitors see this display — it's part of an ongoing A/B test.
 
+## What Is the Cost Comparison Table on the Pricing Page?
+
+Some visitors see a three-column comparison table on the pricing page, between the ROI calculator and the "No hidden fees" section. It compares three approaches to competitive intelligence:
+
+| Approach | Typical annual cost |
+|---|---|
+| Hire a CI analyst | $85,000+/yr (salary + benefits) |
+| Enterprise tools (Klue, Crayon) | $20,000–$40,000+/yr |
+| KompWatch Pro | $588/yr |
+
+The table is meant to help you understand the **full cost** of each approach — not just the software license. Enterprise CI platforms typically require a dedicated analyst to triage alerts, maintain battlecards, and manage noise. KompWatch is fully automated, so there's no ongoing analyst cost.
+
+Not all visitors see this table — it's part of an ongoing A/B test.
+
+If you'd like more detail on the cost breakdown, see [What Is the True Cost of Enterprise CI Tools?](./true-cost-of-enterprise-ci-tools.md)
+
 ## Are There Hidden Fees?
 
 No. What you see on the [pricing page](https://kompwatch.com/pricing) is what you pay.
