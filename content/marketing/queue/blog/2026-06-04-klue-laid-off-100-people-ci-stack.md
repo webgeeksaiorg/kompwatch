@@ -1,7 +1,7 @@
 ---
 platform: blog
 type: article
-status: draft
+status: queued
 publish_date: 2026-06-04
 score: 8/10
 keywords: [Klue layoffs, Klue alternative, competitive intelligence tools 2026, CI tool pricing, Crayon alternative]
