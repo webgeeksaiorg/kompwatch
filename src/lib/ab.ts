@@ -12,6 +12,7 @@ export const PRICING_STRIKETHROUGH_EXPERIMENT = "pricing-strikethrough-anchor-20
 export const ENTERPRISE_COST_TABLE_EXPERIMENT = "pricing-enterprise-cost-table-2026-06";
 export const QUANTIFIED_NOISE_EXPERIMENT = "quantified-noise-claim-2026-06";
 export const PRICING_USECASE_EXPERIMENT = "usecase-pricing-hero-2026-06";
+export const HERO_CTA_SETUP_EXPERIMENT = "hero-cta-setup-competitor-2026-06";
 
 const STORAGE_PREFIX = "kw-ab-";
 
