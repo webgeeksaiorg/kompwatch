@@ -41,6 +41,41 @@ export async function generateMetadata({
 }
 
 /**
+ * Extract FAQ question/answer pairs from the raw markdown body.
+ * Expects a section starting with **FAQ** followed by bold questions and plain-text answers.
+ */
+function extractFaqPairs(
+  markdown: string,
+): { question: string; answer: string }[] {
+  // Find the FAQ section — starts with a line that is just **FAQ**
+  const faqIdx = markdown.indexOf("\n**FAQ**\n");
+  if (faqIdx === -1) return [];
+
+  const faqSection = markdown.slice(faqIdx);
+
+  // Match bold questions followed by answer text
+  const pairs: { question: string; answer: string }[] = [];
+  const re = /\*\*(.+?)\*\*\n([\s\S]*?)(?=\n\*\*|$)/g;
+  let match: RegExpExecArray | null;
+
+  // Skip the first match which is the "FAQ" heading itself
+  let isFirst = true;
+  while ((match = re.exec(faqSection)) !== null) {
+    if (isFirst) {
+      isFirst = false;
+      continue;
+    }
+    const question = match[1].trim();
+    const answer = match[2].trim();
+    if (question && answer) {
+      pairs.push({ question, answer });
+    }
+  }
+
+  return pairs;
+}
+
+/**
  * Split rendered HTML roughly in half (after the mid-point paragraph)
  * so we can inject the email capture CTA between the two halves.
  */
@@ -77,12 +112,35 @@ export default async function BlogPostPage({ params }: PageProps) {
     url: `${siteUrl}/blog/${post.slug}`,
   };
 
+  const faqPairs = extractFaqPairs(post.body);
+  const faqJsonLd =
+    faqPairs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqPairs.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: faq.answer,
+            },
+          })),
+        }
+      : null;
+
   return (
     <div className="bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
 
       <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-sm">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">

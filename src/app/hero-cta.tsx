@@ -4,21 +4,22 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import {
   assignVariantInBrowser,
-  HERO_CTA_DEMO_EXPERIMENT,
+  HERO_CTA_SETUP_EXPERIMENT,
   type Variant,
 } from "@/lib/ab";
 
 /**
- * EXPERIMENT: Hero CTA A/B test (hero-cta-demo-2026-05)
- * A — "Start Monitoring Free" → /login  (control)
- * B — "Try the Live Demo"     → /demo   (demo-first funnel)
+ * EXPERIMENT: Hero CTA A/B test (hero-cta-setup-competitor-2026-06)
+ * A — "Start Monitoring Free"        → /login  (control)
+ * B — "Setup Your First Competitor"   → /login  (action-specific)
  *
- * Hypothesis: surfacing /demo as primary CTA lifts qualified signups by ≥10%
- * because visitors self-qualify via the interactive demo before committing email.
+ * Hypothesis: a concrete, task-oriented CTA ("Setup Your First Competitor")
+ * lifts signups by ≥10% because it implies immediate value and a fast path
+ * to the core product action, reducing perceived friction.
  */
 const VARIANTS: Record<Variant, { label: string; href: string }> = {
   A: { label: "Start Monitoring Free", href: "/login" },
-  B: { label: "Try the Live Demo", href: "/demo" },
+  B: { label: "Setup Your First Competitor", href: "/login" },
 };
 
 declare global {
@@ -49,12 +50,12 @@ export function HeroCTA() {
   const [variant, setVariant] = useState<Variant | null>(null);
 
   useEffect(() => {
-    const assigned = assignVariantInBrowser(HERO_CTA_DEMO_EXPERIMENT) ?? "A";
+    const assigned = assignVariantInBrowser(HERO_CTA_SETUP_EXPERIMENT) ?? "A";
     setVariant(assigned);
     window.plausible?.("Hero CTA Impression", {
       props: {
         variant: assigned,
-        experiment: HERO_CTA_DEMO_EXPERIMENT,
+        experiment: HERO_CTA_SETUP_EXPERIMENT,
       },
     });
   }, []);
@@ -68,7 +69,7 @@ export function HeroCTA() {
     window.plausible?.("Hero CTA Click", {
       props: {
         variant: v,
-        experiment: HERO_CTA_DEMO_EXPERIMENT,
+        experiment: HERO_CTA_SETUP_EXPERIMENT,
         subheadline: subheadlineVariant,
       },
     });
