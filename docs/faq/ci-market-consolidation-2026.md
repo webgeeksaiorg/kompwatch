@@ -10,8 +10,8 @@ Adobe acquired Kompyte and folded it into the Adobe Experience Cloud suite. Komp
 **Crayon → acquired by SoftwareOne ($1.4B, April 2026)**
 SoftwareOne — an enterprise IT and software licensing company — acquired Crayon for $1.4B. SoftwareOne is not a product-led growth company; its core business is enterprise software procurement and IT management. The acquisition adds an enterprise ownership layer to a product that was already priced at $25K–$40K/yr.
 
-**Klue — two significant layoff rounds (2025 and May 2026)**
-Klue cut approximately 40% of staff in 2025, then laid off another 100 employees in May 2026 — roughly a third of their remaining team — citing a "focus on AI." Their CEO publicly acknowledged losing deals to ChatGPT. The product direction is shifting toward Microsoft stack integration (Teams, Dynamics 365, Copilot MCP Server) and AI-restructured workflows.
+**Klue — acquisition of Ignition + two significant layoff rounds (2025 and May 2026)**
+Klue acquired Ignition (agentic AI for product marketers) in September 2025 — IP only, no employees. Ignition customers received a 30-day wind-down notice and were offered a discount path to Klue. Klue then cut approximately 40% of staff in 2025, then laid off another 100 employees in May 2026 — roughly a third of their remaining team — citing a "focus on AI." Their CEO publicly acknowledged losing deals to ChatGPT. The product direction is shifting toward Microsoft stack integration (Teams, Dynamics 365, Copilot MCP Server) and AI-restructured workflows.
 
 ## What This Means for CI Buyers
 
@@ -44,6 +44,7 @@ If your core question is "what changed on a competitor's site this week?" — th
 - [What to do when your CI vendor has layoffs →](./ci-vendor-layoffs.md)
 - [What to do when your CI vendor gets acquired →](./when-your-ci-vendor-gets-acquired.md)
 - [Switching from Klue →](./switching-from-klue.md)
+- [Switching from Ignition (shut down by Klue) →](./switching-from-ignition.md)
 - [Switching from Crayon →](./switching-from-crayon.md)
 - [Is KompWatch right for my team? →](./is-kompwatch-right-for-my-team.md)
 
