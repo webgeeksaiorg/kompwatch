@@ -34,7 +34,7 @@ export default async function CompetitorsPage() {
         </div>
       </div>
 
-      <AddCompetitorForm atLimit={competitors.length >= limit} plan={user.plan} />
+      <AddCompetitorForm atLimit={competitors.length >= limit} plan={user.plan} currentCount={competitors.length} limit={limit} />
       <BulkImportForm
         atLimit={competitors.length >= limit}
         remaining={limit - competitors.length}

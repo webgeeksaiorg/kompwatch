@@ -8,9 +8,9 @@ import {
 } from "@/lib/ab";
 
 const VARIANTS = {
-  A: "Track competitor pricing, features, blog posts, and job listings. Get AI-analyzed digests delivered to your inbox. Stop manually checking competitor websites.",
+  A: "An AI agent monitors competitor pricing, features, and job listings around the clock — and delivers only the changes that matter straight to your inbox.",
   B: "Crayon costs more than a junior hire. KompWatch costs $49/mo — and you get the same answer.",
-  D: "Signal, not noise. AI watches every competitor page and sends you only the changes that matter — pricing moves, feature launches, strategic shifts.",
+  D: "Set it and forget it. Your AI agent watches every competitor page 24/7 and alerts you only when something strategic changes — pricing moves, feature launches, new hires.",
 } as const;
 
 const EXPERIMENT_COPY =

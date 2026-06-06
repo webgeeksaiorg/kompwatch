@@ -9,12 +9,12 @@ import {
 
 const VARIANTS = {
   A: {
-    before: "Know when competitors ",
-    highlight: "change anything",
+    before: "Competitive intel that ",
+    highlight: "finds you",
   },
   B: {
-    before: "Clean signal from ",
-    highlight: "every competitor move",
+    before: "Your AI agent for ",
+    highlight: "competitive intelligence",
   },
   C: {
     before: "CI for teams ",
