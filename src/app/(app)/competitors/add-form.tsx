@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { TrackedCTA } from "@/components/tracked-cta";
 
 const POPULAR_COMPETITORS = [
   { name: "HubSpot", url: "https://www.hubspot.com" },
@@ -18,12 +19,21 @@ const POPULAR_COMPETITORS = [
   { name: "Figma", url: "https://www.figma.com" },
 ];
 
+const UPGRADE_INFO: Record<string, { nextPlan: string; competitors: number; extras: string }> = {
+  FREE: { nextPlan: "Pro", competitors: 10, extras: "daily digests + Slack alerts" },
+  PRO: { nextPlan: "Team", competitors: 50, extras: "hourly snapshots + API access" },
+};
+
 export function AddCompetitorForm({
   atLimit,
   plan,
+  currentCount,
+  limit,
 }: {
   atLimit: boolean;
   plan: string;
+  currentCount: number;
+  limit: number;
 }) {
   const router = useRouter();
   const [name, setName] = useState("");
@@ -66,19 +76,38 @@ export function AddCompetitorForm({
   }
 
   if (atLimit) {
+    const upgrade = UPGRADE_INFO[plan];
+
     return (
-      <div className="rounded-lg border border-amber-200 bg-amber-50 p-4">
-        <p className="text-sm text-amber-800">
-          You&apos;ve reached the {plan} plan limit.{" "}
-          <a
+      <div className="overflow-hidden rounded-xl border border-amber-200 bg-gradient-to-r from-amber-50 via-white to-brand-50 p-5 sm:p-6">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-start gap-3">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-100">
+              <svg className="h-5 w-5 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-gray-900">
+                You&apos;re tracking {currentCount} of {limit} competitors
+              </h3>
+              <p className="mt-0.5 text-sm text-gray-600">
+                {upgrade
+                  ? <>Upgrade to {upgrade.nextPlan} for {upgrade.competitors} competitors, {upgrade.extras}.</>
+                  : <>You&apos;ve reached the maximum for your plan.</>}
+              </p>
+            </div>
+          </div>
+
+          <TrackedCTA
             href="/pricing"
-            className="font-medium underline hover:text-amber-900"
-            onClick={() => window.plausible?.("upgrade-cta-clicked", { props: { source: "competitors-limit" } })}
+            event="upgrade-cta-clicked"
+            eventProps={{ source: "competitors-limit", current_plan: plan }}
+            className="inline-flex shrink-0 items-center rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
           >
-            Upgrade your plan
-          </a>{" "}
-          to track more competitors.
-        </p>
+            {upgrade ? `Upgrade to ${upgrade.nextPlan}` : "View plans"}
+          </TrackedCTA>
+        </div>
       </div>
     );
   }
