@@ -172,7 +172,7 @@ export default function Home() {
       {/* Hero */}
       <section className="mx-auto max-w-4xl px-6 pb-24 pt-20 text-center">
         <div className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700">
-          AI-powered competitor monitoring
+          AI agent for competitive intel
         </div>
         <p className="mt-4 inline-flex items-center gap-2 rounded-lg bg-green-50 px-4 py-2 text-sm font-semibold text-green-800 ring-1 ring-green-200">
           <svg className="h-4 w-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
