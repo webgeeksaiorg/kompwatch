@@ -14,7 +14,9 @@ It's sample data — no real monitoring is happening.
 
 ## Does It Count Against My Plan Limit?
 
-No. The demo competitor does **not** count toward your plan's competitor limit (Free: 2, Pro: 10, Team: 50). You can add your real competitors without removing it first.
+Yes. The demo competitor counts as **one of your plan's competitor slots** — it's stored like any other monitored competitor. On the Free plan (2 slots), you'll have 1 slot remaining after the demo is seeded.
+
+If you want to use both Free slots for real competitors, remove Acme Analytics first (see below). On Pro (10 slots) or Team (50 slots), the demo takes up one slot but you'll barely notice it.
 
 ---
 
