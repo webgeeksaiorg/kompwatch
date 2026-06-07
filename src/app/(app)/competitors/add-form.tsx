@@ -112,8 +112,49 @@ export function AddCompetitorForm({
     );
   }
 
+  // EXPERIMENT (ticket 39f8): Pre-limit nudge — show softer Pro CTA when user
+  // has one slot left (e.g., 1 of 2 used on FREE). Distinct from atLimit block:
+  // this renders ABOVE the add form so the user can still add their last slot.
+  const upgrade = UPGRADE_INFO[plan];
+  const showPreLimitNudge = !atLimit && upgrade !== undefined && limit > 0 && currentCount === limit - 1;
+
   return (
-    <form onSubmit={handleSubmit} className="rounded-lg border border-gray-200 bg-white p-5">
+    <>
+      {showPreLimitNudge && (
+        <div
+          className="mb-4 overflow-hidden rounded-xl border border-brand-200 bg-gradient-to-r from-brand-50 via-white to-amber-50 p-4 sm:p-5"
+          data-testid="pre-limit-nudge"
+        >
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-start gap-3">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-100">
+                <svg className="h-4.5 w-4.5 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold text-gray-900">
+                  One slot left on {plan}
+                </h3>
+                <p className="mt-0.5 text-sm text-gray-600">
+                  Upgrade to {upgrade.nextPlan} now for {upgrade.competitors} competitors and {upgrade.extras} — keep your momentum going.
+                </p>
+              </div>
+            </div>
+
+            <TrackedCTA
+              href="/pricing"
+              event="upgrade-cta-clicked"
+              eventProps={{ source: "competitors-pre-limit", current_plan: plan }}
+              className="inline-flex shrink-0 items-center rounded-lg border border-brand-300 bg-white px-3 py-1.5 text-xs font-semibold text-brand-700 shadow-sm hover:bg-brand-50"
+            >
+              See {upgrade.nextPlan} plan
+            </TrackedCTA>
+          </div>
+        </div>
+      )}
+
+      <form onSubmit={handleSubmit} className="rounded-lg border border-gray-200 bg-white p-5">
       <h2 className="mb-4 text-sm font-semibold text-gray-900">Add a competitor</h2>
       <div className="flex flex-col gap-3 sm:flex-row">
         <input
@@ -157,5 +198,6 @@ export function AddCompetitorForm({
         </div>
       </div>
     </form>
+    </>
   );
 }
