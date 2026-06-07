@@ -1,10 +1,12 @@
 import { Suspense } from "react";
+import { redirect } from "next/navigation";
 import { requireAuth } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { PLANS } from "@/lib/stripe";
 import { severitiesAtOrAbove } from "@/lib/severity";
 import { splitChangeDetails } from "@/lib/change-context";
 import { signalLabel } from "@/lib/signal-score";
+import { seedDemoCompetitor } from "@/lib/demo-seed";
 import { OnboardingChecklist } from "./onboarding-checklist";
 import { ExportChangesButton } from "@/components/dashboard/export-changes-button";
 import { EmptyStateOnboarding } from "@/components/dashboard/empty-state-onboarding";
@@ -154,6 +156,19 @@ export default async function DashboardPage({
     date,
     count,
   }));
+
+  // Auto-seed a demo competitor when the dashboard is empty.
+  // Covers edge cases where the signup seed failed or the user signed up
+  // before demo seeding was implemented.  The ?seeded=1 param prevents an
+  // infinite redirect loop if the seed itself fails.
+  if (competitors.length === 0 && params.seeded !== "1") {
+    try {
+      await seedDemoCompetitor(user.id);
+    } catch {
+      // Seed failed (e.g. duplicate URL) — fall through to empty state
+    }
+    redirect("/dashboard?seeded=1");
+  }
 
   const limit = PLANS[user.plan].competitors;
   const activeCount = competitors.filter((c) => c.isActive).length;
