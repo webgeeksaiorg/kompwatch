@@ -1,111 +1,119 @@
-# Can I Monitor Competitor Job Postings for Strategic Signals?
+# How to Monitor a Competitor's Job Postings as a Strategic Signal
 
-**Short answer:** Yes. Competitor careers pages are one of the highest-signal sources of intelligence available — and KompWatch can monitor them automatically.
-
----
-
-## Why Job Postings Matter for Competitive Intelligence
-
-Hiring is a company's most public commitment to its future direction. Job postings reveal:
-
-- **Roadmap priorities** — A competitor hiring 5 ML engineers signals an AI push before any announcement
-- **Market expansion** — "Senior AE, EMEA" or "Country Manager, Germany" signals geographic expansion
-- **Org restructuring** — Mass hiring in sales vs. engineering signals a go-to-market pivot vs. product investment
-- **Weakness signals** — Repeated re-posting of the same role suggests retention problems or a difficult hire
-- **Partnership plays** — "Salesforce Alliance Manager" or "AWS Partner Engineer" signals ecosystem bets
-- **New product lines** — Roles in verticals they don't currently serve (e.g., "Healthcare Compliance Lead" from a general SaaS company)
+Competitor careers pages are one of the most underused sources of competitive intelligence. Hiring patterns reveal strategic intent months before a product announcement, press release, or pricing change ever appears publicly. KompWatch can track careers pages automatically and alert you when the hiring picture shifts.
 
 ---
 
-## How to Monitor Competitor Careers Pages with KompWatch
+## Why Job Postings Are a Leading Indicator
 
-### 1. Add the careers page as a tracked URL
+Unlike a pricing page (which shows what's happening now), a careers page shows what a competitor is *planning*:
 
-Most careers pages are at `/careers`, `/jobs`, or `/about/careers`. Add these directly:
-
-```
-https://competitor.com/careers
-https://competitor.com/jobs
-```
-
-### 2. Set a targeted CSS selector
-
-Instead of monitoring the whole page (which will generate noise from design changes), target the job listing container:
-
-| Site structure | Suggested selector |
+| Hiring signal | What it likely means |
 |---|---|
-| Generic careers page | `[data-testid="job-list"]`, `.jobs-list`, `#open-positions` |
-| Greenhouse ATS | `.opening` or `#main` |
-| Lever ATS | `.postings-group` |
-| Ashby ATS | `[data-testid="job-board"]` |
-| Workday | `.GW4e1b` (may vary) |
-
-If you're unsure, right-click the job listings section → Inspect Element → find the container div.
-
-### 3. Set snapshot frequency
-
-- **Pro plan (every 6h)**: Ideal for fast-moving competitors. You'll catch new postings within hours.
-- **Free plan (daily)**: Sufficient for most competitive monitoring — job postings rarely have a 24h window.
+| Surge in ML/AI engineering roles | Building or accelerating AI features |
+| First enterprise sales hires | Moving upmarket from self-serve |
+| Opening a new city office | Geographic expansion |
+| Mass hiring in support/success | Rapid customer growth or high churn requiring intervention |
+| Layoffs or role removals | Contraction, pivot, or cost-cutting before a funding event |
+| New "Head of Platform" or "Partnerships" hire | Building an ecosystem/integration play |
+| First dedicated security/compliance hire | Pursuing enterprise or regulated market deals |
 
 ---
 
-## What KompWatch Detects
+## How to Set It Up in KompWatch
 
-When a competitor's careers page changes, KompWatch flags:
+Most SaaS companies list open roles at a predictable URL — typically `/careers`, `/jobs`, or via a hosted ATS like Greenhouse, Lever, or Ashby.
 
-- **New job postings** — Role title, department, location
-- **Removed postings** — Roles pulled (hired, cancelled, or on hold)
-- **Volume spikes** — A sudden surge in open roles (hiring push or VC funding deployment)
-- **Volume drops** — Layoffs or hiring freeze (often before public announcement)
+### 1. Find the careers page URL
 
-The AI digest summarizes these changes with context: *"Competitor added 4 engineering roles in ML/AI — signals accelerated investment in AI features."*
+Common patterns:
+- `acme.com/careers`
+- `acme.com/jobs`
+- `jobs.acme.com`
+- `acme.greenhouse.io`
+- `boards.greenhouse.io/acme`
+- `jobs.lever.co/acme`
 
----
+If they use Greenhouse, Lever, or Ashby, the hosted board URL works well — it's a public, structured page that updates reliably as roles open and close.
 
-## Interpreting the Signals
+### 2. Add it to KompWatch
 
-### They're hiring aggressively in your category
-**Action:** Expect feature announcements in 3–6 months. Tighten your roadmap, brief your sales team.
+1. Go to **Competitors → Add URL**
+2. Enter the careers page URL
+3. Name it clearly: `Acme Corp (Careers)` or `Acme — Hiring`
+4. Set the CSS selector to target the job listing area (skip the nav/footer noise):
+   - Greenhouse boards: `#app_body` or `.job-posts`
+   - Lever boards: `.posting-list`
+   - Generic `/careers` pages: try `main`, `.careers-listings`, or `#open-roles`
+   - If unsure: leave as `body` to capture everything
 
-### They're hiring a dedicated "Competitive Intelligence" analyst
-**Action:** They're investing in beating you specifically. Run your own win/loss analysis and sharpen battlecards.
+### 3. Choose the right snapshot frequency
 
-### They posted then removed a "VP of Partnerships"
-**Action:** Partnership strategy may be stalled. Could be an opportunity to recruit their would-be partners.
-
-### Their engineering hiring slowed dramatically
-**Action:** Product velocity is about to slow. Accelerate your own shipping cadence.
-
-### They opened a new office location
-**Action:** Geographic expansion. Flag for your sales team if you're active in that region.
-
----
-
-## Limitations
-
-- **ATS-hosted job boards** (Greenhouse, Lever, Workday) load listings via JavaScript. KompWatch uses Playwright (headless Chromium) so these render correctly — but if you're seeing empty captures, contact support.
-- **LinkedIn job postings** are behind a login wall and cannot be scraped. Focus on the company's own careers page instead.
-- **Job quantity** — Some large competitors post dozens of jobs/week. Use a specific selector (e.g., engineering roles only) or filter by the "FEATURE" change type in your digest.
-
----
-
-## Pro Tip: Combine with Other Signals
-
-Job postings are most powerful when correlated with other KompWatch signals:
-
-| Job posting signal | + Other KompWatch signal | = Intelligence |
+| Plan | Snapshot cadence | Suitable for |
 |---|---|---|
-| New AI engineer roles | Pricing page change (added AI tier) | AI product launch imminent |
-| New enterprise sales roles | Feature page added SSO/RBAC | Upmarket move confirmed |
-| Layoffs in customer success | Support docs went stale | Service quality about to drop — opportunity |
-| New partner manager | Integrations page expanded | Ecosystem play underway |
+| Free | Daily | Catching major hiring waves; occasional role additions |
+| Pro | Every 6 hours | Tracking active hiring surges in real time |
+| Team | Hourly | Competitive intelligence desks or investor-grade monitoring |
+
+For most teams, daily is sufficient — job postings typically stay open for weeks, so you won't miss a new role.
+
+---
+
+## Reading the Changes
+
+When KompWatch detects a change on a careers page, the AI digest summarizes it in plain English:
+
+> *"Acme Corp (Careers) updated — 4 new roles added: Senior ML Engineer (x2), Director of Enterprise Sales, Head of Partnerships. 1 role removed: Product Marketing Manager."*
+
+This is more useful than raw HTML diffs. You can immediately ask: why are they adding two ML engineers and a Head of Partnerships at the same time?
+
+---
+
+## Patterns Worth Alerting Your Team About
+
+**Flag to your sales team:**
+- A competitor hires their first enterprise AE, VP of Sales, or Sales Engineer → they're about to enter your enterprise deals
+
+**Flag to your product team:**
+- A competitor opens 3+ engineering roles in a specific area (AI, mobile, security) → a feature wave is coming in 6–12 months
+
+**Flag to your marketing team:**
+- A competitor hires a Head of Content, SEO Lead, or first marketing manager → expect an inbound push and higher share-of-voice competition
+
+**Flag to your leadership:**
+- A competitor's headcount drops significantly (many roles closed, few opened) → potential distress signal; good time to approach their customers
+
+---
+
+## Limitations to Keep in Mind
+
+- **Roles removed ≠ roles filled.** A posting disappearing can mean the role was filled, the req was frozen, or the ATS page was reorganized. Treat it as a signal to investigate, not a firm conclusion.
+- **ATS pages sometimes re-render.** Some Lever/Greenhouse boards inject minor markup changes on every load. If you see noisy "changes" with no real content shift, try a more targeted CSS selector or bump the severity threshold to MEDIUM.
+- **Stealth hiring.** Some companies post roles on LinkedIn only (not their public ATS). KompWatch tracks public web pages; LinkedIn profiles require a different monitoring approach.
+- **Timing lag.** Job postings usually follow internal decisions by 4–8 weeks. By the time a role is public, the strategic direction is already set.
+
+---
+
+## Combining Careers Monitoring with Other Signals
+
+For the richest picture, pair careers page tracking with:
+
+- **Pricing page** — are they hiring while also changing pricing? Signals a growth push
+- **Changelog or blog** — are new roles aligned with announced product areas?
+- **Press/newsroom** — a funding announcement followed by 20 new roles confirms the investment thesis
+
+See [Running a Weekly Competitive Review →](./running-a-weekly-competitive-review.md) for a template that pulls all these signals together.
 
 ---
 
 ## Related FAQs
 
-- [Which pages should I monitor for each competitor?](/docs/faq/which-pages-to-monitor-per-competitor.md)
-- [Detecting competitor upmarket migration signals](/docs/faq/detecting-competitor-upmarket-migration.md)
-- [Monitoring competitor integration marketplaces](/docs/faq/monitoring-competitor-integration-marketplaces.md)
-- [Monitoring competitor press and newsrooms](/docs/faq/monitoring-competitor-press-and-newsrooms.md)
-- [Responding to a major competitor move](/docs/faq/responding-to-a-major-competitor-move.md)
+- [Which Pages Should I Monitor for Each Competitor?](./which-pages-to-monitor-per-competitor.md)
+- [Tracking Competitor Funding and Acquisitions](./tracking-competitor-funding-and-acquisitions.md)
+- [Monitoring Competitor Press and Newsrooms](./monitoring-competitor-press-and-newsrooms.md)
+- [How Often Do Competitor Websites Change?](./how-often-do-competitor-websites-change.md)
+- [Running a Weekly Competitive Review](./running-a-weekly-competitive-review.md)
+
+---
+
+*Questions? Email [support@kompwatch.com](mailto:support@kompwatch.com) — we'll respond within 24 hours.*
