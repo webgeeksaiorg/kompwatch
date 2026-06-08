@@ -41,9 +41,9 @@ You don't need to leave your current tool to evaluate alternatives. Most teams r
 
 This costs you nothing and gives you a real data point before renewal.
 
-## Klue Specifically (May 2026 Layoffs)
+## Klue Specifically (2025–2026 Layoffs)
 
-Klue laid off approximately 100 employees in May 2026 — roughly a third of their remaining team — citing a "focus on AI." This followed a separate round of cuts in 2025. Their CEO acknowledged losing deals to ChatGPT, which suggests a portion of Klue's value proposition has been commoditized by general-purpose AI.
+Klue has had two significant rounds of cuts. In 2025, approximately 85 employees were let go — around 40% of staff at the time — as part of an earlier restructuring. In May 2026, a further ~100 employees were laid off (roughly a third of the remaining team), citing a "focus on AI." Their CEO acknowledged losing deals to ChatGPT, which suggests a portion of Klue's value proposition has been commoditized by general-purpose AI.
 
 Klue is not shutting down. But if you're a current Klue customer:
 

@@ -24,7 +24,7 @@ KompWatch sends up to 6 emails over your first two weeks, depending on your plan
 
 When you sign up, KompWatch automatically pre-seeds a **demo competitor — Acme Analytics** — with sample snapshots and detected changes so your dashboard isn't empty on day one. You'll see example pricing and feature changes waiting for you the moment you log in.
 
-The welcome email's "Add Your First Competitor" button is an invitation to add a **real** competitor you want to monitor. The demo competitor is example data — it doesn't count against your plan's competitor limit, and you can delete it at any time from the [Competitors page](https://kompwatch.com/competitors) once you've had a look around.
+The welcome email's "Add Your First Competitor" button is an invitation to add a **real** competitor you want to monitor. The demo competitor occupies **one of your plan's competitor slots** (on Free, that leaves 1 of 2 slots open for a real competitor). You can delete it at any time from the [Competitors page](https://kompwatch.com/competitors) once you've had a look around — or leave it there and add your real competitors into the remaining slots.
 
 **In short:** demo competitor → immediate dashboard value; the welcome email → nudge to start real monitoring. Both are intentional.
 

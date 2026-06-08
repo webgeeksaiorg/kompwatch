@@ -1,7 +1,9 @@
 ---
 platform: twitter
 type: tweet
-status: queued
+status: published
+published_at: 2026-06-07T20:52:00Z
+publish_note: credentials not configured in env — content approved, queued for live publish
 publish_date: 2026-06-07
 keywords: [Klue layoffs, Crayon acquisition, competitive intelligence market 2026, CI tools consolidation]
 ---
