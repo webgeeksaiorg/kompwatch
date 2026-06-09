@@ -65,6 +65,7 @@ const CATEGORY_MAP: Record<string, string> = {
   "competitor-pricing-data-sources": "Advanced Monitoring",
   "how-often-do-competitor-websites-change": "Advanced Monitoring",
   "llm-visibility-monitoring": "Advanced Monitoring",
+  "monitoring-competitor-seo-strategy": "Advanced Monitoring",
 
   "integrations-and-notifications": "Integrations",
   "crm-integrations": "Integrations",
