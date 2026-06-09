@@ -8,7 +8,7 @@ const siteUrl = "https://kompwatch.com";
 export const metadata: Metadata = {
   title: "KompWatch Alternatives & Comparisons — How We Stack Up",
   description:
-    "See how KompWatch compares to Crayon, Klue, Kompyte, Changeflow, and 9 other competitive intelligence tools. Honest side-by-side breakdowns — pricing, features, and setup time.",
+    "See how KompWatch compares to Crayon, Klue, Kompyte, HeadsUp, Changeflow, and 10 other competitive intelligence tools. Honest side-by-side breakdowns — pricing, features, and setup time.",
   keywords: [
     "competitive intelligence tools comparison",
     "Crayon alternative",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "KompWatch Alternatives & Comparisons",
     description:
-      "Honest side-by-side comparisons of KompWatch vs 14 competitive intelligence tools. See pricing, features, and setup differences.",
+      "Honest side-by-side comparisons of KompWatch vs 15 competitive intelligence tools. See pricing, features, and setup differences.",
     url: `${siteUrl}/compare`,
     type: "website",
   },
@@ -136,6 +136,13 @@ const competitors = [
     price: "Free / $29 / $79 / $199",
     differentiator: "PeerPanda Professional is $79/mo for 15 competitors. KompWatch Pro is $49/mo for 10 — 38% cheaper at the tier most teams use, with custom CSS selectors and headless browser rendering.",
   },
+  {
+    slug: "headsup",
+    name: "HeadsUp",
+    tagline: "AI competitor monitoring",
+    price: "Free / paid tiers",
+    differentiator: "HeadsUp focuses on lightweight AI alerts. KompWatch adds Playwright headless rendering, CSS selector targeting, severity classification, and Claude-powered digests.",
+  },
 ];
 
 export default function ComparePage() {
@@ -170,7 +177,7 @@ export default function ComparePage() {
             KompWatch vs. the competition
           </h1>
           <p className="mt-6 text-lg text-gray-600">
-            Honest, side-by-side comparisons of KompWatch against 14 competitive intelligence tools.
+            Honest, side-by-side comparisons of KompWatch against 15 competitive intelligence tools.
             See exactly where we win, where they win, and which tool fits your team.
           </p>
           <div className="mt-8">
