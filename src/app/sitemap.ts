@@ -175,6 +175,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${siteUrl}/migrate/from-kompyte`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${siteUrl}/competitive-intelligence-for-startups`,
       lastModified: now,
       changeFrequency: "monthly",
