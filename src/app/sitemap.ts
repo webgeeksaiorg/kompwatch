@@ -187,6 +187,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${siteUrl}/affordable-competitor-monitoring`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${siteUrl}/competitive-intelligence-for-startups`,
       lastModified: now,
       changeFrequency: "monthly",

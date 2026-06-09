@@ -4,6 +4,7 @@ import { TrackedCTA } from "@/components/tracked-cta";
 import { ComparisonFAQ } from "@/components/comparison-faq";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 import { KlueReimbursementBanner } from "@/components/klue-reimbursement-banner";
+import { MigrationProTrialBanner } from "@/components/migration-pro-trial-banner";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -227,6 +228,8 @@ export default function MigrateFromKluePage() {
       </section>
 
       <KlueReimbursementBanner page="switching-from-klue" />
+
+      <MigrationProTrialBanner competitor="Klue" page="migrate-from-klue" />
 
       {/* Layoff timeline */}
       <section

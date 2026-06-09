@@ -3,6 +3,7 @@ import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
 import { ComparisonFAQ } from "@/components/comparison-faq";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
+import { MigrationProTrialBanner } from "@/components/migration-pro-trial-banner";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -228,6 +229,8 @@ export default function MigrateFromKompytePage() {
           Free plan forever &middot; No sales call &middot; No credit card
         </p>
       </section>
+
+      <MigrationProTrialBanner competitor="Kompyte" page="migrate-from-kompyte" />
 
       {/* Acquisition timeline */}
       <section
