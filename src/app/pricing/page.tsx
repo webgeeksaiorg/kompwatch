@@ -277,6 +277,79 @@ const enterpriseCostRows: {
   },
 ];
 
+/**
+ * Tier-by-tier pricing comparison (KompWatch vs Klue vs Crayon).
+ * Sourced from G2, Gartner Peer Insights, and customer reviews (May 2026).
+ * Klue / Crayon pricing requires a sales call — figures are public estimates.
+ */
+const pricingComparisonRows: {
+  label: string;
+  kompwatch: string;
+  klue: string;
+  crayon: string;
+}[] = [
+  {
+    label: "Entry plan",
+    kompwatch: "Free (2 competitors)",
+    klue: "~$20,000/yr",
+    crayon: "~$28,000/yr",
+  },
+  {
+    label: "Mid-tier plan",
+    kompwatch: "$49/mo (10 competitors)",
+    klue: "~$30,000/yr",
+    crayon: "~$40,000/yr",
+  },
+  {
+    label: "Team / Enterprise",
+    kompwatch: "$149/mo (50 competitors)",
+    klue: "$40,000+/yr",
+    crayon: "$60,000+/yr",
+  },
+  {
+    label: "Cost per competitor (mid-tier)",
+    kompwatch: "~$4.90/mo",
+    klue: "~$200/mo",
+    crayon: "~$240/mo",
+  },
+  {
+    label: "Contract length",
+    kompwatch: "Monthly, cancel anytime",
+    klue: "12-month minimum",
+    crayon: "12-month minimum",
+  },
+  {
+    label: "Minimum seats",
+    kompwatch: "1",
+    klue: "3–5",
+    crayon: "3–5",
+  },
+  {
+    label: "Free trial",
+    kompwatch: "Yes — free tier forever",
+    klue: "No (demo only)",
+    crayon: "No (demo only)",
+  },
+  {
+    label: "Self-serve checkout",
+    kompwatch: "Yes",
+    klue: "No (sales call)",
+    crayon: "No (sales call)",
+  },
+  {
+    label: "Setup / onboarding fee",
+    kompwatch: "None",
+    klue: "$2,500–$10,000",
+    crayon: "$3,000–$15,000",
+  },
+  {
+    label: "Annual cost (10 competitors)",
+    kompwatch: "$588",
+    klue: "$30,000+",
+    crayon: "$40,000+",
+  },
+];
+
 function ComparisonCell({
   value,
   highlight,
@@ -1297,6 +1370,89 @@ export default function PricingPage() {
           <p className="text-xs text-gray-400">
             Competitor cost details sourced from G2, Gartner Peer Insights, and customer reviews (May 2026).
           </p>
+        </div>
+      </div>
+
+      {/* Pricing Comparison Table — KompWatch vs Klue vs Crayon (ticket f1a0) */}
+      <div className="mt-20" id="pricing-comparison-table">
+        <div className="text-center">
+          <p className="text-xs font-semibold uppercase tracking-wider text-brand-600">
+            Pricing breakdown
+          </p>
+          <h2 className="mt-2 text-2xl font-bold tracking-tight text-gray-900">
+            KompWatch vs Klue vs Crayon — side by side
+          </h2>
+          <p className="mt-2 text-sm text-gray-600">
+            What each tier actually costs, what&rsquo;s required to sign up, and what you&rsquo;re locked into.
+          </p>
+        </div>
+
+        <div className="mt-8 overflow-x-auto">
+          <table className="w-full text-left text-sm">
+            <thead>
+              <tr className="border-b border-gray-200">
+                <th scope="col" className="py-3 pr-4 font-medium text-gray-500"></th>
+                <th scope="col" className="px-4 py-3 font-semibold text-brand-600">
+                  KompWatch
+                  <span className="block text-xs font-normal text-brand-500">
+                    Self-serve, monthly
+                  </span>
+                </th>
+                <th scope="col" className="px-4 py-3 font-medium text-gray-500">
+                  Klue
+                  <span className="block text-xs font-normal text-gray-400">
+                    Annual contract
+                  </span>
+                </th>
+                <th scope="col" className="px-4 py-3 font-medium text-gray-500">
+                  Crayon
+                  <span className="block text-xs font-normal text-gray-400">
+                    Annual contract
+                  </span>
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {pricingComparisonRows.map((row) => (
+                <tr key={row.label}>
+                  <th
+                    scope="row"
+                    className="py-3 pr-4 text-left font-medium text-gray-700"
+                  >
+                    {row.label}
+                  </th>
+                  <td className="px-4 py-3 font-medium text-brand-600">
+                    {row.kompwatch}
+                  </td>
+                  <td className="px-4 py-3 text-gray-500">{row.klue}</td>
+                  <td className="px-4 py-3 text-gray-500">{row.crayon}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <p className="mt-4 text-center text-xs text-gray-400">
+          Klue and Crayon pricing requires a sales call. Figures from G2,
+          Gartner Peer Insights, and customer reviews (May 2026). Range estimates
+          reflect typical mid-market quotes.
+        </p>
+
+        <div className="mt-6 text-center">
+          <a
+            href="/login"
+            onClick={() =>
+              window.plausible?.("pricing-comparison-cta-click", {
+                props: { location: "pricing-comparison-table" },
+              })
+            }
+            className="inline-flex items-center gap-1.5 rounded-lg bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
+          >
+            Start free — no sales call
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
         </div>
       </div>
 
