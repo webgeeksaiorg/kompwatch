@@ -143,6 +143,13 @@ const competitors = [
     price: "Free / paid tiers",
     differentiator: "HeadsUp focuses on lightweight AI alerts. KompWatch adds Playwright headless rendering, CSS selector targeting, severity classification, and Claude-powered digests.",
   },
+  {
+    slug: "spire21",
+    name: "Spire21",
+    tagline: "Startup competitor monitoring",
+    price: "TBD (early access)",
+    differentiator: "Spire21 targets early-stage startups but is behind an early-access waitlist. KompWatch is live today with a free tier, AI digests, headless rendering, and no waitlist.",
+  },
 ];
 
 export default function ComparePage() {

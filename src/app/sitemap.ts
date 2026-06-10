@@ -27,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "vs-changeflow",
     "vs-peerpanda",
     "vs-headsup",
+    "vs-spire21",
   ];
 
   return [
@@ -182,6 +183,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${siteUrl}/compare/kompwatch-vs-headsup`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${siteUrl}/compare/kompwatch-vs-spire21`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
