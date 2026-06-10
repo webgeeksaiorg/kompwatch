@@ -41,6 +41,25 @@ vi.mock("@/lib/stripe", () => ({
     }
     return null;
   },
+  validateSubscriptionAmount: (
+    plan: string,
+    unitAmountCents: number,
+    interval: string
+  ): string | null => {
+    const expected: Record<string, number> = { PRO: 4900, TEAM: 14900 };
+    const exp = expected[plan] ?? 0;
+    if (interval === "year") {
+      const expAnnual = exp * 12 * 0.8;
+      if (unitAmountCents !== expAnnual) {
+        return `ARPU_MISMATCH: ${plan} annual subscription charged $${(unitAmountCents / 100).toFixed(2)}/yr, expected $${(expAnnual / 100).toFixed(2)}/yr`;
+      }
+      return null;
+    }
+    if (unitAmountCents !== exp) {
+      return `ARPU_MISMATCH: ${plan} subscription charged $${(unitAmountCents / 100).toFixed(2)}/mo, expected $${(exp / 100).toFixed(2)}/mo`;
+    }
+    return null;
+  },
 }));
 
 // Import after mocks
@@ -134,7 +153,7 @@ describe("POST /api/webhooks/stripe", () => {
       });
       mockStripe.webhooks.constructEvent.mockReturnValue(event);
       mockStripe.subscriptions.retrieve.mockResolvedValue({
-        items: { data: [{ price: { id: "price_pro" } }] },
+        items: { data: [{ price: { id: "price_pro", unit_amount: 4900, recurring: { interval: "month" } } }] },
       });
 
       const res = await POST(makeRequest("{}") as never);
@@ -152,7 +171,7 @@ describe("POST /api/webhooks/stripe", () => {
       });
       mockStripe.webhooks.constructEvent.mockReturnValue(event);
       mockStripe.subscriptions.retrieve.mockResolvedValue({
-        items: { data: [{ price: { id: "price_team" } }] },
+        items: { data: [{ price: { id: "price_team", unit_amount: 14900, recurring: { interval: "month" } } }] },
       });
 
       const res = await POST(makeRequest("{}") as never);
@@ -182,7 +201,7 @@ describe("POST /api/webhooks/stripe", () => {
       });
       mockStripe.webhooks.constructEvent.mockReturnValue(event);
       mockStripe.subscriptions.retrieve.mockResolvedValue({
-        items: { data: [{ price: { id: "price_pro_annual" } }] },
+        items: { data: [{ price: { id: "price_pro_annual", unit_amount: 47040, recurring: { interval: "year" } } }] },
       });
 
       const res = await POST(makeRequest("{}") as never);
@@ -200,7 +219,7 @@ describe("POST /api/webhooks/stripe", () => {
       });
       mockStripe.webhooks.constructEvent.mockReturnValue(event);
       mockStripe.subscriptions.retrieve.mockResolvedValue({
-        items: { data: [{ price: { id: "price_team_annual" } }] },
+        items: { data: [{ price: { id: "price_team_annual", unit_amount: 143040, recurring: { interval: "year" } } }] },
       });
 
       const res = await POST(makeRequest("{}") as never);
@@ -218,12 +237,36 @@ describe("POST /api/webhooks/stripe", () => {
       });
       mockStripe.webhooks.constructEvent.mockReturnValue(event);
       mockStripe.subscriptions.retrieve.mockResolvedValue({
-        items: { data: [{ price: { id: "price_unknown" } }] },
+        items: { data: [{ price: { id: "price_unknown", unit_amount: 999, recurring: { interval: "month" } } }] },
       });
 
       const res = await POST(makeRequest("{}") as never);
       expect(res.status).toBe(200);
       expect(mockDb.user.update).not.toHaveBeenCalled();
+    });
+
+    it("logs ARPU_MISMATCH warning when checkout amount does not match plan price", async () => {
+      const errorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+      const event = stripeEvent("checkout.session.completed", {
+        customer: "cus_cheap",
+        subscription: "sub_cheap",
+      });
+      mockStripe.webhooks.constructEvent.mockReturnValue(event);
+      mockStripe.subscriptions.retrieve.mockResolvedValue({
+        items: { data: [{ price: { id: "price_pro", unit_amount: 999, recurring: { interval: "month" } } }] },
+      });
+
+      const res = await POST(makeRequest("{}") as never);
+      expect(res.status).toBe(200);
+      // Plan is still assigned (the price ID matched) but a warning is logged
+      expect(mockDb.user.update).toHaveBeenCalledWith({
+        where: { stripeCustomerId: "cus_cheap" },
+        data: { stripeSubscriptionId: "sub_cheap", plan: "PRO" },
+      });
+      expect(errorSpy).toHaveBeenCalledWith(
+        expect.stringContaining("ARPU_MISMATCH")
+      );
+      errorSpy.mockRestore();
     });
   });
 
@@ -233,7 +276,7 @@ describe("POST /api/webhooks/stripe", () => {
         id: "sub_456",
         customer: "cus_123",
         status: "active",
-        items: { data: [{ price: { id: "price_team" } }] },
+        items: { data: [{ price: { id: "price_team", unit_amount: 14900, recurring: { interval: "month" } } }] },
       });
       mockStripe.webhooks.constructEvent.mockReturnValue(event);
 
@@ -250,7 +293,7 @@ describe("POST /api/webhooks/stripe", () => {
         id: "sub_456",
         customer: "cus_123",
         status: "trialing",
-        items: { data: [{ price: { id: "price_pro" } }] },
+        items: { data: [{ price: { id: "price_pro", unit_amount: 4900, recurring: { interval: "month" } } }] },
       });
       mockStripe.webhooks.constructEvent.mockReturnValue(event);
 
@@ -267,7 +310,7 @@ describe("POST /api/webhooks/stripe", () => {
         id: "sub_456",
         customer: "cus_123",
         status: "past_due",
-        items: { data: [{ price: { id: "price_pro" } }] },
+        items: { data: [{ price: { id: "price_pro", unit_amount: 4900, recurring: { interval: "month" } } }] },
       });
       mockStripe.webhooks.constructEvent.mockReturnValue(event);
 
@@ -281,7 +324,7 @@ describe("POST /api/webhooks/stripe", () => {
         id: "sub_456",
         customer: "cus_123",
         status: "canceled",
-        items: { data: [{ price: { id: "price_pro" } }] },
+        items: { data: [{ price: { id: "price_pro", unit_amount: 4900, recurring: { interval: "month" } } }] },
       });
       mockStripe.webhooks.constructEvent.mockReturnValue(event);
 
