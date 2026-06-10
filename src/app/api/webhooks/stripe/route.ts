@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
-import { getStripe, planFromStripePriceId } from "@/lib/stripe";
+import { getStripe, planFromStripePriceId, validateSubscriptionAmount } from "@/lib/stripe";
 import { db } from "@/lib/db";
 import { trackServerEvent } from "@/lib/plausible";
 
@@ -17,11 +17,23 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
 
   const stripe = getStripe();
   const subscription = await stripe.subscriptions.retrieve(subscriptionId);
-  const priceId = subscription.items.data[0]?.price.id;
+  const priceItem = subscription.items.data[0];
+  const priceId = priceItem?.price.id;
   if (!priceId) return;
 
   const plan = planFromPriceId(priceId);
   if (!plan) return;
+
+  // Validate that the Stripe price amount matches expected plan pricing.
+  // Log a warning on mismatch so ARPU anomalies are caught immediately.
+  const unitAmount = priceItem.price.unit_amount ?? 0;
+  const interval = priceItem.price.recurring?.interval ?? "month";
+  const amountWarning = validateSubscriptionAmount(plan, unitAmount, interval);
+  if (amountWarning) {
+    console.error(
+      `${amountWarning} — customer=${customerId} subscription=${subscriptionId} priceId=${priceId}`
+    );
+  }
 
   await db.user.update({
     where: { stripeCustomerId: customerId },
@@ -45,11 +57,22 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
 
 async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
   const customerId = subscription.customer as string;
-  const priceId = subscription.items.data[0]?.price.id;
+  const priceItem = subscription.items.data[0];
+  const priceId = priceItem?.price.id;
   if (!priceId) return;
 
   const plan = planFromPriceId(priceId);
   if (!plan) return;
+
+  // Validate that the Stripe price amount matches expected plan pricing.
+  const unitAmount = priceItem.price.unit_amount ?? 0;
+  const interval = priceItem.price.recurring?.interval ?? "month";
+  const amountWarning = validateSubscriptionAmount(plan, unitAmount, interval);
+  if (amountWarning) {
+    console.error(
+      `${amountWarning} — customer=${customerId} subscription=${subscription.id} priceId=${priceId}`
+    );
+  }
 
   const status = subscription.status;
   // Only update plan if subscription is active or trialing

@@ -19,6 +19,7 @@ export const PLANS = {
   FREE: {
     name: "Free",
     price: 0,
+    priceCents: 0,
     competitors: 2,
     digest: "weekly",
     webhooks: false,
@@ -27,6 +28,7 @@ export const PLANS = {
   PRO: {
     name: "Pro",
     price: 49,
+    priceCents: 4900,
     competitors: 10,
     digest: "daily",
     webhooks: true,
@@ -36,6 +38,7 @@ export const PLANS = {
   TEAM: {
     name: "Team",
     price: 149,
+    priceCents: 14900,
     competitors: 50,
     digest: "daily",
     webhooks: true,
@@ -113,4 +116,31 @@ export function planAllowsDailyDigest(plan: Plan): boolean {
  */
 export function planAllowsInstantPricingAlerts(plan: Plan): boolean {
   return plan === "PRO" || plan === "TEAM";
+}
+
+/**
+ * Validate that a Stripe subscription's unit amount matches the expected
+ * price for the resolved plan. Returns null if valid, or a warning message
+ * if there's a mismatch. Annual prices are validated as 80% of monthly
+ * (matching the 20% annual discount).
+ */
+export function validateSubscriptionAmount(
+  plan: "PRO" | "TEAM",
+  unitAmountCents: number,
+  interval: string
+): string | null {
+  const expected = PLANS[plan].priceCents;
+  // Annual subscriptions: expect monthly equivalent at 80% of monthly price
+  // (20% annual discount) billed yearly
+  if (interval === "year") {
+    const expectedAnnual = expected * 12 * 0.8;
+    if (unitAmountCents !== expectedAnnual) {
+      return `ARPU_MISMATCH: ${plan} annual subscription charged $${(unitAmountCents / 100).toFixed(2)}/yr, expected $${(expectedAnnual / 100).toFixed(2)}/yr`;
+    }
+    return null;
+  }
+  if (unitAmountCents !== expected) {
+    return `ARPU_MISMATCH: ${plan} subscription charged $${(unitAmountCents / 100).toFixed(2)}/mo, expected $${(expected / 100).toFixed(2)}/mo`;
+  }
+  return null;
 }

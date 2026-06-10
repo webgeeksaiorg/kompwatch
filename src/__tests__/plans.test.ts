@@ -5,6 +5,7 @@ import {
   planAllowsInstantAlerts,
   getPriceId,
   planFromStripePriceId,
+  validateSubscriptionAmount,
 } from "@/lib/stripe";
 
 describe("PLANS — tier limits", () => {
@@ -121,5 +122,51 @@ describe("billing period → priceId resolution", () => {
 
   it("planFromStripePriceId returns null for unknown price", () => {
     expect(planFromStripePriceId("price_unknown")).toBeNull();
+  });
+});
+
+describe("validateSubscriptionAmount", () => {
+  it("returns null for correct PRO monthly amount ($49)", () => {
+    expect(validateSubscriptionAmount("PRO", 4900, "month")).toBeNull();
+  });
+
+  it("returns null for correct TEAM monthly amount ($149)", () => {
+    expect(validateSubscriptionAmount("TEAM", 14900, "month")).toBeNull();
+  });
+
+  it("returns warning for wrong PRO monthly amount ($9.99)", () => {
+    const warning = validateSubscriptionAmount("PRO", 999, "month");
+    expect(warning).toContain("ARPU_MISMATCH");
+    expect(warning).toContain("$9.99/mo");
+    expect(warning).toContain("$49.00/mo");
+  });
+
+  it("returns warning for wrong TEAM monthly amount", () => {
+    const warning = validateSubscriptionAmount("TEAM", 4900, "month");
+    expect(warning).toContain("ARPU_MISMATCH");
+    expect(warning).toContain("$49.00/mo");
+    expect(warning).toContain("$149.00/mo");
+  });
+
+  it("returns null for correct PRO annual amount (20% discount)", () => {
+    // $49 * 12 * 0.8 = $470.40
+    expect(validateSubscriptionAmount("PRO", 47040, "year")).toBeNull();
+  });
+
+  it("returns null for correct TEAM annual amount (20% discount)", () => {
+    // $149 * 12 * 0.8 = $1430.40
+    expect(validateSubscriptionAmount("TEAM", 143040, "year")).toBeNull();
+  });
+
+  it("returns warning for wrong annual amount", () => {
+    const warning = validateSubscriptionAmount("PRO", 9999, "year");
+    expect(warning).toContain("ARPU_MISMATCH");
+    expect(warning).toContain("annual");
+  });
+
+  it("priceCents matches price * 100 for all plans", () => {
+    expect(PLANS.FREE.priceCents).toBe(PLANS.FREE.price * 100);
+    expect(PLANS.PRO.priceCents).toBe(PLANS.PRO.price * 100);
+    expect(PLANS.TEAM.priceCents).toBe(PLANS.TEAM.price * 100);
   });
 });
