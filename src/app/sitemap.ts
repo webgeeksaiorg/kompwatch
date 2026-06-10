@@ -194,6 +194,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${siteUrl}/compare/kompwatch-vs-ravenseer`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${siteUrl}/affordable-competitor-monitoring`,
       lastModified: now,
       changeFrequency: "monthly",

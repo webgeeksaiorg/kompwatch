@@ -150,6 +150,13 @@ const competitors = [
     price: "TBD (early access)",
     differentiator: "Spire21 targets early-stage startups but is behind an early-access waitlist. KompWatch is live today with a free tier, AI digests, headless rendering, and no waitlist.",
   },
+  {
+    slug: "ravenseer",
+    name: "RavenSeer",
+    tagline: "Competitor monitoring (2024)",
+    price: "$25\u2013$150/mo",
+    differentiator: "RavenSeer starts at $25/mo with no free tier. KompWatch starts free, adds Playwright headless rendering, Claude-powered AI digests with severity classification, and CSS selector targeting.",
+  },
 ];
 
 export default function ComparePage() {
