@@ -13,6 +13,7 @@ import {
   type Variant,
 } from "@/lib/ab";
 import { RoiCalculator } from "@/components/marketing/roi-calculator";
+import { CaughtInTheWild } from "@/components/marketing/caught-in-the-wild";
 
 declare global {
   interface Window {
@@ -1210,6 +1211,9 @@ export default function PricingPage() {
 
       {/* Interactive ROI calculator — analyst labor savings framing */}
       <RoiCalculator />
+
+      {/* Caught in the wild — social proof A/B experiment (c356) */}
+      <CaughtInTheWild />
 
       {/* Enterprise cost comparison table — A/B experiment (variant A = visible) */}
       {costTableVariant === "A" && (

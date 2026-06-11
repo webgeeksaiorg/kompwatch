@@ -157,6 +157,13 @@ const competitors = [
     price: "$25\u2013$150/mo",
     differentiator: "RavenSeer starts at $25/mo with no free tier. KompWatch starts free, adds Playwright headless rendering, Claude-powered AI digests with severity classification, and CSS selector targeting.",
   },
+  {
+    slug: "tona",
+    name: "Tona",
+    tagline: "AI competitor tracking + team collab",
+    price: "From $39/mo",
+    differentiator: "Tona offers AI alerts with built-in team collaboration. KompWatch adds Playwright headless rendering, CSS selectors, severity classification, and a free tier Tona doesn\u2019t offer.",
+  },
 ];
 
 export default function ComparePage() {
