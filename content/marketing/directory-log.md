@@ -10,7 +10,7 @@ Tracks where KompWatch has been submitted for listing/discovery.
 | — | G2 | pending | Need live product for review collection |
 | — | Capterra | pending | Need live product |
 | — | Indie Hackers | pending | Post "I'm building" thread at launch |
-| — | Hacker News | pending | Show HN at launch |
+| 2026-06-11 | Hacker News | content-ready | Show HN post written (queue/hackernews/2026-06-11-show-hn-free-competitor-snapshot.md). Needs manual submission — no HN API. Score 8.5/10. |
 | — | awesome-saas-tools | pending | — |
 | — | awesome-competitive-intelligence | pending | GitHub repo: github.com/aj-dev-sys/awesome-competitive-intelligence — add KompWatch as headless-browser-based option |
 
