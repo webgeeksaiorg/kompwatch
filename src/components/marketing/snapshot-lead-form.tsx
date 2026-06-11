@@ -177,7 +177,7 @@ function SnapshotResults({ snapshot }: { snapshot: SnapshotResult }) {
           Track up to 2 competitors free &mdash; no credit card required.
         </p>
         <a
-          href="/login"
+          href={`/login?competitor_url=${encodeURIComponent(snapshot.url)}&utm_source=free-snapshot`}
           className="mt-3 inline-block rounded-lg bg-brand-600 px-6 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
         >
           Start monitoring free
@@ -249,7 +249,7 @@ export function SnapshotLeadForm() {
         </p>
         <p className="mt-2 text-green-600">
           In the meantime,{" "}
-          <a href="/login" className="font-medium underline hover:text-green-800">
+          <a href={`/login?competitor_url=${encodeURIComponent(url)}&utm_source=free-snapshot`} className="font-medium underline hover:text-green-800">
             start monitoring free
           </a>{" "}
           to track up to 2 competitors with weekly digests.

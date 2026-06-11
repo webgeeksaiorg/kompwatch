@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { TrackedCTA } from "@/components/tracked-cta";
 
 const POPULAR_COMPETITORS = [
@@ -36,10 +36,29 @@ export function AddCompetitorForm({
   limit: number;
 }) {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [name, setName] = useState("");
   const [url, setUrl] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  // Pre-fill URL from free snapshot or competitor capture flow
+  useEffect(() => {
+    const prefillUrl = searchParams.get("prefill_url");
+    if (prefillUrl && !url) {
+      setUrl(prefillUrl);
+      // Extract domain name as a suggested competitor name
+      try {
+        const hostname = new URL(prefillUrl).hostname.replace(/^www\./, "");
+        const domainName = hostname.split(".")[0];
+        if (domainName && !name) {
+          setName(domainName.charAt(0).toUpperCase() + domainName.slice(1));
+        }
+      } catch {
+        // Invalid URL — just pre-fill the URL field
+      }
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   function selectSuggestion(suggestion: { name: string; url: string }) {
     setName(suggestion.name);

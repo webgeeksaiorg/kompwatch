@@ -12,12 +12,13 @@ const loginSchema = z.object({
   intent: z.string().optional(),
   plan: z.string().optional(),
   period: z.string().optional(),
+  competitor_url: z.string().url().optional(),
 });
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { email, utm_source, utm_medium, utm_campaign, intent, plan, period } = loginSchema.parse(body);
+    const { email, utm_source, utm_medium, utm_campaign, intent, plan, period, competitor_url } = loginSchema.parse(body);
 
     const token = createMagicToken(email);
     let magicLink = getMagicLinkUrl(token);
@@ -34,6 +35,9 @@ export async function POST(req: NextRequest) {
       extraParams.set("plan", plan);
       if (period) extraParams.set("period", period);
     }
+
+    // Forward competitor URL so it pre-fills the add-competitor form after auth
+    if (competitor_url) extraParams.set("competitor_url", competitor_url);
 
     const extraStr = extraParams.toString();
     if (extraStr) magicLink += `&${extraStr}`;
