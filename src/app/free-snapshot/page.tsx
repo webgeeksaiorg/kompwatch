@@ -6,9 +6,9 @@ import { SnapshotLeadForm } from "@/components/marketing/snapshot-lead-form";
 const siteUrl = "https://kompwatch.com";
 
 export const metadata: Metadata = {
-  title: "Free Competitor Snapshot — Analyze Any Competitor in 24 Hours",
+  title: "Free Instant Competitor Snapshot — Analyze Any Competitor in Seconds",
   description:
-    "Enter a competitor URL and get a free AI-powered analysis of their pricing, features, content, and hiring signals. No account required — delivered to your inbox.",
+    "Enter a competitor URL and get an instant AI-powered analysis of their pricing, features, content, and hiring signals. No account required — results on screen in seconds.",
   keywords: [
     "free competitor analysis",
     "competitor snapshot tool",
@@ -21,17 +21,17 @@ export const metadata: Metadata = {
     canonical: `${siteUrl}/free-snapshot`,
   },
   openGraph: {
-    title: "Free Competitor Snapshot — Analyze Any Competitor in 24 Hours",
+    title: "Free Instant Competitor Snapshot — Analyze Any Competitor in Seconds",
     description:
-      "Enter a competitor URL and get a free AI-powered analysis of their pricing, features, content, and hiring signals.",
+      "Enter a competitor URL and get an instant AI-powered analysis of their pricing, features, content, and hiring signals.",
     url: `${siteUrl}/free-snapshot`,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Competitor Snapshot — Analyze Any Competitor in 24 Hours",
+    title: "Free Instant Competitor Snapshot — Analyze Any Competitor in Seconds",
     description:
-      "Enter a competitor URL and get a free AI-powered analysis of their pricing, features, content, and hiring signals.",
+      "Enter a competitor URL and get an instant AI-powered analysis of their pricing, features, content, and hiring signals.",
   },
 };
 
@@ -88,17 +88,17 @@ const faqs = [
   {
     question: "What exactly will I receive?",
     answer:
-      "An email with an AI-generated analysis of the competitor URL you submit. It covers detected pricing tiers, key features, recent blog content, job postings, and tech stack signals — similar to what KompWatch monitors automatically for paying users.",
+      "An instant on-screen analysis of the competitor URL you submit. It covers detected pricing tiers, tech stack, recent blog content, job postings, and competitive signals — similar to what KompWatch monitors automatically for paying users.",
   },
   {
     question: "How long does it take?",
     answer:
-      "Most snapshots are delivered within 24 hours. Our system crawls the competitor site, captures key pages (pricing, features, blog, careers), and generates an AI summary of what we find.",
+      "Results appear instantly — typically 10 to 30 seconds. Our system scans the competitor site, checks key pages (pricing, features, blog, careers), and shows you the results right on this page.",
   },
   {
     question: "Is this really free? What's the catch?",
     answer:
-      "Completely free, one snapshot per competitor URL. We built this so you can see the quality of KompWatch analysis before committing. If you want ongoing monitoring, our Free plan tracks 2 competitors with weekly digests — no credit card required.",
+      "Completely free, up to 3 snapshots per hour. We built this so you can see the quality of KompWatch analysis before committing. If you want ongoing monitoring with AI-powered change detection, our Free plan tracks 2 competitors with weekly digests — no credit card required.",
   },
   {
     question: "What types of pages do you analyze?",
@@ -113,7 +113,7 @@ const faqs = [
   {
     question: "Can I get snapshots of multiple competitors?",
     answer:
-      "The free snapshot is one per competitor. For ongoing monitoring of multiple competitors, sign up for KompWatch — the Free plan supports 2 competitors, Pro supports 10, and Team supports 50.",
+      "You can run up to 3 free snapshots per hour. For ongoing monitoring of multiple competitors with AI change detection, sign up for KompWatch — the Free plan supports 2 competitors, Pro supports 10, and Team supports 50.",
   },
 ];
 
@@ -174,12 +174,12 @@ export default function FreeSnapshotPage() {
             Free — no account needed
           </span>
           <h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            Get a free competitor snapshot
+            Instant free competitor snapshot
           </h1>
           <p className="mt-4 text-lg text-gray-600">
-            Enter any competitor&apos;s URL and your email. Our AI crawls their
-            site and sends you a full analysis — pricing, features, content, and
-            hiring signals — within 24 hours.
+            Enter any competitor&apos;s URL and your email. Get an instant
+            analysis — pricing, features, content, and hiring signals —
+            right here on screen in seconds.
           </p>
           <div className="mx-auto mt-8 max-w-lg">
             <SnapshotLeadForm />
@@ -195,7 +195,7 @@ export default function FreeSnapshotPage() {
             </span>
             <span className="hidden sm:inline text-gray-300" aria-hidden="true">&middot;</span>
             <span className="flex items-center gap-1.5">
-              <strong className="font-semibold text-gray-700">98%</strong> delivered in under 12 hours
+              <strong className="font-semibold text-gray-700">Instant</strong> results on screen
             </span>
           </div>
         </div>
@@ -283,11 +283,11 @@ export default function FreeSnapshotPage() {
                 3
               </div>
               <h3 className="mt-4 text-sm font-semibold text-gray-900">
-                Get your analysis
+                See your results instantly
               </h3>
               <p className="mt-1 text-sm text-gray-600">
-                Receive an AI-generated report in your inbox within 24 hours.
-                Severity-rated and actionable.
+                View pricing signals, tech stack, blog content, and hiring
+                activity right on screen. No waiting.
               </p>
             </div>
           </div>
@@ -314,9 +314,9 @@ export default function FreeSnapshotPage() {
               </p>
             </div>
             <div className="rounded-xl border border-gray-100 bg-white p-6 text-center shadow-sm">
-              <p className="text-3xl font-bold text-brand-600">&lt; 12 hrs</p>
+              <p className="text-3xl font-bold text-brand-600">&lt; 30s</p>
               <p className="mt-1 text-sm text-gray-600">
-                98% of snapshots delivered in under 12 hours
+                Instant results — no waiting for email delivery
               </p>
             </div>
           </div>
@@ -330,7 +330,7 @@ export default function FreeSnapshotPage() {
             Ready to see what your competitor is up to?
           </h2>
           <p className="mt-3 text-sm text-gray-600">
-            One URL, one email, one free analysis. Takes 10 seconds.
+            One URL, one email, instant results. Takes 10 seconds to start.
           </p>
           <div className="mt-6">
             <SnapshotLeadForm />

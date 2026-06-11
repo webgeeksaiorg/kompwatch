@@ -28,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "vs-peerpanda",
     "vs-headsup",
     "vs-spire21",
+    "vs-tona",
   ];
 
   return [
@@ -195,6 +196,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${siteUrl}/compare/kompwatch-vs-ravenseer`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${siteUrl}/compare/kompwatch-vs-rivalsense`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${siteUrl}/compare/kompwatch-vs-tona`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${siteUrl}/compete/klue-compete-agent`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
