@@ -58,7 +58,7 @@ export function AddCompetitorForm({
         // Invalid URL — just pre-fill the URL field
       }
     }
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   function selectSuggestion(suggestion: { name: string; url: string }) {
     setName(suggestion.name);
