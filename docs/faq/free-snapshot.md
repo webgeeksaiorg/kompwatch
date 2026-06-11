@@ -2,7 +2,7 @@
 
 ## What is the free competitor snapshot?
 
-The free snapshot is a one-time, no-account-required competitive analysis. You submit a competitor's URL and your email address at `/free-snapshot`, and KompWatch's AI crawler analyzes the site and sends a report to your inbox within 24 hours.
+The free snapshot is a no-account-required competitive analysis. You submit a competitor's URL at `/free-snapshot`, and KompWatch's AI crawler analyzes the site and displays results on-screen in approximately 10–30 seconds.
 
 The report covers:
 - **Pricing** — detected tiers, prices, and plan changes
@@ -15,9 +15,9 @@ The report covers:
 
 Yes. No credit card, no account required. It's one snapshot per competitor URL, designed to let you experience KompWatch's analysis quality before committing to a plan.
 
-## How long does delivery take?
+## How long does it take?
 
-Most snapshots arrive within 24 hours. The crawler captures key pages (pricing, features, blog, careers, integrations) and an AI summary is generated and emailed to you.
+Results appear on-screen in approximately 10–30 seconds. No waiting for an email — the analysis runs and displays immediately after you submit the URL.
 
 ## Will my competitor know I analyzed them?
 
@@ -37,14 +37,19 @@ The free snapshot is one per competitor URL per request. For ongoing multi-compe
 | Pro ($49/mo) | 10 | Every 6 hours |
 | Team ($149/mo) | 50 | Hourly |
 
-## I submitted a URL but haven't received the snapshot yet
+## I'm seeing a rate limit error
 
-Check your spam folder first. If it's been more than 24 hours, reply to this message with the URL you submitted and we'll investigate.
+The free snapshot is limited to 3 requests per email address per hour to prevent abuse. If you've hit this limit:
+
+- Wait an hour and try again, or
+- Sign up for a free KompWatch account — account-based snapshots are not rate-limited in the same way
+
+See [Free Snapshot Rate Limiting](./free-snapshot-rate-limiting.md) for full details.
 
 ## Can I turn a snapshot into ongoing monitoring?
 
-Yes. After receiving your snapshot, sign up at `/login` — KompWatch's Free plan covers 2 competitors with no credit card required. Your snapshot gives you a baseline; ongoing monitoring catches future changes.
+Yes. After reviewing your snapshot, sign up at `/login` — KompWatch's Free plan covers 2 competitors with no credit card required. Your snapshot gives you a baseline; ongoing monitoring catches future changes.
 
 ## Why did you build this?
 
-The free snapshot is an experiment to let prospective customers experience KompWatch's competitive intelligence before signing up. It lowers the barrier for teams that aren't sure if they need monitoring yet.
+The free snapshot is a lead magnet to let prospective customers experience KompWatch's competitive intelligence before signing up. It lowers the barrier for teams that aren't sure if they need monitoring yet.
