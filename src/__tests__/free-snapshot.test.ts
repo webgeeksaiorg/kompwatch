@@ -303,3 +303,18 @@ describe("analyzeCompetitor", () => {
     expect(result.analysisTimeMs).toBeGreaterThanOrEqual(0);
   });
 });
+
+describe("SnapshotResults CTA content", () => {
+  it("snapshot-lead-form contains 'track YOUR site' CTA markup", async () => {
+    const fs = await import("fs");
+    const path = await import("path");
+    const src = fs.readFileSync(
+      path.resolve(__dirname, "../components/marketing/snapshot-lead-form.tsx"),
+      "utf-8"
+    );
+    expect(src).toContain("Also track YOUR site vs.");
+    expect(src).toContain("free-snapshot-track-your-site");
+    expect(src).toContain("utm_content=track-your-site");
+    expect(src).toContain("Start tracking both sites free");
+  });
+});

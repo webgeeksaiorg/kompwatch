@@ -168,6 +168,32 @@ function SnapshotResults({ snapshot }: { snapshot: SnapshotResult }) {
         AI-powered change detection, severity scoring, and weekly digests.
       </p>
 
+      {/* Track YOUR site CTA */}
+      <div className="rounded-xl border border-amber-200 bg-amber-50 px-5 py-4">
+        <div className="flex items-start gap-3">
+          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-amber-100 text-amber-600">
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+            </svg>
+          </div>
+          <div>
+            <p className="text-sm font-semibold text-amber-900">
+              Also track YOUR site vs. {snapshot.homepage.title || new URL(snapshot.url).hostname}
+            </p>
+            <p className="mt-1 text-xs text-amber-700">
+              See how your site stacks up &mdash; get alerts when they change pricing, ship features, or publish content that affects your positioning.
+            </p>
+            <a
+              href={`/login?competitor_url=${encodeURIComponent(snapshot.url)}&utm_source=free-snapshot&utm_content=track-your-site`}
+              onClick={() => window.plausible?.("free-snapshot-track-your-site", { props: { competitor_url: snapshot.url } })}
+              className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-amber-800 underline decoration-amber-300 underline-offset-2 hover:text-amber-900 hover:decoration-amber-500"
+            >
+              Start tracking both sites free &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+
       {/* CTA */}
       <div className="rounded-xl border border-green-200 bg-green-50 px-5 py-4 text-center">
         <p className="text-sm font-semibold text-green-800">
