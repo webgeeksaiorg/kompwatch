@@ -1,7 +1,7 @@
 ---
 platform: blog
 type: article
-status: draft
+status: ready
 keywords: [competitor monitoring stack, track competitor website changes, Visualping alternative, automated competitor tracking, competitor pricing alerts]
 ---
 
