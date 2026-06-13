@@ -29,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "vs-headsup",
     "vs-spire21",
     "vs-tona",
+    "vs-parano",
   ];
 
   return [
@@ -214,6 +215,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${siteUrl}/compare/kompwatch-vs-kompyte`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${siteUrl}/compare/kompwatch-vs-parano`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
