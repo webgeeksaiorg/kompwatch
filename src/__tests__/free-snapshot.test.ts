@@ -5,7 +5,7 @@ import { NextRequest } from "next/server";
 
 const { mockDb } = vi.hoisted(() => ({
   mockDb: {
-    emailLead: { create: vi.fn() },
+    emailLead: { create: vi.fn(), updateMany: vi.fn() },
   },
 }));
 
@@ -173,14 +173,14 @@ describe("POST /api/free-snapshot", () => {
     expect(snap.analysisTimeMs).toBeGreaterThanOrEqual(0);
   });
 
-  it("captures lead with free-snapshot source", async () => {
+  it("captures lead with free-snapshot source and competitor URL", async () => {
     await POST(makeReq({ url: "https://acme.com", email: "lead@co.com" }));
     expect(mockDb.emailLead.create).toHaveBeenCalledWith({
-      data: { email: "lead@co.com", source: "free-snapshot" },
+      data: { email: "lead@co.com", source: "free-snapshot", competitorUrl: "https://acme.com" },
     });
   });
 
-  it("still works when lead is a duplicate (P2002)", async () => {
+  it("still works when lead is a duplicate (P2002) and updates competitorUrl", async () => {
     const { Prisma } = await import("@prisma/client");
     mockDb.emailLead.create.mockRejectedValueOnce(
       new Prisma.PrismaClientKnownRequestError("dup", {
@@ -188,6 +188,7 @@ describe("POST /api/free-snapshot", () => {
         clientVersion: "test",
       })
     );
+    mockDb.emailLead.updateMany.mockResolvedValueOnce({ count: 1 });
     const res = await POST(
       makeReq({ url: "https://acme.com", email: "dup@co.com" })
     );
@@ -195,6 +196,11 @@ describe("POST /api/free-snapshot", () => {
     const json = await res.json();
     expect(json.ok).toBe(true);
     expect(json.snapshot).toBeDefined();
+    // Should attempt to backfill competitorUrl on duplicates
+    expect(mockDb.emailLead.updateMany).toHaveBeenCalledWith({
+      where: { email: "dup@co.com", source: "free-snapshot", competitorUrl: null },
+      data: { competitorUrl: "https://acme.com" },
+    });
   });
 
   it("rejects invalid URL", async () => {
@@ -220,7 +226,7 @@ describe("POST /api/free-snapshot", () => {
       makeReq({ url: "https://acme.com", email: "  USER@EXAMPLE.COM  " })
     );
     expect(mockDb.emailLead.create).toHaveBeenCalledWith({
-      data: { email: "user@example.com", source: "free-snapshot" },
+      data: { email: "user@example.com", source: "free-snapshot", competitorUrl: "https://acme.com" },
     });
   });
 
