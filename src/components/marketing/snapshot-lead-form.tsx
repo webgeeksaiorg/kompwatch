@@ -254,6 +254,13 @@ export function SnapshotLeadForm() {
       });
       setStatus("success");
       setSnapshot(data.snapshot ?? null);
+
+      // Persist URL so the bottom CTA can pre-fill the signup link
+      try {
+        sessionStorage.setItem("kompwatch_snapshot_url", trimmedUrl);
+      } catch {
+        // sessionStorage may be unavailable (private browsing, etc.)
+      }
     } catch {
       setStatus("error");
       setMessage("Network error. Please try again.");
