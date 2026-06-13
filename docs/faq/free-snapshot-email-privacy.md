@@ -25,7 +25,9 @@ All three emails are sent from `hello@kompwatch.com` and link only to `kompwatch
 
 ## How do I stop the follow-up emails?
 
-Email [support@kompwatch.com](mailto:support@kompwatch.com) with your address and the subject "Unsubscribe from snapshot emails" — we'll remove you from the sequence immediately.
+Click the **Unsubscribe** link in the footer of any nurture email — it's in every message we send. One click removes you from the sequence immediately; no confirmation required.
+
+If you can't find the email, you can also contact [support@kompwatch.com](mailto:support@kompwatch.com) with the subject "Unsubscribe from snapshot emails" and we'll remove you manually.
 
 ## Is my email stored?
 

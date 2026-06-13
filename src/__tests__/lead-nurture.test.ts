@@ -12,11 +12,13 @@ function daysAgo(days: number): Date {
 }
 
 const testLead = {
+  id: "test-lead-id",
   email: "lead@example.com",
   competitorUrl: "https://competitor.com",
 };
 
 const testLeadNoUrl = {
+  id: "test-lead-no-url-id",
   email: "lead@example.com",
   competitorUrl: null,
 };
@@ -26,6 +28,7 @@ describe("getNextLeadNurtureStep", () => {
     const step = getNextLeadNurtureStep({
       createdAt: new Date(),
       nurtureStep: 0,
+      unsubscribed: false,
     });
     expect(step).toBeNull();
   });
@@ -34,6 +37,7 @@ describe("getNextLeadNurtureStep", () => {
     const step = getNextLeadNurtureStep({
       createdAt: daysAgo(1.5),
       nurtureStep: 0,
+      unsubscribed: false,
     });
     expect(step).not.toBeNull();
     expect(step!.step).toBe(1);
@@ -44,6 +48,7 @@ describe("getNextLeadNurtureStep", () => {
     const step = getNextLeadNurtureStep({
       createdAt: daysAgo(2),
       nurtureStep: 1,
+      unsubscribed: false,
     });
     expect(step).toBeNull();
   });
@@ -52,6 +57,7 @@ describe("getNextLeadNurtureStep", () => {
     const step = getNextLeadNurtureStep({
       createdAt: daysAgo(4),
       nurtureStep: 1,
+      unsubscribed: false,
     });
     expect(step).not.toBeNull();
     expect(step!.step).toBe(2);
@@ -62,6 +68,7 @@ describe("getNextLeadNurtureStep", () => {
     const step = getNextLeadNurtureStep({
       createdAt: daysAgo(5),
       nurtureStep: 2,
+      unsubscribed: false,
     });
     expect(step).toBeNull();
   });
@@ -70,6 +77,7 @@ describe("getNextLeadNurtureStep", () => {
     const step = getNextLeadNurtureStep({
       createdAt: daysAgo(8),
       nurtureStep: 2,
+      unsubscribed: false,
     });
     expect(step).not.toBeNull();
     expect(step!.step).toBe(3);
@@ -80,6 +88,7 @@ describe("getNextLeadNurtureStep", () => {
     const step = getNextLeadNurtureStep({
       createdAt: daysAgo(30),
       nurtureStep: 3,
+      unsubscribed: false,
     });
     expect(step).toBeNull();
   });
@@ -88,6 +97,16 @@ describe("getNextLeadNurtureStep", () => {
     const step = getNextLeadNurtureStep({
       createdAt: daysAgo(30),
       nurtureStep: MAX_LEAD_NURTURE_STEP,
+      unsubscribed: false,
+    });
+    expect(step).toBeNull();
+  });
+
+  it("returns null for unsubscribed leads regardless of timing", () => {
+    const step = getNextLeadNurtureStep({
+      createdAt: daysAgo(2),
+      nurtureStep: 0,
+      unsubscribed: true,
     });
     expect(step).toBeNull();
   });
@@ -122,6 +141,14 @@ describe("buildSnapshotRecapEmail", () => {
     expect(email.html).toContain("2 competitors");
     expect(email.html).toContain("weekly digests");
     expect(email.text).toContain("No credit card required");
+  });
+
+  it("includes unsubscribe link and physical address (CAN-SPAM)", () => {
+    const email = buildSnapshotRecapEmail(testLead);
+    expect(email.html).toContain("Unsubscribe");
+    expect(email.html).toContain("/api/unsubscribe");
+    expect(email.html).toContain("San Francisco");
+    expect(email.text).toContain("Unsubscribe");
   });
 });
 
