@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef, Fragment } from "react";
 import { getDisplayPrice, getPerCompetitorPrice } from "@/lib/pricing";
 import {
   PRICING_ANCHOR_EXPERIMENT,
@@ -114,6 +114,60 @@ const plans: Plan[] = [
 ];
 
 /* Competitor annual pricing for savings badges (source: G2, Capterra, public pricing) */
+/* ---------- Plan comparison table — KompWatch tiers side-by-side (ticket 010d) ---------- */
+type TierCellValue = true | false | string;
+
+const tierComparisonRows: {
+  category: string;
+  rows: {
+    feature: string;
+    free: TierCellValue;
+    pro: TierCellValue;
+    team: TierCellValue;
+    enterprise: TierCellValue;
+  }[];
+}[] = [
+  {
+    category: "Monitoring",
+    rows: [
+      { feature: "Competitors tracked", free: "2", pro: "10", team: "50", enterprise: "Unlimited" },
+      { feature: "Snapshot frequency", free: "Daily", pro: "Every 6h", team: "Hourly", enterprise: "Real-time" },
+      { feature: "Pricing page tracking", free: true, pro: true, team: true, enterprise: true },
+      { feature: "Blog & content monitoring", free: true, pro: true, team: true, enterprise: true },
+      { feature: "Job listing tracking", free: false, pro: true, team: true, enterprise: true },
+      { feature: "Tech stack detection", free: false, pro: true, team: true, enterprise: true },
+    ],
+  },
+  {
+    category: "Alerts & digests",
+    rows: [
+      { feature: "Email digests", free: "Weekly", pro: "Daily", team: "Daily", enterprise: "Real-time" },
+      { feature: "AI change summaries", free: true, pro: true, team: true, enterprise: true },
+      { feature: "Slack / webhook alerts", free: false, pro: true, team: true, enterprise: true },
+    ],
+  },
+  {
+    category: "Intelligence",
+    rows: [
+      { feature: "Battlecard export", free: false, pro: true, team: true, enterprise: true },
+      { feature: "Competitor activity score", free: false, pro: true, team: true, enterprise: true },
+      { feature: "API access", free: false, pro: false, team: true, enterprise: true },
+      { feature: "Custom CSS selectors", free: true, pro: true, team: true, enterprise: true },
+    ],
+  },
+  {
+    category: "Support & security",
+    rows: [
+      { feature: "Email support", free: true, pro: true, team: true, enterprise: true },
+      { feature: "Priority support", free: false, pro: true, team: true, enterprise: true },
+      { feature: "Dedicated account manager", free: false, pro: false, team: false, enterprise: true },
+      { feature: "SSO & SAML", free: false, pro: false, team: false, enterprise: true },
+      { feature: "SLA & uptime guarantee", free: false, pro: false, team: false, enterprise: true },
+      { feature: "Custom onboarding", free: false, pro: false, team: false, enterprise: true },
+    ],
+  },
+];
+
 const competitorAnnualPrices = {
   kompyte: 3_600, // cheapest incumbent (~$300/mo)
   klue: 20_000, // enterprise, sales-call pricing
@@ -1207,6 +1261,101 @@ export default function PricingPage() {
             </div>
           );
         })}
+      </div>
+
+      {/* Plan comparison table — KompWatch tiers side-by-side (ticket 010d) */}
+      <div className="mt-20" id="plan-comparison">
+        <div className="text-center">
+          <p className="text-xs font-semibold uppercase tracking-wider text-brand-600">
+            Compare plans
+          </p>
+          <h2 className="mt-2 text-2xl font-bold tracking-tight text-gray-900">
+            Everything included, by plan
+          </h2>
+          <p className="mt-2 text-sm text-gray-600">
+            See exactly what you get at every tier &mdash; no hidden add-ons.
+          </p>
+        </div>
+
+        <div className="mt-8 overflow-x-auto">
+          <table className="w-full text-left text-sm">
+            <thead>
+              <tr className="border-b border-gray-200">
+                <th scope="col" className="py-3 pr-4 font-medium text-gray-500">Feature</th>
+                <th scope="col" className="px-4 py-3 font-medium text-gray-500">
+                  Free
+                  <span className="block text-xs font-normal text-gray-400">$0/mo</span>
+                </th>
+                <th scope="col" className="px-4 py-3 font-semibold text-brand-600">
+                  Pro
+                  <span className="block text-xs font-normal text-brand-500">
+                    ${getDisplayPrice(49, annual)}/mo
+                  </span>
+                </th>
+                <th scope="col" className="px-4 py-3 font-medium text-gray-500">
+                  Team
+                  <span className="block text-xs font-normal text-gray-400">
+                    ${getDisplayPrice(149, annual)}/mo
+                  </span>
+                </th>
+                <th scope="col" className="px-4 py-3 font-medium text-gray-500">
+                  Enterprise
+                  <span className="block text-xs font-normal text-gray-400">Custom</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {tierComparisonRows.map((group) => (
+                <Fragment key={group.category}>
+                  <tr>
+                    <td
+                      colSpan={5}
+                      className="pt-6 pb-2 text-xs font-semibold uppercase tracking-wider text-gray-400"
+                    >
+                      {group.category}
+                    </td>
+                  </tr>
+                  {group.rows.map((row) => (
+                    <tr key={row.feature} className="border-t border-gray-100">
+                      <th scope="row" className="py-3 pr-4 text-left font-medium text-gray-700">
+                        {row.feature}
+                      </th>
+                      <td className="px-4 py-3">
+                        <ComparisonCell value={row.free} />
+                      </td>
+                      <td className="px-4 py-3">
+                        <ComparisonCell value={row.pro} highlight />
+                      </td>
+                      <td className="px-4 py-3">
+                        <ComparisonCell value={row.team} />
+                      </td>
+                      <td className="px-4 py-3">
+                        <ComparisonCell value={row.enterprise} />
+                      </td>
+                    </tr>
+                  ))}
+                </Fragment>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="mt-6 text-center">
+          <a
+            href="/login"
+            onClick={() =>
+              window.plausible?.("plan-comparison-cta-click", {
+                props: { location: "plan-comparison-table" },
+              })
+            }
+            className="inline-flex items-center gap-1.5 rounded-lg bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
+          >
+            Start free — upgrade anytime
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+        </div>
       </div>
 
       {/* Interactive ROI calculator — analyst labor savings framing */}
