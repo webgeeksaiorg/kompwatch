@@ -75,7 +75,7 @@ We won't scrape a page that a site owner has explicitly disallowed, regardless o
 - [What Does KompWatch Track?](./what-does-kompwatch-track.md)
 - [Anti-Bot Protection and Blocked Pages](./anti-bot-protection-and-blocked-pages.md)
 - [Which Pages Should I Monitor Per Competitor?](./which-pages-to-monitor-per-competitor.md)
-- [How Often Are Snapshots Taken?](./snapshot-schedule-and-frequency.md)
+- [How Competitor Monitoring Works](./how-monitoring-works.md)
 
 ---
 

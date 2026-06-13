@@ -40,6 +40,6 @@ On the **Free plan**, adding your own site leaves only 1 slot for competitors â€
 
 ## Related
 
-- [How to set CSS selectors for better change detection](./css-selectors-for-change-detection.md)
+- [How to set CSS selectors for better change detection](./setting-css-selectors.md)
 - [Which pages to monitor per competitor](./which-pages-to-monitor-per-competitor.md)
 - [Filtering digests by severity](./filtering-digests-by-severity.md)

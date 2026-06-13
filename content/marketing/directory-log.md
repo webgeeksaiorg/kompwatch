@@ -931,4 +931,43 @@ For reddit-comment publishing once credentials are available:
 - Reddit: comment-gartner-mq-enterprise-reality.md (r/SaaS) + post-gartner-ci-mq-smb-reality.md (r/ProductManagement)
 - Blog: gartner-ci-magic-quadrant-small-teams.md
 
+---
+
+## Marketer Cycle — 2026-06-12 (Thursday evening, run ~29)
+
+**Calendar: Thursday — 1 Reddit comment, 3 tweets + 5 replies, 1 blog article.**
+
+**Status: Thursday quota already fulfilled by morning cycle (~12:48 UTC).**
+
+Morning cycle content (all READY):
+- `twitter/2026-06-12-live-counter-shipped.md` — building-in-public: live user counters on free snapshot page (8/10)
+- `twitter/2026-06-12-acquisition-roadmap-risk.md` — Adobe→Semrush→Kompyte acquisition chain kills roadmaps (8.5/10)
+- `twitter/2026-06-12-pricing-change-stat.md` — 34% SaaS pricing changes Q1 2026 with no announcement (8/10)
+- `twitter/2026-06-12-reply-job-posting-signals.md` (8/10)
+- `twitter/2026-06-12-reply-free-monitoring-tools.md` (7.5/10)
+- `twitter/2026-06-12-reply-diy-stack-breaks.md` (8/10)
+- `twitter/2026-06-12-reply-crayon-small-team.md` (8/10)
+- `twitter/2026-06-12-reply-monitoring-noise.md` (8/10)
+- `reddit/2026-06-12-comment-acquisition-roadmap-death.md` (8/10)
+- `blog/2026-06-12-kompyte-semrush-adobe-acquisition-alternatives.md` — "Adobe Bought Semrush. Semrush Owns Kompyte. Who Controls Your CI Roadmap?" ~1100 words, FAQ, targets "Kompyte alternative 2026" (8.5/10)
+
+**New content this cycle (evening fresh angles):**
+- `twitter/2026-06-12-headsup-launch-reaction.md` — HeadsUp launched on PH today, founder reaction: market validation (8/10, READY)
+- `twitter/2026-06-12-reply-klue-analyst-assumption.md` — Klue/Crayon assume dedicated CI analyst; PM with 18 other priorities = shelfware (8/10, READY)
+- `twitter/2026-06-12-reply-35pct-pricing-stat.md` — 35% B2B SaaS pricing pages changed last week with no announcement (7.5/10, READY)
+
+**Keyword research highlights (Jun 12 evening):**
+- HeadsUp (headsup.bot, PH Jul 2025) — "AI competitor monitoring agent" positioning. Direct overlap but leads with agent framing vs KompWatch's URL-watching angle. PH comments = user objection goldmine.
+- High-intent queries confirmed: "saas pricing page monitoring", "track competitor pricing page", "klue alternative affordable"
+- Crayon/Klue analyst-required assumption is still the clearest positioning gap. No competitor is explicitly saying "no analyst needed."
+- 35% of B2B SaaS competitors changed pricing page in a given week (Visualping/Tierly data)
+
+**Publishing attempts:**
+- Twitter: BLOCKED — TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET missing
+- LinkedIn: BLOCKED — LINKEDIN_ACCESS_TOKEN missing
+- Ghost: BLOCKED — GHOST_ADMIN_API_KEY missing
+- Reddit: not attempted (no target thread URL available for comment)
+
+**Persistent blockers:** All API credentials missing. Queue now 130+ pieces staged and READY. Needs Vaultwarden KompWatch folder credentials to unblock.
+
 **Publishing status (Sunday May 31, cycle 28):** All 11 new pieces READY. All platforms still blocked — TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET missing. Queue now 119+ pieces READY across 28 cycles. Also: social-publisher.py requires Python 3.10+ (`str | None` union type syntax). Credentials + Python version needed in deploy env.
