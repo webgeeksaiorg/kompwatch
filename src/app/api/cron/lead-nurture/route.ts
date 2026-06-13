@@ -28,17 +28,19 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  // Find free-snapshot leads who haven't completed the nurture sequence
+  // Find free-snapshot leads who haven't completed the nurture sequence and haven't unsubscribed
   const leads = await db.emailLead.findMany({
     where: {
       source: "free-snapshot",
       nurtureStep: { lt: MAX_LEAD_NURTURE_STEP },
+      unsubscribed: false,
     },
     select: {
       id: true,
       email: true,
       competitorUrl: true,
       nurtureStep: true,
+      unsubscribed: true,
       createdAt: true,
     },
   });

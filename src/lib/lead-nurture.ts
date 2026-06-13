@@ -20,10 +20,11 @@ export type LeadNurtureStepKey = (typeof LEAD_NURTURE_STEPS)[number]["key"];
 
 export const MAX_LEAD_NURTURE_STEP = 3;
 
-/** Determine which step a lead should receive next, or null if done / not yet due */
+/** Determine which step a lead should receive next, or null if done / not yet due / unsubscribed */
 export function getNextLeadNurtureStep(
-  lead: Pick<EmailLead, "createdAt" | "nurtureStep">
+  lead: Pick<EmailLead, "createdAt" | "nurtureStep" | "unsubscribed">
 ): (typeof LEAD_NURTURE_STEPS)[number] | null {
+  if (lead.unsubscribed) return null;
   if (lead.nurtureStep >= MAX_LEAD_NURTURE_STEP) return null;
 
   const nextStep = LEAD_NURTURE_STEPS.find(
@@ -49,7 +50,12 @@ interface LeadNurtureEmail {
 
 const BASE_URL = process.env.NEXTAUTH_URL || "https://kompwatch.com";
 
-function emailWrapper(content: string): string {
+// CAN-SPAM requires a valid physical postal address in every commercial email.
+// Update this to the business's real mailing address before sending to real users.
+const PHYSICAL_ADDRESS = "KompWatch, 548 Market St PMB 92837, San Francisco, CA 94104, USA";
+
+function emailWrapper(content: string, leadId: string): string {
+  const unsubUrl = `${BASE_URL}/api/unsubscribe?token=${leadId}`;
   return `<!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"/></head>
@@ -59,9 +65,12 @@ function emailWrapper(content: string): string {
       ${content}
       <hr style="border:none;border-top:1px solid #eee;margin:28px 0 16px;"/>
       <p style="margin:0;color:#999;font-size:12px;">
-        KompWatch &mdash; AI-powered competitor monitoring.
+        KompWatch &mdash; AI-powered competitor monitoring.<br/>
         <a href="${BASE_URL}/free-snapshot" style="color:#666;">Run another free snapshot</a>
+        &nbsp;&bull;&nbsp;
+        <a href="${unsubUrl}" style="color:#666;">Unsubscribe</a>
       </p>
+      <p style="margin:8px 0 0;color:#bbb;font-size:11px;">${PHYSICAL_ADDRESS}</p>
     </div>
   </div>
 </body>
@@ -74,7 +83,7 @@ function ctaButton(text: string, href: string): string {
 
 /** Email 1 (T+1 day): Snapshot recap — remind them what we found */
 export function buildSnapshotRecapEmail(
-  lead: Pick<EmailLead, "email" | "competitorUrl">
+  lead: Pick<EmailLead, "id" | "email" | "competitorUrl">
 ): LeadNurtureEmail {
   const competitorDisplay = lead.competitorUrl
     ? new URL(lead.competitorUrl).hostname.replace(/^www\./, "")
@@ -114,7 +123,7 @@ export function buildSnapshotRecapEmail(
       <p style="color:#666;font-size:13px;text-align:center;">
         No credit card required. Set up in 60 seconds.
       </p>
-    `),
+    `, lead.id),
     text: `Your free snapshot was just the beginning
 
 Yesterday you ran a free snapshot of ${competitorDisplay}. You saw their pricing signals, tech stack, content, and hiring activity.
@@ -128,13 +137,17 @@ KompWatch monitors ${competitorDisplay} automatically and emails you an AI-power
 Start monitoring: ${signupUrl}
 
 No credit card required. Set up in 60 seconds.
+
+---
+KompWatch, 548 Market St PMB 92837, San Francisco, CA 94104, USA
+Unsubscribe: ${BASE_URL}/api/unsubscribe?token=${lead.id}
 `,
   };
 }
 
 /** Email 2 (T+3 days): Value & tips — what ongoing monitoring catches */
 export function buildValueTipsEmail(
-  lead: Pick<EmailLead, "email" | "competitorUrl">
+  lead: Pick<EmailLead, "id" | "email" | "competitorUrl">
 ): LeadNurtureEmail {
   const signupUrl = lead.competitorUrl
     ? `${BASE_URL}/login?competitor_url=${encodeURIComponent(lead.competitorUrl)}&utm_source=nurture&utm_content=value-tips`
@@ -192,7 +205,7 @@ export function buildValueTipsEmail(
       <p style="color:#666;font-size:13px;text-align:center;">
         2 competitors, weekly digests. Free forever.
       </p>
-    `),
+    `, lead.id),
     text: `What changed since your snapshot?
 
 On average, a SaaS competitor makes 2-4 meaningful website changes per week. Here's what KompWatch users catch automatically:
@@ -210,13 +223,17 @@ These happen every week. Are you catching them?
 Start catching changes free: ${signupUrl}
 
 2 competitors, weekly digests. Free forever.
+
+---
+KompWatch, 548 Market St PMB 92837, San Francisco, CA 94104, USA
+Unsubscribe: ${BASE_URL}/api/unsubscribe?token=${lead.id}
 `,
   };
 }
 
 /** Email 3 (T+7 days): Final conversion — ROI framing + last push */
 export function buildFinalConversionEmail(
-  lead: Pick<EmailLead, "email" | "competitorUrl">
+  lead: Pick<EmailLead, "id" | "email" | "competitorUrl">
 ): LeadNurtureEmail {
   const signupUrl = lead.competitorUrl
     ? `${BASE_URL}/login?competitor_url=${encodeURIComponent(lead.competitorUrl)}&utm_source=nurture&utm_content=final-conversion`
@@ -267,7 +284,7 @@ export function buildFinalConversionEmail(
         This is the last email in this sequence. We won&rsquo;t email you again
         unless you sign up for KompWatch.
       </p>
-    `),
+    `, lead.id),
     text: `It's been a week since your snapshot
 
 In the past 7 days, the average SaaS competitor has updated their website 3-5 times. Pricing tweaks, new features, blog posts, job listings — all signals your team could have acted on.
@@ -290,6 +307,10 @@ Start monitoring free: ${signupUrl}
 No credit card. No sales call. Cancel anytime.
 
 This is the last email in this sequence. We won't email you again unless you sign up for KompWatch.
+
+---
+KompWatch, 548 Market St PMB 92837, San Francisco, CA 94104, USA
+Unsubscribe: ${BASE_URL}/api/unsubscribe?token=${lead.id}
 `,
   };
 }
@@ -297,7 +318,7 @@ This is the last email in this sequence. We won't email you again unless you sig
 /** Get the email builder for a given step key */
 export function getLeadNurtureEmailBuilder(
   key: LeadNurtureStepKey
-): (lead: Pick<EmailLead, "email" | "competitorUrl">) => LeadNurtureEmail {
+): (lead: Pick<EmailLead, "id" | "email" | "competitorUrl">) => LeadNurtureEmail {
   switch (key) {
     case "snapshot-recap":
       return buildSnapshotRecapEmail;
