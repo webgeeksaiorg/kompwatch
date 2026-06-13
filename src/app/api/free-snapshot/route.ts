@@ -63,16 +63,23 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Capture lead (same pattern as /api/leads)
+    // Capture lead (same pattern as /api/leads) — include competitor URL for nurture emails
     try {
       await db.emailLead.create({
-        data: { email, source: "free-snapshot" },
+        data: { email, source: "free-snapshot", competitorUrl: url },
       });
     } catch (err) {
-      // P2002 = duplicate — that's fine, lead already captured
+      // P2002 = duplicate — that's fine, lead already captured.
+      // Update competitorUrl if it was missing from a previous submission.
       if (
-        !(err instanceof Prisma.PrismaClientKnownRequestError && err.code === "P2002")
+        err instanceof Prisma.PrismaClientKnownRequestError &&
+        err.code === "P2002"
       ) {
+        await db.emailLead.updateMany({
+          where: { email, source: "free-snapshot", competitorUrl: null },
+          data: { competitorUrl: url },
+        });
+      } else {
         throw err;
       }
     }
