@@ -95,8 +95,8 @@ If no snapshot detects any changes during a period, no digest is sent — KompWa
 
 ## Related
 
-- [How often does KompWatch check my competitors?](./snapshot-frequency.md)
+- [How competitor monitoring works — cadences and snapshot schedule](./how-monitoring-works.md)
 - [Why haven't I seen any changes yet?](./why-no-changes-yet.md)
 - [Understanding your digest email](./understanding-your-digest.md)
-- [Filtering digest noise](./filtering-digest-noise.md)
+- [Filtering digests by severity](./filtering-digests-by-severity.md)
 - [Setting CSS selectors for better change detection](./setting-css-selectors.md)
