@@ -14,6 +14,7 @@ import {
 } from "@/lib/ab";
 import { RoiCalculator } from "@/components/marketing/roi-calculator";
 import { CaughtInTheWild } from "@/components/marketing/caught-in-the-wild";
+import { DigestPreview } from "@/components/marketing/digest-preview";
 
 declare global {
   interface Window {
@@ -1357,6 +1358,9 @@ export default function PricingPage() {
           </a>
         </div>
       </div>
+
+      {/* Sample digest email preview — show prospects what they'll receive (ticket 8ee2) */}
+      <DigestPreview />
 
       {/* Interactive ROI calculator — analyst labor savings framing */}
       <RoiCalculator />
