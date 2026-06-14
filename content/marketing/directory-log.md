@@ -7,8 +7,8 @@ Tracks where KompWatch has been submitted for listing/discovery.
 | — | BetaList | pending | Submit after first 100 signups |
 | — | SaaSHub | pending | — |
 | — | AlternativeTo | pending | Add as Crayon / Klue alternative |
-| — | G2 | pending | Need live product for review collection |
-| — | Capterra | pending | Need live product |
+| — | G2 | listing-copy-ready | Profile copy written (see below). Submit once production server is back up. |
+| — | Capterra | listing-copy-ready | Profile copy written (see below). Submit once production server is back up. |
 | — | Indie Hackers | pending | Post "I'm building" thread at launch |
 | 2026-06-11 | Hacker News | content-ready | Show HN post written (queue/hackernews/2026-06-11-show-hn-free-competitor-snapshot.md). Needs manual submission — no HN API. Score 8.5/10. |
 | — | awesome-saas-tools | pending | — |
@@ -971,3 +971,87 @@ Morning cycle content (all READY):
 **Persistent blockers:** All API credentials missing. Queue now 130+ pieces staged and READY. Needs Vaultwarden KompWatch folder credentials to unblock.
 
 **Publishing status (Sunday May 31, cycle 28):** All 11 new pieces READY. All platforms still blocked — TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET missing. Queue now 119+ pieces READY across 28 cycles. Also: social-publisher.py requires Python 3.10+ (`str | None` union type syntax). Credentials + Python version needed in deploy env.
+
+## Marketer Cycle — 2026-06-14 (Sunday evening)
+
+**Calendar: REST day — 1 tweet already queued (Sunday max hit). No new publishing.**
+
+**Work completed:**
+- Wrote 5 Twitter replies for Monday 2026-06-15 queue (all score >= 7.5/10)
+  - reply-crayon-pricing-shock.md (8/10)
+  - reply-klue-alternative.md (7.5/10)
+  - reply-google-alerts-useless.md (8/10)
+  - reply-manual-monday-routine.md (8.5/10)
+  - reply-alert-overload.md (8/10)
+- Monday queue now complete: 2 tweets + 5 replies + 2 Reddit comments + 1 LinkedIn ✓
+
+**Ticket af72 (Claim G2 + Capterra listings):** Listing copy written below. Cannot submit — main server 91.98.121.122 down since 2026-06-12 (P0). Submit immediately when server is restored.
+
+**Ticket db53 (Show HN post):** Holding. Show HN post already exists at queue/hackernews/2026-06-11-show-hn-free-competitor-snapshot.md. Cannot submit while product unreachable — HN community will bounce off a down server.
+
+**Ticket 5e27 (Reddit /r/productmanagement experiment):** Sunday REST day. Will execute Monday.
+
+**Blocker:** Main server still down (P0). Holding all external submissions until resolved.
+
+---
+
+## G2 + Capterra Listing Copy (ticket af72)
+
+### Short Description (160 chars)
+Competitor monitoring for SaaS teams. Track competitor websites, detect changes, get AI-generated digests. $49/mo vs $500+/mo alternatives.
+
+### Long Description (500 words)
+KompWatch tracks competitor websites and tells you what changed, in plain English.
+
+Most teams either pay $20-100K/year for Crayon or Klue, or do it manually — browser tabs, Notion docs, Monday morning rituals that miss Wednesday's changes. KompWatch is the middle option that didn't exist: automated monitoring at a price that doesn't require a VP signature.
+
+**How it works:**
+1. Paste your competitor URLs. Set a CSS selector to focus on what matters (pricing section, features page, hero copy).
+2. KompWatch takes snapshots on your schedule — every hour on Team, every 6 hours on Pro, daily on Free.
+3. AI compares each snapshot to the last, filters out noise (A/B test variants, tracker pixels, irrelevant CSS changes), and writes a plain-English summary of what actually changed.
+4. You get a digest email: "Competitor A removed their $49/mo tier. Competitor B added 'SOC 2 compliant' to their hero. Competitor C posted 3 ML engineer jobs."
+
+**What it does NOT do:**
+- Social listening
+- Patent/filing tracking
+- Sales battlecard automation
+- Review site monitoring
+
+If you need those things, you need Crayon or Klue. If you need to know when competitor websites change, KompWatch is $49/mo.
+
+**Who it's for:**
+- Product managers who used to manually check competitor sites every Monday
+- Startup founders tracking 2-5 direct competitors on a budget
+- Small growth teams that can't justify enterprise CI spend
+
+**Pricing:**
+- Free: 2 competitors, daily snapshots, weekly digests
+- Pro: $49/mo — 10 competitors, 6-hour snapshots, daily digests
+- Team: $149/mo — 50 competitors, hourly snapshots, real-time alerts
+
+### Categories (G2)
+- Competitive Intelligence
+- Market Intelligence
+- Website Monitoring
+- SaaS Management
+
+### Categories (Capterra)
+- Competitive Intelligence Software
+- Market Research Software
+- Business Intelligence Tools
+
+### Key Features (for listing checkboxes)
+- Automated website change detection
+- AI-generated change summaries
+- Email digest delivery
+- CSS selector targeting (focus on specific page sections)
+- Screenshot capture
+- Severity scoring (Low / Medium / High)
+- Pricing/feature change classification
+
+### Differentiators (for comparison positioning)
+- vs Crayon: 50-200x cheaper, website-only focus, no sales team required to purchase
+- vs Klue: no seat-based pricing, no implementation project, live in 5 minutes
+- vs Kompyte: flat pricing (no tier scaling traps), 6-hour snapshots on Pro vs Kompyte's limitations
+- vs Google Alerts: monitors actual website content, not just press mentions
+
