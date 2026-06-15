@@ -1,6 +1,9 @@
 # Can I See a Sample Digest Before Signing Up?
 
-Yes — visit [kompwatch.com/sample-digest](/sample-digest) to see a realistic example of what your weekly digest email looks like.
+Yes — there are two ways to preview the digest format before signing up:
+
+1. **On the [pricing page](/pricing)** — an embedded sample digest email is shown inline so you can see the format and depth without leaving the page.
+2. **On the [sample digest page](/sample-digest)** — a full standalone preview with a realistic monitoring scenario.
 
 ## What the Sample Shows
 
