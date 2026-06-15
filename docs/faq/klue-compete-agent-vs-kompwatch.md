@@ -82,6 +82,7 @@ Where they don't:
 
 ## Related Articles
 
+- [KompWatch vs Klue — Full Comparison](/compare/kompwatch-vs-klue)
 - [Switching from Klue to KompWatch](./switching-from-klue.md)
 - [Can I Use ChatGPT Instead of KompWatch?](./chatgpt-vs-website-monitoring.md)
 - [Comparing to Alternatives](./comparing-to-alternatives.md)
