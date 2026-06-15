@@ -220,6 +220,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${siteUrl}/compare/kompwatch-vs-klue`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${siteUrl}/compare/kompwatch-vs-parano`,
       lastModified: now,
       changeFrequency: "monthly",
