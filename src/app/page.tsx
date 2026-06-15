@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { HeroCTA, HeroSecondaryCTA } from "./hero-cta";
 import { HeroHeadline } from "./hero-headline";
+import { HeroNoDemoSubCTA } from "./hero-no-demo-subcta";
 import { HeroSubheadline } from "./hero-subheadline";
 import { TrackedCTA } from "@/components/tracked-cta";
 import { DemoVideo } from "@/components/marketing/demo-video";
@@ -198,6 +199,8 @@ export default function Home() {
             How it works &rarr;
           </Link>
         </div>
+        {/* Sub-CTA experiment (ticket b16e): "No demo required — live in 2 minutes" */}
+        <HeroNoDemoSubCTA />
         {/* Trust badges — reduce friction at point of highest intent */}
         <p className="mt-4 flex items-center justify-center gap-2 text-sm text-gray-500">
           <span className="inline-flex items-center gap-1">
