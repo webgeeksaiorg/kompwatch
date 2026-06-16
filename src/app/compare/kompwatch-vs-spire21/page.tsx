@@ -4,6 +4,7 @@ import { TrackedCTA } from "@/components/tracked-cta";
 import { ComparisonFAQ } from "@/components/comparison-faq";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 import { SoftwareApplicationSchema } from "@/components/software-schema";
+import { CompareEmailCapture } from "@/components/compare-email-capture";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -429,6 +430,8 @@ export default function CompareKompWatchVsSpire21Page() {
           },
         ]}
       />
+
+      <CompareEmailCapture competitor="Spire21" source="compare-spire21" />
 
       {/* Bottom CTA */}
       <section className="py-20">
