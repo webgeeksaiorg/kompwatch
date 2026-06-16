@@ -10,7 +10,7 @@ Tracks where KompWatch has been submitted for listing/discovery.
 | — | G2 | listing-copy-ready | Profile copy written (see below). Submit once production server is back up. |
 | — | Capterra | listing-copy-ready | Profile copy written (see below). Submit once production server is back up. |
 | — | Indie Hackers | pending | Post "I'm building" thread at launch |
-| 2026-06-11 | Hacker News | content-ready | Show HN post written (queue/hackernews/2026-06-11-show-hn-free-competitor-snapshot.md). Needs manual submission — no HN API. Score 8.5/10. |
+| 2026-06-11 | Hacker News | content-ready | Show HN post written (queue/hackernews/2026-06-11-show-hn-free-competitor-snapshot.md). Needs manual submission — no HN API. Score 8.5/10. Ticket db53 — submit when production server restored. |
 | — | awesome-saas-tools | pending | — |
 | — | awesome-competitive-intelligence | pending | GitHub repo: github.com/aj-dev-sys/awesome-competitive-intelligence — add KompWatch as headless-browser-based option |
 
