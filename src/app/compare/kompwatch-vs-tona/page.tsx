@@ -4,6 +4,7 @@ import { TrackedCTA } from "@/components/tracked-cta";
 import { ComparisonFAQ } from "@/components/comparison-faq";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 import { SoftwareApplicationSchema } from "@/components/software-schema";
+import { CompareEmailCapture } from "@/components/compare-email-capture";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -64,7 +65,7 @@ const comparisonRows: {
   { feature: "Job listing tracking", kompwatch: true, tona: false },
   { feature: "Team collaboration features", kompwatch: "Team plan ($149/mo)", tona: "Built-in" },
   { feature: "Scheduled email digests", kompwatch: "Daily (Pro) / Weekly (Free)", tona: "Weekly summaries" },
-  { feature: "Battlecard export", kompwatch: "One-click HTML", tona: false },
+  { feature: "Battlecard export", kompwatch: "JSON export today; one-click HTML in development", tona: false },
   { feature: "Month-to-month billing", kompwatch: true, tona: true },
 ];
 
@@ -363,7 +364,7 @@ export default function CompareKompWatchVsTonaPage() {
                 <li>&middot; CSS selector targeting matters — you want to monitor specific sections, not entire pages</li>
                 <li>&middot; Competitor hiring signals are part of your strategy</li>
                 <li>&middot; You want to evaluate for free before paying (2 competitors, no credit card)</li>
-                <li>&middot; You want one-click battlecard exports</li>
+                <li>&middot; You want a battlecard workflow (JSON export today; one-click HTML in development)</li>
               </ul>
             </div>
             <div className="rounded-xl border border-gray-200 bg-white p-6">
@@ -423,6 +424,8 @@ export default function CompareKompWatchVsTonaPage() {
           },
         ]}
       />
+
+      <CompareEmailCapture competitor="Tona" source="compare-tona" />
 
       {/* Bottom CTA */}
       <section className="py-20">

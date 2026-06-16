@@ -63,7 +63,7 @@ const comparisonRows: {
   { feature: "CSS selector targeting", kompwatch: true, klue: true },
   { feature: "Content zone classification", kompwatch: "Pricing / Features / Messaging / Jobs", klue: true },
   { feature: "Salesforce / CRM push", kompwatch: false, klue: true, note: "Klue strength" },
-  { feature: "Battlecards in seller workflows", kompwatch: "PDF / HTML export", klue: "In-CRM + Slack" },
+  { feature: "Battlecards in seller workflows", kompwatch: "JSON export today; one-click HTML in development", klue: "In-CRM + Slack" },
   { feature: "Dedicated CI analyst required", kompwatch: false, klue: "Most customers staff a CI role" },
   { feature: "Cancel anytime", kompwatch: true, klue: false },
 ];
@@ -108,7 +108,7 @@ const differentiators = [
   {
     title: "Designed for teams without a dedicated CI analyst",
     description:
-      "Klue and Crayon both assume a full-time Competitive Intelligence Manager runs the platform. KompWatch is built for the PMM, founder, or product lead who tracks competitors as one of ten responsibilities. Daily digests, severity filters, and battlecard export — no analyst required.",
+      "Klue and Crayon both assume a full-time Competitive Intelligence Manager runs the platform. KompWatch is built for the PMM, founder, or product lead who tracks competitors as one of ten responsibilities. Daily digests, severity filters, and JSON export for battlecard workflows (one-click HTML export in development) — no analyst required.",
   },
 ];
 
