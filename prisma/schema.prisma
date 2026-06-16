@@ -283,11 +283,16 @@ model StripeEvent {
 // Distinct from User: a lead may not have signed up yet.
 
 model EmailLead {
-  id        String   @id @default(cuid())
-  email     String
-  source    String   // e.g. "sample-digest", "vs-crayon", "llm-visibility-waitlist"
-  createdAt DateTime @default(now())
+  id             String   @id @default(cuid())
+  email          String
+  source         String   // e.g. "sample-digest", "vs-crayon", "llm-visibility-waitlist"
+  competitorUrl  String?  // URL submitted with free-snapshot form
+  nurtureStep    Int      @default(0) // 0 = no emails sent, 1-3 = nurture sequence step
+  lastNurturedAt DateTime? // when the last nurture email was sent
+  unsubscribed   Boolean  @default(false) // CAN-SPAM: set when lead clicks unsubscribe link
+  createdAt      DateTime @default(now())
 
   @@unique([email, source])
   @@index([source, createdAt])
+  @@index([source, nurtureStep]) // for lead nurture cron queries
 }

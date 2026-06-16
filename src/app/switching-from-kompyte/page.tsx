@@ -392,7 +392,7 @@ export default function SwitchingFromKompytePage() {
           {
             question: "Does KompWatch have battlecards like Kompyte?",
             answer:
-              "Yes — KompWatch now offers one-click battlecard export. Generate a sales-ready battlecard from any competitor's tracked changes in seconds. It's lighter than Kompyte's full CMS, but covers the core use case.",
+              "Not yet as a one-click feature — KompWatch's one-click HTML battlecard export is in active development. Today, you can generate a battlecard in 5–10 minutes per competitor: export changes to JSON, filter by HIGH/CRITICAL severity, and paste the AI-written summaries into your battlecard template (Notion, Google Slides, Confluence). It's lighter than Kompyte's full CMS but covers the core use case while the one-click export ships.",
           },
           {
             question: "Can I run KompWatch and Kompyte at the same time?",

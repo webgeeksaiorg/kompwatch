@@ -112,7 +112,11 @@ export async function GET(req: NextRequest) {
     return NextResponse.redirect(pricingUrl);
   }
 
-  const dashboardUrl = new URL("/dashboard", req.url);
+  // If user came from free snapshot, redirect to competitors page with pre-filled URL
+  const competitorUrl = req.nextUrl.searchParams.get("competitor_url");
+  const redirectPath = competitorUrl ? "/competitors" : "/dashboard";
+  const dashboardUrl = new URL(redirectPath, req.url);
+  if (competitorUrl) dashboardUrl.searchParams.set("prefill_url", competitorUrl);
 
   // Funnel: magic-link-verified — fires for every successful magic-link click
   // (both new signups and returning logins). Lets us measure email

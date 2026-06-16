@@ -4,6 +4,7 @@ import { TrackedCTA } from "@/components/tracked-cta";
 import { ComparisonFAQ } from "@/components/comparison-faq";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 import { SoftwareApplicationSchema } from "@/components/software-schema";
+import { CompareEmailCapture } from "@/components/compare-email-capture";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -64,7 +65,7 @@ const comparisonRows: {
   { feature: "Job listing tracking", kompwatch: true, spire21: false },
   { feature: "Scheduled email digests", kompwatch: "Daily (Pro) / Weekly (Free)", spire21: "TBD" },
   { feature: "Startup-focused onboarding", kompwatch: "< 2 min setup", spire21: "Startup-specific flow" },
-  { feature: "Battlecard export", kompwatch: "One-click HTML", spire21: false },
+  { feature: "Battlecard export", kompwatch: "JSON export today; one-click HTML in development", spire21: false },
   { feature: "Month-to-month billing", kompwatch: true, spire21: "TBD" },
 ];
 
@@ -429,6 +430,8 @@ export default function CompareKompWatchVsSpire21Page() {
           },
         ]}
       />
+
+      <CompareEmailCapture competitor="Spire21" source="compare-spire21" />
 
       {/* Bottom CTA */}
       <section className="py-20">

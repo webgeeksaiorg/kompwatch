@@ -60,7 +60,7 @@ const comparisonRows: {
   { feature: "Job listing tracking", kompwatch: true, headsup: false },
   { feature: "Email digests", kompwatch: "Daily (Pro) / Weekly (Free)", headsup: "Alert-based" },
   { feature: "Slack / webhook alerts", kompwatch: true, headsup: true },
-  { feature: "Battlecard export", kompwatch: "One-click HTML", headsup: false },
+  { feature: "Battlecard export", kompwatch: "JSON export today; one-click HTML in development", headsup: false },
   { feature: "Cancel anytime", kompwatch: true, headsup: true },
 ];
 

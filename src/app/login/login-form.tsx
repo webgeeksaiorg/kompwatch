@@ -11,6 +11,7 @@ declare global {
 
 const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign"] as const;
 const CHECKOUT_KEYS = ["intent", "plan", "period"] as const;
+const PASSTHROUGH_KEYS = ["competitor_url"] as const;
 
 export function LoginForm() {
   const [email, setEmail] = useState("");
@@ -53,10 +54,17 @@ export function LoginForm() {
         if (val) checkout[key] = val;
       }
 
+      // Forward competitor URL so it pre-fills the add-competitor form after auth
+      const passthrough: Record<string, string> = {};
+      for (const key of PASSTHROUGH_KEYS) {
+        const val = searchParams.get(key);
+        if (val) passthrough[key] = val;
+      }
+
       const res = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, ...utm, ...checkout }),
+        body: JSON.stringify({ email, ...utm, ...checkout, ...passthrough }),
       });
 
       if (!res.ok) {

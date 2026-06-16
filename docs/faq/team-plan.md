@@ -1,6 +1,6 @@
 # The Team Plan — What It Includes
 
-The Team plan is KompWatch's highest tier, designed for companies that need to track many competitors with maximum monitoring frequency.
+The Team plan is KompWatch's highest self-serve tier, designed for companies that need to track many competitors with maximum monitoring frequency. (An [Enterprise plan](enterprise-plan.md) is also available for organizations needing unlimited competitors, SSO, and a dedicated account manager.)
 
 ## What You Get on Team
 

@@ -1,6 +1,6 @@
 # SSO and Single Sign-On
 
-KompWatch uses **magic link login** — there are no passwords, and SSO is not yet supported.
+KompWatch uses **magic link login** for Free, Pro, and Team plans. SSO (SAML 2.0) is available on the Enterprise plan.
 
 ## How Login Works Today
 
@@ -10,13 +10,13 @@ See [My Login Email Didn't Arrive →](magic-link-login.md) if you're having tro
 
 ## Is SSO (Okta, Google Workspace, Azure AD, SAML) Supported?
 
-Not yet. SSO via SAML 2.0, Okta, Google Workspace, or Azure AD is not currently available. This is on our roadmap for a future Team plan enhancement.
+**Yes — on the Enterprise plan.** SSO via SAML 2.0, Okta, Google Workspace, and Azure AD is available on the [Enterprise plan](enterprise-plan.md).
 
-If SSO is a hard requirement for your organization, [email us](mailto:support@kompwatch.com) — we're collecting interest to help prioritize the feature.
+SSO is not available on Free, Pro, or Team plans. If SSO is a hard requirement, [contact sales@kompwatch.com](mailto:sales@kompwatch.com) to discuss Enterprise pricing — it starts at $799/month.
 
-## Workarounds for Teams
+## Workarounds for Pro/Team Plans (No SSO)
 
-While SSO is not available, teams commonly use:
+On Free, Pro, and Team plans (no SSO), teams commonly use:
 
 - **Shared email alias** — sign up with `competitive@yourcompany.com` and share access via the alias. Everyone on the alias can request a magic link and access the same account.
 - **Forward digests to your team** — set up email forwarding from your KompWatch address to a distribution list, so teammates receive digests automatically.
@@ -26,7 +26,7 @@ While SSO is not available, teams commonly use:
 
 Because magic links are time-limited (15 minutes) and single-use, they're resistant to phishing and credential stuffing. Sessions are signed JWTs. We do not store passwords and there is no password reset flow.
 
-For organizations with strict identity management requirements, the lack of SAML/SCIM provisioning means onboarding and offboarding must be handled by changing the account email — email [support@kompwatch.com](mailto:support@kompwatch.com) to do this.
+For organizations on Free, Pro, or Team plans with strict identity management requirements, onboarding and offboarding must be handled by changing the account email — email [support@kompwatch.com](mailto:support@kompwatch.com) to do this. For full SAML/SCIM provisioning, [Enterprise plan](enterprise-plan.md) is the right fit.
 
 For full security details, see [Data Security & Privacy →](data-security.md).
 

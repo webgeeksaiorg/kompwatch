@@ -2,7 +2,7 @@
 platform: reddit
 type: comment
 target: r/ProductManagement or r/SaaS — threads about competitive intelligence tools, DIY monitoring, or CI tool alternatives
-status: draft
+status: ready
 keywords: [DIY competitor monitoring, competitor tracking without enterprise tools, Visualping alternative, affordable competitive intelligence]
 ---
 Been through the DIY stack phase and can describe exactly where it breaks.

@@ -137,6 +137,13 @@ const competitors = [
     differentiator: "PeerPanda Professional is $79/mo for 15 competitors. KompWatch Pro is $49/mo for 10 — 38% cheaper at the tier most teams use, with custom CSS selectors and headless browser rendering.",
   },
   {
+    slug: "parano",
+    name: "Parano.ai",
+    tagline: "AI competitor monitoring",
+    price: "$89/mo",
+    differentiator: "Parano.ai is the closest direct competitor at $89/mo. KompWatch is 45% cheaper at $49/mo Pro, adds severity classification, CSS selectors, content zones, and a free tier.",
+  },
+  {
     slug: "headsup",
     name: "HeadsUp",
     tagline: "AI competitor monitoring",

@@ -28,6 +28,15 @@ const ALLOWED_SOURCES = new Set([
   "llm-visibility-waitlist",
   "free-snapshot",
   "blog",
+  "compare-crayon",
+  "compare-klue",
+  "compare-kompyte",
+  "compare-headsup",
+  "compare-parano",
+  "compare-ravenseer",
+  "compare-rivalsense",
+  "compare-spire21",
+  "compare-tona",
 ]);
 
 export async function POST(req: NextRequest) {

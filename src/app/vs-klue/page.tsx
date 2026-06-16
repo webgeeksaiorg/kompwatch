@@ -63,7 +63,7 @@ const comparisonRows: {
   { feature: "Email digests", kompwatch: true, klue: true },
   { feature: "Slack / webhook alerts", kompwatch: true, klue: true },
   { feature: "Tech stack detection", kompwatch: "Pro+", klue: true },
-  { feature: "Battlecards", kompwatch: "One-click export", klue: true },
+  { feature: "Battlecards", kompwatch: "Coming soon (JSON export today)", klue: true },
   { feature: "Time-to-first-insight", kompwatch: "Under 2 minutes", klue: "Weeks (sales + onboarding)" },
 ];
 
@@ -514,7 +514,7 @@ export default function VsKluePage() {
           },
           {
             question: "Does KompWatch have battlecards like Klue?",
-            answer: "Yes — KompWatch now offers one-click battlecard export. Generate a sales-ready battlecard from any competitor's tracked changes in seconds. It's lighter than Klue's full battlecard CMS for 50+ rep sales orgs, but covers the core use case at a fraction of the cost.",
+            answer: "Not yet as a one-click feature — KompWatch's one-click HTML battlecard export is in active development. Today, you can generate a battlecard in 5–10 minutes per competitor: export changes to JSON, filter by HIGH/CRITICAL severity, and paste the AI-written summaries into your battlecard template (Notion, Google Slides, Confluence). It's lighter than Klue's full battlecard CMS for 50+ rep sales orgs but covers the core use case while the one-click export ships.",
           },
           {
             question: "Does Klue require Microsoft 365?",

@@ -4,6 +4,7 @@ import { TrackedCTA } from "@/components/tracked-cta";
 import { ComparisonFAQ } from "@/components/comparison-faq";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 import { SoftwareApplicationSchema } from "@/components/software-schema";
+import { CompareEmailCapture } from "@/components/compare-email-capture";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -65,7 +66,7 @@ const comparisonRows: {
   { feature: "Job listing tracking", kompwatch: true, rivalsense: false },
   { feature: "Scheduled email digests", kompwatch: "Daily (Pro) / Weekly (Free)", rivalsense: "Email alerts" },
   { feature: "CSV / JSON export", kompwatch: true, rivalsense: false },
-  { feature: "Battlecard export", kompwatch: "One-click HTML", rivalsense: false },
+  { feature: "Battlecard export", kompwatch: "JSON export today; one-click HTML in development", rivalsense: false },
   { feature: "Month-to-month billing", kompwatch: true, rivalsense: true },
 ];
 
@@ -433,6 +434,8 @@ export default function CompareKompWatchVsRivalSensePage() {
           },
         ]}
       />
+
+      <CompareEmailCapture competitor="RivalSense" source="compare-rivalsense" />
 
       {/* Bottom CTA */}
       <section className="py-20">
