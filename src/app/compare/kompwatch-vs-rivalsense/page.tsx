@@ -66,7 +66,7 @@ const comparisonRows: {
   { feature: "Job listing tracking", kompwatch: true, rivalsense: false },
   { feature: "Scheduled email digests", kompwatch: "Daily (Pro) / Weekly (Free)", rivalsense: "Email alerts" },
   { feature: "CSV / JSON export", kompwatch: true, rivalsense: false },
-  { feature: "Battlecard export", kompwatch: "One-click HTML", rivalsense: false },
+  { feature: "Battlecard export", kompwatch: "JSON export today; one-click HTML in development", rivalsense: false },
   { feature: "Month-to-month billing", kompwatch: true, rivalsense: true },
 ];
 

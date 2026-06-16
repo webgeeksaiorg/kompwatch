@@ -63,7 +63,7 @@ const comparisonRows: {
   { feature: "Feature & product page tracking", kompwatch: true, kompyte: true },
   { feature: "Blog & content monitoring", kompwatch: true, kompyte: true },
   { feature: "Job listing tracking", kompwatch: true, kompyte: false },
-  { feature: "Sales battlecards", kompwatch: "One-click HTML export", kompyte: "Native battlecard builder", note: "Kompyte's core strength" },
+  { feature: "Sales battlecards", kompwatch: "JSON export today; one-click HTML export in development", kompyte: "Native battlecard builder", note: "Kompyte's core strength" },
   { feature: "CRM integrations (Salesforce, HubSpot)", kompwatch: false, kompyte: true },
   { feature: "Semrush SEO data integration", kompwatch: false, kompyte: true, note: "Bundled with Semrush suite" },
   { feature: "Scheduled email digests", kompwatch: "Daily (Pro) / Weekly (Free)", kompyte: "Configurable alerts" },

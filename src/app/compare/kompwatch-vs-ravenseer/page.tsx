@@ -64,7 +64,7 @@ const comparisonRows: {
   { feature: "Blog & content monitoring", kompwatch: true, ravenseer: true },
   { feature: "Job listing tracking", kompwatch: true, ravenseer: false },
   { feature: "Scheduled email digests", kompwatch: "Daily (Pro) / Weekly (Free)", ravenseer: "Weekly" },
-  { feature: "Battlecard export", kompwatch: "One-click HTML", ravenseer: false },
+  { feature: "Battlecard export", kompwatch: "JSON export today; one-click HTML in development", ravenseer: false },
   { feature: "Month-to-month billing", kompwatch: true, ravenseer: true },
   { feature: "Founded", kompwatch: "2025", ravenseer: "2024" },
 ];
@@ -366,7 +366,7 @@ export default function CompareKompWatchVsRavenSeerPage() {
                 <li>&middot; You need AI digests that classify changes by severity and type</li>
                 <li>&middot; CSS selector targeting matters — you want to monitor specific page sections</li>
                 <li>&middot; Competitor hiring signals are part of your strategy</li>
-                <li>&middot; You want one-click battlecard exports</li>
+                <li>&middot; You want a battlecard workflow (JSON export today; one-click HTML in development)</li>
               </ul>
             </div>
             <div className="rounded-xl border border-gray-200 bg-white p-6">

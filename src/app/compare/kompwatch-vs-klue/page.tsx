@@ -63,7 +63,7 @@ const comparisonRows: {
   { feature: "Feature & product page tracking", kompwatch: true, klue: true },
   { feature: "Blog & content monitoring", kompwatch: true, klue: true },
   { feature: "Job listing tracking", kompwatch: true, klue: false },
-  { feature: "Sales battlecards", kompwatch: "One-click HTML export", klue: "Native battlecard CMS", note: "Klue's core strength" },
+  { feature: "Sales battlecards", kompwatch: "JSON export today; one-click HTML export in development", klue: "Native battlecard CMS", note: "Klue's core strength" },
   { feature: "Win/loss analysis", kompwatch: false, klue: true, note: "Klue's dedicated module" },
   { feature: "CRM integrations (Salesforce, HubSpot)", kompwatch: false, klue: true },
   { feature: "Microsoft 365 integration", kompwatch: false, klue: true, note: "Deep Teams/Dynamics/Copilot integration" },
@@ -419,7 +419,7 @@ export default function CompareKompWatchVsKluePage() {
           {
             question: "Does KompWatch have battlecards like Klue?",
             answer:
-              "Yes — KompWatch offers one-click battlecard export. Generate a sales-ready battlecard from any competitor's tracked changes in seconds. It's lighter than Klue's full battlecard CMS designed for 50+ rep sales orgs with curated content workflows, but it covers the core use case at a fraction of the cost.",
+              "Not yet as a one-click feature. KompWatch's one-click HTML battlecard export is in active development. Today, you can generate a battlecard in 5–10 minutes per competitor: export changes to JSON from Settings → Export, filter by HIGH/CRITICAL severity, and paste the AI-written summaries into your battlecard template (Notion, Google Slides, Confluence, Highspot, Seismic). It's lighter than Klue's full battlecard CMS designed for 50+ rep sales orgs with curated content workflows. See our battlecard export status FAQ for the workaround and roadmap.",
           },
           {
             question: "Why is Klue so expensive?",

@@ -65,7 +65,7 @@ const comparisonRows: {
   { feature: "Feature & product page tracking", kompwatch: true, crayon: true },
   { feature: "Blog & content monitoring", kompwatch: true, crayon: true },
   { feature: "Job listing tracking", kompwatch: true, crayon: true },
-  { feature: "Sales battlecards", kompwatch: "One-click HTML export", crayon: "Native battlecard builder", note: "Crayon's core strength" },
+  { feature: "Sales battlecards", kompwatch: "JSON export today; one-click HTML export in development", crayon: "Native battlecard builder", note: "Crayon's core strength" },
   { feature: "Managed analyst services", kompwatch: false, crayon: true, note: "Crayon offers human-curated intel" },
   { feature: "CRM integrations (Salesforce, HubSpot)", kompwatch: false, crayon: true },
   { feature: "Scheduled email digests", kompwatch: "Daily (Pro) / Weekly (Free)", crayon: "Configurable alerts" },
