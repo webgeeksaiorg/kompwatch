@@ -6,16 +6,19 @@ A common question before signing up: "Is there enough signal to make this worth 
 
 | Page type | Typical change frequency | Signal type |
 |---|---|---|
-| Pricing page | ~3x per quarter | Lagging — confirms a decision already made |
+| Pricing page (any change) | ~39% of pages per month | Broad — catches micro-changes and major restructures |
+| Pricing page (major restructure) | ~3x per quarter | Lagging — confirms a decision already made |
 | Features / product page | Roughly monthly | Mixed — can preview upcoming announcements |
 | Job listings | Weekly or more | Leading — predicts moves before they're announced |
 | Blog / changelog | Irregular, high noise | Low value for monitoring; read manually |
 
 These are medians across a broad sample. Fast-growing competitors change more frequently; mature or stable products change less.
 
+**A note on "any change" vs "major change":** Roughly 39% of SaaS pricing pages change in any given month — but most of those changes are minor: CTA copy tweaks, trial length adjustments, seat pricing rounding, plan limit wording. The "~3x per quarter" figure covers changes meaningful enough to brief a sales team on (new plan tier, price increase, feature moved between tiers). Both numbers are real; they're measuring different things.
+
 ## What This Tells You
 
-**Pricing changes are relatively rare — but high impact.** A competitor updating their pricing page 3 times a quarter means something significant changed each time: a new plan, a price increase, a trial offer added or removed. These are the moments you want your sales team briefed *before* they hear it from a customer.
+**Pricing changes — even minor ones — are higher frequency than most teams assume.** A competitor updating their pricing page 3 times a quarter for major moves means something significant changed each time: a new plan, a price increase, a trial offer added or removed. But another 2–4 minor tweaks likely happened in between — copy tests, limit adjustments, CTA experiments — that don't warrant a sales briefing but do tell you how actively the competitor is iterating. These are the moments you want your sales team briefed *before* they hear it from a customer.
 
 **Feature pages move monthly.** Product and features pages are refreshed when a team ships something or repositions. Monthly monitoring catches these before they show up in a press release or G2 update.
 
