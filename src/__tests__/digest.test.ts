@@ -231,6 +231,23 @@ describe("renderDigestHtml", () => {
     expect(text).toContain("[Weak]");
   });
 
+  it("includes mobile-responsive meta tags and media queries", () => {
+    const groups: DigestCompetitorGroup[] = [
+      {
+        competitor: { name: "Acme Corp", url: "https://acme.com" },
+        changes: [
+          { changeType: "PRICING", contentZone: "MONETIZATION", summary: "Price hike", details: null, severity: "HIGH", signalScore: 0.9, createdAt: new Date() },
+        ],
+      },
+    ];
+    const html = renderDigestHtml(testUser, groups, "DAILY");
+    expect(html).toContain('name="viewport"');
+    expect(html).toContain("width=device-width");
+    expect(html).toContain("@media only screen and (max-width: 480px)");
+    expect(html).toContain("-webkit-text-size-adjust:100%");
+    expect(html).toContain("x-apple-disable-message-reformatting");
+  });
+
   it("uses generic greeting when no name", () => {
     const groups: DigestCompetitorGroup[] = [
       {

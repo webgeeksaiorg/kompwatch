@@ -84,11 +84,11 @@ export function renderDigestHtml(
               ? ` <span style="background:${signal.text === "Noise" ? "#f3f4f6" : signal.text === "Weak" ? "#fffbeb" : "#fefce8"};color:${signal.text === "Noise" ? "#6b7280" : signal.text === "Weak" ? "#b45309" : "#ca8a04"};border-radius:4px;padding:2px 6px;font-size:10px;">${signal.text} signal</span>`
               : "";
             return `<tr>
-              <td style="padding:8px 12px;border-bottom:1px solid #eee;">${SEVERITY_EMOJI[c.severity] || "⚪"}</td>
-              <td style="padding:8px 12px;border-bottom:1px solid #eee;">
-                <span style="background:#f0f0f0;border-radius:4px;padding:2px 8px;font-size:12px;">${CHANGE_TYPE_LABEL[c.changeType] || c.changeType}</span>${ZONE_LABEL[c.contentZone] ? ` <span style="background:#ede9fe;color:#6d28d9;border-radius:4px;padding:2px 8px;font-size:11px;">${ZONE_LABEL[c.contentZone]}</span>` : ""}${signalBadge}
+              <td class="change-severity" style="padding:8px 12px;border-bottom:1px solid #eee;width:28px;vertical-align:top;">${SEVERITY_EMOJI[c.severity] || "⚪"}</td>
+              <td class="change-badges" style="padding:8px 12px;border-bottom:1px solid #eee;white-space:nowrap;vertical-align:top;">
+                <span style="background:#f0f0f0;border-radius:4px;padding:2px 8px;font-size:12px;display:inline-block;margin-bottom:2px;">${CHANGE_TYPE_LABEL[c.changeType] || c.changeType}</span>${ZONE_LABEL[c.contentZone] ? ` <span style="background:#ede9fe;color:#6d28d9;border-radius:4px;padding:2px 8px;font-size:11px;display:inline-block;margin-bottom:2px;">${ZONE_LABEL[c.contentZone]}</span>` : ""}${signalBadge}
               </td>
-              <td style="padding:8px 12px;border-bottom:1px solid #eee;">
+              <td class="change-content" style="padding:8px 12px;border-bottom:1px solid #eee;vertical-align:top;">
                 <strong>${escapeHtml(c.summary)}</strong>
                 ${c.details ? `<br/><span style="color:#666;font-size:13px;">${renderDetailsHtml(c.details)}</span>` : ""}
               </td>
@@ -99,11 +99,11 @@ export function renderDigestHtml(
 
       return `
         <div style="margin-bottom:24px;">
-          <h3 style="margin:0 0 8px;color:#1a1a1a;">
+          <h3 class="competitor-name" style="margin:0 0 8px;color:#1a1a1a;">
             ${escapeHtml(group.competitor.name)}
-            <span style="font-weight:normal;color:#666;font-size:13px;"> — ${escapeHtml(group.competitor.url)}</span>
+            <span class="competitor-url" style="font-weight:normal;color:#666;font-size:13px;"> — ${escapeHtml(group.competitor.url)}</span>
           </h3>
-          <table style="width:100%;border-collapse:collapse;font-size:14px;">
+          <table class="changes-table" style="width:100%;border-collapse:collapse;font-size:14px;">
             ${changeRows}
           </table>
         </div>`;
@@ -112,14 +112,37 @@ export function renderDigestHtml(
 
   return `<!DOCTYPE html>
 <html>
-<head><meta charset="utf-8"/></head>
-<body style="margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f9fafb;">
-  <div style="max-width:600px;margin:0 auto;padding:24px;">
-    <div style="background:#fff;border-radius:8px;padding:24px;box-shadow:0 1px 3px rgba(0,0,0,0.1);">
-      <h1 style="margin:0 0 4px;font-size:20px;color:#111;">KompWatch ${period === "DAILY" ? "Daily" : "Weekly"} Digest</h1>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="x-apple-disable-message-reformatting"/>
+  <!--[if !mso]><!-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <!--<![endif]-->
+  <style>
+    @media only screen and (max-width: 480px) {
+      .email-container { padding: 12px !important; }
+      .email-card { padding: 16px !important; }
+      .email-title { font-size: 18px !important; }
+      .competitor-name { font-size: 15px !important; }
+      .competitor-url { display: block !important; font-size: 12px !important; margin-top: 2px; }
+      .changes-table { font-size: 14px !important; }
+      .change-severity { padding: 6px 4px 6px 0 !important; width: 24px !important; }
+      .change-badges { display: none !important; width: 0 !important; padding: 0 !important; overflow: hidden !important; }
+      .change-content { padding: 6px 0 6px 4px !important; }
+      .stats-banner { padding: 10px 12px !important; font-size: 13px !important; }
+      .email-footer { font-size: 11px !important; }
+      .footer-link { display: inline-block !important; padding: 8px 0 !important; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f9fafb;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;">
+  <div class="email-container" style="max-width:600px;margin:0 auto;padding:24px;">
+    <div class="email-card" style="background:#fff;border-radius:8px;padding:24px;box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+      <h1 class="email-title" style="margin:0 0 4px;font-size:20px;color:#111;">KompWatch ${period === "DAILY" ? "Daily" : "Weekly"} Digest</h1>
       <p style="margin:0 0 20px;color:#666;font-size:14px;">${greeting}, here's your ${periodLabel} competitor update.</p>
 
-      <div style="background:#f0f7ff;border-radius:6px;padding:12px 16px;margin-bottom:20px;font-size:14px;">
+      <div class="stats-banner" style="background:#f0f7ff;border-radius:6px;padding:12px 16px;margin-bottom:20px;font-size:14px;">
         <strong>${totalChanges} change${totalChanges === 1 ? "" : "s"}</strong> detected across
         <strong>${groups.length} competitor${groups.length === 1 ? "" : "s"}</strong>
       </div>
@@ -127,9 +150,9 @@ export function renderDigestHtml(
       ${competitorSections}
 
       <hr style="border:none;border-top:1px solid #eee;margin:24px 0;"/>
-      <p style="margin:0;color:#999;font-size:12px;">
+      <p class="email-footer" style="margin:0;color:#999;font-size:12px;">
         You're receiving this because you have a KompWatch account (${escapeHtml(user.email)}).
-        <a href="${process.env.NEXTAUTH_URL || "https://kompwatch.com"}/settings" style="color:#666;">Manage preferences</a>
+        <a class="footer-link" href="${process.env.NEXTAUTH_URL || "https://kompwatch.com"}/settings" style="color:#666;">Manage preferences</a>
       </p>
     </div>
   </div>
