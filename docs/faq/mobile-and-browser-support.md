@@ -31,7 +31,16 @@ Browsers older than 2 years may have minor display issues. We recommend keeping 
 
 ## Digest Emails on Mobile
 
-Digest emails are formatted in responsive HTML — they display correctly in Gmail, Apple Mail, and Outlook on both mobile and desktop.
+Digest emails use a fully responsive HTML template with a mobile breakpoint at 480px. The template includes:
+
+- **Viewport meta tag** — prevents iOS Mail from auto-zooming the layout
+- **Apple Mail reformatting override** — `x-apple-disable-message-reformatting` stops Apple Mail from scaling text unexpectedly
+- **Reduced padding at 480px** — container and card padding shrinks from 24px to 12–16px so content isn't squeezed
+- **Simplified change rows** — the badge/type column is hidden on narrow screens; the AI summary takes full width for easier reading
+- **Larger footer tap targets** — footer links get a taller click area on touchscreens
+- **System font stack** — renders as native text in iOS Mail, Gmail app, and Outlook without web font loading
+
+Tested email clients: Gmail (iOS + Android), Apple Mail (iOS + macOS), Outlook (iOS + Android + desktop), Samsung Mail.
 
 ## Adding Competitors on Mobile
 
