@@ -1,12 +1,12 @@
 # Switching from Klue to KompWatch
 
-Klue is an enterprise competitor intelligence platform priced at $20K–$40K/yr. If you're evaluating lighter-weight alternatives — whether at renewal, after a team restructure, or because your CI needs have narrowed — this guide covers what KompWatch offers and how to get started.
+Klue is an enterprise competitor intelligence platform. Vendr buyer data (106 deals) puts the median contract at $50K/yr — with an entry price around $20K and mid-market contracts commonly reaching $40K–$70K depending on seat count. If you're evaluating lighter-weight alternatives — whether at renewal, after a team restructure, or because your CI needs have narrowed — this guide covers what KompWatch offers and how to get started.
 
 ## Why Teams Switch
 
 Teams that move from Klue to KompWatch typically cite:
 
-- **Cost** — Klue requires an annual contract at enterprise pricing. KompWatch starts free and Pro is $49/mo with no contract and no sales call required.
+- **Cost** — Klue requires an annual contract at enterprise pricing. Vendr buyer data puts the median at $50K/yr (106 verified deals) with no SMB tier — there is no small-team pricing. KompWatch starts free and Pro is $49/mo with no contract and no sales call required.
 - **Microsoft stack dependency** — Klue's February 2026 update deepened its integration with Microsoft Teams Calls, Teams Chat, Dynamics 365, and a Copilot MCP Server. If your team isn't on Microsoft's enterprise stack, those features don't apply — but they're priced in.
 - **Scope creep** — Klue has grown into a full CI platform (Compete Agent, MCP server, win/loss workflows, battlecard CMS). If your team's core need is automated website monitoring with AI digests, you're paying for platform capabilities you don't use.
 - **Analyst dependency** — Klue requires meaningful setup and ongoing curator time to maintain. KompWatch is fully automated — no analyst hours needed to keep monitoring running.
@@ -18,7 +18,7 @@ Teams that move from Klue to KompWatch typically cite:
 
 | | KompWatch | Klue |
 |---|---|---|
-| Starting price | Free (2 competitors) | $20K–$40K/yr |
+| Starting price | Free (2 competitors) | ~$20K/yr entry; $50K/yr median (Vendr, 106 deals) |
 | Self-serve signup | ✓ No sales call | ✗ Sales demo required |
 | Contract | Monthly, cancel anytime | Annual |
 | Website change monitoring | ✓ Playwright-based, JS-rendered | ✓ Full-page monitoring |

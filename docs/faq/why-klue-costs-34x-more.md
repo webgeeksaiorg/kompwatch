@@ -12,7 +12,7 @@ The /vs-klue comparison page shows a 34× price premium for Klue's Gartner Magic
 
 $20,000 ÷ $588 = **34×**
 
-That is the entry-level Klue ACV against KompWatch's Pro plan. Klue's actual median ACV for mid-market teams is typically higher — independent reviews put it in the $25K–$40K range depending on seat count and contract length.
+That is the entry-level Klue ACV against KompWatch's Pro plan. Vendr buyer data (106 verified deals) puts Klue's actual median contract at **$50K/yr** — with mid-market teams commonly paying $40K–$70K depending on seat count. There is no SMB tier. At the median, the gap is 85× ($50,000 ÷ $588).
 
 ## Is the Comparison Fair?
 

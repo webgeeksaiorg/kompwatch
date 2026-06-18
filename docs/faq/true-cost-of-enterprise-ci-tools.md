@@ -15,11 +15,11 @@ Klue and Crayon quote a platform license. They don't quote the analyst, the onbo
 
 | Cost component | Typical range |
 |---|---|
-| Klue annual contract | $16,000–$40,000/yr |
+| Klue annual contract | $20,000–$70,000/yr (median $50K/yr — Vendr, 106 deals; no SMB tier) |
 | Crayon annual contract | $25,000–$50,000/yr |
 | Dedicated CI analyst (salary, fully loaded) | $80,000–$110,000/yr |
 | Initial onboarding / implementation | 8–15 weeks of internal team time |
-| **Effective total (Klue)** | **$96,000–$150,000/yr** |
+| **Effective total (Klue)** | **$100,000–$180,000/yr** |
 | **Effective total (Crayon)** | **$105,000–$160,000/yr** |
 
 The license is the entry fee. The analyst is the running cost.

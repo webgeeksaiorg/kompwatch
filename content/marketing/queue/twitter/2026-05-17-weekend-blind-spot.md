@@ -2,7 +2,7 @@
 platform: twitter
 type: tweet
 target: —
-status: queued-publish-failed-no-creds
+status: queued-no-creds
 score: 8.5/10
 keywords: [competitor monitoring timing, track competitor website changes, weekend pricing changes, SaaS competitive intelligence]
 ---

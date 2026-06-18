@@ -14,6 +14,23 @@ Tracks where KompWatch has been submitted for listing/discovery.
 | — | awesome-saas-tools | pending | — |
 | — | awesome-competitive-intelligence | pending | GitHub repo: github.com/aj-dev-sys/awesome-competitive-intelligence — add KompWatch as headless-browser-based option |
 
+## Marketer Cycle — 2026-05-17 (Saturday, run 19 — REST day)
+
+**Calendar: REST day — 1 tweet max.**
+
+**Ticket audit:**
+- `94ba` — LinkedIn Crayon vs Reality: content exists at `linkedin/2026-06-18-crayon-vs-reality-price-anchor.md` (8.5/10, READY). Publish attempted: BLOCKED — LINKEDIN_ACCESS_TOKEN missing.
+- `a1c4` — Blog: Crayon Information Noise Problem: content exists at `blog/2026-05-17-crayon-information-noise-problem.md` (8/10, READY). Ghost publish attempted: GHOST_ADMIN_API_KEY missing.
+- `caf9` — Blog: Google Alerts vs KompWatch: content exists at `blog/2026-05-17-google-alerts-vs-kompwatch.md` (8.5/10, READY). Ghost publish attempted: GHOST_ADMIN_API_KEY missing.
+- `5e27` — Reddit /r/productmanagement: content exists at `reddit/2026-06-16-post-productmanagement-free-snapshot.md` (8/10, READY). Publish attempted: REDDIT credentials missing.
+
+**New content written:**
+- `twitter/2026-05-17-saturday-scraper-insight.md` (8/10, READY) — Weekend change timing pattern. Saturday slot content.
+
+**Publishing status:** All platforms blocked — TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, GHOST_ADMIN_API_KEY all missing. Queue: 110+ pieces staged.
+
+---
+
 ## Marketer Cycle — 2026-05-17 (Sunday, run 18 — REST day)
 
 **Calendar: REST day — 1 tweet max.**
