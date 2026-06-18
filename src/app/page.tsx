@@ -229,6 +229,10 @@ export default function Home() {
           Crayon costs <span className="font-semibold text-gray-700">$25,000+/yr</span>.{" "}
           KompWatch: <span className="font-semibold text-brand-600">$49/mo</span>.
         </p>
+        {/* No-enterprise-contract price anchor — ticket 1058 */}
+        <p className="mt-2 text-sm text-gray-500">
+          No enterprise contract. No sales call. <span className="font-semibold text-gray-700">Month-to-month</span>, cancel anytime.
+        </p>
         {/* Social proof counter — A/B: static teams vs live competitor count */}
         <div className="mt-6">
           <SocialProofCounter />
