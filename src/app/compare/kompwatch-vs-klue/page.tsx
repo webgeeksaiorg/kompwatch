@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     "competitor monitoring tools 2026",
     "competitive intelligence tools comparison",
     "Klue battlecard alternative",
+    "Klue Salesforce integration disabled",
+    "Klue security incident",
+    "Klue vendor risk",
   ],
   alternates: {
     canonical: `${siteUrl}/compare/kompwatch-vs-klue`,
@@ -66,6 +69,8 @@ const comparisonRows: {
   { feature: "Sales battlecards", kompwatch: "JSON export today; one-click HTML export in development", klue: "Native battlecard CMS", note: "Klue's core strength" },
   { feature: "Win/loss analysis", kompwatch: false, klue: true, note: "Klue's dedicated module" },
   { feature: "CRM integrations (Salesforce, HubSpot)", kompwatch: false, klue: true },
+  { feature: "Salesforce Battlecards integration", kompwatch: "N/A", klue: "Disabled (June 2026)", note: "Salesforce revoked due to security incident" },
+  { feature: "Third-party platform dependency", kompwatch: "None — standalone", klue: "Salesforce, Microsoft 365", note: "Platform changes can break core features" },
   { feature: "Microsoft 365 integration", kompwatch: false, klue: true, note: "Deep Teams/Dynamics/Copilot integration" },
   { feature: "Scheduled email digests", kompwatch: "Daily (Pro) / Weekly (Free)", klue: "Configurable alerts" },
   { feature: "Time to first insight", kompwatch: "< 2 minutes", klue: "Weeks (sales + onboarding)", note: "Enterprise onboarding process" },
@@ -373,6 +378,7 @@ export default function CompareKompWatchVsKluePage() {
                 <li>&middot; You track React/SPA pages that need full headless rendering</li>
                 <li>&middot; CSS selector targeting matters — you want to monitor specific sections</li>
                 <li>&middot; Competitor hiring signals are part of your strategy</li>
+                <li>&middot; You want a standalone tool with no third-party platform dependencies</li>
               </ul>
             </div>
             <div className="rounded-xl border border-gray-200 bg-white p-6">
@@ -386,9 +392,52 @@ export default function CompareKompWatchVsKluePage() {
                 <li>&middot; You use Microsoft 365 and want deep Teams/Dynamics/Copilot integration</li>
                 <li>&middot; Budget isn&rsquo;t a constraint and you prefer a managed enterprise experience</li>
                 <li>&middot; You need vendor security reviews, SLAs, and dedicated account management</li>
+                <li>&middot; You&rsquo;re comfortable with platform dependency risk (Salesforce integration was disabled June 2026)</li>
               </ul>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Vendor risk / trust section */}
+      <section className="border-t border-gray-100 bg-gray-50 py-16">
+        <div className="mx-auto max-w-4xl px-6">
+          <h2 className="text-center text-2xl font-bold tracking-tight text-gray-900">
+            Vendor risk: what happens when a key integration breaks?
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-sm leading-relaxed text-gray-600">
+            On June 11, 2026, Salesforce disabled Klue&rsquo;s Battlecards integration
+            due to a security incident. For teams paying $20K&ndash;$40K/yr where
+            Salesforce battlecards are a core workflow, this meant a key feature
+            went offline with no clear timeline for restoration.
+          </p>
+          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <div className="rounded-xl border border-brand-200 bg-white p-6">
+              <h3 className="text-base font-semibold text-brand-700">
+                KompWatch: no platform dependencies
+              </h3>
+              <ul className="mt-4 space-y-3 text-sm text-gray-700">
+                <li>&middot; Standalone tool &mdash; no third-party platform can disable your monitoring</li>
+                <li>&middot; Webhook-based integrations mean you control the data flow</li>
+                <li>&middot; If Zapier, Slack, or email goes down, your snapshots and AI digests still run</li>
+                <li>&middot; All competitor data stored in your KompWatch account, exportable anytime</li>
+              </ul>
+            </div>
+            <div className="rounded-xl border border-gray-200 bg-white p-6">
+              <h3 className="text-base font-semibold text-gray-900">
+                Klue: dependent on Salesforce &amp; Microsoft
+              </h3>
+              <ul className="mt-4 space-y-3 text-sm text-gray-700">
+                <li>&middot; Salesforce Battlecards integration disabled June 2026 (security incident)</li>
+                <li>&middot; Core sales workflow disrupted for Salesforce-dependent teams</li>
+                <li>&middot; Deep Microsoft 365 integration creates additional platform dependency</li>
+                <li>&middot; Enterprise pricing assumes these integrations work reliably</li>
+              </ul>
+            </div>
+          </div>
+          <p className="mt-6 text-center text-xs text-gray-400">
+            Based on publicly available information as of June 2026.
+          </p>
         </div>
       </section>
 
@@ -425,6 +474,16 @@ export default function CompareKompWatchVsKluePage() {
             question: "Why is Klue so expensive?",
             answer:
               "Klue raised $62M from Tiger Global and Salesforce Ventures. That level of venture funding requires high ACVs — typically $20K–$40K/yr per customer. The product prioritizes enterprise features (battlecard CMS, win/loss analysis, Compete Agent AI, CRM integrations, Microsoft 365 integration) that justify those price points. If you need competitor monitoring without the enterprise overhead, KompWatch starts at $49/mo.",
+          },
+          {
+            question: "What happened with Klue's Salesforce integration in June 2026?",
+            answer:
+              "On June 11, 2026, Salesforce disabled Klue's Battlecards integration due to a security incident. This affected Klue customers who relied on Salesforce battlecard delivery as a core workflow. KompWatch has no third-party platform dependencies — your competitor monitoring runs independently, and webhook-based integrations (Zapier, Slack, email) keep you in control of the data flow.",
+          },
+          {
+            question: "Is KompWatch affected by the Klue Salesforce security incident?",
+            answer:
+              "No. KompWatch is a standalone competitor monitoring tool with no dependencies on Salesforce, Microsoft, or any third-party platform. Your snapshots, AI digests, and change detection run independently. If you connect KompWatch to Salesforce via webhooks and Zapier, you control the integration — no third-party vendor can disable it.",
           },
           {
             question: "Can I switch from Klue to KompWatch?",
