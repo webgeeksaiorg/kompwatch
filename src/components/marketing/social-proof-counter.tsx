@@ -1,17 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import {
-  assignVariantInBrowser,
-  SOCIAL_PROOF_COUNTER_EXPERIMENT,
-  type Variant,
-} from "@/lib/ab";
 
 /**
- * Compute a deterministic base count that grows ~12 per day from a fixed
- * launch epoch, so the number feels alive across visits without a real API.
+ * Deterministic fallback count that grows ~12/day from launch epoch.
+ * Used when the /api/stats fetch hasn't resolved yet or fails.
  */
-function getBaseCount(): number {
+function getFallbackCount(): number {
   const LAUNCH_EPOCH = new Date("2026-05-01T00:00:00Z").getTime();
   const elapsed = Date.now() - LAUNCH_EPOCH;
   const days = elapsed / 86_400_000;
@@ -19,7 +14,7 @@ function getBaseCount(): number {
 }
 
 /**
- * Animates from 0 → target over `duration` ms using ease-out.
+ * Animates from 0 → target over `duration` ms using ease-out cubic.
  */
 function useCountUp(target: number, duration = 1_800): number {
   const [value, setValue] = useState(0);
@@ -30,7 +25,6 @@ function useCountUp(target: number, duration = 1_800): number {
 
     function tick(now: number) {
       const t = Math.min((now - start) / duration, 1);
-      // ease-out cubic
       const eased = 1 - Math.pow(1 - t, 3);
       setValue(Math.floor(eased * target));
       if (t < 1) raf = requestAnimationFrame(tick);
@@ -43,37 +37,32 @@ function useCountUp(target: number, duration = 1_800): number {
   return value;
 }
 
-const AVATAR_COLORS = [
-  "bg-brand-400",
-  "bg-emerald-400",
-  "bg-amber-400",
-  "bg-violet-400",
-  "bg-rose-400",
-];
+export function SocialProofCounter() {
+  const [count, setCount] = useState<number>(getFallbackCount());
 
-function StaticProof() {
-  return (
-    <div className="flex items-center justify-center gap-3">
-      <div className="flex -space-x-2">
-        {AVATAR_COLORS.map((bg, i) => (
-          <div
-            key={i}
-            className={`h-7 w-7 rounded-full ${bg} ring-2 ring-white`}
-            aria-hidden="true"
-          />
-        ))}
-      </div>
-      <p className="text-sm text-gray-600">
-        Join <span className="font-semibold text-gray-900">150+</span> teams
-        monitoring competitors
-      </p>
-    </div>
-  );
-}
+  useEffect(() => {
+    let cancelled = false;
 
-function LiveCounter() {
-  const base = getBaseCount();
-  const displayed = useCountUp(base);
+    fetch("/api/stats")
+      .then((res) => {
+        if (!res.ok) throw new Error("stats fetch failed");
+        return res.json();
+      })
+      .then((data: { competitors?: number }) => {
+        if (!cancelled && typeof data.competitors === "number" && data.competitors > 0) {
+          setCount(data.competitors);
+        }
+      })
+      .catch(() => {
+        // keep fallback count
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const displayed = useCountUp(count);
 
   return (
     <div className="flex items-center justify-center gap-3">
@@ -92,25 +81,4 @@ function LiveCounter() {
       </div>
     </div>
   );
-}
-
-export function SocialProofCounter() {
-  const [variant, setVariant] = useState<Variant | null>(null);
-
-  useEffect(() => {
-    const v = assignVariantInBrowser(SOCIAL_PROOF_COUNTER_EXPERIMENT);
-    if (v) {
-      setVariant(v);
-      if (typeof window !== "undefined" && window.plausible) {
-        window.plausible("Social Proof Impression", {
-          props: { variant: v },
-        });
-      }
-    }
-  }, []);
-
-  // SSR / pre-hydration: render control to avoid layout shift
-  if (!variant) return <StaticProof />;
-
-  return variant === "A" ? <StaticProof /> : <LiveCounter />;
 }
