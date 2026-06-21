@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
         destination: "/vs-kompyte",
         permanent: true,
       },
+      {
+        source: "/vs-kompetar",
+        destination: "/compare/kompwatch-vs-kompetar",
+        permanent: true,
+      },
     ];
   },
 };

@@ -171,6 +171,13 @@ const competitors = [
     price: "From $39/mo",
     differentiator: "Tona offers AI alerts with built-in team collaboration. KompWatch adds Playwright headless rendering, CSS selectors, severity classification, and a free tier Tona doesn\u2019t offer.",
   },
+  {
+    slug: "kompetar",
+    name: "Kompetar",
+    tagline: "Affordable competitor monitoring",
+    price: "$49/mo",
+    differentiator: "Same $49/mo price point as KompWatch Pro. KompWatch adds Claude-powered AI digests, severity classification, CSS selector targeting, headless Playwright rendering, and a free tier Kompetar doesn\u2019t offer.",
+  },
 ];
 
 export default function ComparePage() {
