@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: threads discussing Crayon vs Klue or enterprise CI tools
-status: ready
+status: queued-publish-failed-credentials-missing
 score: 7.5/10
 keywords: [Crayon alternative, Klue alternative, competitor monitoring small team, SMB competitive intelligence]
 scheduled: 2026-06-25

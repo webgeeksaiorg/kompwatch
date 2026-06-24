@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: ready
+status: queued-publish-failed-credentials-missing
 score: 8.5/10
 keywords: [competitor intelligence, competitor job listings, competitive signals, track competitors]
 scheduled: 2026-06-25

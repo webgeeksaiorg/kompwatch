@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: threads about web scraping / building monitoring tools / headless browsers
-status: ready
+status: queued-publish-failed-credentials-missing
 score: 7/10
 keywords: [competitor website monitoring, web scraping competitors, SPA competitor tracking]
 scheduled: 2026-06-25

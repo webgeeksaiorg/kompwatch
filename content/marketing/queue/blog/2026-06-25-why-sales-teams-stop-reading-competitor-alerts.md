@@ -1,7 +1,7 @@
 ---
 platform: blog
 type: article
-status: ready
+status: queued-publish-failed-credentials-missing
 score: 8.5/10
 keywords: [CI shelfware, competitive intelligence tool not working, sales team ignore competitor alerts, competitor intelligence ROI, Crayon Klue shelfware]
 scheduled: 2026-06-25

@@ -2,7 +2,7 @@
 platform: reddit
 type: reply
 target: r/ProductManagement or r/SaaS
-status: ready
+status: queued-publish-failed-credentials-missing
 score: 8/10
 keywords: [competitor monitoring, track competitor website changes, competitor alert quality]
 scheduled: 2026-06-25
