@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: threads about competitive intelligence process / battle cards going stale
-status: ready
+status: queued-publish-failed-credentials-missing
 score: 7.5/10
 keywords: [competitive intelligence process, CI tool ROI, battle card owner]
 scheduled: 2026-06-25

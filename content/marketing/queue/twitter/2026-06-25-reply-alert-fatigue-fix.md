@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: threads about alert fatigue / too many notifications from monitoring tools
-status: ready
+status: queued-publish-failed-credentials-missing
 score: 8/10
 keywords: [alert fatigue, competitor monitoring, signal vs noise, competitor alerts]
 scheduled: 2026-06-25

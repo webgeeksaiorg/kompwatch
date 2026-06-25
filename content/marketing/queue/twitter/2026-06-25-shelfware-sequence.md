@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: ready
+status: queued-publish-failed-credentials-missing
 score: 8.5/10
 keywords: [CI shelfware, competitive intelligence ROI, Crayon Klue, competitor monitoring]
 scheduled: 2026-06-25

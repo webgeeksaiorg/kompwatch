@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: ready
+status: queued-publish-failed-credentials-missing
 score: 8/10
 keywords: [built in public, indie maker, competitor monitoring tool, Crayon alternative]
 scheduled: 2026-06-25

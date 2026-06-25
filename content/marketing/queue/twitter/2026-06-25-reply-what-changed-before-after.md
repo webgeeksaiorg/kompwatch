@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: threads about competitor monitoring tools or tracking competitor changes
-status: ready
+status: queued-publish-failed-credentials-missing
 score: 7.5/10
 keywords: [competitor change detection, competitor website tracking, competitor alert specificity]
 scheduled: 2026-06-25
