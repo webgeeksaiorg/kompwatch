@@ -13,6 +13,7 @@ import {
   type Variant,
 } from "@/lib/ab";
 import { RoiCalculator } from "@/components/marketing/roi-calculator";
+import { CostCalculator } from "@/components/marketing/cost-calculator";
 import { CaughtInTheWild } from "@/components/marketing/caught-in-the-wild";
 import { DigestPreview } from "@/components/marketing/digest-preview";
 
@@ -1364,6 +1365,11 @@ export default function PricingPage() {
 
       {/* Interactive ROI calculator — analyst labor savings framing */}
       <RoiCalculator />
+
+      {/* Interactive Klue/Crayon cost calculator — enterprise-vs-KompWatch
+          framing. Pairs with RoiCalculator (analyst-labor) to address the
+          two distinct "we're already evaluating X" objections. Ticket e180. */}
+      <CostCalculator />
 
       {/* Caught in the wild — social proof A/B experiment (c356) */}
       <CaughtInTheWild />
