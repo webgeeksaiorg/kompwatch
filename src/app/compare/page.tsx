@@ -178,6 +178,13 @@ const competitors = [
     price: "$49/mo",
     differentiator: "Same $49/mo price point as KompWatch Pro. KompWatch adds Claude-powered AI digests, severity classification, CSS selector targeting, headless Playwright rendering, and a free tier Kompetar doesn\u2019t offer.",
   },
+  {
+    slug: "competely",
+    name: "Competely",
+    tagline: "AI competitive analysis reports",
+    price: "From $39/mo",
+    differentiator: "Competely delivers SWOT-style briefs every 2 weeks. KompWatch snapshots every 6 hours and emails a Claude-powered digest per detected change \u2014 plus headless rendering, CSS selectors, and a free tier Competely doesn\u2019t offer.",
+  },
 ];
 
 export default function ComparePage() {
