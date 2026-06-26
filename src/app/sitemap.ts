@@ -184,6 +184,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${siteUrl}/compare/kompwatch-vs-competely`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${siteUrl}/compare/kompwatch-vs-headsup`,
       lastModified: now,
       changeFrequency: "monthly",
