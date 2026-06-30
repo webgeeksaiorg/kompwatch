@@ -18,9 +18,11 @@ If you see a charge or subscription amount that differs from what's listed on th
 
 ### 1. You're on a legacy beta price
 
-Early KompWatch beta users were occasionally onboarded at promotional or test pricing that no longer matches current plan rates. If your subscription pre-dates the general launch, your price may reflect an early-access rate.
+Early KompWatch beta users were occasionally onboarded at promotional or test pricing (e.g. **$9.99/mo**) that no longer matches current plan rates. These prices reflect old Stripe price IDs from our beta period that were never intended for long-term use.
 
-**What to do:** Check your subscription details in [Settings → Manage Subscription](https://kompwatch.com/settings). If your plan label says "Pro" but your charge is significantly lower or higher than $49/mo, contact [support@kompwatch.com](mailto:support@kompwatch.com) — we'll clarify whether your price is intentional or the result of a billing configuration issue.
+**What to do:** Check your subscription details in [Settings → Manage Subscription](https://kompwatch.com/settings). If your plan label says "Pro" but your charge is $9.99/mo or another unexpected amount, contact [support@kompwatch.com](mailto:support@kompwatch.com) — we'll clarify whether your price is intentional or the result of a billing configuration issue.
+
+> **Note:** If you were charged $9.99/mo as a beta user and your subscription is current, we will honour that rate and proactively reach out before making any changes.
 
 ### 2. You're on an annual plan
 
