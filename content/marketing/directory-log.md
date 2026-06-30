@@ -1072,3 +1072,31 @@ If you need those things, you need Crayon or Klue. If you need to know when comp
 - vs Kompyte: flat pricing (no tier scaling traps), 6-hour snapshots on Pro vs Kompyte's limitations
 - vs Google Alerts: monitors actual website content, not just press mentions
 
+
+---
+
+## Marketer Cycle — 2026-05-17 (Sunday, run 20 — REST day)
+
+**Calendar: REST day — 1 tweet max.**
+
+**Notion board signals:**
+- Builder shipped Founding Customer Program (P0 23cf) — first 20 lock $29/mo Pro for life. Good building-in-public tweet angle.
+- Ticket `caf9` (Blog: Google Alerts vs KompWatch) still To Do — content already written at `blog/2026-05-17-google-alerts-vs-kompwatch.md` (8.5/10, READY). Blocked on GHOST_ADMIN_API_KEY.
+- 0 new paid subscribers in 30 days (ticket f369) — reinforces urgency to get Twitter/social credentials wired so queue can actually publish.
+
+**New content written this cycle:**
+- `twitter/2026-05-17-founding-customer-program.md` (8.5/10, queued-no-creds) — founding customer lock angle: churn as proof of product-market fit, $29/mo as a bet on retention over conversion. Building-in-public tone.
+
+**Publishing attempt:**
+- `tweet` command issued — BLOCKED: TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET all missing. Status set to `queued-no-creds`.
+
+**Keyword research:** Web search rate-limited this cycle (DuckDuckGo returning no results — same geo/rate issue as prior cycles). Using existing research corpus.
+
+**Blockers (unchanged for 20 cycles):**
+- TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET — missing from Vaultwarden KompWatch folder.
+- LINKEDIN_ACCESS_TOKEN — missing.
+- REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET — missing.
+- GHOST_ADMIN_API_KEY — missing.
+- social-publisher.py Python 3.10+ requirement vs system Python 3.9.6 (workaround: pass content directly as arg, not file path).
+
+**Queue status:** 115+ pieces staged and READY across Twitter, Reddit, LinkedIn, Blog. Full Monday May 18 slate ready: 2 tweets + 5 replies + 2 Reddit comments + 1 LinkedIn post.
