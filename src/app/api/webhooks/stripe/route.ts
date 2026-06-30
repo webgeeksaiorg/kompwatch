@@ -3,10 +3,35 @@ import Stripe from "stripe";
 import { getStripe, planFromStripePriceId, validateSubscriptionAmount } from "@/lib/stripe";
 import { db } from "@/lib/db";
 import { trackServerEvent } from "@/lib/plausible";
+import { FOUNDING_REF } from "@/lib/founding-customer";
 
 // Map Stripe price IDs to plan tiers (covers both monthly and annual prices).
 function planFromPriceId(priceId: string): "PRO" | "TEAM" | null {
   return planFromStripePriceId(priceId);
+}
+
+/**
+ * Did this checkout session claim the founding-customer discount?
+ *
+ * We check two sources of truth, in order:
+ *   1. Session metadata `founding_customer = "true"` — set by our
+ *      checkout route on the session itself for founding flows.
+ *   2. Subscription metadata `founding_customer = "true"` — set on
+ *      `subscription_data.metadata` (survives even when Stripe rewrites
+ *      session metadata on certain flow types).
+ *
+ * Belt-and-suspenders: if either is set, we treat the user as founding.
+ * We intentionally do NOT trust the line-item amount alone (a $29 amount
+ * could come from a manually-pasted coupon, not the founding program).
+ */
+function isFoundingSession(
+  session: Stripe.Checkout.Session,
+  subscription: Stripe.Subscription
+): boolean {
+  return (
+    session.metadata?.founding_customer === "true" ||
+    subscription.metadata?.founding_customer === "true"
+  );
 }
 
 async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
@@ -26,6 +51,10 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
 
   // Validate that the Stripe price amount matches expected plan pricing.
   // Log a warning on mismatch so ARPU anomalies are caught immediately.
+  // NB: founding customers will trip this warning by design ($29 vs $49) —
+  // the warning text is informational, not an error, so we let it log.
+  // The Analyst's audit script knows to skip subscriptions with
+  // founding_customer metadata when computing ARPU mismatches.
   const unitAmount = priceItem.price.unit_amount ?? 0;
   const interval = priceItem.price.recurring?.interval ?? "month";
   const amountWarning = validateSubscriptionAmount(plan, unitAmount, interval);
@@ -35,12 +64,24 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
     );
   }
 
+  // Founding-customer stamp: claim the spot now that the subscription is
+  // live. acquisitionRef is the lifetime identity tag (survives churn) so
+  // re-subscribing customers don't free up the spot. Only stamp on the
+  // first founding checkout — if the user already has a different ref
+  // (e.g. "organic"), upgrade it to founding-20 since founding is more
+  // specific. We do not overwrite an existing founding-20 ref (no-op).
+  const founding = isFoundingSession(session, subscription);
+  const userData: { stripeSubscriptionId: string; plan: typeof plan; acquisitionRef?: string } = {
+    stripeSubscriptionId: subscriptionId,
+    plan,
+  };
+  if (founding) {
+    userData.acquisitionRef = FOUNDING_REF;
+  }
+
   await db.user.update({
     where: { stripeCustomerId: customerId },
-    data: {
-      stripeSubscriptionId: subscriptionId,
-      plan,
-    },
+    data: userData,
   });
 
   // Funnel: upgrade-completed (subscription is live, plan upgraded in DB).

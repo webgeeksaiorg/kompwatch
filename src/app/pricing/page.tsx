@@ -16,6 +16,7 @@ import { RoiCalculator } from "@/components/marketing/roi-calculator";
 import { CostCalculator } from "@/components/marketing/cost-calculator";
 import { CaughtInTheWild } from "@/components/marketing/caught-in-the-wild";
 import { DigestPreview } from "@/components/marketing/digest-preview";
+import { FoundingCustomerBadge } from "@/components/marketing/founding-customer-badge";
 
 declare global {
   interface Window {
@@ -863,6 +864,11 @@ export default function PricingPage() {
           No credit card required to get started.
         </p>
       </div>
+
+      {/* P0 Founding Customer Program — first 20 lock in $29/mo Pro for life.
+          Renders at the very top of the pricing page (above all other banners)
+          so the scarcity signal is the first thing prospects see. Ticket 23cf. */}
+      <FoundingCustomerBadge />
 
       {/* Headsup.bot switcher banner — only when visitor came from /vs-headsup
           AND was assigned variant A. Personalised welcome + "why teams switch". */}
