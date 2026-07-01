@@ -64,4 +64,4 @@ Email [support@kompwatch.com](mailto:support@kompwatch.com) and we'll respond wi
 
 ---
 
-*Related: [Free Trial](./free-trial.md) · [How Pricing Works](./pricing.md) · [Founding User Badge](./founding-user-badge.md) · [My Subscription Price Doesn't Match](./subscription-price-mismatch.md)*
+*Related: [Free Trial](./free-trial.md) · [How Pricing Works](./pricing.md) · [Founding User Badge](./founding-user-badge.md) · [My Subscription Price Doesn't Match](./subscription-price-mismatch.md) · [Founding Customer Program vs. Founding User Badge — what's the difference?](./founding-customer-vs-founding-user.md)*
