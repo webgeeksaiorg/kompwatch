@@ -23,6 +23,8 @@ You can manage your subscription entirely through the Stripe Customer Portal —
 - Your competitor data and snapshots are retained for 30 days after cancellation.
 - We do not offer pro-rated refunds for partial months, but if you have a billing concern please [contact us](mailto:support@kompwatch.com).
 
+> ⚠️ **Founding Customer Program:** If you subscribed under the Founding Customer Program ($29/mo Pro for life), **cancelling permanently forfeits your founding rate.** If you resubscribe later, you will pay the standard rate at that time. See [Founding Customer Program → What Happens If I Pause or Cancel?](./founding-pricing.md) before cancelling.
+
 ## Downgrade Limits
 
 If you downgrade and have more competitors than your new plan allows, you'll be prompted to deactivate some before the change takes effect.

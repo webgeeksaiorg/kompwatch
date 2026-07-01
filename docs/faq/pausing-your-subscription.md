@@ -13,6 +13,8 @@ If you want to maintain your account and resume tracking quickly later, **downgr
 - You can upgrade back to Pro or Team at any time and resume where you left off
 - No re-signup or data loss
 
+> ⚠️ **Founding Customer rate:** If you're on the $29/mo founding price, downgrading to Free ends your Pro subscription and **permanently forfeits the founding rate**. When you upgrade back to Pro, you'll pay the standard rate. See [Founding Customer Program](./founding-pricing.md) before downgrading.
+
 To downgrade:
 1. Go to [kompwatch.com/settings](https://kompwatch.com/settings)
 2. Click **Manage Subscription**
@@ -32,6 +34,8 @@ If you'd prefer to stop billing entirely:
 - When you're ready to return, sign up again at [kompwatch.com/pricing](https://kompwatch.com/pricing) — your email will be recognized and your account reactivated
 
 > **Note:** If you resubscribe after 30 days, snapshot history from before your cancellation may no longer be available.
+
+> ⚠️ **Founding Customer rate:** If your subscription is at the $29/mo founding price, **cancelling permanently forfeits that rate**. A new subscription will be charged at the standard rate at that time. See [Founding Customer Program — cancellation details](./founding-pricing.md) before proceeding.
 
 ---
 
