@@ -18,6 +18,19 @@ KompWatch offers four plans. All plans include the core monitoring features — 
 
 Enterprise plans are custom-quoted. [Contact us](mailto:support@kompwatch.com) for pricing.
 
+## Founding Customer Program — $29/mo Pro for Life
+
+The **first 20 paying customers** who subscribe to Pro on a monthly plan can lock in **$29/mo forever** — even as prices increase for new customers.
+
+- **Price:** $29/mo (vs. standard $49/mo)
+- **Spots:** 20 total — first-come, first-served
+- **Plan:** Pro monthly only (not annual, not Team)
+- **Lock:** Permanent as long as your subscription stays active
+
+The pricing page shows a live spot counter. If you see the Founding Customer banner, spots are still available.
+
+See [Founding Customer Program — full details](./founding-pricing.md).
+
 ## Free Trial
 
 Pro and Team plans include a **7-day free trial**. No charge until the trial ends. Cancel anytime during the trial with no cost.

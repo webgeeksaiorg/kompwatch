@@ -30,6 +30,7 @@ const ALLOWED_SOURCES = new Set([
   "blog",
   "compare-crayon",
   "compare-klue",
+  "compare-competely",
   "compare-kompyte",
   "compare-headsup",
   "compare-parano",

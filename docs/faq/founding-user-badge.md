@@ -35,4 +35,4 @@ When a user emails to claim the badge:
 4. Reply with the confirmation template and note the spot number if trackable.
 
 ---
-*Related: [Can I trust KompWatch? Where are the reviews?](./trust-and-reviews.md) · [Try before you sign up](./try-before-you-sign-up.md)*
+*Related: [Can I trust KompWatch? Where are the reviews?](./trust-and-reviews.md) · [Try before you sign up](./try-before-you-sign-up.md) · [Founding Customer Program vs. Founding User Badge — what's the difference?](./founding-customer-vs-founding-user.md)*

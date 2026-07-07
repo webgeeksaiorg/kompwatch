@@ -13,8 +13,10 @@ import {
   type Variant,
 } from "@/lib/ab";
 import { RoiCalculator } from "@/components/marketing/roi-calculator";
+import { CostCalculator } from "@/components/marketing/cost-calculator";
 import { CaughtInTheWild } from "@/components/marketing/caught-in-the-wild";
 import { DigestPreview } from "@/components/marketing/digest-preview";
+import { FoundingCustomerBadge } from "@/components/marketing/founding-customer-badge";
 
 declare global {
   interface Window {
@@ -863,6 +865,11 @@ export default function PricingPage() {
         </p>
       </div>
 
+      {/* P0 Founding Customer Program — first 20 lock in $29/mo Pro for life.
+          Renders at the very top of the pricing page (above all other banners)
+          so the scarcity signal is the first thing prospects see. Ticket 23cf. */}
+      <FoundingCustomerBadge />
+
       {/* Headsup.bot switcher banner — only when visitor came from /vs-headsup
           AND was assigned variant A. Personalised welcome + "why teams switch". */}
       {cameFromHeadsup && switcherVariant === "A" && (
@@ -1364,6 +1371,11 @@ export default function PricingPage() {
 
       {/* Interactive ROI calculator — analyst labor savings framing */}
       <RoiCalculator />
+
+      {/* Interactive Klue/Crayon cost calculator — enterprise-vs-KompWatch
+          framing. Pairs with RoiCalculator (analyst-labor) to address the
+          two distinct "we're already evaluating X" objections. Ticket e180. */}
+      <CostCalculator />
 
       {/* Caught in the wild — social proof A/B experiment (c356) */}
       <CaughtInTheWild />

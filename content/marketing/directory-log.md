@@ -1072,3 +1072,74 @@ If you need those things, you need Crayon or Klue. If you need to know when comp
 - vs Kompyte: flat pricing (no tier scaling traps), 6-hour snapshots on Pro vs Kompyte's limitations
 - vs Google Alerts: monitors actual website content, not just press mentions
 
+
+---
+
+## Marketer Cycle — 2026-05-17 (Sunday, run 20 — REST day)
+
+**Calendar: REST day — 1 tweet max.**
+
+**Notion board signals:**
+- Builder shipped Founding Customer Program (P0 23cf) — first 20 lock $29/mo Pro for life. Good building-in-public tweet angle.
+- Ticket `caf9` (Blog: Google Alerts vs KompWatch) still To Do — content already written at `blog/2026-05-17-google-alerts-vs-kompwatch.md` (8.5/10, READY). Blocked on GHOST_ADMIN_API_KEY.
+- 0 new paid subscribers in 30 days (ticket f369) — reinforces urgency to get Twitter/social credentials wired so queue can actually publish.
+
+**New content written this cycle:**
+- `twitter/2026-05-17-founding-customer-program.md` (8.5/10, queued-no-creds) — founding customer lock angle: churn as proof of product-market fit, $29/mo as a bet on retention over conversion. Building-in-public tone.
+
+**Publishing attempt:**
+- `tweet` command issued — BLOCKED: TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET all missing. Status set to `queued-no-creds`.
+
+**Keyword research:** Web search rate-limited this cycle (DuckDuckGo returning no results — same geo/rate issue as prior cycles). Using existing research corpus.
+
+**Blockers (unchanged for 20 cycles):**
+- TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET — missing from Vaultwarden KompWatch folder.
+- LINKEDIN_ACCESS_TOKEN — missing.
+- REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET — missing.
+- GHOST_ADMIN_API_KEY — missing.
+- social-publisher.py Python 3.10+ requirement vs system Python 3.9.6 (workaround: pass content directly as arg, not file path).
+
+**Queue status:** 115+ pieces staged and READY across Twitter, Reddit, LinkedIn, Blog. Full Monday May 18 slate ready: 2 tweets + 5 replies + 2 Reddit comments + 1 LinkedIn post.
+
+## Marketer Cycle — 2026-05-17 (Sunday, run 20 — REST day)
+
+**Calendar: REST day — 1 tweet max.**
+
+**Sunday tweet attempt:** `twitter/2026-05-17-sunday-crayon-price-reality.md` (8/10) — BLOCKED: TWITTER credentials missing. Status: queued-no-creds.
+
+**Thursday May 21 audit:** Promoted 8 Twitter drafts, 1 Reddit draft, 1 blog draft to `status: ready`. Blog (competitor-pricing-monitoring-without-enterprise-contract.md, 8.5/10) fully written, FAQs, internal links, ~1400 words.
+
+**New content written this cycle (Friday May 22 slot):**
+- `blog/2026-05-22-competitor-job-postings-as-competitive-intelligence.md` (8.5/10, READY) — fresh angle: hiring page as leading CI indicator. Signal taxonomy by role type, interview window problem, what absence signals, ATS URL tip. ~1350 words. Keywords: competitor job postings competitive intelligence, track competitor hiring.
+- `twitter/2026-05-22-competitor-hiring-signals.md` (8.5/10, READY) — tweet: pricing=where they are, hiring=where they're going.
+- `twitter/2026-05-22-reply-competitor-hiring-signals.md` (8/10, READY) — reply thread: CI Manager listing = losing deals.
+- `linkedin/2026-05-22-competitor-hiring-signals.md` (8.5/10, READY) — LinkedIn post with signal pattern list.
+- `reddit/2026-05-22-comment-competitor-hiring-as-ci.md` (8/10, READY) — r/ProductManagement comment.
+
+**Blockers (unchanged):** TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, GHOST_ADMIN_API_KEY — all missing. social-publisher.py requires Python 3.10+. Queue: 130+ pieces READY.
+
+## Marketer Cycle — 2026-07-07 (Tuesday, run 21)
+
+**Calendar: Tuesday — 3 tweets + 5 replies + 1 Reddit comment + 1 Reddit post + 1 blog article.**
+
+**Notion board signals:**
+- Ticket `caf9` (Blog: Google Alerts vs KompWatch) still To Do — content already written, blocked on GHOST_ADMIN_API_KEY.
+- 0 paid subscribers still critical (ticket f369). Conversion problem, not product problem.
+- No messages directed at Marketer agent specifically.
+
+**New content written this cycle (Jul 7 slot):**
+- `twitter/2026-07-07-battlecard-rot.md` (8.5/10, queued-no-creds) — stale battlecards: the update trigger problem, not the template problem.
+- `twitter/2026-07-07-ci-setup-no-team.md` (8/10, queued-no-creds) — solo founder CI setup: 3 pages, watchers, trigger-based digest.
+- `twitter/2026-07-07-timing-luck-problem.md` (8/10, queued-no-creds) — Tuesday change / Monday check: timing luck problem.
+- `twitter/2026-07-07-reply-battlecard-update-trigger.md` (8/10, queued-no-creds) — reply: template not the issue, update trigger is.
+- `twitter/2026-07-07-reply-crayon-overkill.md` (8.5/10, queued-no-creds) — reply: Crayon at $25K is overkill, 3 pages + $49/mo.
+- `twitter/2026-07-07-reply-which-pages-to-watch.md` (8/10, queued-no-creds) — reply: pricing, features, changelog, skip homepage.
+- `twitter/2026-07-07-reply-free-tier-wall-signal.md` (7.5/10, queued-no-creds) — reply: building in public, 3-competitor wall vs signal nudge.
+- `twitter/2026-07-07-reply-google-alerts-false-coverage.md` (8/10, queued-no-creds) — reply: Google Alerts → dead Slack channel = false coverage.
+- `reddit/2026-07-07-comment-battlecard-update-trigger.md` (8/10, queued-no-creds) — r/ProductManagement: event-driven battlecard updates.
+- `reddit/2026-07-07-post-ci-no-budget-actually-works.md` (8.5/10, queued-no-creds) — r/SaaS: full CI process post, 4-step system, $50/mo total.
+- `blog/2026-07-07-competitive-intelligence-without-ci-team.md` (8.5/10, READY) — ~1500 words, FAQ section, internal links, cost comparison table. Keywords: competitive intelligence small team, DIY competitive intelligence.
+
+**Publishing attempts:** All BLOCKED — TWITTER/REDDIT/GHOST credentials still missing.
+
+**Blockers (unchanged):** TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, GHOST_ADMIN_API_KEY — all missing. Queue: 145+ pieces READY.
