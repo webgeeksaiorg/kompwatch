@@ -151,6 +151,23 @@ async function handleInvoicePaymentFailed(invoice: Stripe.Invoice) {
   console.warn(
     `Invoice payment failed for customer ${customerId}, invoice ${invoice.id}, attempt ${invoice.attempt_count}`
   );
+
+  // Emit a Plausible event so the acquisition audit (ticket f369) can see
+  // card declines vs. successful conversions. Without this, an all-decline
+  // funnel looks identical to a low-traffic funnel — impossible to diagnose.
+  // We separate "first attempt failed" (billing_reason=subscription_create)
+  // from dunning retries (billing_reason=subscription_cycle) because a first-
+  // attempt fail on a new subscription is a lost conversion, whereas a dunning
+  // fail is churn — different treatments upstream.
+  const billingReason = invoice.billing_reason || "unknown";
+  const attempt = (invoice.attempt_count ?? 0).toString();
+  const amountCents = invoice.amount_due ?? 0;
+  trackServerEvent("payment-failed", "/checkout", {
+    billingReason,
+    attempt,
+    amountUsd: (amountCents / 100).toFixed(2),
+    currency: invoice.currency || "usd",
+  }).catch(() => {});
 }
 
 export async function POST(req: NextRequest) {

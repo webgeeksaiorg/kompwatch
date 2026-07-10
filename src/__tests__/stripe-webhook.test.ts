@@ -369,6 +369,42 @@ describe("POST /api/webhooks/stripe", () => {
       expect(mockDb.user.update).not.toHaveBeenCalled();
       warnSpy.mockRestore();
     });
+
+    it("fires a payment-failed Plausible event with billing_reason so acquisition audit can see declines", async () => {
+      // The webhook route imports trackServerEvent from @/lib/plausible. We
+      // spy on the module here to assert the funnel event is emitted with
+      // the props the acquisition audit needs.
+      const plausibleModule = await import("@/lib/plausible");
+      const trackSpy = vi
+        .spyOn(plausibleModule, "trackServerEvent")
+        .mockResolvedValue(undefined);
+      const warnSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
+
+      const event = stripeEvent("invoice.payment_failed", {
+        customer: "cus_123",
+        id: "in_789",
+        attempt_count: 1,
+        billing_reason: "subscription_create",
+        amount_due: 4900,
+        currency: "usd",
+      });
+      mockStripe.webhooks.constructEvent.mockReturnValue(event);
+
+      await POST(makeRequest("{}") as never);
+      // Flush the fire-and-forget trackServerEvent
+      await new Promise((r) => setTimeout(r, 0));
+
+      const failedCalls = trackSpy.mock.calls.filter((c) => c[0] === "payment-failed");
+      expect(failedCalls).toHaveLength(1);
+      const props = failedCalls[0][2] as Record<string, string>;
+      expect(props.billingReason).toBe("subscription_create");
+      expect(props.attempt).toBe("1");
+      expect(props.amountUsd).toBe("49.00");
+      expect(props.currency).toBe("usd");
+
+      trackSpy.mockRestore();
+      warnSpy.mockRestore();
+    });
   });
 
   describe("error handling", () => {

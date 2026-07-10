@@ -11,9 +11,36 @@ import {
   isFoundingClaimable,
 } from "@/lib/founding-customer";
 
+/**
+ * Emit a `checkout-error` funnel event so the acquisition audit can
+ * distinguish "nobody tried" from "everyone bounced". Every error path
+ * in this route MUST call this before returning — otherwise the P0
+ * "0 new paid subscribers" ticket cannot be diagnosed. Fire-and-forget
+ * (Plausible failures never block user response).
+ *
+ * `reason` values are a closed vocabulary so Plausible can group them:
+ *   - "unauthorized"      → user not logged in (client bug or session expired)
+ *   - "invalid-plan"      → client sent bad plan string (client bug)
+ *   - "price-missing"     → STRIPE_PRICE_* env var not configured (ops bug)
+ *   - "stripe-api-error"  → Stripe API rejected session create (config or
+ *                            live/test mode mismatch — extremely common
+ *                            silent failure mode we've been blind to)
+ */
+function trackCheckoutError(
+  reason:
+    | "unauthorized"
+    | "invalid-plan"
+    | "price-missing"
+    | "stripe-api-error",
+  props: Record<string, string> = {}
+): void {
+  trackEvent("checkout-error", "/pricing", { reason, ...props }).catch(() => {});
+}
+
 export async function POST(req: NextRequest) {
   const user = await getCurrentUser();
   if (!user) {
+    trackCheckoutError("unauthorized");
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -31,11 +58,16 @@ export async function POST(req: NextRequest) {
   const foundingClaimRequested = body?.foundingClaim === true;
 
   if (plan !== "PRO" && plan !== "TEAM") {
+    trackCheckoutError("invalid-plan", {
+      plan: typeof plan === "string" ? plan : "missing",
+      billingPeriod,
+    });
     return NextResponse.json({ error: "Invalid plan" }, { status: 400 });
   }
 
   const priceId = getPriceId(plan as "PRO" | "TEAM", billingPeriod);
   if (!priceId) {
+    trackCheckoutError("price-missing", { plan, billingPeriod });
     return NextResponse.json(
       { error: "Price not configured" },
       { status: 500 }
@@ -111,7 +143,36 @@ export async function POST(req: NextRequest) {
     sessionParams.allow_promotion_codes = true;
   }
 
-  const session = await stripe.checkout.sessions.create(sessionParams);
+  // Wrap the Stripe session create in try/catch. Prior to this, a Stripe
+  // API rejection (bad price ID, test/live mode mismatch, API key revoked,
+  // account suspended) would surface as an unhandled 500 with NO telemetry
+  // — invisible to the acquisition audit. Now every failure emits a
+  // `checkout-error` event so we can see it in Plausible.
+  let session: Stripe.Checkout.Session;
+  try {
+    session = await stripe.checkout.sessions.create(sessionParams);
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "unknown";
+    // Stripe errors carry a machine-readable `code` (e.g. "resource_missing",
+    // "api_key_expired"). Prefer it over the message for grouping in Plausible.
+    // Cast is safe: at runtime this is a Stripe.errors.StripeError-like shape.
+    const stripeCode =
+      typeof (err as { code?: unknown })?.code === "string"
+        ? ((err as { code: string }).code)
+        : "unknown";
+    trackCheckoutError("stripe-api-error", {
+      plan,
+      billingPeriod,
+      code: stripeCode,
+    });
+    console.error(
+      `Stripe checkout session create failed: code=${stripeCode} message=${message}`
+    );
+    return NextResponse.json(
+      { error: "Checkout session could not be created" },
+      { status: 502 }
+    );
+  }
 
   // Funnel: upgrade-initiated (user clicked Pro/Team → reached Stripe checkout)
   trackEvent("upgrade-initiated", "/pricing", {
