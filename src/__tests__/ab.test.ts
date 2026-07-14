@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import {
   HERO_CTA_DEMO_EXPERIMENT,
   HERO_CTA_SETUP_EXPERIMENT,
+  HERO_CTA_OUTCOME_EXPERIMENT,
   PRICING_ANCHOR_EXPERIMENT,
   FOUNDING_100_EXPERIMENT,
   HEADSUP_SWITCHER_EXPERIMENT,
@@ -150,5 +151,13 @@ describe("QUANTIFIED_NOISE_EXPERIMENT", () => {
 describe("HERO_CTA_SETUP_EXPERIMENT", () => {
   it("has a stable key so analytics segmentation is reproducible", () => {
     expect(HERO_CTA_SETUP_EXPERIMENT).toBe("hero-cta-setup-competitor-2026-06");
+  });
+});
+
+describe("HERO_CTA_OUTCOME_EXPERIMENT", () => {
+  it("has a stable key so analytics segmentation is reproducible", () => {
+    expect(HERO_CTA_OUTCOME_EXPERIMENT).toBe(
+      "hero-cta-outcome-changed-this-week-2026-07",
+    );
   });
 });

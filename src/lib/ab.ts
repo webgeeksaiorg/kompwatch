@@ -15,6 +15,7 @@ export const HERO_CTA_SETUP_EXPERIMENT = "hero-cta-setup-competitor-2026-06";
 export const CAUGHT_IN_WILD_EXPERIMENT = "caught-in-wild-pricing-2026-06";
 export const HERO_NO_DEMO_SUBCTA_EXPERIMENT = "hero-no-demo-subcta-2026-06";
 export const COMPARE_EMAIL_CAPTURE_EXPERIMENT = "compare-email-capture-2026-06";
+export const HERO_CTA_OUTCOME_EXPERIMENT = "hero-cta-outcome-changed-this-week-2026-07";
 
 const STORAGE_PREFIX = "kw-ab-";
 
