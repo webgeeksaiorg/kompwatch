@@ -66,7 +66,7 @@ const ZONE_LABEL: Record<string, string> = {
 
 /** Render digest as HTML email */
 export function renderDigestHtml(
-  user: Pick<User, "name" | "email">,
+  user: Pick<User, "name" | "email"> & { plan?: User["plan"] },
   groups: DigestCompetitorGroup[],
   period: "DAILY" | "WEEKLY"
 ): string {
@@ -149,6 +149,8 @@ export function renderDigestHtml(
 
       ${competitorSections}
 
+      ${renderFreeTierUpgradeCtaHtml(user.plan)}
+
       <hr style="border:none;border-top:1px solid #eee;margin:24px 0;"/>
       <p class="email-footer" style="margin:0;color:#999;font-size:12px;">
         You're receiving this because you have a KompWatch account (${escapeHtml(user.email)}).
@@ -162,7 +164,7 @@ export function renderDigestHtml(
 
 /** Render plain-text version of the digest */
 export function renderDigestText(
-  user: Pick<User, "name" | "email">,
+  user: Pick<User, "name" | "email"> & { plan?: User["plan"] },
   groups: DigestCompetitorGroup[],
   period: "DAILY" | "WEEKLY"
 ): string {
@@ -192,7 +194,7 @@ ${greeting}, here's your ${periodLabel} competitor update.
 ${totalChanges} change(s) across ${groups.length} competitor(s)
 
 ${sections}
-
+${renderFreeTierUpgradeCtaText(user.plan)}
 ---
 Manage preferences: ${process.env.NEXTAUTH_URL || "https://kompwatch.com"}/settings
 `;
@@ -218,6 +220,30 @@ function escapeHtml(str: string): string {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+/**
+ * Free-tier upgrade CTA — rendered inline between competitor sections and the
+ * standard footer for FREE-plan users only. Silent for PRO/TEAM (or when the
+ * plan is unknown, e.g. welcome digest, to keep sample emails clean).
+ *
+ * Ticket dd83: digest email is the highest-engagement touchpoint for free users;
+ * capture upgrade intent at that peak moment with a UTM-tagged pricing link.
+ */
+function renderFreeTierUpgradeCtaHtml(plan?: User["plan"]): string {
+  if (plan !== "FREE") return "";
+  const upgradeUrl = `${process.env.NEXTAUTH_URL || "https://kompwatch.com"}/pricing?utm_source=digest&utm_medium=email&utm_campaign=free_footer_cta`;
+  return `<div class="upgrade-cta" style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:16px 18px;margin-top:8px;margin-bottom:8px;">
+        <p style="margin:0 0 6px;font-size:15px;color:#1e3a8a;font-weight:600;">Get daily digests + track up to 10 competitors</p>
+        <p style="margin:0 0 12px;color:#334155;font-size:13px;line-height:1.5;">You're on the free plan (weekly digest, 2 competitors). Upgrade to Pro for daily change alerts, Slack notifications, and 10 tracked competitors — <strong>$49/mo</strong>.</p>
+        <a href="${upgradeUrl}" style="display:inline-block;background:#2563eb;color:#ffffff;text-decoration:none;padding:10px 18px;border-radius:6px;font-size:14px;font-weight:600;">Upgrade to Pro →</a>
+      </div>`;
+}
+
+function renderFreeTierUpgradeCtaText(plan?: User["plan"]): string {
+  if (plan !== "FREE") return "";
+  const upgradeUrl = `${process.env.NEXTAUTH_URL || "https://kompwatch.com"}/pricing?utm_source=digest&utm_medium=email&utm_campaign=free_footer_cta`;
+  return `\n---\nGet daily digests + track up to 10 competitors\nYou're on the free plan (weekly digest, 2 competitors). Upgrade to Pro for daily change alerts, Slack notifications, and 10 tracked competitors — $49/mo.\nUpgrade: ${upgradeUrl}\n`;
 }
 
 function renderDetailsHtml(details: string): string {

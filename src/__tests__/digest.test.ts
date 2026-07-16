@@ -326,3 +326,86 @@ describe("buildWelcomeDigest", () => {
     expect(result.subject).toContain("first KompWatch digest");
   });
 });
+
+describe("free-tier upgrade CTA in digest (ticket dd83)", () => {
+  const sampleGroups: DigestCompetitorGroup[] = [
+    {
+      competitor: { name: "Acme Corp", url: "https://acme.com" },
+      changes: [
+        {
+          changeType: "PRICING",
+          contentZone: "MONETIZATION",
+          summary: "Price increased",
+          details: null,
+          severity: "HIGH",
+          signalScore: 0.9,
+          createdAt: new Date(),
+        },
+      ],
+    },
+  ];
+
+  it("renders upgrade CTA in HTML for FREE plan users", () => {
+    const html = renderDigestHtml(
+      { name: "Alice", email: "alice@example.com", plan: "FREE" },
+      sampleGroups,
+      "WEEKLY",
+    );
+    expect(html).toContain("Upgrade to Pro");
+    expect(html).toContain("utm_source=digest");
+    expect(html).toContain("utm_campaign=free_footer_cta");
+    expect(html).toContain("/pricing?");
+  });
+
+  it("renders upgrade CTA in plain text for FREE plan users", () => {
+    const text = renderDigestText(
+      { name: "Alice", email: "alice@example.com", plan: "FREE" },
+      sampleGroups,
+      "WEEKLY",
+    );
+    expect(text).toContain("Upgrade to Pro");
+    expect(text).toContain("utm_source=digest");
+    expect(text).toContain("$49/mo");
+  });
+
+  it("does NOT render upgrade CTA for PRO users", () => {
+    const html = renderDigestHtml(
+      { name: "Alice", email: "alice@example.com", plan: "PRO" },
+      sampleGroups,
+      "DAILY",
+    );
+    const text = renderDigestText(
+      { name: "Alice", email: "alice@example.com", plan: "PRO" },
+      sampleGroups,
+      "DAILY",
+    );
+    expect(html).not.toContain("Upgrade to Pro");
+    expect(html).not.toContain("utm_campaign=free_footer_cta");
+    expect(text).not.toContain("Upgrade to Pro");
+  });
+
+  it("does NOT render upgrade CTA for TEAM users", () => {
+    const html = renderDigestHtml(
+      { name: "Alice", email: "alice@example.com", plan: "TEAM" },
+      sampleGroups,
+      "DAILY",
+    );
+    expect(html).not.toContain("Upgrade to Pro");
+    expect(html).not.toContain("utm_campaign=free_footer_cta");
+  });
+
+  it("does NOT render upgrade CTA when plan is undefined (welcome digest)", () => {
+    const html = renderDigestHtml(
+      { name: "Alice", email: "alice@example.com" },
+      sampleGroups,
+      "WEEKLY",
+    );
+    expect(html).not.toContain("Upgrade to Pro");
+  });
+
+  it("welcome digest does not include upgrade CTA (plan is unknown)", () => {
+    const result = buildWelcomeDigest({ name: "Bob", email: "bob@test.com" });
+    expect(result.html).not.toContain("Upgrade to Pro");
+    expect(result.text).not.toContain("Upgrade to Pro");
+  });
+});
