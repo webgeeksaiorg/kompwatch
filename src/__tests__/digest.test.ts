@@ -409,3 +409,131 @@ describe("free-tier upgrade CTA in digest (ticket dd83)", () => {
     expect(result.text).not.toContain("Upgrade to Pro");
   });
 });
+
+// ── Ticket f73e: severity-based upgrade nudge for FREE users ──
+describe("severity-based upgrade nudge (ticket f73e)", () => {
+  const mixedSeverityGroups: DigestCompetitorGroup[] = [
+    {
+      competitor: { name: "Acme Corp", url: "https://acme.com" },
+      changes: [
+        {
+          changeType: "PRICING",
+          contentZone: "MONETIZATION",
+          summary: "Pro plan raised $49 → $59",
+          details: null,
+          severity: "HIGH",
+          signalScore: 0.9,
+          createdAt: new Date(),
+        },
+        {
+          changeType: "FEATURE",
+          contentZone: "PRODUCT",
+          summary: "AI Insights beta",
+          details: null,
+          severity: "MEDIUM",
+          signalScore: 0.6,
+          createdAt: new Date(),
+        },
+        {
+          changeType: "BLOG",
+          contentZone: "MARKETING",
+          summary: "Weekly newsletter roundup",
+          details: null,
+          severity: "LOW",
+          signalScore: 0.4,
+          createdAt: new Date(),
+        },
+      ],
+    },
+  ];
+
+  it("HTML: shows 'Caught 18h late on Free' badge on HIGH severity rows for FREE users", () => {
+    const html = renderDigestHtml(
+      { name: "Alice", email: "alice@example.com", plan: "FREE" },
+      mixedSeverityGroups,
+      "WEEKLY",
+    );
+    expect(html).toContain("Caught 18h late on Free");
+    expect(html).toContain("Upgrade for hourly checks");
+    expect(html).toContain("utm_campaign=free_severity_nudge");
+    expect(html).toContain("/pricing?");
+  });
+
+  it("HTML: badge appears exactly once per qualifying (HIGH+MEDIUM) row — 2 in fixture", () => {
+    const html = renderDigestHtml(
+      { name: "Alice", email: "alice@example.com", plan: "FREE" },
+      mixedSeverityGroups,
+      "WEEKLY",
+    );
+    const matches = html.match(/Caught 18h late on Free/g) || [];
+    // HIGH + MEDIUM = 2 badges; LOW row should NOT get one
+    expect(matches).toHaveLength(2);
+  });
+
+  it("HTML: does NOT show late-nudge badge for PRO users", () => {
+    const html = renderDigestHtml(
+      { name: "Alice", email: "alice@example.com", plan: "PRO" },
+      mixedSeverityGroups,
+      "DAILY",
+    );
+    expect(html).not.toContain("Caught 18h late on Free");
+    expect(html).not.toContain("utm_campaign=free_severity_nudge");
+  });
+
+  it("HTML: does NOT show late-nudge badge for TEAM users", () => {
+    const html = renderDigestHtml(
+      { name: "Alice", email: "alice@example.com", plan: "TEAM" },
+      mixedSeverityGroups,
+      "DAILY",
+    );
+    expect(html).not.toContain("Caught 18h late on Free");
+  });
+
+  it("HTML: does NOT show late-nudge badge when plan is undefined (welcome digest)", () => {
+    const html = renderDigestHtml(
+      { name: "Alice", email: "alice@example.com" },
+      mixedSeverityGroups,
+      "WEEKLY",
+    );
+    expect(html).not.toContain("Caught 18h late on Free");
+  });
+
+  it("plain text: shows late-nudge line on HIGH/MEDIUM rows for FREE users", () => {
+    const text = renderDigestText(
+      { name: "Alice", email: "alice@example.com", plan: "FREE" },
+      mixedSeverityGroups,
+      "WEEKLY",
+    );
+    expect(text).toContain("Caught 18h late on Free");
+    expect(text).toContain("utm_campaign=free_severity_nudge");
+    const matches = text.match(/Caught 18h late on Free/g) || [];
+    expect(matches).toHaveLength(2);
+  });
+
+  it("plain text: does NOT show late-nudge line for PRO users", () => {
+    const text = renderDigestText(
+      { name: "Alice", email: "alice@example.com", plan: "PRO" },
+      mixedSeverityGroups,
+      "DAILY",
+    );
+    expect(text).not.toContain("Caught 18h late on Free");
+  });
+
+  it("welcome digest does NOT show late-nudge (plan is unknown)", () => {
+    const result = buildWelcomeDigest({ name: "Bob", email: "bob@test.com" });
+    expect(result.html).not.toContain("Caught 18h late on Free");
+    expect(result.text).not.toContain("Caught 18h late on Free");
+  });
+
+  it("nudge and footer CTA use distinct utm_campaign values (measurable separately)", () => {
+    const html = renderDigestHtml(
+      { name: "Alice", email: "alice@example.com", plan: "FREE" },
+      mixedSeverityGroups,
+      "WEEKLY",
+    );
+    // Both should be present but with different campaigns
+    expect(html).toContain("utm_campaign=free_severity_nudge");
+    expect(html).toContain("utm_campaign=free_footer_cta");
+  });
+});
+

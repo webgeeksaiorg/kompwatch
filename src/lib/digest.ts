@@ -64,6 +64,36 @@ const ZONE_LABEL: Record<string, string> = {
   OPERATIONS: "Ops",
 };
 
+/**
+ * Ticket f73e: severity-based upgrade nudge for FREE users.
+ *
+ * FREE plan gets a weekly digest, so HIGH/MEDIUM changes may sit undetected for
+ * days. Surface an inline "Caught 18h late on Free" badge on qualifying rows to
+ * convert peak-engagement moments into upgrade intent. Silent for PRO/TEAM and
+ * for the welcome digest (plan unknown), matching the existing footer-CTA gate.
+ */
+const NUDGE_SEVERITIES = new Set<string>(["MEDIUM", "HIGH", "CRITICAL"]);
+
+function shouldShowLateNudge(plan: User["plan"] | undefined, severity: string): boolean {
+  return plan === "FREE" && NUDGE_SEVERITIES.has(severity);
+}
+
+function severityNudgeUrl(): string {
+  return `${process.env.NEXTAUTH_URL || "https://kompwatch.com"}/pricing?utm_source=digest&utm_medium=email&utm_campaign=free_severity_nudge`;
+}
+
+function renderSeverityNudgeHtml(): string {
+  const url = severityNudgeUrl();
+  return `<div class="late-nudge" style="margin-top:6px;font-size:12px;line-height:1.4;">
+                  <span style="background:#fef2f2;color:#991b1b;border:1px solid #fecaca;border-radius:4px;padding:2px 6px;font-weight:600;">⏱ Caught 18h late on Free</span>
+                  <a href="${url}" style="color:#2563eb;text-decoration:none;margin-left:6px;">Upgrade for hourly checks →</a>
+                </div>`;
+}
+
+function renderSeverityNudgeText(): string {
+  return `\n    ⏱ Caught 18h late on Free — upgrade for hourly checks: ${severityNudgeUrl()}`;
+}
+
 /** Render digest as HTML email */
 export function renderDigestHtml(
   user: Pick<User, "name" | "email"> & { plan?: User["plan"] },
@@ -91,6 +121,7 @@ export function renderDigestHtml(
               <td class="change-content" style="padding:8px 12px;border-bottom:1px solid #eee;vertical-align:top;">
                 <strong>${escapeHtml(c.summary)}</strong>
                 ${c.details ? `<br/><span style="color:#666;font-size:13px;">${renderDetailsHtml(c.details)}</span>` : ""}
+                ${shouldShowLateNudge(user.plan, c.severity) ? renderSeverityNudgeHtml() : ""}
               </td>
             </tr>`;
           }
@@ -179,7 +210,7 @@ export function renderDigestText(
           (c) => {
             const signal = signalLabel(c.signalScore);
             const signalTag = signal ? ` [${signal.text}]` : "";
-            return `  ${SEVERITY_EMOJI[c.severity] || "-"} [${CHANGE_TYPE_LABEL[c.changeType] || c.changeType}]${ZONE_LABEL[c.contentZone] ? ` [${ZONE_LABEL[c.contentZone]}]` : ""}${signalTag} ${c.summary}${c.details ? `\n    ${c.details}` : ""}`;
+            return `  ${SEVERITY_EMOJI[c.severity] || "-"} [${CHANGE_TYPE_LABEL[c.changeType] || c.changeType}]${ZONE_LABEL[c.contentZone] ? ` [${ZONE_LABEL[c.contentZone]}]` : ""}${signalTag} ${c.summary}${c.details ? `\n    ${c.details}` : ""}${shouldShowLateNudge(user.plan, c.severity) ? renderSeverityNudgeText() : ""}`;
           }
         )
         .join("\n");
