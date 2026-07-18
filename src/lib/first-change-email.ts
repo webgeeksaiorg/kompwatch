@@ -1,4 +1,4 @@
-import type { ChangeType, Severity } from "@prisma/client";
+import type { ChangeType, Plan, Severity } from "@prisma/client";
 import { FROM_EMAIL, getResend } from "@/lib/resend";
 import { splitChangeDetails } from "@/lib/change-context";
 
@@ -17,6 +17,8 @@ export interface FirstChangeEmailCompetitor {
 export interface FirstChangeEmailRecipient {
   email: string;
   name: string | null;
+  /** Optional — when provided, FREE users receive an inline upgrade CTA (ticket 7af4) */
+  plan?: Plan;
 }
 
 const SEVERITY_EMOJI: Record<Severity, string> = {
@@ -44,6 +46,44 @@ function escapeHtml(str: string): string {
     .replace(/"/g, "&quot;");
 }
 
+/**
+ * Build the upgrade CTA HTML block for FREE-plan users (ticket 7af4).
+ * Shown between the change list and the dashboard button.
+ */
+function renderFreeUpgradeBlockHtml(upgradeUrl: string): string {
+  return `
+      <div style="margin-bottom:20px;border:1.5px solid #e0e7ff;border-radius:8px;padding:16px;background:#f5f3ff;">
+        <p style="margin:0 0 6px;font-weight:700;color:#3730a3;font-size:14px;">
+          &#x26A1; Get daily alerts — upgrade to Pro
+        </p>
+        <p style="margin:0 0 12px;color:#555;font-size:13px;">
+          You're on the Free plan — changes are batched into a <strong>weekly digest</strong>.
+          Pro users get <strong>daily digests</strong>, <strong>Slack alerts</strong>, and up to
+          <strong>10 competitors</strong> tracked. (Klue and Crayon charge $20K+/yr for the same.
+          KompWatch Pro is <strong>$49/mo</strong>.)
+        </p>
+        <a href="${upgradeUrl}" style="display:inline-block;background:#4f46e5;color:#fff;text-decoration:none;padding:9px 16px;border-radius:6px;font-size:13px;font-weight:600;">
+          Upgrade to Pro &rarr;
+        </a>
+        <p style="margin:8px 0 0;color:#999;font-size:11px;">No long-term contracts. Cancel any time.</p>
+      </div>`;
+}
+
+/**
+ * Build the upgrade CTA text block for FREE-plan users (ticket 7af4).
+ */
+function renderFreeUpgradeBlockText(upgradeUrl: string): string[] {
+  return [
+    "--- UPGRADE TO PRO ---",
+    "You're on the Free plan — changes are batched into a weekly digest.",
+    "Pro users get daily digests, Slack alerts, and up to 10 competitors.",
+    `Upgrade at: ${upgradeUrl}`,
+    "(KompWatch Pro is $49/mo. Klue and Crayon charge $20K+/yr for the same.)",
+    "----------------------",
+    "",
+  ];
+}
+
 export function renderFirstChangeSubject(
   competitor: FirstChangeEmailCompetitor,
 ): string {
@@ -56,7 +96,10 @@ export function renderFirstChangeHtml(
   changes: FirstChangeEmailChange[],
 ): string {
   const greeting = recipient.name ? `Hi ${recipient.name}` : "Hi there";
-  const dashboardUrl = `${process.env.NEXTAUTH_URL || "https://kompwatch.com"}/dashboard`;
+  const baseUrl = process.env.NEXTAUTH_URL || "https://kompwatch.com";
+  const dashboardUrl = `${baseUrl}/dashboard`;
+  const upgradeUrl = `${baseUrl}/pricing?utm_source=email&utm_medium=first-change&utm_campaign=free-upgrade-7af4`;
+  const isFree = recipient.plan === "FREE";
 
   const changeRows = changes
     .slice(0, 5)
@@ -108,6 +151,7 @@ export function renderFirstChangeHtml(
       <p style="margin:0 0 16px;color:#666;font-size:14px;">
         We'll keep watching <strong>${escapeHtml(competitor.name)}</strong> and include future changes in your regular digest emails.
       </p>
+      ${isFree ? renderFreeUpgradeBlockHtml(upgradeUrl) : ""}
       <p style="margin:0 0 24px;">
         <a href="${dashboardUrl}" style="display:inline-block;background:#4f46e5;color:#fff;text-decoration:none;padding:10px 18px;border-radius:6px;font-size:14px;font-weight:500;">
           View your dashboard \u2192
@@ -129,7 +173,10 @@ export function renderFirstChangeText(
   changes: FirstChangeEmailChange[],
 ): string {
   const greeting = recipient.name ? `Hi ${recipient.name}` : "Hi there";
-  const dashboardUrl = `${process.env.NEXTAUTH_URL || "https://kompwatch.com"}/dashboard`;
+  const baseUrl = process.env.NEXTAUTH_URL || "https://kompwatch.com";
+  const dashboardUrl = `${baseUrl}/dashboard`;
+  const upgradeUrl = `${baseUrl}/pricing?utm_source=email&utm_medium=first-change&utm_campaign=free-upgrade-7af4`;
+  const isFree = recipient.plan === "FREE";
 
   const lines = [
     `FIRST CHANGES DETECTED \u2014 ${competitor.name}`,
@@ -154,6 +201,13 @@ export function renderFirstChangeText(
   lines.push(
     `We'll keep watching ${competitor.name} and include future changes in your regular digest emails.`,
     "",
+  );
+
+  if (isFree) {
+    lines.push(...renderFreeUpgradeBlockText(upgradeUrl));
+  }
+
+  lines.push(
     `View your dashboard: ${dashboardUrl}`,
     "",
     "---",
@@ -167,6 +221,8 @@ export function renderFirstChangeText(
  * Send the "first competitor change detected" trigger email. This is a
  * one-time email per competitor, sent when meaningful changes are first
  * detected. Available to all plans (Free, Pro, Team).
+ *
+ * FREE-plan recipients receive an inline upgrade CTA (ticket 7af4).
  *
  * Caller must verify this is genuinely the first change batch for the
  * competitor. Throws on Resend failures — callers should catch so a

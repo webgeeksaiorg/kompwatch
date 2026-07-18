@@ -214,3 +214,70 @@ describe("renderFirstChangeText", () => {
     expect(text).toContain("+ 3 more");
   });
 });
+
+// ── ticket 7af4: FREE-user upgrade CTA ─────────────────────────────────────
+
+describe("FREE-plan upgrade CTA (ticket 7af4)", () => {
+  it("HTML includes upgrade CTA block for FREE users", () => {
+    const html = renderFirstChangeHtml(
+      makeRecipient({ plan: "FREE" }),
+      makeCompetitor(),
+      [makeChange()],
+    );
+    expect(html).toContain("Upgrade to Pro");
+    expect(html).toContain("utm_campaign=free-upgrade-7af4");
+    expect(html).toContain("weekly digest");
+  });
+
+  it("HTML does NOT include upgrade CTA block for PRO users", () => {
+    const html = renderFirstChangeHtml(
+      makeRecipient({ plan: "PRO" }),
+      makeCompetitor(),
+      [makeChange()],
+    );
+    expect(html).not.toContain("utm_campaign=free-upgrade-7af4");
+  });
+
+  it("HTML does NOT include upgrade CTA when plan is omitted", () => {
+    const html = renderFirstChangeHtml(
+      makeRecipient(),
+      makeCompetitor(),
+      [makeChange()],
+    );
+    expect(html).not.toContain("utm_campaign=free-upgrade-7af4");
+  });
+
+  it("plain text includes upgrade CTA for FREE users", () => {
+    const text = renderFirstChangeText(
+      makeRecipient({ plan: "FREE" }),
+      makeCompetitor(),
+      [makeChange()],
+    );
+    expect(text).toContain("UPGRADE TO PRO");
+    expect(text).toContain("utm_campaign=free-upgrade-7af4");
+    expect(text).toContain("$49/mo");
+  });
+
+  it("plain text does NOT include upgrade CTA for PRO users", () => {
+    const text = renderFirstChangeText(
+      makeRecipient({ plan: "PRO" }),
+      makeCompetitor(),
+      [makeChange()],
+    );
+    expect(text).not.toContain("UPGRADE TO PRO");
+  });
+
+  it("upgrade CTA appears before the dashboard button in HTML", () => {
+    const html = renderFirstChangeHtml(
+      makeRecipient({ plan: "FREE" }),
+      makeCompetitor(),
+      [makeChange()],
+    );
+    const upgradeIdx = html.indexOf("utm_campaign=free-upgrade-7af4");
+    const dashboardIdx = html.indexOf("/dashboard");
+    expect(upgradeIdx).toBeGreaterThan(-1);
+    expect(dashboardIdx).toBeGreaterThan(-1);
+    // Upgrade CTA link appears before the dashboard link
+    expect(upgradeIdx).toBeLessThan(dashboardIdx);
+  });
+});
