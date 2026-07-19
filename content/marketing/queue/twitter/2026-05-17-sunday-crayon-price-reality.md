@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: ready
+status: queued-publish-failed-no-creds
 score: 8/10
 keywords: [competitor monitoring cost, Crayon alternative, SaaS competitive intelligence]
 scheduled: 2026-05-17
