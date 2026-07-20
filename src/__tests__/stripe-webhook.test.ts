@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 
-const { mockDb, mockStripe } = vi.hoisted(() => ({
+const { mockDb, mockStripe, mockSendTrialExpiryEmail } = vi.hoisted(() => ({
   mockDb: {
     stripeEvent: {
       findUnique: vi.fn(),
@@ -8,6 +8,7 @@ const { mockDb, mockStripe } = vi.hoisted(() => ({
     },
     user: {
       update: vi.fn(),
+      findUnique: vi.fn(),
     },
   },
   mockStripe: {
@@ -18,10 +19,15 @@ const { mockDb, mockStripe } = vi.hoisted(() => ({
       retrieve: vi.fn(),
     },
   },
+  mockSendTrialExpiryEmail: vi.fn(),
 }));
 
 vi.mock("@/lib/db", () => ({
   db: mockDb,
+}));
+
+vi.mock("@/lib/trial-expiry-email", () => ({
+  sendTrialExpiryEmail: mockSendTrialExpiryEmail,
 }));
 
 vi.mock("@/lib/stripe", () => ({
@@ -404,6 +410,201 @@ describe("POST /api/webhooks/stripe", () => {
 
       trackSpy.mockRestore();
       warnSpy.mockRestore();
+    });
+  });
+
+  describe("customer.subscription.trial_will_end", () => {
+    const trialEndSec = Math.floor(Date.now() / 1000) + 3 * 24 * 60 * 60;
+
+    it("sends the trial-expiry email with the user's plan and trial_end", async () => {
+      mockDb.user.findUnique.mockResolvedValue({
+        email: "trial@example.com",
+        name: "Trial User",
+      });
+      mockSendTrialExpiryEmail.mockResolvedValue(undefined);
+
+      const event = stripeEvent("customer.subscription.trial_will_end", {
+        id: "sub_trial",
+        customer: "cus_trial",
+        trial_end: trialEndSec,
+        items: {
+          data: [
+            {
+              price: {
+                id: "price_pro",
+                unit_amount: 4900,
+                recurring: { interval: "month" },
+              },
+            },
+          ],
+        },
+      });
+      mockStripe.webhooks.constructEvent.mockReturnValue(event);
+
+      const res = await POST(makeRequest("{}") as never);
+      expect(res.status).toBe(200);
+
+      expect(mockDb.user.findUnique).toHaveBeenCalledWith({
+        where: { stripeCustomerId: "cus_trial" },
+        select: { email: true, name: true },
+      });
+      expect(mockSendTrialExpiryEmail).toHaveBeenCalledWith(
+        { email: "trial@example.com", name: "Trial User" },
+        { plan: "PRO", trialEndUnixSec: trialEndSec }
+      );
+      // Trial-only nudge — must NOT modify user record.
+      expect(mockDb.user.update).not.toHaveBeenCalled();
+    });
+
+    it("skips sending when the customer has no matching user record", async () => {
+      const warnSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
+      mockDb.user.findUnique.mockResolvedValue(null);
+
+      const event = stripeEvent("customer.subscription.trial_will_end", {
+        id: "sub_ghost",
+        customer: "cus_ghost",
+        trial_end: trialEndSec,
+        items: {
+          data: [
+            {
+              price: { id: "price_pro", unit_amount: 4900, recurring: { interval: "month" } },
+            },
+          ],
+        },
+      });
+      mockStripe.webhooks.constructEvent.mockReturnValue(event);
+
+      const res = await POST(makeRequest("{}") as never);
+      expect(res.status).toBe(200);
+      expect(mockSendTrialExpiryEmail).not.toHaveBeenCalled();
+      expect(warnSpy).toHaveBeenCalledWith(
+        expect.stringContaining("cus_ghost")
+      );
+      warnSpy.mockRestore();
+    });
+
+    it("skips sending when the price ID doesn't map to a known plan", async () => {
+      const event = stripeEvent("customer.subscription.trial_will_end", {
+        id: "sub_unknown",
+        customer: "cus_unknown",
+        trial_end: trialEndSec,
+        items: {
+          data: [
+            {
+              price: { id: "price_legacy_free", unit_amount: 0, recurring: { interval: "month" } },
+            },
+          ],
+        },
+      });
+      mockStripe.webhooks.constructEvent.mockReturnValue(event);
+
+      const res = await POST(makeRequest("{}") as never);
+      expect(res.status).toBe(200);
+      // No user lookup attempted — we return early on unknown price.
+      expect(mockDb.user.findUnique).not.toHaveBeenCalled();
+      expect(mockSendTrialExpiryEmail).not.toHaveBeenCalled();
+    });
+
+    it("skips sending when trial_end is missing (defensive)", async () => {
+      const warnSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
+      mockDb.user.findUnique.mockResolvedValue({
+        email: "trial@example.com",
+        name: null,
+      });
+
+      const event = stripeEvent("customer.subscription.trial_will_end", {
+        id: "sub_notrial",
+        customer: "cus_notrial",
+        trial_end: null,
+        items: {
+          data: [
+            {
+              price: { id: "price_pro", unit_amount: 4900, recurring: { interval: "month" } },
+            },
+          ],
+        },
+      });
+      mockStripe.webhooks.constructEvent.mockReturnValue(event);
+
+      const res = await POST(makeRequest("{}") as never);
+      expect(res.status).toBe(200);
+      expect(mockSendTrialExpiryEmail).not.toHaveBeenCalled();
+      expect(warnSpy).toHaveBeenCalledWith(
+        expect.stringContaining("missing trial_end")
+      );
+      warnSpy.mockRestore();
+    });
+
+    it("swallows Resend failures so Stripe won't retry (idempotency would block the second send)", async () => {
+      const errSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+      mockDb.user.findUnique.mockResolvedValue({
+        email: "trial@example.com",
+        name: "Trial User",
+      });
+      mockSendTrialExpiryEmail.mockRejectedValue(new Error("Resend 429"));
+
+      const event = stripeEvent("customer.subscription.trial_will_end", {
+        id: "sub_flaky",
+        customer: "cus_flaky",
+        trial_end: trialEndSec,
+        items: {
+          data: [
+            {
+              price: { id: "price_pro", unit_amount: 4900, recurring: { interval: "month" } },
+            },
+          ],
+        },
+      });
+      mockStripe.webhooks.constructEvent.mockReturnValue(event);
+
+      // The webhook should still return 200 — swallowing the email failure
+      // is a deliberate design choice (see comment in handleTrialWillEnd).
+      const res = await POST(makeRequest("{}") as never);
+      expect(res.status).toBe(200);
+      expect(errSpy).toHaveBeenCalledWith(
+        expect.stringContaining("failed to send email"),
+        expect.any(Error)
+      );
+      errSpy.mockRestore();
+    });
+
+    it("fires a trial-expiry-emailed Plausible event so the f25d nudge is attributable", async () => {
+      const plausibleModule = await import("@/lib/plausible");
+      const trackSpy = vi
+        .spyOn(plausibleModule, "trackServerEvent")
+        .mockResolvedValue(undefined);
+      mockDb.user.findUnique.mockResolvedValue({
+        email: "trial@example.com",
+        name: "Trial User",
+      });
+      mockSendTrialExpiryEmail.mockResolvedValue(undefined);
+
+      const event = stripeEvent("customer.subscription.trial_will_end", {
+        id: "sub_attribute",
+        customer: "cus_attribute",
+        trial_end: trialEndSec,
+        items: {
+          data: [
+            {
+              price: { id: "price_team", unit_amount: 14900, recurring: { interval: "month" } },
+            },
+          ],
+        },
+      });
+      mockStripe.webhooks.constructEvent.mockReturnValue(event);
+
+      await POST(makeRequest("{}") as never);
+      await new Promise((r) => setTimeout(r, 0));
+
+      const nudgeCalls = trackSpy.mock.calls.filter(
+        (c) => c[0] === "trial-expiry-emailed"
+      );
+      expect(nudgeCalls).toHaveLength(1);
+      const props = nudgeCalls[0][2] as Record<string, string>;
+      expect(props.plan).toBe("TEAM");
+      expect(props.subscriptionId).toBe("sub_attribute");
+
+      trackSpy.mockRestore();
     });
   });
 
