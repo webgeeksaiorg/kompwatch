@@ -38,6 +38,17 @@ Tracks where KompWatch has been submitted for listing/discovery.
 **Publishing attempt:**
 - `twitter/2026-05-17-weekend-blind-spot.md` (8.5/10) — publish attempted; BLOCKED: social-publisher.py requires Python 3.10+ (`str | None` union syntax), system has Python 3.9.6. Status updated to `queued-publish-failed-publisher-python39-incompatible`. All other platforms rest today.
 
+## Marketer Cycle — 2026-05-17 (Sunday, run 19 — REST day)
+
+**Calendar: REST day — 1 tweet max.**
+
+**Keyword research:** "competitor website monitoring small SaaS team 2026" — active topic. "what pages to track" angle not yet covered in today's queue.
+
+**New content written:**
+- `twitter/2026-05-17-wrong-pages-to-monitor.md` (8/10, queued-no-creds) — "Most teams monitoring the wrong competitor pages." Practical: homepage/blog useless, pricing footnotes + job listings matter. Specific, opinionated, no hard sell.
+
+**Publishing attempt:** `social-publisher.py tweet` → ERROR: Missing TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET. Vault MCP unavailable this cycle. Tweet staged at `queued-no-creds`.
+
 **New content written this cycle:**
 - `linkedin/2026-05-19-mcp-server-competitor-feed.md` — Monday May 19 LinkedIn. MCP server launch angle: 4 tools, competitor context in AI workflow, Crayon $50K vs KompWatch $49/mo protocols identical. Self-check: 8.5/10, READY.
 - `blog/2026-05-20-competitor-monitoring-alert-fatigue.md` — Tuesday May 20 blog article. 1,100 words. Alert fatigue root cause + severity scoring (0-100) + zone classification + FAQ. Self-check: 8/10, READY.
