@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title:
     "KompWatch vs RavenSeer (2026) — AI Competitor Monitoring Compared",
   description:
-    "KompWatch vs RavenSeer: honest comparison of two competitor monitoring tools. See pricing, features, rendering, and AI digest quality side-by-side. KompWatch starts free — RavenSeer starts at $25/mo.",
+    "KompWatch vs RavenSeer: honest comparison of two competitor monitoring tools. KompWatch starts free ($49/mo Pro) — RavenSeer is $25–$150/mo with no free tier. See pricing, rendering, and AI digest quality side-by-side.",
   keywords: [
     "KompWatch vs RavenSeer",
     "RavenSeer alternative",
@@ -51,7 +51,7 @@ const comparisonRows: {
   ravenseer: CellValue;
   note?: string;
 }[] = [
-  { feature: "Starting price", kompwatch: "Free / $49/mo Pro", ravenseer: "$25/mo" },
+  { feature: "Starting price", kompwatch: "Free / $49/mo Pro", ravenseer: "$25–$150/mo" },
   { feature: "Free tier", kompwatch: "2 competitors, weekly digest", ravenseer: false },
   { feature: "Self-serve signup", kompwatch: true, ravenseer: true },
   { feature: "AI-generated change summaries", kompwatch: "Claude-powered digests", ravenseer: "Basic AI summaries" },
