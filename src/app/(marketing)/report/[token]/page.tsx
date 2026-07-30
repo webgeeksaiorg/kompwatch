@@ -1,7 +1,57 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { verifyShareToken, generateStakeholderReport } from "@/lib/roi";
 import { db } from "@/lib/db";
 import { StakeholderReportContent } from "@/components/dashboard/stakeholder-report-content";
+
+const siteUrl = "https://kompwatch.com";
+
+// Tokenized shared report — noindex to keep private URLs out of search engines,
+// but expose branded OpenGraph + Twitter card so Slack / email / social unfurls
+// show a KompWatch preview (drives viewer-to-signup on shared reports).
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ token: string }>;
+}): Promise<Metadata> {
+  const { token } = await params;
+  const verified = verifyShareToken(decodeURIComponent(token));
+
+  const periodLabel =
+    verified?.period === "7d"
+      ? "7-day"
+      : verified?.period === "90d"
+        ? "90-day"
+        : "30-day";
+  const title = verified
+    ? `Competitor intelligence report — ${periodLabel} summary`
+    : "Competitor intelligence report";
+  const description =
+    "A shared KompWatch stakeholder report — pricing, features, and content changes across tracked competitors, summarized by AI.";
+
+  return {
+    title: `${title} · KompWatch`,
+    description,
+    robots: {
+      index: false,
+      follow: false,
+      nocache: true,
+      googleBot: { index: false, follow: false },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `${siteUrl}/report`,
+      siteName: "KompWatch",
+      type: "article",
+    },
+    twitter: {
+      card: "summary",
+      title,
+      description,
+    },
+  };
+}
 
 export default async function SharedReportPage({
   params,
