@@ -144,7 +144,7 @@ export async function captureSnapshot(
             const owner = competitor.user;
             try {
               await sendFirstChangeEmail(
-                { email: owner.email, name: owner.name },
+                { email: owner.email, name: owner.name, plan: owner.plan },
                 { name: competitor.name, url: competitor.url },
                 meaningful.map((c) => ({
                   changeType: c.changeType,

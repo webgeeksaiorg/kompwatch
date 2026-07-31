@@ -4,6 +4,7 @@ import { getStripe, planFromStripePriceId, validateSubscriptionAmount } from "@/
 import { db } from "@/lib/db";
 import { trackServerEvent } from "@/lib/plausible";
 import { FOUNDING_REF } from "@/lib/founding-customer";
+import { sendTrialExpiryEmail } from "@/lib/trial-expiry-email";
 
 // Map Stripe price IDs to plan tiers (covers both monthly and annual prices).
 function planFromPriceId(priceId: string): "PRO" | "TEAM" | null {
@@ -140,6 +141,77 @@ async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
   });
 }
 
+/**
+ * Trial-expiry nudge (ticket f25d).
+ *
+ * Stripe fires `customer.subscription.trial_will_end` ~3 days before a
+ * trialing subscription auto-converts to paid. We send a single transactional
+ * email urging the user to keep their subscription or cancel — the goal is
+ * an 8–15% same-day conversion lift on trials that would otherwise silently
+ * lapse (0 new paid subs in 30 days is the ticket-f369 emergency).
+ *
+ * Failure policy: log-and-swallow email errors so a Resend hiccup doesn't
+ * cause Stripe to retry the webhook and (via idempotency) never send the
+ * email at all. Idempotency is enforced by the shared stripeEvent table.
+ */
+async function handleTrialWillEnd(subscription: Stripe.Subscription) {
+  const customerId = subscription.customer as string;
+  if (!customerId) return;
+
+  const priceItem = subscription.items.data[0];
+  const priceId = priceItem?.price.id;
+  const plan = priceId ? planFromPriceId(priceId) : null;
+  if (!plan) {
+    // Unknown price → skip. This can happen for legacy or manually-created
+    // subscriptions. Silent no-op; the trial will still convert normally.
+    return;
+  }
+
+  const user = await db.user.findUnique({
+    where: { stripeCustomerId: customerId },
+    select: { email: true, name: true },
+  });
+  if (!user) {
+    console.warn(
+      `trial_will_end: no user found for customer=${customerId} sub=${subscription.id}`
+    );
+    return;
+  }
+
+  const trialEndUnixSec = subscription.trial_end ?? 0;
+  if (!trialEndUnixSec) {
+    // Defensive: without a trial_end we can't personalize the countdown.
+    // Skip rather than send a broken "your trial ends in NaN days" email.
+    console.warn(
+      `trial_will_end: missing trial_end on subscription ${subscription.id}`
+    );
+    return;
+  }
+
+  try {
+    await sendTrialExpiryEmail(
+      { email: user.email, name: user.name },
+      { plan, trialEndUnixSec }
+    );
+  } catch (err) {
+    console.error(
+      `trial_will_end: failed to send email to ${user.email} (sub=${subscription.id}):`,
+      err
+    );
+    // Do not rethrow — swallow so Stripe won't retry the whole webhook.
+    // The shared stripeEvent idempotency table would otherwise block a
+    // second delivery attempt on retry, silently losing the nudge.
+    return;
+  }
+
+  // Funnel: trial-expiry email delivered. Tracked so acquisition audit
+  // (f369) can measure the conversion lift attributable to this nudge.
+  trackServerEvent("trial-expiry-emailed", "/webhooks/stripe", {
+    plan,
+    subscriptionId: subscription.id,
+  }).catch(() => {});
+}
+
 async function handleInvoicePaymentFailed(invoice: Stripe.Invoice) {
   const customerId = invoice.customer as string;
   if (!customerId) return;
@@ -223,6 +295,11 @@ export async function POST(req: NextRequest) {
         break;
       case "customer.subscription.deleted":
         await handleSubscriptionDeleted(
+          event.data.object as Stripe.Subscription
+        );
+        break;
+      case "customer.subscription.trial_will_end":
+        await handleTrialWillEnd(
           event.data.object as Stripe.Subscription
         );
         break;

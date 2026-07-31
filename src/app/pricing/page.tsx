@@ -1051,6 +1051,48 @@ export default function PricingPage() {
         </div>
       )}
 
+      {/* ICP filter — "Who this is for" self-qualification section.
+          Ticket f382. Hypothesis: explicit ICP language reduces bounce and
+          increases signup because visitors self-qualify faster. Placed
+          directly above the plan cards so it's the last thing read before
+          plan choice. Copy anchors on solo founders / small SaaS teams and
+          explicitly rules out enterprise buyers (who should go to Crayon/Klue). */}
+      <section
+        aria-label="Who KompWatch is built for"
+        className="mx-auto mt-10 w-full max-w-3xl rounded-2xl border border-brand-200 bg-gradient-to-br from-brand-50/60 to-white p-6 shadow-sm sm:p-7"
+      >
+        <p className="text-center text-xs font-semibold uppercase tracking-wider text-brand-600">
+          Who this is for
+        </p>
+        <h2 className="mt-2 text-center text-xl font-bold text-gray-900 sm:text-2xl">
+          Built for solo founders and small SaaS teams &mdash; not enterprise.
+        </h2>
+        <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="rounded-xl border border-brand-200 bg-white p-4">
+            <div className="flex items-center gap-2">
+              <span aria-hidden className="text-lg leading-none text-brand-600">✓</span>
+              <p className="text-sm font-semibold text-gray-900">You&rsquo;ll love KompWatch if&hellip;</p>
+            </div>
+            <ul className="mt-2 space-y-1.5 text-sm text-gray-700">
+              <li>You&rsquo;re a founder, PMM, or 2&ndash;10 person team tracking 3&ndash;20 competitors.</li>
+              <li>You want an AI-summarised digest in your inbox, not another dashboard to log into.</li>
+              <li>You care about price and cancel-anytime &mdash; no annual contract, no sales call.</li>
+            </ul>
+          </div>
+          <div className="rounded-xl border border-gray-200 bg-gray-50 p-4">
+            <div className="flex items-center gap-2">
+              <span aria-hidden className="text-lg leading-none text-gray-400">×</span>
+              <p className="text-sm font-semibold text-gray-900">Look elsewhere if&hellip;</p>
+            </div>
+            <ul className="mt-2 space-y-1.5 text-sm text-gray-600">
+              <li>You need a 20-seat CI platform with battlecards and Salesforce sync &mdash; that&rsquo;s Crayon or Klue.</li>
+              <li>You want a dedicated CSM, custom SLAs, or SSO/SAML on day one.</li>
+              <li>You&rsquo;re happy paying $2K&ndash;$3K/mo for enterprise features you won&rsquo;t use.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <div
         id="pricing"
         className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"

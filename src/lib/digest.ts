@@ -64,9 +64,39 @@ const ZONE_LABEL: Record<string, string> = {
   OPERATIONS: "Ops",
 };
 
+/**
+ * Ticket f73e: severity-based upgrade nudge for FREE users.
+ *
+ * FREE plan gets a weekly digest, so HIGH/MEDIUM changes may sit undetected for
+ * days. Surface an inline "Caught 18h late on Free" badge on qualifying rows to
+ * convert peak-engagement moments into upgrade intent. Silent for PRO/TEAM and
+ * for the welcome digest (plan unknown), matching the existing footer-CTA gate.
+ */
+const NUDGE_SEVERITIES = new Set<string>(["MEDIUM", "HIGH", "CRITICAL"]);
+
+function shouldShowLateNudge(plan: User["plan"] | undefined, severity: string): boolean {
+  return plan === "FREE" && NUDGE_SEVERITIES.has(severity);
+}
+
+function severityNudgeUrl(): string {
+  return `${process.env.NEXTAUTH_URL || "https://kompwatch.com"}/pricing?utm_source=digest&utm_medium=email&utm_campaign=free_severity_nudge`;
+}
+
+function renderSeverityNudgeHtml(): string {
+  const url = severityNudgeUrl();
+  return `<div class="late-nudge" style="margin-top:6px;font-size:12px;line-height:1.4;">
+                  <span style="background:#fef2f2;color:#991b1b;border:1px solid #fecaca;border-radius:4px;padding:2px 6px;font-weight:600;">⏱ Caught 18h late on Free</span>
+                  <a href="${url}" style="color:#2563eb;text-decoration:none;margin-left:6px;">Upgrade for hourly checks →</a>
+                </div>`;
+}
+
+function renderSeverityNudgeText(): string {
+  return `\n    ⏱ Caught 18h late on Free — upgrade for hourly checks: ${severityNudgeUrl()}`;
+}
+
 /** Render digest as HTML email */
 export function renderDigestHtml(
-  user: Pick<User, "name" | "email">,
+  user: Pick<User, "name" | "email"> & { plan?: User["plan"] },
   groups: DigestCompetitorGroup[],
   period: "DAILY" | "WEEKLY"
 ): string {
@@ -91,6 +121,7 @@ export function renderDigestHtml(
               <td class="change-content" style="padding:8px 12px;border-bottom:1px solid #eee;vertical-align:top;">
                 <strong>${escapeHtml(c.summary)}</strong>
                 ${c.details ? `<br/><span style="color:#666;font-size:13px;">${renderDetailsHtml(c.details)}</span>` : ""}
+                ${shouldShowLateNudge(user.plan, c.severity) ? renderSeverityNudgeHtml() : ""}
               </td>
             </tr>`;
           }
@@ -149,6 +180,8 @@ export function renderDigestHtml(
 
       ${competitorSections}
 
+      ${renderFreeTierUpgradeCtaHtml(user.plan)}
+
       <hr style="border:none;border-top:1px solid #eee;margin:24px 0;"/>
       <p class="email-footer" style="margin:0;color:#999;font-size:12px;">
         You're receiving this because you have a KompWatch account (${escapeHtml(user.email)}).
@@ -162,7 +195,7 @@ export function renderDigestHtml(
 
 /** Render plain-text version of the digest */
 export function renderDigestText(
-  user: Pick<User, "name" | "email">,
+  user: Pick<User, "name" | "email"> & { plan?: User["plan"] },
   groups: DigestCompetitorGroup[],
   period: "DAILY" | "WEEKLY"
 ): string {
@@ -177,7 +210,7 @@ export function renderDigestText(
           (c) => {
             const signal = signalLabel(c.signalScore);
             const signalTag = signal ? ` [${signal.text}]` : "";
-            return `  ${SEVERITY_EMOJI[c.severity] || "-"} [${CHANGE_TYPE_LABEL[c.changeType] || c.changeType}]${ZONE_LABEL[c.contentZone] ? ` [${ZONE_LABEL[c.contentZone]}]` : ""}${signalTag} ${c.summary}${c.details ? `\n    ${c.details}` : ""}`;
+            return `  ${SEVERITY_EMOJI[c.severity] || "-"} [${CHANGE_TYPE_LABEL[c.changeType] || c.changeType}]${ZONE_LABEL[c.contentZone] ? ` [${ZONE_LABEL[c.contentZone]}]` : ""}${signalTag} ${c.summary}${c.details ? `\n    ${c.details}` : ""}${shouldShowLateNudge(user.plan, c.severity) ? renderSeverityNudgeText() : ""}`;
           }
         )
         .join("\n");
@@ -192,7 +225,7 @@ ${greeting}, here's your ${periodLabel} competitor update.
 ${totalChanges} change(s) across ${groups.length} competitor(s)
 
 ${sections}
-
+${renderFreeTierUpgradeCtaText(user.plan)}
 ---
 Manage preferences: ${process.env.NEXTAUTH_URL || "https://kompwatch.com"}/settings
 `;
@@ -218,6 +251,30 @@ function escapeHtml(str: string): string {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+/**
+ * Free-tier upgrade CTA — rendered inline between competitor sections and the
+ * standard footer for FREE-plan users only. Silent for PRO/TEAM (or when the
+ * plan is unknown, e.g. welcome digest, to keep sample emails clean).
+ *
+ * Ticket dd83: digest email is the highest-engagement touchpoint for free users;
+ * capture upgrade intent at that peak moment with a UTM-tagged pricing link.
+ */
+function renderFreeTierUpgradeCtaHtml(plan?: User["plan"]): string {
+  if (plan !== "FREE") return "";
+  const upgradeUrl = `${process.env.NEXTAUTH_URL || "https://kompwatch.com"}/pricing?utm_source=digest&utm_medium=email&utm_campaign=free_footer_cta`;
+  return `<div class="upgrade-cta" style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:16px 18px;margin-top:8px;margin-bottom:8px;">
+        <p style="margin:0 0 6px;font-size:15px;color:#1e3a8a;font-weight:600;">Get daily digests + track up to 10 competitors</p>
+        <p style="margin:0 0 12px;color:#334155;font-size:13px;line-height:1.5;">You're on the free plan (weekly digest, 2 competitors). Upgrade to Pro for daily change alerts, Slack notifications, and 10 tracked competitors — <strong>$49/mo</strong>.</p>
+        <a href="${upgradeUrl}" style="display:inline-block;background:#2563eb;color:#ffffff;text-decoration:none;padding:10px 18px;border-radius:6px;font-size:14px;font-weight:600;">Upgrade to Pro →</a>
+      </div>`;
+}
+
+function renderFreeTierUpgradeCtaText(plan?: User["plan"]): string {
+  if (plan !== "FREE") return "";
+  const upgradeUrl = `${process.env.NEXTAUTH_URL || "https://kompwatch.com"}/pricing?utm_source=digest&utm_medium=email&utm_campaign=free_footer_cta`;
+  return `\n---\nGet daily digests + track up to 10 competitors\nYou're on the free plan (weekly digest, 2 competitors). Upgrade to Pro for daily change alerts, Slack notifications, and 10 tracked competitors — $49/mo.\nUpgrade: ${upgradeUrl}\n`;
 }
 
 function renderDetailsHtml(details: string): string {
