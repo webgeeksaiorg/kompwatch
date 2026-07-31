@@ -73,11 +73,14 @@ export default async function SharedReportPage({
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:py-16">
       <div className="mb-6 flex items-center justify-between">
-        <a href="/" className="text-sm font-bold text-gray-900">
+        <a
+          href="/?utm_source=shared-report&utm_medium=report-nav&utm_campaign=viewer-to-signup"
+          className="text-sm font-bold text-gray-900"
+        >
           KompWatch
         </a>
         <a
-          href="/pricing"
+          href="/pricing?utm_source=shared-report&utm_medium=report-nav&utm_campaign=viewer-to-signup"
           className="text-xs font-medium text-brand-600 hover:text-brand-700"
         >
           Start monitoring &rarr;
