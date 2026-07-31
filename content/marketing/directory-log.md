@@ -1154,3 +1154,45 @@ If you need those things, you need Crayon or Klue. If you need to know when comp
 **Publishing attempts:** All BLOCKED — TWITTER/REDDIT/GHOST credentials still missing.
 
 **Blockers (unchanged):** TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, GHOST_ADMIN_API_KEY — all missing. Queue: 145+ pieces READY.
+
+---
+
+## Marketer Cycle — 2026-05-17 (Sunday, run 20 — REST day)
+
+**Calendar: REST day — 1 tweet max.**
+
+**New content written:**
+- `twitter/2026-05-17-sunday-diff-without-context.md` (8/10, queued-no-creds) — "Raw HTML diff is technically correct, also useless without context. The diff is the easy part. The 'so what' is the whole product." — Specific, vulnerable, founder voice, 272 chars.
+
+**Publishing attempt:** `social-publisher.py tweet` → ERROR: Missing TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET. Tweet staged at `queued-no-creds`.
+
+**Keyword research:** Search providers blocked/rate-limited again. Operating on prior research context.
+
+**Blockers (unchanged):**
+- TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET — all missing from Vaultwarden KompWatch folder.
+
+**Queue status:** 115+ pieces staged. Monday May 19 slate ready (Twitter: confidence-filter-shipped + free-snapshot-shipped + 5 replies; Reddit: 3 posts; LinkedIn: mcp-server-competitor-feed). Tuesday May 20: Blog (competitor-monitoring-alert-fatigue). Commit: 4e6715e.
+
+---
+
+## Marketer Cycle — 2026-07-31 (Friday, run 21 — full posting day)
+
+**Calendar: Friday — Reddit (2 comments + 1 post) + Twitter (2 tweets + 5 replies) + LinkedIn (1 post).**
+
+**New content written (10 pieces):**
+- `twitter/2026-07-31-friday-the-changelog-nobody-reads.md` (8/10, queued-no-creds) — "Your competitor's changelog is the best signal in CI. Nobody reads it." — Specific angle, genuine insight from monitoring.
+- `twitter/2026-07-31-friday-end-of-july-zero-paid.md` (8/10, queued-no-creds) — End of July accountability update. 0 paid, shipped 4 features, distribution is the unsolved problem.
+- `twitter/2026-07-31-reply-ci-awareness-vs-software.md` (8/10, queued-no-creds) — CI awareness vs software; most teams don't read the digest they pay for.
+- `twitter/2026-07-31-reply-google-alerts-limitation.md` (8/10, queued-no-creds) — Google Alerts misses quiet deliberate changes — the most important kind.
+- `twitter/2026-07-31-reply-pmf-pre-revenue.md` (7/10, queued-no-creds) — PMF is a useless phrase pre-revenue; currently finding out.
+- `twitter/2026-07-31-reply-battlecard-stale-refresh.md` (8/10, queued-no-creds) — Battlecards go stale immediately; need event-driven refresh triggers not quarterly ones.
+- `reddit/2026-07-31-comment-manual-competitor-tracking-approach.md` (8/10, queued-no-creds) — r/ProductManagement — practical manual tracking advice + soft product mention.
+- `reddit/2026-07-31-comment-stale-battlecard-deal-loss.md` (8/10, queued-no-creds) — r/B2Bsales — stale battlecard pricing demo derailment story.
+- `reddit/2026-07-31-post-competitor-monitoring-learnings.md` (8/10, queued-no-creds) — r/indiehackers — "I built a CI tool because I couldn't justify $500/mo for Crayon" — 4 learnings from 2 months of daily monitoring.
+- `linkedin/2026-07-31-friday-end-of-july-honest-update.md` (8/10, queued-no-creds) — End-of-July honest update. 0 paid. Product phase vs distribution phase. August pivot to distribution.
+
+**Publishing attempts:** All BLOCKED — TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET — all missing.
+
+**Keyword research:** Search providers blocked/rate-limited. Operating on prior research context.
+
+**Blockers (unchanged):** TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, GHOST_ADMIN_API_KEY — all missing from Vaultwarden KompWatch folder. Queue: 155+ pieces READY.
