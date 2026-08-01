@@ -39,6 +39,7 @@ const ALLOWED_SOURCES = new Set([
   "compare-spire21",
   "compare-tona",
   "compare-kompetar",
+  "compare-spyglass",
 ]);
 
 export async function POST(req: NextRequest) {
