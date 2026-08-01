@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
 import { EmailCaptureForm } from "@/components/email-capture-form";
+import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -153,6 +154,7 @@ const typeLabel = {
 export default function SampleDigestPage() {
   return (
     <div className="min-h-screen bg-white">
+      <BreadcrumbSchema items={[{ name: "Sample Digest", path: "/sample-digest" }]} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
