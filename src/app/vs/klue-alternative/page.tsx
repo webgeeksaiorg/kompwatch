@@ -9,36 +9,37 @@ import { AlternativesListicleSchema } from "@/components/alternatives-listicle-s
 const siteUrl = "https://kompwatch.com";
 
 export const metadata: Metadata = {
-  title: "7 Best Crayon Alternatives in 2026 (Post-SoftwareOne Acquisition)",
+  title: "7 Best Klue Alternatives in 2026 (Ranked Honestly)",
   description:
-    "Crayon was acquired by SoftwareOne for $1.4B in April 2026 — pricing and roadmap shifted toward enterprise. Here are the 7 best Crayon alternatives in 2026, ranked honestly by price, fit, and what they actually do well.",
+    "Klue is the enterprise CI leader — but at $16K–$60K/yr with a mandatory sales cycle, most SMB and mid-market teams can't justify it. Here are the 7 best Klue alternatives in 2026, ranked by price, fit, and what they actually do well.",
   keywords: [
-    "Crayon alternative",
-    "Crayon alternatives 2026",
-    "best Crayon alternative",
-    "Crayon competitor",
-    "Crayon vs",
+    "Klue alternative",
+    "Klue alternatives 2026",
+    "best Klue alternative",
+    "Klue competitor",
+    "Klue vs",
     "competitive intelligence software",
     "competitor monitoring tool",
-    "Crayon SoftwareOne acquisition",
-    "Crayon replacement",
-    "alternatives to Crayon",
+    "Klue pricing",
+    "Klue replacement",
+    "alternatives to Klue",
+    "cheaper than Klue",
   ],
   alternates: {
-    canonical: `${siteUrl}/vs/crayon-alternative`,
+    canonical: `${siteUrl}/vs/klue-alternative`,
   },
   openGraph: {
-    title: "7 Best Crayon Alternatives in 2026 — Ranked Honestly",
+    title: "7 Best Klue Alternatives in 2026 — Ranked Honestly",
     description:
-      "Crayon was acquired by SoftwareOne in April 2026. If your renewal is up or pricing changed, here are the 7 best alternatives — from $0 to enterprise — with honest takes on each.",
-    url: `${siteUrl}/vs/crayon-alternative`,
+      "Klue's median contract is ~$30K/yr and needs a dedicated analyst to extract value. Here are 7 honest Klue alternatives — from free tools to enterprise CI — with real pricing and fit notes.",
+    url: `${siteUrl}/vs/klue-alternative`,
     type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: "7 Best Crayon Alternatives in 2026",
+    title: "7 Best Klue Alternatives in 2026",
     description:
-      "Post-SoftwareOne acquisition, Crayon's pricing and focus shifted. Here are 7 honest alternatives — from free tools to enterprise CI.",
+      "Priced out of Klue? Here are 7 honest alternatives — from free DIY stacks to enterprise CI — with real pricing and fit notes for SMB and mid-market teams.",
   },
 };
 
@@ -61,58 +62,57 @@ const alternatives: Alternative[] = [
     rank: 1,
     name: "KompWatch",
     slug: "kompwatch",
-    tagline: "The independent, self-serve Crayon alternative for SMBs and lean teams.",
+    tagline: "The independent, self-serve Klue alternative for SMBs and lean teams.",
     bestFor:
-      "Founders, PMMs, and 5–200 person SaaS teams who want Crayon-style competitor monitoring without the $25K+/yr contract or sales call.",
+      "Founders, PMMs, and 5–200 person SaaS teams who want Klue-style competitor monitoring without the $30K/yr contract, mandatory sales call, or dedicated analyst headcount.",
     startingPrice: "Free / $49 per month",
     pros: [
       "Paste a URL, get tracking in under 2 minutes — no sales call, no onboarding project.",
       "AI digests powered by Claude — plain-English summaries of what actually changed.",
-      "CSS-selector targeting kills the noise problem most teams hit with Crayon.",
-      "Independent vendor (no acquisition uncertainty).",
+      "CSS-selector targeting kills the noise problem that dominates Klue G2 reviews.",
+      "Independent vendor with self-serve pricing (no annual commit required).",
       "Free plan covers 2 competitors with weekly digests.",
       "Pricing-page drop alerts, feature/blog/job monitoring, Slack + email delivery.",
     ],
     cons: [
-      "Smaller battlecard library than Crayon's enterprise tier (one-click export only).",
-      "No CRM-native sales enablement portal (yet).",
+      "Smaller battlecard library than Klue's enterprise sales enablement portal.",
+      "No CRM-native battlecard distribution into Salesforce/HubSpot (yet).",
       "Newer brand — fewer Fortune 500 logos.",
     ],
     verdict:
-      "If you were paying Crayon for the actual signals (pricing changes, feature launches, positioning shifts), KompWatch delivers the same data at ~2% of the cost. The trade-off is the analyst-portal layer — and most SMB teams never used that anyway.",
+      "If you were pricing Klue for the actual monitoring signals (pricing changes, feature launches, positioning shifts), KompWatch delivers the same data at ~2% of the cost. The trade-off is Klue's Compete Agent AI and CRM-native battlecard portal — most SMB teams never used those anyway.",
     internalLink: "/",
   },
   {
     rank: 2,
-    name: "Klue",
-    slug: "klue",
-    tagline: "Enterprise CI with strong sales enablement + battlecards.",
+    name: "Crayon",
+    slug: "crayon",
+    tagline: "Enterprise CI with strong battlecards — now inside SoftwareOne.",
     bestFor:
-      "100+ person companies with a dedicated CI analyst, deep Salesforce/HubSpot deployment, and a real sales enablement program.",
-    startingPrice: "Quote — typically $16K–$60K+/yr",
+      "100+ person companies with a dedicated CI analyst who already evaluated Klue and want a lateral enterprise option.",
+    startingPrice: "Quote — typically $25K–$100K/yr",
     pros: [
-      "Best-in-class battlecard distribution into CRM and Slack.",
-      "Analyst-curated intelligence (not just raw page diffs).",
-      "Recently added 'Compete Agent' AI for autonomous threat detection.",
-      "4.7/5 on G2 (441 reviews) — strong enterprise references.",
+      "Battlecards + Slack/CRM distribution comparable to Klue.",
+      "Deep integrations with sales enablement stacks.",
+      "Strong enterprise references and analyst curation.",
     ],
     cons: [
-      "Sales cycle measured in weeks. No self-serve.",
-      "#1 G2 complaint: alert noise / information overload.",
-      "Requires a dedicated PMM or analyst to extract value — that's $80K+/yr in headcount on top of software.",
+      "Acquired by SoftwareOne for $1.4B in April 2026 — renewals reportedly trending 20–40% higher.",
+      "Sales cycle in weeks, no self-serve.",
+      "Same noise-overload complaints as Klue in G2 reviews.",
     ],
     verdict:
-      "If you already have a CI program and just want a more polished platform than Crayon, Klue is the natural lateral move. If you're a 20-person company, you're not the target customer.",
-    internalLink: "/vs-klue",
-    externalDomain: "klue.com",
+      "A natural lateral move if you already have a CI program and just want a different enterprise vendor. Post-acquisition pricing pressure means you might land somewhere similar to your current Klue quote — evaluate carefully.",
+    internalLink: "/vs-crayon",
+    externalDomain: "crayon.co",
   },
   {
     rank: 3,
     name: "Kompyte",
     slug: "kompyte",
-    tagline: "Mid-market CI with battlecards and Semrush integration.",
+    tagline: "Mid-market CI with battlecards and the Semrush ecosystem.",
     bestFor:
-      "Mid-market teams (50–500 employees) wanting a Crayon-like platform with a slightly lower entry point and Semrush ecosystem integration.",
+      "Mid-market teams (50–500 employees) wanting a Klue-like platform with a slightly lower entry point, especially if you already use Semrush for SEO/PPC intelligence.",
     startingPrice: "Quote — typically $10K–$30K/yr",
     pros: [
       "Owned by Semrush — useful if you already run Semrush for SEO/PPC competitive data.",
@@ -122,7 +122,7 @@ const alternatives: Alternative[] = [
     cons: [
       "Still requires a sales call and annual contract.",
       "Adobe announced acquiring Semrush parent in Q1 2026 — roadmap uncertainty.",
-      "Pricing not public; users report the same noise problem as Crayon.",
+      "Pricing not public; users report the same noise problem as Klue.",
     ],
     verdict:
       "If you're already a Semrush shop, Kompyte is the path of least resistance. If you're not, the Adobe acquisition wobble makes this a 'wait six months' option.",
@@ -135,11 +135,11 @@ const alternatives: Alternative[] = [
     slug: "caelian",
     tagline: "Hybrid software + analyst hours for human-curated intel.",
     bestFor:
-      "Teams who want a vendor to do the analyst work for them — fewer alerts, more curated digests.",
+      "Teams who priced Klue for the analyst-portal experience and want a vendor to do the analyst work directly — fewer alerts, more curated digests.",
     startingPrice: "$199 per month + analyst time",
     pros: [
       "Human-curated digests reduce the noise problem dramatically.",
-      "Reasonable starting price vs Crayon.",
+      "Reasonable starting price vs Klue.",
       "Good for teams without internal PMM bandwidth.",
     ],
     cons: [
@@ -148,7 +148,7 @@ const alternatives: Alternative[] = [
       "Less control over what gets surfaced.",
     ],
     verdict:
-      "If you want intel delivered like a service rather than a tool, Caelian is the cleanest option in this list. The trade-off: you're paying for humans, so it scales slower than software.",
+      "If Klue's real value to you was the layer of human analysis on top of the software, Caelian is the closest like-for-like at a fraction of the cost. The trade-off is speed — you're paying for humans, so it scales slower.",
     internalLink: "/vs-caelian",
     externalDomain: "caelian.io",
   },
@@ -158,7 +158,7 @@ const alternatives: Alternative[] = [
     slug: "changeflow",
     tagline: "Lightweight change-detection focused on product launches.",
     bestFor:
-      "Product teams who specifically want to track competitor product/changelog updates — not full CI.",
+      "Product teams who specifically want to track competitor product/changelog updates — not full CI battlecards.",
     startingPrice: "$29 per month",
     pros: [
       "Cheap, simple, no sales call.",
@@ -166,7 +166,7 @@ const alternatives: Alternative[] = [
       "Slack integration on the entry tier.",
     ],
     cons: [
-      "Narrower scope than Crayon — not really a CI platform.",
+      "Narrower scope than Klue — not really a CI platform.",
       "No AI summarization on lower tiers.",
       "Lighter pricing-page detection vs purpose-built tools.",
     ],
@@ -224,55 +224,55 @@ const alternatives: Alternative[] = [
 
 const comparisonFaqs = [
   {
-    question: "Why is everyone looking for a Crayon alternative right now?",
+    question: "Why is everyone looking for a Klue alternative right now?",
     answer:
-      "Crayon was acquired by SoftwareOne for $1.4B in April 2026. Acquisitions of CI platforms historically mean enterprise repricing, slower roadmaps, and pressure on SMB-tier customers to upgrade. Several Crayon customers approaching renewal have reported quotes 30–80% higher than prior years, and the product roadmap has clearly tilted toward enterprise procurement features.",
+      "Three reasons: (1) Klue's median contract sits around $30,000/yr per vendr.com data (82 deals sampled) — that's a full FTE-adjacent line item, and boards are scrutinizing enterprise SaaS spend in 2026. (2) Klue's #1 G2 complaint is alert noise / information overload, driving churn among teams without a dedicated analyst. (3) A wave of self-serve CI tools launched in 2025–2026 (KompWatch, HeadsUp, RivalSense, Parano.ai) proving you can get 80% of Klue's core value for 2–5% of the price.",
   },
   {
-    question: "What's the cheapest Crayon alternative?",
+    question: "What's the cheapest Klue alternative?",
     answer:
       "For free, the DIY combo of Google Alerts + changedetection.io covers basic monitoring (but with significant blind spots). For paid, KompWatch's Pro tier at $49/mo is the cheapest tool purpose-built for SaaS competitive intelligence — including AI digests, multi-competitor tracking, and Slack delivery.",
   },
   {
-    question: "Which Crayon alternative is best for small teams?",
+    question: "Which Klue alternative is best for small teams?",
     answer:
-      "KompWatch. The platform is designed around self-serve onboarding (paste URL, get digest), no sales call, and pricing that scales with team size rather than enterprise procurement cycles. Klue and Kompyte are stronger if you have a dedicated CI analyst — but if you don't, that's $80K+/yr in headcount before the software even matters.",
+      "KompWatch. The platform is designed around self-serve onboarding (paste URL, get digest), no sales call, and pricing that scales with team size rather than enterprise procurement cycles. Klue is genuinely great — but if you don't have a dedicated CI analyst on staff, you're paying for a portal you can't fully use. That's $80K+/yr in headcount before the software even matters.",
   },
   {
-    question: "Can I just keep using Crayon at my current price?",
+    question: "Does Klue publish pricing?",
     answer:
-      "For your current contract term, yes. The acquisition doesn't void existing agreements. The question is what happens at renewal. Several Crayon SMB customers have reported renewal quotes that pushed them out of their budget range, which is what's driving alternative searches in mid-2026.",
+      "No. Klue requires a sales call for pricing. Public data from vendr.com (82 sampled deals) puts the median Klue contract at ~$30,000/yr, with a typical range of $16K–$60K depending on seats, competitor count, and add-ons like Compete Agent and battlecard portal features.",
   },
   {
-    question: "What features will I lose moving off Crayon?",
+    question: "What features will I lose moving off Klue?",
     answer:
-      "If you used Crayon's full enterprise stack (battlecard portal, sales playbook distribution, CRM-native delivery, analyst services), you'll lose some of that depth on every alternative in this list. If you used Crayon primarily for the underlying competitor-change signals — what KompWatch and Changeflow focus on — you lose nothing; you just stop paying enterprise prices for monitoring.",
+      "If you used Klue's full enterprise stack (battlecard portal, sales playbook distribution, CRM-native delivery, Compete Agent AI, analyst services), you'll lose some of that depth on every alternative in this list. If you used Klue primarily for the underlying competitor-change signals — pricing, features, positioning, hiring — you lose nothing; you just stop paying enterprise prices for monitoring.",
   },
   {
-    question: "How long does it take to migrate from Crayon?",
+    question: "How long does it take to migrate from Klue?",
     answer:
-      "Most teams switch in 15–30 minutes for the data setup. The longer task is auditing your team's workflows. If your CI sits inside Salesforce or your battlecard portal, plan a 30-day side-by-side trial before cutting Crayon entirely. KompWatch has a dedicated switching-from-crayon guide that walks through the migration step-by-step.",
+      "Most teams switch the monitoring layer in 15–30 minutes (paste your tracked URLs into the new tool). The longer task is auditing battlecard workflows: if your sales team pulls Klue cards inside Salesforce, plan a 30-day side-by-side trial before cutting Klue entirely. KompWatch has a dedicated switching-from-klue guide walking through the migration step-by-step.",
   },
   {
-    question: "Is the SoftwareOne acquisition definitely going to change Crayon?",
+    question: "Is Klue's Compete Agent AI a good reason to stay?",
     answer:
-      "Acquisitions historically do change SaaS pricing and product priorities within 6–18 months. SoftwareOne is a publicly traded enterprise IT services company — their economic incentive is enterprise expansion, not SMB self-serve. Whether that affects your specific contract depends on your renewal timing and account size.",
+      "Compete Agent is genuinely impressive — autonomous threat detection layered on top of Klue's data. But it's an add-on to a $30K/yr baseline, so the effective price sits closer to $40K/yr for the AI-enabled tier. If you're comparing that to KompWatch Pro at $49/mo with Claude-powered digests included, the math only favors Compete Agent when you also need Klue's enterprise CRM distribution and battlecard portal.",
   },
 ];
 
-export default function CrayonAlternativePage() {
+export default function KlueAlternativePage() {
   return (
     <div className="bg-white">
       <BreadcrumbSchema
         items={[
           { name: "Compare", path: "/compare" },
-          { name: "Crayon Alternatives", path: "/vs/crayon-alternative" },
+          { name: "Klue Alternatives", path: "/vs/klue-alternative" },
         ]}
       />
       <SoftwareApplicationSchema />
       <AlternativesListicleSchema
-        pageUrl={`${siteUrl}/vs/crayon-alternative`}
-        listName="7 Best Crayon Alternatives in 2026"
+        pageUrl={`${siteUrl}/vs/klue-alternative`}
+        listName="7 Best Klue Alternatives in 2026"
         alternatives={alternatives}
         faqs={comparisonFaqs}
       />
@@ -286,41 +286,43 @@ export default function CrayonAlternativePage() {
             </Link>
             <span className="text-gray-300">·</span>
             <span className="rounded-full bg-amber-100 px-2.5 py-0.5 text-amber-900">
-              Updated May 2026 · Post-SoftwareOne acquisition
+              Updated May 2026 · Ranked by SMB fit
             </span>
           </div>
           <h1 className="mt-6 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            7 Best Crayon Alternatives in 2026
+            7 Best Klue Alternatives in 2026
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-gray-700">
-            Crayon was acquired by SoftwareOne for $1.4B in April 2026. If your renewal
-            is coming up — or your quote just landed and it&apos;s 30%+ higher than last year
-            — you have options. Here&apos;s an honest, ranked comparison of the seven
-            best alternatives, from free DIY stacks to enterprise CI platforms.
+            Klue is the enterprise CI leader — 4.7/5 on G2, strong battlecard
+            distribution, and a real analyst layer. It&apos;s also $16K–$60K/yr with a
+            mandatory sales cycle. If your renewal just landed and the number was
+            higher than expected, or you&apos;re a lean team who never had a CI budget
+            to begin with, here&apos;s an honest ranked comparison of the seven best
+            alternatives.
           </p>
           <p className="mt-4 text-base text-gray-600">
-            We sell one of the tools in this list (KompWatch — #1, full disclosure). The
-            rest of the ranking is our genuine take based on customer migrations,
-            published pricing, G2 review patterns, and how the SoftwareOne deal reshapes
-            the buying decision.
+            We sell one of the tools in this list (KompWatch — #1, full disclosure).
+            The rest of the ranking is our genuine take based on customer migrations,
+            published pricing (where available), vendr.com deal data, and G2 review
+            patterns.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
             <TrackedCTA
-              href="/signup?utm_source=crayon-alternative"
-              event="crayon-alternative-cta-click"
+              href="/signup?utm_source=klue-alternative"
+              event="klue-alternative-cta-click"
               eventProps={{ position: "hero", variant: "primary" }}
               className="inline-flex items-center justify-center rounded-md bg-brand-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-brand-700"
             >
               Try KompWatch free (2 minutes)
             </TrackedCTA>
             <TrackedCTA
-              href="/switching-from-crayon"
-              event="crayon-alternative-cta-click"
+              href="/switching-from-klue"
+              event="klue-alternative-cta-click"
               eventProps={{ position: "hero", variant: "secondary" }}
               className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-6 py-3 text-base font-semibold text-gray-900 hover:bg-gray-50"
             >
-              How to switch from Crayon →
+              How to switch from Klue →
             </TrackedCTA>
           </div>
         </div>
@@ -373,41 +375,44 @@ export default function CrayonAlternativePage() {
       <section className="border-b border-gray-100 bg-gray-50/60 py-16">
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-            Why people are searching &quot;Crayon alternative&quot; in 2026
+            Why people are searching &quot;Klue alternative&quot; in 2026
           </h2>
           <div className="mt-8 space-y-6 text-gray-700">
             <p>
-              Crayon&apos;s acquisition by SoftwareOne (announced April 2026, $1.4B
-              all-cash) changed the buyer math in three ways:
+              Klue is a genuinely strong product — 4.7/5 on G2 with 441+ reviews, and
+              the clear enterprise CI leader. The reason alternative searches are
+              trending up in 2026 comes down to three things:
             </p>
             <ol className="ml-6 list-decimal space-y-3">
               <li>
-                <strong className="text-gray-900">Renewal pricing pressure.</strong>{" "}
-                Median Crayon contract size on vendr.com sits around $28,750/yr.
-                Post-acquisition renewals are reportedly trending 20–40% higher as
-                SoftwareOne consolidates pricing toward enterprise tiers.
+                <strong className="text-gray-900">Contract size relative to usage.</strong>{" "}
+                Vendr.com data (82 sampled Klue deals) puts the median contract at
+                ~$30,000/yr. Most SMB and mid-market teams used maybe 20% of the
+                platform — the monitoring layer plus a few battlecards. Boards are
+                scrutinizing enterprise SaaS spend in 2026, and $30K/yr for a
+                20%-utilized tool is a hard line-item to defend.
               </li>
               <li>
-                <strong className="text-gray-900">Roadmap focus shift.</strong>{" "}
-                SoftwareOne is a publicly traded enterprise IT services company.
-                Acquisitions in this category typically deprioritize the SMB self-serve
-                motion within 12–18 months. If you&apos;re a 30-person team on the
-                lowest Crayon tier, you&apos;re not the customer they&apos;re building
-                for next.
+                <strong className="text-gray-900">The noise problem.</strong> Klue&apos;s
+                #1 G2 complaint pattern is alert overload — dozens of low-signal
+                notifications per competitor per week. Extracting value requires a
+                dedicated PMM or analyst filtering the firehose. That&apos;s another
+                $80K+/yr in headcount on top of the software, and most SMB teams
+                don&apos;t have it.
               </li>
               <li>
-                <strong className="text-gray-900">The 80/20 problem.</strong> Most
-                SMB Crayon customers used roughly 20% of the platform — pricing-page
-                monitoring, feature tracking, weekly digests. Paying enterprise prices
-                for a fraction of the feature set was already a stretch. The
-                acquisition makes that math worse.
+                <strong className="text-gray-900">Self-serve CI became viable.</strong>{" "}
+                Five new SMB-focused CI tools launched in 2025–2026 (KompWatch,
+                HeadsUp, RivalSense, Parano.ai, Spire21), all with AI summarization,
+                self-serve onboarding, and pricing under $100/mo. The category proved
+                you can get the core monitoring value without the enterprise wrapper.
               </li>
             </ol>
             <p>
-              None of this means Crayon stopped being a good product. It means the
-              alignment between Crayon and the SMB buyer just got noticeably weaker —
-              and that&apos;s why search volume for &quot;Crayon alternative&quot; is
-              up sharply in the last six weeks.
+              None of this means Klue stopped being a good product. It means the
+              alignment between Klue and the sub-100-person team just got noticeably
+              weaker — and that&apos;s why search volume for &quot;Klue alternative&quot;
+              is up sharply this year.
             </p>
           </div>
         </div>
@@ -488,8 +493,8 @@ export default function CrayonAlternativePage() {
                 <div className="mt-6 flex flex-wrap gap-3 text-sm">
                   {alt.rank === 1 ? (
                     <TrackedCTA
-                      href="/signup?utm_source=crayon-alternative&utm_content=card"
-                      event="crayon-alternative-cta-click"
+                      href="/signup?utm_source=klue-alternative&utm_content=card"
+                      event="klue-alternative-cta-click"
                       eventProps={{ position: "card", variant: "primary", rank: String(alt.rank) }}
                       className="inline-flex items-center justify-center rounded-md bg-brand-600 px-4 py-2 font-semibold text-white hover:bg-brand-700"
                     >
@@ -499,7 +504,7 @@ export default function CrayonAlternativePage() {
                   {alt.internalLink && (
                     <TrackedCTA
                       href={alt.internalLink}
-                      event="crayon-alternative-cta-click"
+                      event="klue-alternative-cta-click"
                       eventProps={{
                         position: "card",
                         variant: "compare",
@@ -551,12 +556,13 @@ export default function CrayonAlternativePage() {
             </li>
           </ul>
           <p className="mt-6 text-gray-700">
-            KompWatch ranks #1 because we built it specifically for the post-Crayon-SMB
-            buyer. We&apos;ll happily admit Klue is better for enterprise CI programs,
+            KompWatch ranks #1 because we built it specifically for the sub-Klue-price
+            SMB buyer. We&apos;ll happily admit Klue is better for enterprise CI programs
+            with a dedicated analyst, Crayon offers a comparable enterprise lateral,
             Caelian wins on human curation, and Visualping is fine for hobbyists. The
             right answer depends on your team size and budget — but for the
-            5–200-person SaaS team that bought Crayon for the actual signals,
-            KompWatch is the closest like-for-like at a fraction of the price.
+            5–200-person SaaS team that would pick Klue for the actual monitoring
+            signals, KompWatch is the closest like-for-like at a fraction of the price.
           </p>
         </div>
       </section>
@@ -565,7 +571,7 @@ export default function CrayonAlternativePage() {
       <section className="border-t border-gray-100 bg-brand-600 py-16 text-white">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <h2 className="text-3xl font-bold tracking-tight">
-            Try the #1 Crayon alternative free
+            Try the #1 Klue alternative free
           </h2>
           <p className="mt-4 text-lg text-brand-50">
             Paste your competitor URLs, get your first AI digest within minutes. Free plan
@@ -573,8 +579,8 @@ export default function CrayonAlternativePage() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <TrackedCTA
-              href="/signup?utm_source=crayon-alternative&utm_content=midpage"
-              event="crayon-alternative-cta-click"
+              href="/signup?utm_source=klue-alternative&utm_content=midpage"
+              event="klue-alternative-cta-click"
               eventProps={{ position: "midpage", variant: "primary" }}
               className="inline-flex items-center justify-center rounded-md bg-white px-6 py-3 text-base font-semibold text-brand-700 shadow-sm hover:bg-brand-50"
             >
@@ -582,7 +588,7 @@ export default function CrayonAlternativePage() {
             </TrackedCTA>
             <TrackedCTA
               href="/pricing"
-              event="crayon-alternative-cta-click"
+              event="klue-alternative-cta-click"
               eventProps={{ position: "midpage", variant: "secondary" }}
               className="inline-flex items-center justify-center rounded-md border border-white/40 px-6 py-3 text-base font-semibold text-white hover:bg-white/10"
             >
@@ -593,7 +599,7 @@ export default function CrayonAlternativePage() {
       </section>
 
       {/* FAQ */}
-      <ComparisonFAQ competitor="Crayon" faqs={comparisonFaqs} />
+      <ComparisonFAQ competitor="Klue" faqs={comparisonFaqs} />
 
       {/* Footer nav */}
       <section className="border-t border-gray-100 py-12">
@@ -602,20 +608,20 @@ export default function CrayonAlternativePage() {
             More comparisons
           </h2>
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            <Link href="/vs-crayon" className="text-sm text-brand-700 hover:underline">
-              KompWatch vs Crayon (head-to-head) →
-            </Link>
             <Link href="/vs-klue" className="text-sm text-brand-700 hover:underline">
-              KompWatch vs Klue →
+              KompWatch vs Klue (head-to-head) →
+            </Link>
+            <Link href="/vs-crayon" className="text-sm text-brand-700 hover:underline">
+              KompWatch vs Crayon →
             </Link>
             <Link href="/vs-kompyte" className="text-sm text-brand-700 hover:underline">
               KompWatch vs Kompyte →
             </Link>
-            <Link href="/vs-caelian" className="text-sm text-brand-700 hover:underline">
-              KompWatch vs Caelian →
+            <Link href="/vs/crayon-alternative" className="text-sm text-brand-700 hover:underline">
+              7 best Crayon alternatives →
             </Link>
-            <Link href="/switching-from-crayon" className="text-sm text-brand-700 hover:underline">
-              How to switch from Crayon →
+            <Link href="/switching-from-klue" className="text-sm text-brand-700 hover:underline">
+              How to switch from Klue →
             </Link>
             <Link href="/compare" className="text-sm text-brand-700 hover:underline">
               All KompWatch comparisons →

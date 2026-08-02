@@ -4,6 +4,7 @@ import { TrackedCTA } from "@/components/tracked-cta";
 import { ComparisonFAQ } from "@/components/comparison-faq";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 import { SoftwareApplicationSchema } from "@/components/software-schema";
+import { AlternativesListicleSchema } from "@/components/alternatives-listicle-schema";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -268,6 +269,12 @@ export default function KompyteAlternativePage() {
         ]}
       />
       <SoftwareApplicationSchema />
+      <AlternativesListicleSchema
+        pageUrl={`${siteUrl}/vs/kompyte-alternative`}
+        listName="7 Best Kompyte Alternatives in 2026"
+        alternatives={alternatives}
+        faqs={comparisonFaqs}
+      />
 
       {/* Hero */}
       <section className="border-b border-gray-100 bg-gradient-to-b from-brand-50/40 to-white py-16 sm:py-24">
