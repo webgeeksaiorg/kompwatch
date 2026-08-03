@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
+import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 import { SoftwareApplicationSchema } from "@/components/software-schema";
 
 const siteUrl = "https://kompwatch.com";
@@ -188,9 +189,45 @@ const competitors = [
 ];
 
 export default function ComparePage() {
+  // Map each competitor slug to its canonical live URL. Most /vs-{slug}
+  // routes exist directly on disk; a handful (ravenseer, competely, spyglass,
+  // kompetar) live only under /compare/kompwatch-vs-{slug}. next.config.ts
+  // 301s the /vs-{slug} variant to that hub route, but ItemList JSON-LD
+  // should always point at the final canonical URL to avoid Google seeing a
+  // redirect chain.
+  const HUB_ROUTED_SLUGS = new Set([
+    "ravenseer",
+    "competely",
+    "spyglass",
+    "kompetar",
+  ]);
+  const canonicalPath = (slug: string) =>
+    HUB_ROUTED_SLUGS.has(slug)
+      ? `/compare/kompwatch-vs-${slug}`
+      : `/vs-${slug}`;
+
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "KompWatch competitor comparisons",
+    itemListOrder: "https://schema.org/ItemListOrderDescending",
+    numberOfItems: competitors.length,
+    itemListElement: competitors.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `${siteUrl}${canonicalPath(c.slug)}`,
+      name: `KompWatch vs ${c.name}`,
+    })),
+  };
+
   return (
     <div className="min-h-screen bg-white">
+      <BreadcrumbSchema items={[{ name: "Compare", path: "/compare" }]} />
       <SoftwareApplicationSchema />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+      />
       {/* Nav */}
       <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
