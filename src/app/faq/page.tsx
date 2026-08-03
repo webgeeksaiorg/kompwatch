@@ -110,6 +110,7 @@ const CATEGORY_MAP: Record<string, string> = {
   "trust-and-reviews": "Account & Settings",
   "two-factor-authentication-and-account-security": "Account & Settings",
   "what-happens-if-kompwatch-shuts-down": "Account & Settings",
+  "why-are-my-traffic-analytics-not-showing": "Account & Settings",
 
   "understanding-the-dashboard": "Using KompWatch",
   "understanding-your-digest": "Using KompWatch",
@@ -157,6 +158,7 @@ const CATEGORY_MAP: Record<string, string> = {
   "paid-subscriber-quiet-month": "Using KompWatch",
   "trial-getting-only-minor-changes": "Using KompWatch",
   "when-a-tracked-competitor-gets-acquired-or-shuts-down": "Using KompWatch",
+  "shareable-report-link": "Using KompWatch",
 
   "competitor-pricing-tier-restructure": "Advanced Monitoring",
   "monitoring-javascript-spa-sites": "Advanced Monitoring",
@@ -304,8 +306,10 @@ const CATEGORY_MAP: Record<string, string> = {
   "switching-from-rivalsense": "Switching to KompWatch",
   "switching-from-seeto": "Switching to KompWatch",
   "switching-from-spire21": "Switching to KompWatch",
+  "switching-from-spyglass": "Switching to KompWatch",
   "switching-from-tona": "Switching to KompWatch",
   "switching-from-visualping": "Switching to KompWatch",
+  "spyglass-vs-kompwatch": "Switching to KompWatch",
   "true-cost-of-enterprise-ci-tools": "Switching to KompWatch",
   "what-happens-to-my-data-when-i-cancel-klue": "Switching to KompWatch",
   "when-to-switch-ci-tools": "Switching to KompWatch",
@@ -332,6 +336,12 @@ const CATEGORY_MAP: Record<string, string> = {
   "using-kompwatch-for-marketing-agencies": "Using CI Strategically",
   "who-should-own-competitive-monitoring": "Using CI Strategically",
   "win-loss-analysis-with-competitor-monitoring": "Using CI Strategically",
+  "ci-process-no-budget": "Using CI Strategically",
+  "competitor-pricing-change-found-out-mid-demo": "Using CI Strategically",
+  "five-competitor-changes-that-cost-deals": "Using CI Strategically",
+  "how-to-justify-kompwatch-to-your-manager": "Using CI Strategically",
+  "how-to-keep-battlecards-up-to-date": "Using CI Strategically",
+  "how-to-share-ci-with-sales-team": "Using CI Strategically",
 };
 
 const CATEGORY_ORDER = [
