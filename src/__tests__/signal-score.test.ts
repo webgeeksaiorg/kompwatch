@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import {
   computeSignalScore,
   signalLabel,
+  confidenceLabel,
   SIGNAL_THRESHOLDS,
 } from "@/lib/signal-score";
 
@@ -157,5 +158,62 @@ describe("SIGNAL_THRESHOLDS", () => {
       batchSize: 2,
     });
     expect(score).toBeGreaterThanOrEqual(SIGNAL_THRESHOLDS.INSTANT_ALERT);
+  });
+});
+
+describe("confidenceLabel (ticket 36f)", () => {
+  it("returns null for near-certain confidence (>=0.95)", () => {
+    expect(confidenceLabel(0.95)).toBeNull();
+    expect(confidenceLabel(0.98)).toBeNull();
+    expect(confidenceLabel(1.0)).toBeNull();
+  });
+
+  it("returns 'high' tone for scores 0.80–0.94", () => {
+    const label = confidenceLabel(0.82);
+    expect(label).not.toBeNull();
+    expect(label?.tone).toBe("high");
+    expect(label?.percent).toBe(82);
+    expect(label?.text).toBe("AI 82%");
+    expect(label?.className).toContain("emerald");
+  });
+
+  it("returns 'medium' tone for scores 0.60–0.79", () => {
+    const label = confidenceLabel(0.7);
+    expect(label?.tone).toBe("medium");
+    expect(label?.percent).toBe(70);
+    expect(label?.text).toBe("AI 70%");
+    expect(label?.className).toContain("amber");
+  });
+
+  it("returns 'low' tone for scores below 0.60", () => {
+    const label = confidenceLabel(0.4);
+    expect(label?.tone).toBe("low");
+    expect(label?.percent).toBe(40);
+    expect(label?.text).toBe("AI 40%");
+    expect(label?.className).toContain("gray");
+  });
+
+  it("clamps out-of-range scores and renders as percent", () => {
+    // 1.2 is clamped upward but silent (>=0.95)
+    expect(confidenceLabel(1.2)).toBeNull();
+    // Negative confidence: shouldn't crash — treat as low
+    const neg = confidenceLabel(-0.1);
+    expect(neg?.tone).toBe("low");
+    expect(neg?.percent).toBe(0);
+  });
+
+  it("returns null for non-numeric/NaN inputs", () => {
+    expect(confidenceLabel(Number.NaN)).toBeNull();
+    // @ts-expect-error runtime safety: undefined shouldn't crash
+    expect(confidenceLabel(undefined)).toBeNull();
+  });
+
+  it("boundary transitions: exactly 0.6, 0.8, 0.95", () => {
+    expect(confidenceLabel(0.6)?.tone).toBe("medium");
+    expect(confidenceLabel(0.8)?.tone).toBe("high");
+    expect(confidenceLabel(0.95)).toBeNull();
+    expect(confidenceLabel(0.5999)?.tone).toBe("low");
+    expect(confidenceLabel(0.7999)?.tone).toBe("medium");
+    expect(confidenceLabel(0.9499)?.tone).toBe("high");
   });
 });

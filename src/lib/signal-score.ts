@@ -110,3 +110,47 @@ export function signalLabel(score: number): { text: string; className: string } 
   if (score >= 0.4) return { text: "Weak", className: "text-amber-700 bg-amber-50 border-amber-200" };
   return { text: "Noise", className: "text-gray-500 bg-gray-50 border-gray-200" };
 }
+
+/**
+ * Ticket 36f: surface raw AI confidence per detected change (0.0–1.0)
+ * so users can gauge model certainty independent of the composite signal score.
+ *
+ * Returns null for high-confidence changes (≥95%) — no badge is more informative
+ * than "AI 97%" for the common case. Only surface when the AI has meaningful
+ * uncertainty, so the badge itself signals "double-check this one."
+ *
+ * Ranges (tuned to match the confidence distribution produced by ai.ts):
+ *   ≥0.95 → null              (silent, high confidence is the default expectation)
+ *   ≥0.80 → "AI XX%" (green)  ("high confidence" — trust with light review)
+ *   ≥0.60 → "AI XX%" (amber)  ("medium confidence" — worth verifying)
+ *   <0.60 → "AI XX%" (gray)   ("low confidence" — likely noise, may be filtered)
+ */
+export function confidenceLabel(
+  score: number
+): { text: string; percent: number; className: string; tone: "high" | "medium" | "low" } | null {
+  if (typeof score !== "number" || Number.isNaN(score)) return null;
+  if (score >= 0.95) return null;
+  const percent = Math.round(Math.max(0, Math.min(1, score)) * 100);
+  if (score >= 0.8) {
+    return {
+      text: `AI ${percent}%`,
+      percent,
+      className: "text-emerald-700 bg-emerald-50 border-emerald-200",
+      tone: "high",
+    };
+  }
+  if (score >= 0.6) {
+    return {
+      text: `AI ${percent}%`,
+      percent,
+      className: "text-amber-700 bg-amber-50 border-amber-200",
+      tone: "medium",
+    };
+  }
+  return {
+    text: `AI ${percent}%`,
+    percent,
+    className: "text-gray-500 bg-gray-50 border-gray-200",
+    tone: "low",
+  };
+}
