@@ -119,11 +119,132 @@ function ItemListSchema() {
   );
 }
 
+/**
+ * Vendor-agnostic 4-step migration flow rendered in the "What switching
+ * actually looks like" section. Each entry MUST mirror the visible on-page
+ * copy — Google requires HowTo schema text to match what the user sees.
+ * Update both this constant and the visible <ol> together.
+ */
+const hubHowToSteps: { name: string; text: string }[] = [
+  {
+    name: "Export your competitor list",
+    text: "Copy the list of competitor URLs you monitor in Crayon, Klue, Kompyte, or Semrush. That's the only thing you need to migrate — KompWatch doesn't need historical data.",
+  },
+  {
+    name: "Start free at KompWatch",
+    text: "Sign up with magic-link email. Paste up to 2 competitor URLs on the free tier or start Pro ($49/mo) for 10 competitors. No credit card required for free.",
+  },
+  {
+    name: "Run KompWatch alongside your current tool",
+    text: "For 2–4 weeks, run both. Compare the digests. See which surfaces the changes your team actually cares about. Then cancel the tool that loses.",
+  },
+  {
+    name: "Cancel and pocket the savings",
+    text: "Switching from a $30K/yr enterprise contract to a $588/yr Pro subscription is a 98% cost cut. That number is your justification when the finance team asks.",
+  },
+];
+
+// HowTo JSON-LD for /switch hub — mirrors the 4-step "What switching
+// actually looks like" section so Google may render a How-to rich result.
+function SwitchHubHowToSchema() {
+  const pageUrl = `${siteUrl}/switch`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How to switch to KompWatch from Crayon, Klue, Kompyte, or Semrush",
+    description:
+      "A 4-step, vendor-agnostic migration plan to move from an enterprise competitive-intelligence tool to KompWatch. Total time budget: 2–4 weeks (parallel run) with a 5-minute technical setup on day one.",
+    totalTime: "P4W",
+    url: pageUrl,
+    step: hubHowToSteps.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.name,
+      text: s.text,
+      url: `${pageUrl}#step-${i + 1}`,
+    })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
+/**
+ * Hub-level FAQs rendered visibly in the FAQ section AND emitted as
+ * FAQPage JSON-LD. Vendor-agnostic (competitor-specific FAQs live on the
+ * individual /switch/{competitor} pages via <ComparisonFAQ />).
+ *
+ * IMPORTANT: Google FAQPage rich results require the schema question/answer
+ * text to match what the user sees on the page. Update both the const and
+ * the rendered <dl> together.
+ */
+const hubFaqs: { question: string; answer: string }[] = [
+  {
+    question: "How long does it actually take to switch to KompWatch?",
+    answer:
+      "The technical setup is under 5 minutes — sign up with a magic link, paste your competitor URLs, and your first snapshot runs immediately. The full decision cycle (running KompWatch in parallel with your current tool to compare digests) typically takes 2 to 4 weeks. There is no import step and no historical data to migrate.",
+  },
+  {
+    question: "Do I have to migrate historical data from Crayon, Klue, Kompyte, or Semrush?",
+    answer:
+      "No. KompWatch starts fresh from the first snapshot it takes of each competitor URL. The only thing you need to move is your list of competitor URLs. Any battlecards, notes, or historical change logs stored in your previous tool can be exported separately and kept as an archive if needed for compliance.",
+  },
+  {
+    question: "Can I run KompWatch alongside my existing CI tool before I cancel?",
+    answer:
+      "Yes, and we recommend it. Start on the free tier (2 competitors, weekly digest, no credit card) or Pro ($49/mo, 10 competitors, daily digest) and run for 2 to 4 weeks in parallel. Compare digests side by side, then cancel whichever tool surfaces less signal for your team.",
+  },
+  {
+    question: "How much will I save by switching?",
+    answer:
+      "Crayon contracts typically run $5,000–$80,000/yr, Klue runs $12,000–$100,000/yr, and Kompyte starts at roughly $10,000/yr. KompWatch Pro is $588/yr ($49/mo). Most teams switching from a mid-market enterprise CI contract cut their annual spend by 90–98%.",
+  },
+  {
+    question: "Is KompWatch owned by Adobe, Semrush, or a private-equity roll-up?",
+    answer:
+      "No. KompWatch is an independent product. Roadmap decisions are made by the people who ship the product — not a parent company optimizing for suite bundling or seat-based enterprise pricing.",
+  },
+  {
+    question: "What if my team needs battlecards or win/loss tracking that Klue provides?",
+    answer:
+      "KompWatch is optimized for detecting and summarizing what changed on a competitor's site — pricing, features, positioning, messaging. If your primary use case is sales-enablement battlecards or structured win/loss analysis, Klue or Crayon may be a better fit. Many teams use KompWatch for change detection and pair it with a lightweight internal doc for battlecards.",
+  },
+];
+
+// FAQPage JSON-LD for /switch hub — mirrors the visible FAQ section.
+function SwitchHubFAQSchema() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: hubFaqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
 export default function SwitchHubPage() {
   return (
     <div className="min-h-screen bg-white">
       <BreadcrumbSchema items={[{ name: "Switch", path: "/switch" }]} />
       <ItemListSchema />
+      <SwitchHubHowToSchema />
+      <SwitchHubFAQSchema />
 
       {/* Nav */}
       <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur">
@@ -262,63 +383,48 @@ export default function SwitchHubPage() {
         </div>
       </section>
 
-      {/* Migration mechanics */}
+      {/* Migration mechanics — renders from hubHowToSteps so FAQ/HowTo schema
+          stays in sync with the visible copy (single source of truth). */}
       <section className="py-20">
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="text-2xl font-bold tracking-tight text-gray-900">
             What switching actually looks like
           </h2>
           <ol className="mt-8 space-y-6 text-gray-700">
-            <li className="flex gap-4">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-100 text-sm font-semibold text-brand-700">
-                1
-              </span>
-              <div>
-                <h3 className="font-semibold text-gray-900">Export your competitor list</h3>
-                <p className="mt-1 text-sm">
-                  Copy the list of competitor URLs you monitor in Crayon, Klue, Kompyte, or Semrush.
-                  That&apos;s the only thing you need to migrate — KompWatch doesn&apos;t need historical
-                  data.
-                </p>
-              </div>
-            </li>
-            <li className="flex gap-4">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-100 text-sm font-semibold text-brand-700">
-                2
-              </span>
-              <div>
-                <h3 className="font-semibold text-gray-900">Start free at KompWatch</h3>
-                <p className="mt-1 text-sm">
-                  Sign up with magic-link email. Paste up to 2 competitor URLs on the free tier or start
-                  Pro ($49/mo) for 10 competitors. No credit card required for free.
-                </p>
-              </div>
-            </li>
-            <li className="flex gap-4">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-100 text-sm font-semibold text-brand-700">
-                3
-              </span>
-              <div>
-                <h3 className="font-semibold text-gray-900">Run KompWatch alongside your current tool</h3>
-                <p className="mt-1 text-sm">
-                  For 2–4 weeks, run both. Compare the digests. See which surfaces the changes your team
-                  actually cares about. Then cancel the tool that loses.
-                </p>
-              </div>
-            </li>
-            <li className="flex gap-4">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-100 text-sm font-semibold text-brand-700">
-                4
-              </span>
-              <div>
-                <h3 className="font-semibold text-gray-900">Cancel and pocket the savings</h3>
-                <p className="mt-1 text-sm">
-                  Switching from a $30K/yr enterprise contract to a $588/yr Pro subscription is a
-                  98% cost cut. That number is your justification when the finance team asks.
-                </p>
-              </div>
-            </li>
+            {hubHowToSteps.map((step, i) => (
+              <li key={step.name} id={`step-${i + 1}`} className="flex gap-4">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-100 text-sm font-semibold text-brand-700">
+                  {i + 1}
+                </span>
+                <div>
+                  <h3 className="font-semibold text-gray-900">{step.name}</h3>
+                  <p className="mt-1 text-sm">{step.text}</p>
+                </div>
+              </li>
+            ))}
           </ol>
+        </div>
+      </section>
+
+      {/* FAQ — vendor-agnostic hub questions. Emits FAQPage JSON-LD via
+          SwitchHubFAQSchema (mounted above). Update hubFaqs to change both. */}
+      <section id="faq" className="border-t border-gray-100 bg-white py-20">
+        <div className="mx-auto max-w-4xl px-6">
+          <h2 className="text-center text-2xl font-bold tracking-tight text-gray-900">
+            Switching to KompWatch — FAQ
+          </h2>
+          <dl className="mt-10 space-y-8">
+            {hubFaqs.map((faq) => (
+              <div key={faq.question}>
+                <dt className="text-base font-semibold text-gray-900">
+                  {faq.question}
+                </dt>
+                <dd className="mt-2 text-sm leading-relaxed text-gray-600">
+                  {faq.answer}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
