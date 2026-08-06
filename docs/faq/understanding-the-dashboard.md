@@ -93,6 +93,8 @@ Click on any competitor's name to open the **Competitor Detail Page** (`/competi
 - **Snapshot and change counts** — total number of snapshots taken and changes detected
 - **Tracking flags** — which signal types are enabled: Pricing, Features, Blog, Jobs, Tech
 - **Full change history** — a timeline of all detected changes (up to 50 most recent), with severity, type, AI summary, **Why this matters** strategic context, and a link to the specific page that changed
+- **Signal badge** — a composite quality score (Strong / Moderate / Weak) that combines AI confidence, severity, change type reliability, and content zone importance. See [What Is the Signal Score?](./signal-score.md) for details.
+- **AI confidence badge** — a small colored **AI XX%** badge that appears next to the Signal badge when the AI expressed meaningful uncertainty about a change (below 95% confidence). Green = high confidence (80–94%), amber = moderate (60–79%), gray = lower confidence (<60%). No badge means the AI is highly confident (≥95%) — silence is the default for well-established changes. See [What Is the "AI XX%" Badge on a Change?](./what-is-the-ai-percentage-badge.md).
 - **"Tracking since" date** — when you started monitoring this competitor
 
 Use the detail page to quickly audit a competitor's history before a sales call, board meeting, or competitive review.
