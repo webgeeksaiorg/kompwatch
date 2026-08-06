@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
 import { SoftwareApplicationSchema } from "@/components/software-schema";
+import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -187,10 +188,115 @@ const competitors = [
   },
 ];
 
+/**
+ * ItemList JSON-LD for /compare hub — surfaces the comparison directory in
+ * SERP as a rich-result list. Mirrors the visible grid one-to-one so Google
+ * doesn't flag schema/DOM drift (which nukes the rich result).
+ *
+ * Follows the pattern established on /switch hub (ticket 6b63) and the
+ * AlternativesListicleSchema used on /vs/*-alternative pages.
+ */
+function CompareHubItemListSchema() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "KompWatch Alternatives & Comparisons",
+    description:
+      "Side-by-side comparisons of KompWatch against competitive intelligence tools.",
+    url: `${siteUrl}/compare`,
+    numberOfItems: competitors.length,
+    itemListElement: competitors.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: `KompWatch vs ${c.name}`,
+      url: `${siteUrl}/vs-${c.slug}`,
+      description: c.differentiator,
+    })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
+/**
+ * Hub-level FAQs rendered visibly in the new FAQ section AND emitted as
+ * FAQPage JSON-LD. Vendor-agnostic — vendor-specific FAQs live on the
+ * individual /vs-{slug} and /compare/kompwatch-vs-{slug} pages.
+ *
+ * IMPORTANT: Google FAQPage rich results require the schema question/answer
+ * text to match what the user sees on the page. Update both the const and
+ * the rendered <dl> together.
+ */
+const compareFaqs: { question: string; answer: string }[] = [
+  {
+    question: "How do I pick the right competitive intelligence tool?",
+    answer:
+      "Start by classifying your need. If you want battlecards and sales enablement, look at Klue or Crayon (enterprise contracts, $12K-$100K/yr). If you want lightweight website change monitoring for a product or marketing team, look at KompWatch, Visualping, or Changeflow (self-serve, $4-$49/mo). If you only care about press mentions, Google Alerts is free. Most SMB and mid-market teams end up on a self-serve tool because the enterprise CI platforms require a 6-8 week sales cycle and a $15K minimum commitment.",
+  },
+  {
+    question: "Why is KompWatch cheaper than Crayon, Klue, or Kompyte?",
+    answer:
+      "Those three are enterprise platforms sold via sales-led motions with dedicated CSMs, battlecard authoring workflows, and win/loss analysis modules. KompWatch is a focused, self-serve website change monitor \u2014 headless browser snapshots plus Claude-powered AI digests. We skip the sales team, the CSM, and the extra modules, and pass the savings on. Pro is $49/mo for 10 competitors with daily digests.",
+  },
+  {
+    question: "Do I need to book a demo to try KompWatch?",
+    answer:
+      "No. KompWatch is fully self-serve. Sign up with magic-link email, paste up to 2 competitor URLs on the free tier, and your first snapshot runs within minutes. No credit card required for free. Upgrade to Pro ($49/mo) when you need more competitors or daily digests.",
+  },
+  {
+    question: "Can I run KompWatch alongside my current CI tool?",
+    answer:
+      "Yes, and we recommend it for teams evaluating a switch. Run both for 2-4 weeks, compare the digests side by side, and see which surfaces the changes your team actually cares about. Then cancel whichever loses. Because KompWatch has a free tier and no annual contract, running in parallel costs nothing (free tier) or $49/mo (Pro).",
+  },
+  {
+    question: "What kinds of competitor changes does KompWatch detect?",
+    answer:
+      "KompWatch monitors the full competitor website: pricing page edits, feature launches, homepage messaging shifts, blog posts, and job listings. Each detected change is classified by type (CONTENT / VISUAL / PRICING / FEATURE) and severity (LOW / MEDIUM / HIGH), then summarized by Claude in the daily digest email so you don't have to read every diff yourself.",
+  },
+  {
+    question: "How is KompWatch different from Visualping or Changeflow?",
+    answer:
+      "Visualping and Changeflow show pixel diffs or raw HTML diffs \u2014 useful, but you still have to interpret every change yourself. KompWatch uses Claude to explain what changed and why it matters, adds severity classification, supports CSS selectors so you can target the pricing table or feature list specifically, and renders JavaScript-heavy sites (React, Vue, Next.js) via headless Playwright. Pricing is comparable at $49/mo Pro.",
+  },
+];
+
+/**
+ * FAQPage JSON-LD for /compare hub — mirrors the visible FAQ section below.
+ * Update compareFaqs to change both the schema and the rendered <dl> in one edit.
+ */
+function CompareHubFAQSchema() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: compareFaqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
 export default function ComparePage() {
   return (
     <div className="min-h-screen bg-white">
       <SoftwareApplicationSchema />
+      <BreadcrumbSchema items={[{ name: "Compare", path: "/compare" }]} />
+      <CompareHubItemListSchema />
+      <CompareHubFAQSchema />
       {/* Nav */}
       <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
@@ -294,6 +400,28 @@ export default function ComparePage() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* FAQ — vendor-agnostic hub questions. Emits FAQPage JSON-LD via
+          CompareHubFAQSchema (mounted above). Update compareFaqs to change both. */}
+      <section id="faq" className="border-t border-gray-100 bg-white py-20">
+        <div className="mx-auto max-w-4xl px-6">
+          <h2 className="text-center text-2xl font-bold tracking-tight text-gray-900">
+            KompWatch alternatives — FAQ
+          </h2>
+          <dl className="mt-10 space-y-8">
+            {compareFaqs.map((faq) => (
+              <div key={faq.question}>
+                <dt className="text-base font-semibold text-gray-900">
+                  {faq.question}
+                </dt>
+                <dd className="mt-2 text-sm leading-relaxed text-gray-600">
+                  {faq.answer}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
