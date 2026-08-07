@@ -3,6 +3,7 @@ import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
 import { ComparisonFAQ } from "@/components/comparison-faq";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
+import { SwitchHowToSchema } from "@/components/switch-howto-schema";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -100,6 +101,24 @@ export default function SwitchCrayonPage() {
   return (
     <div className="bg-white">
       <BreadcrumbSchema items={[{ name: "Switch from Crayon", path: "/switch/crayon" }]} />
+      <SwitchHowToSchema
+        competitor="Crayon"
+        pageSlug="crayon"
+        steps={[
+          {
+            name: "Sign up free (30 seconds)",
+            text: "No credit card, no sales call. Your free plan includes 2 competitors — enough to run KompWatch alongside Crayon during evaluation.",
+          },
+          {
+            name: "Add your competitor URLs with CSS selectors",
+            text: "Copy the URLs you monitored in Crayon. Set a CSS selector per page to track only the sections that matter — pricing tables, feature lists, changelogs. This is what eliminates Crayon's noise problem.",
+          },
+          {
+            name: "Get AI digests — cancel Crayon when ready",
+            text: "Claude-powered summaries arrive via email or Slack. Compare digest quality side-by-side with Crayon for 30 days, then cancel before your next renewal.",
+          },
+        ]}
+      />
 
       {/* Nav */}
       <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-sm">

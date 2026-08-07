@@ -537,3 +537,112 @@ describe("severity-based upgrade nudge (ticket f73e)", () => {
   });
 });
 
+
+describe("AI confidence badge in digest (ticket 36f)", () => {
+  it("HTML digest surfaces AI confidence badge for medium-confidence changes", () => {
+    const groups: DigestCompetitorGroup[] = [
+      {
+        competitor: { name: "Acme", url: "https://acme.com" },
+        changes: [
+          {
+            changeType: "FEATURE",
+            contentZone: "PRODUCT",
+            summary: "New feature spotted",
+            details: null,
+            severity: "MEDIUM",
+            signalScore: 0.7,
+            confidenceScore: 0.75, // medium → shows "AI 75%"
+            createdAt: new Date(),
+          },
+        ],
+      },
+    ];
+    const html = renderDigestHtml(testUser, groups, "DAILY");
+    expect(html).toContain("AI 75%");
+    expect(html).toContain('title="AI confidence"');
+  });
+
+  it("HTML digest omits AI badge for high-confidence changes (>=95%)", () => {
+    const groups: DigestCompetitorGroup[] = [
+      {
+        competitor: { name: "Acme", url: "https://acme.com" },
+        changes: [
+          {
+            changeType: "PRICING",
+            contentZone: "MONETIZATION",
+            summary: "Price change",
+            details: null,
+            severity: "HIGH",
+            signalScore: 0.9,
+            confidenceScore: 0.98, // silent
+            createdAt: new Date(),
+          },
+        ],
+      },
+    ];
+    const html = renderDigestHtml(testUser, groups, "DAILY");
+    expect(html).not.toContain('title="AI confidence"');
+    // "AI XX%" strings should not appear
+    expect(html).not.toMatch(/AI \d+%/);
+  });
+
+  it("HTML digest omits AI badge when confidenceScore is undefined (legacy caller)", () => {
+    const groups: DigestCompetitorGroup[] = [
+      {
+        competitor: { name: "Acme", url: "https://acme.com" },
+        changes: [
+          {
+            changeType: "BLOG",
+            contentZone: "MARKETING",
+            summary: "Post",
+            details: null,
+            severity: "LOW",
+            signalScore: 0.5,
+            createdAt: new Date(),
+            // confidenceScore intentionally omitted
+          },
+        ],
+      },
+    ];
+    const html = renderDigestHtml(testUser, groups, "DAILY");
+    expect(html).not.toContain('title="AI confidence"');
+    expect(html).not.toMatch(/AI \d+%/);
+  });
+
+  it("plain-text digest includes [AI XX%] tag for low-confidence changes", () => {
+    const groups: DigestCompetitorGroup[] = [
+      {
+        competitor: { name: "Acme", url: "https://acme.com" },
+        changes: [
+          {
+            changeType: "GENERAL",
+            contentZone: "UNKNOWN",
+            summary: "Copy tweak",
+            details: null,
+            severity: "LOW",
+            signalScore: 0.3,
+            confidenceScore: 0.45, // low tone
+            createdAt: new Date(),
+          },
+        ],
+      },
+    ];
+    const text = renderDigestText(testUser, groups, "DAILY");
+    expect(text).toContain("[AI 45%]");
+  });
+
+  it("welcome digest demo data exercises the AI confidence badge", () => {
+    const digest = buildWelcomeDigest({ name: "Alice", email: "alice@example.com" });
+    // The medium-confidence demo row (0.82) and low-confidence row (0.7) should render.
+    expect(digest.html).toContain("AI 82%");
+    expect(digest.html).toContain("AI 70%");
+    // The 0.98 high-confidence row should remain silent.
+    expect(digest.html).not.toContain("AI 98%");
+  });
+
+  it("groupChangesByCompetitor propagates confidenceScore", () => {
+    const changes = [makeChange({ confidenceScore: 0.72 })];
+    const groups = groupChangesByCompetitor(changes);
+    expect(groups[0].changes[0].confidenceScore).toBe(0.72);
+  });
+});

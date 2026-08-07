@@ -3,6 +3,7 @@ import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
 import { ComparisonFAQ } from "@/components/comparison-faq";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
+import { SwitchHowToSchema } from "@/components/switch-howto-schema";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -100,6 +101,24 @@ export default function SwitchKompytePage() {
   return (
     <div className="bg-white">
       <BreadcrumbSchema items={[{ name: "Switch from Kompyte", path: "/switch/kompyte" }]} />
+      <SwitchHowToSchema
+        competitor="Kompyte"
+        pageSlug="kompyte"
+        steps={[
+          {
+            name: "Sign up free (30 seconds)",
+            text: "No credit card, no sales call. Your free plan includes 2 competitors — enough to run KompWatch alongside Kompyte during evaluation.",
+          },
+          {
+            name: "Add your competitor URLs with CSS selectors",
+            text: "Copy the URLs you monitored in Kompyte. Set a CSS selector per page to track only the sections that matter — pricing tables, feature lists, changelogs. CSS selectors are what Kompyte lacks and what G2 reviewers cite as a noise problem.",
+          },
+          {
+            name: "Get AI digests — cancel Kompyte when ready",
+            text: "Claude-powered summaries arrive via email or Slack — something Kompyte doesn't offer. Compare quality side-by-side for 30 days, then cancel before your next renewal.",
+          },
+        ]}
+      />
 
       {/* Nav */}
       <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-sm">

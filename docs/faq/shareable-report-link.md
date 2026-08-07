@@ -1,80 +1,79 @@
-# How to Share a Competitor Intelligence Report With Stakeholders
+# Shareable Report Links — `/report/[token]`
 
-**Short answer:** In your KompWatch dashboard, go to **Reports → ROI Report** and click **Share**. KompWatch generates a private, tokenized link you can send to anyone — no login required.
+## What Is a Shareable Report Link?
 
----
+KompWatch lets you generate a **private, tokenized link** to your competitor intelligence report. You can send this link to stakeholders — your CEO, investors, sales team, or board — so they can read your AI-generated competitive summary without needing a KompWatch account.
 
-## What Is a Shareable Report?
-
-A shareable report is a read-only, publicly accessible snapshot of your KompWatch ROI report for a chosen time period (7 days, 30 days, 90 days, last month, or this month). It includes:
-
-- AI-summarized competitor changes detected during the period
-- Pricing, feature, and content change breakdowns by severity
-- The tracked competitors and change counts
-
-The link is **private-by-design** — it's a long, unguessable token URL. It does not appear in search engines (noindex), so only people you share it with can see it.
+The link looks like: `https://kompwatch.com/report/eyJ...` (a JWT-style token in the URL).
 
 ---
 
-## How to Generate a Shareable Link
+## How Do I Generate a Share Link?
 
-1. Open the KompWatch dashboard
-2. Navigate to **Reports → ROI Report**
-3. Select your desired time period from the dropdown (7d, 30d, 90d, etc.)
-4. Click the **Share** button
-5. Copy the generated link
+1. Go to **Reports → ROI / Stakeholder Report** in your dashboard.
+2. Click the **"Share report"** button in the top right.
+3. The link is instantly copied to your clipboard.
+4. Paste it anywhere — Slack, email, Notion, a weekly update doc.
 
-The link format is:
-```
-https://kompwatch.com/report/<token>
-```
+The link is generated instantly. No waiting, no email required.
 
 ---
 
-## Who Can See the Report?
+## Does the Recipient Need a KompWatch Account?
 
-Anyone with the link. No login is required. The report is view-only — recipients cannot make changes to your account or competitors.
-
----
-
-## Is It Secure?
-
-Yes. The token is cryptographically signed and encodes your user ID and the selected period. It cannot be guessed by brute force. The URL is also marked `noindex` so it won't be crawled by search engines.
-
-That said, treat the link like a **password** — don't post it in public Slack channels or social media if your competitive intelligence is sensitive.
+**No.** The report page is fully public — anyone with the link can view it. There's no login wall or account required for viewers.
 
 ---
 
-## Does the Report Expire?
+## What Time Period Does the Report Cover?
 
-Currently, share links do not have a built-in expiry date. If you need to revoke access, contact support and we can invalidate your token.
-
----
-
-## Can I Share Different Time Periods?
-
-Yes — each time period generates a different link. You can share a 7-day link for a weekly sales meeting and a 30-day link for a monthly exec review.
+The default shared report covers the **last 30 days** of competitor changes. You can also generate links for 7-day or 90-day windows from the report controls.
 
 ---
 
-## What Does the Report Show Viewers?
+## Is the Report Indexed by Search Engines?
 
-Viewers see the same AI-generated stakeholder report you see, including:
-- Change summary by competitor
-- Severity breakdown (LOW / MEDIUM / HIGH)
-- Change types (pricing, features, content)
-- A "Start monitoring" CTA to sign up for KompWatch
-
-It does **not** expose raw HTML diffs or your internal notes.
+**No.** Shared report pages are tagged `noindex, nofollow, nocache` and excluded from Google and all other search engines. Your competitive intelligence won't show up in search results.
 
 ---
 
-## Which Plans Support Shareable Reports?
+## Will the Link Unfurl in Slack or Email?
 
-Shareable reports are available on **Pro and Team plans**. Free-tier users can view the ROI report in-dashboard but cannot generate a shareable link.
+Yes. When you paste a share link into Slack, Teams, or most email clients, it will show a **branded KompWatch preview card** — the report title, period, and a short description. This makes it clear what the recipient is clicking before they open it.
 
 ---
 
-## Still Have Questions?
+## How Long Is the Link Valid?
 
-Email **support@kompwatch.com** or use the in-app chat. A team member will follow up within 24 hours.
+Share links are cryptographically signed tokens. They do not currently expire automatically. If you want to revoke access to a shared report, contact support and we can invalidate the token.
+
+---
+
+## Can I Share the Link Externally (e.g., with prospects)?
+
+You can — but keep in mind the report contains your real competitive intelligence data. We recommend sharing only with trusted internal stakeholders or partners. Do not post share links publicly.
+
+---
+
+## What Does the Recipient See?
+
+The recipient sees:
+- An AI-generated summary of competitor changes for the selected period (pricing, features, content, severity)
+- A "Powered by KompWatch" footer with a call-to-action to start monitoring their own competitors
+- No access to your account, settings, billing, or other reports
+
+---
+
+## I Got a Link From a Colleague — What Is This?
+
+Someone on your team uses KompWatch to monitor competitor websites. They shared this report with you so you can see what's changed across your competitive landscape. The report was auto-generated by AI from real competitor website data.
+
+If you'd like to set up monitoring for your own competitors, click **"Get a free competitor snapshot"** at the bottom of the report.
+
+---
+
+## Related
+
+- [How to Share Competitive Intelligence With Your Sales Team](how-to-share-ci-with-sales-team.md)
+- [ROI Report](roi-report.md)
+- [What Does KompWatch Track?](what-does-kompwatch-track.md)

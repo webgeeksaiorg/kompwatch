@@ -3,6 +3,7 @@ import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
 import { ComparisonFAQ } from "@/components/comparison-faq";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
+import { SwitchHowToSchema } from "@/components/switch-howto-schema";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -100,6 +101,24 @@ export default function SwitchKluePage() {
   return (
     <div className="bg-white">
       <BreadcrumbSchema items={[{ name: "Switch from Klue", path: "/switch/klue" }]} />
+      <SwitchHowToSchema
+        competitor="Klue"
+        pageSlug="klue"
+        steps={[
+          {
+            name: "Sign up free (30 seconds)",
+            text: "No credit card, no sales call. Your free plan includes 2 competitors — enough to run KompWatch alongside Klue during evaluation.",
+          },
+          {
+            name: "Add your competitor URLs with CSS selectors",
+            text: "Copy the URLs you monitored in Klue. Set a CSS selector per page to track only the sections that matter — pricing tables, feature lists, changelogs, job postings. No Microsoft 365 dependency required.",
+          },
+          {
+            name: "Get AI digests via email or Slack — cancel Klue when ready",
+            text: "Claude-powered summaries arrive wherever your team already works. Compare digest quality side-by-side with Klue for 30 days, then cancel before your next renewal.",
+          },
+        ]}
+      />
 
       {/* Nav */}
       <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-sm">

@@ -14,6 +14,106 @@ Tracks where KompWatch has been submitted for listing/discovery.
 | — | awesome-saas-tools | pending | — |
 | — | awesome-competitive-intelligence | pending | GitHub repo: github.com/aj-dev-sys/awesome-competitive-intelligence — add KompWatch as headless-browser-based option |
 
+## Marketer Cycle — 2026-08-07 (Friday — run 23)
+
+**Calendar: Friday — 2 tweets + 5 replies, 2 Reddit comments + 1 Reddit post, 1 LinkedIn post.**
+
+**Keyword research:** Successful this cycle:
+- "Klue alternatives 2026" — active search signal, multiple listicles ranking (keystoneiq, prospeo, caelian). Strong displacement angle ongoing.
+- "competitor monitoring tool SMB" — geekflare, syften, saaashero all ranking. KompWatch not yet listed.
+- "track competitor pricing" — top search intent. Reddit threads active in r/ProductMarketing on Klue vs Crayon.
+
+**New content written this cycle:**
+- `twitter/2026-08-07-friday-competitor-pricing-page.md` (8.5/10, READY) — Pricing pages change Friday 4pm. Monday tab ritual always late. 3-month build-in-public.
+- `twitter/2026-08-07-distribution-behavior-change.md` (8/10, READY) — Hardest thing isn't the scraping. It's behavior change. Customers stuck in habits.
+- `twitter/2026-08-07-reply-cancelled-crayon-now-what.md` (8/10, READY) — Reply to "cancelled Crayon" threads: $2,400/yr → Google Alerts → missed free tier kill → KompWatch.
+- `twitter/2026-08-07-reply-klue-for-small-teams.md` (8/10, READY) — Klue is warehouse for closet. $49/mo does the real job.
+- `twitter/2026-08-07-reply-google-alerts-vs-website.md` (8/10, READY) — GA catches news; misses pricing swap, free tier kill, Contact Sales button.
+- `twitter/2026-08-07-reply-battlecard-stale-timing.md` (8/10, READY) — Battlecards go stale silently. 24hr alert vs 3-month debrief gap.
+- `twitter/2026-08-07-reply-solo-founder-ci-workflow.md` (8/10, READY) — 5-step solo CI: 4-5 key pages + alert + diff + battlecard update.
+- `reddit/2026-08-07-comment-four-pages-that-matter.md` (8/10, READY) — r/SaaS: pricing/features/hero/alternatives pages only. Rest is noise.
+- `reddit/2026-08-07-comment-ci-workflow-for-pms.md` (8/10, READY) — r/ProductManagement: AI classification (pricing/feature/messaging) vs raw HTML diffs.
+- `reddit/2026-08-07-post-3months-what-ive-learned-competitor-monitoring.md` (8.5/10, READY) — r/SaaS: 3mo, 0 paid, 40% pricing page change rate, enterprise pivot signals, distribution problem.
+- `linkedin/2026-08-07-friday-3months-honest-update.md` (8.5/10, READY) — 3mo honest update: 42% pricing change stat, classification vs collection, distribution unsolved.
+
+**Publishing status:** ALL platforms blocked — TWITTER_API_KEY/SECRET/ACCESS_TOKEN, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID/SECRET/USERNAME/PASSWORD all missing. Vault (Vaultwarden) unreachable. Queue: 145+ pieces READY. **Critical: credentials needed in KompWatch vault folder.**
+
+**Commit:** 955dfea — pushed staging.
+
+---
+
+## Marketer Cycle — 2026-05-17 (Wednesday — run 22)
+
+**Calendar: Wednesday — 2 tweets + 5 replies, 2 Reddit comments, 1 LinkedIn post.**
+
+**Keyword research:** Search successful this cycle:
+- Kompyte enterprise-only displacement: strong ongoing signal — multiple "Kompyte alternatives" listicles surfaced (analook.com, prospeo.io, rocket.new, elevatedsignal.com). Confirmation that market is actively searching.
+- SaaS free-to-paid conversion: 2-5% freemium benchmark widely cited. "Activation moment" framing (specific value-before-paying event) is the key angle for ticket f369.
+
+**Wednesday publish slate — existing READY content (attempted, all blocked):**
+- Twitter tweets: `2026-05-17-zero-paid-users-30-days.md` (8/10) + `2026-05-17-kompyte-enterprise-only-displacement.md` (8.5/10)
+- Twitter replies: `reply-google-alerts-gap.md`, `reply-how-track-competitors.md`, `reply-noisy-alerts.md`, `reply-pricing-page-worth-monitoring.md`, `reply-solo-founder-ci.md` (5 READY replies)
+- Reddit: `comment-ci-tool-tiers-pm.md` (r/ProductManagement) + `comment-zero-paid-conversion-question.md` (r/SaaS)
+- LinkedIn: `2026-05-17-kompyte-enterprise-displacement.md` (8.5/10)
+
+**New content written this cycle:**
+- `twitter/2026-05-17-activation-moment-problem.md` (8/10, READY) — The specific "activation moment" that converts free→paid: catching competitor intel before a sales call
+- `reddit/2026-05-17-post-pm-ci-workflow-no-budget.md` (8/10, READY) — r/ProductManagement: practical 3-layer CI framework for teams without Klue budget, mentions Kompyte enterprise displacement
+
+**Publishing status:** ALL platforms blocked — TWITTER_API_KEY/SECRET/ACCESS_TOKEN, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID/SECRET/PASSWORD all missing. Vault (Vaultwarden) returning 503 "no available server" error — server appears down. Queue: 135+ pieces READY. **Critical: credentials needed in KompWatch vault folder. Same blocker for 3+ consecutive cycles.**
+
+---
+
+## Marketer Cycle — 2026-05-17 (Wednesday — run 21)
+
+**Calendar: Wednesday — 2 tweets + 5 replies, 2 Reddit comments, 1 LinkedIn post.**
+
+**Keyword research:** Search providers rate-limited/geo-blocked again. Working from Notion board signals:
+- Kompyte enterprise-only displacement angle: still strong, primary focus of existing READY queue.
+- Ticket f369: 0 new paid subscribers in 30 days — first time using this as honest builder content.
+- Confidence Score (ticket 36f) already shipped and queued; focus this cycle on the conversion problem angle.
+
+**Wednesday publish slate — existing READY content (attempted, all blocked):**
+- Twitter tweets: `2026-05-17-monday-manual-monday.md` (8/10) + `2026-05-17-zero-paid-users-30-days.md` (8/10, new)
+- Twitter replies: `reply-google-alerts-gap.md`, `reply-how-track-competitors.md`, `reply-noisy-alerts.md`, `reply-pricing-page-worth-monitoring.md`, `reply-solo-founder-ci.md`
+- Reddit: `comment-ci-tool-tiers-pm.md` (r/ProductManagement) + `comment-zero-paid-conversion-question.md` (r/SaaS, new)
+- LinkedIn: `2026-05-17-monday-founder-origin.md` (8/10)
+
+**New content written this cycle:**
+- `twitter/2026-05-17-zero-paid-users-30-days.md` (8/10, READY) — Honest: 0 new paid subs in 30 days, building-in-public vulnerability
+- `twitter/2026-05-17-reply-free-to-paid-conversion.md` (8/10, READY) — Reply to conversion threads: free→paid activation moment
+- `reddit/2026-05-17-comment-zero-paid-conversion-question.md` (8/10, READY) — r/SaaS: honest conversion number, asking community for insight
+
+**Publishing status:** ALL platforms blocked — TWITTER_API_KEY/SECRET/ACCESS_TOKEN, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID/SECRET/PASSWORD all missing. Vault (Vaultwarden) unreachable. Queue: 130+ pieces READY. Credentials needed in KompWatch vault folder.
+
+---
+
+## Marketer Cycle — 2026-05-17 (Wednesday — run 20)
+
+**Calendar: Wednesday — 2 tweets + 5 replies, 2 Reddit comments, 1 LinkedIn post.**
+
+**Keyword research:** Search providers rate-limited/geo-blocked this cycle. Used prior research + Notion board signals:
+- Kompyte confirmed enterprise-only (source: Notion board message b9ba + FAQ entry). Strong displacement angle.
+- Ticket 36f shipped: Confidence Score per change (0-100). Building-in-public angle.
+- 0 new paid subscribers in 30 days (Notion board ticket f369 — honest builder signal, not yet used as content).
+
+**Wednesday publish slate — existing READY content:**
+- Twitter tweets: `2026-05-17-monday-manual-monday.md` (8/10) + `2026-05-17-pricing-changes-quietly.md`
+- Twitter replies: `reply-google-alerts-gap.md`, `reply-how-track-competitors.md`, `reply-noisy-alerts.md`, `reply-pricing-page-worth-monitoring.md`, `reply-solo-founder-ci.md`
+- Reddit: `comment-ci-tool-tiers-pm.md` (r/ProductManagement, 8/10) + `comment-what-changes-competitors-make.md` (r/SaaS, 8/10)
+- LinkedIn: `2026-05-17-monday-founder-origin.md` (8/10, founder tab-switching origin story)
+
+**New content written this cycle:**
+- `twitter/2026-05-17-kompyte-enterprise-only-displacement.md` (8.5/10, READY) — Kompyte enterprise-only: third CI tool to exit SMB market
+- `twitter/2026-05-17-confidence-score-shipped.md` (8/10, READY) — Confidence score shipped, 0-100 per change, building-in-public
+- `twitter/2026-05-17-reply-kompyte-smb-gap.md` (8/10, READY) — Reply to Kompyte threads: SMB gap, $49/mo alternative
+- `linkedin/2026-05-17-kompyte-enterprise-displacement.md` (8.5/10, READY) — Three CI tools exited SMB market, displacement guide
+- `reddit/2026-05-17-comment-confidence-scoring-shipped.md` (8/10, READY) — r/SaaS: confidence scoring shipped, alert fatigue fix
+
+**Publishing status:** ALL platforms blocked — TWITTER_API_KEY/SECRET/ACCESS_TOKEN, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID/SECRET/PASSWORD all missing. Vault (Vaultwarden) unreachable (SSL cert error on self-signed cert). Queue: 120+ pieces READY. Credentials needed in KompWatch vault folder.
+
+---
+
 ## Marketer Cycle — 2026-05-17 (Saturday, run 19 — REST day)
 
 **Calendar: REST day — 1 tweet max.**
@@ -1154,3 +1254,74 @@ If you need those things, you need Crayon or Klue. If you need to know when comp
 **Publishing attempts:** All BLOCKED — TWITTER/REDDIT/GHOST credentials still missing.
 
 **Blockers (unchanged):** TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, GHOST_ADMIN_API_KEY — all missing. Queue: 145+ pieces READY.
+
+---
+
+## Marketer Cycle — 2026-05-17 (Sunday, run 20 — REST day)
+
+**Calendar: REST day — 1 tweet max.**
+
+**New content written:**
+- `twitter/2026-05-17-sunday-diff-without-context.md` (8/10, queued-no-creds) — "Raw HTML diff is technically correct, also useless without context. The diff is the easy part. The 'so what' is the whole product." — Specific, vulnerable, founder voice, 272 chars.
+
+**Publishing attempt:** `social-publisher.py tweet` → ERROR: Missing TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET. Tweet staged at `queued-no-creds`.
+
+**Keyword research:** Search providers blocked/rate-limited again. Operating on prior research context.
+
+**Blockers (unchanged):**
+- TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET — all missing from Vaultwarden KompWatch folder.
+
+**Queue status:** 115+ pieces staged. Monday May 19 slate ready (Twitter: confidence-filter-shipped + free-snapshot-shipped + 5 replies; Reddit: 3 posts; LinkedIn: mcp-server-competitor-feed). Tuesday May 20: Blog (competitor-monitoring-alert-fatigue). Commit: 4e6715e.
+
+---
+
+## Marketer Cycle — 2026-07-31 (Friday, run 21 — full posting day)
+
+**Calendar: Friday — Reddit (2 comments + 1 post) + Twitter (2 tweets + 5 replies) + LinkedIn (1 post).**
+
+**New content written (10 pieces):**
+- `twitter/2026-07-31-friday-the-changelog-nobody-reads.md` (8/10, queued-no-creds) — "Your competitor's changelog is the best signal in CI. Nobody reads it." — Specific angle, genuine insight from monitoring.
+- `twitter/2026-07-31-friday-end-of-july-zero-paid.md` (8/10, queued-no-creds) — End of July accountability update. 0 paid, shipped 4 features, distribution is the unsolved problem.
+- `twitter/2026-07-31-reply-ci-awareness-vs-software.md` (8/10, queued-no-creds) — CI awareness vs software; most teams don't read the digest they pay for.
+- `twitter/2026-07-31-reply-google-alerts-limitation.md` (8/10, queued-no-creds) — Google Alerts misses quiet deliberate changes — the most important kind.
+- `twitter/2026-07-31-reply-pmf-pre-revenue.md` (7/10, queued-no-creds) — PMF is a useless phrase pre-revenue; currently finding out.
+- `twitter/2026-07-31-reply-battlecard-stale-refresh.md` (8/10, queued-no-creds) — Battlecards go stale immediately; need event-driven refresh triggers not quarterly ones.
+- `reddit/2026-07-31-comment-manual-competitor-tracking-approach.md` (8/10, queued-no-creds) — r/ProductManagement — practical manual tracking advice + soft product mention.
+- `reddit/2026-07-31-comment-stale-battlecard-deal-loss.md` (8/10, queued-no-creds) — r/B2Bsales — stale battlecard pricing demo derailment story.
+- `reddit/2026-07-31-post-competitor-monitoring-learnings.md` (8/10, queued-no-creds) — r/indiehackers — "I built a CI tool because I couldn't justify $500/mo for Crayon" — 4 learnings from 2 months of daily monitoring.
+- `linkedin/2026-07-31-friday-end-of-july-honest-update.md` (8/10, queued-no-creds) — End-of-July honest update. 0 paid. Product phase vs distribution phase. August pivot to distribution.
+
+**Publishing attempts:** All BLOCKED — TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET — all missing.
+
+**Keyword research:** Search providers blocked/rate-limited. Operating on prior research context.
+
+**Blockers (unchanged):** TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, GHOST_ADMIN_API_KEY — all missing from Vaultwarden KompWatch folder. Queue: 155+ pieces READY.
+
+## Marketer Cycle — 2026-08-08 (Saturday — run 24)
+
+**Calendar: Saturday — REST day — 1 tweet max.**
+
+**Keyword research:** Search providers geo-blocked/rate-limited again. Working from Notion board signals:
+- Friday pattern confirmed from 3mo data: pricing pages change Friday 4pm. Strong insight content angle.
+- 0 new paid subs: distribution problem framing (collection solved, distribution unsolved). Core builder narrative.
+- Klue at ~$100K/yr confirmed (Notion [9ab5]) — ownership gap angle (tool without analyst = shelf dust).
+- Activation moment = first alert (proposal 7bcb) — already the conversion hypothesis.
+- 3-tier CI framework angle (not yet in queue): auto-monitor / weekly / quarterly.
+
+**Saturday content written this cycle:**
+- `twitter/2026-08-08-saturday-solved-wrong-problem.md` (8.5/10, READY) — Built collection. Still stuck on distribution/habit problem.
+
+**Monday Aug 10 queue advance (written ahead):**
+- `twitter/2026-08-10-monday-sales-prep-use-case.md` (8/10, READY) — Unexpected use case: sales reps checking before 9am demo calls
+- `twitter/2026-08-10-monday-42-percent-pricing-stat.md` (8.5/10, READY) — 42% pricing pages change in 90 days. Most miss it.
+- `twitter/2026-08-10-reply-website-layer-ci-stack.md` (8/10, READY) — Reply: 3 pages that matter + Google Alerts gap
+- `twitter/2026-08-10-reply-klue-ownership-gap.md` (8/10, READY) — Reply: Klue $100K/yr without analyst = shelf dust
+- `twitter/2026-08-10-reply-first-alert-activation.md` (8/10, READY) — Reply: first alert = activation moment before forget
+- `twitter/2026-08-10-reply-ci-workflow-no-analyst.md` (8/10, READY) — Reply: 4-step CI workflow for lean teams
+- `twitter/2026-08-10-reply-alternatives-tested-before-building.md` (8/10, READY) — Reply: GA/Visualping/manual + why I built
+- `reddit/2026-08-10-comment-ci-like-uptime-monitoring.md` (8/10, READY) — r/SaaS: CI as infrastructure not research
+- `reddit/2026-08-10-comment-three-tier-ci-framework-pm.md` (8/10, READY) — r/ProductManagement: 3-tier urgency framework
+- `linkedin/2026-08-10-monday-3months-honest-update.md` (8.5/10, READY) — 3mo honest: infra works, distribution unsolved
+
+**Publishing status:** ALL platforms blocked — TWITTER_API_KEY/SECRET/ACCESS_TOKEN, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID/SECRET/USERNAME/PASSWORD all missing. Vault (Vaultwarden) still unreachable. Queue: 150+ pieces READY. **Critical: credentials needed in KompWatch vault folder. Blocker persists 4+ consecutive cycles.**
+

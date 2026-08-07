@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { requireAuth } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { splitChangeDetails } from "@/lib/change-context";
-import { signalLabel } from "@/lib/signal-score";
+import { signalLabel, confidenceLabel } from "@/lib/signal-score";
 import { ExportChangesButton } from "@/components/dashboard/export-changes-button";
 import { BattlecardButton } from "@/components/dashboard/battlecard-button";
 import { ZoneFilter } from "@/components/dashboard/zone-filter";
@@ -251,6 +251,8 @@ export default async function CompetitorDetailPage({
               {competitor.changes.map((change) => {
                 const { factual, implication } = splitChangeDetails(change.details);
                 const conf = signalLabel(change.signalScore);
+                // Ticket 36f: surface raw AI confidence per change (silent when ≥95%).
+                const aiConf = confidenceLabel(change.confidenceScore);
                 return (
                 <div key={change.id} className="relative flex gap-4 pl-9">
                   <div
@@ -288,6 +290,14 @@ export default async function CompetitorDetailPage({
                             title={`Signal score: ${Math.round(change.signalScore * 100)}%`}
                           >
                             {conf.text}
+                          </span>
+                        )}
+                        {aiConf && (
+                          <span
+                            className={`inline-flex rounded-full border px-1.5 py-0.5 text-[10px] font-medium ${aiConf.className}`}
+                            title={`AI confidence: ${aiConf.percent}% — the model's own certainty this change is real (raw output, before signal weighting)`}
+                          >
+                            {aiConf.text}
                           </span>
                         )}
                         {ZONE_LABELS[change.contentZone] && (

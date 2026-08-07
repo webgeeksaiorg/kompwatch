@@ -1,11 +1,14 @@
 import { Change, Competitor, User } from "@prisma/client";
 import { splitChangeDetails } from "@/lib/change-context";
-import { signalLabel } from "@/lib/signal-score";
+import { signalLabel, confidenceLabel } from "@/lib/signal-score";
 
 /** Group changes by competitor for digest rendering */
 export interface DigestCompetitorGroup {
   competitor: Pick<Competitor, "name" | "url">;
-  changes: Pick<Change, "changeType" | "contentZone" | "summary" | "details" | "severity" | "signalScore" | "createdAt">[];
+  changes: (Pick<Change, "changeType" | "contentZone" | "summary" | "details" | "severity" | "signalScore" | "createdAt"> & {
+    /** Ticket 36f: AI confidence 0.0–1.0. Optional so legacy test fixtures/callers stay valid. */
+    confidenceScore?: number;
+  })[];
 }
 
 /** Build grouped change data for a digest */
@@ -30,6 +33,7 @@ export function groupChangesByCompetitor(
       details: change.details,
       severity: change.severity,
       signalScore: change.signalScore,
+      confidenceScore: change.confidenceScore,
       createdAt: change.createdAt,
     });
   }
@@ -113,10 +117,15 @@ export function renderDigestHtml(
             const signalBadge = signal
               ? ` <span style="background:${signal.text === "Noise" ? "#f3f4f6" : signal.text === "Weak" ? "#fffbeb" : "#fefce8"};color:${signal.text === "Noise" ? "#6b7280" : signal.text === "Weak" ? "#b45309" : "#ca8a04"};border-radius:4px;padding:2px 6px;font-size:10px;">${signal.text} signal</span>`
               : "";
+            // Ticket 36f: surface AI confidence when the model expressed meaningful uncertainty (<95%).
+            const conf = c.confidenceScore != null ? confidenceLabel(c.confidenceScore) : null;
+            const confBadge = conf
+              ? ` <span style="background:${conf.tone === "high" ? "#ecfdf5" : conf.tone === "medium" ? "#fffbeb" : "#f3f4f6"};color:${conf.tone === "high" ? "#047857" : conf.tone === "medium" ? "#b45309" : "#6b7280"};border:1px solid ${conf.tone === "high" ? "#a7f3d0" : conf.tone === "medium" ? "#fde68a" : "#e5e7eb"};border-radius:4px;padding:2px 6px;font-size:10px;" title="AI confidence">${conf.text}</span>`
+              : "";
             return `<tr>
               <td class="change-severity" style="padding:8px 12px;border-bottom:1px solid #eee;width:28px;vertical-align:top;">${SEVERITY_EMOJI[c.severity] || "⚪"}</td>
               <td class="change-badges" style="padding:8px 12px;border-bottom:1px solid #eee;white-space:nowrap;vertical-align:top;">
-                <span style="background:#f0f0f0;border-radius:4px;padding:2px 8px;font-size:12px;display:inline-block;margin-bottom:2px;">${CHANGE_TYPE_LABEL[c.changeType] || c.changeType}</span>${ZONE_LABEL[c.contentZone] ? ` <span style="background:#ede9fe;color:#6d28d9;border-radius:4px;padding:2px 8px;font-size:11px;display:inline-block;margin-bottom:2px;">${ZONE_LABEL[c.contentZone]}</span>` : ""}${signalBadge}
+                <span style="background:#f0f0f0;border-radius:4px;padding:2px 8px;font-size:12px;display:inline-block;margin-bottom:2px;">${CHANGE_TYPE_LABEL[c.changeType] || c.changeType}</span>${ZONE_LABEL[c.contentZone] ? ` <span style="background:#ede9fe;color:#6d28d9;border-radius:4px;padding:2px 8px;font-size:11px;display:inline-block;margin-bottom:2px;">${ZONE_LABEL[c.contentZone]}</span>` : ""}${signalBadge}${confBadge}
               </td>
               <td class="change-content" style="padding:8px 12px;border-bottom:1px solid #eee;vertical-align:top;">
                 <strong>${escapeHtml(c.summary)}</strong>
@@ -210,7 +219,9 @@ export function renderDigestText(
           (c) => {
             const signal = signalLabel(c.signalScore);
             const signalTag = signal ? ` [${signal.text}]` : "";
-            return `  ${SEVERITY_EMOJI[c.severity] || "-"} [${CHANGE_TYPE_LABEL[c.changeType] || c.changeType}]${ZONE_LABEL[c.contentZone] ? ` [${ZONE_LABEL[c.contentZone]}]` : ""}${signalTag} ${c.summary}${c.details ? `\n    ${c.details}` : ""}${shouldShowLateNudge(user.plan, c.severity) ? renderSeverityNudgeText() : ""}`;
+            const conf = c.confidenceScore != null ? confidenceLabel(c.confidenceScore) : null;
+            const confTag = conf ? ` [${conf.text}]` : "";
+            return `  ${SEVERITY_EMOJI[c.severity] || "-"} [${CHANGE_TYPE_LABEL[c.changeType] || c.changeType}]${ZONE_LABEL[c.contentZone] ? ` [${ZONE_LABEL[c.contentZone]}]` : ""}${signalTag}${confTag} ${c.summary}${c.details ? `\n    ${c.details}` : ""}${shouldShowLateNudge(user.plan, c.severity) ? renderSeverityNudgeText() : ""}`;
           }
         )
         .join("\n");
@@ -302,6 +313,7 @@ const DEMO_CHANGES: DigestCompetitorGroup[] = [
           "The Pro tier pricing page now shows $59/mo (previously $49/mo). The Team plan remains at $149/mo. This is a 20% price increase on their most popular tier.",
         severity: "HIGH",
         signalScore: 0.85,
+        confidenceScore: 0.98, // silent — a clear price string diff is high-confidence
         createdAt: new Date(),
       },
       {
@@ -312,6 +324,7 @@ const DEMO_CHANGES: DigestCompetitorGroup[] = [
           'New "AI Insights" section added to the features page. Appears to use automated analysis to generate weekly summaries. Positioned as a premium feature for Team plans.',
         severity: "MEDIUM",
         signalScore: 0.65,
+        confidenceScore: 0.82, // shows "AI 82%" green badge — model is confident but not certain
         createdAt: new Date(),
       },
       {
@@ -322,6 +335,7 @@ const DEMO_CHANGES: DigestCompetitorGroup[] = [
           "New blog post discussing their AI strategy and roadmap. Mentions upcoming features including predictive analytics and natural language queries.",
         severity: "LOW",
         signalScore: 0.4,
+        confidenceScore: 0.7, // shows "AI 70%" amber badge — worth verifying
         createdAt: new Date(),
       },
     ],

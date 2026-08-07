@@ -12,6 +12,7 @@ import {
   assignVariantInBrowser,
   type Variant,
 } from "@/lib/ab";
+import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 import { RoiCalculator } from "@/components/marketing/roi-calculator";
 import { CostCalculator } from "@/components/marketing/cost-calculator";
 import { CaughtInTheWild } from "@/components/marketing/caught-in-the-wild";
@@ -849,6 +850,7 @@ export default function PricingPage() {
 
   return (
     <main className="mx-auto max-w-5xl px-4 pt-16 pb-28">
+      <BreadcrumbSchema items={[{ name: "Pricing", path: "/pricing" }]} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareJsonLd) }}

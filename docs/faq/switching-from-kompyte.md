@@ -1,21 +1,23 @@
 # Switching from Kompyte to KompWatch
 
-Kompyte is now three acquisitions deep: Semrush acquired Kompyte in 2022, then Adobe acquired Semrush for $1.9B in February 2026. Your competitive intelligence tool is now buried inside an enterprise creative-software conglomerate whose core business has nothing to do with CI. If you're evaluating alternatives due to pricing changes, product direction uncertainty, or sunset risk, this guide covers how KompWatch compares and how to get started.
+Kompyte is now three acquisitions deep: Semrush acquired Kompyte in 2022, then Adobe acquired Semrush for $1.9B in February 2026. Your competitive intelligence tool is now buried inside an enterprise creative-software conglomerate whose core business has nothing to do with CI. As of mid-2026, Kompyte has been **formally repositioned as an enterprise-only product** — self-serve access via Semrush Business plans is being phased out, and new contracts require an enterprise sales engagement. If you're evaluating alternatives, this guide covers how KompWatch compares and how to get started.
 
-## Why Teams Switch
+## Why Teams Are Switching Now
 
 Most teams that switch from Kompyte to KompWatch cite:
 
-- **Cost** — Kompyte is priced for enterprise (~$8K/yr, sales-gated); KompWatch starts free and Pro is $49/mo, self-serve
-- **Three acquisitions deep** — Kompyte → Semrush → Adobe. Each layer adds distance from the original product roadmap and increases the risk of being bundled into a larger enterprise suite or quietly deprecated
-- **Sunset/bundle risk** — Adobe's go-to-market is enterprise annual contracts. Expect Kompyte to be folded into a broader Adobe marketing cloud bundle — or neglected as a non-core feature — rather than developed independently
-- **Missing features** — Kompyte lacks AI-generated change summaries and job listing tracking, both of which KompWatch includes
+- **Cost** — Kompyte is now enterprise-only at $30,000–$60,000+/yr (sales-negotiated, no self-serve). KompWatch Pro is $49/mo, self-serve, no contract.
+- **Self-serve access removed** — If you accessed Kompyte via a Semrush Business plan, that access is being phased out. New Kompyte requires an enterprise sales call just to get a trial.
+- **Three acquisitions deep** — Kompyte → Semrush → Adobe. Each layer adds distance from the original product roadmap and increases the risk of being bundled into a larger enterprise suite or quietly deprecated.
+- **Sunset/bundle risk** — Adobe's go-to-market is enterprise annual contracts. Expect Kompyte to be folded into a broader Adobe marketing cloud bundle — or neglected as a non-core feature — rather than developed independently.
+- **Missing features** — Kompyte lacks AI-generated change summaries and job listing tracking, both of which KompWatch includes.
 
 ## Feature Comparison
 
-| | KompWatch | Kompyte |
+| | KompWatch | Kompyte (enterprise, 2026) |
 |---|---|---|
-| Starting price | Free (2 competitors) | Enterprise pricing (Semrush bundle) |
+| Starting price | Free (2 competitors, no credit card) | $30,000–$60,000+/yr (sales-negotiated) |
+| Access | Instant self-serve | Requires enterprise sales engagement |
 | Website change monitoring | ✓ Playwright-based, JS-rendered | ✓ Full-page monitoring |
 | CSS selector targeting | ✓ Watch specific page sections | Limited |
 | AI-generated digests | ✓ Claude-powered, daily or weekly | ✓ AI summaries |

@@ -10,6 +10,7 @@ import { WebSiteSchema } from "@/components/website-schema";
 import { SoftwareApplicationSchema } from "@/components/software-schema";
 import { SocialProofCounter } from "@/components/marketing/social-proof-counter";
 import { QuantifiedNoiseClaim } from "@/components/marketing/quantified-noise-claim";
+import { HomepageDigestPreview } from "@/components/marketing/homepage-digest-preview";
 
 const features = [
   {
@@ -302,6 +303,9 @@ export default function Home() {
 
       {/* Demo Video */}
       <DemoVideo />
+
+      {/* Homepage digest preview — "what actually lands in your inbox" (ticket 37e1) */}
+      <HomepageDigestPreview />
 
       {/* Features */}
       <section id="features" className="border-t border-gray-100 bg-gray-50 py-24">

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 
 export const metadata: Metadata = {
   title: "Security & Trust",
@@ -125,6 +126,7 @@ export default function SecurityPage() {
 
   return (
     <div className="bg-white">
+      <BreadcrumbSchema items={[{ name: "Security", path: "/security" }]} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

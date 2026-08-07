@@ -160,6 +160,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${siteUrl}/switch`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: `${siteUrl}/switch/crayon`,
       lastModified: now,
       changeFrequency: "monthly",
@@ -173,6 +179,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${siteUrl}/switch/kompyte`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${siteUrl}/switch/semrush`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,

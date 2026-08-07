@@ -1,4 +1,4 @@
-# Spyglass vs KompWatch — Which Competitor Intelligence Tool Is Right for You?
+# Spyglass vs KompWatch — Competitor Monitoring Tool Comparison
 
 **Last updated:** 2026-05-17
 
@@ -6,69 +6,89 @@
 
 ## Quick answer
 
-Spyglass (spyglassci.com) is a new entrant in the competitor intelligence space that targets indie SaaS founders. KompWatch is a purpose-built competitor monitoring platform that tracks your rivals' public websites, pricing pages, and feature announcements — and delivers AI-generated digests of meaningful changes directly to your inbox.
+Spyglass launched in 2026 as a new entrant to the competitor monitoring market. KompWatch has been in market longer and differs in three key ways: it costs less per competitor ($49/mo for 10 vs $79/mo for 5), delivers changes daily rather than weekly, and adds Claude AI summaries to contextualize what changed and why it matters.
 
-Both tools serve the "know what competitors are doing" use case, but they differ in depth, integrations, and workflow fit.
-
----
-
-## What Spyglass does
-
-Spyglass is a recently-launched CI tool aimed at indie SaaS founders and small teams. It focuses on lightweight competitor tracking with a simple onboarding flow.
-
-**Spyglass is positioned for:**
-- Early-stage founders who want basic competitor awareness
-- Small teams without a dedicated competitive intelligence process
-- Quick setup with minimal configuration
+If you're actively evaluating both, the free tier lets you test KompWatch against your top 2 competitors before committing to anything.
 
 ---
 
-## What KompWatch does
-
-KompWatch monitors competitors' full public footprint — pricing pages, feature pages, blog posts, press releases, job listings — and uses AI to filter noise from signal. It delivers structured, actionable digests rather than raw change notifications.
-
-**KompWatch is great for:**
-- Knowing when a competitor changes their pricing before your next sales call
-- Detecting feature launches that could shift your roadmap priorities
-- Receiving AI-generated summaries that explain *why* a change matters, not just *what* changed
-- Tracking 10+ competitors across multiple pages per competitor
-- Sales battlecard updates triggered automatically by detected changes
-- Team plans with shared competitor workspaces
-
----
-
-## Key differences
+## Pricing comparison
 
 | | KompWatch | Spyglass |
 |---|---|---|
-| **Target user** | SaaS teams (indie to growth-stage) | Indie SaaS founders |
-| **AI digests** | ✅ AI-generated summaries with context | ❓ Basic alerts |
-| **Change severity scoring** | ✅ LOW / MEDIUM / HIGH | ❓ Not confirmed |
-| **Competitors per account** | Up to 25 (Pro), unlimited (Team) | ❓ Not confirmed |
-| **Email digests** | ✅ Scheduled + real-time alerts | ❓ Not confirmed |
-| **Free tier** | ✅ 3 competitors, 1 digest/week | ❓ Not confirmed |
-| **Pricing transparency** | ✅ Public pricing page | ❓ Not confirmed |
+| Entry price | **Free** (2 competitors, no credit card) | $79/mo |
+| Mid tier | **$49/mo** — 10 competitors | $79/mo — 5 competitors |
+| Higher tier | $149/mo — unlimited | — |
+| Per-competitor cost at mid tier | **$4.90** | $15.80 |
+| Annual contract required | ✗ | ✗ |
 
-*Table based on publicly available information as of May 2026. Spyglass is a new entrant — details may change.*
+**The math:** At $49/mo, KompWatch Pro gives you 10 competitors. Spyglass gives you 5 competitors for $79/mo — that's 3.2× the per-competitor cost. If you're monitoring 6+ competitors, Spyglass is meaningfully more expensive.
+
+---
+
+## Feature comparison
+
+| Capability | KompWatch | Spyglass |
+|---|---|---|
+| Competitor slots (mid tier) | **10** | 5 |
+| Free plan | ✓ | ✗ |
+| Digest frequency | **Daily (Pro) / 6-hour (Team)** | Weekly |
+| AI-generated change summaries | ✓ Claude-powered | ✗ Raw alerts |
+| Change severity classification | ✓ LOW / MEDIUM / HIGH / CRITICAL | ✗ |
+| JS-rendered page support | ✓ Playwright (headless Chrome) | Limited |
+| CSS selector targeting | ✓ | ✗ Full-page only |
+| Job listing tracking | ✓ | ✗ |
+| Slack / webhook alerts | ✓ Pro+ | ✗ |
+| CSV / JSON export | ✓ | ✗ |
+| MCP / AI agent integration | ✓ Team | ✗ |
+
+---
+
+## Where KompWatch wins
+
+**Price efficiency.** For teams tracking more than 5 competitors, KompWatch Pro ($49/mo, 10 competitors) is less expensive than Spyglass and covers twice the competitive landscape.
+
+**Digest frequency.** Weekly digests mean a pricing change on Monday isn't surfaced until the following week. If a competitor drops their pricing mid-week and a prospect calls you Thursday, you're selling against outdated information. Daily digests close that gap.
+
+**AI change summaries.** Raw change alerts tell you "the pricing page changed." An AI summary tells you "Competitor X removed their $99 Starter plan. Remaining plans: $199 Growth, $499 Enterprise. They may be moving upmarket." That's the difference between a log and actionable intelligence.
+
+**JavaScript rendering.** Most modern SaaS pricing pages are React/Next.js SPAs. Fetching raw HTML returns near-empty content. KompWatch uses Playwright to render the full DOM before snapshotting — the same way your prospect's browser does. Spyglass has limited JS support, which means some pricing changes go undetected.
+
+**CSS selector targeting.** Instead of monitoring an entire page (which triggers on every navigation change, footer update, or ad rotation), you can scope monitoring to specific sections like `.pricing-table` or `#features`. This dramatically reduces noise and makes your digest signal-to-noise ratio much higher.
+
+---
+
+## Where Spyglass wins
+
+Spyglass is a newer product. Some teams prefer evaluating early-stage tools for potential pricing flexibility, faster support, or a closer alignment with the founding team's roadmap direction. If your needs are simple — 3–5 competitors, weekly cadence is fine — Spyglass works.
 
 ---
 
 ## Which should you choose?
 
 **Choose KompWatch if:**
-- You track 3+ competitors and want AI-generated context on changes
-- You need scheduled digest emails your whole team can read
-- You want change severity scoring to prioritize what matters
-- You're scaling beyond just "founder awareness" to a team CI workflow
+- You're monitoring 5+ competitors (better per-slot value immediately)
+- You need to know about pricing changes within 24 hours, not a week
+- You want plain-English AI summaries rather than raw change diffs
+- Your competitors use React/Next.js/SPA pricing pages (JS rendering matters)
+- You want Slack alerts, data export, or AI agent integration
 
-**Consider Spyglass if:**
-- You're at idea-stage and want the absolute simplest possible setup
-- You only have 1–2 direct competitors to track
+**Choose Spyglass if:**
+- You have 3–5 competitors and weekly updates are sufficient
+- You prefer evaluating a new entrant with the potential for more direct founder access
+- You want to start without a free trial commitment (note: KompWatch also has a free plan)
 
 ---
 
-## Still have questions?
+## How to try KompWatch
 
-Compare plans at [kompwatch.com/pricing](/pricing) or start free — no credit card required.
+Sign up free at [kompwatch.com](https://kompwatch.com) — 2 competitors, no credit card, first snapshot within minutes. Compare digest quality against Spyglass on your same URLs over 1–2 weeks, then decide.
 
-If you've evaluated Spyglass and have questions about migrating or switching, reply to this email and our team will follow up within 24 hours.
+---
+
+## See Also
+
+- [Switching from Spyglass to KompWatch →](./switching-from-spyglass.md)
+- [Which Plan Is Right for Me? →](./which-plan-is-right-for-me.md)
+- [Why Google Alerts and Simple Tools Miss Pricing Changes →](./google-alerts-and-simple-tools.md)
+- [CSS Selector Targeting →](./css-selectors.md)

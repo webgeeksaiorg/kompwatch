@@ -1,94 +1,105 @@
-# Why Did I Find Out About a Competitor's Pricing Change From a Prospect Mid-Demo?
+# "I Found Out a Competitor Changed Their Pricing Mid-Demo" — What to Do Now and How to Prevent It
 
-This is one of the most common and painful competitive intelligence gaps on small SaaS teams. You're 20 minutes into a discovery call. The prospect casually mentions a price they saw on a competitor's site — a price you don't recognise. You check your battlecard. It says something different.
-
-You've been selling against stale pricing for days, weeks, or longer.
-
-Here's why it happens and how to stop it.
+**Short answer:** When a prospect corrects your pricing information mid-demo, don't dispute it — acknowledge it, pivot to your differentiation, and set up automated monitoring before your next call cycle.
 
 ---
 
-## Why Your Existing Setup Missed It
+## What Just Happened
 
-### Google Alerts didn't catch it
+You're mid-demo. The prospect says something like:
 
-Google Alerts monitors the web for new *pages* or *articles* mentioning a keyword. It does not monitor a specific URL for content changes. A competitor silently updating the numbers on their `/pricing` page — with no new blog post, no press release, no announcement — generates zero Google Alert.
+> "Wait, I thought [Competitor] just dropped their pricing — aren't they $99 now instead of $199?"
 
-### Screenshot-based monitoring missed the layout staying the same
+Or:
 
-Visual diff tools compare before-and-after screenshots pixel by pixel. If the page layout didn't change — same table, same number of rows, same tier names — but the prices changed from `$299/mo` to `$149/mo`, many screenshot tools will report no significant visual difference. Numbers rendered the same size in the same font in the same column look visually similar even when the value is different.
+> "They launched a free plan last month. Did you know about that?"
 
-### The pricing page was a React or JavaScript SPA
+And you didn't know. This is a common scenario, and it has a specific root cause: competitor pricing changed, and your CI process didn't catch it in time.
 
-Pricing pages are increasingly built as client-side apps that load prices via API call. Standard monitoring tools that fetch HTML directly will see a loading skeleton, not the actual prices. They miss every change because they never see the rendered content in the first place.
-
-### Your battlecard was "recently updated" but not automatically updated
-
-Battlecards that live in Notion, Google Docs, or Confluence have a last-edited timestamp — but that timestamp reflects when a human last touched the file, not when the competitor's pricing last changed. A battlecard edited three months ago might be citing pricing data from six months ago.
+The prospects doing competitive research often find changes before AEs do — because they're actively researching alternatives when the change happens, while your team is only checking periodically (or not at all).
 
 ---
 
-## Why This Specific Change Pattern Is Common
+## In the Moment: How to Handle It
 
-Competitors rarely announce pricing changes. They don't send a press release when they cut their entry plan from $299 to $149. They just update the page and wait.
+**Don't dispute the prospect or try to salvage the outdated info.**
 
-This is by design. A quiet change to a public page is the lowest-friction way to adjust pricing without triggering a PR story, alarming existing customers, or signalling strategy to the market.
+If they're telling you the competitor changed their pricing, assume they're right. Getting defensive about old intelligence is worse than acknowledging it.
 
-Without automated monitoring on the pricing page specifically, you have no way to know the change happened at all — until a prospect tells you.
+Instead:
+
+1. **Acknowledge it cleanly:** *"Thanks for flagging that — our intel may be a week behind. I'll verify and send you an updated comparison."*
+2. **Pivot to what doesn't change:** Your actual differentiation — the things that hold regardless of whether the competitor is $99 or $199. If your only differentiation was price, that's a positioning problem, not a monitoring problem.
+3. **Use the opening:** A prospect who researches pricing changes is engaged and doing diligence. That's a buying signal. Follow up the same day with accurate, current information.
+
+---
+
+## Immediately After the Call
+
+1. **Verify the change.** Check the competitor's pricing page directly. Take a screenshot and timestamp it.
+2. **Update your battlecard.** Fix the pricing information in whatever system your team uses (Notion, Confluence, Google Sheets). The outdated info will cause this same problem in other reps' calls.
+3. **Notify the team.** A Slack message to `#competitive-intel` with the current pricing and date takes 2 minutes and prevents this from happening to another rep tomorrow.
 
 ---
 
 ## How to Prevent It
 
-### 1. Add your competitor's pricing page to KompWatch
+This is fundamentally a monitoring latency problem. The competitor's pricing page changed. Nobody on your team saw it until a prospect mentioned it.
 
-Add the specific pricing URL (e.g. `https://competitor.com/pricing`) as a tracked URL in your [Competitors dashboard](/competitors). This is more reliable than tracking the homepage or a generic subdomain, because it targets exactly the page most likely to change.
+The fix is automated monitoring with a short detection window.
 
-If the pricing page is a React/Next.js/Vue SPA, KompWatch handles this — it uses a full headless Chromium browser to render the page and wait for the network to settle before diffing. See [Does KompWatch Work on JavaScript-Heavy Sites?](./monitoring-javascript-spa-sites.md).
+### Option 1: KompWatch (automated)
 
-### 2. Enable instant pricing alerts (Pro and Team)
+Add the competitor's pricing URL to KompWatch and set a CSS selector targeting the pricing section (e.g. `.pricing-table`, `#plans`, `main`):
 
-In **Settings → Notifications**, turn on **Instant alerts for pricing changes**. This bypasses your regular digest schedule and sends you an immediate notification the moment a `PRICING`-type change is detected — no waiting until the next daily or weekly digest.
+- **Pro plan** detects changes within 6 hours and emails a digest
+- **Team plan** detects changes within 1 hour and can push to Slack
 
-See [Instant Pricing-Change Alerts](./instant-pricing-alerts.md) for setup.
+When the pricing changes, you'll know — before your next sales cycle begins.
 
-### 3. Set a CSS selector on the pricing content zone
+See [Setting Up Competitor Pricing Monitoring →](./monitoring-competitor-pricing.md)
 
-If the pricing page has a lot of surrounding navigation or footer noise, pinning a CSS selector to the pricing table itself reduces false positives and makes diffs cleaner. Something like `#pricing-table` or `.pricing-grid` focuses the snapshot on just the content that matters.
+### Option 2: Manual weekly check
 
-See [Setting CSS Selectors](./setting-css-selectors.md) for instructions.
+If you're not using automated monitoring, assign one person to manually check competitor pricing pages every Monday. It takes 10 minutes for 5 competitors. Not scalable, but better than nothing.
 
-### 4. Run a manual snapshot before high-stakes calls
-
-KompWatch lets you trigger a manual snapshot at any time — not just during the automated cron cycle. Before a competitive demo or a late-stage evaluation call where pricing comparisons are likely to come up, go to your competitor's entry in the dashboard and click **Refresh now**. You'll get a fresh snapshot with any changes detected in the last few hours.
-
-See [Manual Snapshot Refresh](./manual-snapshot-refresh.md).
+The problem with manual checks is they're forgotten under sales pressure. Automated monitoring is the only reliable approach.
 
 ---
 
-## What If It Already Happened?
+## Why Pricing Changes Are Especially Dangerous
 
-If you were caught with stale pricing data on a call, here's what to do:
+Most competitor changes are low-urgency — a blog post, a minor feature addition. Pricing changes are different because:
 
-1. **Acknowledge it honestly**: "That's a recent change — let me confirm the current pricing and send you an updated comparison." Prospects respect transparency over getting caught bluffing.
-2. **Send a follow-up email within 2 hours** with the corrected competitive picture. If the competitor dropped their price, address it directly: compare on value, not just on price.
-3. **Log the deal for your own learnings**: if a pricing blind spot affected your pitch, that's a process signal. It's worth fixing before the next deal cycle.
-
----
-
-## How Often Does This Actually Happen?
-
-More often than most teams realise. Based on data from monitored competitor pages, **22% of pricing changes happen without any public announcement** (no blog post, no social media, no changelog entry). Of those silent changes, the majority occur mid-week (Tuesday–Thursday), when manual Monday-morning CI checks would have already been completed.
-
-See [When Do Competitors Typically Change Their Pricing?](./competitor-pricing-change-timing.md) for the full pattern.
+- **They affect every deal in your pipeline immediately.** The moment a competitor drops their price, every prospect comparing you to that competitor is now comparing against a different number than the one in your deck.
+- **They often happen without announcement.** Competitors don't send press releases about pricing changes. They update a page quietly. Your only signal is monitoring the page directly.
+- **Prospects find them before you do.** Anyone actively comparing vendors checks the pricing page. If the change happened 3 weeks ago and you're only checking monthly, every competitive call in that window used wrong information.
 
 ---
 
-## Related FAQs
+## The Broader Pattern
 
-- [Instant Pricing-Change Alerts](./instant-pricing-alerts.md)
-- [Does KompWatch Work on JavaScript-Heavy Sites?](./monitoring-javascript-spa-sites.md)
-- [When Do Competitors Typically Change Their Pricing?](./competitor-pricing-change-timing.md)
-- [Which Pages to Monitor Per Competitor](./which-pages-to-monitor-per-competitor.md)
-- [How to Keep Battlecards Up to Date](./how-to-keep-battlecards-up-to-date.md)
-- [Manual Snapshot Refresh](./manual-snapshot-refresh.md)
+If this happened once, it's probably happened more times without you knowing — on calls where the prospect didn't mention the discrepancy, or where you lost the deal and didn't know pricing was a factor.
+
+For a full list of the change types that cost deals: see [5 Competitor Changes That Cost Deals →](./five-competitor-changes-that-cost-deals.md)
+
+---
+
+## Setting Up Monitoring Right Now
+
+1. Go to [kompwatch.com](https://kompwatch.com) — free, no credit card
+2. Add the competitor URL (their `/pricing` page specifically, not their homepage)
+3. Set CSS selector: `main` or `.pricing-table` — this scopes to the pricing section only, reducing noise
+4. Save — first snapshot runs immediately
+
+You'll get a digest the next time the page changes. If they change pricing again, you'll know within hours, not weeks.
+
+---
+
+## See Also
+
+- [Competitor Pricing Tier Restructure — What to Watch For →](./competitor-pricing-tier-restructure.md)
+- [5 Competitor Changes That Cost Deals →](./five-competitor-changes-that-cost-deals.md)
+- [Monitoring Competitor Pricing →](./monitoring-competitor-pricing.md)
+- [How to Keep Battlecards Up to Date →](./how-to-keep-battlecards-up-to-date.md)
+- [Which Pages to Monitor Per Competitor →](./which-pages-to-monitor-per-competitor.md)

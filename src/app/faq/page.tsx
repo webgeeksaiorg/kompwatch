@@ -3,6 +3,7 @@ import path from "path";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { FaqAccordion } from "./faq-accordion";
+import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 
 export const metadata: Metadata = {
   title: "FAQ — KompWatch",
@@ -110,11 +111,14 @@ const CATEGORY_MAP: Record<string, string> = {
   "trust-and-reviews": "Account & Settings",
   "two-factor-authentication-and-account-security": "Account & Settings",
   "what-happens-if-kompwatch-shuts-down": "Account & Settings",
+  "why-are-my-traffic-analytics-not-showing": "Account & Settings",
 
   "understanding-the-dashboard": "Using KompWatch",
   "understanding-your-digest": "Using KompWatch",
   "ai-confidence-scoring": "Using KompWatch",
   "ai-summary-accuracy": "Using KompWatch",
+  "does-ai-confidence-improve-with-feedback": "Using KompWatch",
+  "why-is-my-confidence-score-low": "Using KompWatch",
   "change-severity-levels": "Using KompWatch",
   "competitor-rebranded-or-url-changed": "Using KompWatch",
   "competitor-site-offline-or-errors": "Using KompWatch",
@@ -157,6 +161,7 @@ const CATEGORY_MAP: Record<string, string> = {
   "paid-subscriber-quiet-month": "Using KompWatch",
   "trial-getting-only-minor-changes": "Using KompWatch",
   "when-a-tracked-competitor-gets-acquired-or-shuts-down": "Using KompWatch",
+  "shareable-report-link": "Using KompWatch",
 
   "competitor-pricing-tier-restructure": "Advanced Monitoring",
   "monitoring-javascript-spa-sites": "Advanced Monitoring",
@@ -208,6 +213,7 @@ const CATEGORY_MAP: Record<string, string> = {
   "monitoring-competitor-trial-and-demo-strategy": "Advanced Monitoring",
   "monitoring-competitor-video-content": "Advanced Monitoring",
   "monitoring-competitors-during-sales-cycles": "Advanced Monitoring",
+  "checking-competitor-changes-before-a-sales-call": "Advanced Monitoring",
   "monitoring-competitors-with-hidden-pricing": "Advanced Monitoring",
   "monitoring-international-competitors": "Advanced Monitoring",
   "monitoring-multiple-pages-per-competitor": "Advanced Monitoring",
@@ -304,8 +310,10 @@ const CATEGORY_MAP: Record<string, string> = {
   "switching-from-rivalsense": "Switching to KompWatch",
   "switching-from-seeto": "Switching to KompWatch",
   "switching-from-spire21": "Switching to KompWatch",
+  "switching-from-spyglass": "Switching to KompWatch",
   "switching-from-tona": "Switching to KompWatch",
   "switching-from-visualping": "Switching to KompWatch",
+  "spyglass-vs-kompwatch": "Switching to KompWatch",
   "true-cost-of-enterprise-ci-tools": "Switching to KompWatch",
   "what-happens-to-my-data-when-i-cancel-klue": "Switching to KompWatch",
   "when-to-switch-ci-tools": "Switching to KompWatch",
@@ -332,6 +340,13 @@ const CATEGORY_MAP: Record<string, string> = {
   "using-kompwatch-for-marketing-agencies": "Using CI Strategically",
   "who-should-own-competitive-monitoring": "Using CI Strategically",
   "win-loss-analysis-with-competitor-monitoring": "Using CI Strategically",
+  "ci-process-no-budget": "Using CI Strategically",
+  "competitor-pricing-change-found-out-mid-demo": "Using CI Strategically",
+  "five-competitor-changes-that-cost-deals": "Using CI Strategically",
+  "how-to-justify-kompwatch-to-your-manager": "Using CI Strategically",
+  "how-to-keep-battlecards-up-to-date": "Using CI Strategically",
+  "how-to-share-ci-with-sales-team": "Using CI Strategically",
+  "how-to-brief-sales-on-competitor-change": "Using CI Strategically",
 };
 
 const CATEGORY_ORDER = [
@@ -422,6 +437,7 @@ export default function FaqPage() {
 
   return (
     <div className="bg-white">
+      <BreadcrumbSchema items={[{ name: "FAQ", path: "/faq" }]} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
