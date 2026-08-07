@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
 export default function TermsOfService() {
   return (
     <div className="bg-white">
+      <BreadcrumbSchema items={[{ name: "Terms", path: "/terms" }]} />
       <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-sm">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <Link href="/" className="text-lg font-bold text-gray-900">

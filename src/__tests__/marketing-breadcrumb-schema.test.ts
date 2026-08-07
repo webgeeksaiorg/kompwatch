@@ -14,7 +14,8 @@ import path from "path";
  *   - 583210a — FAQPage + HowTo on /switch hub
  *   - 35af2a3 — FAQPage + ItemList + BreadcrumbList on /compare hub
  *   - d45c5ac — BreadcrumbList on /pricing, /faq, /security, /demo, /blog
- *   - (this ticket) — BreadcrumbList on /llm-visibility, /changelog, /free-snapshot
+ *   - 3374fa3 — BreadcrumbList on /llm-visibility, /changelog, /free-snapshot
+ *   - (this ticket) — BreadcrumbList on /privacy, /terms, /sample-digest, /pulse
  */
 
 const repoRoot = process.cwd();
@@ -39,6 +40,26 @@ const pagesWithBreadcrumb: { path: string; label: string; url: string }[] = [
     path: "src/app/free-snapshot/page.tsx",
     label: "Free Snapshot",
     url: "/free-snapshot",
+  },
+  {
+    path: "src/app/privacy/page.tsx",
+    label: "Privacy",
+    url: "/privacy",
+  },
+  {
+    path: "src/app/terms/page.tsx",
+    label: "Terms",
+    url: "/terms",
+  },
+  {
+    path: "src/app/sample-digest/page.tsx",
+    label: "Sample Digest",
+    url: "/sample-digest",
+  },
+  {
+    path: "src/app/pulse/page.tsx",
+    label: "SaaS Pulse",
+    url: "/pulse",
   },
 ];
 

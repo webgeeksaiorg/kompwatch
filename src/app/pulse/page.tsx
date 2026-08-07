@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
+import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -353,6 +354,7 @@ export default function PulsePage() {
 
   return (
     <main className="min-h-screen bg-gray-50">
+      <BreadcrumbSchema items={[{ name: "SaaS Pulse", path: "/pulse" }]} />
       {/* Hero */}
       <section className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-5xl px-6 py-16 text-center">
