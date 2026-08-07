@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllPosts } from "@/lib/blog";
+import { getAllPosts, type BlogPostMeta } from "@/lib/blog";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 
 const siteUrl = "https://kompwatch.com";
@@ -19,12 +19,73 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * Blog + ItemList JSON-LD for /blog index — surfaces the blog directory in
+ * SERP as a rich list of posts and tells Google this URL is a Blog
+ * collection (not a generic marketing page). Mirrors the visible article
+ * list one-to-one so schema/DOM stay in sync (Google requirement).
+ *
+ * Follows the pattern established on /compare hub (ticket 35af2a3) and
+ * /switch hub (ticket 6b63): drive both the visible list and the
+ * itemListElement from the same posts[] array so drift is impossible.
+ */
+function BlogIndexSchema({ posts }: { posts: BlogPostMeta[] }) {
+  const blogJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "KompWatch Blog",
+    description:
+      "Practical guides on competitor monitoring, pricing tracking, and competitive intelligence for SaaS teams.",
+    url: `${siteUrl}/blog`,
+    publisher: { "@type": "Organization", name: "KompWatch" },
+    blogPost: posts.map((post) => ({
+      "@type": "BlogPosting",
+      headline: post.title,
+      description: post.description,
+      datePublished: `${post.date}T00:00:00Z`,
+      url: `${siteUrl}/blog/${post.slug}`,
+      author: { "@type": "Organization", name: "KompWatch" },
+    })),
+  };
+
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "KompWatch Blog — Articles",
+    description:
+      "All KompWatch blog posts on competitor monitoring and competitive intelligence.",
+    url: `${siteUrl}/blog`,
+    numberOfItems: posts.length,
+    itemListElement: posts.map((post, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: post.title,
+      url: `${siteUrl}/blog/${post.slug}`,
+      description: post.description,
+    })),
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+      />
+    </>
+  );
+}
+
 export default function BlogIndexPage() {
   const posts = getAllPosts();
 
   return (
     <div className="bg-white">
       <BreadcrumbSchema items={[{ name: "Blog", path: "/blog" }]} />
+      {posts.length > 0 && <BlogIndexSchema posts={posts} />}
       <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-sm">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <Link href="/" className="text-lg font-bold text-gray-900">
