@@ -3,6 +3,7 @@ import path from "path";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { FaqAccordion } from "./faq-accordion";
+import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 
 export const metadata: Metadata = {
   title: "FAQ — KompWatch",
@@ -432,6 +433,7 @@ export default function FaqPage() {
 
   return (
     <div className="bg-white">
+      <BreadcrumbSchema items={[{ name: "FAQ", path: "/faq" }]} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

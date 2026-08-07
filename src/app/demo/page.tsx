@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ActivityHeatmap } from "@/components/dashboard/activity-heatmap";
 import { TrackedCTA } from "@/components/tracked-cta";
 import { ExpandableChange } from "./expandable-change";
+import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -181,6 +182,7 @@ export default function DemoPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <BreadcrumbSchema items={[{ name: "Demo", path: "/demo" }]} />
       {/* Demo banner */}
       <div className="border-b border-brand-200 bg-brand-50 px-4 py-2.5 text-center">
         <p className="text-sm text-brand-800">
