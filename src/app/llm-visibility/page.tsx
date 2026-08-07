@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
+import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -106,6 +107,7 @@ const signals = [
 export default function LlmVisibilityPage() {
   return (
     <div className="min-h-screen bg-white">
+      <BreadcrumbSchema items={[{ name: "LLM Visibility", path: "/llm-visibility" }]} />
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-sm">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">

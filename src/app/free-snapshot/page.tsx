@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SnapshotLeadForm } from "@/components/marketing/snapshot-lead-form";
 import { LiveSocialProof } from "@/components/marketing/live-social-proof";
 import { FreeSnapshotBottomCTA } from "@/components/marketing/free-snapshot-bottom-cta";
+import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -134,6 +135,7 @@ const faqJsonLd = {
 export default function FreeSnapshotPage() {
   return (
     <div className="min-h-screen bg-white">
+      <BreadcrumbSchema items={[{ name: "Free Snapshot", path: "/free-snapshot" }]} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

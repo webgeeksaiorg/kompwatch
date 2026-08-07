@@ -5,7 +5,7 @@ import path from "path";
 /**
  * Regression guard for BreadcrumbList JSON-LD on top-level marketing pages.
  *
- * These 5 pages get significant organic traffic and BreadcrumbList schema
+ * These pages get significant organic traffic and BreadcrumbList schema
  * enables enhanced SERP display (hierarchy shown instead of raw URL). If
  * anyone removes the BreadcrumbSchema mount during a refactor, we lose the
  * rich result silently — tsc won't catch it. This test catches it.
@@ -13,7 +13,8 @@ import path from "path";
  * Related ships:
  *   - 583210a — FAQPage + HowTo on /switch hub
  *   - 35af2a3 — FAQPage + ItemList + BreadcrumbList on /compare hub
- *   - (this ticket) — BreadcrumbList on /pricing, /faq, /security, /demo, /blog
+ *   - d45c5ac — BreadcrumbList on /pricing, /faq, /security, /demo, /blog
+ *   - (this ticket) — BreadcrumbList on /llm-visibility, /changelog, /free-snapshot
  */
 
 const repoRoot = process.cwd();
@@ -24,6 +25,21 @@ const pagesWithBreadcrumb: { path: string; label: string; url: string }[] = [
   { path: "src/app/security/page.tsx", label: "Security", url: "/security" },
   { path: "src/app/demo/page.tsx", label: "Demo", url: "/demo" },
   { path: "src/app/blog/page.tsx", label: "Blog", url: "/blog" },
+  {
+    path: "src/app/llm-visibility/page.tsx",
+    label: "LLM Visibility",
+    url: "/llm-visibility",
+  },
+  {
+    path: "src/app/changelog/page.tsx",
+    label: "Changelog",
+    url: "/changelog",
+  },
+  {
+    path: "src/app/free-snapshot/page.tsx",
+    label: "Free Snapshot",
+    url: "/free-snapshot",
+  },
 ];
 
 describe("Top-level marketing pages — BreadcrumbList JSON-LD", () => {
