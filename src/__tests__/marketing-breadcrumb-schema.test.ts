@@ -15,7 +15,11 @@ import path from "path";
  *   - 35af2a3 — FAQPage + ItemList + BreadcrumbList on /compare hub
  *   - d45c5ac — BreadcrumbList on /pricing, /faq, /security, /demo, /blog
  *   - 3374fa3 — BreadcrumbList on /llm-visibility, /changelog, /free-snapshot
- *   - (this ticket) — BreadcrumbList on /privacy, /terms, /sample-digest, /pulse
+ *   - 176319a — BreadcrumbList on /privacy, /terms, /sample-digest, /pulse
+ *   - (this ticket) — extend regression guard to 3 ICP landing pages
+ *     (/for-product-teams, /for-marketing-agencies, /for-semrush-users)
+ *     which already mounted BreadcrumbSchema but were not covered by this
+ *     test. High-organic-value pages that must not silently lose the schema.
  */
 
 const repoRoot = process.cwd();
@@ -60,6 +64,21 @@ const pagesWithBreadcrumb: { path: string; label: string; url: string }[] = [
     path: "src/app/pulse/page.tsx",
     label: "SaaS Pulse",
     url: "/pulse",
+  },
+  {
+    path: "src/app/for-product-teams/page.tsx",
+    label: "KompWatch for Product Teams",
+    url: "/for-product-teams",
+  },
+  {
+    path: "src/app/for-marketing-agencies/page.tsx",
+    label: "KompWatch for Marketing Agencies",
+    url: "/for-marketing-agencies",
+  },
+  {
+    path: "src/app/for-semrush-users/page.tsx",
+    label: "KompWatch for Semrush/Kompyte Users",
+    url: "/for-semrush-users",
   },
 ];
 
