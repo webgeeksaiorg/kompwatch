@@ -5,6 +5,7 @@ import { ComparisonFAQ } from "@/components/comparison-faq";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 import { SoftwareApplicationSchema } from "@/components/software-schema";
 import { CompareEmailCapture } from "@/components/compare-email-capture";
+import { RelatedComparisons } from "@/components/related-comparisons";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -436,6 +437,11 @@ export default function CompareKompWatchVsRivalSensePage() {
       />
 
       <CompareEmailCapture competitor="RivalSense" source="compare-rivalsense" />
+
+      <RelatedComparisons
+        current="kompwatch-vs-rivalsense"
+        intro="Weighing RivalSense against other AI-first change monitors? See how KompWatch compares to the alternatives teams shortlist alongside RivalSense."
+      />
 
       {/* Bottom CTA */}
       <section className="py-20">
