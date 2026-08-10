@@ -5,6 +5,7 @@ import { ComparisonFAQ } from "@/components/comparison-faq";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 import { SoftwareApplicationSchema } from "@/components/software-schema";
 import { CompareEmailCapture } from "@/components/compare-email-capture";
+import { RelatedComparisons } from "@/components/related-comparisons";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -494,6 +495,11 @@ export default function CompareKompWatchVsKluePage() {
       />
 
       <CompareEmailCapture competitor="Klue" source="compare-klue" />
+
+      <RelatedComparisons
+        current="kompwatch-vs-klue"
+        intro="Evaluating Klue? Teams typically shortlist Crayon and Kompyte alongside it — here's how KompWatch compares to each."
+      />
 
       {/* Bottom CTA */}
       <section className="py-20">

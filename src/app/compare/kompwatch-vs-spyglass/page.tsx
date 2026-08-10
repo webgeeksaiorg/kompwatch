@@ -5,6 +5,7 @@ import { ComparisonFAQ } from "@/components/comparison-faq";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 import { SoftwareApplicationSchema } from "@/components/software-schema";
 import { CompareEmailCapture } from "@/components/compare-email-capture";
+import { RelatedComparisons } from "@/components/related-comparisons";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -439,6 +440,11 @@ export default function CompareKompWatchVsSpyglassPage() {
       />
 
       <CompareEmailCapture competitor="Spyglass" source="compare-spyglass" />
+
+      <RelatedComparisons
+        current="kompwatch-vs-spyglass"
+        intro="Also weighing bigger CI tools? See how KompWatch compares to the enterprise incumbents that indie SaaS teams evaluate before choosing a self-serve alternative."
+      />
 
       {/* Bottom CTA */}
       <section className="py-20">

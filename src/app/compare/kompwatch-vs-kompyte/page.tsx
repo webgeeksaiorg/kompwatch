@@ -5,6 +5,7 @@ import { ComparisonFAQ } from "@/components/comparison-faq";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 import { SoftwareApplicationSchema } from "@/components/software-schema";
 import { CompareEmailCapture } from "@/components/compare-email-capture";
+import { RelatedComparisons } from "@/components/related-comparisons";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -433,6 +434,11 @@ export default function CompareKompWatchVsKompytePage() {
       />
 
       <CompareEmailCapture competitor="Kompyte" source="compare-kompyte" />
+
+      <RelatedComparisons
+        current="kompwatch-vs-kompyte"
+        intro="Comparing Kompyte? Teams evaluating Semrush's CI product usually also look at Crayon and Klue — see how KompWatch stacks up against each."
+      />
 
       {/* Bottom CTA */}
       <section className="py-20">
