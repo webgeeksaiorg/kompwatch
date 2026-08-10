@@ -11,6 +11,7 @@ import { SoftwareApplicationSchema } from "@/components/software-schema";
 import { SocialProofCounter } from "@/components/marketing/social-proof-counter";
 import { QuantifiedNoiseClaim } from "@/components/marketing/quantified-noise-claim";
 import { HomepageDigestPreview } from "@/components/marketing/homepage-digest-preview";
+import { InterpretationLayer } from "@/components/marketing/interpretation-layer";
 
 const features = [
   {
@@ -306,6 +307,9 @@ export default function Home() {
 
       {/* Homepage digest preview — "what actually lands in your inbox" (ticket 37e1) */}
       <HomepageDigestPreview />
+
+      {/* Interpretation-layer reframe — enterprise CI = raw data, KompWatch = AI interpretation (ticket 47dd) */}
+      <InterpretationLayer />
 
       {/* Features */}
       <section id="features" className="border-t border-gray-100 bg-gray-50 py-24">
