@@ -5,6 +5,7 @@ import { ComparisonFAQ } from "@/components/comparison-faq";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 import { SoftwareApplicationSchema } from "@/components/software-schema";
 import { CompareEmailCapture } from "@/components/compare-email-capture";
+import { RelatedComparisons } from "@/components/related-comparisons";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -428,6 +429,11 @@ export default function CompareKompWatchVsHeadsUpPage() {
       />
 
       <CompareEmailCapture competitor="HeadsUp" source="compare-headsup" />
+
+      <RelatedComparisons
+        current="kompwatch-vs-headsup"
+        intro="Comparison-shopping AI competitor tools? Here's how KompWatch stacks up against the enterprise CI platforms teams evaluate alongside HeadsUp."
+      />
 
       {/* Bottom CTA */}
       <section className="py-20">
