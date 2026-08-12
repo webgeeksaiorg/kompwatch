@@ -1,14 +1,14 @@
 # Kompyte's Pricing Tiers and Competitor Limits vs KompWatch
 
-A common frustration with Kompyte is that the entry price (~$300/mo as a Semrush add-on) looks manageable — until you hit the competitor limit on your tier and need to upgrade to track more. This FAQ explains the difference in how Kompyte and KompWatch handle tier limits.
+A common frustration with Kompyte is that the entry price ($499/mo as a Semrush/Adobe add-on for SMB teams) looks manageable — until you hit the competitor limit on your tier and need to upgrade to track more. This FAQ explains the difference in how Kompyte and KompWatch handle tier limits.
 
 ## How Does Kompyte's Tier Structure Work?
 
-Kompyte is sold as part of the Semrush enterprise bundle. Each tier caps the number of competitors (also called "tracked companies") you can monitor. When you hit that cap and need to add more, you must upgrade to the next tier — which typically means a significant jump in annual cost, often requiring a new sales negotiation.
+Kompyte is sold as part of the Semrush enterprise bundle (now under Adobe). Each tier caps the number of competitors (also called "tracked companies") you can monitor. When you hit that cap and need to add more, you must upgrade to the next tier — which typically means a significant jump in annual cost, often requiring a new sales negotiation.
 
-Kompyte's pricing is not publicly listed (it's sales-gated), but reported figures from Vendr and G2 suggest:
+Kompyte's pricing is not publicly listed (it's sales-gated), but confirmed figures from Vendr, debriefing.io, and G2 procurement data (as of August 2026) indicate:
 
-- Entry tier: ~$300/mo ($3,600/yr) — limited tracked competitors
+- **SMB entry tier: $499/mo ($5,988/yr)** — limited tracked competitors
 - When you hit the cap: upgrade required, cost scales non-linearly
 - Contracts are typically annual with multi-year lock-in available
 
@@ -43,11 +43,11 @@ See: [I Can't Add More Competitors — Plan Limit Reached](./plan-competitor-lim
 | Tool | Price for ~10 competitors |
 |------|--------------------------|
 | KompWatch Pro | $49/mo ($588/yr) |
-| Kompyte (estimated entry tier) | ~$300/mo ($3,600/yr) |
+| Kompyte (confirmed SMB entry tier, Aug 2026) | $499/mo ($5,988/yr) |
 | Klue | ~$1,700/mo ($20,000/yr) starting price |
 | Crayon | ~$2,400/mo ($28,750/yr) starting price |
 
-KompWatch Pro is roughly **6x cheaper than Kompyte's entry tier** for 10 competitors — and about 34x cheaper than Klue.
+KompWatch Pro is roughly **10x cheaper than Kompyte's SMB entry tier** for 10 competitors — and about 34x cheaper than Klue.
 
 ## Does KompWatch Charge Per Seat (User)?
 
