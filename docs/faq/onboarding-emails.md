@@ -10,6 +10,7 @@ KompWatch sends up to 6 emails over your first two weeks, depending on your plan
 |------|---------|----------------|
 | Immediately on signup | "Welcome to KompWatch — let's set up your first monitor" | All users |
 | Immediately on signup | "Your first KompWatch digest — here's what competitor monitoring looks like" | All users |
+| ~24 hours after signup | "Here's what a real KompWatch alert looks like" (proof-of-value example with mock changes) | All users |
 | 2 days after signup | "3 ways KompWatch saves you hours every week" | All users |
 | 5 days after signup | "Your free plan is active — here's what Pro unlocks" | Free plan only |
 | 7 days after signup | "How SaaS teams use KompWatch to stay ahead" | Free plan only |

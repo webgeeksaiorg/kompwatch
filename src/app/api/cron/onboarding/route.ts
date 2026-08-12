@@ -6,6 +6,11 @@ import {
   getOnboardingEmailBuilder,
   MAX_ONBOARDING_STEP,
 } from "@/lib/onboarding";
+import {
+  buildProofOfValueEmail,
+  shouldSendProofOfValue,
+  PROOF_OF_VALUE_MAX_DAYS,
+} from "@/lib/proof-of-value-email";
 
 /**
  * POST /api/cron/onboarding
@@ -111,8 +116,78 @@ export async function POST(req: NextRequest) {
 
   const sent = results.filter((r) => r.sent).length;
 
+  // ── Proof-of-value pass (ticket 57fe) ────────────────────────
+  // Independent of the numbered drip: send a one-time mock change-alert
+  // ~24h after signup so users see the "aha" moment before their own
+  // competitor snapshots have produced meaningful diffs.
+  const povWindowStart = new Date(
+    Date.now() - PROOF_OF_VALUE_MAX_DAYS * 24 * 60 * 60 * 1000,
+  );
+  const povCandidates = await db.user.findMany({
+    where: {
+      proofOfValueSentAt: null,
+      createdAt: { gte: povWindowStart },
+    },
+    select: {
+      id: true,
+      email: true,
+      name: true,
+      createdAt: true,
+      proofOfValueSentAt: true,
+    },
+  });
+
+  const povResults: Array<{
+    userId: string;
+    email: string;
+    sent: boolean;
+    reason?: string;
+  }> = [];
+
+  for (const user of povCandidates) {
+    if (!shouldSendProofOfValue(user)) {
+      povResults.push({
+        userId: user.id,
+        email: user.email,
+        sent: false,
+        reason: "not_due",
+      });
+      continue;
+    }
+
+    const email = buildProofOfValueEmail(user);
+
+    try {
+      const resend = getResend();
+      await resend.emails.send({
+        from: FROM_EMAIL,
+        to: user.email,
+        subject: email.subject,
+        html: email.html,
+        text: email.text,
+      });
+
+      await db.user.update({
+        where: { id: user.id },
+        data: { proofOfValueSentAt: new Date() },
+      });
+
+      povResults.push({ userId: user.id, email: user.email, sent: true });
+    } catch (err) {
+      povResults.push({
+        userId: user.id,
+        email: user.email,
+        sent: false,
+        reason: `send_failed: ${err instanceof Error ? err.message : "Unknown"}`,
+      });
+    }
+  }
+
+  const povSent = povResults.filter((r) => r.sent).length;
+
   return NextResponse.json({
-    message: `Processed ${users.length} users. Sent ${sent} onboarding emails.`,
+    message: `Processed ${users.length} users. Sent ${sent} onboarding emails + ${povSent} proof-of-value emails.`,
     results,
+    proofOfValueResults: povResults,
   });
 }

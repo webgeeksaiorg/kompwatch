@@ -31,6 +31,11 @@ model User {
   // 0=none, 1=welcome, 2=value, 3=trial reminder, 4=social proof, 5=cost comparison, 6=final nudge
   onboardingStep       Int      @default(0)
 
+  // Proof-of-value onboarding email (ticket 57fe) — one-time mock change-alert
+  // sent ~24h after signup to demonstrate what a real detection looks like.
+  // NULL = not sent yet. Fires independently of the numbered drip sequence.
+  proofOfValueSentAt   DateTime?
+
   // Notification preferences
   digestEnabled        Boolean  @default(true)
   digestFrequency      DigestFrequency @default(SMART) // SMART = daily when changes exist, else weekly

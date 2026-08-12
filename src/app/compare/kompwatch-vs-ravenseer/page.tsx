@@ -5,6 +5,7 @@ import { ComparisonFAQ } from "@/components/comparison-faq";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 import { SoftwareApplicationSchema } from "@/components/software-schema";
 import { CompareEmailCapture } from "@/components/compare-email-capture";
+import { RelatedComparisons } from "@/components/related-comparisons";
 
 const siteUrl = "https://kompwatch.com";
 
@@ -428,6 +429,11 @@ export default function CompareKompWatchVsRavenSeerPage() {
       />
 
       <CompareEmailCapture competitor="RavenSeer" source="compare-ravenseer" />
+
+      <RelatedComparisons
+        current="kompwatch-vs-ravenseer"
+        intro="Comparing RavenSeer against other enterprise-lite CI monitors? See how KompWatch stacks up against the alternatives teams typically shortlist."
+      />
 
       {/* Bottom CTA */}
       <section className="py-20">
