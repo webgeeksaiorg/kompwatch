@@ -495,6 +495,8 @@ export default function SwitchKompytePage() {
       {/* FAQ */}
       <ComparisonFAQ
         competitor="Kompyte (Inside Adobe)"
+        guideSlug="switching-from-kompyte"
+        guideLabel="Read the full Kompyte → KompWatch migration guide"
         faqs={[
           {
             question:

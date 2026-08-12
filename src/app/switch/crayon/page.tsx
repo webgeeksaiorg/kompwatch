@@ -490,6 +490,8 @@ export default function SwitchCrayonPage() {
       {/* FAQ */}
       <ComparisonFAQ
         competitor="Crayon (Post-Acquisition)"
+        guideSlug="switching-from-crayon"
+        guideLabel="Read the full Crayon → KompWatch migration guide"
         faqs={[
           {
             question:

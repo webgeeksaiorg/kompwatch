@@ -462,6 +462,8 @@ export default function SwitchKluePage() {
       {/* FAQ */}
       <ComparisonFAQ
         competitor="Klue (Microsoft Teams Lock-In)"
+        guideSlug="switching-from-klue"
+        guideLabel="Read the full Klue → KompWatch migration guide"
         faqs={[
           {
             question:

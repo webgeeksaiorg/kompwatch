@@ -492,6 +492,8 @@ export default function SwitchSemrushPage() {
       {/* FAQ */}
       <ComparisonFAQ
         competitor="Semrush (Inside Adobe)"
+        guideSlug="switching-from-semrush"
+        guideLabel="Read the full Semrush → KompWatch migration guide"
         faqs={[
           {
             question: "Is Semrush being shut down?",
