@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
 import { ComparisonFAQ } from "@/components/comparison-faq";
+import { DeeperComparison } from "@/components/deeper-comparison";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 import { SoftwareApplicationSchema } from "@/components/software-schema";
 import { AlternativesListicleSchema } from "@/components/alternatives-listicle-schema";
@@ -594,6 +595,13 @@ export default function CrayonAlternativePage() {
 
       {/* FAQ */}
       <ComparisonFAQ competitor="Crayon" faqs={comparisonFaqs} />
+
+      {/* Deeper comparison — cross-link to head-to-head + migration guide */}
+      <DeeperComparison
+        competitor="Crayon"
+        compareHref="/compare/kompwatch-vs-crayon"
+        switchHref="/switch/crayon"
+      />
 
       {/* Footer nav */}
       <section className="border-t border-gray-100 py-12">

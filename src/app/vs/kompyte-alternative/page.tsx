@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
 import { ComparisonFAQ } from "@/components/comparison-faq";
+import { DeeperComparison } from "@/components/deeper-comparison";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 import { SoftwareApplicationSchema } from "@/components/software-schema";
 import { AlternativesListicleSchema } from "@/components/alternatives-listicle-schema";
@@ -593,6 +594,13 @@ export default function KompyteAlternativePage() {
 
       {/* FAQ */}
       <ComparisonFAQ competitor="Kompyte" faqs={comparisonFaqs} />
+
+      {/* Deeper comparison — cross-link to head-to-head + migration guide */}
+      <DeeperComparison
+        competitor="Kompyte"
+        compareHref="/compare/kompwatch-vs-kompyte"
+        switchHref="/switch/kompyte"
+      />
 
       {/* Footer nav */}
       <section className="border-t border-gray-100 py-12">
