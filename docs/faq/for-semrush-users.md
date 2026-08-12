@@ -58,4 +58,4 @@ If founding member pricing is still available, annual plans include a permanent 
 Email [support@kompwatch.com](mailto:support@kompwatch.com) with your current competitor list and we'll help you set up equivalent monitoring, including suggested CSS selectors.
 
 ---
-*Evaluating KompWatch vs. Kompyte in more detail? See [Switching from Kompyte →](./switching-from-kompyte.md) and [KompWatch vs. Alternatives →](./comparing-to-alternatives.md)*
+*Evaluating KompWatch vs. Kompyte in more detail? See [Switching from Kompyte →](./switching-from-kompyte.md), [Switching from Semrush →](./switching-from-semrush.md), [Does KompWatch Replace Semrush .Trends? →](./does-kompwatch-replace-semrush-trends.md), and [KompWatch vs. Alternatives →](./comparing-to-alternatives.md)*

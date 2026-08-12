@@ -115,6 +115,7 @@ If Adobe invests in Kompyte and improves the product significantly, switching ba
 
 - [KompWatch for Semrush Users](./for-semrush-users.md)
 - [Can I Run KompWatch Alongside Semrush?](./can-i-run-kompwatch-alongside-semrush.md)
+- [Does KompWatch Replace Semrush .Trends (Traffic Analytics)?](./does-kompwatch-replace-semrush-trends.md)
 - [What Happens to Kompyte After Adobe Acquires Semrush?](./what-happens-to-kompyte-after-adobe-acquires-semrush.md)
 - [What Happens to My Data When I Cancel Semrush?](./what-happens-to-my-data-when-i-cancel-semrush.md)
 - [Is Kompyte Enterprise-Only Now?](./is-kompyte-enterprise-only-now.md)
