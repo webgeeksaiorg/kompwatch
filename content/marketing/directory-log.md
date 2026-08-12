@@ -1325,3 +1325,28 @@ If you need those things, you need Crayon or Klue. If you need to know when comp
 
 **Publishing status:** ALL platforms blocked — TWITTER_API_KEY/SECRET/ACCESS_TOKEN, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID/SECRET/USERNAME/PASSWORD all missing. Vault (Vaultwarden) still unreachable. Queue: 150+ pieces READY. **Critical: credentials needed in KompWatch vault folder. Blocker persists 4+ consecutive cycles.**
 
+
+---
+
+## Marketer Cycle — 2026-08-12 (Wednesday — run 24)
+
+**Calendar: Wednesday — 2 tweets + 5 replies, 2 Reddit comments, 1 LinkedIn post.**
+
+**Keyword research:** Search providers limited this cycle. Used Strategist's Notion board intel:
+- Kompyte/Semrush pricing confirmed at $499/mo for SMB (debriefing.io source via Strategist). Strong displacement angle — three CI tools now priced out of SMB.
+- Crayon $10K+/yr confirmed from prior cycles.
+- Core angles: "wrong tool for the job" (Semrush = SEO suite, not CI), specific price math ($5,988/yr at $499/mo), market gap growing.
+
+**New content written this cycle (10 pieces):**
+- `twitter/2026-08-12-wednesday-semrush-competitor-tracking-tax.md` (8.5/10, queued-no-creds) — Semrush $499/mo SMB: SEO suite with CI feature stapled on. KompWatch $49/mo does one job.
+- `twitter/2026-08-12-wednesday-timing-of-changes.md` (8/10, queued-no-creds) — Changes happen 4pm Thursday, Saturday afternoon. Cron beats manual vigilance.
+- `twitter/2026-08-12-reply-semrush-trends-tax.md` (8/10, queued-no-creds) — Reply to Semrush Trends threads.
+- `twitter/2026-08-12-reply-competitor-monitoring-workflow.md` (8/10, queued-no-creds) — 4-5 specific pages, 24hr latency kills the workflow.
+- `twitter/2026-08-12-reply-crayon-worth-it.md` (8.5/10, queued-no-creds) — Warehouse vs corner store metaphor.
+- `twitter/2026-08-12-reply-free-tier-killed-alert.md` (8/10, queued-no-creds) — Free tier kills happen Tuesday afternoon; Google Alerts misses them.
+- `twitter/2026-08-12-reply-saas-stack-competitor-monitoring.md` (8/10, queued-no-creds) — HTML diff vs news monitoring distinction.
+- `reddit/2026-08-12-comment-semrush-trends-smb-price.md` (8.5/10, queued-no-creds) — r/SaaS: $5,988/yr math for Semrush CI, signal quality distinction.
+- `reddit/2026-08-12-comment-wrong-pages-to-monitor-pm.md` (8.5/10, queued-no-creds) — r/ProductManagement: 4 pages that matter (pricing/features/alternatives/careers), CSS selector offer.
+- `linkedin/2026-08-12-wednesday-market-gap-growing.md` (8.5/10, queued-no-creds) — "Market just handed me a free pitch." Kompyte + Semrush + Crayon all exited SMB. Honest: no paid subs this month.
+
+**Publishing status:** ALL platforms blocked — TWITTER_API_KEY/SECRET/ACCESS_TOKEN, LINKEDIN_ACCESS_TOKEN, REDDIT credentials all missing. Queue: 155+ pieces READY. Same blocker since cycle 19. **Critical: credentials needed in KompWatch vault folder.**
