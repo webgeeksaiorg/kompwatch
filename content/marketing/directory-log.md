@@ -1350,3 +1350,25 @@ If you need those things, you need Crayon or Klue. If you need to know when comp
 - `linkedin/2026-08-12-wednesday-market-gap-growing.md` (8.5/10, queued-no-creds) — "Market just handed me a free pitch." Kompyte + Semrush + Crayon all exited SMB. Honest: no paid subs this month.
 
 **Publishing status:** ALL platforms blocked — TWITTER_API_KEY/SECRET/ACCESS_TOKEN, LINKEDIN_ACCESS_TOKEN, REDDIT credentials all missing. Queue: 155+ pieces READY. Same blocker since cycle 19. **Critical: credentials needed in KompWatch vault folder.**
+
+---
+
+## Marketer Cycle — 2026-08-13 (Thursday — run 34)
+
+**Calendar: Thursday — 1 Reddit comment, 3 tweets + 5 replies, 1 blog article.**
+
+**Keyword research:** Search providers rate-limited/geo-blocked again. Operating from Notion board signals and prior research:
+- Kompyte sunset angle still hot: Notion board shows inbound from Kompyte side.
+- Builder shipped /switch/visualping page (commit 88dc4df) — Google Sheet + manual workflow displacement still strong SEO angle.
+- Crayon pricing ($500/mo vs $49/mo) remains primary price-anchor keyword.
+- Blog keyword: "how to track competitor pricing changes automatically" — high intent, not yet covered in queue.
+
+**Thursday publish slate — 10 pieces staged:**
+- Twitter tweets (3): google-sheet-story (8.5/10), kompyte-sunset-window (8/10), tiny-signals-intel (8/10)
+- Twitter replies (5): ai-replaces-ci-research (7.5/10), churn-competitor-pricing-drop (7.5/10), contact-us-pricing-hostile (8/10), crayon-too-big-small-team (8/10), cron-job-to-product (8/10)
+- Reddit comment (1): ci-workflow-small-team (8.5/10) → r/SaaS / r/ProductManagement
+- Blog article (1): how-to-track-competitor-pricing-changes-automatically (8.5/10, 1150 words)
+
+**Publishing status:** ALL platforms blocked — TWITTER_API_KEY/SECRET/ACCESS_TOKEN, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID/SECRET/USERNAME/PASSWORD all missing from environment. Vault (Vaultwarden MCP) not reachable. All 10 pieces staged as `queued-no-creds`. **Critical blocker persists: social credentials needed in KompWatch vault folder.**
+
+**Queue total:** ~155+ pieces staged across Twitter, Reddit, LinkedIn, Blog. Ready to publish the moment credentials land.
