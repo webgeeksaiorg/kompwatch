@@ -8,211 +8,211 @@ const siteUrl = "https://kompwatch.com";
 
 export const metadata: Metadata = {
   title:
-    "Track Competitor Feature Releases — AI-Summarized Changelog & Product-Page Monitoring | KompWatch",
+    "Monitor Competitor Messaging & Positioning Changes — AI Hero-Copy Diff Alerts | KompWatch",
   description:
-    "Automatically detect when competitors ship new features. KompWatch monitors changelogs, /features, /product, and pricing pages every 1–6 hours, then AI classifies each release (Feature / Pricing / Positioning) and delivers a digest before your next demo call. Free for 2 competitors, $49/mo for 10.",
+    "Detect when a competitor rewrites their hero, changes their tagline, or repositions their category. KompWatch snapshots homepages, landing pages, and category pages every 1–6 hours, then AI summarizes every messaging change so your PMM catches positioning shifts before they show up in ads. Free for 2 competitors, $49/mo for 10.",
   keywords: [
-    "competitor feature tracking",
-    "track competitor features",
-    "competitor feature monitoring",
-    "monitor competitor changelog",
-    "competitor release notes tracking",
-    "competitor product updates",
-    "track competitor product launches",
-    "competitor feature alerts",
-    "changelog monitoring tool",
-    "SaaS competitor tracking",
-    "product intelligence tool",
-    "competitor feature intelligence",
-    "monitor competitor features page",
+    "monitor competitor messaging",
+    "track competitor positioning",
+    "competitor copy changes",
+    "competitor tagline monitoring",
+    "competitor hero copy tracking",
+    "monitor competitor landing page",
+    "track competitor value proposition",
+    "competitor repositioning alerts",
+    "positioning intelligence tool",
+    "SaaS messaging monitoring",
+    "competitor category positioning",
+    "monitor competitor homepage copy",
+    "competitor marketing messaging tracking",
   ],
   alternates: {
-    canonical: `${siteUrl}/use-case/competitor-feature-tracking`,
+    canonical: `${siteUrl}/use-case/competitor-messaging-changes`,
   },
   openGraph: {
     title:
-      "Competitor Feature Tracking — Never Get Blindsided by a Competitor Launch | KompWatch",
+      "Competitor Messaging & Positioning Changes — AI Copy-Diff Alerts | KompWatch",
     description:
-      "Playwright snapshots + Claude classification of every competitor feature release. Get a daily digest of changelog + features-page diffs so you learn about launches from a dashboard, not a lost deal.",
-    url: `${siteUrl}/use-case/competitor-feature-tracking`,
+      "Playwright snapshots + Claude classification of every competitor hero, tagline, and landing-page copy change. Catch repositioning before it hits Google Ads.",
+    url: `${siteUrl}/use-case/competitor-messaging-changes`,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Competitor Feature Tracking — AI-Summarized Change Alerts | KompWatch",
+    title: "Track Competitor Messaging Changes — AI Copy-Diff Alerts | KompWatch",
     description:
-      "Automate changelog + /features monitoring across every SaaS competitor. $49/mo. Start free.",
+      "Automate homepage + landing-page copy monitoring across every SaaS competitor. $49/mo. Start free.",
   },
 };
 
 const painPoints = [
   {
-    title: "You learn about launches from lost deals",
+    title: "You spot the repositioning in a paid ad, not on their site",
     description:
-      "A prospect says 'Acme just shipped X, does KompWatch do that?' You've never heard of it. The changelog entry went up 11 days ago. Manual monitoring means the roadmap intel arrives via your sales team — after it costs you a deal.",
+      "A competitor quietly rewrites their hero from 'analytics platform' to 'AI decision engine.' You see it three weeks later in a LinkedIn ad — after their sales team has already been pitching the new frame in every demo. The homepage change was Day 0. You were on Day 21.",
   },
   {
-    title: "Changelog pages update on their schedule, not yours",
+    title: "Copy changes are invisible in a normal HTML diff",
     description:
-      "Some competitors ship weekly, some monthly, some in bursts around trade shows. No human remembers to re-check 8 different changelogs on the day each one updates. Automated snapshots are the only way to catch every release.",
+      "A hero-copy rewrite is 12 words out of 4,000 on the page. Traditional page-diff tools drown that signal under cookie-banner updates, personalized recommendation blocks, and dynamic testimonials. The one change that matters is buried in 400 lines of noise.",
   },
   {
-    title: "Raw HTML diffs are unreadable noise",
+    title: "You can't tell a real repositioning from a seasonal A/B test",
     description:
-      "Generic page-diff tools show you a wall of red/green markup — timestamps, session tokens, ad scripts, minified class names. The one feature release you actually cared about is buried under 400 lines of DOM churn.",
+      "Every SaaS marketing team ships copy tests. Most revert in a week. The ones that stick are the ones you need to react to — but you can't tell the difference without watching the page over weeks. Manual monitoring means you either overreact to every tweak or miss the real shift.",
   },
 ];
 
 const workflow = [
   {
     step: "1",
-    title: "Add competitor changelog and features URLs",
+    title: "Add competitor homepage and key landing-page URLs",
     description:
-      "For each competitor, add their /changelog (or /whats-new, /release-notes) and their /features (or /product) page. Each URL is a slot on your plan. Pro covers 10 URLs — enough for 3–5 competitors monitored deeply across multiple pages.",
+      "For each competitor, add / (homepage), /product or /platform, and any category landing pages (e.g. /for-marketing, /for-sales). Each URL is a slot on your plan. Pro covers 10 URLs — enough for 3–5 competitors monitored deeply across their positioning surface.",
   },
   {
     step: "2",
     title: "KompWatch snapshots each page on a schedule",
     description:
-      "Every 6 hours on Pro, hourly on Team, weekly on Free. Snapshots run through headless Chromium (Playwright), so React/Next.js changelog components render fully — you catch releases the moment they're published, not when Google finally reindexes.",
+      "Every 6 hours on Pro, hourly on Team, weekly on Free. Snapshots run through headless Chromium (Playwright), so React/Next.js hero components, animated headlines, and personalized copy blocks render fully — you catch messaging shifts the moment they're pushed live.",
   },
   {
     step: "3",
-    title: "AI classifies every release by type and severity",
+    title: "AI classifies every copy change by intent",
     description:
-      "Claude reads the before/after diff and tags each change: FEATURE (new capability), PRICING (feature moved behind a paywall), POSITIONING (repositioning copy). Severity is HIGH for direct-competitor feature adds on your pricing tier, LOW for minor copy tweaks.",
+      "Claude reads the before/after diff and tags each change: POSITIONING (category or value-prop shift), MESSAGING (tagline or hero rewrite), PROOF (new customer logos, testimonials, stats), or COPY-TEST (small variant likely to revert). Severity is HIGH for direct-competitor category shifts, LOW for minor microcopy tweaks.",
   },
   {
     step: "4",
-    title: "Get a digest before your next demo call",
+    title: "Get a digest before your next positioning meeting",
     description:
-      "Free plan gets a weekly email, Pro daily, Team hourly (or Slack). Each digest entry has the release summary, severity, and the raw diff for verification — so your PMM can update the battlecard and brief AEs before the next competitive deal.",
+      "Free plan gets a weekly email, Pro daily, Team hourly (or Slack). Each digest entry has the copy diff, classification, severity, and a suggested action — so your PMM and marketing lead can react to a real repositioning within 24 hours instead of 3 weeks.",
   },
 ];
 
 const whatWeMonitor = [
   {
-    title: "Changelogs & release notes",
+    title: "Homepage hero & tagline",
     description:
-      "Public /changelog, /whats-new, /release-notes pages. The single highest-signal page for feature intel — competitors literally announce their roadmap here, dated and versioned.",
+      "The single most-tested surface on any SaaS site. Hero-copy changes are the earliest and clearest signal of a positioning shift — usually preceded by internal strategy work you'd never see otherwise.",
     example:
-      '"Acme changelog v2.14: added AI forecasting mode, deprecated legacy CSV export, new webhook for deal-stage changes."',
+      '"Acme hero rewritten from \'Marketing analytics for growth teams\' to \'The AI decision layer for RevOps.\' Category shift from analytics → AI infrastructure."',
   },
   {
-    title: "Features & product pages",
+    title: "Product & platform pages",
     description:
-      "/features, /product, /platform. Detects when a feature is added to the main marketing pitch — usually 1–4 weeks after the changelog entry.",
+      "/product, /platform, /overview. Where the value-prop framework gets fully articulated. When these change, the messaging shift has been ratified internally and is being rolled out across sales and marketing.",
     example:
-      '"Competitor added \'Slack digest\' as a first-tier feature block on /features — matches KompWatch\'s core value prop."',
+      '"Competitor /platform page reframed from three product pillars (Track / Report / Alert) to two (Detect / Decide). Consolidating around AI-decision narrative."',
   },
   {
-    title: "Pricing-page feature gating",
+    title: "Category & persona landing pages",
     description:
-      "Which features sit on which plan tier. Catches when a competitor moves a feature behind a paywall or launches a new add-on SKU.",
+      "/for-marketing, /for-sales, /for-startups. Changes here reveal which personas a competitor is doubling down on or quietly abandoning. Also the first place new ICPs appear.",
     example:
-      '"Acme moved API access from Pro to Enterprise-only. Deal for prospect X now unblocked."',
+      '"Competitor added /for-enterprise page and removed /for-startups from top nav. ICP shift upmarket — expect pricing to follow within 60 days."',
   },
   {
-    title: "Blog launch announcements",
+    title: "Category descriptors & meta titles",
     description:
-      "/blog, /news. Long-form feature-launch posts often precede changelog entries by hours and carry positioning language you'll see in cold emails and ads next.",
+      "Page <title>, meta description, and OpenGraph tags. Often updated ahead of visible copy changes because they drive SEO. A meta title change is a leading indicator of positioning work in progress.",
     example:
-      '"Competitor blog: \'Introducing AI Forecasting — the future of pipeline visibility.\' Positioning shift toward AI-first."',
+      '"Meta title changed from \'Acme — Competitor tracking software\' to \'Acme — AI competitive intelligence platform.\' Search-listing repositioning."',
   },
   {
-    title: "Docs & API reference",
+    title: "Customer proof & social proof blocks",
     description:
-      "New docs pages appear the moment a feature ships. Monitoring /docs or /api/reference catches releases the marketing team hasn't announced yet.",
+      "Logo bars, testimonial rotations, stat callouts (e.g. '10,000 teams'). Changes here reveal new customer wins, ICP shifts, and which social proof the competitor believes is most persuasive to their current buyer.",
     example:
-      '"New /docs/webhooks/v2 page detected — webhook v2 shipped 3 days before public announcement."',
+      '"Competitor swapped SMB customer logos for 3 enterprise logos (Snowflake, Datadog, HubSpot). Enterprise-motion signal confirmed."',
   },
   {
-    title: "App-store & extension listings",
+    title: "CTAs, offers & activation flow copy",
     description:
-      "For mobile apps, Chrome extensions, or marketplace listings, version notes update on release. High-signal for competitors without a public changelog.",
+      "Primary and secondary CTAs, free-trial framing, demo request copy. CTA changes reveal go-to-market motion shifts — free-trial to demo-only, or self-serve to sales-led, or the reverse.",
     example:
-      '"Competitor iOS app v4.2 release notes: \'Now with team workspaces.\' — enterprise feature signal."',
+      '"Competitor changed primary CTA from \'Start free trial\' to \'Book a demo.\' Shift from self-serve to sales-led motion — retention or conversion likely broke."',
   },
 ];
 
 const comparisonTools = [
   {
-    tool: "Manually checking changelogs",
+    tool: "Manually reviewing competitor sites",
     verdict:
-      "Works for 1 competitor for 3 weeks, then drifts to 'never.' You'll miss the release that costs you your next deal.",
+      "Works for one competitor for a month, then drifts. Copy-level changes are the first thing humans miss — the page 'looks the same' to a scanning eye.",
     ok: false,
   },
   {
-    tool: "RSS on competitor blogs",
+    tool: "Wayback Machine",
     verdict:
-      "Catches announcements — misses everything shipped without a blog post (which is most releases on most competitors).",
+      "Great for retroactive analysis after you already know something changed. Useless as an alert — snapshots are sparse and no diff summary.",
     ok: false,
   },
   {
-    tool: "Google Alerts",
+    tool: "Visualping",
     verdict:
-      "Fires on press coverage of launches. Never fires on the changelog entry itself. Lag is usually 3–14 days.",
+      "Catches visual pixel changes on a page. Doesn't distinguish copy from layout, doesn't classify positioning vs proof vs CTA, no severity scoring.",
     ok: false,
   },
   {
     tool: "Klue / Crayon",
     verdict:
-      "Excellent feature-tracking as part of a full CI suite. Priced at $15K–$40K/yr with a mandatory sales call and 4–8 week onboarding.",
+      "Enterprise CI suites do track messaging as part of full competitor profiles. Priced at $15K–$40K/yr with a mandatory sales call and multi-week onboarding.",
     ok: false,
   },
   {
     tool: "KompWatch",
     verdict:
-      "Playwright snapshots of changelog + features + pricing + docs. Claude classifies each release. $49/mo, self-serve, 5-minute setup.",
+      "Playwright snapshots of homepage + product + landing pages. Claude classifies every copy change (positioning / messaging / proof / CTA). $49/mo, self-serve, 5-minute setup.",
     ok: true,
   },
 ];
 
 const faqs: { question: string; answer: string }[] = [
   {
-    question: "How do I track competitor feature releases automatically?",
+    question: "How do I monitor a competitor's messaging changes automatically?",
     answer:
-      "The reliable pattern is: snapshot the competitor's changelog + /features page on a schedule (every 1–6 hours), diff each snapshot against the previous one, then use AI to classify what changed (Feature / Pricing / Positioning) and score its severity. That's exactly what KompWatch does — you add URLs, we render them with a real headless browser, and Claude summarizes every diff in plain English. Free plan tracks 2 competitors; Pro at $49/mo tracks 10.",
+      "The reliable pattern is: snapshot the competitor's homepage, product page, and top category landing pages on a schedule (every 1–6 hours), diff each snapshot against the previous one, then use AI to classify what changed (Positioning / Messaging / Proof / CTA) and score its severity. That's exactly what KompWatch does — you add URLs, we render them with a real headless browser so JS-driven hero copy is captured, and Claude summarizes every copy diff in plain English. Free plan tracks 2 competitors; Pro at $49/mo tracks 10.",
   },
   {
-    question: "Which pages should I monitor for competitor feature changes?",
+    question: "Which pages reveal a competitor's real positioning?",
     answer:
-      "In priority order: (1) /changelog or /whats-new — highest signal, granular per-release entries; (2) /features or /product — catches when a feature enters the main marketing pitch; (3) /pricing — catches feature gating and new SKUs; (4) /docs — new docs pages appear the moment a feature ships, often before marketing announcements; (5) /blog — long-form launch posts and positioning shifts; (6) app store listings — version notes for mobile/extension products. KompWatch treats each URL as a separate slot, so a Pro plan (10 URLs) covers 3–5 competitors monitored deeply.",
+      "In priority order: (1) homepage hero — the single most-signal-heavy surface, since every positioning decision eventually shows up in the hero; (2) /product or /platform — where the full value-prop framework lives; (3) category and persona landing pages (/for-marketing, /for-enterprise, /for-startups) — reveals ICP focus shifts; (4) meta titles and OpenGraph tags — leading indicators, often updated before visible copy; (5) pricing page tier names and descriptors — positioning surfaces even on pricing pages. KompWatch treats each URL as a separate slot, so a Pro plan (10 URLs) covers 3–5 competitors monitored across their full positioning surface.",
   },
   {
-    question: "How does KompWatch detect a new competitor feature versus a minor page tweak?",
+    question: "How does KompWatch tell a real repositioning from a small A/B test?",
     answer:
-      "Two-layer filtering. First, our diff engine isolates structural changes (new blocks, renamed sections, removed content) from noise (session tokens, timestamps, ad scripts, tracking pixels). Second, Claude reads the filtered diff and assigns a change type (FEATURE / PRICING / POSITIONING / CONTENT) plus a severity score (LOW / MEDIUM / HIGH). A new feature block on a direct competitor's pricing page scores HIGH and shows up at the top of your digest. A minor CSS tweak scores LOW and is filtered from immediate alerts by default.",
+      "Two signals combined. First, scope: a real repositioning shows up on multiple pages within days (homepage + product + meta titles all shift together), while an A/B test usually touches one hero variant. Second, persistence: KompWatch stores the full snapshot history, so if a hero rewrite reverts within 5–10 days it's flagged as COPY-TEST rather than POSITIONING. The severity score also drops for isolated single-page changes and rises for coordinated multi-page rewrites. In practice, the digest surfaces real positioning shifts and de-emphasizes routine copy tests.",
   },
   {
-    question: "Can KompWatch track competitors who don't publish a public changelog?",
+    question: "Can KompWatch catch changes to hero copy that's rendered in JavaScript?",
     answer:
-      "Yes — this is one of the highest-value setups. When a competitor has no changelog, combine: (1) /features page monitoring (catches new capability blocks), (2) /pricing page monitoring (catches newly gated features), (3) /blog monitoring (catches launch announcements), and (4) /docs monitoring (catches new API references and product docs pages, which often ship days before public marketing). Together these give you the same signal as a changelog, sometimes better.",
+      "Yes — this is why we use Playwright (a real headless Chromium browser) rather than raw HTTP fetches. Most modern SaaS sites render their hero, testimonials, and CTA blocks client-side via React or Next.js. Simple HTML scrapers miss those changes entirely. KompWatch waits for the page to hydrate, then captures the fully rendered DOM — so a hero rewritten in a React component is diffed the same as one in static HTML.",
   },
   {
-    question: "How fast will I know when a competitor ships a new feature?",
+    question: "How fast will I know when a competitor changes their positioning?",
     answer:
-      "Depends on plan. Free plan snapshots weekly, so worst case is 7 days. Pro snapshots every 6 hours — you'll typically know within 6–12 hours of publication. Team snapshots hourly — you'll know within 60–90 minutes. For most PMM use cases (updating a battlecard, briefing sales for the next demo), Pro's 6-hour cadence is the right trade-off between freshness and cost. Team's hourly cadence is worth it when you're in an active competitive deal and need same-day intel.",
+      "Depends on plan. Free plan snapshots weekly, so worst case is 7 days. Pro snapshots every 6 hours — you'll typically know within 6–12 hours of the change going live. Team snapshots hourly — within 60–90 minutes. For most PMM and marketing-lead use cases (updating messaging docs, briefing content and paid teams), Pro's 6-hour cadence is the right trade-off between freshness and cost. Team's hourly cadence is worth it during a known competitive push (funding announcement, product launch, category-creation campaign).",
   },
   {
-    question: "How is this different from just using Visualping on the changelog page?",
+    question: "How is this different from just monitoring the competitor's homepage with Visualping?",
     answer:
-      "Visualping tells you a page changed. KompWatch tells you what changed, why it matters, and where to act. Three specific differences: (1) AI classification — you get 'Acme added AI forecasting to Pro tier' instead of a red/green HTML diff, (2) severity scoring — high-signal releases surface at the top; minor copy tweaks are filtered, (3) the digest is written for a PMM/founder audience with a suggested action (update battlecard, brief AEs). If you monitor one changelog and one shipping-status page, use Visualping. If you monitor 5–50 SaaS competitors' feature releases, use KompWatch.",
+      "Visualping tells you the homepage changed visually. KompWatch tells you what copy changed, whether it's positioning or proof or CTA, and how significant it is. Three specific differences: (1) AI classification — you get 'Acme reframed their hero from analytics to AI decision layer' instead of a red/green pixel diff; (2) copy-vs-visual isolation — a background image swap or logo rotation doesn't fire a positioning alert; (3) the digest is written for a PMM/founder audience with a suggested action (update battlecard, brief content team, review paid-ad copy). If you monitor one homepage for any change, use Visualping. If you monitor 5–50 SaaS competitors' positioning, use KompWatch.",
   },
   {
-    question: "Do I need to write CSS selectors to scope the changelog snapshot?",
+    question: "What counts as 'positioning' vs 'messaging' in KompWatch's classification?",
     answer:
-      "No, but you can. By default KompWatch snapshots the full rendered page and lets the AI classifier filter noise. For noisy pages (heavy sidebars, cookie banners, chat widgets that keep updating), scoping to a selector like `article`, `.changelog-entry`, or `main` produces cleaner diffs and slightly better severity scores. The dashboard lets you set a selector per URL — most users leave it blank and it works fine.",
+      "POSITIONING = a change in category or who the product is for. Example: 'analytics platform for growth teams' → 'AI decision layer for RevOps' (category shift + persona shift). MESSAGING = a change in how the same positioning is expressed. Example: 'Never miss a beat' → 'See what your competitors ship, the moment they ship it' (same category, sharper phrasing). Positioning changes score higher severity because they usually indicate underlying strategy shifts; messaging changes are more common and often reflect ongoing copy iteration. Both are surfaced, but positioning shifts float to the top of the digest.",
   },
   {
-    question: "Can I get feature-release alerts in Slack instead of email?",
+    question: "Can I get positioning-change alerts in Slack instead of email?",
     answer:
-      "Yes, on the Team plan ($149/mo). Team subscribers can route the change digest into any Slack channel — most customers use #competitive-intel, #pmm, or a dedicated #competitor-releases channel so the whole team sees releases as they land. Pro and Free plans get email digests only (Pro daily, Free weekly). Slack routing is on the roadmap for Pro but currently gated to Team.",
+      "Yes, on the Team plan ($149/mo). Team subscribers can route the change digest into any Slack channel — most customers use #competitive-intel, #pmm, #marketing, or a dedicated #competitor-messaging channel so PMM, content, and paid teams see positioning shifts together. Pro and Free plans get email digests only (Pro daily, Free weekly). Slack routing is on the roadmap for Pro but currently gated to Team.",
   },
   {
-    question: "What do I actually do with a competitor feature-release alert?",
+    question: "What should I actually do when a competitor changes their positioning?",
     answer:
-      "A three-step playbook works for most PMM teams: (1) verify — click through to the diff to confirm scope, since KompWatch stores the full before/after; (2) brief sales immediately if a live deal is affected — don't wait for the next weekly sync, forward the digest entry to the AE; (3) update the battlecard within 24 hours so it doesn't go stale (see our guide on keeping battlecards fresh). For high-severity releases from direct competitors, also monitor G2/Capterra reviews over the next 2 weeks — new features generate reviews quickly and those reviews are a second data source on how the feature is landing.",
+      "A four-step playbook works for most PMM/marketing teams: (1) verify — click through to the KompWatch diff to confirm the change is real and multi-page rather than a single A/B variant; (2) brief content and paid teams — a competitor category shift usually shows up in Google Ads and LinkedIn copy within 2 weeks, so your own copy should differentiate before then; (3) update the battlecard and positioning doc within 48 hours; (4) monitor their next 3 blog posts and any new landing pages — a real repositioning is always followed by supporting content within 30–60 days. If you don't see the follow-through content, the change may have been a test that didn't ship internally.",
   },
 ];
 
@@ -229,9 +229,9 @@ const faqJsonLd = {
 const howToJsonLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
-  name: "How to track competitor feature releases automatically with KompWatch",
+  name: "How to monitor competitor messaging and positioning changes automatically with KompWatch",
   description:
-    "Set up automated feature-release tracking for competitor changelogs, features pages, and pricing pages — with AI-summarized change alerts.",
+    "Set up automated monitoring for competitor homepage hero copy, product-page positioning, and category landing pages — with AI-classified copy-change alerts.",
   step: workflow.map((s) => ({
     "@type": "HowToStep",
     position: Number(s.step),
@@ -240,15 +240,15 @@ const howToJsonLd = {
   })),
 };
 
-export default function CompetitorFeatureTrackingPage() {
+export default function CompetitorMessagingChangesPage() {
   return (
     <div className="bg-white">
       <BreadcrumbSchema
         items={[
           { name: "Use Cases", path: "/use-case" },
           {
-            name: "Competitor Feature Tracking",
-            path: "/use-case/competitor-feature-tracking",
+            name: "Competitor Messaging Changes",
+            path: "/use-case/competitor-messaging-changes",
           },
         ]}
       />
@@ -288,23 +288,23 @@ export default function CompetitorFeatureTrackingPage() {
       {/* Hero */}
       <section className="mx-auto max-w-4xl px-6 pb-16 pt-20 text-center">
         <div className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700">
-          Use case · Competitor feature tracking
+          Use case · Competitor messaging &amp; positioning
         </div>
         <h1 className="mt-6 text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl">
-          Track competitor feature releases{" "}
-          <span className="text-brand-600">before your prospects do</span>
+          Catch a competitor&rsquo;s repositioning{" "}
+          <span className="text-brand-600">before it hits Google Ads</span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
-          KompWatch snapshots competitor changelogs, features pages, pricing pages, and docs every
-          1–6 hours with a real headless browser. Claude classifies every release by type and
-          severity, then emails you a digest before the next competitive demo.{" "}
+          KompWatch snapshots competitor homepages, product pages, and landing pages every 1–6
+          hours with a real headless browser. Claude classifies every copy change (positioning,
+          messaging, proof, CTA) so your PMM catches category shifts on Day 0, not Day 21.{" "}
           <strong className="text-gray-900">Free for 2 competitors. $49/mo for 10.</strong>
         </p>
         <div className="mt-10 flex items-center justify-center gap-4">
           <TrackedCTA
             href="/login"
-            event="UseCase FeatureTracking Hero CTA"
-            eventProps={{ usecase: "competitor-feature-tracking" }}
+            event="UseCase MessagingChanges Hero CTA"
+            eventProps={{ usecase: "competitor-messaging-changes" }}
             className="rounded-lg bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
           >
             Start free — 2 competitors, weekly digest
@@ -317,7 +317,7 @@ export default function CompetitorFeatureTrackingPage() {
           </Link>
         </div>
         <p className="mt-4 text-xs text-gray-400">
-          No credit card. 5-minute setup. Playwright-rendered snapshots.
+          No credit card. 5-minute setup. JS-rendered hero copy captured.
         </p>
       </section>
 
@@ -325,10 +325,10 @@ export default function CompetitorFeatureTrackingPage() {
       <section className="border-y border-gray-100 bg-gray-50 py-16">
         <div className="mx-auto max-w-4xl px-6">
           <h2 className="text-center text-2xl font-bold tracking-tight text-gray-900">
-            Why manual feature-release tracking always fails
+            Why manual positioning monitoring always fails
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            Three failure modes we&rsquo;ve heard from every PMM we&rsquo;ve talked to.
+            Three failure modes we&rsquo;ve heard from every PMM and marketing lead we&rsquo;ve talked to.
           </p>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
             {painPoints.map((point) => (
@@ -346,7 +346,7 @@ export default function CompetitorFeatureTrackingPage() {
         <div className="mx-auto max-w-4xl px-6">
           <div className="text-center">
             <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-              How KompWatch tracks competitor feature releases
+              How KompWatch tracks competitor messaging changes
             </h2>
             <p className="mt-3 text-sm text-gray-600">
               Four steps. No CSS selectors required. No RFP.
@@ -373,7 +373,7 @@ export default function CompetitorFeatureTrackingPage() {
         <div className="mx-auto max-w-5xl px-6">
           <div className="text-center">
             <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-              Which pages reveal competitor feature releases
+              Which surfaces reveal competitor positioning
             </h2>
             <p className="mt-3 text-sm text-gray-600">
               Six page types. Priority-ordered. Each classified by AI, severity-scored, digest-ready.
@@ -401,10 +401,10 @@ export default function CompetitorFeatureTrackingPage() {
         <div className="mx-auto max-w-3xl px-6">
           <div className="text-center">
             <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-              What a feature-release alert looks like
+              What a positioning-change alert looks like
             </h2>
             <p className="mt-3 text-sm text-gray-600">
-              Not a diff dump. A briefing.
+              Not a pixel diff. A briefing.
             </p>
           </div>
           <div className="mt-10 rounded-xl border border-gray-200 bg-gray-50 p-6 shadow-sm">
@@ -414,23 +414,26 @@ export default function CompetitorFeatureTrackingPage() {
                 <div className="text-sm font-semibold text-gray-900">Acme Analytics</div>
               </div>
               <div className="rounded-full bg-red-100 px-3 py-1 text-xs font-semibold text-red-700">
-                FEATURE · HIGH
+                POSITIONING · HIGH
               </div>
             </div>
             <div className="mt-4 space-y-3 text-sm text-gray-700">
               <p>
-                <strong className="text-gray-900">Detected:</strong> 2026-08-12 at 14:33 UTC ·
-                changelog v3.11
+                <strong className="text-gray-900">Detected:</strong> 2026-08-12 at 09:14 UTC ·
+                homepage + /platform + meta title
               </p>
               <p>
-                Acme Analytics added <em>&ldquo;AI-powered forecasting&rdquo;</em> to their pricing page as a
-                Pro-only feature. Their changelog entry reads: &ldquo;Forecast mode: automatically project
-                pipeline to quarter-end using historical close rates.&rdquo; Previous pricing table did not
-                list this capability.
+                Acme Analytics rewrote their hero from{" "}
+                <em>&ldquo;Marketing analytics for growth teams&rdquo;</em> to{" "}
+                <em>&ldquo;The AI decision layer for RevOps.&rdquo;</em> Same shift appears on{" "}
+                /platform (three product pillars consolidated into two) and in their meta title (now
+                &ldquo;AI competitive intelligence platform&rdquo;). Coordinated multi-page rollout
+                — this is a real repositioning, not an A/B test.
               </p>
               <div className="rounded-lg border border-brand-200 bg-brand-50 px-4 py-3 text-xs text-brand-800">
-                <strong>Suggested action:</strong> Update battlecard. Brief AEs before next
-                Acme-competitive deal. Consider monitoring G2 for user reviews over the next 14 days.
+                <strong>Suggested action:</strong> Brief content and paid teams — expect their new
+                framing in LinkedIn/Google Ads within 2 weeks. Update your own positioning doc and
+                battlecard within 48 hours. Monitor their next 3 blog posts for supporting narrative.
               </div>
             </div>
           </div>
@@ -442,7 +445,7 @@ export default function CompetitorFeatureTrackingPage() {
         <div className="mx-auto max-w-4xl px-6">
           <div className="text-center">
             <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-              How KompWatch compares to other feature-tracking approaches
+              How KompWatch compares to other positioning-tracking approaches
             </h2>
             <p className="mt-3 text-sm text-gray-600">
               Honest comparison. When another tool is better, we say so.
@@ -474,12 +477,6 @@ export default function CompetitorFeatureTrackingPage() {
           </div>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-sm">
             <Link
-              href="/use-case/competitor-messaging-changes"
-              className="rounded-lg border border-gray-200 bg-white px-4 py-2 font-medium text-gray-700 hover:border-brand-300 hover:text-brand-700"
-            >
-              Messaging changes &rarr;
-            </Link>
-            <Link
               href="/compare/kompwatch-vs-crayon"
               className="rounded-lg border border-gray-200 bg-white px-4 py-2 font-medium text-gray-700 hover:border-brand-300 hover:text-brand-700"
             >
@@ -509,11 +506,11 @@ export default function CompetitorFeatureTrackingPage() {
               Pricing
             </div>
             <h2 className="mt-6 text-2xl font-bold tracking-tight">
-              Feature-release tracking for $49/mo — not $30,000/yr
+              Positioning intel for $49/mo — not $30,000/yr
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-sm text-gray-300">
-              You don&rsquo;t need a full competitive-intelligence platform to stop being blindsided by
-              competitor launches. You need the monitoring layer. That&rsquo;s KompWatch.
+              You don&rsquo;t need a full competitive-intelligence platform to catch a competitor
+              rewriting their category. You need the monitoring layer. That&rsquo;s KompWatch.
             </p>
           </div>
 
@@ -525,7 +522,7 @@ export default function CompetitorFeatureTrackingPage() {
               </div>
               <div className="mt-1 text-xs text-gray-400">2 competitors · weekly digest</div>
               <p className="mt-4 text-sm text-gray-300">
-                Track the changelog of your two biggest threats. Weekly digest catches every release inside 7 days.
+                Track the homepage + product page of your two biggest threats. Weekly digest catches every messaging shift inside 7 days.
               </p>
             </div>
             <div className="rounded-xl border border-brand-300 bg-brand-600/10 p-5 ring-1 ring-brand-300">
@@ -537,7 +534,7 @@ export default function CompetitorFeatureTrackingPage() {
               </div>
               <div className="mt-1 text-xs text-gray-400">10 URLs · every 6 hours</div>
               <p className="mt-4 text-sm text-gray-300">
-                3–5 competitors monitored deeply across changelog + features + pricing + docs. Daily AI-classified digest.
+                3–5 competitors monitored across homepage + product + category landing pages. Daily AI-classified positioning digest.
               </p>
             </div>
             <div className="rounded-xl border border-white/10 bg-white/5 p-5">
@@ -547,7 +544,7 @@ export default function CompetitorFeatureTrackingPage() {
               </div>
               <div className="mt-1 text-xs text-gray-400">50 URLs · hourly · Slack</div>
               <p className="mt-4 text-sm text-gray-300">
-                For CI teams. Hourly changelog snapshots + Slack digest route release alerts into your #competitive channel.
+                For PMM + marketing teams. Hourly homepage snapshots + Slack digest route positioning alerts into #pmm or #competitive.
               </p>
             </div>
           </div>
@@ -555,8 +552,8 @@ export default function CompetitorFeatureTrackingPage() {
           <div className="mt-10 text-center">
             <TrackedCTA
               href="/login"
-              event="UseCase FeatureTracking Pricing CTA"
-              eventProps={{ usecase: "competitor-feature-tracking" }}
+              event="UseCase MessagingChanges Pricing CTA"
+              eventProps={{ usecase: "competitor-messaging-changes" }}
               className="inline-block rounded-lg bg-white px-8 py-3 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100"
             >
               Start free — upgrade when you&rsquo;re ready
@@ -574,7 +571,7 @@ export default function CompetitorFeatureTrackingPage() {
       <section className="bg-white py-20">
         <div className="mx-auto max-w-4xl px-6">
           <h2 className="text-center text-2xl font-bold tracking-tight text-gray-900">
-            Competitor feature tracking — FAQ
+            Competitor messaging &amp; positioning — FAQ
           </h2>
           <dl className="mt-10 space-y-8">
             {faqs.map((faq) => (
@@ -606,14 +603,14 @@ export default function CompetitorFeatureTrackingPage() {
               </p>
             </Link>
             <Link
-              href="/use-case/track-competitor-pricing"
+              href="/use-case/competitor-feature-tracking"
               className="rounded-xl border border-gray-200 bg-white p-5 hover:border-brand-300"
             >
               <div className="text-sm font-semibold text-gray-900">
-                Track competitor pricing &rarr;
+                Track competitor feature releases &rarr;
               </div>
               <p className="mt-2 text-sm text-gray-600">
-                Feature gating happens on the pricing page — go deeper on price + tier monitoring.
+                Positioning shifts are usually followed by feature releases — monitor both together.
               </p>
             </Link>
             <Link
@@ -624,18 +621,18 @@ export default function CompetitorFeatureTrackingPage() {
                 Build fresh competitive battlecards &rarr;
               </div>
               <p className="mt-2 text-sm text-gray-600">
-                Feed detected releases straight into a battlecard so sales is always briefed.
+                Feed detected positioning shifts straight into a battlecard so sales stays briefed.
               </p>
             </Link>
             <Link
-              href="/compare/kompwatch-vs-crayon"
+              href="/use-case/track-competitor-pricing"
               className="rounded-xl border border-gray-200 bg-white p-5 hover:border-brand-300"
             >
               <div className="text-sm font-semibold text-gray-900">
-                KompWatch vs Crayon &rarr;
+                Track competitor pricing &rarr;
               </div>
               <p className="mt-2 text-sm text-gray-600">
-                Purpose-built monitoring at $49/mo vs a full CI suite at $15K+/yr.
+                Repositioning is often followed by a price/tier change — monitor both together.
               </p>
             </Link>
           </div>
@@ -646,18 +643,18 @@ export default function CompetitorFeatureTrackingPage() {
       <section className="border-t border-gray-100 bg-white py-20">
         <div className="mx-auto max-w-2xl px-6 text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900">
-            Never learn about a competitor launch from a lost deal again
+            Never learn about a competitor&rsquo;s repositioning from a paid ad again
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            Add 2 competitors free. Pro ($49/mo) monitors 10 URLs — changelog, features, pricing,
-            docs — every 6 hours and sends a daily AI-classified digest. The intel loop your PMM
-            has been faking with browser bookmarks.
+            Add 2 competitors free. Pro ($49/mo) monitors 10 URLs — homepage, product, category
+            landing pages — every 6 hours and sends a daily AI-classified messaging digest. The
+            positioning-intel loop your PMM has been faking with browser bookmarks.
           </p>
           <div className="mt-8">
             <TrackedCTA
               href="/login"
-              event="UseCase FeatureTracking Bottom CTA"
-              eventProps={{ usecase: "competitor-feature-tracking" }}
+              event="UseCase MessagingChanges Bottom CTA"
+              eventProps={{ usecase: "competitor-messaging-changes" }}
               className="inline-block rounded-lg bg-brand-600 px-8 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-700"
             >
               Start free — no credit card required
@@ -692,8 +689,8 @@ export default function CompetitorFeatureTrackingPage() {
             <Link href="/use-case/monitor-competitor-website" className="text-sm text-gray-500 hover:text-gray-700">
               Monitor website
             </Link>
-            <Link href="/use-case/track-competitor-pricing" className="text-sm text-gray-500 hover:text-gray-700">
-              Track pricing
+            <Link href="/use-case/competitor-feature-tracking" className="text-sm text-gray-500 hover:text-gray-700">
+              Feature tracking
             </Link>
             <Link href="/login" className="text-sm text-gray-500 hover:text-gray-700">
               Sign in
