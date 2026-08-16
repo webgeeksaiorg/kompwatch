@@ -1,7 +1,7 @@
 ---
 platform: linkedin
 type: post
-status: draft
+status: queued-no-creds
 score: 8/10
 keywords: [competitor monitoring, competitive intelligence, track competitor changes, SaaS product management]
 ---

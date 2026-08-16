@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: "threads about SaaS tools, competitive research, product strategy"
-status: draft
+status: queued-no-creds
 score: 7.5/10
 keywords: [monitor competitor pricing, competitor website tracking]
 ---

@@ -2,7 +2,7 @@
 platform: reddit
 type: comment
 target: r/ProductManagement
-status: draft
+status: queued-no-creds
 score: 8/10
 keywords: [track competitor changes, competitive intelligence, competitor monitoring]
 ---

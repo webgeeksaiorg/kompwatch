@@ -2,7 +2,7 @@
 platform: reddit
 type: comment
 target: r/SaaS
-status: draft
+status: queued-no-creds
 score: 7.5/10
 keywords: [competitor monitoring, track competitor pricing, SaaS competitive intelligence]
 ---

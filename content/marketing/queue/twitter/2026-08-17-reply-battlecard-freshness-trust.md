@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: "threads about competitive intelligence, product management, sales enablement"
-status: draft
+status: queued-no-creds
 score: 7.5/10
 keywords: [track competitor changes, competitive monitoring]
 ---

@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: queued-no-creds
 score: 8.5/10
 keywords: [competitor intelligence, competitive monitoring, track competitor changes]
 ---
