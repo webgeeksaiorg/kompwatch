@@ -663,14 +663,15 @@ export default function CompetitiveBattlecardPage() {
               </p>
             </Link>
             <Link
-              href="/switch/crayon"
+              href="/use-case/win-loss-analysis"
               className="rounded-xl border border-gray-200 bg-white p-5 hover:border-brand-300"
             >
               <div className="text-sm font-semibold text-gray-900">
-                Switch from Crayon &rarr;
+                Win/loss analysis with competitor context &rarr;
               </div>
               <p className="mt-2 text-sm text-gray-600">
-                How KompWatch replaces Crayon&rsquo;s monitoring layer at 1–2% of the cost.
+                Every HIGH-severity KompWatch change is a battlecard update candidate — and a
+                candidate loss-cause on deals closing that week.
               </p>
             </Link>
           </div>

@@ -358,6 +358,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${siteUrl}/use-case/win-loss-analysis`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${siteUrl}/llm-visibility`,
       lastModified: now,
       changeFrequency: "monthly",
