@@ -10,6 +10,11 @@ const BLOG_DIR = path.join(
   "blog",
 );
 
+export type BlogHowToStep = {
+  name: string;
+  text: string;
+};
+
 export type BlogPostMeta = {
   slug: string;
   title: string;
@@ -20,6 +25,15 @@ export type BlogPostMeta = {
 
 export type BlogPost = BlogPostMeta & {
   body: string;
+  /**
+   * Optional HowTo schema for step-by-step guides. When both `howtoName`
+   * and `howtoSteps` are set in the post frontmatter, the blog post page
+   * emits schema.org HowTo JSON-LD alongside BlogPosting. This gives the
+   * post a shot at rich-result "How to" featured snippets (Google).
+   */
+  howtoName?: string;
+  howtoDescription?: string;
+  howtoSteps?: BlogHowToStep[];
 };
 
 /**
@@ -61,7 +75,47 @@ function parsePost(filename: string): BlogPost | null {
 
   const keywords: string[] = Array.isArray(data.keywords) ? data.keywords : [];
 
-  return { slug, title, description, date, keywords, body: content };
+  // Optional HowTo schema fields — only emit HowTo JSON-LD when both
+  // `howto_name` and a non-empty `howto_steps` array are present.
+  // Each step must have {name, text} shape (schema.org HowToStep).
+  const howtoName =
+    typeof data.howto_name === "string" && data.howto_name.trim().length > 0
+      ? data.howto_name.trim()
+      : undefined;
+  const howtoDescription =
+    typeof data.howto_description === "string"
+      ? data.howto_description.trim()
+      : undefined;
+  const howtoSteps: BlogHowToStep[] | undefined = Array.isArray(data.howto_steps)
+    ? (data.howto_steps as unknown[])
+        .map((raw): BlogHowToStep | null => {
+          if (
+            raw &&
+            typeof raw === "object" &&
+            "name" in raw &&
+            "text" in raw &&
+            typeof (raw as { name: unknown }).name === "string" &&
+            typeof (raw as { text: unknown }).text === "string"
+          ) {
+            const s = raw as { name: string; text: string };
+            return { name: s.name.trim(), text: s.text.trim() };
+          }
+          return null;
+        })
+        .filter((s): s is BlogHowToStep => s !== null && s.name.length > 0 && s.text.length > 0)
+    : undefined;
+
+  return {
+    slug,
+    title,
+    description,
+    date,
+    keywords,
+    body: content,
+    howtoName,
+    howtoDescription,
+    howtoSteps: howtoSteps && howtoSteps.length > 0 ? howtoSteps : undefined,
+  };
 }
 
 /**

@@ -129,6 +129,25 @@ export default async function BlogPostPage({ params }: PageProps) {
         }
       : null;
 
+  // Optional HowTo JSON-LD — only emitted when the post frontmatter
+  // provides `howto_name` + `howto_steps`. Gives step-by-step tutorial
+  // posts a shot at Google's "How to" rich result / featured snippet.
+  const howtoJsonLd =
+    post.howtoName && post.howtoSteps && post.howtoSteps.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          name: post.howtoName,
+          description: post.howtoDescription ?? post.description,
+          step: post.howtoSteps.map((s, i) => ({
+            "@type": "HowToStep",
+            position: i + 1,
+            name: s.name,
+            text: s.text,
+          })),
+        }
+      : null;
+
   return (
     <div className="bg-white">
       <script
@@ -139,6 +158,12 @@ export default async function BlogPostPage({ params }: PageProps) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
+      {howtoJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(howtoJsonLd) }}
         />
       )}
 
