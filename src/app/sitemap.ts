@@ -328,6 +328,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${siteUrl}/use-case`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
       url: `${siteUrl}/use-case/track-competitor-pricing`,
       lastModified: now,
       changeFrequency: "monthly",
