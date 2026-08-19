@@ -347,6 +347,76 @@ const CATEGORY_MAP: Record<string, string> = {
   "how-to-keep-battlecards-up-to-date": "Using CI Strategically",
   "how-to-share-ci-with-sales-team": "Using CI Strategically",
   "how-to-brief-sales-on-competitor-change": "Using CI Strategically",
+
+  // ── Using CI Strategically (additional) ──────────────────────────────────
+  "auto-populating-battlecards": "Using CI Strategically",
+  "competitive-analysis-vs-battlecard": "Using CI Strategically",
+  "competitive-intelligence-vs-sales-enablement": "Using CI Strategically",
+  "competitor-feature-release-alert-playbook": "Using CI Strategically",
+  "competitor-no-public-changelog": "Using CI Strategically",
+  "competitor-positioning-vs-messaging-classification": "Using CI Strategically",
+  "competitor-quietly-removed-a-claim": "Using CI Strategically",
+  "exporting-change-history-for-win-loss": "Using CI Strategically",
+  "free-battlecard-template": "Using CI Strategically",
+  "free-competitive-analysis-template": "Using CI Strategically",
+  "gong-chorus-clozd-with-kompwatch": "Using CI Strategically",
+  "how-to-respond-to-competitor-messaging-change": "Using CI Strategically",
+  "how-to-use-kompwatch-without-a-dedicated-ci-analyst": "Using CI Strategically",
+  "running-a-bi-weekly-competitive-review": "Using CI Strategically",
+  "solo-content-marketer-kompwatch-setup": "Using CI Strategically",
+  "solo-pmm-win-loss-analysis": "Using CI Strategically",
+  "when-to-update-battlecard-after-competitor-launch": "Using CI Strategically",
+  "which-competitor-changes-predict-deal-losses": "Using CI Strategically",
+  "who-owns-competitive-battlecards": "Using CI Strategically",
+  "why-do-battlecards-go-stale": "Using CI Strategically",
+  "ci-for-sales-rep-onboarding-and-ramp": "Using CI Strategically",
+
+  // ── Advanced Monitoring (additional) ─────────────────────────────────────
+  "best-way-to-monitor-competitor-website": "Advanced Monitoring",
+  "competitor-feature-tracking": "Advanced Monitoring",
+  "detecting-competitor-content-refresh-campaigns": "Advanced Monitoring",
+  "detecting-competitor-gtm-motion-shift-via-cta-changes": "Advanced Monitoring",
+  "how-often-to-check-competitor-websites": "Advanced Monitoring",
+  "how-to-monitor-a-competitor-product-hunt-launch": "Advanced Monitoring",
+  "meta-title-opengraph-as-positioning-signal": "Advanced Monitoring",
+
+  // ── Using KompWatch (additional) ─────────────────────────────────────────
+  "shared-report-utm-tracking": "Using KompWatch",
+  "what-is-the-ai-percentage-badge": "Using KompWatch",
+  "what-triggers-my-first-change-alert-email": "Using KompWatch",
+  "why-did-i-get-a-mock-change-alert-email": "Using KompWatch",
+
+  // ── Getting Started (additional) ─────────────────────────────────────────
+  "can-i-monitor-a-ci-tool-with-kompwatch": "Getting Started",
+  "can-i-run-kompwatch-alongside-semrush": "Getting Started",
+  "catching-up-on-a-missed-competitor-launch": "Getting Started",
+
+  // ── Pricing & Billing (additional) ───────────────────────────────────────
+  "how-does-the-activation-moment-work-free-to-paid": "Pricing & Billing",
+  "what-makes-free-users-upgrade-to-pro": "Pricing & Billing",
+
+  // ── Switching to KompWatch (additional) ──────────────────────────────────
+  "does-klue-compete-agent-replace-website-monitoring": "Switching to KompWatch",
+  "does-kompwatch-replace-semrush-trends": "Switching to KompWatch",
+  "for-crayon-users": "Switching to KompWatch",
+  "for-klue-users": "Switching to KompWatch",
+  "for-kompyte-users": "Switching to KompWatch",
+  "for-visualping-users": "Switching to KompWatch",
+  "glimpse-vs-kompwatch": "Switching to KompWatch",
+  "is-klue-enterprise-only-now": "Switching to KompWatch",
+  "is-kompyte-enterprise-only-now": "Switching to KompWatch",
+  "klue-crayon-battlecard-comparison": "Switching to KompWatch",
+  "klue-minimum-contract-small-teams": "Switching to KompWatch",
+  "kompwatch-not-on-listicles-yet": "Switching to KompWatch",
+  "kompwatch-vs-distill-io": "Switching to KompWatch",
+  "kompyte-900-per-year-entry-price": "Switching to KompWatch",
+  "switching-from-competely": "Switching to KompWatch",
+  "switching-from-kompetar": "Switching to KompWatch",
+  "switching-from-semrush": "Switching to KompWatch",
+  "switching-from-softwareone": "Switching to KompWatch",
+  "what-happens-to-kompyte-after-adobe-acquires-semrush": "Switching to KompWatch",
+  "what-happens-to-my-data-when-i-cancel-kompyte": "Switching to KompWatch",
+  "what-happens-to-my-data-when-i-cancel-semrush": "Switching to KompWatch",
 };
 
 const CATEGORY_ORDER = [
