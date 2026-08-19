@@ -286,7 +286,7 @@ export default function SemrushAlternativePage() {
     <div className="bg-white">
       <BreadcrumbSchema
         items={[
-          { name: "Compare", path: "/compare" },
+          { name: "Alternatives", path: "/vs" },
           { name: "Semrush Alternatives", path: "/vs/semrush-alternative" },
         ]}
       />
