@@ -9,12 +9,16 @@ const siteUrl = "https://kompwatch.com";
 
 export const metadata: Metadata = {
   title:
-    "Klue Locked Into Microsoft Teams — Switch Before Your Renewal",
+    "Klue Laid Off 100 People, Locked Into Microsoft Teams — Switch Before Your Renewal",
   description:
-    "Klue's February 2026 update bolted competitive intelligence onto Microsoft Teams, Dynamics 365, and Copilot MCP. If your team isn't on Microsoft's enterprise stack, you're paying $20K–$40K/yr for features you can't use. KompWatch is platform-agnostic — $49/mo, self-serve, set up in 5 minutes.",
+    "In June 2026 Klue laid off 100 employees to 'focus on AI' — four months after bolting its CI platform onto Microsoft Teams, Dynamics 365, and Copilot MCP. If you're not on Microsoft's enterprise stack, you're paying $20K–$40K/yr for a roadmap under active reconstruction. KompWatch is platform-agnostic, $49/mo, self-serve, set up in 5 minutes.",
   keywords: [
     "Klue alternative",
     "switch from Klue",
+    "Klue layoffs",
+    "Klue layoffs 2026",
+    "Klue 100 layoffs",
+    "Klue AI pivot",
     "Klue Microsoft Teams lock-in",
     "Klue Microsoft 365",
     "Klue Dynamics 365",
@@ -28,17 +32,18 @@ export const metadata: Metadata = {
     canonical: `${siteUrl}/switch/klue`,
   },
   openGraph: {
-    title: "Klue Locked Into Microsoft Teams — Switch to KompWatch",
+    title:
+      "Klue Laid Off 100 People, Locked Into Microsoft Teams — Switch to KompWatch",
     description:
-      "Klue's CI platform now assumes Microsoft 365, Teams, and Dynamics 365. KompWatch is the platform-agnostic alternative — same monitoring, $49/mo. No sales call.",
+      "June 2026: Klue cut 100 employees to 'focus on AI.' Their CI platform still assumes Microsoft 365, Teams, and Dynamics 365. KompWatch is the platform-agnostic alternative — same monitoring, $49/mo. No sales call.",
     url: `${siteUrl}/switch/klue`,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Klue's Microsoft Lock-In — Time to Switch?",
+    title: "Klue Laid Off 100 — Time to Switch?",
     description:
-      "Klue bolted CI onto Teams, Dynamics 365, and Copilot MCP in Feb 2026. KompWatch: platform-agnostic, $49/mo, set up in 5 minutes.",
+      "Klue cut 100 employees in June 2026 to 'focus on AI' — after bolting CI onto Teams, Dynamics 365, and Copilot MCP. KompWatch: platform-agnostic, $49/mo, set up in 5 minutes.",
   },
 };
 
@@ -54,6 +59,13 @@ const timelineEvents = [
     title: "Microsoft 365 integration becomes the headline feature",
     detail:
       "Klue's biggest February release: deep Microsoft 365 hooks — Teams Calls, Teams Chat, Dynamics 365, and a Copilot MCP Server. The product is increasingly designed around Microsoft's enterprise stack.",
+  },
+  {
+    date: "Jun 2026",
+    risk: true,
+    title: "Klue lays off 100 employees to \"focus on AI\"",
+    detail:
+      "Roughly a third of the company. Announced four months after the Microsoft-centric release. \"Focus on AI\" is a real strategic shift for a company that built its brand on human-curated CI — but it also means the roadmap you're paying $20K–$40K/yr for is under active reconstruction. Renewal decisions in the next 6–12 months carry more product uncertainty than usual.",
   },
   {
     date: "2026",
@@ -145,9 +157,9 @@ export default function SwitchKluePage() {
 
       {/* Lock-in alert banner */}
       <div className="border-b border-amber-200 bg-amber-50 px-6 py-3 text-center text-sm text-amber-900">
-        <strong>February 2026:</strong> Klue&rsquo;s headline release bolts CI onto Microsoft Teams, Dynamics 365, and Copilot MCP.{" "}
+        <strong>June 2026:</strong> Klue laid off 100 employees to &ldquo;focus on AI&rdquo; — four months after bolting CI onto Microsoft Teams, Dynamics 365, and Copilot MCP.{" "}
         <Link href="#timeline" className="font-semibold underline hover:text-amber-700">
-          See what this means for non-Microsoft teams &darr;
+          See what this means for your renewal &darr;
         </Link>
       </div>
 
@@ -197,7 +209,7 @@ export default function SwitchKluePage() {
             How Klue drifted upmarket
           </h2>
           <p className="mt-3 text-center text-sm text-gray-600">
-            Three forces pushed Klue away from the teams that need CI most.
+            Four moments show why Klue is a different product than the one you signed up for.
           </p>
           <div className="mt-10 space-y-0">
             {timelineEvents.map((event, i) => (
