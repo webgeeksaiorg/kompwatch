@@ -271,7 +271,7 @@ export default function VisualpingAlternativePage() {
     <div className="bg-white">
       <BreadcrumbSchema
         items={[
-          { name: "Compare", path: "/compare" },
+          { name: "Alternatives", path: "/vs" },
           { name: "Visualping Alternatives", path: "/vs/visualping-alternative" },
         ]}
       />

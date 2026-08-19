@@ -266,7 +266,7 @@ export default function KlueAlternativePage() {
     <div className="bg-white">
       <BreadcrumbSchema
         items={[
-          { name: "Compare", path: "/compare" },
+          { name: "Alternatives", path: "/vs" },
           { name: "Klue Alternatives", path: "/vs/klue-alternative" },
         ]}
       />

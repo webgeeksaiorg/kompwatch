@@ -266,7 +266,7 @@ export default function CrayonAlternativePage() {
     <div className="bg-white">
       <BreadcrumbSchema
         items={[
-          { name: "Compare", path: "/compare" },
+          { name: "Alternatives", path: "/vs" },
           { name: "Crayon Alternatives", path: "/vs/crayon-alternative" },
         ]}
       />

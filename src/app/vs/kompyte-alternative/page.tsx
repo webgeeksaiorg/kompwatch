@@ -265,7 +265,7 @@ export default function KompyteAlternativePage() {
     <div className="bg-white">
       <BreadcrumbSchema
         items={[
-          { name: "Compare", path: "/compare" },
+          { name: "Alternatives", path: "/vs" },
           { name: "Kompyte Alternatives", path: "/vs/kompyte-alternative" },
         ]}
       />
