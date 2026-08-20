@@ -107,6 +107,15 @@ const alternatives: Alternative[] = [
       "Visualping is a general-purpose website change monitor — cheap, simple, but noisy for competitor monitoring (every DOM tweak = an alert). This roundup covers tools with AI-classified diffs, competitor-specific dashboards, and useful digests instead of raw pixel-diffs.",
     angle: "For competitor monitoring specifically",
   },
+  {
+    slug: "kompetar-alternative",
+    tool: "Kompetar",
+    title: "7 Best Kompetar Alternatives",
+    audience: "Kompetar users comparing same-tier ($49/mo) options",
+    summary:
+      "Kompetar is an honest $49/mo competitor monitor targeting the same SMB buyer we do — but with change alerts instead of AI digests and no free tier. This roundup covers what to use instead if you want AI-classified summaries, severity tagging, or a free plan to validate first.",
+    angle: "Same $49/mo tier · AI digests + free tier",
+  },
 ];
 
 // ItemList JSON-LD for /vs hub — surfaces each alternatives roundup as a
