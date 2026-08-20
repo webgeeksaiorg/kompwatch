@@ -100,7 +100,12 @@ const risks = [
 export default function SwitchSemrushPage() {
   return (
     <div className="bg-white">
-      <BreadcrumbSchema items={[{ name: "Switch from Semrush", path: "/switch/semrush" }]} />
+      <BreadcrumbSchema
+        items={[
+          { name: "Switch", path: "/switch" },
+          { name: "Switch from Semrush", path: "/switch/semrush" },
+        ]}
+      />
       <SwitchHowToSchema
         competitor="Semrush"
         pageSlug="semrush"

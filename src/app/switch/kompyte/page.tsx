@@ -100,7 +100,12 @@ const risks = [
 export default function SwitchKompytePage() {
   return (
     <div className="bg-white">
-      <BreadcrumbSchema items={[{ name: "Switch from Kompyte", path: "/switch/kompyte" }]} />
+      <BreadcrumbSchema
+        items={[
+          { name: "Switch", path: "/switch" },
+          { name: "Switch from Kompyte", path: "/switch/kompyte" },
+        ]}
+      />
       <SwitchHowToSchema
         competitor="Kompyte"
         pageSlug="kompyte"

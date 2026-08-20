@@ -112,7 +112,12 @@ const risks = [
 export default function SwitchKluePage() {
   return (
     <div className="bg-white">
-      <BreadcrumbSchema items={[{ name: "Switch from Klue", path: "/switch/klue" }]} />
+      <BreadcrumbSchema
+        items={[
+          { name: "Switch", path: "/switch" },
+          { name: "Switch from Klue", path: "/switch/klue" },
+        ]}
+      />
       <SwitchHowToSchema
         competitor="Klue"
         pageSlug="klue"

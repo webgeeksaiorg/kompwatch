@@ -103,7 +103,12 @@ const outgrowRisks = [
 export default function SwitchVisualpingPage() {
   return (
     <div className="bg-white">
-      <BreadcrumbSchema items={[{ name: "Switch from Visualping", path: "/switch/visualping" }]} />
+      <BreadcrumbSchema
+        items={[
+          { name: "Switch", path: "/switch" },
+          { name: "Switch from Visualping", path: "/switch/visualping" },
+        ]}
+      />
       <SwitchHowToSchema
         competitor="Visualping"
         pageSlug="visualping"

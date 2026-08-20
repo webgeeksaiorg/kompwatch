@@ -8,9 +8,9 @@ const siteUrl = "https://kompwatch.com";
 
 export const metadata: Metadata = {
   title:
-    "Competitor Monitoring Alternatives — Crayon, Klue, Kompyte, Semrush, Visualping | KompWatch",
+    "Competitor Monitoring Alternatives — Crayon, Klue, Kompyte, Semrush, Visualping, Kompetar | KompWatch",
   description:
-    "Ranked alternatives to the five most-searched competitor-monitoring tools: Crayon (post-SoftwareOne), Klue, Kompyte (post-Semrush shake-up), Semrush, and Visualping. Honest side-by-side comparisons for teams shopping for CI software in 2026.",
+    "Ranked alternatives to the six most-searched competitor-monitoring tools: Crayon (post-SoftwareOne), Klue, Kompyte (post-Semrush shake-up), Semrush, Visualping, and Kompetar. Honest side-by-side comparisons for teams shopping for CI software in 2026.",
   keywords: [
     "competitor monitoring alternatives",
     "competitive intelligence alternatives",
@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     "kompyte alternatives",
     "semrush alternatives for competitor monitoring",
     "visualping alternatives",
+    "kompetar alternatives",
     "best competitor tracking tools 2026",
     "affordable competitor monitoring software",
     "kompwatch alternatives",
@@ -30,9 +31,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Competitor Monitoring Alternatives — Crayon, Klue, Kompyte, Semrush, Visualping | KompWatch",
+      "Competitor Monitoring Alternatives — Crayon, Klue, Kompyte, Semrush, Visualping, Kompetar | KompWatch",
     description:
-      "5 ranked alternatives roundups for the most-searched competitor-monitoring tools. Honest comparisons, real pricing, no vendor spin.",
+      "6 ranked alternatives roundups for the most-searched competitor-monitoring tools. Honest comparisons, real pricing, no vendor spin.",
     url: `${siteUrl}/vs`,
     type: "website",
   },
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Competitor Monitoring Alternatives — KompWatch",
     description:
-      "5 alternatives roundups for Crayon, Klue, Kompyte, Semrush, and Visualping. Honest 2026 pricing + fit-check.",
+      "6 alternatives roundups for Crayon, Klue, Kompyte, Semrush, Visualping, and Kompetar. Honest 2026 pricing + fit-check.",
   },
 };
 
@@ -126,7 +127,7 @@ function ItemListSchema() {
     "@type": "ItemList",
     name: "KompWatch — Competitor Monitoring Tool Alternatives",
     description:
-      "Ranked alternatives roundups for the 5 most-searched competitor-monitoring tools: Crayon, Klue, Kompyte, Semrush, and Visualping.",
+      "Ranked alternatives roundups for the 6 most-searched competitor-monitoring tools: Crayon, Klue, Kompyte, Semrush, Visualping, and Kompetar.",
     numberOfItems: alternatives.length,
     itemListElement: alternatives.map((alt, i) => ({
       "@type": "ListItem",
@@ -248,8 +249,8 @@ export default function VsHubPage() {
             Competitor monitoring alternatives
           </h1>
           <p className="mt-6 text-lg text-gray-600">
-            Ranked alternatives to the five most-searched competitor-monitoring tools — Crayon,
-            Klue, Kompyte, Semrush, and Visualping. Every roundup names the right tool for the
+            Ranked alternatives to the six most-searched competitor-monitoring tools — Crayon,
+            Klue, Kompyte, Semrush, Visualping, and Kompetar. Every roundup names the right tool for the
             right team, including when KompWatch is <em>not</em> the right pick.{" "}
             <span className="font-semibold text-gray-900">
               Free for 2 competitors, $49/mo for 10.
