@@ -88,12 +88,39 @@ describe("/compare hub JSON-LD schemas", () => {
   });
 
   it("competitors[] slugs match the /vs-{slug} route the visible grid links to", () => {
-    // The ItemList URLs use `${siteUrl}/vs-${c.slug}` and the visible grid
-    // uses `/vs-${c.slug}`. If the grid href pattern changes (e.g. to
-    // /compare/kompwatch-vs-{slug}) without updating the schema, the
-    // ItemList URLs will 404 from Google's perspective and the rich result
-    // is dropped.
-    expect(src).toMatch(/href=\{`\/vs-\$\{c\.slug\}`\}/);
-    expect(src).toMatch(/url: `\$\{siteUrl\}\/vs-\$\{c\.slug\}`/);
+    // The ItemList URLs default to `${siteUrl}/vs-${c.slug}` and the visible
+    // grid defaults to `/vs-${c.slug}`. Entries that opt in via `href` (used
+    // when the short /vs-{slug} page doesn't exist yet — see ravenseer,
+    // kompetar, spyglass, competely) route to the long-form
+    // /compare/kompwatch-vs-{slug} page instead. Both call sites must share
+    // the same `c.href ?? …` fallback expression so schema/DOM stay in
+    // lockstep; if one is hard-coded, drift silently 404s the rich result.
+    expect(src).toMatch(/href=\{c\.href \?\? `\/vs-\$\{c\.slug\}`\}/);
+    expect(src).toMatch(/url: `\$\{siteUrl\}\$\{c\.href \?\? `\/vs-\$\{c\.slug\}`\}`/);
+  });
+
+  it("every href override points at a real /compare/kompwatch-vs-{slug} page", () => {
+    // Guard against the exact bug this test replaces (`/vs-{slug}` with no
+    // page on disk → hub 404 + broken ItemList URL). Any competitor that
+    // opts into `href` must reference a compare page that exists on disk.
+    const compareDir = path.join(repoRoot, "src", "app", "compare");
+    const compareRoutes = fs
+      .readdirSync(compareDir, { withFileTypes: true })
+      .filter((d) => d.isDirectory() && d.name.startsWith("kompwatch-vs-"))
+      .map((d) => `/compare/${d.name}`);
+
+    // Extract every explicit `href: "..."` inside the competitors[] block.
+    const compBlockMatch = src.match(/const competitors = \[([\s\S]*?)\n\];/);
+    expect(compBlockMatch, "competitors[] array must exist").not.toBeNull();
+    const hrefMatches = [
+      ...compBlockMatch![1].matchAll(/href:\s*"([^"]+)"/g),
+    ].map((m) => m[1]);
+
+    for (const href of hrefMatches) {
+      expect(
+        compareRoutes,
+        `competitors[].href "${href}" must map to an existing /compare/kompwatch-vs-* directory`,
+      ).toContain(href);
+    }
   });
 });

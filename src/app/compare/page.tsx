@@ -164,6 +164,10 @@ const competitors = [
     tagline: "Competitor monitoring (2024)",
     price: "$25\u2013$150/mo",
     differentiator: "RavenSeer starts at $25/mo with no free tier. KompWatch starts free, adds Playwright headless rendering, Claude-powered AI digests with severity classification, and CSS selector targeting.",
+    // No /vs-ravenseer short page exists yet; route to the long-form
+    // /compare/kompwatch-vs-ravenseer page so the hub link doesn't 404
+    // and the JSON-LD ItemList URL resolves.
+    href: "/compare/kompwatch-vs-ravenseer",
   },
   {
     slug: "tona",
@@ -178,6 +182,20 @@ const competitors = [
     tagline: "Affordable competitor monitoring",
     price: "$49/mo",
     differentiator: "Same $49/mo price point as KompWatch Pro. KompWatch adds Claude-powered AI digests, severity classification, CSS selector targeting, headless Playwright rendering, and a free tier Kompetar doesn\u2019t offer.",
+    // No /vs-kompetar short page exists yet; route to the long-form
+    // /compare/kompwatch-vs-kompetar page so the hub link doesn't 404.
+    href: "/compare/kompwatch-vs-kompetar",
+  },
+  {
+    slug: "spyglass",
+    name: "Spyglass",
+    tagline: "Indie SaaS competitor monitoring",
+    price: "$79/mo",
+    differentiator: "Spyglass Tracker is $79/mo for 5 competitors with a weekly digest and no free tier. KompWatch Pro is $49/mo for 10 competitors with daily digests \u2014 2\u00d7 the capacity, 62% of the price, plus a free tier to evaluate before you pay.",
+    // /compare/kompwatch-vs-spyglass is the long-form comparison; no
+    // /vs-spyglass short page exists. Route to the long-form so the hub
+    // card resolves and the ItemList JSON-LD URL doesn't 404.
+    href: "/compare/kompwatch-vs-spyglass",
   },
   {
     slug: "competely",
@@ -185,6 +203,9 @@ const competitors = [
     tagline: "AI competitive analysis reports",
     price: "From $39/mo",
     differentiator: "Competely delivers SWOT-style briefs every 2 weeks. KompWatch snapshots every 6 hours and emails a Claude-powered digest per detected change \u2014 plus headless rendering, CSS selectors, and a free tier Competely doesn\u2019t offer.",
+    // No /vs-competely short page exists yet; route to the long-form
+    // /compare/kompwatch-vs-competely page so the hub link doesn't 404.
+    href: "/compare/kompwatch-vs-competely",
   },
 ];
 
@@ -209,7 +230,10 @@ function CompareHubItemListSchema() {
       "@type": "ListItem",
       position: i + 1,
       name: `KompWatch vs ${c.name}`,
-      url: `${siteUrl}/vs-${c.slug}`,
+      // Some competitors don't have a /vs-{slug} short page yet; those
+      // opt into `href` (typically /compare/kompwatch-vs-{slug}). Falling
+      // back to /vs-{slug} keeps the 18 existing SERP URLs stable.
+      url: `${siteUrl}${c.href ?? `/vs-${c.slug}`}`,
       description: c.differentiator,
     })),
   };
@@ -350,7 +374,12 @@ export default function ComparePage() {
             {competitors.map((c) => (
               <Link
                 key={c.slug}
-                href={`/vs-${c.slug}`}
+                // Prefer per-entry override (used when the short /vs-{slug}
+                // page doesn't exist and we route directly to the long-form
+                // /compare/kompwatch-vs-{slug}). Otherwise the default short
+                // route keeps the 18 existing cards pointing at their /vs-*
+                // canonical URLs.
+                href={c.href ?? `/vs-${c.slug}`}
                 className="group rounded-xl border border-gray-200 p-6 transition-all hover:border-brand-300 hover:shadow-md"
               >
                 <div className="flex items-start justify-between">
