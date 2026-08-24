@@ -214,6 +214,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${siteUrl}/switch/kompetar`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${siteUrl}/migrate/from-klue`,
       lastModified: now,
       changeFrequency: "monthly",

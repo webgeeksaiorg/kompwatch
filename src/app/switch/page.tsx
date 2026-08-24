@@ -105,6 +105,15 @@ const switchTargets: SwitchTarget[] = [
     reasonToSwitch:
       "Visualping is a general-purpose website change detector serving 1.5M+ users. If you're using it for competitor monitoring specifically, you hit three walls: alert fatigue (per-change emails), no AI interpretation (raw diffs), and empty-div false positives on React/Next.js sites. KompWatch is purpose-built for CI — AI digests, CSS-selector targeting, real Playwright rendering.",
   },
+  {
+    slug: "kompetar",
+    vendor: "Kompetar",
+    tagline: "Same $49/mo tier — without AI digests or a free plan",
+    currentCost: "$49/mo (no free tier)",
+    savings: "Same price, higher-signal digest + free tier to trial",
+    reasonToSwitch:
+      "Kompetar is a peer $49/mo change-detection tool with the same buyer profile as KompWatch. The gaps: no AI summaries (you triage every raw diff yourself), no severity or content-zone classification, and no free plan to run alongside another tool during evaluation. KompWatch matches Kompetar's price and adds all three.",
+  },
 ];
 
 // ItemList JSON-LD for /switch hub — surfaces vendor migration paths in SERP
