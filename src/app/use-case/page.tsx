@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title:
     "Competitor Monitoring Use Cases — Pricing, Blog, Launches, Battlecards, Win-Loss | KompWatch",
   description:
-    "The 9 competitive-intelligence workflows KompWatch is built for: track competitor pricing, monitor blog and content moves, catch product launches early, feed sales battlecards, and run win-loss analysis. Pick the workflow that matches your team — free for 2 competitors, $49/mo for 10.",
+    "The 10 competitive-intelligence workflows KompWatch is built for: track competitor pricing, monitor blog and content moves, catch product launches early, feed sales battlecards, monitor competitor hiring waves, and run win-loss analysis. Pick the workflow that matches your team — free for 2 competitors, $49/mo for 10.",
   keywords: [
     "competitor monitoring use cases",
     "competitive intelligence use cases",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title:
       "Competitor Monitoring Use Cases — Pricing, Blog, Launches, Battlecards | KompWatch",
     description:
-      "9 competitive-intelligence workflows KompWatch is built for. Pick the one that matches your team — pricing tracking, launch monitoring, battlecards, win-loss, and more.",
+      "10 competitive-intelligence workflows KompWatch is built for. Pick the one that matches your team — pricing tracking, launch monitoring, battlecards, hiring signals, win-loss, and more.",
     url: `${siteUrl}/use-case`,
     type: "website",
   },
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Competitor Monitoring Use Cases — KompWatch",
     description:
-      "9 CI workflows KompWatch is purpose-built for — pricing, blog, launches, battlecards, win-loss. $49/mo for 10 competitors.",
+      "10 CI workflows KompWatch is purpose-built for — pricing, blog, launches, battlecards, hiring signals, win-loss. $49/mo for 10 competitors.",
   },
 };
 
@@ -144,6 +144,15 @@ const useCases: UseCase[] = [
       "RSS tells you a post shipped. KompWatch tells you they added a new category tag, rewrote 3 posts in the same cluster, or retired 40 pages — the strategic signal is in the pattern, not the single post. Purpose-built for solo content marketers running CI on 3–5 competitors.",
     primaryKeyword: "competitor blog monitoring",
   },
+  {
+    slug: "competitor-job-postings-monitoring",
+    title: "Competitor job postings monitoring",
+    headline: "Turn hiring signals into 3–6 month roadmap intel before the launch drops",
+    audience: "PMMs, founders, CI leads",
+    summary:
+      "Every new competitor role is a leaked roadmap line — 3 Applied AI Engineers means an AI product is being built. KompWatch snapshots careers pages and Greenhouse/Lever/Ashby boards, then AI-classifies role clusters into product / GTM / AI-pivot signals. Catch the hiring wave 3–6 months before the pricing page changes.",
+    primaryKeyword: "competitor job postings monitoring",
+  },
 ];
 
 // ItemList JSON-LD for /use-case hub — surfaces each use-case as a related
@@ -154,7 +163,7 @@ function ItemListSchema() {
     "@type": "ItemList",
     name: "KompWatch — Competitor Monitoring Use Cases",
     description:
-      "The 9 competitive-intelligence workflows KompWatch is purpose-built for, from pricing tracking to win-loss analysis.",
+      "The 10 competitive-intelligence workflows KompWatch is purpose-built for, from pricing tracking to competitor hiring-signal monitoring.",
     numberOfItems: useCases.length,
     itemListElement: useCases.map((uc, i) => ({
       "@type": "ListItem",
@@ -182,7 +191,7 @@ const hubFaqs: { question: string; answer: string }[] = [
   {
     question: "What are the main use cases for competitor monitoring?",
     answer:
-      "The nine workflows KompWatch is purpose-built for are: (1) tracking competitor pricing changes, (2) monitoring a competitor website end-to-end, (3) competitor feature tracking, (4) detecting competitor messaging or positioning changes, (5) keeping competitive battlecards current, (6) win-loss analysis, (7) product launch monitoring, (8) competitive intelligence for sales enablement, and (9) competitor blog monitoring. Most teams start with one or two workflows and expand as they see which competitor moves matter to their revenue.",
+      "The ten workflows KompWatch is purpose-built for are: (1) tracking competitor pricing changes, (2) monitoring a competitor website end-to-end, (3) competitor feature tracking, (4) detecting competitor messaging or positioning changes, (5) keeping competitive battlecards current, (6) win-loss analysis, (7) product launch monitoring, (8) competitive intelligence for sales enablement, (9) competitor blog monitoring, and (10) competitor job postings monitoring. Most teams start with one or two workflows and expand as they see which competitor moves matter to their revenue.",
   },
   {
     question: "Which competitor monitoring use case should I start with?",
@@ -270,15 +279,15 @@ export default function UseCaseHubPage() {
       <section className="py-20">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <p className="mb-4 inline-block rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-700">
-            9 workflows · one $49/mo tool
+            10 workflows · one $49/mo tool
           </p>
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
             Competitor monitoring use cases
           </h1>
           <p className="mt-6 text-lg text-gray-600">
-            The nine competitive-intelligence workflows KompWatch is purpose-built for — from
-            tracking pricing changes to feeding sales battlecards. Pick the one that matches your
-            team.{" "}
+            The ten competitive-intelligence workflows KompWatch is purpose-built for — from
+            tracking pricing changes to catching competitor hiring waves. Pick the one that
+            matches your team.{" "}
             <span className="font-semibold text-gray-900">
               Free for 2 competitors, $49/mo for 10.
             </span>
@@ -340,7 +349,7 @@ export default function UseCaseHubPage() {
       <section className="border-t border-gray-200 bg-gray-50 py-20">
         <div className="mx-auto max-w-4xl px-6">
           <h2 className="text-center text-2xl font-bold tracking-tight text-gray-900">
-            Why one tool covers all nine workflows
+            Why one tool covers all ten workflows
           </h2>
           <div className="mt-10 grid gap-8 sm:grid-cols-3">
             <div>
