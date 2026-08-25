@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title:
     "Competitor Monitoring Use Cases — Pricing, Blog, Launches, Battlecards, Win-Loss | KompWatch",
   description:
-    "The 10 competitive-intelligence workflows KompWatch is built for: track competitor pricing, monitor blog and content moves, catch product launches early, feed sales battlecards, monitor competitor hiring waves, and run win-loss analysis. Pick the workflow that matches your team — free for 2 competitors, $49/mo for 10.",
+    "The 11 competitive-intelligence workflows KompWatch is built for: track competitor pricing, monitor blog and content moves, catch product launches early, feed sales battlecards, monitor competitor hiring waves, and run win-loss analysis. Pick the workflow that matches your team — free for 2 competitors, $49/mo for 10.",
   keywords: [
     "competitor monitoring use cases",
     "competitive intelligence use cases",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title:
       "Competitor Monitoring Use Cases — Pricing, Blog, Launches, Battlecards | KompWatch",
     description:
-      "10 competitive-intelligence workflows KompWatch is built for. Pick the one that matches your team — pricing tracking, launch monitoring, battlecards, hiring signals, win-loss, and more.",
+      "11 competitive-intelligence workflows KompWatch is built for. Pick the one that matches your team — pricing tracking, launch monitoring, battlecards, hiring signals, PM roadmap CI, win-loss, and more.",
     url: `${siteUrl}/use-case`,
     type: "website",
   },
@@ -153,6 +153,15 @@ const useCases: UseCase[] = [
       "Every new competitor role is a leaked roadmap line — 3 Applied AI Engineers means an AI product is being built. KompWatch snapshots careers pages and Greenhouse/Lever/Ashby boards, then AI-classifies role clusters into product / GTM / AI-pivot signals. Catch the hiring wave 3–6 months before the pricing page changes.",
     primaryKeyword: "competitor job postings monitoring",
   },
+  {
+    slug: "competitive-intelligence-for-product-managers",
+    title: "Competitive intelligence for product managers",
+    headline: "Roadmap-ready competitor signals in a 30-minute weekly digest — no CI analyst required",
+    audience: "Product managers, solo PMs, small product teams",
+    summary:
+      "The PM-specific composition of KompWatch's monitoring engine: which 4 competitor pages to watch (pricing, features, changelog, careers), how to fit the digest into roadmap review, and how the product-manager decision layer differs from sales enablement. Skip the $30K/yr Klue/Crayon rollout — $49/mo covers 2 competitors deep across every roadmap-relevant surface.",
+    primaryKeyword: "competitive intelligence for product managers",
+  },
 ];
 
 // ItemList JSON-LD for /use-case hub — surfaces each use-case as a related
@@ -163,7 +172,7 @@ function ItemListSchema() {
     "@type": "ItemList",
     name: "KompWatch — Competitor Monitoring Use Cases",
     description:
-      "The 10 competitive-intelligence workflows KompWatch is purpose-built for, from pricing tracking to competitor hiring-signal monitoring.",
+      "The 11 competitive-intelligence workflows KompWatch is purpose-built for, from pricing tracking to competitor hiring-signal monitoring and PM-specific roadmap CI.",
     numberOfItems: useCases.length,
     itemListElement: useCases.map((uc, i) => ({
       "@type": "ListItem",
@@ -279,13 +288,13 @@ export default function UseCaseHubPage() {
       <section className="py-20">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <p className="mb-4 inline-block rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-700">
-            10 workflows · one $49/mo tool
+            11 workflows · one $49/mo tool
           </p>
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
             Competitor monitoring use cases
           </h1>
           <p className="mt-6 text-lg text-gray-600">
-            The ten competitive-intelligence workflows KompWatch is purpose-built for — from
+            The eleven competitive-intelligence workflows KompWatch is purpose-built for — from
             tracking pricing changes to catching competitor hiring waves. Pick the one that
             matches your team.{" "}
             <span className="font-semibold text-gray-900">
@@ -349,7 +358,7 @@ export default function UseCaseHubPage() {
       <section className="border-t border-gray-200 bg-gray-50 py-20">
         <div className="mx-auto max-w-4xl px-6">
           <h2 className="text-center text-2xl font-bold tracking-tight text-gray-900">
-            Why one tool covers all ten workflows
+            Why one tool covers all eleven workflows
           </h2>
           <div className="mt-10 grid gap-8 sm:grid-cols-3">
             <div>
