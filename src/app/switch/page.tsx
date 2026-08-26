@@ -7,7 +7,7 @@ const siteUrl = "https://kompwatch.com";
 
 export const metadata: Metadata = {
   title:
-    "Switch to KompWatch — Migrate from Crayon, Klue, Kompyte, Semrush, or Visualping in Under 5 Minutes",
+    "Switch to KompWatch — Migrate from Crayon, Klue, Kompyte, Semrush, Visualping, or Kompetar in Under 5 Minutes",
   description:
     "Enterprise CI tools are locking you into $30K/yr contracts, Semrush is being folded into Adobe's marketing cloud, and Visualping's screenshot diffs never became competitive intelligence. KompWatch is the independent, self-serve alternative — $49/mo, 5-minute setup, no sales call. Pick your current tool and start the switch.",
   keywords: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     canonical: `${siteUrl}/switch`,
   },
   openGraph: {
-    title: "Switch to KompWatch — Migrate from Crayon, Klue, Kompyte, Semrush, or Visualping",
+    title: "Switch to KompWatch — Migrate from Crayon, Klue, Kompyte, Semrush, Visualping, or Kompetar",
     description:
       "$49/mo, 5-minute setup, no sales call. Independent, self-serve competitor monitoring — the alternative to $30K enterprise contracts, Adobe-owned marketing bundles, and screenshot-diff tools.",
     url: `${siteUrl}/switch`,
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Switch to KompWatch from Crayon, Klue, Kompyte, Semrush, or Visualping",
+    title: "Switch to KompWatch from Crayon, Klue, Kompyte, Semrush, Visualping, or Kompetar",
     description:
       "$49/mo instead of $30K/yr. Independent CI tool — self-serve, no sales call, no Adobe bundle, no screenshot-diff triage.",
   },
@@ -123,7 +123,7 @@ function ItemListSchema() {
     "@type": "ItemList",
     name: "KompWatch — Migration Paths from Competitive Intelligence Tools",
     description:
-      "Structured migration guides for teams switching from Crayon, Klue, Kompyte, or Semrush to KompWatch.",
+      "Structured migration guides for teams switching from Crayon, Klue, Kompyte, Semrush, Visualping, or Kompetar to KompWatch.",
     itemListElement: switchTargets.map((t, i) => ({
       "@type": "ListItem",
       position: i + 1,
@@ -172,7 +172,7 @@ function SwitchHubHowToSchema() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    name: "How to switch to KompWatch from Crayon, Klue, Kompyte, or Semrush",
+    name: "How to switch to KompWatch from Crayon, Klue, Kompyte, Semrush, Visualping, or Kompetar",
     description:
       "A 4-step, vendor-agnostic migration plan to move from an enterprise competitive-intelligence tool to KompWatch. Total time budget: 2–4 weeks (parallel run) with a 5-minute technical setup on day one.",
     totalTime: "P4W",

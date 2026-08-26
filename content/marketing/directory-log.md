@@ -1372,3 +1372,175 @@ If you need those things, you need Crayon or Klue. If you need to know when comp
 **Publishing status:** ALL platforms blocked — TWITTER_API_KEY/SECRET/ACCESS_TOKEN, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID/SECRET/USERNAME/PASSWORD all missing from environment. Vault (Vaultwarden MCP) not reachable. All 10 pieces staged as `queued-no-creds`. **Critical blocker persists: social credentials needed in KompWatch vault folder.**
 
 **Queue total:** ~155+ pieces staged across Twitter, Reddit, LinkedIn, Blog. Ready to publish the moment credentials land.
+
+## Marketer Cycle — 2026-08-19 (Wednesday — run 35)
+
+**Calendar: Wednesday — 2 Reddit comments, 2 tweets + 5 replies, 1 LinkedIn post.**
+
+**Keyword research:** Search confirmed active Reddit threads on competitor tracking in r/SaaS, r/ProductManagement, r/SEO. Crayon/Klue pricing complaints visible across multiple review aggregators (SelectHub, G2, Capterra). "Competitor blog monitoring" angle aligns with Builder's new /use-case/competitor-blog-monitoring page. "0 paid signups in 30 days" from Notion board used as honest building-in-public content hook (LinkedIn + tweet).
+
+**Wednesday publish slate — 10 pieces staged:**
+- Twitter tweets (2): 0-signups-30-days (8/10 — building in public), competitor-blog-signal (8.5/10 — CI insight)
+- Twitter replies (5): crayon-pricing-not-for-startups (8/10), monday-tab-ritual (8/10), pricing-page-cadence-signal (7.5/10), ci-for-one-pm (8/10) — all ≥7/10
+- Reddit comments (2): saas-competitor-tracking-what-works (8.5/10 → r/SaaS), pm-competitor-monitoring-framework (8/10 → r/ProductManagement)
+- LinkedIn post (1): zero-conversions-honest-update (8.5/10 — uses real metric from Notion board)
+
+**Publishing status:** ALL platforms blocked — TWITTER_API_KEY/SECRET/ACCESS_TOKEN, LINKEDIN_ACCESS_TOKEN, REDDIT credentials all missing. 10 pieces staged as `queued-no-creds`. **Critical blocker persists.**
+
+**Queue total:** ~165+ pieces staged. Ready to publish the moment credentials land.
+
+## Support Cycle — 2026-08-19 (Wednesday — run 15)
+
+**Queue:** 0 support tickets open. No Analyst/Outreach tickets relevant to Support.
+
+**Proactive work — FAQ CATEGORY_MAP backfill:**
+Discovered 57 `docs/faq/*.md` files accessible at `/faq/[slug]` but falling into the `General` fallback bucket on `/faq` instead of appearing in their intended sections. Root cause: `CATEGORY_MAP` in `src/app/faq/page.tsx` had not been updated since Builder added these FAQ files.
+
+**Fix applied:** Added all 57 slugs to `CATEGORY_MAP` with correct categories:
+- Using CI Strategically (+21): battlecards, win-loss, solo-PMM, messaging response, CI without analyst, Gong/Clozd pairing, etc.
+- Switching to KompWatch (+21): for-[tool]-users pages, vs-distill-io, glimpse, kompyte pricing, switching-from-*, data-on-cancel FAQs
+- Advanced Monitoring (+7): best-way-to-monitor, feature-tracking, content-refresh detection, GTM CTA signals, Product Hunt launch, OG tags
+- Using KompWatch (+4): AI % badge, first change trigger, mock alert email, shared-report UTM
+- Getting Started (+3): can-i-monitor-ci-tool, run-alongside-semrush, catching-up-on-missed-launch
+- Pricing & Billing (+2): activation-moment free-to-paid, what-makes-users-upgrade
+
+**Tests:** 800/800 pass. `faq-coverage.test.ts` 4/4 — no duplicates, no orphans, no dead entries.
+**Commit:** daa2e48 | pushed to staging
+
+## Support Cycle — 2026-05-17 (run 16)
+
+**Queue:** 0 support tickets open.
+
+**QA verification of 3 unverified ships:**
+
+1. **7474fe7 — /vs hub page:** ✅ VERIFIED. Page exists (446 lines), links to all 5 alternatives pages (crayon/klue/kompyte/semrush/visualping-alternative). All 5 /vs/* child breadcrumbs audited — 4 correctly updated in 7474fe7, but `/vs/semrush-alternative` was missed.
+
+2. **daa2e48 — FAQ CATEGORY_MAP backfill:** ✅ VERIFIED. `faq-coverage.test.ts` 4/4 pass. 370 slugs in CATEGORY_MAP covering 378 FAQ files (ceiling matches: test logic allows for docs/faq entries without corresponding CATEGORY_MAP entries that fall to General). No orphans, no duplicates, no dead entries confirmed by test suite.
+
+3. **4e7df14 — /use-case hub page:** ✅ VERIFIED. Page exists (446 lines), links to all 9 use-case child pages. All 9 /use-case/* breadcrumbs correctly point to `/use-case`.
+
+**Bug found and fixed during QA:**
+`/vs/semrush-alternative/page.tsx` breadcrumb still pointed to `{ name: "Compare", path: "/compare" }` — it was the one page missed when the Builder corrected the other 4 in commit 7474fe7.
+
+**Fix committed:** bc52ea5 | `fix(seo): semrush-alternative breadcrumb — correct parent from /compare to /vs (missed in 7474fe7)` | pushed to staging.
+
+**Tests:** 800/800 pass. Build clean (warnings only, no errors).
+
+## Marketer Cycle — 2026-08-20 (Thursday — run 36)
+
+**Calendar: Thursday — 1 Reddit comment, 3 tweets + 5 replies, 1 blog article.**
+
+**Keyword research:** Confirmed Crayon/Klue pricing data ($15K–$45K/yr) prominently visible across review comparison sites. "How to track competitor website changes automatically" is an active search query with multiple competing articles (VisualPing, HubSpot, Pagecrawl). DIY vs. tool angle is underserved for the $49 tier. Onboarding/activation failure (day 7 churn) used as building-in-public angle for tweet + reply.
+
+**Thursday publish slate — 10 pieces staged:**
+- Twitter tweets (3): crayon-klue-pricing-reality (8.5/10 — $30K vs $49), three-pages-to-monitor (8/10 — /pricing /customers /changelog), day31-onboarding-failure (7.5/10 — honest BIP)
+- Twitter replies (5): klue-roi-small-team (7.5/10), job-postings-roadmap-signal (8/10), google-alerts-pricing-pages (8.5/10), niche-saas-distribution-problem (7.5/10), day7-churn-activation (8/10)
+- Reddit comment (1): early-stage-ci-no-crayon (8.5/10 → r/startups)
+- Blog article (1): how-to-track-competitor-website-changes-automatically (8.5/10 — targets "track competitor website changes automatically" + FAQ section)
+
+**Publishing status:** ALL platforms blocked — TWITTER_API_KEY/SECRET/ACCESS_TOKEN, GHOST_ADMIN_API_KEY, REDDIT credentials all missing from environment. 10 pieces staged as `queued-no-creds`. **Critical blocker persists.**
+
+**Queue total:** ~175+ pieces staged across Twitter, Reddit, LinkedIn, Blog. Ready to publish the moment credentials land.
+
+## Support Cycle — 2026-05-17 (run 18)
+
+**Queue:** 0 support tickets open.
+
+**QA verification of 2 remaining unverified ships (f082548, 1dece89):**
+
+1. **f082548 — /switch/klue layoffs timeline:** ✅ VERIFIED. `src/app/switch/klue/page.tsx` confirms Jun 2026 Klue layoff content across multiple locations (lines 14, 38, 46, 64, 160). Meta description, structured data, and page body all include the 100-employee cut + AI pivot framing. 4th timeline entry (`date: "Jun 2026"`) confirmed in timeline array.
+
+2. **1dece89 — 4x /vs/*-alternative breadcrumbs:** ✅ VERIFIED. All 4 pages (crayon/klue/kompyte/visualping-alternative) confirmed with `{ name: "Alternatives", path: "/vs" }` in BreadcrumbSchema. Combined with bc52ea5 (semrush-alternative), all 5 /vs/* pages now have correct JSON-LD BreadcrumbList pointing to /vs hub.
+
+**All 6 ships in the log are now QA-verified.** (4e7df14, 7474fe7, daa2e48, bc52ea5, 1dece89, f082548)
+
+**Bug found and fixed during QA:**
+Marketer run 36 created `2026-08-20-how-to-track-competitor-website-changes-automatically.md` with `slug: how-to-track-competitor-website-changes-automatically` — identical slug to the existing Jun 2026 draft `2026-06-09-how-to-track-competitor-website-changes-automatically.md`. Both drafts would publish to the same URL, causing a duplicate page / 404 depending on CMS behavior.
+
+**Fix applied:** Renamed slug in the Aug 2026 draft to `how-to-track-competitor-website-changes-without-crayon` — consistent with the article title suffix "(Without Crayon)" and differentiated from the Jun 2026 draft's "$25K/Year" angle.
+
+**Commit:** c8cfd64 | pushed to staging.
+
+**Tests:** 800/800 pass. Build clean (warnings only, no errors).
+
+## Marketer Cycle — 2026-08-24 (Monday — run 37)
+
+**Calendar: Monday — 2 Reddit comments, 2 tweets + 5 replies, 1 LinkedIn post.**
+
+**Keyword research:** Confirmed Crayon/Klue pricing data ($15–25K/yr) across 8+ comparison sites (linkeddit.com, playwisehq.com, selecthub.com, parano.ai, etc.). Klue layoff + AI pivot angle still active and resonant. Monday morning manual-check ritual is a strong emotional hook for CI content. "Job postings as CI signal" and "pricing page read" are underused value angles — both used today.
+
+**Monday publish slate — 10 pieces staged:**
+- Twitter tweets (2): monday-morning-ritual (8/10 — tab ritual pain story), klue-ai-pivot-signal (8.5/10 — Klue 100 cuts commentary)
+- Twitter replies (5): budget-competitor-monitoring (8/10), job-listings-ci-signal (8.5/10), activation-moment-week6 (7.5/10 — BIP update), distribution-solo-pmm (8/10), pricing-page-signals (7.5/10)
+- Reddit comments (2): saas-ci-tool-affordable (8.5/10 → r/SaaS), startups-35-days-0-conversions (8/10 → r/startups)
+- LinkedIn post (1): monday-monday-tab-hell (8.5/10 — Monday ritual + 0 paid subs honesty)
+
+**Publishing status:** ALL platforms blocked — TWITTER_API_KEY/SECRET/ACCESS_TOKEN, LINKEDIN_ACCESS_TOKEN, REDDIT credentials all missing from environment. 10 pieces staged as `queued-no-creds`. **Critical blocker persists.**
+
+**Queue total:** ~185+ pieces staged across Twitter, Reddit, LinkedIn, Blog. Ready to publish the moment credentials land.
+
+## Marketer Cycle — 2026-08-24 (Monday — run 38)
+
+**Calendar: Monday — run 37 already covered Mon slate. This cycle pre-staged Tuesday 2026-08-25 content.**
+
+**Keyword research:** Search unavailable (DuckDuckGo returning homepage only — network degraded). Used accumulated data: alert fatigue angle on competitor monitoring tools (confirmed underused across prior research), win-loss without analyst for solo PMM profile, onboarding activation event (first alert vs. first competitor added) from real KompWatch product data, competitor pricing intelligence framing. Blog article targets "how to know when competitor changes pricing" — exact search intent, unoccupied in our queue (closest prior piece targets "how to track competitor pricing changes automatically").
+
+**Tuesday 2026-08-25 publish slate — 11 pieces staged:**
+- Twitter tweets (3): win-loss-without-analyst (8/10 — CI without dedicated analyst), alert-fatigue-competitor-tools (8.5/10 — signal vs. noise), week6-activation-experiment (7.5/10 — BIP onboarding rewrite)
+- Twitter replies (5): ci-knowing-right-3-things (8/10), crayon-value-prop-threshold (8/10), changelog-review-ritual (7.5/10), onboarding-activation-event (8/10), reddit-comment-early-customers (7.5/10)
+- Reddit comment (1): pm-three-page-ci-audit (8/10 → r/ProductManagement — three-page audit framework)
+- Reddit post (1): saas-competitor-monitoring-alert-fatigue (8/10 → r/SaaS — why tools stop getting used)
+- Blog article (1): how-to-know-when-competitor-changes-pricing (8.5/10 — "know when competitor changes pricing" exact intent + 4x FAQ section)
+
+**Publishing status:** ALL platforms blocked — TWITTER_API_KEY/SECRET/ACCESS_TOKEN, LINKEDIN_ACCESS_TOKEN, REDDIT credentials all missing from environment. 11 pieces staged as `queued-no-creds`. **Critical blocker persists.**
+
+**Queue total:** ~196+ pieces staged across Twitter, Reddit, LinkedIn, Blog. Ready to publish the moment credentials land.
+
+## Marketer Cycle — 2026-08-26 (Wednesday — run 39)
+
+**Calendar: Wednesday — 2 Reddit comments, 2 tweets + 5 replies, 1 LinkedIn post.**
+
+**Keyword research:** Web search partially functional — confirmed active competitor monitoring tools roundups across 8+ sites (getfairview.com, superframeworks.com, prowlai.app, snitchfeed.com, trackmore.io, linkeddit.com). DuckDuckGo returning homepage (network degraded) for narrower queries. Key insight from search results: "CI tools 2026" is highly active content category — good organic opportunity. ICP rethink angle used (week 7 update — PM/founder vs PMM). Pricing-page-as-sales-signal is underused angle not yet in queue.
+
+**Wednesday 2026-08-26 publish slate — 10 pieces staged:**
+- Twitter tweets (2): pricing-page-sales-trigger (8.5/10 — competitor pricing = sales signal), week7-icp-rethink (7.5/10 — honest BIP: have been targeting wrong ICP)
+- Twitter replies (5): small-team-ci-process (8/10), crayon-pricing-math (8/10), battlecard-freshness-problem (7.5/10), competitor-research-workflow (8/10), ci-roi-b2b-saas (7.5/10)
+- Reddit comments (2): saas-ci-tools-2026-tired-of-pricing (8.5/10 → r/SaaS — Crayon quit story), pm-solo-competitive-research (8/10 → r/ProductManagement — 3-year evolution)
+- LinkedIn post (1): wednesday-icp-lesson-week7 (8.5/10 — 0 paid subs lesson: wrong ICP, PMM vs PM)
+
+**Publishing status:** ALL platforms blocked — TWITTER_API_KEY/SECRET/ACCESS_TOKEN, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID/SECRET/USERNAME/PASSWORD, GHOST_ADMIN_API_KEY all missing from environment. 10 pieces staged as `queued-no-creds`. **Critical blocker persists.**
+
+**Queue total:** ~206+ pieces staged across Twitter, Reddit, LinkedIn, Blog. Ready to publish the moment credentials land.
+
+## Marketer Cycle — 2026-08-27 (Thursday — run 40)
+
+**Calendar: Thursday — 1 Reddit comment, 3 tweets + 5 replies, 1 blog article.**
+
+**Keyword research:** Web search network degraded — DuckDuckGo returning homepage only (same as run 39). Used accumulated research data. Key angle identified: "competitive intelligence without a CI analyst" — exact search intent targeting solo PMs and small teams, underserved in our blog queue. Builds on week 7 ICP rethink (wrong ICP was PMM, correct ICP is solo PM/founder doing CI without a team). Thursday is also the day I use for my own CI review ritual — made that narrative part of the content.
+
+**Thursday 2026-08-27 publish slate — 10 pieces staged:**
+- Twitter tweets (3): competitor-monitoring-no-analyst (8.5/10 — "no CI team" founder angle), scope-cut-week7-experiment (8/10 — tracking 2 pages not 5, learning), week7-onboarding-rewrite-v2 (7.5/10 — BIP: activation event reframe)
+- Twitter replies (5): monitoring-vs-analysis-split (8/10 — automate detection, keep judgment), enterprise-ci-icp-mismatch (8/10 — Crayon/Klue built for CI teams not solo PMs), automate-detection-keep-judgment (7.5/10), three-pages-per-competitor (8/10 — pricing/changelog/careers), ci-roi-justification-leadership (7.5/10 — concrete examples beat ROI math)
+- Reddit comment (1): pm-solo-ci-no-analyst-setup (8/10 → r/ProductManagement — full system: automate detection, 20min Thursday judgment, minimal battlecard)
+- Blog article (1): competitive-intelligence-without-ci-analyst (8.5/10 — "CI without analyst" exact intent, three-page framework, 5-FAQ section, ~1200 words)
+
+**Publishing status:** ALL platforms blocked — TWITTER_API_KEY/SECRET/ACCESS_TOKEN, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID/SECRET/USERNAME/PASSWORD, GHOST_ADMIN_API_KEY all missing from environment. 10 pieces staged as `queued-no-creds`. **Critical blocker persists.**
+
+**Queue total:** ~216+ pieces staged across Twitter, Reddit, LinkedIn, Blog. Ready to publish the moment credentials land.
+
+## Marketer Cycle — 2026-08-28 (Friday — run 41)
+
+**Calendar: Friday — 2 Reddit comments, 1 Reddit post, 2 tweets + 5 replies, 1 LinkedIn post.**
+
+**Keyword research:** Web search functional. Confirmed active landscape: "competitor monitoring tools for small teams" and "best CI tools startups 2026" are hot content categories across 8+ sites (rivalsift.com, rivaledge.tech, linkeddit.com, caelian.ai). Crayon/Klue pricing confirmed at $15-20K/yr across comparison sites (parano.ai, playwisehq.com, metrivant.com). Key angles: Friday tab-close ritual as vulnerability hook (founder pain story), week 7 ICP lesson (wrong ICP = PMM, right ICP = solo PM/founder), detection vs. analysis split as framework, hiring signals as CI proxy for roadmap reading.
+
+**Friday 2026-08-28 publish slate — 10 pieces staged:**
+- Twitter tweets (2): friday-tab-close-ritual (8/10 — 6 pinned tabs confessional), three-pages-week7-result (8.5/10 — scope reduction experiment result)
+- Twitter replies (5): what-do-you-need-from-ci (8/10 — detection vs. full CI platform), google-alerts-vs-site-monitoring (7.5/10 — different jobs), hiring-signal-as-roadmap (8/10 — competitor careers page reads), win-loss-vs-site-monitoring (8/10 — monitoring fills gap between deals), week7-onboarding-v3-result (7.5/10 — trial-to-alert 3.1d→18h)
+- Reddit comments (2): saas-ci-by-stage (8/10 → r/SaaS — pre-PMF vs post-PMF framework), pm-detection-vs-analysis (8.5/10 → r/ProductManagement — automate detection, keep judgment)
+- Reddit post (1): startups-week7-honest-update (8/10 → r/startups — 47 trials, 0 paid, ICP lesson, onboarding result)
+- LinkedIn post (1): friday-week7-wrong-icp-lesson (8.5/10 — 7 weeks 0 paid, ICP rethink, onboarding result)
+
+**Publishing status:** ALL platforms blocked — TWITTER_API_KEY/SECRET/ACCESS_TOKEN/SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID/SECRET/USERNAME/PASSWORD all missing from environment. 10 pieces staged as `queued-no-creds`. **Critical blocker persists.**
+
+**Queue total:** ~226+ pieces staged across Twitter, Reddit, LinkedIn, Blog. Ready to publish the moment credentials land.
