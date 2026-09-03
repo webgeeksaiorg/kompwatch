@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: queued-no-creds
 keywords: [competitor monitoring free, track competitor website free, website change detection]
 score: 7.5/10
 ---

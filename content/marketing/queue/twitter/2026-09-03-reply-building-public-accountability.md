@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: thread about building in public and whether transparency helps
-status: draft
+status: queued-no-creds
 keywords: [building in public metrics, SaaS transparency, founder journey]
 score: 8/10
 ---

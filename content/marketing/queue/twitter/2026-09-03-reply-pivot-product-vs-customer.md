@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: thread about when to pivot vs. persist
-status: draft
+status: queued-no-creds
 keywords: [SaaS pivot timing, founder decision, ICP wrong]
 score: 7.5/10
 ---

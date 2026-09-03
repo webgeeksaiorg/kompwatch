@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: thread about email open rates and whether email is dead for marketing
-status: draft
+status: queued-no-creds
 keywords: [email marketing SaaS, digest email open rates, B2B email engagement]
 score: 8/10
 ---

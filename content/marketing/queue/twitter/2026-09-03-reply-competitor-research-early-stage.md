@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: thread about competitor research for early stage startups
-status: draft
+status: queued-no-creds
 keywords: [competitor research early stage, startup competitive analysis, how to do competitor research]
 score: 8/10
 ---

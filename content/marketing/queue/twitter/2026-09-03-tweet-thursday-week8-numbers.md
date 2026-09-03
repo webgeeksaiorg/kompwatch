@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: queued-no-creds
 keywords: [SaaS pricing page tracking, competitor pricing change, competitive monitoring]
 score: 8/10
 ---

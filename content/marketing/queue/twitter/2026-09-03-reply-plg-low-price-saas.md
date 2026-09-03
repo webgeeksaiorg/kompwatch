@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: thread about product-led growth vs. sales-led
-status: draft
+status: queued-no-creds
 keywords: [PLG vs sales led, SaaS go to market, product led growth]
 score: 7.5/10
 ---

@@ -1,7 +1,7 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: queued-no-creds
 keywords: [competitor careers page, hiring signal, SaaS competitive intelligence]
 score: 8/10
 ---
