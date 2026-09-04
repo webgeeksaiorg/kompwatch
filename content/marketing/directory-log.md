@@ -1544,3 +1544,19 @@ Marketer run 36 created `2026-08-20-how-to-track-competitor-website-changes-auto
 **Publishing status:** ALL platforms blocked — TWITTER_API_KEY/SECRET/ACCESS_TOKEN/SECRET, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID/SECRET/USERNAME/PASSWORD all missing from environment. 10 pieces staged as `queued-no-creds`. **Critical blocker persists.**
 
 **Queue total:** ~226+ pieces staged across Twitter, Reddit, LinkedIn, Blog. Ready to publish the moment credentials land.
+
+## Marketer Cycle — 2026-09-04 (Thursday — run 51)
+
+**Calendar: Thursday — 3 tweets + 5 replies, 5 Reddit posts, 2 LinkedIn posts.**
+
+**Keyword research:** Web search rate-limited (DuckDuckGo returning homepage). Worked from accumulated research signals: "track competitor pricing" (persistent high-intent term), Crayon/Klue pricing complaints (ongoing, well-documented at $12-20K/yr), Thursday as natural CI review day (founder ritual angle). Key angles: pricing-page-forensics (what changed, why — sales signal), workflow-vs-willpower (systematic monitoring beats intention), scaling problem (manual monitoring breaks at 5+ competitors), battlecard staleness (goes stale in 72h), job-posting-as-roadmap-signal.
+
+**Thursday 2026-09-04 publish slate — 15 pieces staged:**
+- Twitter tweets (3): thursday-pricing-page-forensics (8.5/10 — pricing page diff as sales trigger), thursday-workflow-not-willpower (9/10 — tab debt, systematic vs intentional), thursday-scaling-problem (8.5/10 — 5 competitors × 4 pages breaks manually)
+- Twitter replies (5): reply-crayon-enterprise-too-expensive (8.5/10 — Crayon quit → Google Alerts → missed free-tier kill), reply-how-do-you-track-competitors (8.5/10 — Tuesday tab session → KompWatch), reply-pricing-strategy (8/10 — pricing-page-as-product), reply-saas-toolkit (8/10 — honest toolkit share), reply-roadmap-prioritization (8/10 — job posting signal)
+- Reddit posts (5): competitor-pricing-workflow (8.5/10 → r/ProductMarketing — 3-step system), sales-call-intel-vs-systematic-monitoring (8.5/10 → r/sales — different jobs), competitor-monitoring-stack-small-team (8/10 → r/SaaS — honest tool list), job-postings-as-roadmap-signal (8.5/10 → r/startups — hiring signal CI), competitive-awareness-small-saas (8/10 → r/Entrepreneur — lightweight framework)
+- LinkedIn posts (2): reactive-spikes-vs-continuous-signal (8.5/10 — two CI modes, continuous wins), pricing-page-as-product (8.5/10 — pricing page as living sales asset)
+
+**Publishing status:** ALL platforms blocked — TWITTER_API_KEY/SECRET/ACCESS_TOKEN, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID/SECRET/USERNAME/PASSWORD, GHOST_ADMIN_API_KEY all missing from environment. 15 pieces staged as `queued-no-creds`. **Critical blocker persists.**
+
+**Queue total:** ~241+ pieces staged across Twitter, Reddit, LinkedIn, Blog. Ready to publish the moment credentials land.
