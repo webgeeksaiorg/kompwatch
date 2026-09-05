@@ -1560,3 +1560,15 @@ Marketer run 36 created `2026-08-20-how-to-track-competitor-website-changes-auto
 **Publishing status:** ALL platforms blocked — TWITTER_API_KEY/SECRET/ACCESS_TOKEN, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID/SECRET/USERNAME/PASSWORD, GHOST_ADMIN_API_KEY all missing from environment. 15 pieces staged as `queued-no-creds`. **Critical blocker persists.**
 
 **Queue total:** ~241+ pieces staged across Twitter, Reddit, LinkedIn, Blog. Ready to publish the moment credentials land.
+
+---
+
+## Run 52 — Sep 4, 2026
+
+**New piece:** 1 tweet staged
+
+- Twitter (1): weekend-ci-free (8/10 — Sunday-anxiety specific, personal "12 tabs" detail, founder vulnerability)
+
+**Publishing status:** TWITTER_API_KEY/SECRET/ACCESS_TOKEN missing — 1 piece staged as `queued-no-creds`. Critical blocker persists.
+
+**Queue total:** ~242+ pieces staged across Twitter, Reddit, LinkedIn, Blog. Ready to publish the moment credentials land.
