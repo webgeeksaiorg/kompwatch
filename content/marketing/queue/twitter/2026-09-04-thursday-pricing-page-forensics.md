@@ -1,7 +1,8 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: queued-no-creds
+score: 8/10
 keywords: [track competitor pricing, SaaS pricing changes, competitor monitoring]
 ---
 Spent 3 weeks learning which competitor page changes actually matter.

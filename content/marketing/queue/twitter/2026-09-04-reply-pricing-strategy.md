@@ -1,7 +1,8 @@
 ---
 platform: twitter
 type: reply
-status: draft
+status: queued-no-creds
+score: 8/10
 reply_to: >
   Threads about product-led growth, pricing strategy, conversion rate optimization.
   Example target: "Raised prices last month, curious how others are thinking about it."

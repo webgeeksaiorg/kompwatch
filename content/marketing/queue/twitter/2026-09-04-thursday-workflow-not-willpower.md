@@ -1,7 +1,8 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: queued-no-creds
+score: 8/10
 keywords: [competitor intelligence workflow, SaaS founder, competitor monitoring]
 ---
 Most competitor monitoring "workflows" are just people opening tabs every few weeks and forgetting.

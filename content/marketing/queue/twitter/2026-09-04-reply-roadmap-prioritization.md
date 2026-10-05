@@ -1,7 +1,8 @@
 ---
 platform: twitter
 type: reply
-status: draft
+status: queued-no-creds
+score: 8/10
 reply_to: >
   Threads about product management, roadmap prioritization, customer research.
   Example target: "How do you decide what to build next? Our roadmap is all over the place."

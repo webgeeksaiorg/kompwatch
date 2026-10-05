@@ -1,7 +1,8 @@
 ---
 platform: twitter
 type: reply
-status: draft
+status: queued-no-creds
+score: 8/10
 reply_to: >
   Threads about startup tools, indie hacker stacks, "what's in your toolkit?"
   Example target: "What tools are you using to run your SaaS in 2026?"

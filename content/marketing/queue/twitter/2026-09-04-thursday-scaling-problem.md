@@ -1,7 +1,8 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: queued-no-creds
+score: 8/10
 keywords: [SaaS competitive analysis, feature comparison, competitor tracking]
 ---
 Quick competitive analysis trick I've used for years:

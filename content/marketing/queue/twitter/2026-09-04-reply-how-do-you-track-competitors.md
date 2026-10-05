@@ -1,7 +1,8 @@
 ---
 platform: twitter
 type: reply
-status: draft
+status: queued-no-creds
+score: 8/10
 reply_to: >
   Threads about competitive strategy / "how do you keep tabs on competitors?"
   Example target: "How do you actually track what competitors are up to? Looking for a process."
