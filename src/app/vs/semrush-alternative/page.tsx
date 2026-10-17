@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { TrackedCTA } from "@/components/tracked-cta";
 import { ComparisonFAQ } from "@/components/comparison-faq";
+import { DeeperComparison } from "@/components/deeper-comparison";
 import { BreadcrumbSchema } from "@/components/breadcrumb-schema";
 import { SoftwareApplicationSchema } from "@/components/software-schema";
 import { AlternativesListicleSchema } from "@/components/alternatives-listicle-schema";
@@ -285,7 +286,7 @@ export default function SemrushAlternativePage() {
     <div className="bg-white">
       <BreadcrumbSchema
         items={[
-          { name: "Compare", path: "/compare" },
+          { name: "Alternatives", path: "/vs" },
           { name: "Semrush Alternatives", path: "/vs/semrush-alternative" },
         ]}
       />
@@ -637,6 +638,12 @@ export default function SemrushAlternativePage() {
 
       {/* FAQ */}
       <ComparisonFAQ competitor="Semrush" faqs={comparisonFaqs} />
+
+      {/* Deeper comparison — cross-link to migration guide */}
+      <DeeperComparison
+        competitor="Semrush"
+        switchHref="/switch/semrush"
+      />
 
       {/* Footer nav */}
       <section className="border-t border-gray-100 py-12">

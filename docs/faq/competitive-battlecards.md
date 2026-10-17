@@ -52,7 +52,9 @@ KompWatch tracks competitors' public pricing pages. If a competitor's pricing pa
 
 ## Exporting Battlecards
 
-One-click HTML battlecard export is on the roadmap (ticket in review) and not yet available. Until it ships, export raw change data via JSON and assemble your battlecard manually:
+**One-click HTML battlecard export is available now** on Pro and Team plans. Click the **Battlecard** button on any competitor's detail page — KompWatch generates and downloads the HTML file in 1–2 seconds.
+
+If you prefer raw data, you can still use JSON export:
 
 1. Go to **Settings → Export → JSON** to download all changes for a competitor
 2. Filter by `"severity": "HIGH"` or `"severity": "CRITICAL"`

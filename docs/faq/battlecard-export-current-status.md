@@ -1,28 +1,27 @@
 # Does KompWatch Have One-Click Battlecard Export?
 
-KompWatch's one-click battlecard export feature is **currently in development and not yet available**. The comparison pages reference it as a planned capability — it will ship as a one-click HTML export that generates a formatted, sales-ready battlecard from a competitor's tracked changes.
+Yes — **one-click battlecard export is available now** on all paid plans (Pro and Team).
 
-Until it ships, the workaround below gives you equivalent output in a few manual steps.
+## How to Export a Battlecard
 
-## Current Workaround: JSON Export + Template Paste
+1. Go to **Competitors** in your dashboard
+2. Open any competitor's detail page
+3. Click the **Battlecard** button in the top-right toolbar
+4. KompWatch generates a formatted HTML battlecard and downloads it automatically
 
-1. Go to **Settings → Export → JSON** to download all changes for a competitor
-2. Filter by `"severity": "HIGH"` or `"severity": "CRITICAL"` — these are your battlecard-worthy signals
-3. The `summary` field on each change entry is AI-written in plain English and framed for competitive context — paste it directly into your battlecard template (Notion, Google Slides, Confluence, Highspot, Seismic, etc.)
-4. Pull pricing data from digest entries tagged `"type": "PRICING"` for your price-anchoring section
+The export takes 1–2 seconds and produces a portable HTML file with sections for pricing, features, messaging, and hiring signals — pre-populated with AI-summarised change history.
 
-Most teams find this takes about 5–10 minutes per competitor per week, versus hours of manual research — the signal quality is the same as what the one-click export will produce.
+## What the Battlecard Includes
 
-## What the Battlecard Export Will Include
+The one-click HTML export:
+- Formats AI-generated change summaries into a structured battlecard layout
+- Sections: **Pricing**, **Features**, **Positioning**, **Hiring signals**
+- Each entry shows change type, severity, AI summary, and date detected
+- Exports as a self-contained HTML file — drop it into Notion, Google Docs, Confluence, Highspot, or Seismic
 
-When it ships, the one-click HTML export will:
-- Format AI-generated change summaries into a structured battlecard layout
-- Include sections for pricing, features, messaging, and hiring signals
-- Export as a portable HTML file you can drop into Notion, Google Docs, or a sales enablement tool
+## Can I Still Use JSON Export?
 
-## When Will It Ship?
-
-The battlecard builder feature is in active development. Follow the [product changelog](./product-changelog.md) for the release announcement.
+Yes. If you prefer raw data, go to **Settings → Export → JSON** to download all changes for a competitor. Filter by `"severity": "HIGH"` or `"severity": "CRITICAL"` to find battlecard-worthy entries. The `summary` field contains the same AI-written text that appears in the HTML battlecard.
 
 ## Questions?
 

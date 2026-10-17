@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { SoftwareApplicationSchema } from "./software-schema";
 
 type FAQItem = {
@@ -8,9 +9,19 @@ type FAQItem = {
 export function ComparisonFAQ({
   competitor,
   faqs,
+  guideSlug,
+  guideLabel,
 }: {
   competitor: string;
   faqs: FAQItem[];
+  /**
+   * Optional slug of a `/faq/{slug}` page containing the full migration guide.
+   * When provided, renders a callout link beneath the FAQ so readers can
+   * discover the long-form guide (and Google can crawl the internal link).
+   */
+  guideSlug?: string;
+  /** Optional label override for the guide callout link. */
+  guideLabel?: string;
 }) {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -49,6 +60,21 @@ export function ComparisonFAQ({
               </div>
             ))}
           </dl>
+          {guideSlug ? (
+            <div className="mt-10 rounded-lg border border-brand-100 bg-brand-50 px-6 py-5 text-center">
+              <p className="text-sm text-gray-700">
+                Need the full migration walkthrough — data export, parallel
+                evaluation, cancellation timing?
+              </p>
+              <Link
+                href={`/faq/${guideSlug}`}
+                className="mt-2 inline-block text-sm font-semibold text-brand-700 hover:text-brand-800"
+              >
+                {guideLabel ?? `Read the full ${competitor} migration guide`}{" "}
+                &rarr;
+              </Link>
+            </div>
+          ) : null}
         </div>
       </section>
     </>

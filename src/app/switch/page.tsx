@@ -7,40 +7,43 @@ const siteUrl = "https://kompwatch.com";
 
 export const metadata: Metadata = {
   title:
-    "Switch to KompWatch — Migrate from Crayon, Klue, Kompyte, or Semrush in Under 5 Minutes",
+    "Switch to KompWatch — Migrate from Crayon, Klue, Kompyte, Semrush, Visualping, or Kompetar in Under 5 Minutes",
   description:
-    "Enterprise CI tools are locking you into $30K/yr contracts, or (in Semrush's case) being folded into Adobe's marketing cloud. KompWatch is the independent, self-serve alternative — $49/mo, 5-minute setup, no sales call. Pick your current tool and start the switch.",
+    "Enterprise CI tools are locking you into $30K/yr contracts, Semrush is being folded into Adobe's marketing cloud, and Visualping's screenshot diffs never became competitive intelligence. KompWatch is the independent, self-serve alternative — $49/mo, 5-minute setup, no sales call. Pick your current tool and start the switch.",
   keywords: [
     "switch competitive intelligence tool",
     "Crayon alternative",
     "Klue alternative",
     "Kompyte alternative",
     "Semrush alternative",
+    "Visualping alternative",
     "switch from Crayon",
     "switch from Klue",
     "switch from Kompyte",
     "switch from Semrush",
+    "switch from Visualping",
     "CI tool migration",
     "competitive intelligence migration",
     "Semrush Adobe acquisition",
     "Kompyte replacement",
+    "Visualping replacement",
     "self-serve competitor monitoring",
   ],
   alternates: {
     canonical: `${siteUrl}/switch`,
   },
   openGraph: {
-    title: "Switch to KompWatch — Migrate from Crayon, Klue, Kompyte, or Semrush",
+    title: "Switch to KompWatch — Migrate from Crayon, Klue, Kompyte, Semrush, Visualping, or Kompetar",
     description:
-      "$49/mo, 5-minute setup, no sales call. Independent, self-serve competitor monitoring — the alternative to $30K enterprise contracts and Adobe-owned marketing bundles.",
+      "$49/mo, 5-minute setup, no sales call. Independent, self-serve competitor monitoring — the alternative to $30K enterprise contracts, Adobe-owned marketing bundles, and screenshot-diff tools.",
     url: `${siteUrl}/switch`,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Switch to KompWatch from Crayon, Klue, Kompyte, or Semrush",
+    title: "Switch to KompWatch from Crayon, Klue, Kompyte, Semrush, Visualping, or Kompetar",
     description:
-      "$49/mo instead of $30K/yr. Independent CI tool — self-serve, no sales call, no Adobe bundle.",
+      "$49/mo instead of $30K/yr. Independent CI tool — self-serve, no sales call, no Adobe bundle, no screenshot-diff triage.",
   },
 };
 
@@ -93,6 +96,24 @@ const switchTargets: SwitchTarget[] = [
       "Kompyte was acquired by Semrush in 2022 and Semrush was acquired by Adobe in Feb 2026. The standalone Kompyte roadmap is effectively frozen. KompWatch is independent, self-serve, and ships AI digests from day one — $49/mo, no enterprise contract.",
     urgency: "Adobe integration in progress",
   },
+  {
+    slug: "visualping",
+    vendor: "Visualping",
+    tagline: "Great for screenshot diffs — not built for CI",
+    currentCost: "~$14/mo starter (up to enterprise)",
+    savings: "Get AI digests instead of alert triage",
+    reasonToSwitch:
+      "Visualping is a general-purpose website change detector serving 1.5M+ users. If you're using it for competitor monitoring specifically, you hit three walls: alert fatigue (per-change emails), no AI interpretation (raw diffs), and empty-div false positives on React/Next.js sites. KompWatch is purpose-built for CI — AI digests, CSS-selector targeting, real Playwright rendering.",
+  },
+  {
+    slug: "kompetar",
+    vendor: "Kompetar",
+    tagline: "Same $49/mo tier — without AI digests or a free plan",
+    currentCost: "$49/mo (no free tier)",
+    savings: "Same price, higher-signal digest + free tier to trial",
+    reasonToSwitch:
+      "Kompetar is a peer $49/mo change-detection tool with the same buyer profile as KompWatch. The gaps: no AI summaries (you triage every raw diff yourself), no severity or content-zone classification, and no free plan to run alongside another tool during evaluation. KompWatch matches Kompetar's price and adds all three.",
+  },
 ];
 
 // ItemList JSON-LD for /switch hub — surfaces vendor migration paths in SERP
@@ -102,7 +123,7 @@ function ItemListSchema() {
     "@type": "ItemList",
     name: "KompWatch — Migration Paths from Competitive Intelligence Tools",
     description:
-      "Structured migration guides for teams switching from Crayon, Klue, Kompyte, or Semrush to KompWatch.",
+      "Structured migration guides for teams switching from Crayon, Klue, Kompyte, Semrush, Visualping, or Kompetar to KompWatch.",
     itemListElement: switchTargets.map((t, i) => ({
       "@type": "ListItem",
       position: i + 1,
@@ -151,7 +172,7 @@ function SwitchHubHowToSchema() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    name: "How to switch to KompWatch from Crayon, Klue, Kompyte, or Semrush",
+    name: "How to switch to KompWatch from Crayon, Klue, Kompyte, Semrush, Visualping, or Kompetar",
     description:
       "A 4-step, vendor-agnostic migration plan to move from an enterprise competitive-intelligence tool to KompWatch. Total time budget: 2–4 weeks (parallel run) with a 5-minute technical setup on day one.",
     totalTime: "P4W",

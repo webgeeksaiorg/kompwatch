@@ -100,7 +100,12 @@ const risks = [
 export default function SwitchSemrushPage() {
   return (
     <div className="bg-white">
-      <BreadcrumbSchema items={[{ name: "Switch from Semrush", path: "/switch/semrush" }]} />
+      <BreadcrumbSchema
+        items={[
+          { name: "Switch", path: "/switch" },
+          { name: "Switch from Semrush", path: "/switch/semrush" },
+        ]}
+      />
       <SwitchHowToSchema
         competitor="Semrush"
         pageSlug="semrush"
@@ -492,6 +497,8 @@ export default function SwitchSemrushPage() {
       {/* FAQ */}
       <ComparisonFAQ
         competitor="Semrush (Inside Adobe)"
+        guideSlug="switching-from-semrush"
+        guideLabel="Read the full Semrush → KompWatch migration guide"
         faqs={[
           {
             question: "Is Semrush being shut down?",

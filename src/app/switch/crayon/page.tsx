@@ -100,7 +100,12 @@ const risks = [
 export default function SwitchCrayonPage() {
   return (
     <div className="bg-white">
-      <BreadcrumbSchema items={[{ name: "Switch from Crayon", path: "/switch/crayon" }]} />
+      <BreadcrumbSchema
+        items={[
+          { name: "Switch", path: "/switch" },
+          { name: "Switch from Crayon", path: "/switch/crayon" },
+        ]}
+      />
       <SwitchHowToSchema
         competitor="Crayon"
         pageSlug="crayon"
@@ -490,6 +495,8 @@ export default function SwitchCrayonPage() {
       {/* FAQ */}
       <ComparisonFAQ
         competitor="Crayon (Post-Acquisition)"
+        guideSlug="switching-from-crayon"
+        guideLabel="Read the full Crayon → KompWatch migration guide"
         faqs={[
           {
             question:
