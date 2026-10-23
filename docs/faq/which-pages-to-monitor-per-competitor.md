@@ -14,6 +14,7 @@ Based on monitoring data across dozens of SaaS competitors, here's how frequentl
 | Feature / product page | Roughly monthly | Current — reflects what they're selling now |
 | Changelog / blog | Unpredictable, often noisy | Historical — useful but creates alert fatigue |
 | Job listings / careers | Weekly or more | **Leading** — tells you what's coming next |
+| Alternatives / compare pages | Monthly or event-driven | **Positioning** — tells you how they're selling against you |
 
 ## Where to start
 
@@ -43,3 +44,5 @@ Based on monitoring data across dozens of SaaS competitors, here's how frequentl
 **"What if their pricing is on the same page as features?"** — That's fine. Use a specific CSS selector like `.pricing-section` to scope the tracked region.
 
 **"My competitor's careers page requires login — can I track it?"** — Not directly. See [Monitoring Login-Required Pages](./monitoring-login-required-pages.md) for alternatives (LinkedIn scraping, RSS feeds).
+
+**"Should I also monitor their /alternatives or /vs/[my-product] pages?"** — Yes, these are high-signal. See [Monitoring Competitor Alternatives and Compare Pages](./monitoring-competitor-alternatives-and-compare-pages.md).
