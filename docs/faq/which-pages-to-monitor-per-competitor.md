@@ -46,3 +46,5 @@ Based on monitoring data across dozens of SaaS competitors, here's how frequentl
 **"My competitor's careers page requires login — can I track it?"** — Not directly. See [Monitoring Login-Required Pages](./monitoring-login-required-pages.md) for alternatives (LinkedIn scraping, RSS feeds).
 
 **"Should I also monitor their /alternatives or /vs/[my-product] pages?"** — Yes, these are high-signal. See [Monitoring Competitor Alternatives and Compare Pages](./monitoring-competitor-alternatives-and-compare-pages.md).
+
+**"Should I monitor the competitor's homepage?"** — Usually not the best starting point. See [Should I Monitor My Competitor's Homepage?](./should-i-monitor-my-competitor-homepage.md).
