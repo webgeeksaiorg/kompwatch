@@ -89,6 +89,7 @@ One visible update cycle where the battlecard catches something live does more f
 
 - [How to Keep Battlecards Up to Date (Without a CI Analyst) →](./how-to-keep-battlecards-up-to-date.md)
 - [Who Should Own Competitive Monitoring? →](./who-should-own-competitive-monitoring.md)
+- [Internal CI Newsletter: Turning Digests Into Team-Wide Updates →](./internal-competitive-intelligence-newsletter.md)
 - [Configuring Slack Alerts →](./slack-alert-setup.md)
 - [Change Severity Levels →](./change-severity-levels.md)
 - [Using the Change History Timeline →](./using-the-change-history-timeline.md)

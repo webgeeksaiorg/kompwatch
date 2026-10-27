@@ -118,4 +118,4 @@ Free tier (2 competitors, daily snapshots, weekly digest) covers that without pa
 
 ---
 
-*See also: [Is KompWatch Right for My Team?](./is-kompwatch-right-for-my-team.md) · [How Many Competitors Should I Monitor?](./how-many-competitors-to-monitor.md) · [DIY Free Tools Stack Cost](./diy-free-tools-stack-cost.md)*
+*See also: [Is KompWatch Right for My Team?](./is-kompwatch-right-for-my-team.md) · [How Many Competitors Should I Monitor?](./how-many-competitors-to-monitor.md) · [DIY Free Tools Stack Cost](./diy-free-tools-stack-cost.md) · [Solo Founder CI Workflow](./solo-founder-competitive-intelligence-workflow.md)*
