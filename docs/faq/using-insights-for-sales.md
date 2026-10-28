@@ -75,5 +75,7 @@ KompWatch monitors website changes — it does not capture win/loss data, record
 
 For how KompWatch compares to battlecard tools and full CI platforms, see [How KompWatch Compares to Alternatives](./comparing-to-alternatives.md).
 
+If your team has a dedicated Revenue Operations function, see [Using KompWatch Insights for Revenue Operations](./using-insights-for-revenue-ops.md) for CRM automation patterns and territory risk workflows.
+
 ---
 *Questions? Email [support@kompwatch.com](mailto:support@kompwatch.com) and we'll respond within 24 hours.*
