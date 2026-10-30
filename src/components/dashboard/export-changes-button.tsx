@@ -4,12 +4,29 @@ import { useState } from "react";
 
 type ExportFormat = "csv" | "json";
 
+export interface ExportFilters {
+  /** Period window matching the history page (7d/30d/90d/all). */
+  period?: string;
+  /** Multi-select content zones. */
+  zones?: string[];
+  /** Multi-select change types. */
+  changeTypes?: string[];
+  /** Multi-select competitor IDs (used by /history). */
+  competitorIds?: string[];
+  /** Explicit severity floor override. */
+  minSeverity?: string;
+}
+
 export function ExportChangesButton({
   competitorId,
   format = "csv",
+  filters,
 }: {
+  /** Legacy single-competitor scoping (used by /competitors/[id]). */
   competitorId?: string;
   format?: ExportFormat;
+  /** Multi-value filters (used by /history). */
+  filters?: ExportFilters;
 }) {
   const [loading, setLoading] = useState(false);
 
@@ -19,6 +36,11 @@ export function ExportChangesButton({
       const params = new URLSearchParams();
       if (competitorId) params.set("competitorId", competitorId);
       if (format !== "csv") params.set("format", format);
+      if (filters?.period) params.set("period", filters.period);
+      if (filters?.minSeverity) params.set("minSeverity", filters.minSeverity);
+      filters?.zones?.forEach((z) => params.append("zone", z));
+      filters?.changeTypes?.forEach((t) => params.append("changeType", t));
+      filters?.competitorIds?.forEach((id) => params.append("competitor", id));
       const url = `/api/export/changes${params.toString() ? `?${params}` : ""}`;
       const res = await fetch(url);
       if (!res.ok) throw new Error("Export failed");
