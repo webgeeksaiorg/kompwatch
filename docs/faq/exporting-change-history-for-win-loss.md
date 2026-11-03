@@ -12,11 +12,30 @@ Each change entry in KompWatch has a **Share** button that generates a shareable
 ### 2. Copy as plain text
 From any change entry or digest, click **Copy summary** to grab the AI-generated plain-English description. This is what most teams paste into a CRM freeform field ("competitive context" or "deal notes") directly on the Closed-Lost record.
 
-### 3. Export filtered history as PDF
-On the **Change History** page (`/history`), filter by competitor and date range (e.g., the 60-day window before a deal closed), then click **Export → PDF**. The exported PDF includes the change type, severity, AI summary, and detection timestamp for every entry in the filtered view. Teams that run formal quarterly win/loss reviews often export this as an appendix.
+### 3. Export filtered history as CSV or JSON (recommended)
+On the **Change History** page (`/history`), filter by competitor, date range, zone, and change type, then click **Export CSV** or **Export JSON**. The export matches exactly what's on screen — so you can narrow to "pricing changes for Acme Corp in the last 30 days" and download only those rows.
 
-### 4. Export as CSV (Pro and Team plans)
-Pro and Team plan subscribers can export the filtered change history as a `.csv` file with columns: `competitor`, `changeType`, `severity`, `detectedAt`, `summary`, `url`. Import directly into a Notion table, Airtable base, or spreadsheet-based win/loss tracker.
+Exported files include: date, competitor name, change type, severity, **content zone**, **confidence score**, **signal score**, AI-generated summary, and page URL.
+
+> **Pro tip for win/loss prep:** Use the **Monetization** zone filter to isolate pricing and packaging changes. These are the moves most likely to have affected deal outcomes.
+
+### 4. Export as PDF
+On the **Change History** page, filter the view and then export as PDF for a formatted report — useful as an appendix in quarterly win/loss reviews or when sharing with executives who prefer documents over spreadsheets.
+
+### 5. Via API (programmatic)
+For scripted or automated exports, call the endpoint directly:
+
+```bash
+# CSV: pricing changes in last 30 days for one competitor
+curl -H "Cookie: <session>" \
+  "https://kompwatch.com/api/export/changes?format=csv&period=30d&zone=MONETIZATION&competitor=<id>"
+
+# JSON: all changes across all competitors, last 90 days
+curl -H "Cookie: <session>" \
+  "https://kompwatch.com/api/export/changes?format=json&period=90d"
+```
+
+See [Exporting Your Data →](exporting-your-data.md) for the full list of supported query parameters.
 
 ---
 
@@ -24,8 +43,8 @@ Pro and Team plan subscribers can export the filtered change history as a `.csv`
 
 Most teams use this 2-minute routine on every Closed-Lost deal:
 
-1. Open the competitor in KompWatch → **Change History**
-2. Filter date range to **30–60 days before the deal closed**
+1. Open [kompwatch.com/history](https://kompwatch.com/history)
+2. Filter: set period to **30–60 days before the deal closed**, set competitor to the relevant rival, set zone to **Monetization** (to surface pricing changes first)
 3. Sort by severity (HIGH first)
 4. Copy the top 1–3 relevant summaries
 5. Paste into the CRM deal record under a custom field (e.g., `Competitor Change Context` in Salesforce or HubSpot)

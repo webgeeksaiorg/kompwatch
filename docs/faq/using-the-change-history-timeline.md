@@ -11,7 +11,7 @@ Go to [kompwatch.com/history](https://kompwatch.com/history) from any page in th
 At the top, four summary cards give you a quick read on the selected period:
 
 | Card | What it shows |
-|------|--------------|
+|------|--------------| 
 | **Total changes** | Number of changes detected, with a % trend vs. the prior period |
 | **High impact** | Count of HIGH + CRITICAL severity changes |
 | **Weeks covered** | How many weeks in the period had at least one change |
@@ -43,13 +43,26 @@ Filters combine: selecting "Monetization" zone + "Acme Corp" competitor shows on
 
 ## Exporting History Data
 
-When changes are present, **Export CSV** and **Export JSON** buttons appear in the top-right. Both exports include:
+When changes are present, **Export CSV** and **Export JSON** buttons appear in the top-right. **The export automatically reflects whatever filters are active** — if you've narrowed the view to "Pricing changes in the last 7 days for Acme Corp", the downloaded file will contain exactly those rows, not your full change history.
 
-- Date, competitor name, change type, severity, content zone, signal score
-- The full AI-generated summary
-- Page URL where the change was detected
+Both export formats include:
+
+| Field | Description |
+|-------|-------------|
+| Date | When the change was detected (ISO 8601) |
+| Competitor | Competitor name |
+| URL | Competitor root URL |
+| Type | Change type (PRICING, FEATURE, BLOG, JOB, TECH, GENERAL, COMMUNITY) |
+| Zone | Content zone (POSITIONING, MONETIZATION, PRODUCT, MARKETING, TALENT, LEGAL, OPERATIONS) |
+| Severity | LOW / MEDIUM / HIGH / CRITICAL |
+| Confidence | AI confidence score (0–100) |
+| Signal Score | Composite relevance score (0–100) |
+| Summary | AI-generated description of the change |
+| Page URL | The specific URL where the change was detected |
 
 Raw HTML snapshots are not included in exports. For snapshot-level data, use the Snapshot History tab on the individual competitor detail page.
+
+> **Note on severity floor:** The history export applies your account's minimum severity setting (Settings → Notifications) to keep the download consistent with what you see on screen. To export all severities, temporarily set your minimum to **Low** in settings, or pass `minSeverity=LOW` if using the [API directly](exporting-your-data.md).
 
 ## How Far Back Does It Go?
 
