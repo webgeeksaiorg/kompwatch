@@ -2,7 +2,8 @@
 platform: reddit
 type: comment
 target: r/SaaS — thread asking "how do you keep track of what competitors are doing without spending all day on it?"
-status: draft
+status: queued-no-creds
+score: 8.5/10
 keywords: [track competitors SaaS, competitor monitoring workflow, automated competitor tracking]
 ---
 Honestly, the biggest thing that helped me was narrowing down to 3-4 pages per competitor instead of trying to monitor everything.

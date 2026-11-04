@@ -2,7 +2,8 @@
 platform: twitter
 type: reply
 target: founder venting about losing a deal because competitor had a feature they didn't know about
-status: draft
+status: queued-no-creds
+score: 8.5/10
 keywords: [competitor feature tracking, deal lost competitor, monitor competitor features]
 ---
 ouch. been there.

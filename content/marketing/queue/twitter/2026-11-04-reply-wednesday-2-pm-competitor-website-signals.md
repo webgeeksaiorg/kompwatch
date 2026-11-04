@@ -2,7 +2,8 @@
 platform: twitter
 type: reply
 target: thread about how PMs should stay informed about competitors
-status: draft
+status: queued-no-creds
+score: 8/10
 keywords: [competitor tracking PM, competitor website changes]
 ---
 the most underrated move: just watch their actual website. jobs page, pricing page, features page.

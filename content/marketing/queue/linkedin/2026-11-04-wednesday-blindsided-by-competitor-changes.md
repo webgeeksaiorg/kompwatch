@@ -1,7 +1,8 @@
 ---
 platform: linkedin
 type: post
-status: draft
+status: queued-no-creds
+score: 8.5/10
 keywords: [competitive intelligence, competitor tracking, startup founder, information advantage, pricing strategy]
 ---
 Most product teams learn about competitor changes from their own customers.

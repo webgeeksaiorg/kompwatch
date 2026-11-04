@@ -2,7 +2,8 @@
 platform: reddit
 type: comment
 target: r/startups — thread discussing whether small teams should bother with competitive analysis at all
-status: draft
+status: queued-no-creds
+score: 8.5/10
 keywords: [competitive analysis small startup, is competitive intelligence worth it, startup competitor research]
 ---
 The framing of "competitive analysis" is what makes it feel like too much work. That implies spreadsheets and reports and quarterly reviews.

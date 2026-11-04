@@ -1,7 +1,8 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: queued-no-creds
+score: 8.5/10
 keywords: [competitive intelligence workflow, competitor monitoring, product team]
 ---
 the competitive intelligence "workflow" at most startups:
