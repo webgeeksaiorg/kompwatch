@@ -44,7 +44,7 @@ const sampleChanges = [
 
 beforeEach(() => {
   vi.clearAllMocks();
-  mockGetCurrentUser.mockResolvedValue({ id: "user_123" });
+  mockGetCurrentUser.mockResolvedValue({ id: "user_123", dashboardMinSeverity: "LOW" });
   mockDb.change.findMany.mockResolvedValue(sampleChanges);
 });
 
@@ -111,5 +111,115 @@ describe("GET /api/export/changes", () => {
     const args = mockDb.change.findMany.mock.calls[0][0];
     expect(args.where.competitor).toEqual({ userId: "user_123" });
     expect(args.where.competitorId).toBeUndefined();
+  });
+});
+
+describe("GET /api/export/changes — history-page filters", () => {
+  it("applies period=30d as a createdAt gte filter", async () => {
+    const now = Date.now();
+    await GET(makeReq("?period=30d"));
+    const args = mockDb.change.findMany.mock.calls[0][0];
+    expect(args.where.createdAt).toBeDefined();
+    const since = (args.where.createdAt as { gte: Date }).gte.getTime();
+    const expected = now - 30 * 24 * 60 * 60 * 1000;
+    // allow a small clock-skew window
+    expect(Math.abs(since - expected)).toBeLessThan(5_000);
+  });
+
+  it("period=all omits the createdAt filter", async () => {
+    await GET(makeReq("?period=all"));
+    const args = mockDb.change.findMany.mock.calls[0][0];
+    expect(args.where.createdAt).toBeUndefined();
+  });
+
+  it("ignores invalid period values (falls back to all)", async () => {
+    await GET(makeReq("?period=bogus"));
+    const args = mockDb.change.findMany.mock.calls[0][0];
+    expect(args.where.createdAt).toBeUndefined();
+  });
+
+  it("applies multi-value zone filter", async () => {
+    await GET(makeReq("?zone=MONETIZATION&zone=PRODUCT"));
+    const args = mockDb.change.findMany.mock.calls[0][0];
+    expect(args.where.contentZone).toEqual({ in: ["MONETIZATION", "PRODUCT"] });
+  });
+
+  it("drops invalid zone values", async () => {
+    await GET(makeReq("?zone=MONETIZATION&zone=BOGUS"));
+    const args = mockDb.change.findMany.mock.calls[0][0];
+    expect(args.where.contentZone).toEqual({ in: ["MONETIZATION"] });
+  });
+
+  it("applies multi-value changeType filter", async () => {
+    await GET(makeReq("?changeType=PRICING&changeType=FEATURE"));
+    const args = mockDb.change.findMany.mock.calls[0][0];
+    expect(args.where.changeType).toEqual({ in: ["PRICING", "FEATURE"] });
+  });
+
+  it("drops invalid changeType values", async () => {
+    await GET(makeReq("?changeType=PRICING&changeType=HACK"));
+    const args = mockDb.change.findMany.mock.calls[0][0];
+    expect(args.where.changeType).toEqual({ in: ["PRICING"] });
+  });
+
+  it("applies multi-value competitor filter", async () => {
+    await GET(makeReq("?competitor=c1&competitor=c2"));
+    const args = mockDb.change.findMany.mock.calls[0][0];
+    expect(args.where.competitorId).toEqual({ in: ["c1", "c2"] });
+  });
+
+  it("legacy competitorId takes precedence over multi competitor param", async () => {
+    await GET(makeReq("?competitorId=legacy&competitor=c1"));
+    const args = mockDb.change.findMany.mock.calls[0][0];
+    expect(args.where.competitorId).toBe("legacy");
+  });
+
+  it("applies explicit minSeverity filter", async () => {
+    await GET(makeReq("?minSeverity=HIGH"));
+    const args = mockDb.change.findMany.mock.calls[0][0];
+    expect(args.where.severity).toEqual({ in: ["HIGH", "CRITICAL"] });
+  });
+
+  it("ignores invalid minSeverity values", async () => {
+    await GET(makeReq("?minSeverity=BOGUS"));
+    const args = mockDb.change.findMany.mock.calls[0][0];
+    expect(args.where.severity).toBeUndefined();
+  });
+
+  it("falls back to user.dashboardMinSeverity when filters are present but minSeverity is not", async () => {
+    mockGetCurrentUser.mockResolvedValue({ id: "user_123", dashboardMinSeverity: "MEDIUM" });
+    await GET(makeReq("?period=7d"));
+    const args = mockDb.change.findMany.mock.calls[0][0];
+    expect(args.where.severity).toEqual({ in: ["MEDIUM", "HIGH", "CRITICAL"] });
+  });
+
+  it("does not apply dashboardMinSeverity when no history-style filters are present (legacy behavior)", async () => {
+    mockGetCurrentUser.mockResolvedValue({ id: "user_123", dashboardMinSeverity: "HIGH" });
+    await GET(makeReq());
+    const args = mockDb.change.findMany.mock.calls[0][0];
+    expect(args.where.severity).toBeUndefined();
+  });
+
+  it("does not apply dashboardMinSeverity for legacy competitorId-only requests", async () => {
+    mockGetCurrentUser.mockResolvedValue({ id: "user_123", dashboardMinSeverity: "HIGH" });
+    await GET(makeReq("?competitorId=comp_42"));
+    const args = mockDb.change.findMany.mock.calls[0][0];
+    expect(args.where.severity).toBeUndefined();
+  });
+
+  it("composes all history-page filters together", async () => {
+    const res = await GET(
+      makeReq(
+        "?period=7d&zone=MONETIZATION&zone=PRODUCT&changeType=PRICING&competitor=c1&minSeverity=MEDIUM"
+      )
+    );
+    expect(res.status).toBe(200);
+    const args = mockDb.change.findMany.mock.calls[0][0];
+    expect(args.where.competitor).toEqual({ userId: "user_123" });
+    expect(args.where.competitorId).toEqual({ in: ["c1"] });
+    expect(args.where.contentZone).toEqual({ in: ["MONETIZATION", "PRODUCT"] });
+    expect(args.where.changeType).toEqual({ in: ["PRICING"] });
+    expect(args.where.severity).toEqual({ in: ["MEDIUM", "HIGH", "CRITICAL"] });
+    expect(args.where.createdAt).toBeDefined();
   });
 });

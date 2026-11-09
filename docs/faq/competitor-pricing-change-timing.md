@@ -77,6 +77,7 @@ Pricing changes sometimes appear first in `og:description`, page title, or struc
 
 ## Related FAQs
 
+- [How to Track Competitor Pricing Changes](./how-to-track-competitor-pricing-changes.md) — end-to-end workflow guide
 - [How Do I Monitor a Competitor's Pricing Page?](./monitoring-competitor-pricing-pages.md)
 - [Instant Pricing Alerts](./instant-pricing-alerts.md)
 - [Managing Alert Fatigue](./managing-alert-fatigue.md)

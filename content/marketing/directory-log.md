@@ -1572,3 +1572,21 @@ Marketer run 36 created `2026-08-20-how-to-track-competitor-website-changes-auto
 **Publishing status:** TWITTER_API_KEY/SECRET/ACCESS_TOKEN missing — 1 piece staged as `queued-no-creds`. Critical blocker persists.
 
 **Queue total:** ~242+ pieces staged across Twitter, Reddit, LinkedIn, Blog. Ready to publish the moment credentials land.
+
+---
+
+## Run 66 — Oct 26, 2026 (Monday)
+
+**New pieces:** 10 (2 tweets, 5 replies, 2 Reddit comments, 1 LinkedIn post)
+
+**Keywords researched:** Crayon/Klue pricing ($15K-$45K/yr confirmed), "how to monitor competitor website changes automatically", "competitor monitoring tool small team"
+
+**Content written:**
+- Twitter tweets (2): monday-fifteen-k-per-year (9/10 — direct pricing shock, Crayon/Klue $15K vs $49/mo), monday-morning-origin (9/10 — founder Monday-tab-ritual, honest origin story)
+- Twitter replies (5): reply-enterprise-ci-overpaying (8.5/10 — 10x overpaying angle), reply-pm-tools-depends (8.5/10 — honest "depends" + obvious-bias disclosure), reply-spa-scraping-headache (8.5/10 — technical vulnerability, Playwright + edge cases), reply-building-in-public-unlock (8/10 — free tier dropped mid-cycle story), reply-early-customers-forums (8.5/10 — r/ProductManagement no-pitch approach)
+- Reddit comments (2): comment-simple-ci-approach (8.5/10 → r/ProductManagement — Notion doc + URL watch + job listing signals), comment-crayon-alternative-small-team (8.5/10 → r/SaaS — paying for optics of enterprise CI)
+- LinkedIn post (1): ci-pricing-problem (8.5/10 — Crayon/Klue/Kompyte pricing table, founder story, explicit limitations)
+
+**Publishing status:** ALL platforms blocked — TWITTER_API_KEY/SECRET/ACCESS_TOKEN, LINKEDIN_ACCESS_TOKEN, REDDIT_CLIENT_ID/SECRET all missing. Note: reddit-comment also requires a live post_url at publish time. 10 pieces staged as `queued-no-creds`. **Critical blocker persists.**
+
+**Queue total:** ~252+ pieces staged across Twitter, Reddit, LinkedIn. Ready to publish the moment credentials land.

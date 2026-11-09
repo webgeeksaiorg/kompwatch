@@ -74,4 +74,4 @@ When KompWatch flags a change that looks like a funding or acquisition event:
 See [Building Competitive Battlecards with KompWatch](./competitive-battlecards.md) for how to incorporate these signals into your sales enablement materials.
 
 ---
-*Related: [Reading Competitor Job Listing Signals](./reading-competitor-job-listing-signals.md) · [Social Media Monitoring](./social-media-monitoring.md) · [Switching from Crayon](./switching-from-crayon.md) · [Using Insights for Executives](./using-insights-for-executives.md)*
+*Related: [Reading Competitor Job Listing Signals](./reading-competitor-job-listing-signals.md) · [Social Media Monitoring](./social-media-monitoring.md) · [Switching from Crayon](./switching-from-crayon.md) · [Using Insights for Executives](./using-insights-for-executives.md) · [My Competitor Just Raised a Funding Round — What Should I Do?](./competitor-just-raised-funding-what-now.md)*

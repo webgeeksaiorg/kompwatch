@@ -69,4 +69,13 @@ A good rule of thumb: anything that would change what your sales rep says on a c
 Yes. KompWatch also automatically monitors the features page, blog, and job listings for each competitor. The features page often announces new capabilities before the pricing page reflects them. See [What Does KompWatch Actually Monitor?](what-does-kompwatch-track.md) for details.
 
 ---
+
+## Related FAQs
+
+- [How to Track Competitor Pricing Changes](./how-to-track-competitor-pricing-changes.md) — end-to-end workflow guide
+- [When Do Competitors Typically Change Their Pricing?](./competitor-pricing-change-timing.md)
+- [Instant Pricing Alerts](./instant-pricing-alerts.md)
+- [Which Pages Should I Monitor for Each Competitor?](./which-pages-to-monitor-per-competitor.md)
+
+---
 *Questions? Email [support@kompwatch.com](mailto:support@kompwatch.com) and we'll respond within 24 hours.*

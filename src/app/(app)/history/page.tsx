@@ -169,8 +169,24 @@ export default async function HistoryPage({
         <div className="flex items-center gap-2">
           {changes.length > 0 && (
             <>
-              <ExportChangesButton format="csv" />
-              <ExportChangesButton format="json" />
+              <ExportChangesButton
+                format="csv"
+                filters={{
+                  period,
+                  zones: activeZones,
+                  changeTypes: activeChangeTypes,
+                  competitorIds: activeCompetitorIds,
+                }}
+              />
+              <ExportChangesButton
+                format="json"
+                filters={{
+                  period,
+                  zones: activeZones,
+                  changeTypes: activeChangeTypes,
+                  competitorIds: activeCompetitorIds,
+                }}
+              />
             </>
           )}
           <Suspense>
