@@ -2,7 +2,7 @@
 platform: reddit
 type: comment
 target: r/SaaS
-status: draft
+status: queued-vault-down
 keywords: [track competitor website changes, monitor competitors SaaS]
 ---
 We did it manually for a long time — Monday morning ritual of opening pinned tabs and trying to remember what their pricing/features looked like last week. 

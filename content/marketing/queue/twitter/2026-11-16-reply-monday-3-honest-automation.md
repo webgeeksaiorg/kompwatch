@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: general/product managers discussing competitive research workflows
-status: draft
+status: queued-vault-down
 keywords: [competitive research workflow, automate competitor tracking]
 ---
 honest answer: I still read my competitor's newsletters and check their LinkedIn manually.

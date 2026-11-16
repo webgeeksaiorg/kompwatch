@@ -2,7 +2,7 @@
 platform: reddit
 type: comment
 target: r/startups
-status: draft
+status: queued-vault-down
 keywords: [competitive intelligence small startup, affordable competitor monitoring]
 ---
 Realistically? For an early-stage startup, expensive CI platforms are hard to justify. Klue/Crayon are enterprise tools with enterprise pricing.

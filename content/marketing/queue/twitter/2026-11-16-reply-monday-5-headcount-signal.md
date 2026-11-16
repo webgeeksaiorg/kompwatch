@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: general/discussion about SaaS competitive differentiation
-status: draft
+status: queued-vault-down
 keywords: [competitive differentiation, SaaS strategy]
 ---
 the job listing thing is real. 

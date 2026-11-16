@@ -1,13 +1,13 @@
 ---
 platform: twitter
 type: tweet
-status: draft
+status: queued-vault-down
 keywords: [competitor monitoring, track competitors, competitor website changes]
 ---
-every monday morning I used to open 6 browser tabs.
+used to open 6 competitor tabs every monday.
 
-check pricing. check features. check changelog. rinse repeat for each competitor.
+check pricing. check features. check changelog. 40 mins, every week.
 
-took ~40 mins. sometimes I'd miss a change that happened thursday and not catch it until the following week.
+still missed a thursday change once — prospect caught it before I did.
 
-that's why I built KompWatch. been 8 months. still use it daily. 0 manual tab checking.
+that's the whole reason I built KompWatch. 8 months later, 0 manual tab checking.

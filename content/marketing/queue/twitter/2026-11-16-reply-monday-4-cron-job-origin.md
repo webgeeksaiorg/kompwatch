@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: general/startup founders talking about building in public
-status: draft
+status: queued-vault-down
 keywords: [building in public, indie SaaS, founder story]
 ---
 8 months ago this was literally a cron job + difflib + sendmail

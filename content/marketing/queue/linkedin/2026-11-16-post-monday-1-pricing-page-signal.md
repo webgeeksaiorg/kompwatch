@@ -1,7 +1,7 @@
 ---
 platform: linkedin
 type: post
-status: draft
+status: queued-vault-down
 keywords: [competitor monitoring, SaaS competitive intelligence, pricing strategy]
 ---
 A pricing page tells you more than most analyst reports.

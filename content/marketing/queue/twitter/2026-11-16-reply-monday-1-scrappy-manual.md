@@ -2,7 +2,7 @@
 platform: twitter
 type: reply
 target: general/SaaS founders discussing competitor research
-status: draft
+status: queued-vault-down
 keywords: [competitor tracking, website monitoring]
 ---
 the scrappiest version of this: set a weekly calendar reminder, open tabs, manually diff what you remember from last week.
