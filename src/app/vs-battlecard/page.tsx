@@ -58,6 +58,7 @@ const comparisonRows: {
   { feature: "Blog & content monitoring", kompwatch: true, battlecard: "Manual curation" },
   { feature: "Multi-competitor dashboard", kompwatch: true, battlecard: true },
   { feature: "Sales battlecard templates", kompwatch: false, battlecard: true },
+  { feature: "AI-generated battlecard export", kompwatch: true, battlecard: false },
   { feature: "Built for automated CI", kompwatch: true, battlecard: false },
 ];
 
