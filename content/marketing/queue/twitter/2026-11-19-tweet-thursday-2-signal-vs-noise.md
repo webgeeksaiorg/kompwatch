@@ -5,12 +5,12 @@ status: draft
 keywords: [competitor website monitoring, automated tracking, pricing page, product manager]
 ---
 
-The hardest thing about monitoring competitors isn't building the scraper.
+The hardest part of monitoring competitors isn't the scraper.
 
-It's figuring out what actually matters.
+It's figuring out what matters.
 
 Pricing page changed? Probably matters.
-Blog post published? Maybe.
-Footer copyright year updated? No.
+Blog post? Maybe.
+Footer year? No.
 
-Spent way too long on this before the AI summary layer clicked. Now KompWatch flags CONTENT / PRICING / FEATURE changes and skips the noise. Still not perfect on SPAs though.
+KompWatch flags CONTENT / PRICING / FEATURE changes and skips the noise. Still not perfect on SPAs.

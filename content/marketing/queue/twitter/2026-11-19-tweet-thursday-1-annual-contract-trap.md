@@ -7,8 +7,8 @@ keywords: [competitor intelligence, crayon alternative, annual contract, SaaS pr
 
 Crayon and Klue both require annual contracts. Minimum $15K, often $30-45K.
 
-You can't just "try it for a month." You're locked in before you've seen a single alert.
+You're locked in before you've seen a single alert.
 
-We charge monthly. No contract. If it's not useful, cancel. That's it.
+We charge monthly. No contract. Cancel if it's not useful. That's it.
 
-Weird that "try before you commit" is a differentiator in 2026, but here we are.
+Weird that "try before you commit" is still a differentiator in 2026.
